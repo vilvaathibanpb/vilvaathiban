@@ -16,6 +16,7 @@ export default function Home() {
       <Head>
         <title>Vilva Athiban P B | JavaScript developer & Trainer</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="theme-color" content="#3AAFA8" />
       </Head>
       <Header />
       <HomePage />

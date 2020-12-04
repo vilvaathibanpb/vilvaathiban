@@ -15,6 +15,7 @@ export default function VideosPage() {
           Videos of Vilva Athiban P B | JavaScript developer & Trainer
         </title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="theme-color" content="#3AAFA8" />
       </Head>
       <Header />
       <ItemsContainer>
