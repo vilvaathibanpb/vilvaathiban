@@ -33,6 +33,10 @@ const Container = styled.div`
   .items-center;
 `;
 
+const Break = styled.br`
+  .lg:hidden;
+`;
+
 const About = () => {
   return (
     <AboutContainer>
@@ -41,6 +45,8 @@ const About = () => {
           Hola! I'm <Span>Vilva Athiban</Span>, the JS Jockey 👋.
         </div>
       </Container>
+      <Break />
+      <Break />
       <Container>
         <div>
           I am a <Span>FullStack JavaScript developer</Span>. I am from India,
@@ -53,6 +59,8 @@ const About = () => {
           <Image src="/about/2.jpeg" />
         </ImageContainer>
       </Container>
+      <Break />
+      <Break />
       <Container>
         <ImageContainer>
           <Image src="/about/3.jpeg" />
@@ -64,6 +72,8 @@ const About = () => {
           blooms from the plant will become the first International plant.
         </div>
       </Container>
+      <Break />
+      <Break />
       <Container>
         <div>
           When it comes to daily work, I play a lot with
@@ -79,6 +89,8 @@ const About = () => {
           <Image src="/about/4.jpeg" />
         </ImageContainer>
       </Container>
+      <Break />
+      <Break />
       <Container>
       <ImageContainer>
           <Image src="/about/7.jpeg" />
@@ -92,6 +104,8 @@ const About = () => {
           Open source developers.
         </div>
       </Container>
+      <Break />
+      <Break />
       <Container>
         <div>
           I am a regular tech speaker and I have spoken in
@@ -105,6 +119,8 @@ const About = () => {
           <Image src="/about/5.jpeg" />
         </ImageContainer>
       </Container>
+      <Break />
+      <Break />
       <Container>
         <ImageContainer>
           <Image src="/about/6.jpeg" />
