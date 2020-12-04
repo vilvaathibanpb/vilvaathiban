@@ -52,7 +52,7 @@ const About = () => {
           I am a <Span>FullStack JavaScript developer</Span>. I am from India,
           living in Berlin. I am a electrical engineer by qualification and self
           taught programmer by profession. When not coding or attending meetings
-          at work, you can find me <Span>travelling (8 countries so far)</Span>,
+          at work, you can find me <Span>travelling (countries so far: 🇮🇳🇩🇪🇵🇱🇦🇹🇧🇪🇩🇰🇮🇹🇻🇦🇨🇿)</Span>,
           painting or watching movies.
         </div>
         <ImageContainer>
