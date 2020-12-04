@@ -1,0 +1,1 @@
+{"ast":null,"code":"import styled from \"styled-components\";\nexport const ItemsContainer = styled.div`display: flex; \nflex-wrap: wrap; \npadding: 1rem; \n@media (min-width: 768px) {\n        padding: 2rem;\n        } \njustify-content: center; \npadding-bottom: 4rem; \n;`;","map":null,"metadata":{},"sourceType":"module"}
