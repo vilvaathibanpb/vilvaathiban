@@ -2,12 +2,12 @@ import Head from "next/head";
 import styled from 'styled-components';
 import Header from "../components/Header";
 import HomePage from "../components/Home";
+import Footer from "../components/Footer";
 
 const Container = styled.div`
   .bg-plight;
   .min-h-screen;
   .w-screen;
-  
 `;
 
 export default function Home() {
@@ -19,6 +19,7 @@ export default function Home() {
       </Head>
       <Header />
       <HomePage />
+      <Footer />
     </Container>
   );
 }

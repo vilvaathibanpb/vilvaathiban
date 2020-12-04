@@ -53,6 +53,9 @@ const SideMenu = ({ showMenu, closeMenu, path }) => {
           <Link href="/about">
             <Menu active={path=== '/about'}>About</Menu>
           </Link>
+          <Link href="/workshop">
+            <Menu active={path=== '/workshop'}>Workshops</Menu>
+          </Link>
           <Link href="/talks">
             <Menu active={path=== '/talks'}>Talks</Menu>
           </Link>

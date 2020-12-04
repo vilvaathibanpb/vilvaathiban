@@ -11,7 +11,6 @@ const Container = styled.div`
   .lg: px-12;
   .py-4;
   .items-center;
-
 `;
 const LogoContainer = styled.div`
   .cursor-pointer;
@@ -69,6 +68,9 @@ const Header = () => {
       <MenuContainer>
         <Link href="/about">
           <Menu active={router.pathname === "/about"}>About</Menu>
+        </Link>
+        <Link href="/workshop">
+          <Menu active={router.pathname === "/workshop"}>Workshops</Menu>
         </Link>
         <Link href="/talks">
           <Menu active={router.pathname === "/talks"}>Talks</Menu>
