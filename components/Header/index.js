@@ -16,7 +16,7 @@ const LogoContainer = styled.div`
   .cursor-pointer;
   .flex;
   .items-center;
-  .lg:mr-8;
+  .lg: mr-8;
   font-weight: bold;
   font-size: 18px;
   .text-pwhite;
@@ -85,7 +85,13 @@ const Header = () => {
           <Menu active={router.pathname === "/projects"}>Projects</Menu>
         </Link>
       </MenuContainer>
-      <MobileMenu onClick={() => toggleMenu(true)}>🍔</MobileMenu>
+      <MobileMenu onClick={() => toggleMenu(true)}>
+        <svg viewBox="0 0 100 80" width="40" height="40" fill="#fff">
+          <rect width="100" height="10" rx="8"></rect>
+          <rect y="30" width="100" height="10" rx="8"></rect>
+          <rect y="60" width="100" height="10" rx="8"></rect>
+        </svg>
+      </MobileMenu>
       <SideMenu
         path={router.pathname}
         closeMenu={toggleMenu}

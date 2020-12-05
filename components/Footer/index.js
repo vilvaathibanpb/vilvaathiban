@@ -27,9 +27,14 @@ const Icon = styled.img`
   .my-1;
 `;
 
+const Box = styled.div`
+  .bg-pwhite;
+  .pt-4;
+`;
+
 export default function Footer() {
   return (
-    <>
+    <Box>
       <Intro>Get in Touch</Intro>
       <IconContainer>
           {
@@ -38,6 +43,6 @@ export default function Footer() {
               })
           }
       </IconContainer>
-    </>
+    </Box>
   );
 }

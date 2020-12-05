@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 import { socials } from "../../data/social";
 
 const AboutContainer = styled.div`
@@ -34,7 +35,7 @@ const Container = styled.div`
 `;
 
 const Break = styled.br`
-  .lg:hidden;
+  .lg: hidden;
 `;
 
 const About = () => {
@@ -42,7 +43,15 @@ const About = () => {
     <AboutContainer>
       <Container>
         <div>
-          Hola! I'm <Span>Vilva Athiban</Span>, the JS Jockey 👋.
+          Hola! I'm <Span>Vilva Athiban</Span>, the JS Jockey 👋. Fell in love❤️
+          with JavaScript and never broke up. I am passionate about building
+          tech products and devtools. I also love to <Span>teach technology to others
+          in depth</Span>. Creativity starts only when you can see the whole picture
+          and hence I conduct <Span>Advanced Workshops.</Span> Know more about it{" "}
+          <Span>
+            {" "}
+            <Link href="/workshop">here.</Link>
+          </Span>
         </div>
       </Container>
       <Break />
@@ -52,7 +61,8 @@ const About = () => {
           I am a <Span>FullStack JavaScript developer</Span>. I am from India,
           living in Berlin. I am a electrical engineer by qualification and self
           taught programmer by profession. When not coding or attending meetings
-          at work, you can find me <Span>travelling (countries so far: 🇮🇳🇩🇪🇵🇱🇦🇹🇧🇪🇩🇰🇮🇹🇻🇦🇨🇿)</Span>,
+          at work, you can find me{" "}
+          <Span>travelling (countries so far: 🇮🇳🇩🇪🇵🇱🇦🇹🇧🇪🇩🇰🇮🇹🇻🇦🇨🇿)</Span>,
           painting or watching movies.
         </div>
         <ImageContainer>
@@ -92,7 +102,7 @@ const About = () => {
       <Break />
       <Break />
       <Container>
-      <ImageContainer>
+        <ImageContainer>
           <Image src="/about/7.jpeg" />
         </ImageContainer>
         <div>
@@ -101,7 +111,11 @@ const About = () => {
           Styled-wind with babel plugin version, hql-tag and a Cli, A Storybook
           addon listed on official Storybook docs, A VS code extension for
           graphql-codegen. Currently building OSSPuppy - a Open source tool for
-          Open source developers.
+          Open source developers. Check out my open source projects{" "}
+          <Span>
+            {" "}
+            <Link href="/projects">here.</Link>
+          </Span>
         </div>
       </Container>
       <Break />
@@ -113,7 +127,11 @@ const About = () => {
             {" "}
             25+ International conference and meetups across 6 countries
           </Span>
-          . Interested in my talks? checkout here.
+          . Interested in my talks? checkout{" "}
+          <Span>
+            {" "}
+            <Link href="/talks">here.</Link>
+          </Span>
         </div>
         <ImageContainer>
           <Image src="/about/5.jpeg" />
@@ -129,16 +147,12 @@ const About = () => {
           I am a seasonal blogger and Youtuber. You can checkout my articles
           <Span>
             {" "}
-            <a href={socials.medium} target="_blank" rel="noopener noreferrer">
-              here
-            </a>{" "}
+            <Link href="/blogs">here</Link>{" "}
           </Span>
           and my videos
           <Span>
             {" "}
-            <a href={socials.youtube} target="_blank" rel="noopener noreferrer">
-              here
-            </a>
+            <Link href="/videos">here</Link>
           </Span>
           .
         </div>
