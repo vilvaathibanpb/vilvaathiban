@@ -17,7 +17,7 @@ export const workshop = [
     url: "",
     knowMore: "",
     buy: "",
-    thumbnail: "https://miro.medium.com/max/4260/1*SVyedUtyXmpDcJaXuiZNRg.png"
+    thumbnail: "https://miro.medium.com/max/1540/1*ckWxE4b3zxi1bgZoJFFxOw.jpeg"
   },
   {
     order: 5,
@@ -27,7 +27,7 @@ export const workshop = [
     url: "",
     knowMore: "",
     buy: "",
-    thumbnail: "https://miro.medium.com/max/4260/1*SVyedUtyXmpDcJaXuiZNRg.png"
+    thumbnail: "https://images.unsplash.com/photo-1507235071172-438ca6950a8e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8ZmFzdHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
   },
   {
     order: 3,
