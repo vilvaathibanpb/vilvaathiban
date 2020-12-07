@@ -44,6 +44,20 @@ const Thumbnail = styled.img`
   .w-full;
 `;
 
+const KnowMore = styled.div`
+  .bg-red-800;
+  .text-pwhite;
+  .flex;
+  .justify-center;
+  .items-center;
+  width: auto;
+  .mt-4;
+  .py-2;
+  .px-8;
+  border-radius: 5px;
+  font-weight: 700;
+`;
+
 const EntityComponent = ({ data }) => {
   const { title, host, date, desc, slides, video, code, url, embed, knowMore, buy, thumbnail, repo, docs, npm, demo_url } = data;
   return (
@@ -118,6 +132,11 @@ const EntityComponent = ({ data }) => {
           </List>
         </a>
       )}
+      {
+        knowMore && <a href={knowMore} target="_blank" rel="noopener noreferrer">
+          <KnowMore>Know More</KnowMore>
+        </a>
+      }
     </Item>
   );
 };
