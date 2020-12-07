@@ -22,7 +22,7 @@ const Image = styled.img`
 const Title = styled.div`
   .text-2xl;
   font-weight: bold;
-  overflow:hidden;
+  overflow: hidden;
 `;
 
 const List = styled.div`
@@ -59,14 +59,31 @@ const KnowMore = styled.div`
 `;
 
 const EntityComponent = ({ data }) => {
-  const { title, host, date, desc, slides, video, code, url, embed, knowMore, buy, thumbnail, repo, docs, npm, demo_url } = data;
+  const {
+    title,
+    host,
+    date,
+    desc,
+    slides,
+    video,
+    code,
+    url,
+    embed,
+    knowMore,
+    buy,
+    thumbnail,
+    repo,
+    docs,
+    npm,
+    demo_url
+  } = data;
   return (
     <Item>
       {embed && <Embed src={embed} />}
       {thumbnail && <Thumbnail src={thumbnail} alt={title} />}
       <Title>{title}</Title>
       {desc && <List>{desc}</List>}
-      {host && <List style={{fontWeight: 700}}>{host}</List>}
+      {host && <List style={{ fontWeight: 700 }}>{host}</List>}
       {date && <List>{date}</List>}
       {slides && (
         <a href={slides} target="_blank" rel="noopener noreferrer">
@@ -132,11 +149,11 @@ const EntityComponent = ({ data }) => {
           </List>
         </a>
       )}
-      {
-        knowMore && <a href={knowMore} target="_blank" rel="noopener noreferrer">
+      {knowMore && (
+        <a href={knowMore} target="_blank" rel="noopener noreferrer">
           <KnowMore>Know More</KnowMore>
         </a>
-      }
+      )}
     </Item>
   );
 };
