@@ -30,6 +30,16 @@ export const workshop = [
     thumbnail: "https://images.unsplash.com/photo-1507235071172-438ca6950a8e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8ZmFzdHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
   },
   {
+    order: 7,
+    title: "Technical SEO for Developers",
+    date: "Coming soon",
+    desc: "An advanced workshop to understand SEO and technical duties of a developer",
+    url: "",
+    knowMore: "",
+    buy: "",
+    thumbnail: "https://images.unsplash.com/photo-1562577309-2592ab84b1bc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80"
+  },
+  {
     order: 3,
     title: "GraphQL in Production",
     date: "Coming soon",
