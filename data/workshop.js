@@ -65,7 +65,7 @@ export const workshop = [
     date: "26 Jan, 2021",
     desc: "An advanced practical workshop to understand in-depth of Webpack along with a bit of source code.",
     url: "",
-    knowMore: "https://www.tickettailor.com/events/vilvaathibanpb/462671",
+    knowMore: "https://buytickets.at/vilvaathibanpb/462671/r/website",
     buy: "",
     thumbnail: "https://miro.medium.com/max/4260/1*SVyedUtyXmpDcJaXuiZNRg.png"
   },
