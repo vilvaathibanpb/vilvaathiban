@@ -87,7 +87,7 @@ export const blogs = [
         order: 13,
         title: "Zones in NextJS",
         host: "LogRocket",
-        date: "Coming soon",
-        url: "",
+        date: "Dec 7, 2020",
+        url: "https://blog.logrocket.com/exploring-zones-in-next-js/",
     },
 ]
