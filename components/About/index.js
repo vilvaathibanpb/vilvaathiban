@@ -66,7 +66,7 @@ const About = () => {
           painting or watching movies.
         </div>
         <ImageContainer>
-          <Image src="/about/2.jpeg" />
+          <Image src="/about/21.jpeg" />
         </ImageContainer>
       </Container>
       <Break />
