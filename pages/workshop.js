@@ -39,7 +39,7 @@ export default function BlogsPage() {
       </Head>
       <Header />
       {/* TODO: Remove */}
-      <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=3051465&conversionId=3295676&fmt=gif" />
+      <img height="1" width="1" style={{display:'none'}} alt="" src="https://px.ads.linkedin.com/collect/?pid=3051465&conversionId=3295676&fmt=gif" />
       <ItemsContainer>
         {workshop.reverse().map(workshop => {
           return <EntityComponent data={workshop} key={workshop.order} />;

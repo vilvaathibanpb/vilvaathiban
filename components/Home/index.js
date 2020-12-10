@@ -15,14 +15,16 @@ const PhotoContainer = styled.div`
   height: 35vh;
   width: 35vh;
   .p-4;
-  overflow:hidden;
+  overflow: hidden;
   border-radius: 50%;
   border: 5px solid #fff;
 `;
 
 const Photo = styled.img`
-border-radius: 50%;
-  max-height: 100%;
+  border-radius: 50%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
 `;
 
 const Intro = styled.div`
@@ -42,7 +44,7 @@ const Home = () => {
   return (
     <HomeContainer>
       <PhotoContainer>
-        <Photo src="/photo.jpeg" alt="Vilva Athiban P B, The JS Jockey" />
+        <Photo src="/intro.jpg" alt="Vilva Athiban P B, The JS Jockey" />
       </PhotoContainer>
       <Intro>
         I am <Span>Vilva</Span>, a JavaScript developer, International tech
