@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Header from "../components/Header";
 import HomePage from "../components/Home";
 import Footer from "../components/Footer";
+import Subscribe from "../components/Subscribe";
 
 const Container = styled.div`
   .bg-plight;
@@ -40,6 +41,7 @@ export default function Home() {
       </Head>
       <Header />
       <HomePage />
+      <Subscribe />
       <Footer />
     </Container>
   );

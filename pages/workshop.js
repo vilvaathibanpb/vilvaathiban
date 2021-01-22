@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import { workshop } from "../data/workshop";
 import EntityComponent from "../components/EntityComponent";
 import { ItemsContainer } from "../components/common";
+import Subscribe from "../components/Subscribe";
 
 export default function BlogsPage() {
   return (
@@ -38,8 +39,7 @@ export default function BlogsPage() {
         />
       </Head>
       <Header />
-      {/* TODO: Remove */}
-      <img height="1" width="1" style={{display:'none'}} alt="" src="https://px.ads.linkedin.com/collect/?pid=3051465&conversionId=3295676&fmt=gif" />
+      <Subscribe />
       <ItemsContainer>
         {workshop.reverse().map(workshop => {
           return <EntityComponent data={workshop} key={workshop.order} />;
