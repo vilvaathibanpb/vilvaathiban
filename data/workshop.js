@@ -22,10 +22,10 @@ export const workshop = [
   {
     order: 5,
     title: "Web Performance - Complete course",
-    date: "Coming soon",
+    date: "06 Mar, 2021",
     desc: "An advanced practical workshop to understand and improve Web performance",
     url: "",
-    knowMore: "",
+    knowMore: "https://buytickets.at/vilvaathibanpb/482444/r/website",
     buy: "",
     thumbnail: "https://images.unsplash.com/photo-1507235071172-438ca6950a8e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8ZmFzdHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
   },
@@ -62,10 +62,10 @@ export const workshop = [
   {
     order: 1,
     title: "Webpack in and out",
-    date: "26 Jan, 2021",
+    date: "Coming soon",
     desc: "An advanced practical workshop to understand in-depth of Webpack along with a bit of source code.",
     url: "",
-    knowMore: "https://buytickets.at/vilvaathibanpb/462671/r/website",
+    knowMore: "",
     buy: "",
     thumbnail: "https://miro.medium.com/max/4260/1*SVyedUtyXmpDcJaXuiZNRg.png"
   },
