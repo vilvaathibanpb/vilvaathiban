@@ -21,7 +21,7 @@ export const workshop = [
   },
   {
     order: 5,
-    title: "Web Performance - Advanced course",
+    title: "Web Performance - Complete course",
     date: "Coming soon",
     desc: "An advanced practical workshop to understand and improve Web performance",
     url: "",
