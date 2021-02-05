@@ -20,7 +20,7 @@ export const workshop = [
     thumbnail: "https://miro.medium.com/max/1540/1*ckWxE4b3zxi1bgZoJFFxOw.jpeg"
   },
   {
-    order: 5,
+    order: 1,
     title: "Web Performance - Complete course",
     date: "06 Mar, 2021",
     desc: "An advanced practical workshop to understand and improve Web performance",
@@ -60,7 +60,7 @@ export const workshop = [
     thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ__6HDatdQ-9LLWN1g_oiL5v3QxxpNktey1w&usqp=CAU"
   },
   {
-    order: 1,
+    order: 2,
     title: "Webpack in and out",
     date: "Coming soon",
     desc: "An advanced practical workshop to understand in-depth of Webpack along with a bit of source code.",
