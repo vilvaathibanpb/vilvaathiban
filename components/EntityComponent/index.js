@@ -42,6 +42,8 @@ const Embed = styled.embed`
 
 const Thumbnail = styled.img`
   .w-full;
+    max-height: 150px;
+    object-fit: cover;
 `;
 
 const KnowMore = styled.div`
