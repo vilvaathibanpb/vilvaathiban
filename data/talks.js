@@ -238,7 +238,7 @@ export const talks = [
     date: "21 Nov, 2020",
     desc: "A detailed talk about Module Federation in webpack, Micro frontends and Next JS",
     slides: "https://slides.com/vilvaathiban/graphql-subscriptions",
-    video: "",
+    video: "https://www.youtube.com/watch?v=vS7LWaZM9vY&feature=emb_logo",
     code: ""
   },
   {
