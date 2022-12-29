@@ -1,6 +1,6 @@
 export const workshop = [
   {
-    order: 2,
+    order: 5,
     title: "Babel in and out",
     date: "Coming soon",
     desc: "An advanced practical workshop to understand in-depth of Babel along with a bit of source code.",
@@ -60,13 +60,23 @@ export const workshop = [
     thumbnail: "https://miro.medium.com/max/4260/1*SVyedUtyXmpDcJaXuiZNRg.png"
   },
   {
-    order: 1,
+    order: 8,
     title: "Web Performance - Complete course",
-    date: "06 Mar, 2021",
+    date: "Coming soon",
     desc: "An advanced practical workshop to understand and improve Web performance",
     url: "",
-    knowMore: "https://buytickets.at/vilvaathibanpb/482444/r/website",
+    knowMore: "",
     buy: "",
     thumbnail: "https://images.unsplash.com/photo-1507235071172-438ca6950a8e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8ZmFzdHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    order: 1,
+    title: "Web Tooling - 101",
+    date: "28.01.2023 - 29.01.2023",
+    desc: "An advanced workshop to learn and build web tooling like Babel plugin, Webpack plugin, Storybook addon & ESLint plugin",
+    url: "",
+    knowMore: "/workshops/web-tooling",
+    buy: "/workshops/web-tooling",
+    thumbnail: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
   },
 ];

@@ -13,7 +13,7 @@ font-weight: 700;
 font-size: 24px;
 `;
 
-const Button = styled.div`
+export const SubscribeButton = styled.div`
     .p-4;
     .bg-pdark;
     .text-pwhite;
@@ -26,7 +26,7 @@ const Subscribe = () => {
         <Container>
             Be informed about my contents, courses, paid and free workshops:
         <a href="http://eepurl.com/hoFrmf" target="_blank">
-            <Button>Subscribe</Button>
+            <SubscribeButton>Subscribe</SubscribeButton>
         </a>
         </Container>
     )

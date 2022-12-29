@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { SubscribeButton } from "../Subscribe";
 
 const Item = styled.div`
   .bg-pwhite;
@@ -60,6 +61,11 @@ const KnowMore = styled.div`
   font-weight: 700;
 `;
 
+const SubscribeButtonWithoutMargin = styled(SubscribeButton)`
+  margin: 0;
+  align-self: 'flex-end'
+`;
+
 const EntityComponent = ({ data }) => {
   const {
     title,
@@ -77,7 +83,7 @@ const EntityComponent = ({ data }) => {
     repo,
     docs,
     npm,
-    demo_url
+    demo_url,
   } = data;
   return (
     <Item>
@@ -86,7 +92,19 @@ const EntityComponent = ({ data }) => {
       <Title>{title}</Title>
       {desc && <List>{desc}</List>}
       {host && <List style={{ fontWeight: 700 }}>{host}</List>}
-      {date && <List>{date}</List>}
+      {date && (
+        <List>
+          {date !== "Coming soon" ? (
+            <>{date}</>
+          ) : (
+            <a href="http://eepurl.com/hoFrmf" target="_blank">
+              <SubscribeButtonWithoutMargin>
+                Subscribe
+              </SubscribeButtonWithoutMargin>
+            </a>
+          )}
+        </List>
+      )}
       {slides && (
         <a href={slides} target="_blank" rel="noopener noreferrer">
           <List>
