@@ -21,7 +21,7 @@ const H2 = styled.h2`
 
 const P = styled.p`
     .text-pdark;
-    .mx-20;
+    .lg:mx-20;
 `;
 
 export default function WebToolingWorkshop() {
