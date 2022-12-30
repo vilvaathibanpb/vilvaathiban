@@ -89,7 +89,8 @@ export default function WebToolingWorkshop() {
         </P>
         <ItemsContainer style={{ paddingBottom: 0}}>
           <div>
-            <H2>Day 1 - 28.01.2023, Time: 11.00 to 18.30 IST</H2>
+            <H2>{`Day 1 - 28.01.2023, 
+                Time: 11.00 to 18.30 IST`}</H2>
             <ul>
               <H3>Session 1: Storybook Addon</H3>
               <li>Storybook Introduction</li>
