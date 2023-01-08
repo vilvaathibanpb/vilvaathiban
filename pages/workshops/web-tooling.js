@@ -134,8 +134,8 @@ export default function WebToolingWorkshop() {
         <ItemsContainer style={{ paddingBottom: 0}}>
             <UPIContainer>
                 <H3>UPI id: <span style={{color: "#17252A"}}>vilvaathiban@ybl</span></H3>
-                <H3>Amount: <span style={{color: "#17252A"}}>Rs. 8,500 </H3>
-                <P>(Get in touch  with me if you are a student)</span></P>
+                <H3>Amount: <span style={{color: "#17252A"}}>Rs. 8,500 </span></H3>
+                <P>(Get in touch  with me if you are a student)</P>
                 <P>Please send your email id in the UPI apps/my social apps for reference. Also, you will get email confirmation of the payment and other details of the workshop in the email sent in the UPI apps with 24 hours from the payment time. </P>
             </UPIContainer>
             <Img src="https://drive.google.com/uc?export=view&id=1aLP9L6TfVDktz9-Mr2hktD73sDM2oUFO" />
