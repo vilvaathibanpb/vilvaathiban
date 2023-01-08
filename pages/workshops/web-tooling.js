@@ -109,7 +109,7 @@ export default function WebToolingWorkshop() {
             </ul>
           </div>
           <div>
-            <H2>Day 2 - 29.01.2023, <br /> Time: 11.00 t0 18.30 IST</H2>
+            <H2>Day 2 - 29.01.2023, <br /> Time: 11.00 to 18.30 IST</H2>
             <ul>
               <H3>Session 1: Babel Plugin</H3>
               <li>Babel Introduction</li>
