@@ -1,7 +1,6 @@
 import React from 'react';
 
 const PP = () => (<div>
-{`
 Privacy Policy for Mileglass App \n\n
 \n
 At Mileglass, we are committed to protecting the privacy of our users. This Privacy Policy outlines how we collect, use, disclose, and store your personal information when you use the Mileglass mobile application ("the App"). By using the App, you consent to the practices described in this Privacy Policy.
@@ -47,7 +46,6 @@ We may update this Privacy Policy from time to time. Any changes will be effecti
 If you have any questions or concerns about this Privacy Policy or the App's privacy practices, please contact us at [email address].
 \n\n
 By using the Mileglass App, you acknowledge that you have read and understood this Privacy Policy and agree to the collection, use, and disclosure of your information as described herein.
-`}
 </div>);
 
 export default PP
