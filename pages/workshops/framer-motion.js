@@ -123,7 +123,7 @@ export default function WebToolingWorkshop() {
             </H3>
             <H3>
               Super Early bird :{" "}
-              <span style={{ color: "#17252A" }}>Rs. 2,500 - 1 remaining</span>{" "}
+              <span style={{ color: "#17252A" }}>Rs. 2,500 <span style={{color: 'red' }}>(Sold out)</span></span>{" "}
               <br />
               Early bird :{" "}<span style={{ color: "#17252A" }}>Rs. 3,000</span>
               <br />
