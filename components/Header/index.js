@@ -84,6 +84,9 @@ const Header = () => {
         <Link href="/projects">
           <Menu active={router.pathname === "/projects"}>Projects</Menu>
         </Link>
+        <Link href="/reviews">
+          <Menu active={router.pathname === "/reviews"}>Reviews</Menu>
+        </Link>
       </MenuContainer>
       <MobileMenu onClick={() => toggleMenu(true)}>
         <svg viewBox="0 0 100 80" width="40" height="40" fill="#fff">

@@ -25,10 +25,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/workshops/web-tooling": [
+    "/workshop": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/workshops/web-tooling.js"
+      "static/chunks/pages/workshop.js"
+    ],
+    "/workshops/framer-motion": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/workshops/framer-motion.js"
     ]
   },
   "ampFirstPages": []
