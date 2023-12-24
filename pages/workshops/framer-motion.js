@@ -122,8 +122,8 @@ export default function WebToolingWorkshop() {
               UPI id: <span style={{ color: "#17252A" }}>vilvaathiban@ybl</span>
             </H3>
             <H3>
-              <s>Super Early bird :{" "}
-              <span style={{ color: "#17252A" }}>Rs. 2,500 </s><span style={{color: 'red' }}>(Sold out)</span></span>{" "}
+              <s>Super Early bird :{" "}</s>
+              <span style={{ color: "#17252A" }}><s>Rs. 2,500 </s><span style={{color: 'red' }}>(Sold out)</span></span>{" "}
               <br />
               Early bird :{" "}<span style={{ color: "#17252A" }}>Rs. 3,000</span>
               <br />
