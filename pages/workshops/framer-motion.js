@@ -89,7 +89,7 @@ export default function WebToolingWorkshop() {
         <ItemsContainer style={{ paddingBottom: 0 }}>
           <div>
             <H2>
-              Date - 27.01.2023,
+              Date - 27.01.2024,
               <br /> Time: 11.00 to 16.30 IST
             </H2>
             <ul>
