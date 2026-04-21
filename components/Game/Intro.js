@@ -110,10 +110,11 @@ export default function Intro() {
         <div style={headline}>VILVA ATHIBAN</div>
         <div style={sub}>Lead AI Engineer · Shipping Agentic AI</div>
         <div style={tagline}>
-          Welcome, traveler. Walk the little robot around a cozy village where eight
-          painted signposts tell the story of Vilva's work as a Lead AI Engineer,
-          speaker and educator. Built with Three.js, React Three Fiber, and a bit
-          of sunshine.
+          Welcome, traveler. I'm Vilva — a Lead AI Engineer shipping agentic AI
+          systems, an international speaker with 50+ talks across 7 countries,
+          and an educator who has mentored thousands of developers through
+          workshops, blogs, and videos. Walk the little robot around my cozy
+          village and each signpost opens a chapter of the journey.
         </div>
         <button style={button} onClick={start}>
           ▶ ENTER THE VILLAGE
