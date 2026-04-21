@@ -331,10 +331,8 @@ export default function Player() {
         <group ref={modelRoot} scale={ROBOT_SCALE}>
           <primitive object={scene} />
         </group>
-        {/* Rim light (cool back-light so fox reads against sunny grass) */}
         <directionalLight position={[-6, 4, -4]} intensity={0.8} color="#b4d7ff" />
       </group>
-      {/* Dust particles live in world space so they don't stick to the fox */}
       <group>
         {dustPool.map((_, i) => (
           <mesh

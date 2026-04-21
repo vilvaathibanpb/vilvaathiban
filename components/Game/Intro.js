@@ -99,7 +99,7 @@ export default function Intro() {
         <div style={headline}>VILVA ATHIBAN</div>
         <div style={sub}>The AI Jockey · Portfolio Village</div>
         <div style={tagline}>
-          Welcome, traveler. Walk the little fox around a cozy village where seven
+          Welcome, traveler. Walk the little robot around a cozy village where eight
           painted signposts tell the story of Vilva's work as a Lead AI Engineer,
           speaker and educator. Built with Three.js, React Three Fiber, and a bit
           of sunshine.

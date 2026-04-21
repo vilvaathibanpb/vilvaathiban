@@ -133,7 +133,7 @@ const About = () => {
       <Section>
         <h2>The International Flower</h2>
         <p>
-          One long-running side project: I collect a small amount of soil from every country and region I visit. When I cross the 15-country mark, I'll mix it all together and seed a flower plant in it — so the flower that blooms will have grown from soil gathered around the world. A tiny, slow-motion piece of travel made living.
+          One long-running side project: I collect a small amount of soil from every country and region I visit. When I cross the 25-country mark, I'll mix it all together and seed a flower plant in it — so the flower that blooms will have grown from soil gathered around the world. A tiny, slow-motion piece of travel made living.
         </p>
       </Section>
 
