@@ -44,14 +44,12 @@ const Home = () => {
   return (
     <HomeContainer>
       <PhotoContainer>
-        <Photo src="/intro.jpg" alt="Vilva Athiban P B, The JS Jockey" />
+        <Photo src="/intro.jpg" alt="Vilva Athiban P B, The AI Jockey" />
       </PhotoContainer>
       <Intro>
-        I am <Span>Vilva</Span>, a JavaScript developer, International tech
-        Speaker, Open Source Contributor, Seasonal Blogger and YouTuber.
+        I am <Span>Vilva</Span>, a Lead AI Engineer <Span>@ Omio</Span>, building <Span>Agentic AI in production</Span>. International tech Speaker, Educator, Open Source Contributor, Blogger and YouTuber.
         <br />
-        <br />I love building <Span>Products and Devtools</Span> and have a
-        passion to <Span>teach </Span>Web in depth
+        <br />I architect <Span>LLM orchestration, RAG pipelines, multi-agent systems and MCP-based applications</Span>, and love <Span>helping JS devs break into AI</Span>.
       </Intro>
     </HomeContainer>
   );

@@ -90,4 +90,32 @@ export const blogs = [
         date: "Dec 7, 2020",
         url: "https://blog.logrocket.com/exploring-zones-in-next-js/",
     },
+    {
+        order: 14,
+        title: "How to fix layout shifts to improve SEO in Next.js apps",
+        host: "LogRocket",
+        date: "26 Mar, 2021",
+        url: "https://blog.logrocket.com/fix-layout-shifts-improve-seo-next-js/",
+    },
+    {
+        order: 15,
+        title: "Run animations in React and React Native from one codebase",
+        host: "LogRocket",
+        date: "02 Jul, 2021",
+        url: "https://blog.logrocket.com/run-animations-react-react-native-one-codebase/",
+    },
+    {
+        order: 16,
+        title: "How Claude Code Uses React in the Terminal",
+        host: "dev.to",
+        date: "15 Apr, 2026",
+        url: "https://dev.to/vilvaathibanpb/how-claude-code-uses-react-in-the-terminal-2f3b",
+    },
+    {
+        order: 17,
+        title: "How Claude Code Uses React in the Terminal",
+        host: "Medium",
+        date: "15 Apr, 2026",
+        url: "https://vilvaathiban.medium.com/how-claude-code-uses-react-in-the-terminal-cba08fb436e5",
+    },
 ]

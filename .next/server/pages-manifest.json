@@ -1,7 +1,6 @@
 {
   "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/workshops/framer-motion": "pages/workshops/framer-motion.js",
-  "/workshop": "pages/workshop.js"
+  "/_error": "pages/_error.js",
+  "/talks": "pages/talks.js"
 }

@@ -62,4 +62,22 @@ export const videos = [
         code: "https://github.com/product-ride/styled-wind",
         embed: "https://youtube.com/embed/EaUGkSObZQg",
       },
+      {
+        order: 8,
+        title: "Reusable Animations in React & React Native",
+        date: "20 May, 2021",
+        desc: "A talk on building reusable animations that share a single codebase across React web and React Native mobile apps",
+        video: "https://youtu.be/xI3arP3Hv0k",
+        code: "",
+        embed: "https://youtube.com/embed/xI3arP3Hv0k",
+      },
+      {
+        order: 9,
+        title: "Chennai React Meetup #6 — feat. Sathya Gunasekaran (React Core, Meta), Bavithra & Vilva Athiban",
+        date: "24 Nov, 2024",
+        desc: "Chennai React Meetup #6 featuring talks from Sathya Gunasekaran (React core team at Meta), Bavithra and Vilva Athiban",
+        video: "https://www.youtube.com/watch?v=OhUh9amNSY4",
+        code: "",
+        embed: "https://youtube.com/embed/OhUh9amNSY4",
+      },
 ];

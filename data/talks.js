@@ -251,4 +251,44 @@ export const talks = [
     video: "https://youtu.be/87UtT58Xoo8",
     code: ""
   },
+  {
+    order: 26,
+    title: "Reusable Animations in React & React Native",
+    host: "React Bangalore",
+    date: "20 May, 2021",
+    desc: "A talk and demo on building reusable animations sharing one codebase across React web and React Native",
+    slides: "",
+    video: "https://youtu.be/xI3arP3Hv0k",
+    code: ""
+  },
+  {
+    order: 27,
+    title: "Layout shifts & SEO in Next.js",
+    host: "LogRocket",
+    date: "26 Mar, 2021",
+    desc: "A deep-dive into Cumulative Layout Shift, its SEO impact and practical fixes in Next.js apps",
+    slides: "",
+    video: "",
+    code: "https://blog.logrocket.com/fix-layout-shifts-improve-seo-next-js/"
+  },
+  {
+    order: 28,
+    title: "Chennai React Meetup #6",
+    host: "Chennai React",
+    date: "24 Nov, 2024",
+    desc: "Speaker at Chennai React Meetup #6 alongside Sathya Gunasekaran (React core team at Meta) and Bavithra",
+    slides: "",
+    video: "https://www.youtube.com/watch?v=OhUh9amNSY4",
+    code: ""
+  },
+  {
+    order: 29,
+    title: "Agentic AI in Production — Building with LLMs, RAG & MCP",
+    host: "Omio Internal AI Workshops",
+    date: "2024 - 2026",
+    desc: "Ongoing hands-on AI workshop series for engineers, product managers and non-technical stakeholders — covering LLM orchestration, RAG pipelines, multi-agent systems and MCP (Model Context Protocol)",
+    slides: "",
+    video: "",
+    code: ""
+  },
 ];

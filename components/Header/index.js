@@ -61,7 +61,7 @@ const Header = () => {
     <Container>
       <LogoContainer>
         <Link href="/">
-          <Logo src="/logo.png" alt="Vilva Athiban P B, The JS Jockey" />
+          <Logo src="/logo.png" alt="Vilva Athiban P B, The AI Jockey" />
         </Link>
         <div>Vilva Athiban P B</div>
       </LogoContainer>

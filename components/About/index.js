@@ -43,11 +43,7 @@ const About = () => {
     <AboutContainer>
       <Container>
         <div>
-          Hola! I'm <Span>Vilva Athiban</Span>, the JS Jockey 👋. Fell in love❤️
-          with JavaScript and never broke up. I am passionate about building
-          tech products and devtools. I also love to <Span>teach technology to others
-          in depth</Span>. Creativity starts only when you can see the whole picture
-          and hence I conduct <Span>Advanced Workshops.</Span> Know more about it{" "}
+          Hola! I'm <Span>Vilva Athiban</Span>, the AI Jockey 👋. I'm a <Span>Lead AI Engineer at Omio</Span>, one of Europe's leading travel platforms, where I architect and ship <Span>Agentic AI systems in production</Span>. I am passionate about building AI products that solve real business problems and love to <Span>teach technology to others in depth</Span>. I design and run hands-on <Span>AI Workshops</Span> — helping engineers, PMs and non-technical stakeholders move from AI curiosity to practical application. Know more about it{" "}
           <Span>
             {" "}
             <Link href="/workshop">here.</Link>
@@ -58,11 +54,11 @@ const About = () => {
       <Break />
       <Container>
         <div>
-          I am a <Span>FullStack JavaScript developer</Span>. I am from India,
-          living in Berlin. I am a electrical engineer by qualification and self
+          I am a <Span>Lead AI Engineer</Span> with a full-stack JavaScript background. I am from India,
+          living in Berlin. I am an electrical engineer by qualification and a self
           taught programmer by profession. When not coding or attending meetings
           at work, you can find me{" "}
-          <Span>travelling (countries so far: 🇮🇳🇩🇪🇵🇱🇦🇹🇧🇪🇩🇰🇮🇹🇻🇦🇨🇿)</Span>,
+          <Span>travelling (7 countries delivered talks in so far 🇮🇳🇩🇪🇵🇱🇦🇹🇧🇪🇮🇹🇺🇦)</Span>,
           painting or watching movies.
         </div>
         <ImageContainer>
@@ -88,12 +84,9 @@ const About = () => {
         <div>
           When it comes to daily work, I play a lot with
           <Span>
-            JavaScript, React, Redux, GraphQL, Typescript and React Native
+            LLM orchestration, RAG pipelines, multi-agent systems, MCP (Model Context Protocol), prompt engineering and applied ML
           </Span>
-          . I have also worked with NodeJS (Hapi and Express). I built highly
-          scalable products for 5 years and for past 1 year I am building tools
-          and libraries that makes Developer life easier. Currently trying to
-          master Docker & Kubernetes.
+          . I ship production Agentic AI — including omio.ai (an internal LLM-powered platform adopted across Omio) and MCP integrations that connect AI agents to live business systems. Before AI, I spent a decade building scalable products with <Span>JavaScript, React, GraphQL, TypeScript, Node and React Native</Span>.
         </div>
         <ImageContainer>
           <Image src="/about/4.jpeg" />
@@ -122,12 +115,12 @@ const About = () => {
       <Break />
       <Container>
         <div>
-          I am a regular tech speaker and I have spoken in
+          I am a regular tech speaker and I have delivered
           <Span>
             {" "}
-            25+ International conference and meetups across 6 countries
-          </Span>
-          . Interested in my talks? checkout{" "}
+            50+ talks across 7 countries
+          </Span>{" "}
+          — from JavaScript &amp; GraphQL to Agentic AI, MCP and LLM systems. I've been teaching developers since 2017, and my community has grown to <Span>14,000+ across platforms</Span>. Interested in my talks? checkout{" "}
           <Span>
             {" "}
             <Link href="/talks">here.</Link>
@@ -144,7 +137,19 @@ const About = () => {
           <Image src="/about/6.jpeg" />
         </ImageContainer>
         <div>
-          I am a seasonal blogger and Youtuber. You can checkout my articles
+          I am a seasoned blogger and YouTuber, writing on{" "}
+          <Span>
+            <a href="https://blog.logrocket.com/author/vilvaathibanpb/" target="_blank" rel="noopener noreferrer">LogRocket</a>
+          </Span>
+          ,{" "}
+          <Span>
+            <a href={socials.medium} target="_blank" rel="noopener noreferrer">Medium</a>
+          </Span>{" "}
+          and{" "}
+          <Span>
+            <a href={socials.devto} target="_blank" rel="noopener noreferrer">dev.to</a>
+          </Span>{" "}
+          about JavaScript, React and now AI engineering — including agentic systems, MCP and Claude Code internals. You can checkout my articles
           <Span>
             {" "}
             <Link href="/blogs">here</Link>{" "}
