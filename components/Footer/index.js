@@ -1,48 +1,73 @@
 import styled from "styled-components";
 import { socials } from "../../data/social";
 
-export const Intro = styled.div`
-  width: 100vw;
-  .flex;
-  .justify-center;
-  .text-sdark;
-  .text-2xl;
-  .mt-8;
-  .text-center;
-  font-weight: 700;
-
+const Box = styled.footer`
+  background: #111827;
+  color: #fafaf7;
+  padding: 48px 24px 36px;
+  margin-top: 40px;
 `;
 
-const IconContainer = styled.div`
-  .flex;
-  .w-full;
-  .justify-center;
-  .flex-wrap;
-  .mt-6;
-  .pb-8;
+const Inner = styled.div`
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 `;
 
-const Icon = styled.img`
-  .mx-4;
-  .my-1;
+const Title = styled.div`
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #cbd5e1;
 `;
 
-const Box = styled.div`
-  .bg-pwhite;
-  .pt-4;
+const Links = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+`;
+
+const Link = styled.a`
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fafaf7;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: border-color 160ms ease, background 160ms ease;
+  &:hover { border-color: #ffffff; background: rgba(255, 255, 255, 0.06); }
+`;
+
+const Meta = styled.div`
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 8px;
 `;
 
 export default function Footer() {
   return (
     <Box>
-      <Intro>Get in Touch</Intro>
-      <IconContainer>
-          {
-              Object.keys(socials).map((key, i) => {
-                  return (<a key={i} href={socials[key]} target="_blank" rel="noopener noreferrer"><Icon src={`/social/${key}.svg`} alt={`Vilva's ${key} Account`} /></a>)
-              })
-          }
-      </IconContainer>
+      <Inner>
+        <Title>Get in touch</Title>
+        <Links>
+          {Object.keys(socials).map((key) => (
+            <Link key={key} href={socials[key]} target="_blank" rel="noopener noreferrer">
+              {key === "devto" ? "dev.to" : key}
+            </Link>
+          ))}
+        </Links>
+        <Meta>© {new Date().getFullYear()} Vilva Athiban P B</Meta>
+      </Inner>
     </Box>
   );
 }

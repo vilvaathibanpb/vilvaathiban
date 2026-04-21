@@ -2,167 +2,149 @@ import styled from "styled-components";
 import Link from "next/link";
 import { socials } from "../../data/social";
 
-const AboutContainer = styled.div`
-  .px-4;
-  .lg: px-24;
-  .py-8;
-  .text-2xl;
-  .text-pwhite;
+const Wrap = styled.article`
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 80px 24px 120px;
+  color: #111827;
+  font-size: 18px;
+  line-height: 1.75;
+
+  @media (max-width: 768px) {
+    padding: 48px 20px 80px;
+    font-size: 16.5px;
+  }
 `;
 
-const Span = styled.span`
-  .text-pdark;
-  .text-bold;
+const Eyebrow = styled.div`
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #475569;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+`;
+
+const Title = styled.h1`
+  font-size: clamp(32px, 4.5vw, 48px);
+  letter-spacing: -0.02em;
+  color: #111827;
   font-weight: 700;
+  margin-bottom: 32px;
+  font-family: ui-serif, Georgia, serif;
 `;
 
-const ImageContainer = styled.div`
-  .flex;
-  .justify-center;
+const Section = styled.section`
+  margin-top: 40px;
+
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    margin: 0 0 16px;
+  }
+
+  p a {
+    color: #111827;
+    border-bottom: 1px solid #cbd5e1;
+    transition: border-color 120ms ease;
+  }
+  p a:hover { border-color: #111827; }
 `;
 
-const Image = styled.img`
-  height: 250px;
-  border-radius: 25px;
-  .m-4;
-  .hidden;
-  .lg: block;
+const Portrait = styled.img`
+  width: 100%;
+  max-width: 460px;
+  border-radius: 8px;
+  display: block;
+  margin: 24px 0 36px;
 `;
 
-const Container = styled.div`
-  .flex;
-  .items-center;
+const Socials = styled.div`
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid #ececea;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 `;
 
-const Break = styled.br`
-  .lg: hidden;
+const SocialLink = styled.a`
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #475569;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid #d6d6cf;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: border-color 160ms ease, color 160ms ease;
+  &:hover { border-color: #111827; color: #111827; }
 `;
 
 const About = () => {
   return (
-    <AboutContainer>
-      <Container>
-        <div>
-          Hola! I'm <Span>Vilva Athiban</Span>, the AI Jockey 👋. I'm a <Span>Lead AI Engineer at Omio</Span>, one of Europe's leading travel platforms, where I architect and ship <Span>Agentic AI systems in production</Span>. I am passionate about building AI products that solve real business problems and love to <Span>teach technology to others in depth</Span>. I design and run hands-on <Span>AI Workshops</Span> — helping engineers, PMs and non-technical stakeholders move from AI curiosity to practical application. Know more about it{" "}
-          <Span>
-            {" "}
-            <Link href="/workshop">here.</Link>
-          </Span>
-        </div>
-      </Container>
-      <Break />
-      <Break />
-      <Container>
-        <div>
-          I am a <Span>Lead AI Engineer</Span> with a full-stack JavaScript background. I am from India,
-          living in Berlin. I am an electrical engineer by qualification and a self
-          taught programmer by profession. When not coding or attending meetings
-          at work, you can find me{" "}
-          <Span>travelling (7 countries delivered talks in so far 🇮🇳🇩🇪🇵🇱🇦🇹🇧🇪🇮🇹🇺🇦)</Span>,
-          painting or watching movies.
-        </div>
-        <ImageContainer>
-          <Image src="/about/21.jpeg" />
-        </ImageContainer>
-      </Container>
-      <Break />
-      <Break />
-      <Container>
-        <ImageContainer>
-          <Image src="/about/3.jpeg" />
-        </ImageContainer>
-        <div>
-          I am also planning an <Span>International Flower</Span>. Curious? I
-          collect soil from every country/region I visit and when I cross 15
-          countries mark, I will seed a flower plant in it. And the flower that
-          blooms from the plant will become the first International plant.
-        </div>
-      </Container>
-      <Break />
-      <Break />
-      <Container>
-        <div>
-          When it comes to daily work, I play a lot with
-          <Span>
-            LLM orchestration, RAG pipelines, multi-agent systems, MCP (Model Context Protocol), prompt engineering and applied ML
-          </Span>
-          . I ship production Agentic AI — including omio.ai (an internal LLM-powered platform adopted across Omio) and MCP integrations that connect AI agents to live business systems. Before AI, I spent a decade building scalable products with <Span>JavaScript, React, GraphQL, TypeScript, Node and React Native</Span>.
-        </div>
-        <ImageContainer>
-          <Image src="/about/4.jpeg" />
-        </ImageContainer>
-      </Container>
-      <Break />
-      <Break />
-      <Container>
-        <ImageContainer>
-          <Image src="/about/7.jpeg" />
-        </ImageContainer>
-        <div>
-          When it comes to <Span>Open Source</Span>, I have built few tools and
-          contriubuted to few famous libraries. Few of the tools I built are,
-          Styled-wind with babel plugin version, hql-tag and a Cli, A Storybook
-          addon listed on official Storybook docs, A VS code extension for
-          graphql-codegen. Currently building OSSPuppy - a Open source tool for
-          Open source developers. Check out my open source projects{" "}
-          <Span>
-            {" "}
-            <Link href="/projects">here.</Link>
-          </Span>
-        </div>
-      </Container>
-      <Break />
-      <Break />
-      <Container>
-        <div>
-          I am a regular tech speaker and I have delivered
-          <Span>
-            {" "}
-            50+ talks across 7 countries
-          </Span>{" "}
-          — from JavaScript &amp; GraphQL to Agentic AI, MCP and LLM systems. I've been teaching developers since 2017, and my community has grown to <Span>14,000+ across platforms</Span>. Interested in my talks? checkout{" "}
-          <Span>
-            {" "}
-            <Link href="/talks">here.</Link>
-          </Span>
-        </div>
-        <ImageContainer>
-          <Image src="/about/5.jpeg" />
-        </ImageContainer>
-      </Container>
-      <Break />
-      <Break />
-      <Container>
-        <ImageContainer>
-          <Image src="/about/6.jpeg" />
-        </ImageContainer>
-        <div>
-          I am a seasoned blogger and YouTuber, writing on{" "}
-          <Span>
-            <a href="https://blog.logrocket.com/author/vilvaathibanpb/" target="_blank" rel="noopener noreferrer">LogRocket</a>
-          </Span>
-          ,{" "}
-          <Span>
-            <a href={socials.medium} target="_blank" rel="noopener noreferrer">Medium</a>
-          </Span>{" "}
-          and{" "}
-          <Span>
-            <a href={socials.devto} target="_blank" rel="noopener noreferrer">dev.to</a>
-          </Span>{" "}
-          about JavaScript, React and now AI engineering — including agentic systems, MCP and Claude Code internals. You can checkout my articles
-          <Span>
-            {" "}
-            <Link href="/blogs">here</Link>{" "}
-          </Span>
-          and my videos
-          <Span>
-            {" "}
-            <Link href="/videos">here</Link>
-          </Span>
-          .
-        </div>
-      </Container>
-    </AboutContainer>
+    <Wrap>
+      <Eyebrow>About</Eyebrow>
+      <Title>Vilva Athiban P B</Title>
+      <Portrait src="/intro.jpg" alt="Vilva Athiban P B" />
+
+      <Section>
+        <p>
+          I'm a Lead AI Engineer at Omio, one of Europe's leading travel platforms, where I architect and ship Agentic AI systems that solve real business problems at scale. My work ranges from internal LLM platforms adopted across the organisation to Model Context Protocol integrations that connect AI agents to live company systems.
+        </p>
+        <p>
+          Before AI took the seat, I spent a decade building web and mobile products — JavaScript, React, GraphQL, TypeScript, Node — most recently leading UI and Core Platform work at Omio. That engineering background is what keeps my AI work grounded in real production constraints.
+        </p>
+      </Section>
+
+      <Section>
+        <h2>What I work on</h2>
+        <p>
+          LLM orchestration, Retrieval-Augmented Generation, multi-agent workflows, MCP (Model Context Protocol) architecture, prompt engineering, and applied ML. I collaborate with product, data, and engineering teams at Omio to identify where AI creates the most value — and then build it.
+        </p>
+      </Section>
+
+      <Section>
+        <h2>Teaching &amp; speaking</h2>
+        <p>
+          I've been teaching developers since 2017 across JavaScript, Python, and Agentic AI. My community has grown to 14,000+ across platforms, and I've delivered 50+ talks across 7 countries. I also design and run <Link href="/workshop">hands-on workshops</Link> for engineers, product managers, and non-technical stakeholders who want to move from AI curiosity to practical application.
+        </p>
+        <p>
+          Beyond that, I write for <a href="https://blog.logrocket.com/author/vilvaathibanpb/" target="_blank" rel="noopener noreferrer">LogRocket</a>, <a href={socials.medium} target="_blank" rel="noopener noreferrer">Medium</a>, and <a href={socials.devto} target="_blank" rel="noopener noreferrer">dev.to</a>. Recent pieces have been about Agentic AI, MCP, and how tools like Claude Code use React under the hood.
+        </p>
+      </Section>
+
+      <Section>
+        <h2>Outside of work</h2>
+        <p>
+          I'm originally from India, living in Berlin. I paint when I need a break from screens, travel whenever I can, and spend plenty of time on movies and meals with friends.
+        </p>
+      </Section>
+
+      <Section>
+        <h2>The International Flower</h2>
+        <p>
+          One long-running side project: I collect a small amount of soil from every country and region I visit. When I cross the 15-country mark, I'll mix it all together and seed a flower plant in it — so the flower that blooms will have grown from soil gathered around the world. A tiny, slow-motion piece of travel made living.
+        </p>
+      </Section>
+
+      <Socials>
+        {Object.keys(socials).map((k) => (
+          <SocialLink key={k} href={socials[k]} target="_blank" rel="noopener noreferrer">
+            {k === "devto" ? "dev.to" : k}
+          </SocialLink>
+        ))}
+      </Socials>
+    </Wrap>
   );
 };
 

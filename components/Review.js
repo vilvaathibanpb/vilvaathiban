@@ -1,52 +1,111 @@
-// ReviewComponent.js
 import React from "react";
 import styled from "styled-components";
 import { reviews } from "../data/reviews";
 
-function getRandomItemsFromArray(array, count) {
-    const copyArray = [...array];
-    const resultArray = [];
-    if (count <= copyArray.length) {
-      for (let i = 0; i < count; i++) {
-        const randomIndex = Math.floor(Math.random() * copyArray.length);
-        resultArray.push(copyArray[randomIndex]);
-        copyArray.splice(randomIndex, 1);
-      }
-      return resultArray;
-    } else {
-      console.error("Count exceeds the length of the array.");
-      return null;
-    }
+const Wrap = styled.div`
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 24px 96px;
+
+  @media (max-width: 768px) {
+    padding: 40px 18px 64px;
   }
+`;
 
-const ReviewContainer = styled.div`.bg-gray-100; .p-4; .rounded-md; .shadow-md;`;
-const ReviewAuthor = styled.h3`.text-lg; .font-semibold;`;
-const ReviewContent = styled.p`.text-gray-700; .mt-2;`;
-const ReviewCourse = styled.p`.text-gray-600; .italic;`;
-const ReviewList = styled.div`.grid; .grid-cols-1; .md:grid-cols-2; .lg:grid-cols-3; .gap-8; .lg:p-20; .md:p-10; .p-8;`;
-const More = styled.a`.inline-block; .px-4; .py-2; .text-white; .bg-blue-500; .border; .border-blue-500; .rounded; .hover:bg-blue-700;`;
+const Eyebrow = styled.div`
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #475569;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+`;
 
-const randomReviews = getRandomItemsFromArray(reviews, 11);
-const H1 = styled.h1`
-    .text-red-700;
-    .text-center;
+const Heading = styled.h1`
+  font-size: clamp(28px, 4vw, 40px);
+  color: #111827;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+  font-family: ui-serif, Georgia, serif;
+`;
+
+const Intro = styled.p`
+  color: #475569;
+  font-size: 17px;
+  max-width: 640px;
+  margin-bottom: 36px;
+`;
+
+const Grid = styled.div`
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+`;
+
+const Card = styled.div`
+  background: #ffffff;
+  border: 1px solid #ececea;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 160ms ease;
+  &:hover { border-color: #111827; }
+`;
+
+const Quote = styled.p`
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #1f2937;
+  margin: 0;
+`;
+
+const Footer = styled.div`
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  padding-top: 10px;
+  border-top: 1px solid #ececea;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+`;
+
+const Name = styled.div`
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #111827;
+`;
+
+const Sub = styled.div`
+  font-size: 12px;
+  color: #475569;
 `;
 
 const Review = () => {
+  const list = [...reviews].reverse();
   return (
-    <>
-    <H1>Reviews by previous Students</H1>
-    <ReviewList>
-        {reviews.reverse().map(({name, company, course, review}, index) => (
-             <ReviewContainer key={index}>
-             <ReviewAuthor>{`${name}, ${company ? company : 'Student'}`}</ReviewAuthor>
-             <ReviewCourse>{course}</ReviewCourse>
-             <ReviewContent>{review}</ReviewContent>
-           </ReviewContainer>
+    <Wrap>
+      <Eyebrow>Reviews</Eyebrow>
+      <Heading>What past workshop students say</Heading>
+      <Intro>
+        A small selection of unedited feedback from engineers who have taken the Webpack, Web Performance, and Web Tooling workshops.
+      </Intro>
+      <Grid>
+        {list.map(({ name, company, course, review }, i) => (
+          <Card key={i}>
+            <Quote>“{review}”</Quote>
+            <Footer>
+              <Name>{name}</Name>
+              <Sub>
+                {company || "Independent"} · {course}
+              </Sub>
+            </Footer>
+          </Card>
         ))}
-    </ReviewList>
-    </>
-   
+      </Grid>
+    </Wrap>
   );
 };
 

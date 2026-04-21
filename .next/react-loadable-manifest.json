@@ -10,5 +10,11 @@
     "files": [
       "static/chunks/node_modules_next_dist_pages__error_js.js"
     ]
+  },
+  "index.js -> ../components/Game": {
+    "id": "index.js -> ../components/Game",
+    "files": [
+      "static/chunks/components_Game_index_js.js"
+    ]
   }
 }
