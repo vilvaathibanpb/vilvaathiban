@@ -95,7 +95,7 @@ const About = () => {
     <Wrap>
       <Eyebrow>About</Eyebrow>
       <Title>Vilva Athiban P B</Title>
-      <Portrait src="/intro.jpg" alt="Vilva Athiban P B" />
+      <Portrait src="/vilva.png" alt="Vilva Athiban P B" />
 
       <Section>
         <p>

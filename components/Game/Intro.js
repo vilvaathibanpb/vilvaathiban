@@ -90,12 +90,23 @@ const fbLink = {
   fontWeight: 600,
 };
 
+const portrait = {
+  width: 120,
+  height: 120,
+  borderRadius: "50%",
+  objectFit: "cover",
+  border: "4px solid #fff",
+  boxShadow: "0 8px 20px rgba(74, 42, 16, 0.25)",
+  marginBottom: 18,
+};
+
 export default function Intro() {
   const start = useGameStore((s) => s.start);
   return (
     <div style={overlay}>
       <div style={clouds} />
       <div style={card}>
+        <img src="/vilva.png" alt="Vilva Athiban P B" style={portrait} />
         <div style={headline}>VILVA ATHIBAN</div>
         <div style={sub}>The AI Jockey · Portfolio Village</div>
         <div style={tagline}>

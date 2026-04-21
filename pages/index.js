@@ -14,11 +14,25 @@ const Game = dynamic(() => import("../components/Game"), {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        flexDirection: "column",
+        gap: 24,
         fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif",
         letterSpacing: 2,
         fontWeight: 700,
       }}
     >
+      <img
+        src="/vilva.png"
+        alt="Vilva Athiban P B"
+        style={{
+          width: 130,
+          height: 130,
+          borderRadius: "50%",
+          objectFit: "cover",
+          border: "4px solid #fff",
+          boxShadow: "0 8px 20px rgba(74, 42, 16, 0.25)",
+        }}
+      />
       LOADING THE VILLAGE…
     </div>
   ),
