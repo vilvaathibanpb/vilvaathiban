@@ -108,7 +108,7 @@ export default function Intro() {
       <div style={card}>
         <img src="/vilva.png" alt="Vilva Athiban P B" style={portrait} />
         <div style={headline}>VILVA ATHIBAN</div>
-        <div style={sub}>The AI Jockey · Portfolio Village</div>
+        <div style={sub}>Lead AI Engineer · Shipping Agentic AI</div>
         <div style={tagline}>
           Welcome, traveler. Walk the little robot around a cozy village where eight
           painted signposts tell the story of Vilva's work as a Lead AI Engineer,

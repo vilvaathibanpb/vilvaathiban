@@ -106,7 +106,7 @@ export default function HUD() {
             VILVA ATHIBAN
           </div>
           <div style={{ fontSize: 12, color: "#a78bfa", marginTop: 2 }}>
-            The AI Jockey · Portfolio Village
+            Lead AI Engineer · Portfolio
           </div>
           <a
             href="/about"

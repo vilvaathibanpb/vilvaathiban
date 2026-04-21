@@ -4,7 +4,7 @@ export const LANDMARKS = [
   {
     id: "about",
     title: "About",
-    subtitle: "The AI Jockey",
+    subtitle: "Lead AI Engineer",
     icon: "🧑‍🚀",
     color: "#6a5cff",
     position: new THREE.Vector3(-18, 0, -2),

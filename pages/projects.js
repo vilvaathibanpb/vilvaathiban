@@ -20,7 +20,7 @@ export default function Page() {
         <meta property="og:site" content="vilvaathiban.com" />
         <meta
           property="og:title"
-          content="Vilva Athiban - The AI Jockey | Lead AI Engineer, Educator & Speaker"
+          content="Vilva Athiban · Lead AI Engineer · Shipping Agentic AI in production"
         />
         <meta
           property="og:description"

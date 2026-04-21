@@ -33,7 +33,7 @@ export default function AboutPanel() {
         <img src="/intro.jpg" alt="Vilva Athiban" style={photo} />
         <div style={{ flex: 1, minWidth: 260 }}>
           <p style={p}>
-            Hola! I'm <span style={hl}>Vilva Athiban</span>, the AI Jockey. I'm a{" "}
+            Hi, I'm <span style={hl}>Vilva Athiban</span> — a{" "}
             <span style={hl}>Lead AI Engineer at Omio</span>, one of Europe's leading travel
             platforms, where I architect and ship <span style={hl}>Agentic AI systems in
             production</span>.
