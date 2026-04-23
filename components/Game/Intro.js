@@ -13,8 +13,9 @@ const overlay = {
   color: "#4a2a10",
   fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif",
   textAlign: "center",
-  padding: 24,
+  padding: "clamp(12px, 4vw, 24px)",
   overflow: "hidden",
+  boxSizing: "border-box",
 };
 
 const clouds = {
@@ -32,9 +33,12 @@ const card = {
   background: "rgba(255, 250, 235, 0.92)",
   border: "2px solid rgba(122, 83, 48, 0.35)",
   borderRadius: 20,
-  padding: "36px 40px",
+  padding: "clamp(20px, 5vw, 36px) clamp(18px, 5vw, 40px)",
   boxShadow: "0 24px 60px rgba(74, 42, 16, 0.18)",
+  width: "100%",
   maxWidth: 620,
+  boxSizing: "border-box",
+  overflowWrap: "break-word",
 };
 
 const headline = {

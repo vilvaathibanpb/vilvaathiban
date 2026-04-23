@@ -116,7 +116,7 @@ const About = () => {
       <Section>
         <h2>Teaching &amp; speaking</h2>
         <p>
-          I've been teaching developers since 2017 across JavaScript, Python, and Agentic AI. My community has grown to 14,000+ across platforms, and I've delivered 50+ talks across 7 countries. I also design and run <Link href="/workshop">hands-on workshops</Link> for engineers, product managers, and non-technical stakeholders who want to move from AI curiosity to practical application.
+          I've been teaching developers since 2017 across JavaScript, Python, and Agentic AI. My community has grown to 20,000+ across platforms, and I've delivered 50+ talks across 7 countries. I also design and run <Link href="/workshop">hands-on workshops</Link> for engineers, product managers, and non-technical stakeholders who want to move from AI curiosity to practical application.
         </p>
         <p>
           Beyond that, I write for <a href="https://blog.logrocket.com/author/vilvaathibanpb/" target="_blank" rel="noopener noreferrer">LogRocket</a>, <a href={socials.medium} target="_blank" rel="noopener noreferrer">Medium</a>, and <a href={socials.devto} target="_blank" rel="noopener noreferrer">dev.to</a>. Recent pieces have been about Agentic AI, MCP, and how tools like Claude Code use React under the hood.

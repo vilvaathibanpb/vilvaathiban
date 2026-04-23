@@ -1,3 +1,25 @@
+const normalizeTitle = (t) => (t || "").trim().toLowerCase().replace(/\s+/g, " ");
+
+export function mergeByTitle(items) {
+    const byTitle = new Map();
+    const merged = [];
+    for (const item of items) {
+        const key = normalizeTitle(item.title);
+        const existing = byTitle.get(key);
+        if (existing) {
+            if (!existing.mirrors) {
+                existing.mirrors = [{ host: existing.host, url: existing.url }];
+            }
+            existing.mirrors.push({ host: item.host, url: item.url });
+        } else {
+            const copy = { ...item };
+            byTitle.set(key, copy);
+            merged.push(copy);
+        }
+    }
+    return merged;
+}
+
 export const blogs = [
     {
         order: 1,
@@ -117,5 +139,19 @@ export const blogs = [
         host: "Medium",
         date: "15 Apr, 2026",
         url: "https://vilvaathiban.medium.com/how-claude-code-uses-react-in-the-terminal-cba08fb436e5",
+    },
+    {
+        order: 18,
+        title: "Memory management in Claude Code: Context Pipeline",
+        host: "dev.to",
+        date: "22 Apr, 2026",
+        url: "https://dev.to/vilvaathibanpb/memory-management-in-claude-code-context-pipeline-1j1p",
+    },
+    {
+        order: 19,
+        title: "Memory management in Claude Code: Context Pipeline",
+        host: "Medium",
+        date: "22 Apr, 2026",
+        url: "https://medium.com/p/622fb46c7360",
     },
 ]

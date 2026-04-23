@@ -37,16 +37,7 @@ export default function Landmark({ data }) {
       rotation={[0, back ? Math.PI : 0, 0]}
     >
       <Text
-        position={[0, 0.45, 0]}
-        fontSize={0.5}
-        color="#5a3a1d"
-        anchorX="center"
-        anchorY="middle"
-      >
-        {data.icon}
-      </Text>
-      <Text
-        position={[0, -0.12, 0]}
+        position={[0, 0.2, 0]}
         fontSize={titleSize}
         color={night ? "#fff4d6" : "#3f2410"}
         outlineWidth={0.015}
@@ -59,7 +50,7 @@ export default function Landmark({ data }) {
         {data.title}
       </Text>
       <Text
-        position={[0, -0.68, 0]}
+        position={[0, -0.45, 0]}
         fontSize={0.18}
         color={night ? "#ffe6a3" : "#6a4a24"}
         outlineWidth={night ? 0.008 : 0}

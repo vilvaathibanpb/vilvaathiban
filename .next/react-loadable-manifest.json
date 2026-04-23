@@ -1,23 +1,20 @@
 {
   "../node_modules/next/dist/client/index.js -> ../pages/_app": {
-    "id": 7403,
+    "id": "../node_modules/next/dist/client/index.js -> ../pages/_app",
     "files": [
-      "static/chunks/203.a92547a29ded5f08.js"
+      "static/chunks/node_modules_next_dist_pages__app_js.js"
     ]
   },
   "../node_modules/next/dist/client/index.js -> ../pages/_error": {
-    "id": 9894,
+    "id": "../node_modules/next/dist/client/index.js -> ../pages/_error",
     "files": [
-      "static/chunks/894.8b3e79a97f1244f1.js"
+      "static/chunks/node_modules_next_dist_pages__error_js.js"
     ]
   },
   "index.js -> ../components/Game": {
-    "id": 2970,
+    "id": "index.js -> ../components/Game",
     "files": [
-      "static/chunks/fb7d5399.f71727810519b745.js",
-      "static/chunks/91794568.dcf256e9089acf67.js",
-      "static/chunks/145.c56b3d38c836021c.js",
-      "static/chunks/970.5c5effb14c2c5f70.js"
+      "static/chunks/components_Game_index_js.js"
     ]
   }
 }

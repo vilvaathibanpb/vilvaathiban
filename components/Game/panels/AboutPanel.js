@@ -30,7 +30,7 @@ export default function AboutPanel() {
   return (
     <div>
       <div style={row}>
-        <img src="/intro.jpg" alt="Vilva Athiban" style={photo} />
+        <img src="/vilva.png" alt="Vilva Athiban" style={photo} />
         <div style={{ flex: 1, minWidth: 260 }}>
           <p style={p}>
             Hi, I'm <span style={hl}>Vilva Athiban</span> — a{" "}
@@ -46,7 +46,7 @@ export default function AboutPanel() {
           </p>
           <p style={p}>
             I've been teaching developers since 2017 across JavaScript, Python and Agentic AI.
-            My community has grown to <span style={hl}>14,000+ across platforms</span>, and I
+            My community has grown to <span style={hl}>20,000+ across platforms</span>, and I
             have delivered <span style={hl}>50+ talks across 7 countries</span>.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 16 }}>

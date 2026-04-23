@@ -59,11 +59,11 @@ const kbd = {
   letterSpacing: 0.3,
 };
 
-const hint = (color) => ({
+const hint = (color, isMobile) => ({
   position: "absolute",
-  bottom: 40,
-  left: "50%",
-  transform: "translateX(-50%)",
+  ...(isMobile
+    ? { top: "50%", left: "50%", transform: "translate(-50%, -50%)" }
+    : { bottom: 40, left: "50%", transform: "translateX(-50%)" }),
   ...panel,
   borderColor: color,
   boxShadow: `0 0 20px ${color}`,
@@ -73,7 +73,20 @@ const hint = (color) => ({
   letterSpacing: 0.4,
   pointerEvents: "none",
   color: "#fff",
+  textAlign: "center",
 });
+
+function useIsMobile() {
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 768px)");
+    const update = () => setMobile(mql.matches);
+    update();
+    mql.addEventListener("change", update);
+    return () => mql.removeEventListener("change", update);
+  }, []);
+  return mobile;
+}
 
 export default function HUD() {
   const nearby = useGameStore((s) => s.nearby);
@@ -83,6 +96,8 @@ export default function HUD() {
   const visited = useGameStore((s) => s.visited);
   const nearLm = LANDMARKS.find((l) => l.id === nearby);
   const [toast, setToast] = useState(null);
+  const [controlsOpen, setControlsOpen] = useState(false);
+  const isMobile = useIsMobile();
   const prevVisited = useRef(0);
 
   useEffect(() => {
@@ -100,70 +115,181 @@ export default function HUD() {
 
   return (
     <div style={wrap}>
-      <div style={topBar} data-no-orbit>
-        <div style={{ ...panel, ...panelPadding, maxWidth: 280 }}>
-          <div style={{ fontWeight: 800, fontSize: 16, letterSpacing: 0.6 }}>
-            VILVA ATHIBAN
+      <div
+        style={{
+          ...topBar,
+          justifyContent: isMobile ? "flex-start" : "space-between",
+        }}
+        data-no-orbit
+      >
+        {!isMobile && (
+          <div style={{ ...panel, ...panelPadding, maxWidth: 280 }}>
+            <div style={{ fontWeight: 800, fontSize: 16, letterSpacing: 0.6 }}>
+              VILVA ATHIBAN
+            </div>
+            <div style={{ fontSize: 12, color: "#a78bfa", marginTop: 2 }}>
+              Lead AI Engineer · Portfolio
+            </div>
+            <a
+              href="/about"
+              style={{
+                display: "inline-block",
+                marginTop: 10,
+                fontSize: 12,
+                fontWeight: 600,
+                color: "#d5ccff",
+                background: "rgba(122, 108, 255, 0.14)",
+                border: "1px solid rgba(122, 108, 255, 0.45)",
+                padding: "5px 12px",
+                borderRadius: 999,
+                textDecoration: "none",
+                letterSpacing: 0.3,
+              }}
+            >
+              View the classic site →
+            </a>
           </div>
-          <div style={{ fontSize: 12, color: "#a78bfa", marginTop: 2 }}>
-            Lead AI Engineer · Portfolio
-          </div>
-          <a
-            href="/about"
+        )}
+        {isMobile ? (
+          <button
+            onClick={() => setControlsOpen(true)}
             style={{
-              display: "inline-block",
-              marginTop: 10,
-              fontSize: 12,
-              fontWeight: 600,
-              color: "#d5ccff",
-              background: "rgba(122, 108, 255, 0.14)",
-              border: "1px solid rgba(122, 108, 255, 0.45)",
-              padding: "5px 12px",
+              ...panel,
+              padding: "8px 18px",
+              fontWeight: 700,
+              fontSize: 13,
+              letterSpacing: 0.8,
+              cursor: "pointer",
+              pointerEvents: "auto",
               borderRadius: 999,
-              textDecoration: "none",
-              letterSpacing: 0.3,
+              lineHeight: 1.4,
             }}
           >
-            View the classic site →
-          </a>
-        </div>
-        <div style={{ ...panel, ...panelPadding, maxWidth: 260 }}>
-          <div style={{ ...label, marginBottom: 8 }}>Controls</div>
-          <Row>
-            <span style={kbd}>W</span><span style={kbd}>S</span>
-            <span style={muted}>forward / back</span>
-          </Row>
-          <Row>
-            <span style={kbd}>A</span><span style={kbd}>D</span>
-            <span style={muted}>turn</span>
-          </Row>
-          <Row>
-            <span style={kbd}>E</span>
-            <span style={muted}>enter portal</span>
-          </Row>
-          <Row>
-            <span style={kbd}>Space</span>
-            <span style={muted}>jump</span>
-            <span style={kbd}>Shift</span>
-            <span style={muted}>sprint</span>
-          </Row>
-          <Row>
-            <span style={kbd}>drag</span>
-            <span style={muted}>orbit</span>
-            <span style={kbd}>wheel</span>
-            <span style={muted}>zoom</span>
-          </Row>
-          <Row>
-            <span style={kbd}>X</span>
-            <span style={muted}>dance</span>
-            <span style={kbd}>1-4</span>
-            <span style={muted}>emotes</span>
-          </Row>
-          <div style={{ fontSize: 11, color: "#8a7fcb", marginTop: 6 }}>
-            Mobile: joystick + portal button
+            Controls
+          </button>
+        ) : (
+          <div style={{ ...panel, ...panelPadding, maxWidth: 260 }}>
+            <div style={{ ...label, marginBottom: 8 }}>Controls</div>
+            <Row>
+              <span style={kbd}>W</span><span style={kbd}>S</span>
+              <span style={muted}>forward / back</span>
+            </Row>
+            <Row>
+              <span style={kbd}>A</span><span style={kbd}>D</span>
+              <span style={muted}>turn</span>
+            </Row>
+            <Row>
+              <span style={kbd}>E</span>
+              <span style={muted}>enter portal</span>
+            </Row>
+            <Row>
+              <span style={kbd}>Space</span>
+              <span style={muted}>jump</span>
+              <span style={kbd}>Shift</span>
+              <span style={muted}>sprint</span>
+            </Row>
+            <Row>
+              <span style={kbd}>drag</span>
+              <span style={muted}>orbit</span>
+              <span style={kbd}>wheel</span>
+              <span style={muted}>zoom</span>
+            </Row>
+            <Row>
+              <span style={kbd}>X</span>
+              <span style={muted}>dance</span>
+              <span style={kbd}>1-4</span>
+              <span style={muted}>emotes</span>
+            </Row>
+            <div style={{ fontSize: 11, color: "#8a7fcb", marginTop: 6 }}>
+              Mobile: joystick + portal button
+            </div>
+          </div>
+        )}
+      </div>
+      {isMobile && controlsOpen && (
+        <div
+          onClick={() => setControlsOpen(false)}
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "rgba(5, 1, 15, 0.7)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 20,
+            pointerEvents: "auto",
+            zIndex: 30,
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              ...panel,
+              padding: "18px 20px",
+              width: "100%",
+              maxWidth: 320,
+              position: "relative",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: 12,
+              }}
+            >
+              <div style={label}>Controls</div>
+              <button
+                onClick={() => setControlsOpen(false)}
+                style={{
+                  background: "transparent",
+                  border: "none",
+                  color: "#d5ccff",
+                  fontSize: 20,
+                  cursor: "pointer",
+                  lineHeight: 1,
+                }}
+              >
+                ×
+              </button>
+            </div>
+            <Row>
+              <span style={kbd}>W</span><span style={kbd}>S</span>
+              <span style={muted}>forward / back</span>
+            </Row>
+            <Row>
+              <span style={kbd}>A</span><span style={kbd}>D</span>
+              <span style={muted}>turn</span>
+            </Row>
+            <Row>
+              <span style={kbd}>E</span>
+              <span style={muted}>enter portal</span>
+            </Row>
+            <Row>
+              <span style={kbd}>Space</span>
+              <span style={muted}>jump</span>
+              <span style={kbd}>Shift</span>
+              <span style={muted}>sprint</span>
+            </Row>
+            <Row>
+              <span style={kbd}>drag</span>
+              <span style={muted}>orbit</span>
+              <span style={kbd}>wheel</span>
+              <span style={muted}>zoom</span>
+            </Row>
+            <Row>
+              <span style={kbd}>X</span>
+              <span style={muted}>dance</span>
+              <span style={kbd}>1-4</span>
+              <span style={muted}>emotes</span>
+            </Row>
+            <div style={{ fontSize: 11, color: "#8a7fcb", marginTop: 8 }}>
+              Mobile: joystick + portal button
+            </div>
           </div>
         </div>
-      </div>
+      )}
       <PillButton
         onClick={toggleNight}
         active={night}
@@ -171,8 +297,8 @@ export default function HUD() {
       >
         {night ? "☀  Day" : "🌙  Night"}
       </PillButton>
-      <Progress visited={visited.size} total={LANDMARKS.length} />
-      <AudioToggle />
+      {!isMobile && <Progress visited={visited.size} total={LANDMARKS.length} />}
+      <AudioToggle isMobile={isMobile} />
       {toast && (
         <div
           style={{
@@ -194,11 +320,11 @@ export default function HUD() {
         </div>
       )}
       {nearLm && !openSection && (
-        <div style={hint(nearLm.color)}>
+        <div style={hint(nearLm.color, isMobile)}>
           {nearLm.icon} {nearLm.title.toUpperCase()} — press <span style={kbd}>E</span> or click
         </div>
       )}
-      <Minimap />
+      {!isMobile && <Minimap />}
     </div>
   );
 }
@@ -233,6 +359,7 @@ function PillButton({ onClick, active, children, style }) {
         fontWeight: 700,
         fontSize: 13,
         letterSpacing: 0.8,
+        lineHeight: 1.4,
         cursor: "pointer",
         pointerEvents: "auto",
         borderRadius: 999,
@@ -292,7 +419,7 @@ function Progress({ visited, total }) {
   );
 }
 
-function AudioToggle() {
+function AudioToggle({ isMobile }) {
   const [on, setOn] = useState(true);
   const night = useGameStore((s) => s.night);
   const track = night ? audioTracks.night : audioTracks.day;
@@ -300,6 +427,10 @@ function AudioToggle() {
   const embedSrc = on
     ? `https://www.youtube.com/embed/${track.id}?autoplay=1&loop=1&playlist=${track.id}&controls=0&modestbranding=1&iv_load_policy=3&rel=0`
     : "about:blank";
+
+  const positionStyle = isMobile
+    ? { top: 20, right: 20 }
+    : { bottom: 20, right: 200 };
 
   return (
     <>
@@ -324,12 +455,13 @@ function AudioToggle() {
         title={track.title}
         style={{
           position: "absolute",
-          bottom: 20,
-          right: 200,
+          ...positionStyle,
           ...panel,
-          padding: "10px 14px",
+          padding: isMobile ? "8px 18px" : "10px 14px",
           fontSize: 13,
-          fontWeight: 600,
+          fontWeight: isMobile ? 700 : 600,
+          letterSpacing: isMobile ? 0.8 : 0,
+          lineHeight: 1.4,
           cursor: "pointer",
           pointerEvents: "auto",
           borderRadius: 999,

@@ -130,9 +130,13 @@ const EntityComponent = ({ data }) => {
     docs,
     npm,
     demo_url,
+    mirrors,
   } = data;
 
-  const meta = [host, date && date !== "Coming soon" ? date : null].filter(Boolean);
+  const hostLabel = mirrors && mirrors.length > 1
+    ? mirrors.map((m) => m.host).join(" · ")
+    : host;
+  const meta = [hostLabel, date && date !== "Coming soon" ? date : null].filter(Boolean);
 
   return (
     <Item>
@@ -163,7 +167,13 @@ const EntityComponent = ({ data }) => {
         {npm && <Chip href={npm} target="_blank" rel="noopener noreferrer">npm</Chip>}
         {video && <Chip href={video} target="_blank" rel="noopener noreferrer">Video</Chip>}
         {code && <Chip href={code} target="_blank" rel="noopener noreferrer">Code</Chip>}
-        {url && <Chip href={url} target="_blank" rel="noopener noreferrer">Read</Chip>}
+        {mirrors && mirrors.length > 1
+          ? mirrors.map((m) => (
+              <Chip key={m.url} href={m.url} target="_blank" rel="noopener noreferrer">
+                Read on {m.host}
+              </Chip>
+            ))
+          : url && <Chip href={url} target="_blank" rel="noopener noreferrer">Read</Chip>}
       </Links>
       {knowMore && (
         <KnowMore href={knowMore} target="_blank" rel="noopener noreferrer">

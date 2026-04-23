@@ -82,11 +82,11 @@ export const workshop = [
   {
     order: 1,
     title: "Build complex Animations with ease",
-    date: "27.01.2024",
+    date: "Coming soon",
     desc: "Animations can be tricky—they might slow down your site and make it feel clunky. But don't worry, we've got your back. In our workshop, we'll show you how to avoid the pitfalls and make awesome, performance-friendly animations.",
     url: "",
-    knowMore: "/workshops/framer-motion",
-    buy: "/workshops/framer-motion",
+    knowMore: "",
+    buy: "",
     thumbnail: "https://plus.unsplash.com/premium_photo-1681426604528-ae470ae9314d?q=80&w=2980&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
 ];

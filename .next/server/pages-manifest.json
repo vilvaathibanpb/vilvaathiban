@@ -1,17 +1,6 @@
 {
   "/_app": "pages/_app.js",
-  "/_document": "pages/_document.js",
-  "/about": "pages/about.html",
-  "/blogs": "pages/blogs.html",
-  "/": "pages/index.html",
-  "/privacy": "pages/privacy.html",
-  "/projects": "pages/projects.html",
-  "/reviews": "pages/reviews.html",
-  "/talks": "pages/talks.html",
-  "/videos": "pages/videos.html",
-  "/workshop": "pages/workshop.html",
-  "/workshops/framer-motion": "pages/workshops/framer-motion.html",
-  "/workshops/web-tooling": "pages/workshops/web-tooling.html",
   "/_error": "pages/_error.js",
-  "/404": "pages/404.html"
+  "/_document": "pages/_document.js",
+  "/": "pages/index.js"
 }

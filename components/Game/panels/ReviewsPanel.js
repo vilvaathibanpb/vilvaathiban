@@ -13,27 +13,21 @@ const card = {
   border: "1px solid rgba(106, 92, 255, 0.3)",
   display: "flex",
   flexDirection: "column",
-  gap: 8,
+  gap: 12,
+  minHeight: 200,
 };
 
 const quote = {
   fontSize: 13,
   lineHeight: 1.6,
   color: "#d4ceff",
-  maxHeight: 160,
+  display: "-webkit-box",
+  WebkitLineClamp: 8,
+  WebkitBoxOrient: "vertical",
   overflow: "hidden",
-  position: "relative",
 };
 
-const fade = {
-  position: "absolute",
-  left: 0,
-  right: 0,
-  bottom: 0,
-  height: 40,
-  background: "linear-gradient(transparent, rgba(12,7,36,0.95))",
-};
-
+const footer = { marginTop: "auto" };
 const name = { fontWeight: 700, fontSize: 14 };
 const sub = { fontSize: 12, color: "#a78bfa" };
 
@@ -46,11 +40,8 @@ export default function ReviewsPanel() {
       <div style={grid}>
         {reviews.map((r, i) => (
           <div key={i} style={card}>
-            <div style={quote}>
-              “{r.review}”
-              <div style={fade} />
-            </div>
-            <div>
+            <div style={quote}>“{r.review}”</div>
+            <div style={footer}>
               <div style={name}>{r.name}</div>
               <div style={sub}>
                 {r.company || "—"} · {r.course}
