@@ -116,7 +116,7 @@ const About = () => {
       <Section>
         <h2>Work with me</h2>
         <p>
-          I take on a small number of company engagements. In one month I can <Link href="/services/mcp-architecture">build a production MCP architecture</Link> for your company — an MCP-first backend that connects AI agents to your internal systems and improves efficiency across engineering <em>and</em> every non-technical team. I also help tech organisations <Link href="/services/ai-engineering-efficiency">improve engineering and delivery efficiency with AI</Link>, streamlining the delivery process so teams ship faster without raising rework. See all <Link href="/services">services</Link>.
+          I take on a small number of company engagements. In one month I can <Link href="/services/mcp-architecture">implement an MCP architecture</Link> across your company — a swarm of in-house MCPs, plugins and skills that plug AI into your internal tools, so every team (technical <em>and</em> non-technical) can use AI to the fullest. For example, customer service can see exactly what&apos;s wrong with a booking through an MCP wired to your logging tools, instead of waiting on the tech team. I also help tech organisations <Link href="/services/ai-engineering-efficiency">improve engineering and delivery efficiency with AI</Link>, streamlining the delivery process so teams ship faster without raising rework. See all <Link href="/services">services</Link>.
         </p>
       </Section>
 

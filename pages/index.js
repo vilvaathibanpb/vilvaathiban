@@ -54,12 +54,12 @@ export default function Home() {
         />
         <meta
           property="og:description"
-          content="An interactive 3D portfolio. Vilva Athiban — Lead AI Engineer at Omio who single-handedly built the MCP-first backend of Omio.ai. He builds Agentic AI in production and offers company services: a production MCP architecture in one month, and AI-driven engineering & delivery efficiency. Explore talks, blogs, videos, workshops and projects."
+          content="An interactive 3D portfolio. Vilva Athiban — Lead AI Engineer at Omio who single-handedly built the MCP-first backend of Omio.ai. He builds Agentic AI in production and offers company services: implementing an MCP architecture (in-house MCPs, plugins & skills) in one month so every team uses AI to the fullest, and AI-driven engineering & delivery efficiency. Explore talks, blogs, videos, workshops and projects."
         />
         <meta property="og:type" content="portfolio" />
         <meta
           name="description"
-          content="An interactive 3D portfolio. Vilva Athiban — Lead AI Engineer at Omio who single-handedly built the MCP-first backend of Omio.ai. He builds Agentic AI in production and offers company services: a production MCP architecture in one month, and AI-driven engineering & delivery efficiency. Explore talks, blogs, videos, workshops and projects."
+          content="An interactive 3D portfolio. Vilva Athiban — Lead AI Engineer at Omio who single-handedly built the MCP-first backend of Omio.ai. He builds Agentic AI in production and offers company services: implementing an MCP architecture (in-house MCPs, plugins & skills) in one month so every team uses AI to the fullest, and AI-driven engineering & delivery efficiency. Explore talks, blogs, videos, workshops and projects."
         />
         <meta
           name="keywords"

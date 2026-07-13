@@ -7,6 +7,7 @@ import VideosPanel from "./panels/VideosPanel";
 import WorkshopPanel from "./panels/WorkshopPanel";
 import ReviewsPanel from "./panels/ReviewsPanel";
 import SocialsPanel from "./panels/SocialsPanel";
+import ServicesPanel from "./panels/ServicesPanel";
 import { blogs, mergeByTitle } from "../../data/blogs";
 import { talks } from "../../data/talks";
 import { projects } from "../../data/projects";
@@ -101,6 +102,7 @@ export default function Panel() {
         </div>
         <div style={body}>
           {openSection === "about" && <AboutPanel />}
+          {openSection === "services" && <ServicesPanel />}
           {openSection === "talks" && <ListPanel items={[...talks].reverse()} kind="talk" accent={lm.color} />}
           {openSection === "blogs" && <ListPanel items={mergeByTitle(blogs).slice().reverse()} kind="blog" accent={lm.color} />}
           {openSection === "videos" && <VideosPanel />}

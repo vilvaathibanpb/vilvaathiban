@@ -26,35 +26,35 @@ const CAL = "https://cal.com/vilva-athiban/30min";
 
 const FAQS = [
   {
-    q: "How long does it take to build an MCP architecture for a company?",
-    a: "I ship a working, production-grade Model Context Protocol (MCP) architecture in one month. Week 1 is discovery and design, weeks 2–3 build the MCP servers, tools and auth, and week 4 hardens, deploys and hands over. A basic MCP server can be prototyped in days, but a secure, multi-team, production MCP backend is the four-week engagement.",
+    q: "What do you mean by 'implementing an MCP architecture'?",
+    a: "I don't hand you one server and leave. I roll out a swarm of in-house MCPs, plugins and skills across your company — each one plugging your AI (Claude, agents, copilots, IDEs) into a specific internal tool. Together they become the layer every team uses to make AI actually do things in your systems, not just chat.",
   },
   {
-    q: "What is an MCP (Model Context Protocol) architecture and why does my company need one?",
-    a: "MCP is an open standard that lets AI agents and LLMs securely connect to your internal systems — databases, APIs, CRMs, docs and tools — through one consistent, governed interface instead of dozens of brittle one-off integrations. An MCP-first architecture becomes the backbone that every future AI agent, copilot and automation plugs into.",
+    q: "Can you give a concrete example?",
+    a: "Customer service plus your internal logging and observability tools. Instead of raising a ticket and waiting for the tech team to investigate a broken booking, a support agent asks the AI — which uses an MCP wired to your logs to pull the exact error, the failed step and the likely root cause in seconds. Now multiply that across ops, product, sales and data teams.",
   },
   {
-    q: "What can an MCP server connect my AI agents to?",
-    a: "Internal APIs and microservices, SQL and vector databases, data warehouses, CRMs, ticketing and docs, CI/CD, analytics, and SaaS tools — anything with an API. Each connector ships with authentication, role-based access, audit logging and schema validation so agents act safely on live company data.",
+    q: "Which teams benefit — only engineering, or non-technical teams too?",
+    a: "Both, and the non-technical teams are usually where the biggest wins are. Support, operations, product, sales and data teams get AI that safely reads and acts on the same live systems engineers use — so they self-serve instead of queuing behind the tech team. Efficiency lifts across the whole organisation, not just engineering.",
   },
   {
-    q: "Does an MCP architecture help non-technical teams, or only engineering?",
-    a: "Both. Once the MCP backend exists, product, ops, support, sales and data teams get AI agents that can safely read and act on the same live systems engineers use. Efficiency lifts across the whole organisation — not just the tech team — because everyone works through governed AI tools instead of manual lookups and handoffs.",
+    q: "What internal tools and systems can the MCPs connect to?",
+    a: "Logging and observability, internal APIs and microservices, SQL and vector databases, data warehouses, CRMs, ticketing, docs and knowledge bases, dashboards, CI/CD and SaaS tools — anything with an API. Each MCP, plugin or skill ships with authentication, role-based access and audit logging so people only see and do what they're allowed to.",
   },
   {
-    q: "How much does MCP server development cost?",
-    a: "Industry pricing runs roughly $8k–$15k for a basic server, $15k–$40k for a mid-complexity multi-system build, and $40k+ for enterprise scope. My one-month engagement is fixed-scope and fixed-price after a short discovery call, so you know the number and the deliverables up front.",
+    q: "How long does the rollout take, and what does it cost?",
+    a: "One month. Week 1 is discovery and design, weeks 2–3 build the first swarm of MCPs, plugins and skills for your priority use cases, and week 4 hardens, deploys and hands over. It's fixed-scope and fixed-price after a short discovery call, so you know the number and the deliverables up front.",
   },
   {
-    q: "Is an MCP architecture production-ready and secure?",
-    a: "Yes — that is the whole point of the engagement. I build for authentication and authorization, multi-tenant data isolation, audit logging, schema validation, failure recovery and concurrent agent sessions, plus an eval suite and monitoring. You get a hardened backend, not a demo.",
+    q: "Is it secure and production-ready?",
+    a: "Yes — that's the point. Everything is built for authentication and authorization, role-based access, audit logging, data isolation, schema validation and failure recovery, plus evals and monitoring so you can trust what agents do on live company data.",
   },
   {
-    q: "Should we build MCP in-house or hire an expert?",
-    a: "Prototyping is easy; production is a different project. Most internal teams underestimate auth, governance, data isolation and scaling. Bringing in an MCP expert for the first architecture compresses months of learning into weeks and leaves your team with a clean pattern to extend — I document and hand over everything.",
+    q: "Should we build this in-house or bring you in?",
+    a: "Prototyping one MCP is easy; standing up a governed, multi-team swarm that non-technical people can safely use is a different project. I compress months of learning into weeks, ship the first high-value MCPs, and leave your team a clean, documented pattern to keep extending the swarm themselves.",
   },
   {
-    q: "Who are you and why trust you with our MCP build?",
+    q: "Who are you and why trust you with this?",
     a: "I'm Vilva Athiban P B, a Lead AI Engineer at Omio. I single-handedly built the MCP-first backend of Omio.ai, ship Agentic AI in production, and have taught 20,000+ developers with 50+ talks across 7 countries.",
   },
 ];
@@ -63,10 +63,10 @@ const LD = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "MCP (Model Context Protocol) Architecture — Built in One Month",
-    serviceType: "MCP architecture & AI agent integration consulting",
+    name: "MCP Architecture Implementation — In-house MCPs, Plugins & Skills in One Month",
+    serviceType: "MCP architecture implementation & company-wide AI enablement",
     description:
-      "A production-grade Model Context Protocol (MCP) backend built for your company in one month — connecting AI agents securely to your internal systems and lifting efficiency across engineering and non-technical teams.",
+      "I implement an MCP (Model Context Protocol) architecture inside your company in one month — a swarm of in-house MCPs, plugins and skills that plug AI into your internal tools so every team, technical and non-technical, can use AI to the fullest.",
     provider: {
       "@type": "Person",
       name: "Vilva Athiban P B",
@@ -102,7 +102,7 @@ export default function McpArchitectureService() {
     <Container>
       <Head>
         <title>
-          Build an MCP Architecture for Your Company in 1 Month | Vilva Athiban
+          Implement an MCP Architecture Across Your Company in 1 Month | Vilva Athiban
         </title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={URL} />
@@ -113,19 +113,19 @@ export default function McpArchitectureService() {
         <meta property="og:url" content={URL} />
         <meta
           property="og:title"
-          content="Build a production MCP (Model Context Protocol) architecture in 1 month"
+          content="Implement an MCP architecture across your company in 1 month"
         />
         <meta
           property="og:description"
-          content="I design and ship a production-grade MCP-first backend for your company in one month — connecting AI agents to your internal systems and improving efficiency across every team, not just engineering."
+          content="I roll out a swarm of in-house MCPs, plugins and skills in one month — plugging AI into your internal tools so every team, tech and non-tech, uses AI to the fullest. E.g. support sees what's wrong with a booking without waiting on engineering."
         />
         <meta
           name="description"
-          content="Hire an MCP expert to build a production Model Context Protocol architecture for your company in one month. Secure MCP servers that connect AI agents to internal systems and lift efficiency across engineering and non-technical teams. Built by Vilva Athiban, who single-handedly built the MCP-first backend of Omio.ai."
+          content="Implement an MCP (Model Context Protocol) architecture across your company in one month — a swarm of in-house MCPs, plugins and skills that plug AI into your internal tools so every team, technical and non-technical, uses AI to the fullest. For example, customer service sees exactly what's wrong with a booking via an MCP wired to your logging tools, instead of waiting on the tech team. By Vilva Athiban, who single-handedly built the MCP-first backend of Omio.ai."
         />
         <meta
           name="keywords"
-          content="build MCP architecture, MCP server development, Model Context Protocol, hire MCP developer, MCP consultant, MCP expert, enterprise AI agent integration, MCP server implementation, AI agents internal systems, MCP first backend, agentic ai, LLM tools, fractional AI architect, MCP integration service"
+          content="MCP architecture, implement MCP, in-house MCP, MCP plugins and skills, Model Context Protocol, company-wide AI enablement, AI for non-technical teams, MCP for internal tools, MCP logging observability, hire MCP expert, MCP consultant, agentic ai, MCP first backend, democratize AI in company"
         />
         <JsonLd data={LD} />
       </Head>
@@ -134,12 +134,12 @@ export default function McpArchitectureService() {
       <Wrap>
         <Eyebrow>Services · For companies</Eyebrow>
         <Title>
-          Build a production MCP architecture for your company — in one month
+          Implement an MCP architecture across your company — in one month
         </Title>
         <Lead>
-          In 4 weeks I design and ship a secure, MCP-first backend that lets your
-          AI agents act on your live company systems — lifting efficiency across
-          engineering <em>and</em> every non-technical team.
+          In 4 weeks I roll out a swarm of in-house MCPs, plugins and skills that
+          plug AI into your internal tools — so every team, technical <em>and</em>{" "}
+          non-technical, can use AI to the fullest.
         </Lead>
 
         <CtaRow>
@@ -152,33 +152,47 @@ export default function McpArchitectureService() {
         </CtaRow>
 
         <Section>
-          <h2>What you get</h2>
+          <h2>What I actually build</h2>
           <p>
-            Most companies are drowning in one-off AI integrations that break the
-            moment a system changes. The{" "}
-            <strong>Model Context Protocol (MCP)</strong> fixes that: one open,
-            governed standard that connects LLMs and AI agents to your internal
-            tools, data and APIs. I build that backbone for you — the one every
-            future agent, copilot and automation plugs into.
+            Not one MCP server, and not your product&apos;s backend. I implement an{" "}
+            <strong>MCP (Model Context Protocol) architecture inside your
+            company</strong> — a swarm of in-house MCPs, plugins and skills, each
+            one plugging your AI (Claude, agents, copilots, IDEs) into a specific
+            internal tool. Together they become the governed layer your whole
+            company uses to make AI actually <em>do</em> things in your systems.
           </p>
           <Cards>
             <Card>
-              <h3>MCP servers &amp; tools</h3>
-              <p>Typed, documented tools exposing your APIs, databases and services to any MCP client (Claude, IDEs, agents).</p>
+              <h3>A swarm of in-house MCPs</h3>
+              <p>One MCP per internal tool — logging, databases, APIs, CRMs, dashboards — so AI can read and act on live systems.</p>
             </Card>
             <Card>
-              <h3>Auth &amp; governance</h3>
-              <p>Authentication, role-based access, audit logging and schema validation so agents act safely on live data.</p>
+              <h3>Plugins &amp; skills</h3>
+              <p>Reusable plugins and skills that package your workflows, so people trigger complex actions in plain language.</p>
             </Card>
             <Card>
-              <h3>Production hardening</h3>
-              <p>Multi-tenant isolation, failure recovery, concurrent sessions, an eval suite and monitoring — not a demo.</p>
+              <h3>Governance &amp; access</h3>
+              <p>Authentication, role-based access and audit logging, so each team only sees and does what it&apos;s allowed to.</p>
             </Card>
             <Card>
               <h3>Handover &amp; docs</h3>
-              <p>A clean, extendable pattern plus documentation so your team ships the next 10 MCP tools without me.</p>
+              <p>A clean, documented pattern so your team keeps extending the swarm with new MCPs and skills without me.</p>
             </Card>
           </Cards>
+        </Section>
+
+        <Section>
+          <h2>A concrete example</h2>
+          <p>
+            Take <strong>customer service and your internal logging tools</strong>.
+            Today, when a booking breaks, a support agent raises a ticket and waits
+            for the tech team to dig through logs. With an MCP wired to your logging
+            and observability stack, the support agent just asks the AI — and gets
+            the exact error, the step that failed and the likely root cause in
+            seconds. No ticket, no waiting on engineering. Now imagine the same for
+            ops checking a payment, product pulling live usage, or sales checking an
+            account — every team, self-serving through AI.
+          </p>
         </Section>
 
         <Section>
@@ -186,19 +200,19 @@ export default function McpArchitectureService() {
           <Steps>
             <li>
               <strong>Week 1 — Discovery &amp; architecture</strong>
-              <span>Map the systems, use cases and permissions. Define the MCP server design, tool surface and security model.</span>
+              <span>Map your internal tools, the highest-value use cases per team, and the permission model. Design the MCP swarm.</span>
             </li>
             <li>
-              <strong>Week 2 — Core MCP servers &amp; connectors</strong>
-              <span>Build the MCP server(s) and the first connectors to your priority systems, with auth wired in from day one.</span>
+              <strong>Week 2 — First MCPs, plugins &amp; skills</strong>
+              <span>Build the first in-house MCPs for your priority tools (e.g. logging for support), with auth wired in from day one.</span>
             </li>
             <li>
-              <strong>Week 3 — Tools, governance &amp; evals</strong>
-              <span>Expand the tool set, add role-based access and audit logging, and build an eval suite to prove agents behave.</span>
+              <strong>Week 3 — Expand the swarm &amp; govern</strong>
+              <span>Add more MCPs, plugins and skills across teams, layer in role-based access and audit logging, and prove it with evals.</span>
             </li>
             <li>
-              <strong>Week 4 — Harden, deploy &amp; hand over</strong>
-              <span>Load-test, deploy to your cloud, add monitoring, train your team and hand over full documentation.</span>
+              <strong>Week 4 — Harden, roll out &amp; hand over</strong>
+              <span>Deploy to your environment, add monitoring, onboard the teams, and hand over docs so they extend the swarm themselves.</span>
             </li>
           </Steps>
         </Section>
@@ -206,13 +220,13 @@ export default function McpArchitectureService() {
         <Section>
           <h2>Why this lifts the whole company, not just the tech team</h2>
           <p>
-            Once the MCP backend exists, the value compounds. Engineers get agents
-            that read and act on real systems. But so do product, operations,
-            support, sales and data teams — they get safe, governed AI tools over
-            the same live company data instead of manual lookups, tickets and
-            handoffs. That is where organisation-wide efficiency actually comes
-            from: everyone working through AI that can <em>do</em> things, not just
-            chat about them.
+            The moment the swarm exists, the value compounds. Engineers get AI that
+            reads and acts on real systems — but so do support, operations, product,
+            sales and data teams. Instead of queuing behind the tech team with
+            tickets and manual lookups, they self-serve through governed AI that can
+            actually <em>do</em> things on live company data. That is where
+            organisation-wide efficiency really comes from — democratizing AI access
+            and removing the cross-team bottleneck.
           </p>
         </Section>
 
@@ -224,7 +238,7 @@ export default function McpArchitectureService() {
             Omio. I <strong>single-handedly built the MCP-first backend of
             Omio.ai</strong>, ship Agentic AI in production, and have spent years
             teaching this to engineers — 20,000+ developers, 50+ talks across 7
-            countries. You get someone who has already built exactly this at
+            countries. You get someone who has already built an MCP-first system at
             scale, and who leaves your team able to run with it.
           </p>
         </Section>

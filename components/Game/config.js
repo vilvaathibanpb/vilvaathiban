@@ -10,6 +10,14 @@ export const LANDMARKS = [
     position: new THREE.Vector3(-18, 0, -2),
   },
   {
+    id: "services",
+    title: "Services",
+    subtitle: "Work with me",
+    icon: "💼",
+    color: "#ffcf33",
+    position: new THREE.Vector3(0, 0, -8),
+  },
+  {
     id: "talks",
     title: "Talks",
     subtitle: "50+ talks · 7 countries",

@@ -104,7 +104,7 @@ const Dropdown = styled.div`
   &:hover > div {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
   }
 `;
 
@@ -112,9 +112,10 @@ const Menu = styled.div`
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translate(-50%, 6px);
-  margin-top: 10px;
-  min-width: 280px;
+  transform: translateX(-50%) translateY(6px);
+  margin-top: 12px;
+  width: max-content;
+  max-width: 320px;
   background: #ffffff;
   border: 1px solid #ececea;
   border-radius: 12px;
@@ -128,10 +129,10 @@ const Menu = styled.div`
   &::before {
     content: "";
     position: absolute;
-    top: -10px;
+    top: -12px;
     left: 0;
     right: 0;
-    height: 10px;
+    height: 12px;
   }
 `;
 
@@ -151,7 +152,7 @@ const SERVICES = [
   {
     href: "/services/mcp-architecture",
     label: "MCP architecture in 1 month",
-    desc: "A production MCP-first backend for your company.",
+    desc: "In-house MCPs, plugins & skills so every team uses AI.",
   },
   {
     href: "/services/ai-engineering-efficiency",

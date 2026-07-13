@@ -14,9 +14,9 @@ const SERVICES = [
   {
     href: "/services/mcp-architecture",
     tag: "For companies · 1 month",
-    title: "Build an MCP architecture in one month",
+    title: "Implement an MCP architecture in one month",
     blurb:
-      "A production-grade, MCP-first backend that connects your AI agents to your internal systems — lifting efficiency across engineering and every non-technical team.",
+      "A swarm of in-house MCPs, plugins and skills that plug AI into your internal tools — so every team, tech and non-tech, uses AI to the fullest (e.g. support sees a broken booking without waiting on engineering).",
   },
   {
     href: "/services/ai-engineering-efficiency",
