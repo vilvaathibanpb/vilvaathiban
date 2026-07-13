@@ -51,8 +51,24 @@ const Pill = styled.a`
   cursor: pointer;
 `;
 
+const SubItem = styled.a`
+  font-size: 15px;
+  color: ${(p) => (p.active ? "#111827" : "#475569")};
+  font-weight: ${(p) => (p.active ? 700 : 500)};
+  padding: 6px 24px;
+  cursor: pointer;
+`;
+
 const NAV_ITEMS = [
   { href: "/about", label: "About" },
+  {
+    href: "/services",
+    label: "Services",
+    children: [
+      { href: "/services/mcp-architecture", label: "MCP architecture in 1 month" },
+      { href: "/services/ai-engineering-efficiency", label: "AI engineering efficiency" },
+    ],
+  },
   { href: "/workshop", label: "Workshops" },
   { href: "/talks", label: "Talks" },
   { href: "/blogs", label: "Writing" },
@@ -67,11 +83,21 @@ const SideMenu = ({ showMenu, closeMenu, path }) => {
     <Overlay>
       <Close onClick={() => closeMenu(false)}>✕</Close>
       {NAV_ITEMS.map((item) => (
-        <Link key={item.href} href={item.href} passHref legacyBehavior>
-          <Item active={path === item.href} onClick={() => closeMenu(false)}>
-            {item.label}
-          </Item>
-        </Link>
+        <div key={item.href} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <Link href={item.href} passHref legacyBehavior>
+            <Item active={path === item.href} onClick={() => closeMenu(false)}>
+              {item.label}
+            </Item>
+          </Link>
+          {item.children &&
+            item.children.map((child) => (
+              <Link key={child.href} href={child.href} passHref legacyBehavior>
+                <SubItem active={path === child.href} onClick={() => closeMenu(false)}>
+                  {child.label}
+                </SubItem>
+              </Link>
+            ))}
+        </div>
       ))}
       <Link href="/" passHref legacyBehavior>
         <Pill onClick={() => closeMenu(false)}>Experience 3D</Pill>

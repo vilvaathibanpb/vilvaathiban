@@ -96,8 +96,73 @@ const Burger = styled.div`
   color: #111827;
 `;
 
+const Dropdown = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &:hover > div {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+`;
+
+const Menu = styled.div`
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 6px);
+  margin-top: 10px;
+  min-width: 280px;
+  background: #ffffff;
+  border: 1px solid #ececea;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(17, 24, 39, 0.12);
+  padding: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 140ms ease, transform 140ms ease, visibility 140ms ease;
+  z-index: 20;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 10px;
+  }
+`;
+
+const MenuLink = styled.a`
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 120ms ease;
+  &:hover { background: #f5f5f1; }
+
+  .t { font-size: 14px; font-weight: 600; color: #111827; }
+  .d { font-size: 12.5px; color: #475569; margin-top: 2px; line-height: 1.4; }
+`;
+
+const SERVICES = [
+  {
+    href: "/services/mcp-architecture",
+    label: "MCP architecture in 1 month",
+    desc: "A production MCP-first backend for your company.",
+  },
+  {
+    href: "/services/ai-engineering-efficiency",
+    label: "AI engineering efficiency",
+    desc: "Streamline delivery and ship faster with AI.",
+  },
+];
+
 const NAV_ITEMS = [
   { href: "/about", label: "About" },
+  { href: "/services", label: "Services", children: SERVICES },
   { href: "/workshop", label: "Workshops" },
   { href: "/talks", label: "Talks" },
   { href: "/blogs", label: "Writing" },
@@ -121,11 +186,31 @@ const Header = () => {
         </Brand>
       </Link>
       <Nav>
-        {NAV_ITEMS.map((item) => (
-          <Link key={item.href} href={item.href} passHref legacyBehavior>
-            <NavLink active={router.pathname === item.href}>{item.label}</NavLink>
-          </Link>
-        ))}
+        {NAV_ITEMS.map((item) =>
+          item.children ? (
+            <Dropdown key={item.href}>
+              <Link href={item.href} passHref legacyBehavior>
+                <NavLink active={router.pathname.startsWith(item.href)}>
+                  {item.label}
+                </NavLink>
+              </Link>
+              <Menu>
+                {item.children.map((child) => (
+                  <Link key={child.href} href={child.href} passHref legacyBehavior>
+                    <MenuLink>
+                      <div className="t">{child.label}</div>
+                      <div className="d">{child.desc}</div>
+                    </MenuLink>
+                  </Link>
+                ))}
+              </Menu>
+            </Dropdown>
+          ) : (
+            <Link key={item.href} href={item.href} passHref legacyBehavior>
+              <NavLink active={router.pathname === item.href}>{item.label}</NavLink>
+            </Link>
+          )
+        )}
         <Experience href="/">Experience 3D</Experience>
       </Nav>
       <Burger onClick={() => toggleMenu(true)}>

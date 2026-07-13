@@ -99,7 +99,7 @@ const About = () => {
 
       <Section>
         <p>
-          I'm a Lead AI Engineer at Omio, one of Europe's leading travel platforms, where I architect and ship Agentic AI systems that solve real business problems at scale. My work ranges from internal LLM platforms adopted across the organisation to Model Context Protocol integrations that connect AI agents to live company systems.
+          I'm a Lead AI Engineer at Omio, one of Europe's leading travel platforms, where I architect and ship Agentic AI systems that solve real business problems at scale. I <strong>single-handedly built the MCP-first backend of Omio.ai</strong>. My work ranges from internal LLM platforms adopted across the organisation to Model Context Protocol (MCP) integrations that connect AI agents to live company systems.
         </p>
         <p>
           Before AI took the seat, I spent a decade building web and mobile products — JavaScript, React, GraphQL, TypeScript, Node — most recently leading UI and Core Platform work at Omio. That engineering background is what keeps my AI work grounded in real production constraints.
@@ -110,6 +110,13 @@ const About = () => {
         <h2>What I work on</h2>
         <p>
           LLM orchestration, Retrieval-Augmented Generation, multi-agent workflows, MCP (Model Context Protocol) architecture, prompt engineering, and applied ML. I collaborate with product, data, and engineering teams at Omio to identify where AI creates the most value — and then build it.
+        </p>
+      </Section>
+
+      <Section>
+        <h2>Work with me</h2>
+        <p>
+          I take on a small number of company engagements. In one month I can <Link href="/services/mcp-architecture">build a production MCP architecture</Link> for your company — an MCP-first backend that connects AI agents to your internal systems and improves efficiency across engineering <em>and</em> every non-technical team. I also help tech organisations <Link href="/services/ai-engineering-efficiency">improve engineering and delivery efficiency with AI</Link>, streamlining the delivery process so teams ship faster without raising rework. See all <Link href="/services">services</Link>.
         </p>
       </Section>
 
