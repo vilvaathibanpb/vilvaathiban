@@ -235,11 +235,12 @@ export default function McpArchitectureService() {
           <p>
             I&apos;m{" "}
             <Link href="/about">Vilva Athiban P B</Link>, a Lead AI Engineer at
-            Omio. I <strong>single-handedly built the MCP-first backend of
-            Omio.ai</strong>, ship Agentic AI in production, and have spent years
-            teaching this to engineers — 20,000+ developers, 50+ talks across 7
-            countries. You get someone who has already built an MCP-first system at
-            scale, and who leaves your team able to run with it.
+            Omio, where I <strong>built the shared MCP services</strong> the whole
+            company uses and <strong>drove AI adoption across the
+            organisation</strong> — and single-handedly built the MCP-first backend
+            of Omio.ai. So you get someone who has already stood up an MCP swarm in
+            production <em>and</em> got real teams to adopt it — and who leaves your
+            team able to run with it.
           </p>
         </Section>
 

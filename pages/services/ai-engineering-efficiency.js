@@ -213,13 +213,12 @@ export default function AiEngineeringEfficiencyService() {
           <p>
             I&apos;m{" "}
             <Link href="/about">Vilva Athiban P B</Link>, a Lead AI Engineer at
-            Omio. I ship Agentic AI in production and{" "}
-            <strong>single-handedly built the MCP-first backend of Omio.ai</strong>
-            . Before AI, I spent a decade building and leading web and platform
-            engineering — so I improve delivery from the inside, with the
-            production and team realities in mind, not a slide deck. I&apos;ve also
-            taught this to 20,000+ developers across 50+ talks in 7 countries. Need
-            the AI backbone too? See my{" "}
+            Omio, where I <strong>drove AI adoption across the organisation</strong>{" "}
+            and built its shared MCP services. This work is coaching, not a slide
+            deck — I improve delivery from the inside, changing how teams actually
+            work, with production and team realities in mind. A decade building and
+            leading web and platform engineering before AI is what keeps it grounded.
+            Need the AI infrastructure too? See my{" "}
             <Link href="/services/mcp-architecture">MCP architecture service</Link>.
           </p>
         </Section>

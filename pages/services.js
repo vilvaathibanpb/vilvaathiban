@@ -147,11 +147,15 @@ export default function ServicesPage() {
           <h2>Why work with me</h2>
           <p>
             I&apos;m <Link href="/about">Vilva Athiban P B</Link>, a Lead AI
-            Engineer at Omio. I <strong>single-handedly built the MCP-first
-            backend of Omio.ai</strong>, ship Agentic AI in production, and have
-            taught 20,000+ developers across 50+ talks in 7 countries. You get
-            someone who has already built and shipped exactly this — and who leaves
-            your team able to run with it.
+            Engineer at Omio, where I <strong>drove AI adoption across the
+            organisation</strong> and <strong>built its shared MCP services</strong>
+            — and single-handedly built the MCP-first backend of Omio.ai. I&apos;ve
+            done both sides of this in production: <strong>as a builder</strong>,
+            standing up the MCP swarm that plugs AI into internal tools; and{" "}
+            <strong>as a coach</strong>, driving adoption and streamlining the
+            delivery process so teams actually change how they work. You get someone
+            who has already built the infra <em>and</em> coached the teams — not one
+            or the other.
           </p>
         </Section>
 
