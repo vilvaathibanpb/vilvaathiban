@@ -99,24 +99,33 @@ const About = () => {
 
       <Section>
         <p>
-          I'm a Lead AI Engineer at Omio, one of Europe's leading travel platforms, where I architect and ship Agentic AI systems that solve real business problems at scale. I <strong>single-handedly built the MCP-first backend of Omio.ai</strong>. My work ranges from internal LLM platforms adopted across the organisation to Model Context Protocol (MCP) integrations that connect AI agents to live company systems.
+          I'm a Lead AI Engineer at Omio, one of Europe's leading travel platforms, where I <strong>drove AI adoption across the organisation</strong> and <strong>built the shared MCP services</strong> that teams — technical and non-technical — now use every day. I <strong>single-handedly built the MCP-first backend of Omio.ai</strong>. So my work has two sides: I build the AI infrastructure, and I coach the people and teams who adopt it.
         </p>
         <p>
-          Before AI took the seat, I spent a decade building web and mobile products — JavaScript, React, GraphQL, TypeScript, Node — most recently leading UI and Core Platform work at Omio. That engineering background is what keeps my AI work grounded in real production constraints.
+          As an <strong>AI adoption manager and coach</strong>, I don't just ship tools and walk away — I help teams change how they actually work: which problems to point AI at, how to fold it into their delivery process, and how to build the habits that make it stick. On the infrastructure side, I architect the shared MCPs, plugins and skills that give everyone something safe and powerful to adopt in the first place.
+        </p>
+        <p>
+          Before AI took the seat, I spent a decade building web and mobile products — JavaScript, React, GraphQL, TypeScript, Node — most recently leading UI and Core Platform work at Omio. That engineering background is what keeps both the infrastructure I build and the coaching I do grounded in real production constraints.
         </p>
       </Section>
 
       <Section>
         <h2>What I work on</h2>
         <p>
-          LLM orchestration, Retrieval-Augmented Generation, multi-agent workflows, MCP (Model Context Protocol) architecture, prompt engineering, and applied ML. I collaborate with product, data, and engineering teams at Omio to identify where AI creates the most value — and then build it.
+          On the build side: LLM orchestration, Retrieval-Augmented Generation, multi-agent workflows, MCP (Model Context Protocol) architecture, shared MCP services, prompt engineering, and applied ML. On the adoption side: coaching product, data and engineering teams at Omio on where AI creates the most value, folding it into their delivery process, and building the habits that make it stick. I collaborate across the org to find that value — then either build the infrastructure for it or coach the team through it.
         </p>
       </Section>
 
       <Section>
         <h2>Work with me</h2>
         <p>
-          I take on a small number of company engagements. In one month I can <Link href="/services/mcp-architecture">implement an MCP architecture</Link> across your company — a swarm of in-house MCPs, plugins and skills that plug AI into your internal tools, so every team (technical <em>and</em> non-technical) can use AI to the fullest. For example, customer service can see exactly what&apos;s wrong with a booking through an MCP wired to your logging tools, instead of waiting on the tech team. I also help tech organisations <Link href="/services/ai-engineering-efficiency">improve engineering and delivery efficiency with AI</Link>, streamlining the delivery process so teams ship faster without raising rework. See all <Link href="/services">services</Link>.
+          I take on a small number of company engagements, in the same two roles I play at Omio — <strong>builder</strong> and <strong>coach</strong>.
+        </p>
+        <p>
+          As a <strong>builder</strong>, in one month I can <Link href="/services/mcp-architecture">implement an MCP architecture</Link> across your company — a swarm of in-house MCPs, plugins and skills that plug AI into your internal tools, so every team can use AI to the fullest. For example, customer service can see exactly what&apos;s wrong with a booking through an MCP wired to your logging tools, instead of waiting on the tech team.
+        </p>
+        <p>
+          As a <strong>coach</strong>, I help tech organisations <Link href="/services/ai-engineering-efficiency">improve engineering and delivery efficiency with AI</Link> — driving adoption, streamlining the delivery process and changing how teams work so they ship faster without raising rework. See all <Link href="/services">services</Link>.
         </p>
       </Section>
 

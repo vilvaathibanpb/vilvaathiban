@@ -35,14 +35,15 @@ export default function AboutPanel() {
           <p style={p}>
             Hi, I'm <span style={hl}>Vilva Athiban</span> — a{" "}
             <span style={hl}>Lead AI Engineer at Omio</span>, one of Europe's leading travel
-            platforms, where I architect and ship <span style={hl}>Agentic AI systems in
-            production</span>.
+            platforms, where I <span style={hl}>drove AI adoption across the organisation</span>{" "}
+            and <span style={hl}>built its shared MCP services</span>. I single-handedly built
+            the <span style={hl}>MCP-first backend of Omio.ai</span>.
           </p>
           <p style={p}>
-            My work spans LLM orchestration, RAG pipelines, multi-agent systems, MCP (Model
-            Context Protocol), prompt engineering and applied ML. I ship omio.ai — an internal
-            LLM platform adopted across Omio — and MCP integrations that connect AI agents to
-            live business systems.
+            I work as both <span style={hl}>builder and coach</span>: I architect the shared
+            MCPs, plugins and skills that give every team something safe to adopt — and I coach
+            those teams on how to fold AI into their delivery process so it actually sticks. My
+            work spans LLM orchestration, RAG, multi-agent systems, MCP and applied ML.
           </p>
           <p style={p}>
             I've been teaching developers since 2017 across JavaScript, Python and Agentic AI.
