@@ -25,6 +25,13 @@ const SERVICES = [
     blurb:
       "Embed AI across your software delivery lifecycle to streamline delivery, remove bottlenecks and move your DORA and developer-experience metrics — without raising rework.",
   },
+  {
+    href: "/services/eu-ai-act",
+    tag: "For companies · Deadline 2 Aug 2026",
+    title: "Build your EU AI Act technical controls",
+    blurb:
+      "The engineering side of EU AI Act readiness — logging and traceability, human oversight, transparency and content labelling, evals, and Annex IV documentation tooling — built into your systems and run under your legal and compliance team's direction.",
+  },
 ];
 
 const ServiceCard = styled(Link)`
@@ -94,7 +101,7 @@ export default function ServicesPage() {
     <Container>
       <Head>
         <title>
-          Services — MCP Architecture &amp; AI Engineering Efficiency | Vilva Athiban
+          Services — MCP Architecture, AI Engineering Efficiency &amp; EU AI Act | Vilva Athiban
         </title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={URL} />
@@ -113,7 +120,7 @@ export default function ServicesPage() {
         />
         <meta
           name="description"
-          content="Services by Vilva Athiban, Lead AI Engineer at Omio: build a production MCP (Model Context Protocol) architecture for your company in one month, and improve engineering and delivery efficiency in your tech organisation using AI."
+          content="Services by Vilva Athiban, Lead AI Engineer at Omio: build a production MCP (Model Context Protocol) architecture for your company in one month, improve engineering and delivery efficiency in your tech organisation using AI, and engineer the technical controls your AI systems need for the EU AI Act — working under your legal and compliance team — before the August 2026 deadline."
         />
         <meta
           name="keywords"
@@ -127,9 +134,9 @@ export default function ServicesPage() {
         <Eyebrow>Services</Eyebrow>
         <Title>Work with me</Title>
         <Lead>
-          Two ways I help companies turn AI from experiment into production
-          leverage — building the AI backbone, and making your engineering
-          organisation faster with it.
+          Ways I help companies turn AI from experiment into production leverage
+          — building the AI backbone, making your engineering organisation faster
+          with it, and getting your AI systems compliant with the EU AI Act.
         </Lead>
 
         <Grid>

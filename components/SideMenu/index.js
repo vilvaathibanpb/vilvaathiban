@@ -67,6 +67,7 @@ const NAV_ITEMS = [
     children: [
       { href: "/services/mcp-architecture", label: "MCP architecture in 1 month" },
       { href: "/services/ai-engineering-efficiency", label: "AI engineering efficiency" },
+      { href: "/services/eu-ai-act", label: "EU AI Act compliance" },
     ],
   },
   { href: "/workshop", label: "Workshops" },

@@ -159,6 +159,11 @@ const SERVICES = [
     label: "AI engineering efficiency",
     desc: "Streamline delivery and ship faster with AI.",
   },
+  {
+    href: "/services/eu-ai-act",
+    label: "EU AI Act compliance",
+    desc: "Engineer the controls before the Aug 2026 deadline.",
+  },
 ];
 
 const NAV_ITEMS = [
