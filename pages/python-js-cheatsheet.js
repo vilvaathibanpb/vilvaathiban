@@ -1,9 +1,12 @@
 import Head from "next/head";
 import { useMemo, useRef, useState, useEffect, useCallback } from "react";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import { SECTIONS, FAQS, TOTAL_ROWS } from "../data/jsPythonCheatsheet";
 
 const URL = "https://vilvaathiban.com/python-js-cheatsheet";
+
+const COURSE_URL =
+  "https://www.udemy.com/course/python-for-javascript-developers-become-an-ai-engineer-/?referralCode=EB10E216AF4BB05E1B62";
 
 // ---------------------------------------------------------------- structured data
 
@@ -93,6 +96,11 @@ const META_KEYWORDS = [
 
 const normalise = (s) => s.toLowerCase().replace(/\s+/g, " ").trim();
 
+const scrollBehaviour = () =>
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ? "auto"
+    : "smooth";
+
 function useDebounced(value, ms) {
   const [v, setV] = useState(value);
   useEffect(() => {
@@ -109,6 +117,8 @@ export default function PythonJsCheatsheet() {
   const query = useDebounced(rawQuery, 120);
   const [copied, setCopied] = useState("");
   const inputRef = useRef(null);
+  const barRef = useRef(null);
+  const resultsRef = useRef(null);
 
   // Keyboard: "/" focuses search, Escape clears it.
   useEffect(() => {
@@ -142,6 +152,57 @@ export default function PythonJsCheatsheet() {
       : window.location.pathname;
     window.history.replaceState(null, "", url + window.location.hash);
   }, [query]);
+
+  // Puts the first match directly under the sticky search box. The bar is
+  // measured rather than hardcoded because it grows by the match-count row.
+  const scrollToResults = useCallback(() => {
+    const anchor = resultsRef.current;
+    if (!anchor) return;
+    const barHeight = barRef.current?.offsetHeight || 0;
+    const top = Math.max(
+      0,
+      window.scrollY + anchor.getBoundingClientRect().top - barHeight - 12
+    );
+    // Only pull the page down to the results; never yank a reader who has
+    // already scrolled past them back up.
+    if (window.scrollY >= top - 2) return;
+    window.scrollTo({ top, behavior: scrollBehaviour() });
+  }, []);
+
+  // The cue floats above the page, so it has to retire once you have actually
+  // reached the rows — otherwise it just covers them.
+  const [cueHidden, setCueHidden] = useState(false);
+  useEffect(() => {
+    const onScroll = () => {
+      const anchor = resultsRef.current;
+      if (!anchor) return;
+      setCueHidden(anchor.getBoundingClientRect().top <= window.innerHeight / 2);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
+  // Searching should put the results under the search box — otherwise the
+  // intro and the course card sit between the query and its matches. The
+  // filtered DOM and the match-count row are already committed here, so the
+  // measurements above are correct.
+  const prevQuery = useRef("");
+  useEffect(() => {
+    const had = prevQuery.current;
+    prevQuery.current = query;
+    if (!hydrated.current) return;
+    // Clearing the search takes you back to the whole sheet.
+    if (!query) {
+      if (had) window.scrollTo({ top: 0, behavior: scrollBehaviour() });
+      return;
+    }
+    scrollToResults();
+  }, [query, scrollToResults]);
 
   const terms = useMemo(
     () => normalise(query).split(" ").filter(Boolean),
@@ -215,7 +276,7 @@ export default function PythonJsCheatsheet() {
         />
       </Head>
 
-      <Bar>
+      <Bar ref={barRef}>
         <BarInner>
           <BarText>
             <BarTitle>JavaScript → Python cheatsheet</BarTitle>
@@ -284,6 +345,41 @@ export default function PythonJsCheatsheet() {
             </Rule>
           </Intro>
 
+          <Pitch>
+            <PitchFace>
+              <img
+                src="/vilva.png"
+                alt="Vilva Athiban P B"
+                width="64"
+                height="64"
+              />
+            </PitchFace>
+            <PitchBody>
+              <PitchKicker>From the person who wrote this sheet</PitchKicker>
+              <h2>
+                A cheatsheet makes you read Python. The course makes you build
+                with it.
+              </h2>
+              <p>
+                I&apos;m Vilva — I built this page out of the notes I use to
+                teach JavaScript developers Python for AI work. The full course,{" "}
+                <em>Python for JavaScript Developers: Become an AI Engineer</em>
+                , takes the same JS-first route: every idea mapped from what you
+                already know, then straight into writing real AI systems in
+                Python.
+              </p>
+              <PitchActions>
+                <PitchCta href={COURSE_URL} target="_blank" rel="noopener">
+                  Take the course on Udemy
+                  <PitchArrow aria-hidden="true">→</PitchArrow>
+                </PitchCta>
+                <PitchMeta>Self-paced · lifetime access</PitchMeta>
+              </PitchActions>
+            </PitchBody>
+          </Pitch>
+
+          <ResultsAnchor ref={resultsRef} aria-hidden="true" />
+
           {results.map((section) => (
             <Section key={section.id} id={section.id}>
               <SectionHead>
@@ -346,6 +442,20 @@ export default function PythonJsCheatsheet() {
             </Empty>
           ) : null}
 
+          <EndCta>
+            <div>
+              <h2>You&apos;ve got the syntax. Now build something with it.</h2>
+              <p>
+                Python for JavaScript Developers: Become an AI Engineer — the
+                course this cheatsheet came out of.
+              </p>
+            </div>
+            <PitchCta href={COURSE_URL} target="_blank" rel="noopener">
+              Take the course on Udemy
+              <PitchArrow aria-hidden="true">→</PitchArrow>
+            </PitchCta>
+          </EndCta>
+
           <Faq id="faq">
             <h2>JavaScript to Python — frequently asked questions</h2>
             {FAQS.map((f) => (
@@ -366,6 +476,30 @@ export default function PythonJsCheatsheet() {
           </Foot>
         </Main>
       </Layout>
+
+      <CueMotion />
+      <CueDock data-hidden={cueHidden ? "true" : "false"}>
+        <Cue
+          type="button"
+          onClick={scrollToResults}
+          aria-label={`Jump to the ${TOTAL_ROWS} equivalents`}
+        >
+          <CueLabel>
+            Straight to the {TOTAL_ROWS} equivalents — free, no signup
+          </CueLabel>
+          <CueChevron aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none">
+              <path
+                d="M6 9l6 6 6-6"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </CueChevron>
+        </Cue>
+      </CueDock>
     </Page>
   );
 }
@@ -618,6 +752,268 @@ const Rule = styled.div`
   line-height: 1.65;
   color: #334155;
   max-width: 74ch;
+`;
+
+// The course pitch is deliberately *not* banner-shaped: no full-bleed strip,
+// no dark ad bar. It sits in the reading column in the page's own paper
+// styling, led by a face and a first-person voice, so it reads as the author
+// talking rather than an ad slot the eye has learned to skip.
+const Pitch = styled.aside`
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin: 0 0 44px;
+  padding: 26px 28px;
+  max-width: 74ch;
+  background: linear-gradient(180deg, #fffdf6 0%, #fdf8ec 100%);
+  border: 1px solid #ecdfc4;
+  border-radius: 14px;
+  box-shadow: 0 1px 0 rgba(17, 24, 39, 0.02),
+    0 12px 28px -22px rgba(124, 45, 18, 0.45);
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    gap: 14px;
+    padding: 22px 20px;
+  }
+`;
+
+const PitchFace = styled.div`
+  flex: 0 0 auto;
+
+  img {
+    display: block;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 1px #ecdfc4;
+  }
+`;
+
+const PitchBody = styled.div`
+  min-width: 0;
+
+  h2 {
+    font-family: ui-serif, Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
+    margin: 0 0 10px;
+    color: #111827;
+  }
+  p {
+    margin: 0 0 18px;
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: #3f3a32;
+  }
+  em {
+    font-style: normal;
+    font-weight: 600;
+    color: #7c2d12;
+  }
+`;
+
+const PitchKicker = styled.div`
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #a16207;
+  margin-bottom: 8px;
+`;
+
+// Hover styling for these nested bits is keyed off a data attribute rather
+// than an interpolated component: this project's Babel/styled-components
+// setup flattens `&:hover ${Component}` into a plain descendant selector,
+// which silently pins the element into its hover state.
+const PitchArrow = styled.span.attrs({ "data-arrow": "" })`
+  display: inline-block;
+  transition: transform 160ms ease;
+`;
+
+const PitchCta = styled.a`
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(180deg, #c2410c 0%, #9a3412 100%);
+  border-radius: 10px;
+  padding: 12px 20px;
+  box-shadow: 0 10px 18px -10px rgba(154, 52, 18, 0.7);
+  transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+
+  &:hover {
+    filter: brightness(1.06);
+    transform: translateY(-1px);
+    box-shadow: 0 14px 22px -10px rgba(154, 52, 18, 0.75);
+  }
+  &:hover [data-arrow] {
+    transform: translateX(3px);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+  &:focus-visible {
+    outline: 2px solid #111827;
+    outline-offset: 3px;
+  }
+`;
+
+const PitchActions = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+`;
+
+const PitchMeta = styled.span`
+  font-size: 13px;
+  color: #8a7a5e;
+`;
+
+// Scroll target for a search: everything above it is intro, everything below
+// it is matches.
+const ResultsAnchor = styled.div`
+  height: 0;
+`;
+
+// The course card is the loudest thing in the first viewport, which risks the
+// page reading as a landing page rather than a reference. This cue says the
+// real content is one click away, and the motion is what makes it register.
+//
+// Declared globally with a literal name instead of the `keyframes` helper:
+// babel-plugin-styled-wind rewrites these template literals and mangles
+// interpolated values, which breaks `animation: ${name} ...` silently.
+const CueMotion = createGlobalStyle`
+  @keyframes cheatsheet-cue-bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(3px); }
+  }
+`;
+
+const CueDock = styled.div`
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 15;
+  transition: opacity 220ms ease, transform 220ms ease, visibility 220ms;
+
+  &[data-hidden="true"] {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+  }
+
+  @media (max-width: 640px) {
+    bottom: 18px;
+  }
+`;
+
+const CueLabel = styled.span`
+  @media (max-width: 640px) {
+    display: none;
+  }
+`;
+
+const CueChevron = styled.span.attrs({ "data-chevron": "" })`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  color: #111827;
+  background: #ecece7;
+  animation: cheatsheet-cue-bob 1.6s ease-in-out infinite;
+  transition: background 140ms ease, color 140ms ease;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+`;
+
+const Cue = styled.button`
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #475569;
+  background: #fff;
+  border: 1px solid #e2e2df;
+  border-radius: 999px;
+  padding: 7px 8px 7px 18px;
+  cursor: pointer;
+  box-shadow: 0 10px 24px -14px rgba(17, 24, 39, 0.65);
+  transition: border-color 140ms ease, color 140ms ease, box-shadow 140ms ease;
+
+  &:hover {
+    color: #111827;
+    border-color: #cbd5e1;
+    box-shadow: 0 14px 26px -14px rgba(17, 24, 39, 0.7);
+  }
+
+  /* Chevron only on phones — the label costs more width than it earns. */
+  @media (max-width: 640px) {
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  &:hover [data-chevron] {
+    background: #111827;
+    color: #fff;
+  }
+  &:focus-visible {
+    outline: 2px solid #111827;
+    outline-offset: 3px;
+  }
+`;
+
+// Second ask, for readers who scrolled the whole sheet — by then the card at
+// the top is long gone, and these are the warmest readers on the page.
+const EndCta = styled.section`
+  margin-top: 56px;
+  padding: 26px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: linear-gradient(180deg, #fffdf6 0%, #fdf8ec 100%);
+  border: 1px solid #ecdfc4;
+  border-radius: 14px;
+
+  h2 {
+    font-family: ui-serif, Georgia, serif;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    margin: 0 0 6px;
+  }
+  p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #3f3a32;
+  }
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 22px 20px;
+  }
 `;
 
 const Section = styled.section`
