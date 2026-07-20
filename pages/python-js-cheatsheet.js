@@ -631,7 +631,10 @@ const Layout = styled.div`
   align-items: start;
 
   @media (max-width: 1000px) {
-    grid-template-columns: 1fr;
+    /* minmax(0, 1fr), not 1fr: a bare 1fr keeps an "auto" minimum, which
+       lets the wide group-chip row stretch the track instead of scrolling
+       inside it — that blew the page out to ~6200px on a phone. */
+    grid-template-columns: minmax(0, 1fr);
     gap: 0;
     padding: 0 16px 72px;
   }
@@ -642,12 +645,14 @@ const Sidebar = styled.nav`
   top: 92px;
   max-height: calc(100vh - 120px);
   overflow-y: auto;
+  min-width: 0;
   padding: 28px 0;
 
   @media (max-width: 1000px) {
     position: static;
     max-height: none;
     overflow: visible;
+    max-width: 100%;
     padding: 18px 0 4px;
   }
 `;
@@ -692,6 +697,7 @@ const SideList = styled.ul`
   @media (max-width: 1000px) {
     display: flex;
     gap: 6px;
+    max-width: 100%;
     overflow-x: auto;
     padding-bottom: 6px;
     -webkit-overflow-scrolling: touch;
