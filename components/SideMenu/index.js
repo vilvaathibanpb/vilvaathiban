@@ -75,6 +75,7 @@ const NAV_ITEMS = [
   { href: "/blogs", label: "Writing" },
   { href: "/videos", label: "Videos" },
   { href: "/projects", label: "Projects" },
+  { href: "/apps", label: "Apps" },
   { href: "/reviews", label: "Reviews" },
 ];
 
