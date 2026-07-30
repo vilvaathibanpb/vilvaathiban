@@ -13,7 +13,7 @@ const APPS = [
     name: "Teleprompter: Camera Overlay",
     tagline: "Free iOS teleprompter that floats your script over the camera and scrolls as you speak.",
     summary:
-      "Record Reels, Shorts and TikToks while reading your script with perfect eye contact. Voice-driven scrolling runs 100% on-device and fully offline.",
+      "Free forever: record Reels, Shorts and TikToks while reading your script with perfect eye contact. Voice-driven scrolling runs 100% on-device and fully offline.",
     image: "/apps/teleprompter-icon.png",
     href: "/apps/teleprompter-camera-overlay",
     internal: true,

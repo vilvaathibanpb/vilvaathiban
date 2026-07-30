@@ -141,6 +141,7 @@ const TeleprompterPage = () => (
         content="teleprompter app, free teleprompter, camera overlay teleprompter, teleprompter for reels, teleprompter for shorts, teleprompter for tiktok, voice teleprompter, scrolls as you speak, autocue app, iphone teleprompter, record video while reading script"
       />
       <link rel="canonical" href={URL} />
+      <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
       <meta property="og:title" content="Free Teleprompter App — Camera Overlay, Scrolls As You Speak" />
       <meta
         property="og:description"
@@ -195,12 +196,14 @@ const TeleprompterPage = () => (
           <img src="/apps/teleprompter-logo.png" alt="Teleprompter: Camera Overlay app logo — teleprompter screen mounted on a camera" />
         </LogoBox>
         <div>
-          <FreePill>Free iOS App</FreePill>
-          <Title style={{ margin: 0 }}>Teleprompter: Camera Overlay</Title>
+          <FreePill>100% Free iOS App</FreePill>
+          <Title style={{ margin: 0 }}>
+            Free Teleprompter: Camera&nbsp;Overlay
+          </Title>
         </div>
       </Hero>
       <Lead>
-        The free teleprompter that floats your script <b>over the camera</b> and
+        A <b>100% free</b> teleprompter that floats your script <b>over the camera</b> and
         scrolls it <b>as you speak</b>. Record Instagram Reels, YouTube Shorts
         and TikToks in 4K with perfect eye contact — no memorizing, no darting
         eyes, no twenty takes.
@@ -208,10 +211,10 @@ const TeleprompterPage = () => (
       <StoreBadge href={APP_STORE_URL} disabled aria-label="Download on the App Store">
         <img src="/apps/app-store-badge.svg" alt="Download on the App Store" />
       </StoreBadge>
-      <ComingSoon>Launching on the App Store — coming very soon.</ComingSoon>
+      <ComingSoon>Free download — launching on the App Store very soon.</ComingSoon>
 
       <Section>
-        <h2>Read your script and look into the lens — at the same time</h2>
+        <h2>A genuinely free teleprompter — read your script and look into the lens at the same time</h2>
         <p>
           Every creator knows the problem: you write a great script, hit
           record, and then your eyes wander off-camera to read it. The result
@@ -250,7 +253,7 @@ const TeleprompterPage = () => (
             </p>
           </Card>
           <Card>
-            <h3>🆓 Actually free</h3>
+            <h3>🆓 Free — actually free</h3>
             <p>
               All features free, no watermark, no subscription. An occasional
               ad keeps it free; a small one-time purchase removes ads forever.
