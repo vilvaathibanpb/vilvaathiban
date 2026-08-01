@@ -171,7 +171,22 @@ const NAV_ITEMS = [
   { href: "/services", label: "Services", children: SERVICES },
   { href: "/workshop", label: "Workshops" },
   { href: "/talks", label: "Talks" },
-  { href: "/blogs", label: "Writing" },
+  {
+    href: "/blogs",
+    label: "Writing",
+    children: [
+      {
+        href: "/blog",
+        label: "Articles",
+        desc: "Long-form posts hosted on this site.",
+      },
+      {
+        href: "/blogs",
+        label: "External writing",
+        desc: "Posts on Medium, dev.to and elsewhere.",
+      },
+    ],
+  },
   { href: "/videos", label: "Videos" },
   { href: "/projects", label: "Projects" },
   { href: "/apps", label: "Apps" },

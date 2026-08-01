@@ -11,7 +11,7 @@
 
 - [About](https://vilvaathiban.com/about): Lead AI Engineer at Omio; built the MCP-first backend of Omio.ai; 50+ talks in 7 countries; taught 20,000+ developers.
 - [Services](https://vilvaathiban.com/services): MCP architecture implementation, AI engineering-efficiency coaching, EU AI Act compliance.
-- [Talks](https://vilvaathiban.com/talks), [Writing](https://vilvaathiban.com/blogs), [Videos](https://vilvaathiban.com/videos), [Workshops](https://vilvaathiban.com/workshop)
+- [Talks](https://vilvaathiban.com/talks), [Articles](https://vilvaathiban.com/blog), [External writing](https://vilvaathiban.com/blogs), [Videos](https://vilvaathiban.com/videos), [Workshops](https://vilvaathiban.com/workshop)
 
 ## Citation
 
