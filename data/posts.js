@@ -491,6 +491,178 @@ const firstTenErrors = lines(logText)
       },
     ],
   },
+  {
+    slug: "javascript-temporal-api-practical-guide",
+    title:
+      "The Temporal API Is Finally Here: A Practical Guide to JavaScript's New Dates",
+    description:
+      "Temporal is now shipping in Chrome and Firefox. A hands-on tour of PlainDate, ZonedDateTime, Instant and Duration — with the recipes you actually need day to day.",
+    datePublished: "2026-08-03",
+    readingMinutes: 9,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "For as long as JavaScript has existed, `Date` has been its most reliably broken corner. Months are zero-indexed, everything is secretly mutable, parsing behavior varies between engines, and time zones are a guessing game. We have all shipped at least one off-by-one-day bug because of it — and then shipped a date library to apologize.",
+          },
+          {
+            type: "p",
+            text: "That era is finally ending. **Temporal**, the TC39 proposal that has been in the works for the better part of a decade, shipped in Firefox 139 and reached Chrome stable in version 144 earlier this year, with Safari's implementation underway in Technology Preview. It is a complete, immutable, time-zone-aware replacement for `Date` — built into the language, no library required. This post is a practical tour: the mental model, the recipes you will use weekly, and how to adopt it today without breaking older browsers.",
+          },
+        ],
+      },
+      {
+        heading: "The mental model: pick the right type",
+        blocks: [
+          {
+            type: "p",
+            text: "The single biggest idea in Temporal is that \"a date\" is not one thing. `Date` forced every concept — a birthday, a meeting time, a timestamp — into one object that was always secretly a millisecond count in UTC. Temporal splits these into distinct immutable types, and once you pick the right one, most bugs become unrepresentable:",
+          },
+          {
+            type: "list",
+            items: [
+              "`Temporal.PlainDate` — a calendar date with no time and no zone. Birthdays, invoices, deadlines.",
+              "`Temporal.PlainTime` — a wall-clock time with no date. \"The shop opens at 09:00.\"",
+              "`Temporal.PlainDateTime` — date plus wall time, still zone-free. \"The meeting is at 2pm on March 3rd\" before you know where.",
+              "`Temporal.ZonedDateTime` — a real moment anchored to a time zone. Calendar events, flight departures.",
+              "`Temporal.Instant` — an exact point on the global timeline. Log timestamps, `createdAt` fields.",
+              "`Temporal.Duration` — a span of time. \"3 hours 20 minutes\", \"2 months\".",
+            ],
+          },
+          {
+            type: "p",
+            text: "Rule of thumb: store `Instant`s, schedule with `ZonedDateTime`, and do business logic with `PlainDate`. If you find yourself reaching for `PlainDateTime`, ask whether you actually know the zone — you usually do.",
+          },
+        ],
+      },
+      {
+        heading: "Everyday recipes",
+        blocks: [
+          {
+            type: "p",
+            text: "Here is the stuff you do every week, side by side with the old pain. Today's date, without the `new Date()` timezone roulette:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const today = Temporal.Now.plainDateISO();\n// => 2026-08-03 (a PlainDate, in the user's zone)\n\nconst inBerlin = Temporal.Now.plainDateISO(\"Europe/Berlin\");\n// today's date in a specific zone, explicitly",
+          },
+          {
+            type: "p",
+            text: "Parsing is strict and predictable — ISO 8601 strings only, no more \"works in Chrome, NaN in Safari\":",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const date = Temporal.PlainDate.from(\"2026-08-03\");\nconst dt = Temporal.ZonedDateTime.from(\n  \"2026-08-03T09:30:00+02:00[Europe/Berlin]\"\n);\n\ndate.year;      // 2026\ndate.month;     // 8  <- one-indexed. August is 8. Rejoice.\ndate.dayOfWeek; // 1  <- ISO: Monday is 1, Sunday is 7",
+          },
+          {
+            type: "p",
+            text: "Arithmetic returns new objects — nothing mutates, and you never touch milliseconds math again:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const due = today.add({ days: 14 });\nconst lastMonth = today.subtract({ months: 1 });\n\n// difference between two dates, in the unit you want\nconst days = today.until(due).days;            // 14\nconst age = birthday.until(today, {\n  largestUnit: \"years\",\n}); // => a Duration like P34Y6M12D",
+          },
+          {
+            type: "p",
+            text: "Comparison finally has a real API instead of subtracting objects and hoping:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "Temporal.PlainDate.compare(a, b); // -1, 0, or 1\nconst sorted = dates.sort(Temporal.PlainDate.compare);\na.equals(b); // true / false",
+          },
+        ],
+      },
+      {
+        heading: "Time zones and DST, handled correctly by default",
+        blocks: [
+          {
+            type: "p",
+            text: "This is where Temporal earns its decade of design work. A `ZonedDateTime` knows its zone, so arithmetic respects daylight saving transitions instead of silently drifting an hour:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const zdt = Temporal.ZonedDateTime.from(\n  \"2026-03-28T12:00:00+01:00[Europe/Berlin]\"\n);\n\n// add one day across the DST switch (clocks jump forward)\nzdt.add({ days: 1 }).toString();\n// => 2026-03-29T12:00:00+02:00[Europe/Berlin]\n// still noon on the wall clock - offset changed, not the hour\n\n// add 24 exact hours instead - a different question!\nzdt.add({ hours: 24 }).toString();\n// => 2026-03-29T13:00:00+02:00[Europe/Berlin]",
+          },
+          {
+            type: "p",
+            text: "Notice what happened: *a day* and *24 hours* are different things near a DST boundary, and Temporal lets you say which one you mean. This is exactly the class of bug that used to surface twice a year as \"the report is off by an hour, but only for European users, but only in March.\"",
+          },
+          {
+            type: "p",
+            text: "Converting between zones is explicit and lossless:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const meeting = Temporal.ZonedDateTime.from(\n  \"2026-08-10T15:00:00+05:30[Asia/Kolkata]\"\n);\nmeeting.withTimeZone(\"America/New_York\").toString();\n// => 2026-08-10T05:30:00-04:00[America/New_York]",
+          },
+        ],
+      },
+      {
+        heading: "Instants and timestamps",
+        blocks: [
+          {
+            type: "p",
+            text: "For machine time — logs, tokens, `createdAt` columns — use `Temporal.Instant`. It interoperates cleanly with everything you already have:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const now = Temporal.Now.instant();\nnow.toString();            // 2026-08-03T11:20:31.442Z\nnow.epochMilliseconds;     // for APIs that want a number\n\n// from a legacy Date\nconst inst = legacyDate.toTemporalInstant();\n\n// render for a user, in their zone\ninst.toZonedDateTimeISO(\"Asia/Kolkata\").toPlainTime();",
+          },
+          {
+            type: "p",
+            text: "That `toTemporalInstant()` method on `Date.prototype` is the official bridge: incremental migration is a first-class use case, not an afterthought. New code can be fully Temporal while old modules keep handing you `Date`s.",
+          },
+        ],
+      },
+      {
+        heading: "Using Temporal in production today",
+        blocks: [
+          {
+            type: "p",
+            text: "As of mid-2026 the support picture is: Firefox since 139, Chrome and Chromium-based browsers since 144, Safari in development (already visible in Technology Preview). Node has the proposal behind a flag in recent versions, and the `@js-temporal/polyfill` package covers everything else. That makes the pragmatic setup a feature-detected polyfill:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// temporal.js - import this everywhere instead of the global\nimport { Temporal as Polyfill } from \"@js-temporal/polyfill\";\n\nexport const Temporal = globalThis.Temporal ?? Polyfill;",
+          },
+          {
+            type: "p",
+            text: "Browsers that ship Temporal natively pay zero bytes for the polyfill path once you code-split it, and everyone else gets identical behavior. When your browser support floor rises, you delete the file and change nothing else.",
+          },
+          {
+            type: "list",
+            items: [
+              "Migrate the *boundaries* first: parse incoming strings into Temporal types immediately, and only convert to `Date` at the edge of libraries that require it.",
+              "Replace date-fns/dayjs call sites opportunistically — most one-liners (add, diff, startOf-style logic) map directly onto Temporal methods.",
+              "Keep using `Intl.DateTimeFormat` for display; every Temporal type plugs into `toLocaleString()` the way you would expect.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "When you still want a library (or plain old Date)",
+        blocks: [
+          {
+            type: "p",
+            text: "Temporal is deliberately low-level in places: there is no \"human friendly relative time\" formatter (that is `Intl.RelativeTimeFormat`'s job), no recurrence rules, and no calendar-week helpers beyond `weekOfYear`. Libraries will keep living above it, the way they now live above `Intl`. And if all a module does is stamp `Date.now()` into a log line, there is no prize for rewriting it.",
+          },
+          {
+            type: "p",
+            text: "But for everything that made dates in JavaScript miserable — parsing, zones, DST, immutability, arithmetic — the fix is now built into the platform. After nine years of proposal drafts, the boring answer is finally the right one: just use Temporal.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const getAllPosts = () =>
