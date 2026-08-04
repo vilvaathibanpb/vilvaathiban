@@ -663,6 +663,116 @@ const firstTenErrors = lines(logText)
       },
     ],
   },
+  {
+    slug: "react-compiler-adoption-guide",
+    title: "React Compiler in Practice: Adopting Automatic Memoization Without Surprises",
+    description:
+      "React Compiler auto-memoizes your components so you can delete most useMemo/useCallback calls. How it works, how to adopt it incrementally, and where it will not save you.",
+    datePublished: "2026-08-04",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "For years, React performance work has meant sprinkling `useMemo`, `useCallback` and `React.memo` around the codebase and hoping you guessed the hot paths right. React Compiler — stable since its 1.0 release in October 2025 — changes the deal: it is a build-time compiler that analyzes your components and inserts fine-grained memoization automatically. You write plain React; the compiler writes the caching code you used to write by hand.",
+          },
+          {
+            type: "p",
+            text: "I have now migrated a couple of production apps to it, and the experience is mostly boring in the best way — but 'mostly' is doing some work in that sentence. This post covers how the compiler actually works, a low-risk adoption path, and the cases where it will not help you at all.",
+          },
+        ],
+      },
+      {
+        heading: "What the compiler actually does",
+        blocks: [
+          {
+            type: "p",
+            text: "React Compiler is a Babel plugin that runs over your components and hooks at build time. It analyzes each function, works out which values each piece of JSX and each computation depends on, and rewrites the function so those pieces are cached and only recomputed when their inputs change. Conceptually it is as if every expression in your component got a perfectly-scoped `useMemo` — without you maintaining a single dependency array.",
+          },
+          {
+            type: "p",
+            text: "Take an ordinary component like this:",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: "function ProductList({ products, filter, onSelect }) {\n  const visible = products.filter(\n    (p) => p.category === filter\n  );\n\n  return (\n    <ul>\n      {visible.map((p) => (\n        <ProductRow\n          key={p.id}\n          product={p}\n          onSelect={() => onSelect(p.id)}\n        />\n      ))}\n    </ul>\n  );\n}",
+          },
+          {
+            type: "p",
+            text: "Without the compiler, every parent re-render re-runs the filter and recreates every arrow function, so every `ProductRow` re-renders even when nothing changed. The hand-written fix is a `useMemo` around `visible`, a `useCallback` per handler, and `React.memo` on the row — three APIs, three chances to get a dependency array wrong. The compiled version gets the same effect automatically: the filter result is reused while `products` and `filter` are stable, and rows stop re-rendering for unrelated state changes. Your source stays exactly as written above.",
+          },
+          {
+            type: "p",
+            text: "Two properties make this trustworthy. First, the compiler is conservative: if it cannot prove a memoization is safe — because a function mutates its inputs, or breaks the Rules of React in a way it can detect — it simply skips that component rather than guessing. Second, it only memoizes; it does not reorder your logic or change observable behavior. A component the compiler skips behaves exactly as it does today.",
+          },
+        ],
+      },
+      {
+        heading: "Adopting it: an incremental path",
+        blocks: [
+          {
+            type: "p",
+            text: "The compiler ships as `babel-plugin-react-compiler`, with the lint rules that used to live in a separate package now part of `eslint-plugin-react-hooks`. It targets React 19 by default, and supports React 17 and 18 via a small runtime package and a compilation target option. A sane adoption sequence:",
+          },
+          {
+            type: "list",
+            items: [
+              "Step 1 — lint first. Enable the compiler-aware lint rules before compiling anything. They flag the code the compiler cannot handle: mutations of props or state, side effects during render, conditional hook calls. Fixing these improves your codebase whether or not you ever ship the compiler.",
+              "Step 2 — compile a slice. Use the plugin's directory or opt-in scoping to run the compiler on one feature folder. Verify the app in development — React DevTools badges compiled components with a small 'Memo' marker, so you can confirm it is actually active.",
+              "Step 3 — measure something real. Pick an interaction you know is janky — typing in a filter input above a big list is a classic — and profile it before and after. You are looking for re-render counts collapsing on components whose props did not change.",
+              "Step 4 — widen to the whole app, then start deleting. Once the compiler runs everywhere, most hand-written `useMemo`/`useCallback` wrappers are dead weight. Delete them gradually as you touch files; the compiler's version is usually more precise than the one you wrote.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The Babel setup itself is one line in your config — the only rule that matters is that the compiler plugin must run first, before other transforms:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// babel.config.js\nmodule.exports = {\n  plugins: [\n    [\"babel-plugin-react-compiler\", { target: \"19\" }],\n    // ...other plugins after\n  ],\n};",
+          },
+          {
+            type: "p",
+            text: "Next.js, Vite (via the Babel-based React plugin), Remix and Expo all have documented integration points for it now; in Next.js it is a single flag in the config file.",
+          },
+        ],
+      },
+      {
+        heading: "Where it will not save you",
+        blocks: [
+          {
+            type: "p",
+            text: "Automatic memoization eliminates a category of re-render waste. It does not make slow code fast, and a few real-world limits are worth knowing before you promise your team a free performance win:",
+          },
+          {
+            type: "list",
+            items: [
+              "Genuinely expensive computations are still expensive. If a render does heavy work on a big dataset, the compiler ensures it re-runs less often — but the first run still costs what it costs. Move that work off the render path or into a worker; the compiler cannot.",
+              "Unstable values from outside defeat caching. A context whose value is a fresh object every render, or a library hook that returns new references each call, invalidates everything downstream of it. The compiler memoizes within your components; it cannot fix an upstream API that never produces stable inputs.",
+              "Rule-breaking code gets skipped, silently doing nothing. Components that mutate props, read refs during render, or rely on render side effects are left uncompiled. If your worst-performing component is also your least disciplined one, the compiler will politely decline to help it — the lint rules tell you why.",
+              "It is not a substitute for architecture. Splitting a monolithic component, virtualizing a 5,000-row list, or moving state closer to where it is used still beats any memoization strategy, manual or automatic.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Should you switch now?",
+        blocks: [
+          {
+            type: "p",
+            text: "For new projects the answer is a clear yes: start with the compiler on and the lint rules enforced, and simply never write `useMemo` boilerplate to begin with. For existing apps, the calculus depends on code health — the compiler rewards codebases that already follow the Rules of React and exposes the ones that do not. Run the lint rules, fix what they surface, then compile incrementally.",
+          },
+          {
+            type: "p",
+            text: "The strategic direction is hard to argue with. Manual memoization was always a workaround — performance bookkeeping that humans did badly and forgot to update. React Compiler moves that bookkeeping into the toolchain, where it can be exhaustive and correct. A year from now, a component wrapped in three layers of `useCallback` will read the way a hand-rolled class component reads today: a fossil from an era the tooling has outgrown.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const getAllPosts = () =>
