@@ -773,6 +773,185 @@ const firstTenErrors = lines(logText)
       },
     ],
   },
+  {
+    slug: "popover-api-css-anchor-positioning",
+    title:
+      "Popover API + CSS Anchor Positioning: Tooltips and Dropdowns Without a Library",
+    description:
+      "Build accessible tooltips and dropdown menus with the native Popover API and CSS anchor positioning - no Floating UI required - and wire them into React 19.",
+    datePublished: "2026-08-05",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "For most of the last decade, putting a tooltip next to a button meant installing a positioning library. Popper.js, then Floating UI, plus a `z-index` scheme, scroll listeners, resize observers and flip logic - all to answer one question: *where should this box go, and what happens when it hits the edge of the screen?* In 2026 the platform finally answers that question itself. The **Popover API** (Baseline since 2024) handles showing, hiding, stacking and light dismiss. **CSS anchor positioning**, which reached all three major engines through the Interop effort, handles placement and edge flipping. Together they replace a surprising amount of JavaScript.",
+          },
+          {
+            type: "p",
+            text: "This post builds a dropdown menu and a tooltip with zero positioning JavaScript, then shows how to use both from React 19, which ships first-class support for the popover attributes and events.",
+          },
+        ],
+      },
+      {
+        heading: "The Popover API in sixty seconds",
+        blocks: [
+          {
+            type: "p",
+            text: "A popover is any element with the `popover` attribute. A button points at it with `popovertarget`, and the browser wires up the rest - no click handlers, no state:",
+          },
+          {
+            type: "code",
+            language: "html",
+            code: '<button popovertarget="filters" id="filters-btn">\n  Filters\n</button>\n\n<div id="filters" popover>\n  <label><input type="checkbox" /> In stock only</label>\n  <label><input type="checkbox" /> On sale</label>\n</div>',
+          },
+          {
+            type: "p",
+            text: "That one attribute buys you a lot:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Top layer rendering.** The popover paints above everything, regardless of `z-index` or `overflow: hidden` ancestors. No portal needed.",
+              "**Light dismiss.** The default `popover=\"auto\"` closes on Escape or on a click outside. `popover=\"manual\"` opts out for toast-like UI.",
+              "**Toggle without JS.** The same button opens and closes it. `popovertargetaction=\"show\"` or `\"hide\"` pins the direction if you want separate buttons.",
+              "**Styling hooks.** `:popover-open` matches while it is open, and `::backdrop` styles the layer behind it.",
+            ],
+          },
+          {
+            type: "p",
+            text: "When you do need JavaScript, the element exposes `showPopover()`, `hidePopover()` and `togglePopover()`, and fires `beforetoggle` and `toggle` events whose `newState` property is either `\"open\"` or `\"closed\"`. That is the whole API surface.",
+          },
+        ],
+      },
+      {
+        heading: "Anchoring it to the button",
+        blocks: [
+          {
+            type: "p",
+            text: "Out of the box a popover appears centered in the viewport - the UA stylesheet gives it `position: fixed; inset: 0; margin: auto`. Fine for a dialog-ish panel, wrong for a dropdown. CSS anchor positioning fixes that with two properties: the trigger declares an `anchor-name`, and the popover tethers to it with `position-anchor` plus a placement via `position-area`:",
+          },
+          {
+            type: "code",
+            language: "css",
+            code: '#filters-btn {\n  anchor-name: --filters;\n}\n\n#filters {\n  position-anchor: --filters;\n  position-area: block-end span-inline-end;\n  /* reset the UA centering styles */\n  margin: 0;\n  inset: auto;\n  margin-block-start: 6px; /* gap below the button */\n}',
+          },
+          {
+            type: "p",
+            text: "`position-area` places the popover on an imaginary 3x3 grid around the anchor. `block-end` means the row below the button; `span-inline-end` aligns the popover with the button's start edge and lets it grow toward the end. For a classic centered tooltip you would use `position-area: block-start` together with `justify-self: anchor-center`.",
+          },
+          {
+            type: "p",
+            text: "Two more tools are worth knowing. The `anchor()` function gives coordinate-level control when the grid is not enough - for example `top: anchor(bottom)` pins the popover's top to the button's bottom. And `anchor-size()` lets a dropdown match its trigger's width, a classic select-menu requirement that used to need a ResizeObserver:",
+          },
+          {
+            type: "code",
+            language: "css",
+            code: '#filters {\n  min-width: anchor-size(width);\n}',
+          },
+        ],
+      },
+      {
+        heading: "Staying on screen: position-try-fallbacks",
+        blocks: [
+          {
+            type: "p",
+            text: "Flipping near the viewport edge is the reason positioning libraries exist. Declaratively, it is one line: list the fallback placements the browser may try when the preferred one overflows.",
+          },
+          {
+            type: "code",
+            language: "css",
+            code: '#filters {\n  position-area: block-end span-inline-end;\n  position-try-fallbacks: flip-block, flip-inline,\n    flip-block flip-inline;\n}',
+          },
+          {
+            type: "p",
+            text: "If the menu would clip below the fold, the browser flips it above the button; if it would clip at the inline edge, it mirrors horizontally; the combined keyword covers corners. The browser re-evaluates on scroll and resize for free. For placements that need more than a mirror image - say, different offsets when flipped - define a named fallback with `@position-try`:",
+          },
+          {
+            type: "code",
+            language: "css",
+            code: '@position-try --above {\n  position-area: block-start span-inline-end;\n  margin-block-start: 0;\n  margin-block-end: 6px;\n}\n\n#filters {\n  position-try-fallbacks: --above;\n}',
+          },
+        ],
+      },
+      {
+        heading: "Wiring it into React 19",
+        blocks: [
+          {
+            type: "p",
+            text: "React 19 supports the popover attributes as regular props - `popover`, `popoverTarget`, `popoverTargetAction` - and exposes the toggle events as `onToggle` and `onBeforeToggle`. Because `anchor-name` must be unique per instance, generate it from `useId` (stripping the colons, which are not valid in CSS identifiers):",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: "import { useId } from 'react';\n\nfunction ActionsMenu({ label, onOpen, children }) {\n  const id = 'menu-' + useId().replace(/:/g, '');\n  const anchorName = '--' + id;\n\n  return (\n    <>\n      <button popoverTarget={id} style={{ anchorName }}>\n        {label}\n      </button>\n      <div\n        id={id}\n        popover=\"auto\"\n        className=\"menu\"\n        style={{ positionAnchor: anchorName }}\n        onToggle={(e) => {\n          if (e.newState === 'open' && onOpen) onOpen();\n        }}\n      >\n        {children}\n      </div>\n    </>\n  );\n}",
+          },
+          {
+            type: "p",
+            text: "Note what is *not* here: no `useState` for open/closed, no `createPortal`, no outside-click effect, no positioning hook. The `onToggle` handler receives the native `ToggleEvent`, so `e.newState` tells you which way it went - handy for lazy-loading menu contents or analytics. The inline `style` object works because supporting browsers expose the camelCased `anchorName` and `positionAnchor` properties on `CSSStyleDeclaration`.",
+          },
+          {
+            type: "p",
+            text: "The shared stylesheet stays tiny:",
+          },
+          {
+            type: "code",
+            language: "css",
+            code: ".menu {\n  position-area: block-end span-inline-end;\n  position-try-fallbacks: flip-block;\n  margin: 0;\n  inset: auto;\n  margin-block-start: 4px;\n  border: 1px solid #d0d0d0;\n  border-radius: 8px;\n  padding: 4px;\n  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);\n}",
+          },
+          {
+            type: "p",
+            text: "One forward-looking note: when a popover is opened via `popovertarget`, newer browsers treat the invoking button as an *implicit anchor*, which lets you drop the explicit names entirely. Support for that shorthand is still uneven, so explicit `anchor-name` remains the portable choice today.",
+          },
+        ],
+      },
+      {
+        heading: "Progressive enhancement and feature detection",
+        blocks: [
+          {
+            type: "p",
+            text: "The two features degrade differently, and that matters for your rollout plan. The Popover API is Baseline 2024 and safe to rely on for evergreen-browser audiences; if you must reach older ones, the `@oddbird/popover-polyfill` package patches it, and you can detect support with a one-liner:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const supportsPopover = 'popover' in HTMLElement.prototype;\nconst supportsAnchor = CSS.supports('anchor-name', '--a');",
+          },
+          {
+            type: "p",
+            text: "Anchor positioning is newer. The good news is that its failure mode is gentle: in a non-supporting browser the popover still opens, still light-dismisses, still sits in the top layer - it just appears centered in the viewport instead of attached to the button. For a filter panel that is often acceptable. Where it is not, scope the anchored layout inside `@supports` and provide a simpler fallback outside it:",
+          },
+          {
+            type: "code",
+            language: "css",
+            code: "@supports not (anchor-name: --a) {\n  .menu {\n    /* fallback: centered panel with a dimmed backdrop */\n    margin: auto;\n    inset: 0;\n  }\n  .menu::backdrop {\n    background: rgba(0, 0, 0, 0.3);\n  }\n}",
+          },
+        ],
+      },
+      {
+        heading: "When you still want Floating UI",
+        blocks: [
+          {
+            type: "p",
+            text: "This is not a funeral for positioning libraries - yet. Reach for Floating UI when you need any of the following:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Detached or virtual anchors**, like a context menu at the cursor's coordinates - CSS anchors must be real elements.",
+              "**Guaranteed identical behavior in older browsers**, where the CSS fallback story above is not acceptable.",
+              "**Middleware-style logic** - arrow elements that track the flip, size clamping with custom math, or placement decisions driven by app state.",
+            ],
+          },
+          {
+            type: "p",
+            text: "For the everyday cases - tooltips, dropdown menus, select-like panels, hover cards - the platform now does the job with a handful of declarations. Ship the native version, keep the bundle bytes, and let the browser handle the geometry.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const getAllPosts = () =>
