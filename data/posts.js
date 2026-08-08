@@ -1275,6 +1275,165 @@ const firstTenErrors = lines(logText)
       }
     ]
   },
+  {
+    "slug": "react-activity-component",
+    "title": "React's Activity Component: Hide UI Without Losing State",
+    "description": "A practical guide to React 19.2's Activity component: hide tabs, modals and routes without losing state, and pre-render the screens users visit next.",
+    "datePublished": "2026-08-08",
+    "readingMinutes": 8,
+    "content": [
+      {
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Every React app has a version of this problem. A user fills half a form in one tab, clicks over to another tab to check something, comes back - and the form is empty. The component unmounted, so its state died with it. Historically you had three ways out: accept the data loss, hoist everything into a store or context, or hide the inactive tab with CSS and quietly accept that its effects never stop running."
+          },
+          {
+            "type": "p",
+            "text": "React 19.2 ships a first-class answer: the `<Activity>` component, imported straight from `react`. It lets you hide part of the tree while React preserves its state and DOM - and, crucially, unmounts its effects while it is hidden. In this post we will build a tab switcher that remembers everything, look closely at what happens to effects, and use hidden activities to pre-render screens the user is about to visit."
+          }
+        ]
+      },
+      {
+        "heading": "The Two Bad Options Activity Replaces",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Before 19.2, hiding a subtree meant choosing between two flavors of wrong:"
+          },
+          {
+            "type": "code",
+            "language": "jsx",
+            "code": "// Option A: conditional render - state is destroyed on every switch\n{tab === \"search\" ? <SearchTab /> : <HomeTab />}\n\n// Option B: CSS hiding - state survives, but the component stays fully live\n<div style={{ display: tab === \"search\" ? \"block\" : \"none\" }}>\n  <SearchTab />\n</div>"
+          },
+          {
+            "type": "p",
+            "text": "Option A is the default and it throws away everything: input values, scroll positions, expanded rows, in-flight `useState`. Option B keeps state, but the hidden component remains a fully active citizen of your app. Its subscriptions keep firing, its intervals keep ticking, its re-renders compete at full priority with the tab the user is actually looking at. Multiply that by four or five tabs and the hidden parts of your app can cost more than the visible one."
+          }
+        ]
+      },
+      {
+        "heading": "What Activity Actually Does",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "`<Activity>` wraps a subtree and takes a single `mode` prop with two values, `\"visible\"` and `\"hidden\"`:"
+          },
+          {
+            "type": "code",
+            "language": "jsx",
+            "code": "import { Activity, useState } from \"react\";\n\nfunction App() {\n  const [tab, setTab] = useState(\"home\");\n\n  return (\n    <>\n      <TabBar active={tab} onChange={setTab} />\n\n      <Activity mode={tab === \"home\" ? \"visible\" : \"hidden\"}>\n        <HomeTab />\n      </Activity>\n      <Activity mode={tab === \"search\" ? \"visible\" : \"hidden\"}>\n        <SearchTab />\n      </Activity>\n    </>\n  );\n}"
+          },
+          {
+            "type": "p",
+            "text": "Notice the shape: both tabs are always in the JSX. You never conditionally render the `<Activity>` itself - you flip its `mode`. What each mode means:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "**visible** - children are shown, effects are mounted, updates render normally.",
+              "**hidden** - children are visually hidden but stay in the DOM, component state is preserved, effects are *unmounted* (their cleanup functions run), and any updates inside the hidden tree are deferred until React has nothing more urgent to do."
+            ]
+          },
+          {
+            "type": "p",
+            "text": "That last combination is the whole trick. You get the state preservation of CSS hiding with the resource discipline of unmounting - without either of their downsides."
+          }
+        ]
+      },
+      {
+        "heading": "A Tab Switcher That Remembers Everything",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Here is a search tab with local state and a fetch effect. No store, no context, no lifting state up:"
+          },
+          {
+            "type": "code",
+            "language": "jsx",
+            "code": "import { useEffect, useState } from \"react\";\n\nfunction SearchTab() {\n  const [query, setQuery] = useState(\"\");\n  const [results, setResults] = useState([]);\n\n  useEffect(() => {\n    if (!query) return;\n    const controller = new AbortController();\n    const url = \"/api/search?q=\" + encodeURIComponent(query);\n\n    fetch(url, { signal: controller.signal })\n      .then((res) => res.json())\n      .then(setResults)\n      .catch(() => {});\n\n    return () => controller.abort();\n  }, [query]);\n\n  return (\n    <div>\n      <input\n        value={query}\n        onChange={(e) => setQuery(e.target.value)}\n        placeholder=\"Search products\"\n      />\n      <ResultList results={results} />\n    </div>\n  );\n}"
+          },
+          {
+            "type": "p",
+            "text": "Wrapped in an `<Activity>` from the previous example, the behavior is exactly what users expect. Type a query, switch to Home, switch back: the input still holds the query, the results are still on screen, the scroll position is intact. When the tab was hidden, the effect's cleanup ran and aborted any in-flight request. When it became visible again, the effect re-ran and refetched with the preserved `query` - so the results are not just remembered, they are fresh."
+          }
+        ]
+      },
+      {
+        "heading": "Effects Unmount When Hidden - And That Is the Point",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "This is the part of the API people trip over, so it is worth staring at directly. Hiding an activity runs your effect cleanups, exactly as if the component had unmounted. Showing it again re-runs the effect setups. State, refs and DOM survive the whole round trip."
+          },
+          {
+            "type": "code",
+            "language": "jsx",
+            "code": "function LivePrices() {\n  const [prices, setPrices] = useState({});\n\n  useEffect(() => {\n    console.log(\"subscribing\");\n    const socket = new WebSocket(\"wss://example.com/prices\");\n    socket.onmessage = (event) => {\n      setPrices(JSON.parse(event.data));\n    };\n    return () => {\n      console.log(\"unsubscribing\");\n      socket.close();\n    };\n  }, []);\n\n  return <PriceTable prices={prices} />;\n}"
+          },
+          {
+            "type": "p",
+            "text": "Put `LivePrices` in a hidden activity and the console shows *unsubscribing*: the socket closes, the browser stops doing work for a screen nobody can see. Reveal it and *subscribing* logs again, the socket reconnects, and - because `prices` was preserved - the table renders the last known data instantly while fresh data streams in. If your effects have symmetric setup and cleanup (which the `StrictMode` double-invoke has been pushing you towards for years), Activity rewards you for free."
+          },
+          {
+            "type": "p",
+            "text": "Two things to check in your own code before adopting it:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "Effects that fire one-shot side effects on mount - analytics page views, autofocus, `open` calls - will fire again every time the activity becomes visible. Guard them with a ref if once-ever really means once-ever.",
+              "State updates that happen while a tree is hidden are processed at low priority. Do not build logic that depends on a hidden component re-rendering promptly."
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "Pre-rendering the Screen the User Visits Next",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "The second use case flips the feature around. Instead of hiding where the user *was*, you can pre-render where they are *going*. A hidden activity renders at lower priority than everything visible, so React fills it in when there is idle time:"
+          },
+          {
+            "type": "code",
+            "language": "jsx",
+            "code": "function ProductPage({ productId, nextProductId }) {\n  return (\n    <>\n      <Activity mode=\"visible\">\n        <Product id={productId} />\n      </Activity>\n\n      {nextProductId != null && (\n        <Activity mode=\"hidden\">\n          <Product id={nextProductId} />\n        </Activity>\n      )}\n    </>\n  );\n}"
+          },
+          {
+            "type": "p",
+            "text": "When the user clicks through to the next product, the tree is already built - the navigation is a mode flip instead of a cold mount. One important caveat: because effects do not run while hidden, data fetching that lives in `useEffect` will *not* be warmed up by this pattern. Pre-rendering pays off for render-heavy trees, and for data layers that fetch during render through Suspense-enabled libraries. If all your fetching is effect-based, you are pre-building the skeleton, not the data."
+          }
+        ]
+      },
+      {
+        "heading": "When to Reach for It - and When Not To",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Good fits are anywhere users bounce between stateful views:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "Tab bars and segmented controls where each tab has forms, filters or scroll state.",
+              "Multi-step wizards where *Back* should restore the previous step exactly as the user left it.",
+              "Master-detail layouts where closing a detail pane should not forget it.",
+              "List-to-detail navigation where returning to the list should keep its scroll position and expanded state."
+            ]
+          },
+          {
+            "type": "p",
+            "text": "The trade-off is memory. A hidden activity keeps its entire component tree and DOM alive, so wrapping an unbounded number of heavy screens is a leak with extra steps. Keep it to a handful of activities, and prefer hiding the small stateful core of a screen over hiding the whole page when you can."
+          },
+          {
+            "type": "p",
+            "text": "You need `react` and `react-dom` at 19.2 or later - `Activity` is a stable export there, no experimental channel required. Like the [form Actions that landed in 19](/blog/react-19-form-actions), it is one of those APIs that deletes code you have been writing forever: every hand-rolled keep-alive wrapper, every store field that exists only because unmounting forgets. Start with your most complained-about tab switcher, wrap each tab in an `<Activity>`, and check your effect cleanups. That is the entire migration."
+          }
+        ]
+      }
+    ]
+  },
 ];
 
 export const getAllPosts = () =>
