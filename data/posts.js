@@ -1124,6 +1124,157 @@ const firstTenErrors = lines(logText)
       }
     ]
   },
+  {
+    "slug": "javascript-using-declarations",
+    "title": "JavaScript using Declarations: Deterministic Cleanup Without try/finally Pyramids",
+    "description": "Explicit Resource Management brings using and await using to JavaScript. How Symbol.dispose, Symbol.asyncDispose and DisposableStack replace nested try/finally - with real code.",
+    "datePublished": "2026-08-08",
+    "readingMinutes": 8,
+    "content": [
+      {
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Every JavaScript codebase that touches files, sockets, locks, or observers ends up with the same shape of bug: a resource gets acquired, something throws, and the cleanup never runs. The classical defense is `try/finally`, and it works - right up until you hold three resources at once and your function becomes a staircase of nested `finally` blocks."
+          },
+          {
+            "type": "p",
+            "text": "The Explicit Resource Management proposal - the `using` and `await using` declarations, backed by `Symbol.dispose` and `Symbol.asyncDispose` - fixes this at the language level, and it has now advanced through TC39 to the final stage and shipped in current V8-based runtimes. TypeScript has supported it since 5.2, so there is a good chance your toolchain already understands it. This post covers how it works, where it genuinely helps, and the sharp edges to know before you adopt it."
+          }
+        ]
+      },
+      {
+        "heading": "The problem: cleanup is manual and easy to drop",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Here is the honest version of a function that opens a file handle and a stream in Node and cleans up properly:"
+          },
+          {
+            "type": "code",
+            "language": "js",
+            "code": "async function processUpload(path) {\n  const handle = await fs.open(path);\n  try {\n    const stream = handle.createReadStream();\n    try {\n      await parse(stream);\n    } finally {\n      stream.destroy();\n    }\n  } finally {\n    await handle.close();\n  }\n}"
+          },
+          {
+            "type": "p",
+            "text": "Nothing here is wrong - it is just fragile. Each new resource adds a level of nesting, the acquisition and its cleanup drift further apart, and a refactor that adds an early `return` above the wrong line silently leaks. Linters cannot reliably save you, because they cannot know what counts as a resource."
+          }
+        ]
+      },
+      {
+        "heading": "using: scope-bound cleanup",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "A `using` declaration binds a value to the enclosing block, exactly like `const` - with one addition: when the block exits, for any reason, the runtime calls the value's `[Symbol.dispose]()` method. Normal completion, early `return`, `throw`, `break` - the cleanup runs on all of them, in the same deterministic way `finally` would."
+          },
+          {
+            "type": "code",
+            "language": "js",
+            "code": "class TempDir {\n  constructor() {\n    this.path = fs.mkdtempSync(os.tmpdir() + \"/job-\");\n  }\n\n  [Symbol.dispose]() {\n    fs.rmSync(this.path, { recursive: true, force: true });\n  }\n}\n\nfunction runJob() {\n  using dir = new TempDir();\n  writeArtifacts(dir.path);\n  // dir is disposed here, even if writeArtifacts throws\n}"
+          },
+          {
+            "type": "p",
+            "text": "The mental model: **acquisition and cleanup are declared on the same line**. You can no longer forget the cleanup, because the cleanup is not a separate statement you write - it is a protocol the resource carries with it."
+          },
+          {
+            "type": "p",
+            "text": "Two rules follow from the `const`-like semantics. First, `using` bindings cannot be reassigned. Second, the declared value must be either `null`, `undefined`, or an object with a `[Symbol.dispose]` method - anything else throws a `TypeError` at declaration time, not at cleanup time. The `null`/`undefined` allowance is deliberate: it lets you write `using lock = maybeAcquire()` and skip cleanup when acquisition legitimately produced nothing."
+          }
+        ]
+      },
+      {
+        "heading": "await using: async teardown",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Plenty of real teardown is asynchronous: closing a database connection, flushing a write stream, releasing a distributed lock. For those, `await using` calls `[Symbol.asyncDispose]()` and awaits the result before the block truly exits:"
+          },
+          {
+            "type": "code",
+            "language": "js",
+            "code": "async function withConnection(url) {\n  await using conn = await connect(url);\n  // conn[Symbol.asyncDispose]() runs when this block exits,\n  // and is awaited before execution continues\n  return await conn.query(\"select 1\");\n}"
+          },
+          {
+            "type": "p",
+            "text": "Note the two `await`s do different jobs: the first awaits *acquisition* (an ordinary promise), while the `await` in `await using` is about *disposal*. An `await using` declaration is only legal where `await` itself is legal - async functions and module top level."
+          }
+        ]
+      },
+      {
+        "heading": "It is not just files: DOM and observer cleanup",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "The protocol is just a method name, so anything can opt in - including ad-hoc objects wrapping browser APIs that need `disconnect` or `removeEventListener` calls:"
+          },
+          {
+            "type": "code",
+            "language": "js",
+            "code": "function trackResize(el, onChange) {\n  const observer = new ResizeObserver(onChange);\n  observer.observe(el);\n  return {\n    observer,\n    [Symbol.dispose]() {\n      observer.disconnect();\n    },\n  };\n}\n\nfunction measureOnce(el) {\n  using tracked = trackResize(el, sync);\n  readLayout(el);\n  // observer.disconnect() has run by the time we return\n}"
+          },
+          {
+            "type": "p",
+            "text": "This pattern - return an object that carries its own `[Symbol.dispose]` - is the idiomatic bridge for APIs that predate the proposal. Libraries are increasingly shipping it natively, and in Node, several built-ins (timers, file handles, readline interfaces and more) have been growing disposable support since Node 20, with fresh additions landing through the Node 22 and 24 lines."
+          }
+        ]
+      },
+      {
+        "heading": "DisposableStack: dynamic and conditional resources",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "`using` covers the static case - a fixed set of resources known at write time. When you acquire a variable number of resources, or need to hand a bundle of them across a function boundary, reach for `DisposableStack` (and its async twin `AsyncDisposableStack`):"
+          },
+          {
+            "type": "code",
+            "language": "js",
+            "code": "function acquireAll(paths) {\n  using stack = new DisposableStack();\n  const handles = paths.map(function (p) {\n    return stack.use(openSync(p));\n  });\n  process(handles);\n  // every handle opened so far is closed on exit,\n  // in reverse order, even if one openSync throws halfway\n}"
+          },
+          {
+            "type": "p",
+            "text": "The stack itself is disposable, so a single `using stack` line guards everything pushed onto it. It also has `adopt` for values that do not implement the protocol (you supply the cleanup callback), `defer` for bare cleanup functions with no value, and `move` for transferring ownership out of the current scope - the escape hatch for constructors that acquire resources but want to hand them to the instance on success."
+          }
+        ]
+      },
+      {
+        "heading": "Semantics worth memorizing",
+        "blocks": [
+          {
+            "type": "list",
+            "items": [
+              "Disposal runs in **reverse declaration order** - last acquired, first released - matching how dependent resources are typically layered.",
+              "Errors thrown *during disposal* do not vanish: if the body also threw, both are packaged into a `SuppressedError`, so the original failure is never silently replaced.",
+              "Disposal is scope-based, not function-based: a `using` inside an `if` block or a bare `{ }` block disposes at that block's end, which makes tight resource windows trivial to express.",
+              "`using` in a `for...of` loop body disposes at the end of **each iteration** - a common source of pleasant surprise in batch-processing code."
+            ]
+          },
+          {
+            "type": "code",
+            "language": "js",
+            "code": "{\n  using a = makeResource(\"a\");\n  using b = makeResource(\"b\");\n  // on block exit: b is disposed first, then a\n}"
+          }
+        ]
+      },
+      {
+        "heading": "Support and adoption strategy",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "As of mid-2026, `using` and `await using` are supported in current Chrome and Edge, in recent Firefox releases, and in Node from the 24 line onward (V8 shipped the feature to stable in 2025); Safari remains the browser to double-check before relying on native support. For anything older, TypeScript 5.2+ and Babel both transpile the syntax down to `try/finally` - you get the ergonomics today and native execution as targets catch up. Check your actual runtime matrix before shipping unpolyfilled syntax to browsers."
+          },
+          {
+            "type": "p",
+            "text": "My adoption advice mirrors what worked for [iterator helpers](/blog/javascript-iterator-helpers) and the [Temporal API](/blog/javascript-temporal-api-practical-guide): start in code you fully control. Wrap your two or three most leak-prone resources - the database handle, the temp directory, the file lock - in `Symbol.dispose`, convert their call sites to `using`, and leave the rest of the codebase alone. The wins concentrate exactly where the `try/finally` pyramids used to live."
+          },
+          {
+            "type": "p",
+            "text": "`using` will not change how you write a React component. It absolutely changes how you write scripts, servers, tests and tooling - the code where resources leak in the dark. Declare the cleanup on the acquisition line, and a whole category of bug stops being writable."
+          }
+        ]
+      }
+    ]
+  },
 ];
 
 export const getAllPosts = () =>
