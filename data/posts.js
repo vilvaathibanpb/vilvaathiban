@@ -1434,6 +1434,221 @@ const firstTenErrors = lines(logText)
       }
     ]
   },
+  {
+    slug: "building-mcps-typescript-mcp-server-guide",
+    title: "Building MCPs: A Practical Guide to Your First MCP Server in TypeScript",
+    description:
+      "Building MCPs demystified: what an MCP server actually is, how to write one in TypeScript with the official SDK, wire it into Claude, test it, and avoid the classic stdio mistakes.",
+    datePublished: "2026-08-09",
+    readingMinutes: 9,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Every AI assistant conversation about your own systems ends the same way: the model would love to help, but it cannot see your database, your internal API, or your ticket queue. The Model Context Protocol (MCP) is the fix that stuck. It gives models a standard way to discover and call tools you expose - and it has quietly become the integration layer for Claude, IDE agents, and a fast-growing catalogue of servers.",
+          },
+          {
+            type: "p",
+            text: "This post is the guide I wish I had when I started building MCPs: what a server actually consists of, a complete working example in TypeScript, how to plug it into a client, and the handful of mistakes that cost every first-time author an afternoon.",
+          },
+        ],
+      },
+      {
+        heading: "What an MCP server actually is",
+        blocks: [
+          {
+            type: "p",
+            text: "Strip away the hype and an MCP server is a small program that answers a fixed set of JSON-RPC messages. A client (Claude Code, Claude Desktop, an IDE, your own agent) connects to it over a transport, asks what can you do?, and gets back declared capabilities in three flavors:",
+          },
+          {
+            type: "list",
+            items: [
+              "Tools - functions the model may call, each with a name, description, and a typed input schema. This is the workhorse: `search_orders`, `create_ticket`, `run_query`.",
+              "Resources - read-only data the client can load as context: files, records, docs.",
+              "Prompts - reusable prompt templates the server offers to the client.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The model never imports your code. It sees tool names, descriptions and schemas - and decides when to call them. Your descriptions are effectively UX copy for a robot: write them the way you would explain the tool to a new teammate, because that text is all the model has.",
+          },
+        ],
+      },
+      {
+        heading: "Setting up the project",
+        blocks: [
+          {
+            type: "p",
+            text: "You need Node 18+ and two dependencies: the official SDK and zod for schemas.",
+          },
+          {
+            type: "code",
+            language: "bash",
+            code: `mkdir orders-mcp && cd orders-mcp
+npm init -y
+npm install @modelcontextprotocol/sdk zod
+npm install -D typescript tsx @types/node
+npx tsc --init --target es2022 --module nodenext`,
+          },
+          {
+            type: "p",
+            text: "One package.json detail matters: MCP servers launched over stdio are plain executables, so add a build that produces a runnable file, and mark the project as ESM with a type field set to module.",
+          },
+        ],
+      },
+      {
+        heading: "A complete server in sixty lines",
+        blocks: [
+          {
+            type: "p",
+            text: "Here is a real, runnable server exposing two tools over stdio. It pretends to wrap an orders API; swap the internals for your own fetch calls and it becomes a production integration.",
+          },
+          {
+            type: "code",
+            language: "ts",
+            code: `// src/server.ts
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { z } from "zod";
+
+const server = new McpServer({
+  name: "orders-mcp",
+  version: "1.0.0",
+});
+
+const ORDERS = [
+  { id: "ord_1", customer: "Meena", status: "shipped", total: 4200 },
+  { id: "ord_2", customer: "Arjun", status: "pending", total: 1150 },
+];
+
+server.registerTool(
+  "search_orders",
+  {
+    title: "Search orders",
+    description:
+      "Search customer orders by status. Returns id, customer, status and total for each match.",
+    inputSchema: {
+      status: z.enum(["pending", "shipped", "cancelled"]),
+    },
+  },
+  async ({ status }) => {
+    const hits = ORDERS.filter((o) => o.status === status);
+    return {
+      content: [{ type: "text", text: JSON.stringify(hits, null, 2) }],
+    };
+  }
+);
+
+server.registerTool(
+  "get_order",
+  {
+    title: "Get one order",
+    description: "Fetch a single order by its id, e.g. ord_1.",
+    inputSchema: { id: z.string() },
+  },
+  async ({ id }) => {
+    const order = ORDERS.find((o) => o.id === id);
+    if (!order) {
+      return {
+        content: [{ type: "text", text: "No order with id " + id }],
+        isError: true,
+      };
+    }
+    return {
+      content: [{ type: "text", text: JSON.stringify(order, null, 2) }],
+    };
+  }
+);
+
+const transport = new StdioServerTransport();
+await server.connect(transport);
+console.error("orders-mcp running on stdio");`,
+          },
+          {
+            type: "p",
+            text: "Three things to notice. Tool results are a content array, not a bare return value - text is the common case. Errors you want the model to see and recover from go back as normal results with `isError: true`, not as thrown exceptions. And the startup log goes to `console.error`, which brings us to the mistake everyone makes exactly once.",
+          },
+        ],
+      },
+      {
+        heading: "The stdio rule: stdout belongs to the protocol",
+        blocks: [
+          {
+            type: "p",
+            text: "Over the stdio transport, your process talks JSON-RPC on stdout. That stream is sacred. A single stray `console.log` - yours, or a dependency's - injects garbage between protocol frames, and the client sees a server that connects and then mysteriously dies.",
+          },
+          {
+            type: "list",
+            items: [
+              "Log to stderr with `console.error`; clients forward it to their debug logs.",
+              "Audit dependencies that print banners or progress bars to stdout.",
+              "If you must use a logging library, configure its destination explicitly.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Wiring it into Claude Code and testing it",
+        blocks: [
+          {
+            type: "p",
+            text: "Clients launch stdio servers themselves - you register the command, not a URL. For Claude Code it is one line in a terminal:",
+          },
+          {
+            type: "code",
+            language: "bash",
+            code: `claude mcp add orders -- npx tsx /absolute/path/to/src/server.ts`,
+          },
+          {
+            type: "p",
+            text: "For Claude Desktop, the equivalent JSON entry goes in its config file under mcpServers, with command and args fields. Restart the client and ask it something a tool can answer - list the pending orders - and watch it pick `search_orders` unprompted.",
+          },
+          {
+            type: "p",
+            text: "For debugging without a full client, the MCP Inspector gives you a web UI that connects to your server, lists its tools, and lets you invoke them by hand:",
+          },
+          {
+            type: "code",
+            language: "bash",
+            code: `npx @modelcontextprotocol/inspector npx tsx src/server.ts`,
+          },
+        ],
+      },
+      {
+        heading: "Design notes from the trenches",
+        blocks: [
+          {
+            type: "p",
+            text: "Getting a server running is a morning's work. Making one that a model uses well is the actual craft - the part of building MCPs where an architect's judgement earns its keep.",
+          },
+          {
+            type: "list",
+            items: [
+              "Fewer, task-shaped tools beat an endpoint-per-tool mirror of your REST API. The model reasons better over `find_customer_orders` than over four chained CRUD calls.",
+              "Schemas are guardrails: constrain with enums and descriptions so invalid calls are impossible rather than merely discouraged.",
+              "Return compact, structured text. Ten thousand tokens of raw JSON per call will drown the model's context; filter and summarize server-side.",
+              "Treat every tool as an attack surface: the model chooses the arguments, so validate and scope permissions exactly as you would for an untrusted caller.",
+              "Version from day one - clients cache capabilities, and a renamed tool is a breaking change.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Beyond stdio: serving MCPs over HTTP",
+        blocks: [
+          {
+            type: "p",
+            text: "Stdio is perfect for local, personal tools. The moment a server needs to be shared - one deployment, many users, real auth - you switch the transport to Streamable HTTP, the protocol's remote transport. The SDK ships a server class for it, your tool code stays identical, and the server becomes an ordinary web service you can put behind normal infrastructure. That symmetry is MCP's best property: the integration you prototype on your laptop over stdio is the same code you deploy for your whole team.",
+          },
+          {
+            type: "p",
+            text: "Start small: wrap one internal API you use daily, register it with two tools, and live with it for a week. You will learn more about tool design from watching a model actually use your server than from any spec - and once the first one clicks, you will find yourself building MCPs for everything.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const getAllPosts = () =>
