@@ -1649,6 +1649,128 @@ console.error("orders-mcp running on stdio");`,
       },
     ],
   },
+  {
+    slug: "mcp-architecture-explained",
+    title:
+      "MCP Architecture Explained: Hosts, Clients, Servers, and the 2026 Spec",
+    description:
+      "How the Model Context Protocol actually works — hosts, clients, servers, transports, and primitives — plus what the 2026 spec changes for anyone building MCPs.",
+    datePublished: "2026-08-10",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "The Model Context Protocol has gone from an Anthropic announcement to the default way AI applications talk to external tools, with OpenAI, Google DeepMind and Microsoft all adopting it and official SDKs in TypeScript, Python, C#, Java and Swift. Most tutorials jump straight to writing a server. This post does the opposite: it explains the architecture — who talks to whom, over what, and why the protocol is shaped the way it is — because once the architecture clicks, every MCP API feels obvious instead of arbitrary.",
+          },
+          {
+            type: "p",
+            text: "If you want the hands-on companion, I have a full walkthrough of building a TypeScript MCP server on this blog; this article is the map that guide assumes.",
+          },
+        ],
+      },
+      {
+        heading: "The three roles: host, client, server",
+        blocks: [
+          {
+            type: "p",
+            text: "MCP is a client-server protocol built on JSON-RPC 2.0, with three distinct roles that people constantly conflate:",
+          },
+          {
+            type: "list",
+            items: [
+              "The **host** is the AI application the user actually touches — Claude Desktop, an IDE like Cursor, a chat product you built. The host owns the model loop, decides which servers to connect, and enforces permissions.",
+              "The **client** lives inside the host. It speaks the protocol: one client maintains one stateful connection to exactly one server. A host that connects to five servers runs five clients.",
+              "The **server** exposes capabilities — a database, a filesystem, an internal API — as structured primitives the model can use. Servers know nothing about the model; they answer protocol requests.",
+            ],
+          },
+          {
+            type: "p",
+            text: "This separation is the protocol's core design bet. Servers stay simple because the hard problems — model prompting, tool-call orchestration, user consent — belong to the host. That is why a weekend-project MCP server can plug into any compliant host and just work.",
+          },
+        ],
+      },
+      {
+        heading: "The primitives: what a server can offer",
+        blocks: [
+          {
+            type: "p",
+            text: "Everything a server exposes falls into three primitives, and choosing the right one is most of MCP design:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Tools** are model-controlled functions — the model decides to call them, with arguments, and gets results back. Anything with side effects or parameters belongs here.",
+              "**Resources** are application-controlled data — documents, table schemas, file contents — identified by URI, meant to be read into context rather than executed.",
+              "**Prompts** are user-controlled templates — reusable, parameterized instructions the user explicitly invokes, like slash commands.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The direction of control matters more than the data. A common design mistake is exposing everything as tools; if the model never needs to decide anything, a resource is cheaper and safer. The protocol also defines client-side primitives — sampling lets a server ask the host's model to complete something, roots tell servers which directories they may touch, and elicitation lets a server ask the user a structured question mid-operation.",
+          },
+        ],
+      },
+      {
+        heading: "Transports: stdio and Streamable HTTP",
+        blocks: [
+          {
+            type: "p",
+            text: "The protocol layer is transport-agnostic JSON-RPC; two transports are standard. For local servers, the host spawns the server as a subprocess and exchanges messages over stdin and stdout — this is the stdio transport, and it is why local MCP configs are just a command line. For remote servers, the current standard is Streamable HTTP: a single endpoint accepting POSTed JSON-RPC messages, with optional server-sent events for streaming and server-initiated messages. It replaced the older HTTP-plus-SSE transport, which required a persistent event stream and made servers painful to scale.",
+          },
+          {
+            type: "p",
+            text: "A message crossing the wire is plain JSON-RPC. A tool invocation looks like this:",
+          },
+          {
+            type: "code",
+            language: "json",
+            code: '{\n  "jsonrpc": "2.0",\n  "id": 42,\n  "method": "tools/call",\n  "params": {\n    "name": "search_flights",\n    "arguments": { "from": "BLR", "to": "BER" }\n  }\n}',
+          },
+          {
+            type: "p",
+            text: "Every connection starts with an initialize handshake where client and server exchange protocol versions and declare capabilities — a server that does not advertise tools will never receive a tools/call. Capability negotiation is what lets the protocol evolve without breaking older implementations.",
+          },
+        ],
+      },
+      {
+        heading: "What the 2026 spec changes",
+        blocks: [
+          {
+            type: "p",
+            text: "The specification released as 2026-07-28 is the biggest revision since Streamable HTTP, and its headline theme is statelessness. Until now, servers had to maintain per-session state, which made scaling remote MCP servers behind load balancers awkward — a reconnect could land on a replica that had never seen your session. The new revision standardizes a stateless protocol core with defined session creation, resumption and migration, so restarts and scale-out become invisible to clients.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Stateless core** — remote servers can run as ordinary horizontally-scaled web services.",
+              "**Multi round-trip requests** — a single logical operation can span several exchanges, enabling richer interactions like mid-tool elicitation without hacks.",
+              "**Header-based routing and cacheable list results** — infrastructure like gateways and registries can route and cache without parsing message bodies.",
+              "**A formal extensions framework** — vendors can ship optional capabilities without forking the spec.",
+            ],
+          },
+          {
+            type: "p",
+            text: "If you built a server against the 2025 revisions, nothing breaks immediately — hosts negotiate versions — but the direction is clear: remote, stateless, and infrastructure-friendly is the future default, and stdio remains the local development path.",
+          },
+        ],
+      },
+      {
+        heading: "How the pieces fit: one request, end to end",
+        blocks: [
+          {
+            type: "p",
+            text: "Trace a single user message through the stack and the architecture stops being abstract. The user asks the host a question. The host assembles context — including tool definitions previously fetched from each connected server via tools/list — and calls the model. The model responds with a tool call. The host routes it to the right client, the client sends tools/call over its transport, the server executes and returns content, and the host feeds that result back into the model loop, which produces the final answer. The model never talks to a server; the server never sees the conversation. Each role sees exactly what it needs and nothing more.",
+          },
+          {
+            type: "p",
+            text: "That narrowness is the architecture. MCP is not trying to be an agent framework — it is the boundary layer that lets any model-facing application and any capability-owning service meet at a well-defined seam. Understand the seam, and both sides of it become straightforward to build. When you are ready to build the server side, the TypeScript MCP server guide on this blog picks up exactly where this article ends.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const getAllPosts = () =>
