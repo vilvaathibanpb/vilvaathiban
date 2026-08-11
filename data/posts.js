@@ -1771,6 +1771,155 @@ console.error("orders-mcp running on stdio");`,
       },
     ],
   },
+  {
+    slug: "react-viewtransition-activity-guide",
+    title: "React ViewTransition and Activity: Smooth UI Transitions the React Way",
+    description:
+      "A practical guide to React's ViewTransition component and the Activity API: animated navigation, shared element transitions, and state-preserving hidden UI — with code.",
+    datePublished: "2026-08-11",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Animating between views has always been one of React's weak spots. The browser eventually solved its half of the problem with the View Transitions API — snapshot the old state, snapshot the new one, cross-fade between them — but wiring that imperative API into React's declarative rendering meant fighting the framework. You had to know exactly when React would commit, intercept it, and hope concurrent rendering did not pull the rug out.",
+          },
+          {
+            type: "p",
+            text: "React now has first-class answers: the experimental `<ViewTransition>` component, which coordinates browser view transitions with React's render cycle, and `<Activity>`, which lets you hide UI while preserving its state (and pre-render UI the user has not visited yet). Activity shipped as stable in React 19.2; ViewTransition is still experimental, but it has been testable in the canary channel long enough to get a real feel for it. Together they cover the two hardest parts of app-like UI: moving between views smoothly, and not losing state when you do.",
+          },
+        ],
+      },
+      {
+        heading: "The problem ViewTransition solves",
+        blocks: [
+          {
+            type: "p",
+            text: "The browser's View Transitions API is fundamentally a before/after mechanism: you call `document.startViewTransition(callback)`, the browser screenshots the current page, runs your DOM update, screenshots the result, and animates between the two. The catch in React apps is the callback — React updates the DOM on its own schedule, asynchronously, possibly in interruptible chunks. Calling the browser API by hand around a `setState` is a race you eventually lose.",
+          },
+          {
+            type: "p",
+            text: "`<ViewTransition>` removes the race by making React the one who calls the browser. You wrap the part of the tree that should animate, and React triggers the browser transition at the right moment in its own commit — but only for updates it considers transitions:",
+          },
+          {
+            type: "list",
+            items: [
+              "State updates wrapped in `startTransition`",
+              "Updates driven by `useDeferredValue`",
+              "A `<Suspense>` boundary swapping fallback for content",
+            ],
+          },
+          {
+            type: "p",
+            text: "That list is the mental model shift: animation is opt-in per update, not per element. Urgent updates (typing, clicking a checkbox) stay instant; transitions (navigation, filtering, tab switches) animate.",
+          },
+        ],
+      },
+      {
+        heading: "A minimal animated navigation",
+        blocks: [
+          {
+            type: "p",
+            text: "Here is the smallest useful example — a two-page app where switching pages cross-fades:",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: "import { unstable_ViewTransition as ViewTransition, useState, startTransition } from \"react\";\n\nfunction App() {\n  const [page, setPage] = useState(\"home\");\n\n  function navigate(next) {\n    // Only transition-wrapped updates animate\n    startTransition(() => setPage(next));\n  }\n\n  return (\n    <ViewTransition>\n      <div className=\"app\">\n        {page === \"home\" ? <Home onOpen={navigate} /> : <Detail onBack={navigate} />}\n      </div>\n    </ViewTransition>\n  );\n}",
+          },
+          {
+            type: "p",
+            text: "Remove the `startTransition` and the update still works — it just snaps instantly. That degradation story also covers old browsers: if the View Transitions API is missing, React skips the animation and applies the update normally. You are layering polish on top of a working app, which is exactly how progressive enhancement should feel.",
+          },
+        ],
+      },
+      {
+        heading: "Shared element transitions",
+        blocks: [
+          {
+            type: "p",
+            text: "The feature that makes people gasp in demos is the shared element transition: a thumbnail in a list appears to fly into place as the hero image on a detail page. In React this falls out of a single prop. Give a `<ViewTransition>` a `name`, and when one tree removes a named element while the next tree adds one with the same name, React pairs them and the browser morphs one into the other:",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: "function ListItem({ video }) {\n  return (\n    <ViewTransition name={\"video-\" + video.id}>\n      <img className=\"thumb\" src={video.thumbUrl} alt={video.title} />\n    </ViewTransition>\n  );\n}\n\nfunction DetailHero({ video }) {\n  return (\n    <ViewTransition name={\"video-\" + video.id}>\n      <img className=\"hero\" src={video.fullUrl} alt={video.title} />\n    </ViewTransition>\n  );\n}",
+          },
+          {
+            type: "p",
+            text: "Names must be unique on the page at any moment, so derive them from stable ids. For list-to-detail flows this replaces entire animation libraries: no measuring rects, no portals, no FLIP arithmetic.",
+          },
+        ],
+      },
+      {
+        heading: "Customizing the animation",
+        blocks: [
+          {
+            type: "p",
+            text: "By default you get the browser's cross-fade. Two levers change that. First, CSS: view transitions expose pseudo-elements you can target with normal keyframes, and `<ViewTransition>` accepts a `default` prop naming a CSS class whose transition styles apply. Second, `addTransitionType` lets you tag an update with a semantic label — say navigation-forward versus navigation-back — and vary the animation per type:",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: "import { unstable_addTransitionType as addTransitionType } from \"react\";\n\nfunction goBack() {\n  startTransition(() => {\n    addTransitionType(\"nav-back\");\n    setPage(\"home\");\n  });\n}",
+          },
+          {
+            type: "p",
+            text: "Combined with a couple of CSS rules keyed off the type, you get the slide-left/slide-right pattern of native mobile navigation in a few dozen lines total.",
+          },
+        ],
+      },
+      {
+        heading: "Activity: hide UI without killing it",
+        blocks: [
+          {
+            type: "p",
+            text: "The second half of the story is what happens to the view you navigated away from. Unmount it and you lose everything — scroll position, half-typed form fields, loaded data. Keep it mounted with `display: none` and you pay for its effects, subscriptions, and timers forever. `<Activity>`, stable since React 19.2, is the missing third option:",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: "import { Activity } from \"react\";\n\nfunction Tabs({ active }) {\n  return (\n    <>\n      <Activity mode={active === \"feed\" ? \"visible\" : \"hidden\"}>\n        <Feed />\n      </Activity>\n      <Activity mode={active === \"profile\" ? \"visible\" : \"hidden\"}>\n        <Profile />\n      </Activity>\n    </>\n  );\n}",
+          },
+          {
+            type: "p",
+            text: "A hidden Activity keeps its component state — that half-typed comment survives — but React unmounts its effects, so subscriptions and timers stop running while the tree is offscreen. Flip it back to visible and state is exactly where the user left it, effects re-fire, and the UI appears instantly because the DOM was already there. Hidden activities also render at lower priority, which makes them a cheap way to pre-render the tab a user is likely to open next.",
+          },
+          {
+            type: "p",
+            text: "One consequence worth internalizing: your effects must be resilient to unmounting and remounting while state persists. If you have been following the advice React has given since Strict Mode started double-firing effects in development, you are already fine — Activity is the payoff for writing effects with proper cleanup all along.",
+          },
+        ],
+      },
+      {
+        heading: "Using them together",
+        blocks: [
+          {
+            type: "p",
+            text: "The two APIs compose naturally: Activity decides what exists, ViewTransition decides how the change looks. A tab bar where switching tabs slides content while every tab keeps its scroll position is the canonical pairing — wrap each `<Activity>` in a `<ViewTransition>`, drive the active tab with `startTransition`, and both concerns are handled in a screenful of code.",
+          },
+        ],
+      },
+      {
+        heading: "Should you use them today?",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "`<Activity>`: yes. It is stable, the use cases (tabs, wizards, back navigation, pre-rendering) are everywhere, and adopting it is usually a local refactor.",
+              "`<ViewTransition>`: in production, only if you can tolerate an experimental API — it lives behind an `unstable_` prefix for a reason and details may still shift. In side projects and app shells you control end-to-end, it is already delightful.",
+              "Either way, structure updates with `startTransition` and `useDeferredValue` now — that work improves responsiveness today and is the exact contract ViewTransition hooks into later.",
+            ],
+          },
+          {
+            type: "p",
+            text: "React spent years telling us how rendering works and leaving how it looks while changing to userland. These two components close most of that gap — and if you have read my earlier posts on React 19 form actions or the React Compiler, the theme is familiar: the framework keeps absorbing the code we used to hand-roll, and the hand-rolled versions were never as good.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const getAllPosts = () =>
