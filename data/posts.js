@@ -1920,6 +1920,116 @@ console.error("orders-mcp running on stdio");`,
       },
     ],
   },
+  {
+    slug: "javascript-signals-tc39-practical-guide",
+    title: "JavaScript Signals: A Practical Guide to the TC39 Proposal",
+    description:
+      "What the TC39 Signals proposal actually gives you: Signal.State, Signal.Computed, and Watchers explained with runnable code, framework context, and honest caveats.",
+    datePublished: "2026-08-12",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Every major framework has spent the last few years converging on the same idea from different directions. Vue has `ref`, Solid has `createSignal`, Preact ships `@preact/signals`, Angular rebuilt its change detection around `signal()`. Different APIs, same primitive underneath: a value that knows who depends on it, and dependents that update automatically when it changes.",
+          },
+          {
+            type: "p",
+            text: "The TC39 Signals proposal is an attempt to move that shared primitive into JavaScript itself, so that reactive state — the part of your app that is pure logic — stops being welded to whichever framework renders it. Framework authors from Angular, Vue, Solid, Preact and others have been collaborating on the design, and an official polyfill exists today. This post walks through what the proposal actually contains, with code you can run now, and closes with the caveats you should know before using it anywhere serious.",
+          },
+        ],
+      },
+      {
+        heading: "The core API: State and Computed",
+        blocks: [
+          {
+            type: "p",
+            text: "The proposal centres on two building blocks. `Signal.State` holds a writable value. `Signal.Computed` derives a value from other signals — and tracks its dependencies automatically, just by running.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "import { Signal } from 'signal-polyfill';\n\nconst counter = new Signal.State(0);\nconst isEven = new Signal.Computed(\n  () => (counter.get() & 1) === 0\n);\nconst parity = new Signal.Computed(\n  () => (isEven.get() ? 'even' : 'odd')\n);\n\nconsole.log(parity.get()); // 'even'\ncounter.set(counter.get() + 1);\nconsole.log(parity.get()); // 'odd'",
+          },
+          {
+            type: "p",
+            text: "Notice what is missing: no dependency arrays, no subscribe calls, no teardown. When `parity` runs, it reads `isEven`, which reads `counter` — and that chain of reads *is* the dependency graph. Change `counter`, and both computeds know they are stale. This is the same auto-tracking trick Vue and Solid users have enjoyed for years, and it eliminates the entire class of forgot-to-update-the-dependency-array bugs React developers know too well.",
+          },
+        ],
+      },
+      {
+        heading: "Signals are lazy — and that matters",
+        blocks: [
+          {
+            type: "p",
+            text: "A crucial design decision: computed signals are *pull-based*. Setting `counter` above does not immediately re-run anything. The computation happens only when someone calls `.get()` — and only if a dependency actually changed since last time (results are cached and invalidated, not eagerly recomputed).",
+          },
+          {
+            type: "list",
+            items: [
+              "Update storms disappear: setting ten states triggers zero recomputations until something reads a computed.",
+              "Diamond dependencies resolve cleanly: if two computeds depend on the same state and a third depends on both, it recomputes once, not twice, and never sees an inconsistent glitch state.",
+              "Unused branches cost nothing: a computed nobody reads never runs at all.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Laziness is also why signals compose so well with rendering: a UI framework can batch reads at paint time and skip every intermediate value your state passed through between frames.",
+          },
+        ],
+      },
+      {
+        heading: "Watchers: the effect layer (for framework authors)",
+        blocks: [
+          {
+            type: "p",
+            text: "If computeds never run until read, how do you build an `effect()` that reacts to changes? The proposal deliberately does *not* ship a user-facing effect API. Instead it provides a low-level primitive, `Signal.subtle.Watcher`, that frameworks build effects on top of. The `subtle` namespace is a hint borrowed from `crypto.subtle`: this layer is easy to misuse, and most application code should never touch it.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "import { Signal } from 'signal-polyfill';\n\nlet needsFlush = false;\nconst watcher = new Signal.subtle.Watcher(() => {\n  if (!needsFlush) {\n    needsFlush = true;\n    queueMicrotask(() => {\n      needsFlush = false;\n      for (const s of watcher.getPending()) s.get();\n      watcher.watch(); // re-arm for the next change\n    });\n  }\n});\n\nfunction effect(fn) {\n  const c = new Signal.Computed(() => fn());\n  watcher.watch(c);\n  c.get(); // run once to establish dependencies\n  return () => watcher.unwatch(c);\n}\n\nconst name = new Signal.State('world');\nconst dispose = effect(\n  () => console.log('hello, ' + name.get())\n);\nname.set('signals'); // logs asynchronously: hello, signals",
+          },
+          {
+            type: "p",
+            text: "The watcher's callback fires synchronously when a watched signal *might* have changed, but it is forbidden from reading or writing signals itself — you schedule work (here via `queueMicrotask`) and pull values later. That constraint looks annoying and is actually the point: it forces batching, which is what keeps large signal graphs fast and glitch-free.",
+          },
+        ],
+      },
+      {
+        heading: "Where React fits into this",
+        blocks: [
+          {
+            type: "p",
+            text: "React is the notable non-adopter: the React team has been clear that signals do not match React's render model, and there is no plan to expose them as a React primitive. React's own answer to fine-grained update skipping is the compiler — which I covered in my React Compiler adoption guide — plus derived-state patterns inside the existing hooks model.",
+          },
+          {
+            type: "p",
+            text: "That does not make standard signals irrelevant to React developers. Shared business logic — a cart, a form engine, a sync layer — written against the standard signal API becomes portable: renderable in React through a small adapter (subscribing a component to signal changes via `useSyncExternalStore`), and natively in Angular, Vue, Solid or Preact when those align their internals with the standard. Write the logic once; let each framework decide how to repaint.",
+          },
+        ],
+      },
+      {
+        heading: "Honest caveats before you adopt",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "It is still a proposal, not a shipped language feature. The API surface has been iterated on in public and may change again before it reaches browsers — treat the polyfill as a preview, not a foundation.",
+              "No user-facing effect API means every app needs a helper like the one above, or a small library that provides one. That gap is intentional but easy to trip over.",
+              "The polyfill is production-quality code but a moving target; pin your version and read release notes when bumping.",
+              "If you live entirely inside one framework today, its native signals (or React's compiler-optimised hooks) remain the pragmatic choice. The standard pays off at the boundaries: shared packages, framework migrations, and logic you want to outlive your current stack.",
+            ],
+          },
+          {
+            type: "p",
+            text: "My take: the interesting thing about the Signals proposal is not the API — Vue and Solid users will find it almost boring — but the politics. Rival frameworks agreeing on a common reactive core is the ecosystem quietly admitting that state does not belong to the view layer. Learn the primitive now in a side project; the mental model transfers everywhere, whatever happens to the spec text.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const getAllPosts = () =>
