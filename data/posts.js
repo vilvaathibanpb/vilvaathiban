@@ -2030,6 +2030,155 @@ console.error("orders-mcp running on stdio");`,
       },
     ],
   },
+  {
+    slug: "javascript-set-methods-union-intersection-difference",
+    title:
+      "JavaScript Set Methods: union, intersection, difference and Friends, Explained",
+    description:
+      "JavaScript finally has real set operations: union, intersection, difference, symmetricDifference and the subset checks. How each works, the set-like rules, and where they beat array tricks.",
+    datePublished: "2026-08-14",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "For most of JavaScript's life, `Set` was a strangely half-finished tool. It gave us uniqueness and fast `has()` lookups, but the moment you wanted an actual set operation — the union of two sets, the items they share, the items in one but not the other — you were back to spreading into arrays and chaining `filter`. Every codebase grew the same three helper functions, and every one of them quietly ran in quadratic time when someone passed arrays instead of sets.",
+          },
+          {
+            type: "p",
+            text: "That era is over. The set methods proposal reached ES2025, and the seven new methods — `union`, `intersection`, `difference`, `symmetricDifference`, `isSubsetOf`, `isSupersetOf` and `isDisjointFrom` — are Baseline available: shipped in Chrome 122, Firefox 127 and Safari 17, and available in Node.js 22. This post walks through what each one does, the slightly surprising rules about what you can pass to them, and the places they genuinely simplify real code.",
+          },
+        ],
+      },
+      {
+        heading: "The four operations that return a new Set",
+        blocks: [
+          {
+            type: "p",
+            text: "The first four methods are the classic Venn-diagram operations. Each returns a new `Set` and leaves both inputs untouched:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const frontend = new Set([\"alice\", \"bala\", \"chen\", \"divya\"]);\nconst oncall = new Set([\"chen\", \"divya\", \"emil\"]);\n\nfrontend.union(oncall);\n// Set { \"alice\", \"bala\", \"chen\", \"divya\", \"emil\" }\n\nfrontend.intersection(oncall);\n// Set { \"chen\", \"divya\" }\n\nfrontend.difference(oncall);\n// Set { \"alice\", \"bala\" }  (in frontend, not oncall)\n\nfrontend.symmetricDifference(oncall);\n// Set { \"alice\", \"bala\", \"emil\" }  (in exactly one of the two)",
+          },
+          {
+            type: "p",
+            text: "Two details worth internalizing. First, `difference` is directional: `a.difference(b)` keeps what is unique to `a`, so swapping the receiver changes the answer. Second, `symmetricDifference` is the one people forget exists — it answers \"what changed between these two snapshots\" in a single call, which previously took two filters and a concat.",
+          },
+          {
+            type: "p",
+            text: "Order is preserved in a predictable way: the result iterates in the insertion order of the receiver set first, then (for `union` and `symmetricDifference`) the extra items from the argument in its order. Equality is the usual SameValueZero rule sets always used — objects compare by reference, `NaN` equals `NaN`.",
+          },
+        ],
+      },
+      {
+        heading: "The three boolean checks",
+        blocks: [
+          {
+            type: "p",
+            text: "The remaining three methods answer questions you previously wrote as `every` loops:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const required = new Set([\"read\", \"write\"]);\nconst granted = new Set([\"read\", \"write\", \"admin\"]);\n\nrequired.isSubsetOf(granted);   // true  - every required perm is granted\ngranted.isSupersetOf(required); // true  - same check, other direction\n\nconst weekend = new Set([\"sat\", \"sun\"]);\nconst workdays = new Set([\"mon\", \"tue\", \"wed\"]);\nweekend.isDisjointFrom(workdays); // true - no overlap at all",
+          },
+          {
+            type: "p",
+            text: "`isSubsetOf` reads exactly like the permission checks, feature-flag gates and validation rules it replaces. `isDisjointFrom` is the sleeper hit: \"do these two groups share nothing\" is a common invariant — conflicting CSS class groups, mutually exclusive config options, reserved versus user-chosen names — and expressing it directly makes the intent auditable at a glance. Note the edge cases follow real set theory: an empty set is a subset of everything and disjoint from everything, including itself.",
+          },
+        ],
+      },
+      {
+        heading: "The set-like rule: what you can actually pass in",
+        blocks: [
+          {
+            type: "p",
+            text: "Here is the part that surprises people in code review. The argument to these methods does not need to be a `Set` — but it cannot be a plain array either. The spec requires a **set-like**: an object with a numeric `size` property, a `has()` method and a `keys()` method. Passing an array throws a `TypeError`, because arrays have `length` rather than `size` and no `has`.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const ids = new Set([1, 2, 3]);\n\nids.union([3, 4]);            // TypeError: not set-like\nids.union(new Set([3, 4]));   // Set { 1, 2, 3, 4 }\n\n// Maps are set-like over their keys - this just works:\nconst prices = new Map([[\"apple\", 120], [\"mango\", 90]]);\nnew Set([\"apple\", \"banana\"]).intersection(prices);\n// Set { \"apple\" }",
+          },
+          {
+            type: "p",
+            text: "Why so strict? Performance. Because the method can trust `has()` to be a fast membership check, `intersection` can iterate the smaller of the two collections and probe the larger, giving sub-linear behavior that the old spread-and-filter idiom could never achieve. The array restriction is the API nudging you toward the right data structure: if the data is conceptually a set, keep it in a `Set`, and the conversion cost at the boundary is paid once instead of on every operation.",
+          },
+          {
+            type: "p",
+            text: "The set-like rule also means you can hand-roll lazy or virtual collections — an object that answers `has()` from a database index, say — and pass it straight into `difference` without materializing it. That is a genuinely new capability, not just sugar.",
+          },
+        ],
+      },
+      {
+        heading: "Real-world before and after",
+        blocks: [
+          {
+            type: "p",
+            text: "A pattern straight from a React codebase: deciding which tag filters to show as \"active but unavailable\" after the result list narrows. The old version is the kind of code that works and still reads badly:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// Before: array juggling, O(n * m)\nconst unavailable = selectedTags.filter(\n  (t) => !visibleTags.some((v) => v === t)\n);\n\n// After: one directional difference, intent on the surface\nconst unavailable = selectedTags.difference(visibleTags);",
+          },
+          {
+            type: "p",
+            text: "And the diff-two-snapshots pattern, which shows up in cache invalidation, subscription management and sync engines alike:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const prev = new Set(prevDoc.linkedIds);\nconst next = new Set(nextDoc.linkedIds);\n\nconst added = next.difference(prev);\nconst removed = prev.difference(next);\nconst untouched = next.intersection(prev);\n\nif (!added.isDisjointFrom(archivedIds)) {\n  warn(\"linking to archived documents\");\n}",
+          },
+          {
+            type: "p",
+            text: "Every line of that maps one-to-one onto how you would describe the logic out loud, which is the whole point. The array equivalents buried the intent under mechanics.",
+          },
+        ],
+      },
+      {
+        heading: "Performance notes and one honest caveat",
+        blocks: [
+          {
+            type: "p",
+            text: "Engines implement these natively, and the practical wins are real: membership probes instead of nested scans, and `intersection` iterating the smaller side. For the common case — two sets of a few hundred to a few hundred thousand items — they comfortably beat the array idioms, and they allocate less garbage than spread-based versions.",
+          },
+          {
+            type: "list",
+            items: [
+              "Converting an array to a `Set` costs one pass. If you do multiple operations against the same data, convert once and keep the `Set` around.",
+              "These methods return new sets rather than mutating - chaining `a.union(b).difference(c)` allocates an intermediate. Fine almost always; worth knowing in hot paths.",
+              "There is no `addAll` or in-place variant. If you genuinely need mutation, a plain `for...of` loop with `add()` is still the tool.",
+              "For very old targets (Node 20, Safari 16 and below) you still need a polyfill - core-js covers the whole proposal.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The honest caveat: these are value-identity sets. Two objects with identical contents are still different members, so `difference` on sets of objects compares references, not shapes. For keyed diffing of objects, a `Map` keyed by id — combined with set operations on the id sets, as in the snapshot example above — remains the right pattern.",
+          },
+        ],
+      },
+      {
+        heading: "Takeaways",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Seven methods, two families: four constructors of new sets (`union`, `intersection`, `difference`, `symmetricDifference`) and three boolean checks (`isSubsetOf`, `isSupersetOf`, `isDisjointFrom`).",
+              "Arguments must be set-like (`size`, `has`, `keys`) - arrays throw, Maps work, custom lazy collections are possible.",
+              "`difference` is directional; `symmetricDifference` is the built-in \"what changed\" operation.",
+              "Baseline since mid-2024 (Chrome 122, Firefox 127, Safari 17, Node 22) - safe to use in new code today.",
+              "Reach for them anywhere you wrote spread-plus-filter set logic; keep `Map` for keyed object diffing.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const getAllPosts = () =>
