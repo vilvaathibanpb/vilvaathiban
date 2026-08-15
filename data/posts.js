@@ -2179,6 +2179,151 @@ console.error("orders-mcp running on stdio");`,
       },
     ],
   },
+  {
+    slug: "javascript-using-keyword-explicit-resource-management",
+    title:
+      "JavaScript's using Keyword: Explicit Resource Management, Explained with Real Code",
+    description:
+      "ES2026's using and await using declarations auto-dispose resources when a scope exits. How Symbol.dispose, DisposableStack and async disposal work in practice.",
+    datePublished: "2026-08-15",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Every JavaScript codebase has a graveyard of forgotten cleanup: file handles that never close, event listeners that outlive their element, database connections returned to the pool only on the happy path. The language finally has a first-class answer. Explicit Resource Management — the `using` and `await using` declarations — was approved as part of ES2026, and it does for cleanup what `try/finally` always promised but never made ergonomic.",
+          },
+          {
+            type: "p",
+            text: "If you have written C#'s `using` or Python's `with`, the idea will feel familiar. A value declared with `using` gets its `[Symbol.dispose]()` method called automatically when the enclosing scope exits — normally, via `return`, or via a thrown exception. No more nested `finally` pyramids, no more cleanup that only runs when nothing goes wrong.",
+          },
+        ],
+      },
+      {
+        heading: "The problem using solves",
+        blocks: [
+          {
+            type: "p",
+            text: "Here is the code we have all written. Two resources, correct cleanup in reverse order, and error handling that does not leak — it takes surprising effort to get right:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "function processFile(path) {\n  const file = openFile(path);\n  try {\n    const lock = acquireLock(file);\n    try {\n      return parse(file.read());\n    } finally {\n      lock.release();\n    }\n  } finally {\n    file.close();\n  }\n}",
+          },
+          {
+            type: "p",
+            text: "With explicit resource management, the same guarantees fit in three lines. Resources are disposed in reverse declaration order — the lock releases before the file closes, exactly like the nested version:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "function processFile(path) {\n  using file = openFile(path);\n  using lock = acquireLock(file);\n  return parse(file.read());\n}",
+          },
+          {
+            type: "p",
+            text: "When `processFile` returns — or throws anywhere in the middle — both disposers run. If a disposer itself throws while another error is in flight, the errors are combined into a `SuppressedError`, so nothing is silently swallowed.",
+          },
+        ],
+      },
+      {
+        heading: "Making your own disposables with Symbol.dispose",
+        blocks: [
+          {
+            type: "p",
+            text: "A disposable is any object with a `[Symbol.dispose]()` method. That is the whole contract. Wrapping an existing API takes a few lines:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "function openConnection(url) {\n  const conn = pool.acquire(url);\n  return {\n    query: (sql) => conn.query(sql),\n    [Symbol.dispose]() {\n      pool.release(conn);\n    },\n  };\n}\n\nfunction getUserCount() {\n  using db = openConnection(DB_URL);\n  return db.query(\"SELECT COUNT(*) FROM users\");\n} // pool.release runs here, success or failure",
+          },
+          {
+            type: "p",
+            text: "Timers and listeners — the classic sources of leaks in long-lived apps — become one-liner factories:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "function onEvent(target, type, handler) {\n  target.addEventListener(type, handler);\n  return {\n    [Symbol.dispose]: () => target.removeEventListener(type, handler),\n  };\n}\n\nfunction trackResizes() {\n  using listener = onEvent(window, \"resize\", reportSize);\n  // ... do work ...\n} // listener removed automatically",
+          },
+        ],
+      },
+      {
+        heading: "await using for async resources",
+        blocks: [
+          {
+            type: "p",
+            text: "Plenty of real cleanup is asynchronous: flushing a write stream, closing a socket gracefully, committing or rolling back a transaction. For those, objects implement `[Symbol.asyncDispose]()` and you declare them with `await using` inside an async function:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "async function transfer(fromId, toId, amount) {\n  await using tx = await db.beginTransaction();\n  await tx.debit(fromId, amount);\n  await tx.credit(toId, amount);\n  tx.commit();\n} // asyncDispose awaits rollback-if-uncommitted here",
+          },
+          {
+            type: "p",
+            text: "The `await` in `await using` is a signal to readers: scope exit may suspend while disposal settles. If the transaction object never had `commit` called, its `[Symbol.asyncDispose]()` can roll back — the failure path writes itself.",
+          },
+        ],
+      },
+      {
+        heading: "DisposableStack: cleanup as a value",
+        blocks: [
+          {
+            type: "p",
+            text: "Sometimes scope-based disposal is not enough — you assemble resources in one place and release them somewhere else, or you adopt APIs that only expose a plain close function. The proposal ships two helper classes for exactly this: `DisposableStack` and its async twin `AsyncDisposableStack`.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "function createSession() {\n  using stack = new DisposableStack();\n  const socket = stack.use(openSocket());      // disposable\n  const timer = stack.adopt(\n    setInterval(ping, 30000),\n    (id) => clearInterval(id)                  // plain value + cleanup fn\n  );\n  stack.defer(() => log(\"session closed\"));   // arbitrary callback\n\n  // hand ownership out of this scope:\n  const owned = stack.move();\n  return { socket, [Symbol.dispose]: () => owned.dispose() };\n}",
+          },
+          {
+            type: "p",
+            text: "`use` registers a disposable, `adopt` wraps a non-disposable value with a cleanup function, `defer` queues a callback, and `move` transfers everything to a new stack so the original scope no longer owns it. If anything throws halfway through setup, the stack disposes what was already registered — construction becomes transactional for free.",
+          },
+        ],
+      },
+      {
+        heading: "Where you can use it today",
+        blocks: [
+          {
+            type: "p",
+            text: "As of mid-2026 this is not a future feature — it is shipping across the stack:",
+          },
+          {
+            type: "list",
+            items: [
+              "ECMAScript: Explicit Resource Management is part of ES2026, approved in June 2026.",
+              "Node.js: native support from Node 24 (V8 13.6). Node 18.18+ and 20.4+ expose `Symbol.dispose` and `Symbol.asyncDispose`, but do not parse the `using` syntax.",
+              "Browsers: Chrome and Edge since around version 134, Safari since 18.3, and recent Firefox releases.",
+              "TypeScript: syntax support since 5.2, and it down-compiles `using` for older targets — so most TS codebases can adopt it regardless of runtime.",
+              "Node's own APIs are adopting the contract too — for example, timers and several handles now expose `Symbol.dispose`-based cleanup.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The pragmatic adoption path: if you are on TypeScript 5.2+, start using `using` now and let the compiler handle older targets. If you ship untranspiled JavaScript, gate on Node 24+ or the browser versions above.",
+          },
+        ],
+      },
+      {
+        heading: "Habits worth changing",
+        blocks: [
+          {
+            type: "p",
+            text: "A few closing rules of thumb from converting real code. First, `using` shines at function scope — resist wrapping huge blocks; declare the resource as close to its use as possible, and remember that a bare block gives you a smaller disposal scope for free. Second, return values, not resources: if a function must hand a live resource to its caller, make the return value itself disposable (the `DisposableStack.move` pattern above) so ownership is explicit. Third, do not reach for `using` when a callback API already scopes the lifetime for you — there is no prize for rewriting `array.map`.",
+          },
+          {
+            type: "p",
+            text: "Cleanup code is where bugs hide because it is the code nobody reads. Moving it into the declaration — one keyword at the point a resource is born — is the kind of small language change that quietly deletes whole categories of leaks. If you write anything that opens, locks, subscribes or connects, `using` is worth adopting this year, not eventually.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const getAllPosts = () =>
