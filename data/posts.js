@@ -2324,6 +2324,194 @@ console.error("orders-mcp running on stdio");`,
       },
     ],
   },
+  {
+    slug: "react-server-components-practical-mental-model",
+    title:
+      "React Server Components in 2026: A Practical Mental Model (Finally)",
+    description:
+      "React Server Components are now the default for new projects — but the mental model still trips people up. What actually runs where, what 'use client' really marks, and where to draw the boundary.",
+    datePublished: "2026-08-16",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "React Server Components have crossed the line from conference topic to default: new Next.js projects get them out of the box, other frameworks have shipped their own takes, and a large share of new React code now runs on a server first. Yet in code reviews I still see the same confusions I saw two years ago — `use client` sprinkled like seasoning, data fetched in effects three levels below a server component that could have fetched it, and whole apps opted out of the model because one library complained.",
+          },
+          {
+            type: "p",
+            text: "Most of that pain comes from one missing piece: a correct mental model. RSC is not server-side rendering with new branding, and it is not an all-or-nothing architecture. This post is the explanation I wish someone had given me — what actually runs where, what the `use client` directive really marks, and a practical rule for where the boundary belongs.",
+          },
+        ],
+      },
+      {
+        heading: "The one-sentence model",
+        blocks: [
+          {
+            type: "p",
+            text: "A **server component** is a component whose code *never ships to the browser*. It runs on the server (at request time or build time), its output — not its code — is serialized into a compact description of UI, and the browser receives that description plus the JavaScript for only the interactive islands. That is the entire trick: RSC is a *bundle-splitting architecture* disguised as a rendering feature.",
+          },
+          {
+            type: "p",
+            text: "Contrast that with classic SSR, which renders HTML on the server *and then ships the full component code anyway* so the client can hydrate it. With RSC, a thousand-line markdown renderer used in a server component costs the browser zero bytes of JavaScript. The heavier your rendering logic, the bigger the win.",
+          },
+        ],
+      },
+      {
+        heading: "Data fetching without the useEffect dance",
+        blocks: [
+          {
+            type: "p",
+            text: "Server components can be `async` functions. That single fact deletes the loading-state choreography an entire generation of React developers learned by heart:",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: `// app/orders/page.jsx — a server component (no directive needed)
+import { db } from "../lib/db";
+import OrderRow from "./OrderRow";
+
+export default async function OrdersPage() {
+  // Runs on the server. Direct DB access. No API route needed.
+  const orders = await db.orders.findRecent(50);
+
+  return (
+    <table>
+      <tbody>
+        {orders.map((o) => (
+          <OrderRow key={o.id} order={o} />
+        ))}
+      </tbody>
+    </table>
+  );
+}`,
+          },
+          {
+            type: "p",
+            text: "No `useEffect`, no `useState` for loading flags, no client-side waterfall, no API endpoint whose only job was to feed this one page. The component awaits its data, renders once with data present, and streams to the browser. Secrets stay on the server too — this component can read environment variables and query the database directly, because its code never leaves the building.",
+          },
+        ],
+      },
+      {
+        heading: "What 'use client' actually marks",
+        blocks: [
+          {
+            type: "p",
+            text: "The most common misreading is that `use client` marks a component that *renders in the browser*. It really marks an **entry point into the client bundle** — a door between the two worlds. Everything a client component imports comes along with it into the bundle, which is why one careless directive at the top of a layout can drag half your app back to the client.",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: `// AddToCartButton.jsx — needs state and events, so it is client code
+"use client";
+
+import { useState } from "react";
+
+export default function AddToCartButton({ productId }) {
+  const [pending, setPending] = useState(false);
+
+  async function add() {
+    setPending(true);
+    await fetch("/api/cart", {
+      method: "POST",
+      body: JSON.stringify({ productId }),
+    });
+    setPending(false);
+  }
+
+  return (
+    <button onClick={add} disabled={pending}>
+      {pending ? "Adding..." : "Add to cart"}
+    </button>
+  );
+}`,
+          },
+          {
+            type: "p",
+            text: "Rules of thumb that fall out of this: put `use client` on the *smallest leaf that needs it*, never on a page or layout \"just in case\"; and remember that a server component can render client components freely, but a client component can only receive server-rendered UI through props like `children` — it cannot import a server component directly.",
+          },
+        ],
+      },
+      {
+        heading: "The composition pattern that makes it click",
+        blocks: [
+          {
+            type: "p",
+            text: "That last rule sounds restrictive until you see the pattern that resolves it. Interactive shells accept server content as children:",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: `// Tabs.jsx — client shell: owns which tab is active
+"use client";
+
+import { useState } from "react";
+
+export default function Tabs({ labels, children }) {
+  const [active, setActive] = useState(0);
+  return (
+    <div>
+      <div role="tablist">
+        {labels.map((label, i) => (
+          <button key={label} onClick={() => setActive(i)}>
+            {label}
+          </button>
+        ))}
+      </div>
+      {children[active]}
+    </div>
+  );
+}
+
+// page.jsx — server component composes server content INTO the client shell
+import Tabs from "./Tabs";
+import SalesReport from "./SalesReport"; // async server component
+import TrafficReport from "./TrafficReport"; // async server component
+
+export default function Dashboard() {
+  return (
+    <Tabs labels={["Sales", "Traffic"]}>
+      <SalesReport />
+      <TrafficReport />
+    </Tabs>
+  );
+}`,
+          },
+          {
+            type: "p",
+            text: "The tab state lives in the browser; the heavy report rendering stays on the server. The client component never *imports* the server components — it just receives their already-rendered output. Once this pattern is in your muscle memory, ninety percent of \"but my whole tree needs to be client!\" objections dissolve.",
+          },
+        ],
+      },
+      {
+        heading: "What RSC is not",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**It is not SSR.** SSR produces HTML for a faster first paint, then hydrates with the full bundle. RSC removes code from the bundle entirely. The two compose — server components can be SSR'd — but they solve different problems.",
+              "**It is not free.** You take on a server (or a build step that acts like one), streaming infrastructure, and a stricter import discipline. Serialization at the boundary is real: props crossing from server to client must be serializable — no functions, no class instances, no Dates pretending to be strings.",
+              "**It is not mandatory.** A Vite SPA with TanStack Query remains a perfectly good architecture in 2026, especially for dashboard-style apps behind a login where bundle size matters less than interaction density. RSC earns its complexity on content-heavy, data-backed, publicly-served surfaces.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Should you adopt it this year?",
+        blocks: [
+          {
+            type: "p",
+            text: "If you start a new Next.js project, you already have — the App Router makes server components the default, and the practical question is only where to place your `use client` boundaries. My advice after two years of writing and reviewing RSC code: default to server, push interactivity to leaves, use the children pattern before reaching for context, and treat every `use client` in a pull request as something that deserves one sentence of justification.",
+          },
+          {
+            type: "p",
+            text: "For existing SPAs, migrate a surface, not the app — the marketing pages, the docs, the read-heavy views. That is where the bundle savings are dramatic and the interactivity demands are lowest. And if you have been putting off understanding the model because the discourse was exhausting: fair. But the model itself is small. Code that renders stays on the server; code that *responds* ships to the browser; children are the bridge. Everything else is detail.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const getAllPosts = () =>
