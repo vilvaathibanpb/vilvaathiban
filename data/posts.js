@@ -2512,6 +2512,229 @@ export default function Dashboard() {
       },
     ],
   },
+  {
+    slug: "abortcontroller-abortsignal-practical-guide",
+    title:
+      "AbortController in Practice: Cancel Fetch, Add Timeouts, and Auto-Clean Event Listeners",
+    description:
+      "A practical guide to AbortController and AbortSignal — cancelling fetch requests, AbortSignal.timeout and AbortSignal.any, React useEffect cleanup, and one-line event listener removal.",
+    datePublished: "2026-08-17",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Every frontend codebase eventually grows the same three bugs: a fetch whose response arrives after the user navigated away and clobbers fresh state, a request that hangs forever because the server never answered, and a pile of event listeners that outlive the component that added them. All three have the same modern fix: `AbortController` and its quiet companion `AbortSignal`.",
+          },
+          {
+            type: "p",
+            text: "AbortController has been in every browser since 2019, but the ecosystem around it has grown considerably since — `AbortSignal.timeout()`, `AbortSignal.any()`, and signal support in `addEventListener` turn it from a fetch-only tool into a general cancellation primitive. This post walks through the patterns I actually use in production, from the basics to the ones that replace whole cleanup libraries.",
+          },
+        ],
+      },
+      {
+        heading: "The 30-second refresher",
+        blocks: [
+          {
+            type: "p",
+            text: "An `AbortController` gives you two things: a `signal` you hand to async APIs, and an `abort()` method that flips that signal. Anything listening to the signal gets told to stop:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: `const controller = new AbortController();
+
+fetch("/api/search?q=react", { signal: controller.signal })
+  .then((res) => res.json())
+  .then(renderResults)
+  .catch((err) => {
+    if (err.name === "AbortError") return; // cancelled on purpose
+    showError(err);
+  });
+
+// later — user typed another character, cancel the stale request
+controller.abort();`,
+          },
+          {
+            type: "p",
+            text: "Two details people miss. First, an aborted fetch rejects with a `DOMException` named `AbortError` — you almost always want to swallow it, because a cancelled request is not a failure. Second, a controller is single-use: once aborted, it stays aborted. A new request needs a new controller.",
+          },
+        ],
+      },
+      {
+        heading: "Timeouts without setTimeout: AbortSignal.timeout()",
+        blocks: [
+          {
+            type: "p",
+            text: "The classic fetch-with-timeout recipe wired a `setTimeout` to a controller and remembered to clear it. The platform does this for you now:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: `async function getUser(id) {
+  const res = await fetch("/api/users/" + id, {
+    signal: AbortSignal.timeout(8000), // give up after 8s
+  });
+  if (!res.ok) throw new Error("HTTP " + res.status);
+  return res.json();
+}`,
+          },
+          {
+            type: "p",
+            text: "One nuance: a timed-out request rejects with a `TimeoutError`, not an `AbortError`. If you branch on error names, handle both. `AbortSignal.timeout()` is supported in all evergreen browsers and in Node 18+, so it is safe to reach for by default.",
+          },
+        ],
+      },
+      {
+        heading: "User cancellation AND a timeout: AbortSignal.any()",
+        blocks: [
+          {
+            type: "p",
+            text: "Real requests often need two cancellation reasons at once: the user navigated away, or the request took too long. `AbortSignal.any()` merges signals the way `Promise.race` merges promises — whichever aborts first wins:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: `function search(query, userSignal) {
+  const signal = AbortSignal.any([
+    userSignal,                 // caller can cancel
+    AbortSignal.timeout(5000),  // and we enforce a deadline
+  ]);
+  return fetch("/api/search?q=" + encodeURIComponent(query), { signal });
+}`,
+          },
+          {
+            type: "p",
+            text: "Before `AbortSignal.any()` you had to wire listeners between controllers by hand. If you still support older runtimes, that fallback is a dozen lines — but as of 2026, `any()` is available across modern browsers and Node 20+.",
+          },
+        ],
+      },
+      {
+        heading: "React: cancelling stale effects properly",
+        blocks: [
+          {
+            type: "p",
+            text: "The canonical `useEffect` data-fetching bug is a race: the component re-renders with a new prop, two requests are in flight, and the older one resolves last, overwriting good state. An `AbortController` per effect run fixes it cleanly:",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: `function Profile({ userId }) {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    fetch("/api/users/" + userId, { signal: controller.signal })
+      .then((res) => res.json())
+      .then(setUser)
+      .catch((err) => {
+        if (err.name !== "AbortError") console.error(err);
+      });
+
+    return () => controller.abort(); // cancel on unmount OR userId change
+  }, [userId]);
+
+  return user ? <Card user={user} /> : <Skeleton />;
+}`,
+          },
+          {
+            type: "p",
+            text: "The cleanup function runs both on unmount and before the effect re-runs, so stale requests are aborted at exactly the right moments with no `isMounted` flags. Libraries like React Query do this internally — but when you fetch by hand, this is the pattern.",
+          },
+        ],
+      },
+      {
+        heading: "The underrated one: event listeners with a signal",
+        blocks: [
+          {
+            type: "p",
+            text: "`addEventListener` accepts a `signal` option, and aborting it removes the listener. This collapses the add-and-remember-to-remove dance into one line of cleanup — especially valuable when you attach many listeners:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: `function enableDragging(el) {
+  const controller = new AbortController();
+  const { signal } = controller;
+
+  el.addEventListener("pointerdown", onDown, { signal });
+  window.addEventListener("pointermove", onMove, { signal });
+  window.addEventListener("pointerup", onUp, { signal });
+  window.addEventListener("keydown", onEscape, { signal });
+
+  return () => controller.abort(); // removes ALL four listeners
+}`,
+          },
+          {
+            type: "p",
+            text: "No stored handler references, no mismatched `removeEventListener` calls, no leaks when you forget one. In a React effect, returning that single `abort` call cleans up every listener the effect added.",
+          },
+        ],
+      },
+      {
+        heading: "Making your own functions abortable",
+        blocks: [
+          {
+            type: "p",
+            text: "Cancellation is a contract, not magic — your own async utilities can honour signals too. The convention: accept an options object with a `signal`, check it at the start, and listen for it during long waits:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: `function sleep(ms, { signal } = {}) {
+  return new Promise((resolve, reject) => {
+    signal?.throwIfAborted();
+
+    const t = setTimeout(resolve, ms);
+    signal?.addEventListener(
+      "abort",
+      () => {
+        clearTimeout(t);
+        reject(signal.reason);
+      },
+      { once: true },
+    );
+  });
+}
+
+// usage: a polling loop that stops the moment the caller aborts
+async function poll(url, { signal }) {
+  while (true) {
+    const res = await fetch(url, { signal });
+    if (res.ok) return res.json();
+    await sleep(2000, { signal });
+  }
+}`,
+          },
+          {
+            type: "p",
+            text: "`throwIfAborted()` handles the already-cancelled case, and `signal.reason` propagates whatever the aborter passed to `abort(reason)` — so a timeout, a navigation, or a manual cancel all flow through your code the same way.",
+          },
+        ],
+      },
+      {
+        heading: "Gotchas worth knowing",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "A fetch abort cancels the response body stream too — if you already have the `Response` and are reading it, aborting rejects the in-progress `res.json()` as well.",
+              "Aborting does not un-send the request. The server may still process it; abort only stops your code from waiting. Idempotency still matters.",
+              "Do not share one controller across unrelated requests unless you want them cancelled together — group deliberately.",
+              "In tests, `AbortSignal.abort()` (the static, pre-aborted signal) is handy for asserting your functions respect cancellation immediately.",
+              "Node supports the same APIs — `fetch`, `setTimeout` from `timers/promises`, and streams all take signals — so these patterns transfer to server code unchanged.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Cancellation used to be the messy corner of JavaScript async code. With `AbortController` as the shared primitive across fetch, events, streams and your own utilities, it is now one consistent pattern — learn it once, use it everywhere.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const getAllPosts = () =>
