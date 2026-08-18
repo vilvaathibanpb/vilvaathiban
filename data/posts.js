@@ -2735,6 +2735,228 @@ async function poll(url, { signal }) {
       },
     ],
   },
+  {
+    slug: "navigation-api-practical-guide",
+    title: "The Navigation API Is Baseline: A Practical Guide to Replacing History Hacks",
+    description:
+      "The Navigation API now works in Chrome, Edge, Firefox and Safari. How navigation.navigate, intercept() and entries() replace History API hacks in real SPAs — with code.",
+    datePublished: "2026-08-18",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "For fifteen years, client-side routing has been built on an API that was never designed for it. The History API gives you `pushState`, `popstate`, and a shrug: it cannot tell you when a navigation is about to happen, cannot distinguish back from forward, cannot intercept a link click, and stores its state in a place that is awkward to read back. Every SPA router — React Router, Vue Router, all of them — is a pile of clever workarounds on top of that shrug.",
+          },
+          {
+            type: "p",
+            text: "The Navigation API is the platform's do-over, and as of early 2026 it finally matters for real projects: with Firefox 147 and Safari 26.2 shipping support, it reached Baseline Newly Available in January — meaning every current major browser has it. This guide walks through the API the way you would actually adopt it: intercepting navigations, reading history entries, driving traversal, and the caveats that still matter.",
+          },
+        ],
+      },
+      {
+        heading: "The mental model: one navigation object, all navigations",
+        blocks: [
+          {
+            type: "p",
+            text: "Everything hangs off a new global, `window.navigation`. Where the History API only fired `popstate` for back/forward, `navigation` sees every same-origin navigation in the window: link clicks, form submissions, `location.href` assignments, back/forward gestures, and calls to its own methods. Each one fires a `navigate` event before anything happens — which is the superpower the History API never had.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: `navigation.addEventListener("navigate", (event) => {
+  // Fires for EVERY same-origin navigation in this window:
+  // link clicks, form posts, location.href = ..., back/forward.
+  console.log(event.destination.url, event.navigationType);
+});`,
+          },
+          {
+            type: "p",
+            text: "The event tells you where the navigation is going (`event.destination`), what kind it is (`push`, `replace`, `traverse` or `reload`), whether the user was involved (`userInitiated`), and whether your code is allowed to take over (`canIntercept`).",
+          },
+        ],
+      },
+      {
+        heading: "intercept(): the router primitive",
+        blocks: [
+          {
+            type: "p",
+            text: "Calling `event.intercept()` converts any navigation into a same-document navigation that you fulfil yourself. The URL updates immediately, and you hand the browser a handler promise that represents your rendering work:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: `navigation.addEventListener("navigate", (event) => {
+  // Let the browser handle what we shouldn't touch.
+  if (!event.canIntercept || event.hashChange ||
+      event.downloadRequest !== null) {
+    return;
+  }
+
+  const url = new URL(event.destination.url);
+
+  if (url.pathname.startsWith("/articles/")) {
+    event.intercept({
+      async handler() {
+        renderSpinner();
+        const data = await fetchArticle(url.pathname);
+        renderArticle(data);
+      },
+    });
+  }
+});`,
+          },
+          {
+            type: "p",
+            text: "Notice what is absent: no `event.preventDefault()` on every anchor, no delegated click listeners checking for modifier keys, no manual `pushState` call, no custom link component. A plain `<a href>` works, middle-click and cmd-click keep their native behaviour automatically, and the browser knows the page is loading — spinners in the tab, `navigation.currentEntry` and accessibility announcements all behave correctly because the browser, not your router, owns the navigation.",
+          },
+          {
+            type: "p",
+            text: "The handler promise also gives you lifecycle for free. While it is pending, the browser shows its loading indicator; when it resolves, the `navigatesuccess` event fires; if it rejects, `navigateerror` fires. Centralised error handling for every route transition is a two-line listener instead of per-route try/catch.",
+          },
+        ],
+      },
+      {
+        heading: "Scroll and focus: the details routers always get wrong",
+        blocks: [
+          {
+            type: "p",
+            text: "Hand-rolled routers notoriously break scroll restoration and keyboard focus. The API bakes both in. `intercept()` accepts a `scroll` option — `\"after-transition\"` (default) restores or resets scroll when your handler settles, `\"manual\"` lets you call `event.scroll()` at the exact moment your content is ready:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: `event.intercept({
+  scroll: "manual",
+  async handler() {
+    const data = await fetchArticle(url.pathname);
+    renderArticle(data);
+    event.scroll(); // now that content exists, restore/reset scroll
+    await loadComments(); // keep loading after scroll is settled
+  },
+});`,
+          },
+          {
+            type: "p",
+            text: "Focus works the same way via `focusReset: \"after-transition\"` (move focus to the body or `autofocus` element, as a real page load would) or `\"manual\"` when you want to place focus yourself — the accessible default without writing any focus-management code.",
+          },
+        ],
+      },
+      {
+        heading: "entries(): history you can finally read",
+        blocks: [
+          {
+            type: "p",
+            text: "The second half of the API replaces `history.state` guesswork with an inspectable list. `navigation.entries()` returns the session history entries for your origin that this window can traverse to, each with a stable `key`, an `id`, a `url`, and per-entry state via `getState()`:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: `const entries = navigation.entries();
+const current = navigation.currentEntry;
+
+console.log(current.index, "of", entries.length - 1);
+
+// Per-entry state, structured-clone friendly:
+navigation.updateCurrentEntry({
+  state: { scrollpos: window.scrollY, selectedTab: "reviews" },
+});
+const state = navigation.currentEntry.getState();`,
+          },
+          {
+            type: "p",
+            text: "Because entries have stable keys, jumping is explicit instead of arithmetic. No more counting how many `history.go(-n)` steps to unwind a modal:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: `// Remember where the user was before opening a flow:
+const returnKey = navigation.currentEntry.key;
+
+// ...several pushes later, exit the flow in one hop:
+navigation.traverseTo(returnKey);`,
+          },
+          {
+            type: "p",
+            text: "`navigation.navigate(url)`, `navigation.back()`, `navigation.forward()` and `navigation.reload()` round out the methods — each returns promises that settle when the navigation commits and finishes, so imperative navigation is finally awaitable.",
+          },
+        ],
+      },
+      {
+        heading: "A tiny but complete SPA router",
+        blocks: [
+          {
+            type: "p",
+            text: "Here is the whole pattern together — a genuinely working micro-router in under forty lines, with loading states, error handling, and correct scroll/focus behaviour:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: `const routes = {
+  "/": renderHome,
+  "/pricing": renderPricing,
+  "/articles/:slug": renderArticle,
+};
+
+function matchRoute(pathname) {
+  for (const [pattern, render] of Object.entries(routes)) {
+    const rx = new RegExp(
+      "^" + pattern.replace(/:[^/]+/g, "([^/]+)") + "$"
+    );
+    const m = pathname.match(rx);
+    if (m) return { render, params: m.slice(1) };
+  }
+  return null;
+}
+
+navigation.addEventListener("navigate", (event) => {
+  if (!event.canIntercept || event.hashChange ||
+      event.downloadRequest !== null) return;
+
+  const url = new URL(event.destination.url);
+  const match = matchRoute(url.pathname);
+  if (!match) return; // full page load for unknown routes
+
+  event.intercept({
+    async handler() {
+      document.body.dataset.loading = "true";
+      try {
+        await match.render(...match.params);
+      } finally {
+        delete document.body.dataset.loading;
+      }
+    },
+  });
+});
+
+navigation.addEventListener("navigateerror", () => {
+  renderErrorPage();
+});`,
+          },
+        ],
+      },
+      {
+        heading: "Caveats before you ship it",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Baseline Newly Available means every current browser, not every user's browser. For public sites, feature-detect with `if (\"navigation\" in window)` and keep a History-API fallback for older Safari and Firefox versions for a while yet.",
+              "Safari 26.2 supports the core API but not yet `precommitHandler` — the newer mechanism for deferring the URL change until your handler commits. Treat the URL as updating immediately everywhere and you will be portable.",
+              "The API is window-scoped, not tab-scoped: iframes get their own `navigation`, and you cannot observe cross-origin navigations. That is by design and unlikely to change.",
+              "`entries()` only exposes same-origin contiguous history — you cannot see or traverse to the other sites a user visited, which is why `traverseTo()` takes keys rather than arbitrary URLs.",
+              "Framework routers are adopting the API incrementally under the hood; if you are on React Router or similar, you mostly benefit automatically. Reaching for the raw API makes sense for custom shells, embedded widgets, and the places where a full router is overkill.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The History API is not going anywhere — the two coexist and stay in sync. But new interception code has no reason to start from `popstate` in 2026. The platform finally has a routing primitive designed for the job, it works everywhere current, and it deletes some of the most fragile code in any SPA. That is about as good as web platform news gets.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const getAllPosts = () =>
