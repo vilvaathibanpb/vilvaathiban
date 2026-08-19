@@ -2958,10 +2958,10 @@ navigation.addEventListener("navigateerror", () => {
     ],
   },
   {
-    slug: "migrate-create-react-app-to-vite",
-    title: "Migrating from Create React App to Vite: A Practical 2026 Guide",
+    slug: "react-use-hook-promises-context",
+    title: "React's use() Hook: Reading Promises and Context the New Way",
     description:
-      "Create React App is deprecated and unmaintained. A step-by-step migration to Vite — config, env vars, JSX-in-.js fixes, Vitest, and the gotchas nobody mentions.",
+      "React 19's use() reads promises and context right in render — even conditionally. How it works with Suspense and Server Components, plus the caching gotcha.",
     datePublished: "2026-08-19",
     readingMinutes: 8,
     content: [
@@ -2969,152 +2969,127 @@ navigation.addEventListener("navigateerror", () => {
         blocks: [
           {
             type: "p",
-            text: "If you still have a Create React App project in production, you are running on a build tool that has been officially deprecated since early 2025 and receives no updates. It still builds — until a dependency audit, a Node upgrade, or a new React release turns it into an afternoon of archaeology. The React team's own guidance is to move to a framework or to a modern bundler like Vite, and in 2026 Vite is the de facto default for client-rendered React apps.",
+            text: "React 19 shipped an API with the shortest name in the framework and some of the most misunderstood semantics: `use()`. It reads a *resource* — a promise or a context — from inside render, and unlike every hook you know, it is allowed inside conditions and loops. That one exception is not an oversight; it is the whole design.",
           },
           {
             type: "p",
-            text: "The good news: for a typical CRA app, the migration is a focused half-day, not a rewrite. I have done this on several codebases now, and the same six steps — and the same four gotchas — cover almost everything. This guide walks through them in order, with the exact configs.",
+            text: "Used well, `use()` deletes a lot of `useEffect`-plus-`useState` data plumbing and makes Suspense feel like a language feature. Used carelessly, it produces a component that suspends forever while looking perfectly innocent. This guide covers both halves: the patterns worth adopting today, and the one gotcha that bites almost everyone once.",
           },
         ],
       },
       {
-        heading: "Step 1: Swap the dependencies",
+        heading: "What use() actually is",
         blocks: [
           {
             type: "p",
-            text: "Remove `react-scripts`, add Vite and its React plugin. If you use SVG-as-component imports, add the SVGR plugin now too — you will need it in Step 6.",
-          },
-          {
-            type: "code",
-            language: "bash",
-            code: "npm uninstall react-scripts\nnpm install --save-dev vite @vitejs/plugin-react vite-plugin-svgr",
+            text: "`use(resource)` takes either a promise or a context object and returns its value. Two rules define it: it must be called during render (a component or a custom hook — not in event handlers, not in effects), and within render it may be called *conditionally*. That second rule is exactly what `useContext` and friends forbid, and it exists because `use()` does not occupy a slot in the hook list — React resolves it against the resource you pass, not against call order.",
           },
           {
             type: "p",
-            text: "Then replace the `scripts` block in `package.json`. Vite's dev server starts in milliseconds, so the old `start` habit is worth keeping as an alias:",
-          },
-          {
-            type: "code",
-            language: "json",
-            code: "{\n  \"scripts\": {\n    \"start\": \"vite\",\n    \"dev\": \"vite\",\n    \"build\": \"vite build\",\n    \"preview\": \"vite preview\"\n  }\n}",
+            text: "When the resource is a pending promise, the component *suspends*: React pauses that subtree, shows the nearest `<Suspense>` fallback, and replays the render when the promise settles. A rejected promise surfaces at the nearest error boundary. In other words, `use()` is the missing bridge between plain promises and the Suspense machinery React has had for years.",
           },
         ],
       },
       {
-        heading: "Step 2: Move index.html to the project root",
+        heading: "Reading context — finally, conditionally",
         blocks: [
           {
             type: "p",
-            text: "This is the change that surprises people. In Vite, `index.html` is the entry point and lives in the project root, not in `public/`. Move it, delete every `%PUBLIC_URL%` placeholder (root-relative paths just work), and add a module script tag pointing at your entry file:",
+            text: "The context half is the easy win. `use(Context)` behaves like `useContext(Context)` except you can call it after early returns and inside branches:",
           },
           {
             type: "code",
-            language: "html",
-            code: "<!-- index.html (project root) -->\n<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <link rel=\"icon\" href=\"/favicon.ico\" />\n    <title>My App</title>\n  </head>\n  <body>\n    <div id=\"root\"></div>\n    <script type=\"module\" src=\"/src/index.jsx\"></script>\n  </body>\n</html>",
+            language: "jsx",
+            code: "import { use } from \"react\";\n\nfunction StatusDot({ live }) {\n  // Early return BEFORE reading context — illegal with useContext,\n  // perfectly fine with use().\n  if (!live) {\n    return null;\n  }\n  const theme = use(ThemeContext);\n  return <span className={theme.dotClass} />;\n}",
           },
           {
             type: "p",
-            text: "Everything else in `public/` stays where it is — Vite serves that folder at the web root exactly like CRA did.",
+            text: "No more hoisting a context read above a guard clause just to satisfy the rules of hooks, and no more reading context in components that skip it on 90% of renders. For unconditional reads, `useContext` still works and there is no urgency to migrate — new code simply has one less rule to remember.",
           },
         ],
       },
       {
-        heading: "Step 3: Create vite.config.js",
+        heading: "Reading promises: the Server Component handshake",
         blocks: [
           {
             type: "p",
-            text: "A minimal config that reproduces CRA's defaults — port 3000, build output in `build/` instead of Vite's default `dist/`, and the dev-server API proxy if you used the `proxy` field in package.json:",
+            text: "The promise half shines in one specific shape: a Server Component *starts* a fetch and passes the unawaited promise down; a Client Component *unwraps* it with `use()`. The server does not block on the slow data, the client streams it in, and Suspense handles the waiting state:",
           },
           {
             type: "code",
-            language: "js",
-            code: "// vite.config.js\nimport { defineConfig } from \"vite\";\nimport react from \"@vitejs/plugin-react\";\nimport svgr from \"vite-plugin-svgr\";\n\nexport default defineConfig({\n  plugins: [react(), svgr()],\n  server: {\n    port: 3000,\n    proxy: {\n      \"/api\": \"http://localhost:8000\",\n    },\n  },\n  build: {\n    outDir: \"build\",\n  },\n});",
+            language: "jsx",
+            code: "// page.jsx — Server Component (no \"use client\")\nimport { Suspense } from \"react\";\nimport { Comments } from \"./comments\";\n\nexport default function PostPage({ postId }) {\n  // Kick off the fetch, do NOT await it here.\n  const commentsPromise = fetchComments(postId);\n\n  return (\n    <article>\n      <PostBody postId={postId} />\n      <Suspense fallback={<CommentsSkeleton />}>\n        <Comments commentsPromise={commentsPromise} />\n      </Suspense>\n    </article>\n  );\n}",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: "// comments.jsx — Client Component\n\"use client\";\nimport { use } from \"react\";\n\nexport function Comments({ commentsPromise }) {\n  // Suspends until the promise resolves; Suspense shows the skeleton.\n  const comments = use(commentsPromise);\n\n  return (\n    <ul>\n      {comments.map((c) => (\n        <li key={c.id}>{c.text}</li>\n      ))}\n    </ul>\n  );\n}",
           },
           {
             type: "p",
-            text: "If your deploy pipeline expects CRA's `build/` directory, `outDir` saves you from touching CI at all.",
+            text: "Compare that with the classic client-only version: a `useEffect`, two `useState`s, a loading flag, an ignore-stale-response guard. All of it disappears, and the page body renders immediately while comments stream in behind the skeleton.",
+          },
+          {
+            type: "p",
+            text: "If you work in Next.js, you have already met this pattern in the framework itself: since Next 15, `params` and `searchParams` are promises, and the documented way for a client page to read them is `use(params)`. The framework is telling you what it expects idiomatic data flow to look like.",
           },
         ],
       },
       {
-        heading: "Step 4: Environment variables",
+        heading: "The gotcha: never create the promise in render",
         blocks: [
           {
             type: "p",
-            text: "Two mechanical renames. The prefix changes from `REACT_APP_` to `VITE_`, and the access pattern changes from `process.env` to `import.meta.env`:",
+            text: "Here is the mistake everyone makes exactly once. Since `use()` accepts a promise, why not fetch right there?",
           },
           {
             type: "code",
-            language: "js",
-            code: "// Before (CRA)\nconst apiUrl = process.env.REACT_APP_API_URL;\n\n// After (Vite)\nconst apiUrl = import.meta.env.VITE_API_URL;\n\n// Built-ins map too:\n// process.env.NODE_ENV === \"development\"  ->  import.meta.env.DEV\n// process.env.NODE_ENV === \"production\"   ->  import.meta.env.PROD",
+            language: "jsx",
+            code: "// BROKEN — do not do this\nfunction Profile({ userId }) {\n  const user = use(fetchUser(userId));\n  return <h1>{user.name}</h1>;\n}",
           },
           {
             type: "p",
-            text: "A project-wide search for `process.env` is the reliable way to catch stragglers — any left behind will be `undefined` at runtime, not a build error, so do the sweep now. Rename the variables in your `.env` files and in CI while you are at it.",
+            text: "Render calls `fetchUser`, which returns a *new* promise. The component suspends. When the promise resolves, React re-renders — and the re-render calls `fetchUser` again, producing another brand-new pending promise. Suspend, resolve, re-render, repeat: an infinite loading state (and in dev, React warns about an uncached promise). `use()` does not memoize anything for you — it needs to see the *same* promise across renders.",
+          },
+          {
+            type: "p",
+            text: "The fix is always some form of caching the promise outside render. The Server Component handshake above is one fix (the promise is created once, on the server). On the pure client, keep a cache keyed by your input:",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: "// A tiny promise cache — module scope, survives re-renders\nconst userCache = new Map();\n\nfunction getUser(userId) {\n  if (!userCache.has(userId)) {\n    userCache.set(userId, fetchUser(userId));\n  }\n  return userCache.get(userId);\n}\n\nfunction Profile({ userId }) {\n  const user = use(getUser(userId)); // same promise every render\n  return <h1>{user.name}</h1>;\n}",
+          },
+          {
+            type: "p",
+            text: "That Map is deliberately primitive — no invalidation, no deduping across users, no revalidation. The moment you find yourself extending it, you have rediscovered why data libraries exist.",
           },
         ],
       },
       {
-        heading: "Step 5: The JSX-in-.js problem",
+        heading: "Errors: rejected promises meet error boundaries",
         blocks: [
           {
             type: "p",
-            text: "CRA happily compiled JSX inside `.js` files. Vite's esbuild pipeline does not, by design — the first `npm run dev` on a migrated codebase usually greets you with a syntax error in some `.js` component. You have two options, and I recommend the honest one: rename the files.",
-          },
-          {
-            type: "code",
-            language: "bash",
-            code: "# Rename every .js file that contains JSX to .jsx (git-aware)\ngit ls-files '*.js' | xargs grep -l '</\\|/>' | while read f; do\n  git mv \"$f\" \"${f%.js}.jsx\"\ndone",
-          },
-          {
-            type: "p",
-            text: "The rename keeps your toolchain honest and your editor's language services accurate. If the codebase is too large to rename in one PR, you can configure esbuild to treat `.js` as JSX as a temporary bridge — but treat it as a bridge, not a destination, because every new tool you add will trip over the same ambiguity.",
+            text: "When a promise passed to `use()` rejects, the error propagates like a thrown render error: the nearest error boundary catches it. So the full production pattern is a Suspense boundary for the pending state and an error boundary for the failure state, wrapped around the same subtree. If you would rather render a fallback value than an error page, catch on the promise before it reaches `use()` — hand the component a promise that resolves to a default.",
           },
         ],
       },
       {
-        heading: "Step 6: Tests — from Jest to Vitest",
-        blocks: [
-          {
-            type: "p",
-            text: "`react-scripts test` ran Jest with a pile of hidden config. Vitest is the natural replacement: it reads your existing `vite.config.js`, understands the same transforms, and is largely Jest-API compatible, so most test files need zero changes.",
-          },
-          {
-            type: "code",
-            language: "bash",
-            code: "npm install --save-dev vitest jsdom @testing-library/jest-dom",
-          },
-          {
-            type: "code",
-            language: "js",
-            code: "// vite.config.js — add a test block\nexport default defineConfig({\n  // ...plugins, server, build as above\n  test: {\n    environment: \"jsdom\",\n    globals: true,\n    setupFiles: \"./src/setupTests.js\",\n  },\n});",
-          },
-          {
-            type: "p",
-            text: "With `globals: true`, `describe`, `it` and `expect` work unimported, exactly as under CRA. Point the `test` script at `vitest` and your existing `setupTests.js` keeps doing its job.",
-          },
-        ],
-      },
-      {
-        heading: "The gotchas nobody puts in the quickstart",
+        heading: "What use() does not replace",
         blocks: [
           {
             type: "list",
             items: [
-              "SVG imports: CRA's `import { ReactComponent as Logo }` syntax needs `vite-plugin-svgr`; with the plugin's default setup you import from the path with a `?react` suffix instead — check its README and pick one convention for the codebase.",
-              "Absolute imports: if `jsconfig.json` gave you `import x from 'components/x'`, mirror it in Vite with `resolve.alias` or the `vite-tsconfig-paths` plugin — Vite does not read jsconfig on its own.",
-              "`global is not defined`: some older libraries (socket.io-client, aws-sdk era packages) expect the Node global; the quick fix is `define: { global: 'window' }` in vite.config.js.",
-              "Browserslist does nothing in Vite: set the `build.target` option instead if you must support older browsers, and delete the browserslist block from package.json to avoid confusion.",
+              "React Query / SWR: caching, revalidation, mutations, optimistic updates — `use()` is a reading primitive, not a data layer. The libraries are themselves adopting `use()` under the hood.",
+              "`useEffect` for genuine side effects: subscriptions, analytics, imperative APIs. `use()` reads values; it does not run effects.",
+              "Form state: submissions belong to actions and `useActionState` — covered in our React 19 form actions guide.",
+              "Event-handler data fetching: `use()` cannot be called there. Fetch in the handler, store the promise in state, read it with `use()` on the next render.",
             ],
           },
-        ],
-      },
-      {
-        heading: "Ship it",
-        blocks: [
           {
             type: "p",
-            text: "Run `npm run build`, compare the output bundle against your last CRA build, click through the critical flows on `npm run preview`, and delete `react-scripts` from your lockfile with a clear conscience. The whole exercise usually lands under a few hundred changed lines, most of them renames — a small price for dev-server startups measured in milliseconds, a maintained toolchain, and a config file you can actually read. Once you are settled, the same config carries you further: Vitest for tests here today, and if you later reach for server rendering, the React ecosystem's Vite-based frameworks will feel immediately familiar.",
+            text: "A reasonable adoption rule for 2026: reach for `use()` when a Server Component can start the fetch and a Client Component needs the value, when you need a conditional context read, or when a framework hands you a promise. Keep your data library for everything with a cache lifetime. The two coexist happily — `use()` is the low-level verb the rest of the ecosystem is being rebuilt on.",
           },
         ],
       },
