@@ -2957,6 +2957,169 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  {
+    slug: "migrate-create-react-app-to-vite",
+    title: "Migrating from Create React App to Vite: A Practical 2026 Guide",
+    description:
+      "Create React App is deprecated and unmaintained. A step-by-step migration to Vite — config, env vars, JSX-in-.js fixes, Vitest, and the gotchas nobody mentions.",
+    datePublished: "2026-08-19",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "If you still have a Create React App project in production, you are running on a build tool that has been officially deprecated since early 2025 and receives no updates. It still builds — until a dependency audit, a Node upgrade, or a new React release turns it into an afternoon of archaeology. The React team's own guidance is to move to a framework or to a modern bundler like Vite, and in 2026 Vite is the de facto default for client-rendered React apps.",
+          },
+          {
+            type: "p",
+            text: "The good news: for a typical CRA app, the migration is a focused half-day, not a rewrite. I have done this on several codebases now, and the same six steps — and the same four gotchas — cover almost everything. This guide walks through them in order, with the exact configs.",
+          },
+        ],
+      },
+      {
+        heading: "Step 1: Swap the dependencies",
+        blocks: [
+          {
+            type: "p",
+            text: "Remove `react-scripts`, add Vite and its React plugin. If you use SVG-as-component imports, add the SVGR plugin now too — you will need it in Step 6.",
+          },
+          {
+            type: "code",
+            language: "bash",
+            code: "npm uninstall react-scripts\nnpm install --save-dev vite @vitejs/plugin-react vite-plugin-svgr",
+          },
+          {
+            type: "p",
+            text: "Then replace the `scripts` block in `package.json`. Vite's dev server starts in milliseconds, so the old `start` habit is worth keeping as an alias:",
+          },
+          {
+            type: "code",
+            language: "json",
+            code: "{\n  \"scripts\": {\n    \"start\": \"vite\",\n    \"dev\": \"vite\",\n    \"build\": \"vite build\",\n    \"preview\": \"vite preview\"\n  }\n}",
+          },
+        ],
+      },
+      {
+        heading: "Step 2: Move index.html to the project root",
+        blocks: [
+          {
+            type: "p",
+            text: "This is the change that surprises people. In Vite, `index.html` is the entry point and lives in the project root, not in `public/`. Move it, delete every `%PUBLIC_URL%` placeholder (root-relative paths just work), and add a module script tag pointing at your entry file:",
+          },
+          {
+            type: "code",
+            language: "html",
+            code: "<!-- index.html (project root) -->\n<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <link rel=\"icon\" href=\"/favicon.ico\" />\n    <title>My App</title>\n  </head>\n  <body>\n    <div id=\"root\"></div>\n    <script type=\"module\" src=\"/src/index.jsx\"></script>\n  </body>\n</html>",
+          },
+          {
+            type: "p",
+            text: "Everything else in `public/` stays where it is — Vite serves that folder at the web root exactly like CRA did.",
+          },
+        ],
+      },
+      {
+        heading: "Step 3: Create vite.config.js",
+        blocks: [
+          {
+            type: "p",
+            text: "A minimal config that reproduces CRA's defaults — port 3000, build output in `build/` instead of Vite's default `dist/`, and the dev-server API proxy if you used the `proxy` field in package.json:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// vite.config.js\nimport { defineConfig } from \"vite\";\nimport react from \"@vitejs/plugin-react\";\nimport svgr from \"vite-plugin-svgr\";\n\nexport default defineConfig({\n  plugins: [react(), svgr()],\n  server: {\n    port: 3000,\n    proxy: {\n      \"/api\": \"http://localhost:8000\",\n    },\n  },\n  build: {\n    outDir: \"build\",\n  },\n});",
+          },
+          {
+            type: "p",
+            text: "If your deploy pipeline expects CRA's `build/` directory, `outDir` saves you from touching CI at all.",
+          },
+        ],
+      },
+      {
+        heading: "Step 4: Environment variables",
+        blocks: [
+          {
+            type: "p",
+            text: "Two mechanical renames. The prefix changes from `REACT_APP_` to `VITE_`, and the access pattern changes from `process.env` to `import.meta.env`:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// Before (CRA)\nconst apiUrl = process.env.REACT_APP_API_URL;\n\n// After (Vite)\nconst apiUrl = import.meta.env.VITE_API_URL;\n\n// Built-ins map too:\n// process.env.NODE_ENV === \"development\"  ->  import.meta.env.DEV\n// process.env.NODE_ENV === \"production\"   ->  import.meta.env.PROD",
+          },
+          {
+            type: "p",
+            text: "A project-wide search for `process.env` is the reliable way to catch stragglers — any left behind will be `undefined` at runtime, not a build error, so do the sweep now. Rename the variables in your `.env` files and in CI while you are at it.",
+          },
+        ],
+      },
+      {
+        heading: "Step 5: The JSX-in-.js problem",
+        blocks: [
+          {
+            type: "p",
+            text: "CRA happily compiled JSX inside `.js` files. Vite's esbuild pipeline does not, by design — the first `npm run dev` on a migrated codebase usually greets you with a syntax error in some `.js` component. You have two options, and I recommend the honest one: rename the files.",
+          },
+          {
+            type: "code",
+            language: "bash",
+            code: "# Rename every .js file that contains JSX to .jsx (git-aware)\ngit ls-files '*.js' | xargs grep -l '</\\|/>' | while read f; do\n  git mv \"$f\" \"${f%.js}.jsx\"\ndone",
+          },
+          {
+            type: "p",
+            text: "The rename keeps your toolchain honest and your editor's language services accurate. If the codebase is too large to rename in one PR, you can configure esbuild to treat `.js` as JSX as a temporary bridge — but treat it as a bridge, not a destination, because every new tool you add will trip over the same ambiguity.",
+          },
+        ],
+      },
+      {
+        heading: "Step 6: Tests — from Jest to Vitest",
+        blocks: [
+          {
+            type: "p",
+            text: "`react-scripts test` ran Jest with a pile of hidden config. Vitest is the natural replacement: it reads your existing `vite.config.js`, understands the same transforms, and is largely Jest-API compatible, so most test files need zero changes.",
+          },
+          {
+            type: "code",
+            language: "bash",
+            code: "npm install --save-dev vitest jsdom @testing-library/jest-dom",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// vite.config.js — add a test block\nexport default defineConfig({\n  // ...plugins, server, build as above\n  test: {\n    environment: \"jsdom\",\n    globals: true,\n    setupFiles: \"./src/setupTests.js\",\n  },\n});",
+          },
+          {
+            type: "p",
+            text: "With `globals: true`, `describe`, `it` and `expect` work unimported, exactly as under CRA. Point the `test` script at `vitest` and your existing `setupTests.js` keeps doing its job.",
+          },
+        ],
+      },
+      {
+        heading: "The gotchas nobody puts in the quickstart",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "SVG imports: CRA's `import { ReactComponent as Logo }` syntax needs `vite-plugin-svgr`; with the plugin's default setup you import from the path with a `?react` suffix instead — check its README and pick one convention for the codebase.",
+              "Absolute imports: if `jsconfig.json` gave you `import x from 'components/x'`, mirror it in Vite with `resolve.alias` or the `vite-tsconfig-paths` plugin — Vite does not read jsconfig on its own.",
+              "`global is not defined`: some older libraries (socket.io-client, aws-sdk era packages) expect the Node global; the quick fix is `define: { global: 'window' }` in vite.config.js.",
+              "Browserslist does nothing in Vite: set the `build.target` option instead if you must support older browsers, and delete the browserslist block from package.json to avoid confusion.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Ship it",
+        blocks: [
+          {
+            type: "p",
+            text: "Run `npm run build`, compare the output bundle against your last CRA build, click through the critical flows on `npm run preview`, and delete `react-scripts` from your lockfile with a clear conscience. The whole exercise usually lands under a few hundred changed lines, most of them renames — a small price for dev-server startups measured in milliseconds, a maintained toolchain, and a config file you can actually read. Once you are settled, the same config carries you further: Vitest for tests here today, and if you later reach for server rendering, the React ecosystem's Vite-based frameworks will feel immediately familiar.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const getAllPosts = () =>
