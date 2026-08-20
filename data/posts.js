@@ -3095,6 +3095,127 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  {
+    slug: "es2026-array-fromasync-promise-try-regexp-escape",
+    title:
+      "Array.fromAsync, Promise.try and RegExp.escape: Three ES2026 Features Worth Using Today",
+    description:
+      "A practical guide to the most useful ES2026 additions — Array.fromAsync for collecting async iterables, Promise.try for unifying sync/async calls, and RegExp.escape for safe dynamic regexes.",
+    datePublished: "2026-08-20",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Most JavaScript language updates ship one headline feature and a pile of trivia. ES2026 is the opposite: no single blockbuster, but three small utilities — `Array.fromAsync`, `Promise.try` and `RegExp.escape` — that each delete a helper function you have probably written by hand at some point. This post is a practical tour of all three: what they replace, where they shine, and the edge cases worth knowing before you rely on them.",
+          },
+        ],
+      },
+      {
+        heading: "Array.fromAsync: collect an async iterable without the loop",
+        blocks: [
+          {
+            type: "p",
+            text: "`Array.from` has been the workhorse for turning array-likes and iterables into real arrays since ES2015 — but it is strictly synchronous. The moment your data source is an async iterator (paginated APIs, streams, async generators), you fall back to the same ceremony every time: create an empty array, `for await` over the source, push each item.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// The pattern we have all written a hundred times\nasync function collect(source) {\n  const items = [];\n  for await (const item of source) {\n    items.push(item);\n  }\n  return items;\n}",
+          },
+          {
+            type: "p",
+            text: "`Array.fromAsync` is exactly that function, built into the language:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "async function* fetchPages() {\n  let url = \"/api/items?page=1\";\n  while (url) {\n    const res = await fetch(url);\n    const data = await res.json();\n    yield* data.items;\n    url = data.nextPage;\n  }\n}\n\nconst allItems = await Array.fromAsync(fetchPages());",
+          },
+          {
+            type: "p",
+            text: "It mirrors `Array.from` closely: it accepts async iterables, plain iterables, and array-likes, and it takes an optional mapping function as the second argument. Two details matter in practice. First, the mapping function may itself be async — each returned promise is awaited before the value lands in the array. Second, items are awaited sequentially, one at a time. That makes `Array.fromAsync` the right tool for ordered consumption of a stream, and the wrong tool for firing off requests in parallel — for parallelism you still want `Promise.all`:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// Sequential: each fetch waits for the previous one\nconst users = await Array.fromAsync(ids, (id) => fetchUser(id));\n\n// Parallel: all fetches start immediately\nconst usersFast = await Promise.all(ids.map((id) => fetchUser(id)));",
+          },
+        ],
+      },
+      {
+        heading: "Promise.try: one entry point for sync and async functions",
+        blocks: [
+          {
+            type: "p",
+            text: "Suppose you accept a callback that might be synchronous, might be asynchronous, and might throw synchronously. Wrapping it safely has always been awkward. `Promise.resolve(fn())` looks right but is subtly wrong: if `fn` throws synchronously, the exception escapes before `Promise.resolve` ever runs, so your `.catch` never sees it.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// Buggy: a synchronous throw in fn() is NOT caught\nPromise.resolve(fn()).catch(handleError);\n\n// The old workaround: an immediately-run async wrapper\n(async () => fn())().catch(handleError);",
+          },
+          {
+            type: "p",
+            text: "`Promise.try(fn)` closes the gap. It calls `fn` immediately and synchronously; if `fn` returns a value you get a fulfilled promise, if it returns a promise you get that promise's outcome, and if it throws you get a rejected promise. Every failure mode flows into one channel:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "function runStep(step) {\n  return Promise.try(step)\n    .then((result) => log(\"ok\", result))\n    .catch((err) => log(\"failed\", err));\n}\n\nrunStep(() => JSON.parse(rawInput));   // sync, may throw\nrunStep(() => fetch(\"/api/health\"));  // async\nrunStep(() => 42);                      // plain value",
+          },
+          {
+            type: "p",
+            text: "The immediate-execution detail is the point: unlike wrapping in `setTimeout` or an `async` IIFE that defers to the microtask queue, `Promise.try` runs the synchronous part of `fn` right away, preserving ordering guarantees while still normalising the result. It also passes extra arguments through — `Promise.try(fn, a, b)` calls `fn(a, b)` — which avoids allocating a closure in hot paths. If you maintain plugin systems, middleware runners, or anything that executes user-supplied callbacks, this is the cleanest contract available.",
+          },
+        ],
+      },
+      {
+        heading: "RegExp.escape: the utility everyone hand-rolled, finally standard",
+        blocks: [
+          {
+            type: "p",
+            text: "Building a regular expression from user input has been a known footgun forever: any character like `.`, `+`, `(` or `?` in the input changes the pattern's meaning, and in the worst case opens the door to pathological backtracking. Every codebase grew its own `escapeRegExp` helper — famously recommended by MDN itself — with subtly different character sets.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// Before: the hand-rolled helper in every utils file\nfunction escapeRegExp(str) {\n  return str.replace(/[.*+?^$()|[\\]\\\\{}]/g, \"\\\\$&\");\n}\n\n// After: built in\nconst query = \"price (USD)?\";\nconst re = new RegExp(RegExp.escape(query), \"i\");\n\"What is the price (USD)?\".search(re); // matches literally",
+          },
+          {
+            type: "p",
+            text: "`RegExp.escape` returns a string in which every syntax character is escaped so the input matches literally. The standard version is more thorough than most homegrown helpers — it also escapes characters that only matter in edge positions, so the result is safe to concatenate into any part of a pattern. Typical uses: highlight-search-term features, converting user glob input, building dynamic word filters. One niche caveat: it escapes aggressively enough that the output is meant for pattern construction, not for display.",
+          },
+          {
+            type: "p",
+            text: "One habit worth keeping even with `RegExp.escape`: if you are matching a plain substring with no flags or boundaries, `String.prototype.includes` is still simpler and faster. Reach for the regex only when you need case-insensitivity, boundaries, or alternation.",
+          },
+        ],
+      },
+      {
+        heading: "Support and adoption strategy",
+        blocks: [
+          {
+            type: "p",
+            text: "Where these stand as of August 2026:",
+          },
+          {
+            type: "list",
+            items: [
+              "`Array.fromAsync` has the widest support of the three — all evergreen browsers and Node.js 22+.",
+              "`Promise.try` and `RegExp.escape` are newer: current evergreen browsers and recent Node releases (Node 24 line) ship both. Check your minimum supported runtime before dropping the fallback.",
+              "All three are trivially polyfillable — core-js covers them, and each can also be inlined as a five-line fallback if you avoid polyfill dependencies.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Adoption advice: these are drop-in replacements for helpers you likely already have, so the migration is mechanical — swap the implementation inside your existing `collect`, `tryFn` and `escapeRegExp` utilities first, keep the call sites, and delete the wrappers once your runtime floor allows it. If you enjoyed this kind of incremental-language-win tour, the same philosophy applies to my earlier posts on `iterator helpers` and the new `Set` methods — ES2026 continues exactly that trend: less boilerplate, fewer utils files, no new mental model required.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const getAllPosts = () =>
