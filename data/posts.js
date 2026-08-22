@@ -3216,6 +3216,120 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  {
+    slug: "json-modules-import-attributes",
+    title: "JSON Modules and Import Attributes: Import JSON Without fetch or a Bundler",
+    description: "JSON modules are Baseline: import JSON directly with the ES2025 with { type: 'json' } syntax in every modern browser, Node 22+ and Deno — and when fetch still wins.",
+    datePublished: "2026-08-22",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "For fifteen years, reading a JSON file from JavaScript meant one of two workarounds: a **fetch() call** with its async ceremony, or a bundler quietly doing magic at build time. As of this year the platform finally does it natively: **JSON module scripts are Baseline**, supported in current Chrome, Edge, Firefox and Safari, plus Node.js 22+ and Deno — no configuration, no plugin.",
+          },
+          {
+            type: "p",
+            text: "The syntax is one line, and the mechanism behind it — **import attributes**, standardised in ES2025 — is worth understanding because it is also the foundation for CSS module scripts and whatever the platform teaches modules to load next.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "import config from './config.json' with { type: 'json' };\n\nconsole.log(config.apiBaseUrl);",
+          },
+        ],
+      },
+      {
+        heading: "Why the Extra with { type: 'json' } Is Mandatory",
+        blocks: [
+          {
+            type: "p",
+            text: "Your first instinct might be to ask why the import statement alone is not enough — the file ends in .json, after all. The answer is security. A plain import executes its target as a script. If your server were ever tricked into serving that path with a JavaScript MIME type — or an attacker controlled the file — a plain import would run it. The attribute makes your intent part of the syntax: the runtime fetches the file as JSON and fails loudly if what arrives is not application/json. Nothing executes on a mismatch.",
+          },
+          {
+            type: "p",
+            text: "That is also why this is an attribute rather than a filename convention: the check happens in the module loader, before evaluation, not after.",
+          },
+        ],
+      },
+      {
+        heading: "The Rules JSON Modules Play By",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Default export only.** The parsed JSON arrives as the default export. Named imports like `import { version } from ...` do not work — destructure after importing instead.",
+              "**Parsed once, shared everywhere.** Like any ES module, a JSON module is fetched and parsed a single time and cached. Every importer shares one object, so treat it as read-only — a mutation in one corner of the app is visible everywhere.",
+              "**Static and dynamic both work.** The attribute syntax fits dynamic import() too, which is where it becomes genuinely useful for lazy-loading data.",
+              "**assert is dead.** If you saw `import ... assert { type: 'json' }` in older articles, that was the deprecated experimental syntax. Use `with`.",
+            ],
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const module = await import('./locales/ta.json', {\n  with: { type: 'json' }\n});\n\nconsole.log(module.default.greeting);",
+          },
+        ],
+      },
+      {
+        heading: "Three Places JSON Modules Beat fetch()",
+        blocks: [
+          {
+            type: "p",
+            text: "This is not just aesthetics. The module system gives you things fetch() never did:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Config and locale files.** A locale bundle pulled in with dynamic import() is cached, deduplicated and versioned along with your code — no cache-busting query strings, no stale translations.",
+              "**No async plumbing at startup.** A static JSON import is resolved before your module body runs. Your app config is simply there — no top-level await, no loading state for something that was never really dynamic.",
+              "**Bundler-free tooling.** Small scripts, internal dashboards and Node CLIs can read package.json or fixture data without fs.readFile boilerplate and a JSON.parse call.",
+            ],
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "import pkg from './package.json' with { type: 'json' };\n\nconsole.log('Running ' + pkg.name + ' v' + pkg.version);",
+          },
+        ],
+      },
+      {
+        heading: "Where fetch() Is Still the Right Call",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "The data is truly dynamic — API responses, user content, anything that changes between requests.",
+              "You need request control — headers, credentials, retries, an AbortSignal.",
+              "The payload is huge and optional. A module import is all-or-nothing at load time, while fetch() can stream and can be cancelled.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The mental model that sticks: **import is for data that ships with your app; fetch is for data that lives outside it.**",
+          },
+        ],
+      },
+      {
+        heading: "Support and Safe Adoption",
+        blocks: [
+          {
+            type: "p",
+            text: "JSON module scripts reached Baseline Newly available this year: current Chrome, Edge, Firefox and Safari support them, as do Node.js 22 and later and Deno. For anything older, recent versions of the major bundlers — Vite, webpack, esbuild, Rollup — parse the with syntax and simply inline the JSON at build time, so the same source degrades gracefully.",
+          },
+          {
+            type: "p",
+            text: "TypeScript understands import attributes in recent versions as well, with module set to a modern target, so the syntax type-checks without ceremony.",
+          },
+          {
+            type: "p",
+            text: "Baseline features are the good kind of boring: one less workaround to teach, one less dependency to justify. The next time you reach for fetch() to read a static file that ships with your app, remember the platform now has a one-liner for it.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const getAllPosts = () =>
