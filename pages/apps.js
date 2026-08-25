@@ -14,7 +14,7 @@ const APPS = [
     tagline: "Free iOS teleprompter that floats your script over the camera and scrolls as you speak.",
     summary:
       "Free forever: record Reels, Shorts and TikToks while reading your script with perfect eye contact. Voice-driven scrolling runs 100% on-device and fully offline.",
-    image: "/apps/teleprompter-icon.png",
+    image: "/apps/teleprompter-logo.png",
     href: "/apps/teleprompter-camera-overlay",
     internal: true,
     badge: "Free iOS app",
@@ -83,7 +83,7 @@ const AppImage = styled.div`
   img {
     ${(p) =>
       p.contain
-        ? "width: 120px; height: 120px; object-fit: contain; border-radius: 24px;"
+        ? "width: 150px; height: 150px; object-fit: contain;"
         : "width: 100%; height: 100%; object-fit: cover;"}
   }
 `;
@@ -179,7 +179,7 @@ const AppsPage = () => (
           app.internal ? (
             <Link key={app.name} href={app.href} passHref legacyBehavior>
               <AppCard>
-                <AppImage contain bg="#101014">
+                <AppImage contain>
                   <img src={app.image} alt={`${app.name} logo`} />
                 </AppImage>
                 <AppBody>

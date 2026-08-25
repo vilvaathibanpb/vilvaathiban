@@ -68,18 +68,15 @@ const Hero = styled.div`
 `;
 
 const LogoBox = styled.div`
-  width: 120px;
-  height: 120px;
-  border-radius: 28px;
-  background: #101014;
+  width: 140px;
+  height: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 12px 32px rgba(17, 24, 39, 0.18);
   img {
-    width: 96px;
-    height: 96px;
+    width: 140px;
+    height: 140px;
     object-fit: contain;
   }
 `;
