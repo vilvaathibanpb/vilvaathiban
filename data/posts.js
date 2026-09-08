@@ -3330,6 +3330,161 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  {
+    slug: 'array-fromasync-complete-guide',
+    title: 'Array.fromAsync: The Complete Guide to Collecting Async Iterables',
+    description:
+      'A practical Array.fromAsync guide: how it works, how it differs from Promise.all and for await, mapping with async functions, pagination, and the gotchas.',
+    datePublished: '2026-09-08',
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: 'p',
+            text:
+              'For years, turning an async iterable into a plain array meant writing the same four lines: make an empty array, loop with **for await**, push each value, return the array. `Array.fromAsync()` collapses that ritual into a one-liner. It reached Baseline availability across all major engines and landed in the ES2026 spec, so you can now use it in production without a polyfill in evergreen browsers and current Node.js runtimes.',
+          },
+          {
+            type: 'p',
+            text:
+              'I touched on it briefly in my [ES2026 roundup](/blog/es2026-array-fromasync-promise-try-regexp-escape), but Array.fromAsync deserves a full guide: it has more surface area than it first appears, and a couple of behaviors that regularly surprise people. This is everything I know about it after using it in real code.',
+          },
+        ],
+      },
+      {
+        heading: 'The Basics: What Array.fromAsync Does',
+        blocks: [
+          {
+            type: 'p',
+            text:
+              'Array.fromAsync is the asynchronous sibling of `Array.from`. It accepts an async iterable (or a sync iterable, or an array-like) and returns a **promise of an array**. Every value the source yields is awaited before it lands in the result.',
+          },
+          {
+            type: 'code',
+            language: 'javascript',
+            code:
+              'async function* generateNumbers() {\n  yield 1;\n  yield 2;\n  yield 3;\n}\n\nconst numbers = await Array.fromAsync(generateNumbers());\nconsole.log(numbers); // [1, 2, 3]',
+          },
+          {
+            type: 'p',
+            text:
+              'The old way needed a manual accumulator. Same result, more ceremony, one more variable name to invent:',
+          },
+          {
+            type: 'code',
+            language: 'javascript',
+            code:
+              'const numbers = [];\nfor await (const n of generateNumbers()) {\n  numbers.push(n);\n}',
+          },
+        ],
+      },
+      {
+        heading: 'Array.fromAsync vs Promise.all: Not the Same Thing',
+        blocks: [
+          {
+            type: 'p',
+            text:
+              'The most common confusion. Both can turn a collection of promises into an array of values, but they schedule work very differently:',
+          },
+          {
+            type: 'list',
+            items: [
+              '**Promise.all runs concurrently.** It takes promises that already exist — meaning the work has already started — and waits for all of them together.',
+              '**Array.fromAsync awaits sequentially.** It pulls one value at a time from the iterable and awaits each before asking for the next. Later work does not begin until earlier work finishes.',
+            ],
+          },
+          {
+            type: 'code',
+            language: 'javascript',
+            code:
+              'const tasks = [fetchUser(1), fetchUser(2), fetchUser(3)];\n\n// Concurrent: total time is roughly the slowest single fetch\nconst a = await Promise.all(tasks);\n\n// Sequential awaiting of an async source, one item at a time\nconst b = await Array.fromAsync(userStream());',
+          },
+          {
+            type: 'p',
+            text:
+              'Neither is better; they answer different questions. Reach for `Promise.all` when you hold an array of independent promises and want maximum concurrency. Reach for `Array.fromAsync` when the source itself is asynchronous — a stream, a paginated API, an async generator — and produces values over time at its own pace. Passing an array of promises to Array.fromAsync works, but it awaits them one by one in order, which is usually not what you want for independent requests.',
+          },
+        ],
+      },
+      {
+        heading: 'The mapFn Argument Accepts Async Functions',
+        blocks: [
+          {
+            type: 'p',
+            text:
+              'Like Array.from, the second argument is a mapping function receiving the value and its index — but here the mapping function may itself be async, and its result is awaited before moving on:',
+          },
+          {
+            type: 'code',
+            language: 'javascript',
+            code:
+              'const ids = [101, 102, 103];\n\nconst users = await Array.fromAsync(ids, async (id) => {\n  const res = await fetch(\'/api/users/\' + id);\n  return res.json();\n});',
+          },
+          {
+            type: 'p',
+            text:
+              'Note what this implies: the three fetches above run **sequentially**, not in parallel. That is sometimes exactly what you want — polite crawling, rate-limited APIs, order-dependent writes — and sometimes a performance bug. If you want the parallel version, map to promises first and use Promise.all.',
+          },
+        ],
+      },
+      {
+        heading: 'The Killer Use Case: Draining Paginated APIs',
+        blocks: [
+          {
+            type: 'p',
+            text:
+              'Where Array.fromAsync genuinely shines is paired with an async generator that hides pagination. The generator encapsulates the cursor logic; fromAsync flattens the whole thing into an array:',
+          },
+          {
+            type: 'code',
+            language: 'javascript',
+            code:
+              'async function* allIssues(repo) {\n  let page = 1;\n  while (true) {\n    const res = await fetch(repo + \'/issues?page=\' + page);\n    const items = await res.json();\n    if (items.length === 0) return;\n    yield* items;\n    page += 1;\n  }\n}\n\nconst issues = await Array.fromAsync(allIssues(apiUrl));',
+          },
+          {
+            type: 'p',
+            text:
+              'The same pattern drains any async source: rows from a database cursor, entries from a ReadableStream, chunks from a file reader, messages from a queue until it closes. If it implements the async iteration protocol, fromAsync can collect it.',
+          },
+        ],
+      },
+      {
+        heading: 'Gotchas Worth Knowing',
+        blocks: [
+          {
+            type: 'list',
+            items: [
+              '**It buffers everything.** By definition you get the whole array at the end. For infinite or huge streams, keep the for await loop (or process in batches) — fromAsync on an endless generator simply never resolves.',
+              '**First rejection wins.** If the iterable throws or a value rejects mid-way, the returned promise rejects and values collected so far are discarded. There is no partial result, so wrap it in try/catch when sources are flaky.',
+              '**Sync iterables of promises are awaited too.** Handy: an ordinary array mixing plain values and promises comes out fully resolved.',
+              '**It works on array-likes.** Anything with a length and indexed properties is accepted, mirroring Array.from — useful for legacy DOM-ish objects in async pipelines.',
+            ],
+          },
+        ],
+      },
+      {
+        heading: 'When to Use What: A Cheat Sheet',
+        blocks: [
+          {
+            type: 'list',
+            items: [
+              'Async generator or stream, want an array: **Array.fromAsync(source)**.',
+              'Array of independent promises, want speed: **Promise.all(promises)**.',
+              'Async source, but transform each item first: **Array.fromAsync(source, asyncMapFn)** — remembering it is sequential.',
+              'Infinite or memory-heavy source: plain **for await**, process as you go.',
+              'Need early exit on a condition: **for await** with break — fromAsync always drains to the end.',
+            ],
+          },
+          {
+            type: 'p',
+            text:
+              'Array.fromAsync is one of those small additions — like the [iterator helpers](/blog/javascript-iterator-helpers) and the [new Set methods](/blog/javascript-set-methods-union-intersection-difference) — that removes a private helper function from every codebase you touch. The four-line accumulator loop served us well. It will not be missed.',
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const getAllPosts = () =>
