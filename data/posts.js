@@ -3485,6 +3485,119 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  {
+    slug: "import-defer-lazy-module-evaluation",
+    title:
+      "import defer: Lazy Module Evaluation in JavaScript and TypeScript 5.9",
+    description:
+      "How the TC39 import defer proposal delays module evaluation until first use — the semantics, what TypeScript 5.9 does with it, runtime support in Deno and Bun, and where it actually helps startup time.",
+    datePublished: "2026-09-09",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Every static import in your entry file runs code. Not just loads it — runs it. Import a heavy charting module on line 3 and its top-level initialization executes before your app renders anything, whether or not the user ever opens a chart. The classic fix is dynamic `import()`, but that turns clean synchronous code into async plumbing and pushes awaits into places that never wanted them.",
+          },
+          {
+            type: "p",
+            text: "`import defer` is TC39's answer: keep the static import syntax, keep synchronous access, but postpone the expensive part — evaluation — until the moment the module is first used. TypeScript 5.9 ships the syntax, Deno and Bun run it natively today, and Chrome has it behind a flag. Here is how it works and when to reach for it.",
+          },
+        ],
+      },
+      {
+        heading: "The problem: eager evaluation at startup",
+        blocks: [
+          {
+            type: "p",
+            text: "When a module graph loads, JavaScript evaluates every module in it, depth-first, before your entry file's first statement runs. Evaluation means executing all top-level code: building lookup tables, instantiating classes, running side effects. For big dependency trees this is a real, measurable chunk of startup time — and much of it is spent initializing modules for features the user may never touch in this session.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// analytics.js\nconsole.log(\"analytics init\"); // runs at startup, always\nexport function track(event) { /* ... */ }\n\n// main.js\nimport { track } from \"./analytics.js\";\n// \"analytics init\" has already printed before this line",
+          },
+          {
+            type: "p",
+            text: "Dynamic `import()` avoids this, but it is async by design. Sometimes that is exactly right — code-splitting a route, for instance. But for a synchronous utility that is only needed on some code paths, wrapping every call site in `await` is a heavy price for lazy loading.",
+          },
+        ],
+      },
+      {
+        heading: "What import defer does",
+        blocks: [
+          {
+            type: "p",
+            text: "The syntax accepts only a namespace import, and the semantics are precise: the module and its dependencies are still **loaded and parsed** eagerly, but **evaluation** is skipped. The first time you read a property off the deferred namespace, the module (and any of its not-yet-evaluated dependencies) evaluates synchronously, right then.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "import defer * as analytics from \"./analytics.js\";\n\n// nothing has evaluated yet - no \"analytics init\" log\n\nbutton.addEventListener(\"click\", () => {\n  // first property access triggers evaluation, synchronously\n  analytics.track(\"clicked\");\n});",
+          },
+          {
+            type: "list",
+            items: [
+              "Only `import defer * as ns` is allowed. Named imports like `import defer { track }` are a syntax error — a named binding would have to be readable immediately, which defeats deferral.",
+              "Loading is still eager, so errors like a missing file surface at startup, not at first use. Only the execution cost moves.",
+              "Evaluation triggers on first property access — including `Object.keys(ns)` or spreading — not on merely holding the namespace object.",
+              "Modules that use top-level await cannot be deferred synchronously, so any async subtree is evaluated eagerly; only the synchronous parts wait.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "TypeScript 5.9: syntax in, transform out",
+        blocks: [
+          {
+            type: "p",
+            text: "TypeScript 5.9 added support for `import defer`, with an important caveat: the compiler type-checks it but never downlevels it. There is no emitted helper that fakes deferral — the syntax passes through untouched, so it only works when your runtime or bundler actually implements the semantics. That means module targets of esnext or preserve, and a toolchain that understands the syntax end to end.",
+          },
+          {
+            type: "code",
+            language: "ts",
+            code: "// tsconfig.json (relevant bits)\n{\n  \"compilerOptions\": {\n    \"module\": \"preserve\",\n    \"target\": \"esnext\"\n  }\n}\n\n// feature.ts\nimport defer * as heavy from \"./heavy-parser.js\";\n\nexport function parseIfNeeded(input: string) {\n  if (!input.startsWith(\"@\")) return null;\n  return heavy.parse(input); // evaluated here, first time only\n}",
+          },
+          {
+            type: "p",
+            text: "This mirrors how TypeScript handled other late-stage proposals like `using` declarations: the type system arrives first, the runtime story is delegated to the platforms.",
+          },
+        ],
+      },
+      {
+        heading: "Where you can run it today",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Deno and Bun ship `import defer` natively — you can use it in server code right now.",
+              "Chrome implements it behind a flag; no browser has it on by default yet.",
+              "Babel has a transform plugin, and bundler support is arriving unevenly — check your bundler's release notes before adopting it in app code.",
+              "The proposal itself (proposal-defer-import-eval) sits at the final stages of TC39 with its design effectively complete, so the semantics above are stable enough to learn.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "When to use it (and when not to)",
+        blocks: [
+          {
+            type: "p",
+            text: "`import defer` shines for synchronous, occasionally-used dependencies with expensive initialization: parsers, formatters, validation engines, SDK clients, anything that builds big tables at module scope. CLI tools and servers see the clearest wins, since startup latency is pure overhead there and the runtimes already support the syntax.",
+          },
+          {
+            type: "p",
+            text: "It is the wrong tool when you want to avoid downloading code — deferral skips evaluation, not fetching, so route-level code splitting still belongs to dynamic `import()`. Be careful with modules whose side effects are the point (polyfills, global registrations): deferring those changes program behavior, not just timing. And if a deferred module throws during evaluation, that error now surfaces at first property access, deep inside your app, instead of at startup — worth a deliberate try/catch at the access boundary.",
+          },
+          {
+            type: "p",
+            text: "If lazy evaluation is becoming a theme in your codebase, this pairs nicely with the resource-management patterns from the `using` keyword and the streaming patterns in `Array.fromAsync` — different corners of the same idea: pay for work exactly when, and only when, it is needed.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const getAllPosts = () =>
