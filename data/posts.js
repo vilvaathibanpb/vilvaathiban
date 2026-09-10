@@ -3600,6 +3600,136 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  {
+    slug: "hire-an-ai-engineer-mcp-specialist-and-ai-trainer",
+    title:
+      "Work With Me: AI Engineering, MCP Architecture, AI Enablement and Training",
+    description:
+      "I build MCP architectures, ship agentic AI in production, and train teams to actually use it. Here is exactly what I do, how engagements run, and how to hire me or book training.",
+    datePublished: "2026-09-10",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Most companies I talk to are not short on AI ambition. They are short on the layer between the model and their own systems. They have licences for Claude or Copilot, a few teams running experiments, a proof of concept that impressed everyone in a demo — and almost nothing that a support agent, an ops lead or a product manager uses on a Tuesday afternoon to get real work done.",
+          },
+          {
+            type: "p",
+            text: "That gap is what I work on. I am **Vilva Athiban P B**, a Lead AI Engineer at Omio. I single-handedly built the MCP-first backend of Omio.ai, I ship agentic AI in production, and I have taught more than **20,000 developers** across **50+ talks in 7 countries**. This post is the honest version of what I do, who it is for, and how to start — whether you want to *hire* me for an engagement or get your team *trained*.",
+          },
+        ],
+      },
+      {
+        heading: "The four things I actually get hired for",
+        blocks: [
+          {
+            type: "p",
+            text: "Different companies use different words — AI engineer, MCP specialist, AI enablement lead, corporate AI trainer — but the work falls into four buckets.",
+          },
+          {
+            type: "list",
+            items: [
+              "**MCP architecture.** Not one server and a handshake — a swarm of in-house MCPs, plugins and skills that plug AI into your internal tools, with auth, role-based access and audit logging built in from day one. Delivered in [one month](/services/mcp-architecture), fixed-scope and fixed-price after a discovery call.",
+              "**AI engineering and delivery efficiency.** Embedding AI across the software delivery lifecycle so teams ship faster without raising rework — measured against your DORA and developer-experience metrics, not vibes. Details on [that engagement here](/services/ai-engineering-efficiency).",
+              "**EU AI Act technical controls.** The engineering half of compliance: logging and traceability, human oversight, transparency and content labelling, evals, and Annex IV documentation tooling — built into your systems, run under your legal team's direction. The [deadline is 2 August 2026](/services/eu-ai-act).",
+              "**Training and enablement.** Workshops and hands-on programmes that leave your engineers able to build MCPs, agents and AI-assisted workflows themselves, instead of depending on a vendor forever.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Why MCP is the piece most teams are missing",
+        blocks: [
+          {
+            type: "p",
+            text: "The Model Context Protocol is a standard way for an AI client — Claude, an IDE, an internal agent — to discover and call tools, read resources and follow prompts exposed by a server you control. In plain terms: it is how you stop pasting context into a chat box and start letting the model talk to your logging stack, your CRM, your warehouse, your ticketing system.",
+          },
+          {
+            type: "p",
+            text: "The reason it matters commercially is not elegance, it is **queue removal**. Consider the single most common example I show in discovery calls: a customer service agent has a broken booking. Today they raise a ticket, an engineer eventually greps the logs, and the customer waits. With an MCP wired to your observability tools and scoped to what support is allowed to see, the agent asks the AI and gets the exact failed step and likely root cause in seconds. Now multiply that across ops, product, sales and data.",
+          },
+          {
+            type: "p",
+            text: "Prototyping one MCP server is genuinely easy — a weekend, if you are comfortable in TypeScript. I have written the [practical build guide](/blog/building-mcps-typescript-mcp-server-guide) and the [architecture explainer](/blog/mcp-architecture-explained) for exactly that reason. What is hard, and what companies actually pay for, is the governed multi-team version: dozens of servers, non-technical users, live production data, and an audit trail that survives a security review.",
+          },
+        ],
+      },
+      {
+        heading: "How I work",
+        blocks: [
+          {
+            type: "p",
+            text: "A few things are consistent across every engagement, and they are worth stating up front because they filter out bad fits early.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Fixed scope, fixed price, fixed date.** After a short discovery call you get a number and a deliverables list. No open-ended day-rate drift.",
+              "**Your codebase, your infrastructure.** I build inside your systems with your stack and your review process. There is no black box to renew a licence for.",
+              "**Handover is a deliverable, not an afterthought.** Every engagement ends with your team able to extend the pattern without me. Documented, demoed, and usually taught in a workshop as part of the work.",
+              "**Non-technical teams are first-class users.** The biggest efficiency gains I have measured are rarely in engineering. They are in support, ops and product finally self-serving instead of queuing behind the tech team.",
+              "**Security is designed in, not bolted on.** Authentication and authorization, role-based access, audit logging, data isolation, schema validation, failure recovery, plus evals and monitoring so you can trust what agents do on live data.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "If you want training rather than a build",
+        blocks: [
+          {
+            type: "p",
+            text: "Plenty of teams do not need me to build anything — they need their own engineers to stop guessing. Training engagements run as focused, hands-on sessions rather than slide decks, and the most requested ones right now are:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Building MCP servers in TypeScript** — tools, resources, prompts, transports, auth, testing, and the failure modes nobody warns you about.",
+              "**Agentic AI patterns in production** — orchestration, tool design, evals, guardrails, cost control and observability.",
+              "**AI in the delivery lifecycle** — how to get real velocity from AI-assisted development without shipping rework.",
+              "**AI for non-technical teams** — enabling support, ops and product to use internal AI tooling safely and confidently.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Formats range from a half-day team session to a multi-week programme, remote or on-site. Past [talks](/talks) and [workshops](/workshop) give a sense of how I teach: practical, code-first, and aimed at people who have to ship on Monday.",
+          },
+        ],
+      },
+      {
+        heading: "Who this is a good fit for",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Companies with real internal systems — logs, APIs, databases, CRMs, warehouses — and AI that cannot currently reach any of them.",
+              "Engineering organisations where AI adoption stalled after the pilot, and leadership wants measurable delivery improvement rather than another tool.",
+              "Teams facing the EU AI Act deadline who have the legal analysis but not the technical controls.",
+              "Companies that want capability transferred to their own engineers, not a permanent dependency.",
+            ],
+          },
+          {
+            type: "p",
+            text: "It is a poor fit if you want a chatbot on a marketing site, an unbounded staff-augmentation contract, or someone to sign off on compliance claims — I build the technical controls, your legal and compliance team owns the position.",
+          },
+        ],
+      },
+      {
+        heading: "How to start",
+        blocks: [
+          {
+            type: "p",
+            text: "One [30-minute call](https://cal.com/vilva-athiban/30min) is enough to tell whether there is a project here. Bring the systems you wish your AI could reach and the team that is currently queuing for answers; you will leave with a scoped recommendation either way, and I will say so plainly if the answer is that you do not need me yet.",
+          },
+          {
+            type: "p",
+            text: "You can also browse the [full list of services](/services), read the [technical writing](/blog) to see how I think, or reach me directly if you would rather start with an email than a calendar link. For training enquiries, mention team size, current experience level and whether you want remote or on-site — that is usually enough for me to come back with a concrete format and price.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
 ];
 
