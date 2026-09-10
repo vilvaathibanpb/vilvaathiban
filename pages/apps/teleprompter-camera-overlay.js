@@ -17,8 +17,8 @@ import {
 } from "../../components/service";
 
 const URL = "https://vilvaathiban.com/apps/teleprompter-camera-overlay";
-// TODO: set the real App Store URL once the app is live.
-const APP_STORE_URL = "#";
+const APP_STORE_URL =
+  "https://apps.apple.com/app/teleprompter-camera-overlay/id6805037497";
 
 const FAQS = [
   {
@@ -205,10 +205,9 @@ const TeleprompterPage = () => (
         and TikToks in 4K with perfect eye contact — no memorizing, no darting
         eyes, no twenty takes.
       </Lead>
-      <StoreBadge href={APP_STORE_URL} disabled aria-label="Download on the App Store">
+      <StoreBadge href={APP_STORE_URL} aria-label="Download on the App Store">
         <img src="/apps/app-store-badge.svg" alt="Download on the App Store" />
       </StoreBadge>
-      <ComingSoon>Free download — launching on the App Store very soon.</ComingSoon>
 
       <Section>
         <h2>A genuinely free teleprompter — read your script and look into the lens at the same time</h2>
