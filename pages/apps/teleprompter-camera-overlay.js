@@ -15,6 +15,10 @@ import {
   Faq,
   JsonLd,
 } from "../../components/service";
+import {
+  HREFLANG_LINKS,
+  LanguageSwitcher,
+} from "../../components/teleprompterI18n";
 
 const URL = "https://vilvaathiban.com/apps/teleprompter-camera-overlay";
 const APP_STORE_URL =
@@ -138,6 +142,14 @@ const TeleprompterPage = () => (
         content="teleprompter app, free teleprompter, camera overlay teleprompter, teleprompter for reels, teleprompter for shorts, teleprompter for tiktok, voice teleprompter, scrolls as you speak, autocue app, iphone teleprompter, record video while reading script"
       />
       <link rel="canonical" href={URL} />
+      {HREFLANG_LINKS.map((l) => (
+        <link
+          key={l.hrefLang}
+          rel="alternate"
+          hrefLang={l.hrefLang}
+          href={l.href}
+        />
+      ))}
       <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
       <meta property="og:title" content="Free Teleprompter App — Camera Overlay, Scrolls As You Speak" />
       <meta
@@ -291,6 +303,7 @@ const TeleprompterPage = () => (
         {" · "}
         <Link href="/apps">All apps</Link>
       </LegalLinks>
+      <LanguageSwitcher current="en" label="This page in other languages" />
     </Wrap>
     <Footer />
   </Container>
