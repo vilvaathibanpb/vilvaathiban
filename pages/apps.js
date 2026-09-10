@@ -10,6 +10,46 @@ const URL = "https://vilvaathiban.com/apps";
 
 const APPS = [
   {
+    name: "Chat Link & QR Code Maker",
+    tagline: "WhatsApp link generator and QR code maker, free, on your iPhone.",
+    summary:
+      "Turn a phone number into a wa.me click-to-chat link with a pre-filled message, save a printable QR code, and make a full-size profile picture that is not cropped. Works offline; nothing is uploaded.",
+    image: "/apps/chat-link-qr-logo.png",
+    href: "/apps/chat-link-qr-code-maker",
+    internal: true,
+    badge: "Free iOS app",
+  },
+  {
+    name: "Voice Note Audio Converter",
+    tagline: "Convert WhatsApp .opus voice notes to MP3 or WAV, free and offline.",
+    summary:
+      "Opus to MP3 converter that runs on the phone. Pick one or a hundred .opus, .ogg, .m4a or .aac files, tap Convert, share the MP3 or WAV. No upload, no account, no limits.",
+    image: "/apps/audio-converter-logo.png",
+    href: "/apps/voice-note-audio-converter",
+    internal: true,
+    badge: "Free iOS app",
+  },
+  {
+    name: "Voice Note to Text",
+    tagline: "Transcribe WhatsApp voice messages to text on-device, any language.",
+    summary:
+      "Share a voice note, read the transcript seconds later, copy or share it as .txt. The speech model ships in the app, so it works offline. One-time $2.99, no subscription.",
+    image: "/apps/voice-to-text-logo.png",
+    href: "/apps/voice-note-to-text",
+    internal: true,
+    badge: "iOS · $2.99",
+  },
+  {
+    name: "Chat Export Studio: PDF",
+    tagline: "Export a WhatsApp chat to a paginated PDF with statistics.",
+    summary:
+      "Open the .txt or .zip from Export Chat and get a clean PDF with message bubbles plus who-talks-most statistics. Parsed on your iPhone only. One-time $4.99.",
+    image: "/apps/chat-export-logo.png",
+    href: "/apps/chat-export-studio",
+    internal: true,
+    badge: "iOS · $4.99",
+  },
+  {
     name: "Teleprompter: Camera Overlay",
     tagline: "Free iOS teleprompter that floats your script over the camera and scrolls as you speak.",
     summary:
@@ -137,16 +177,16 @@ const AppLink = styled.div`
 const AppsPage = () => (
   <Container>
     <Head>
-      <title>Apps & Products | Vilva Athiban P B</title>
+      <title>iOS Apps: WhatsApp Link & QR Maker, Voice Note Converter, Transcriber, Chat to PDF | Vilva Athiban</title>
       <meta
         name="description"
-        content="Apps and products built by Vilva Athiban — including Teleprompter: Camera Overlay, a free iOS teleprompter app for Reels and Shorts, AIDoneNow, FinalSaying and SafeRoutes."
+        content="On-device iPhone utilities by Vilva Athiban: a free WhatsApp link and QR code maker, a free .opus voice note to MP3 converter, an offline voice-note transcriber, a chat-export-to-PDF tool, and a free camera-overlay teleprompter."
       />
       <link rel="canonical" href={URL} />
-      <meta property="og:title" content="Apps & Products | Vilva Athiban P B" />
+      <meta property="og:title" content="iOS apps by Vilva Athiban: chat links & QR, voice note converter, transcriber, chat to PDF, teleprompter" />
       <meta
         property="og:description"
-        content="Apps and products built by Vilva Athiban — from a free camera-overlay teleprompter for content creators to AI services and safety-first navigation."
+        content="Private, on-device iPhone utilities for WhatsApp exports and voice notes, plus a free camera-overlay teleprompter."
       />
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="website" />
@@ -171,8 +211,10 @@ const AppsPage = () => (
       <Eyebrow>Apps & Products</Eyebrow>
       <Title>Things I build and ship</Title>
       <Lead>
-        Products I have built — apps you can download today and platforms in
-        the making. Built nights and weekends, shipped for real users.
+        Small, private iPhone utilities that do one job on the device: make
+        WhatsApp chat links and QR codes, convert .opus voice notes to MP3,
+        transcribe voice messages offline, turn chat exports into PDFs, and a
+        free teleprompter for creators. Nothing is uploaded, no accounts.
       </Lead>
       <Grid>
         {APPS.map((app) =>

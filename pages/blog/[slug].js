@@ -74,12 +74,20 @@ const formatDate = (iso) =>
     timeZone: "UTC",
   });
 
-// Renders `inline code`, **bold** and *italic* spans without a markdown dependency.
+// Renders `inline code`, **bold**, *italic* and [text](url) spans without a markdown dependency.
 const renderInline = (text) => {
-  const parts = text.split(/(`[^`]+`|\*\*[^*]+\*\*|\*[^*]+\*)/g);
+  const parts = text.split(/(`[^`]+`|\*\*[^*]+\*\*|\*[^*]+\*|\[[^\]]+\]\([^)]+\))/g);
   return parts.map((part, i) => {
     if (part.startsWith("`") && part.endsWith("`")) {
       return <code key={i}>{part.slice(1, -1)}</code>;
+    }
+    const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (link) {
+      return link[2].startsWith("/") ? (
+        <Link key={i} href={link[2]}>{link[1]}</Link>
+      ) : (
+        <a key={i} href={link[2]} rel="noopener">{link[1]}</a>
+      );
     }
     if (part.startsWith("**") && part.endsWith("**")) {
       return <strong key={i}>{part.slice(2, -2)}</strong>;

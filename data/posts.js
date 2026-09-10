@@ -22,6 +22,8 @@
 // 2. Add a <url> entry for https://vilvaathiban.com/blog/<slug> to public/sitemap.xml.
 // No other changes are needed — /blog and /blog/[slug] pick posts up statically.
 
+import { appPosts } from "./appPosts";
+
 export const posts = [
   {
     slug: "react-19-form-actions",
@@ -3598,6 +3600,7 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  ...appPosts,
 ];
 
 export const getAllPosts = () =>
