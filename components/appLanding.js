@@ -5,6 +5,7 @@ import { Container } from "../pages/about";
 import Header from "./Header";
 import Footer from "./Footer";
 import { Wrap, Eyebrow, Section, Steps, Cards, Card, Faq, JsonLd } from "./service";
+import { LANGS } from "../data/apps";
 
 // Search-intent-first landing page for a single app. Every page built with this
 // component leads with the question people actually type into Google / an LLM,
@@ -170,11 +171,33 @@ const LegalLinks = styled.div`
   a { color: #111827; font-weight: 600; text-decoration: underline; }
 `;
 
-export default function AppLanding({ app }) {
-  const url = `${SITE}/apps/${app.slug}`;
+const LangBar = styled.nav`
+  margin: 26px 0 0;
+  padding: 12px 14px;
+  border: 1px solid #ececea;
+  border-radius: 12px;
+  font-family: ${SANS};
+  font-size: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  align-items: center;
+  span { color: #64748b; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 11px; margin-right: 4px; }
+  a { color: #334155; text-decoration: none; border-bottom: 1px solid transparent; }
+  a:hover { border-color: #334155; }
+  a[aria-current="true"] { color: #111827; font-weight: 700; border-color: #111827; }
+`;
+
+export default function AppLanding({ app, lang = LANGS[0], ui }) {
+  const url = `${SITE}${lang.path}/apps/${app.slug}`;
+  const rtl = lang.dir === "rtl";
   const storeUrl = `https://apps.apple.com/app/id${app.appStoreId}`;
   const icon = `${SITE}/apps/${app.iconBase}-icon.png`;
   const free = app.price.amount === "0";
+  const priceLabel = free
+    ? ui.free
+    : (ui.priceOnce || "${amount} one-time").replace("{amount}", app.price.amount);
+  const alternates = LANGS.map((l) => ({ ...l, href: `${SITE}${l.path}/apps/${app.slug}` }));
 
   const software = {
     "@context": "https://schema.org",
@@ -197,6 +220,7 @@ export default function AppLanding({ app }) {
     softwareVersion: "1.0",
     datePublished: "2026-09-10",
     keywords: app.head.keywords,
+    inLanguage: lang.hreflang,
   };
   const howTo = {
     "@context": "https://schema.org",
@@ -216,8 +240,8 @@ export default function AppLanding({ app }) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE },
-      { "@type": "ListItem", position: 2, name: "Apps", item: `${SITE}/apps` },
+      { "@type": "ListItem", position: 1, name: ui.breadcrumbHome, item: SITE },
+      { "@type": "ListItem", position: 2, name: ui.apps, item: `${SITE}/apps` },
       { "@type": "ListItem", position: 3, name: app.name, item: url },
     ],
   };
@@ -229,6 +253,11 @@ export default function AppLanding({ app }) {
         <meta name="description" content={app.head.description} />
         <meta name="keywords" content={app.head.keywords} />
         <link rel="canonical" href={url} />
+        {alternates.map((l) => (
+          <link key={l.code} rel="alternate" hrefLang={l.hreflang} href={l.href} />
+        ))}
+        <link rel="alternate" hrefLang="x-default" href={`${SITE}/apps/${app.slug}`} />
+        <meta property="og:locale" content={lang.hreflang.replace("-", "_")} />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Vilva Athiban P B" />
@@ -247,28 +276,36 @@ export default function AppLanding({ app }) {
       <JsonLd data={faq} />
       <JsonLd data={crumbs} />
       <Header />
-      <Wrap>
+      <Wrap dir={lang.dir} style={rtl ? { textAlign: "right" } : undefined}>
         <Eyebrow>
-          <Link href="/apps">Apps</Link> · iOS · {free ? "Free" : app.price.label}
+          <Link href="/apps">{ui.apps}</Link> · {ui.ios} · {priceLabel}
         </Eyebrow>
         <HeroRow>
           <Logo src={`/apps/${app.iconBase}-logo.png`} alt={`${app.name} app icon`} width="112" height="112" />
           <div style={{ flex: 1, minWidth: 260 }}>
             <Pills>
-              <Pill>{free ? "Free iOS app" : `${app.price.label} · no subscription`}</Pill>
-              <Pill fg="#1e40af" bg="#dbeafe">100% on-device</Pill>
-              <Pill fg="#6b21a8" bg="#f3e8ff">Works offline</Pill>
+              <Pill>{free ? ui.pillFree : ui.pillPaid.replace("{price}", priceLabel)}</Pill>
+              <Pill fg="#1e40af" bg="#dbeafe">{ui.pillOnDevice}</Pill>
+              <Pill fg="#6b21a8" bg="#f3e8ff">{ui.pillOffline}</Pill>
             </Pills>
             <H1>{app.h1}</H1>
           </div>
         </HeroRow>
         <Answer color={app.color}>{app.answer}</Answer>
         <Stores>
-          <a href={storeUrl} aria-label={`Download ${app.name} on the App Store`} rel="noopener">
-            <img src="/apps/app-store-badge.svg" alt="Download on the App Store" width="156" height="52" />
+          <a href={storeUrl} aria-label={`${ui.download}: ${app.name}`} rel="noopener">
+            <img src="/apps/app-store-badge.svg" alt={ui.download} width="156" height="52" />
           </a>
-          <PlaySoon>Google Play: Android version in progress</PlaySoon>
+          <PlaySoon>{ui.playSoon}</PlaySoon>
         </Stores>
+        <LangBar aria-label={ui.language}>
+          <span>{ui.language}</span>
+          {alternates.map((l) => (
+            <Link key={l.code} href={`${l.path}/apps/${app.slug}`} hrefLang={l.hreflang} lang={l.hreflang} aria-current={l.code === lang.code ? "true" : undefined}>
+              {l.name}
+            </Link>
+          ))}
+        </LangBar>
         <Facts>
           {app.quickFacts.map(([k, v]) => (
             <div key={k}>
@@ -350,7 +387,7 @@ export default function AppLanding({ app }) {
         </Section>
 
         <Section>
-          <h2>Frequently asked questions</h2>
+          <h2>{ui.faqTitle}</h2>
           <Faq>
             {app.faqs.map((f) => (
               <details key={f.q}>
@@ -362,22 +399,22 @@ export default function AppLanding({ app }) {
         </Section>
 
         <Section>
-          <h2>Step-by-step guides</h2>
+          <h2>{ui.guidesTitle}</h2>
           <RelatedList>
             {app.guides.map((g) => (
               <li key={g.href}>
-                <Link href={g.href}>{g.title}<span>{g.blurb}</span></Link>
+                <Link href={g.href}>{g.title}{lang.code !== "en" ? ` (${ui.guideLang})` : ""}<span>{g.blurb}</span></Link>
               </li>
             ))}
           </RelatedList>
         </Section>
 
         <Section>
-          <h2>More on-device apps for chat exports and voice notes</h2>
+          <h2>{ui.moreAppsTitle}</h2>
           <RelatedList>
             {app.related.map((r) => (
               <li key={r.href}>
-                <Link href={r.href}>{r.name}<span>{r.blurb}</span></Link>
+                <Link href={`${lang.path}${r.href}`}>{r.name}<span>{r.blurb}</span></Link>
               </li>
             ))}
           </RelatedList>
@@ -385,11 +422,11 @@ export default function AppLanding({ app }) {
 
         <Disclaimer>{app.disclaimer}</Disclaimer>
         <LegalLinks>
-          <Link href={`/apps/${app.slug}/privacy`}>Privacy Policy</Link>
+          <Link href={`/apps/${app.slug}/privacy`}>{ui.privacy}</Link>
           {" · "}
-          <Link href={`/apps/${app.slug}/support`}>Support</Link>
+          <Link href={`/apps/${app.slug}/support`}>{ui.support}</Link>
           {" · "}
-          <Link href="/apps">All apps</Link>
+          <Link href="/apps">{ui.allApps}</Link>
         </LegalLinks>
       </Wrap>
       <Footer />

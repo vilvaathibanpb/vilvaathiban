@@ -38,8 +38,13 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_0__["default"] {
         enhanceApp: App => props => sheet.collectStyles( /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx(App, _objectSpread({}, props)))
       });
 
-      const initialProps = await next_document__WEBPACK_IMPORTED_MODULE_0__["default"].getInitialProps(ctx);
+      const initialProps = await next_document__WEBPACK_IMPORTED_MODULE_0__["default"].getInitialProps(ctx); // Localized app pages live under /<lang>/apps/...; everything else is English.
+
+      const m = /^\/([a-z]{2})\/apps\//.exec(ctx.asPath || ctx.pathname || "");
+      const lang = m ? m[1] : "en";
       return _objectSpread(_objectSpread({}, initialProps), {}, {
+        lang,
+        dir: lang === "ar" ? "rtl" : "ltr",
         styles: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
           children: [initialProps.styles, sheet.getStyleElement()]
         })
@@ -47,6 +52,16 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_0__["default"] {
     } finally {
       sheet.seal();
     }
+  }
+
+  render() {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(next_document__WEBPACK_IMPORTED_MODULE_0__.Html, {
+      lang: this.props.lang,
+      dir: this.props.dir,
+      children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx(next_document__WEBPACK_IMPORTED_MODULE_0__.Head, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("body", {
+        children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx(next_document__WEBPACK_IMPORTED_MODULE_0__.Main, {}), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx(next_document__WEBPACK_IMPORTED_MODULE_0__.NextScript, {})]
+      })]
+    });
   }
 
 }

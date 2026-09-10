@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/SxoFmLuU9iLhW03KrvN5R/_buildManifest.js",
-    "static/SxoFmLuU9iLhW03KrvN5R/_ssgManifest.js"
+    "static/Fk97hl2OotqnWt1MT-ZG4/_buildManifest.js",
+    "static/Fk97hl2OotqnWt1MT-ZG4/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
@@ -14,7 +14,17 @@
       "static/chunks/webpack-5783bd41fce295ab.js",
       "static/chunks/framework-67aab5bd520376f9.js",
       "static/chunks/main-bd564d1f2dd6c12c.js",
-      "static/chunks/pages/index-7acea8917e388b93.js"
+      "static/chunks/pages/index-34ac61be60876eeb.js"
+    ],
+    "/[lang]/apps/[slug]": [
+      "static/chunks/webpack-5783bd41fce295ab.js",
+      "static/chunks/framework-67aab5bd520376f9.js",
+      "static/chunks/main-bd564d1f2dd6c12c.js",
+      "static/chunks/1130-6a9099c2299c26e2.js",
+      "static/chunks/1664-48d5a30feb556041.js",
+      "static/chunks/3750-373da3886a59b069.js",
+      "static/chunks/4560-0233bf77920f2315.js",
+      "static/chunks/pages/[lang]/apps/[slug]-f37f64eef32acec7.js"
     ],
     "/_app": [
       "static/chunks/webpack-5783bd41fce295ab.js",
@@ -54,8 +64,8 @@
       "static/chunks/1130-6a9099c2299c26e2.js",
       "static/chunks/1664-48d5a30feb556041.js",
       "static/chunks/3750-373da3886a59b069.js",
-      "static/chunks/4560-0056ca2314f2a6e5.js",
-      "static/chunks/pages/apps/chat-export-studio-3b64f80fdbddc2b5.js"
+      "static/chunks/4560-0233bf77920f2315.js",
+      "static/chunks/pages/apps/chat-export-studio-add4ec1ccc09f4c3.js"
     ],
     "/apps/chat-export-studio/privacy": [
       "static/chunks/webpack-5783bd41fce295ab.js",
@@ -82,8 +92,8 @@
       "static/chunks/1130-6a9099c2299c26e2.js",
       "static/chunks/1664-48d5a30feb556041.js",
       "static/chunks/3750-373da3886a59b069.js",
-      "static/chunks/4560-0056ca2314f2a6e5.js",
-      "static/chunks/pages/apps/chat-link-qr-code-maker-52a1fafd0633c488.js"
+      "static/chunks/4560-0233bf77920f2315.js",
+      "static/chunks/pages/apps/chat-link-qr-code-maker-8ecf2054f9ceadf7.js"
     ],
     "/apps/chat-link-qr-code-maker/privacy": [
       "static/chunks/webpack-5783bd41fce295ab.js",
@@ -110,7 +120,18 @@
       "static/chunks/1130-6a9099c2299c26e2.js",
       "static/chunks/1664-48d5a30feb556041.js",
       "static/chunks/3750-373da3886a59b069.js",
-      "static/chunks/pages/apps/teleprompter-camera-overlay-18b5327c206f60d0.js"
+      "static/chunks/1703-a7dee668a9ded021.js",
+      "static/chunks/pages/apps/teleprompter-camera-overlay-831d63f49d6c3e08.js"
+    ],
+    "/apps/teleprompter-camera-overlay/[lang]": [
+      "static/chunks/webpack-5783bd41fce295ab.js",
+      "static/chunks/framework-67aab5bd520376f9.js",
+      "static/chunks/main-bd564d1f2dd6c12c.js",
+      "static/chunks/1130-6a9099c2299c26e2.js",
+      "static/chunks/1664-48d5a30feb556041.js",
+      "static/chunks/3750-373da3886a59b069.js",
+      "static/chunks/1703-a7dee668a9ded021.js",
+      "static/chunks/pages/apps/teleprompter-camera-overlay/[lang]-c0e79f0350189ebf.js"
     ],
     "/apps/teleprompter-camera-overlay/privacy": [
       "static/chunks/webpack-5783bd41fce295ab.js",
@@ -128,7 +149,7 @@
       "static/chunks/1130-6a9099c2299c26e2.js",
       "static/chunks/1664-48d5a30feb556041.js",
       "static/chunks/3750-373da3886a59b069.js",
-      "static/chunks/pages/apps/teleprompter-camera-overlay/support-1dbf3ff399c757ab.js"
+      "static/chunks/pages/apps/teleprompter-camera-overlay/support-4710031ce453073b.js"
     ],
     "/apps/voice-note-audio-converter": [
       "static/chunks/webpack-5783bd41fce295ab.js",
@@ -137,8 +158,8 @@
       "static/chunks/1130-6a9099c2299c26e2.js",
       "static/chunks/1664-48d5a30feb556041.js",
       "static/chunks/3750-373da3886a59b069.js",
-      "static/chunks/4560-0056ca2314f2a6e5.js",
-      "static/chunks/pages/apps/voice-note-audio-converter-73e1cbb755ff95a9.js"
+      "static/chunks/4560-0233bf77920f2315.js",
+      "static/chunks/pages/apps/voice-note-audio-converter-9ba78ea8f7a92bfc.js"
     ],
     "/apps/voice-note-audio-converter/privacy": [
       "static/chunks/webpack-5783bd41fce295ab.js",
@@ -165,8 +186,8 @@
       "static/chunks/1130-6a9099c2299c26e2.js",
       "static/chunks/1664-48d5a30feb556041.js",
       "static/chunks/3750-373da3886a59b069.js",
-      "static/chunks/4560-0056ca2314f2a6e5.js",
-      "static/chunks/pages/apps/voice-note-to-text-84434f93d74deee2.js"
+      "static/chunks/4560-0233bf77920f2315.js",
+      "static/chunks/pages/apps/voice-note-to-text-ad7ba43330a8534c.js"
     ],
     "/apps/voice-note-to-text/privacy": [
       "static/chunks/webpack-5783bd41fce295ab.js",
