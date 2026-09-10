@@ -85,7 +85,7 @@ export default {
         { blurb: "Trasforma una chat WhatsApp esportata (.txt o .zip) in un PDF impaginato con statistiche." },
       ],
       disclaimer: "Chat Link & QR Code Maker è un’utility indipendente. Non è affiliata, approvata, sponsorizzata o in alcun modo collegata ufficialmente a WhatsApp LLC o Meta Platforms, Inc. WhatsApp è un marchio registrato di Meta Platforms, Inc. L’app crea link wa.me standard che qualsiasi app di messaggistica può aprire.",
-      aso: { subtitle: "Link, QR stampabile e foto", keywords: "link,generatore,messaggio,numero,contatto,scansione,attività,menu,volantino,biglietto,foto,profilo,ritaglio", promo: "Digita un numero e ottieni in pochi secondi un link chat e un codice QR stampabile. In più: una foto profilo che entra nel cerchio senza ritagli." },
+      aso: { subtitle: "Link, QR stampabile e foto", keywords: "link,generatore,messaggio,numero,contatto,attività,menu,volantino,biglietto,foto,profilo,ritaglio", promo: "Digita un numero e ottieni in pochi secondi un link chat e un codice QR stampabile. In più: una foto profilo che entra nel cerchio senza ritagli." },
     },
     "voice-note-audio-converter": {
       head: {

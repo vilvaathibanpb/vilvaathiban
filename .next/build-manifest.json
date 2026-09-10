@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/Us6VekckDPO4Bk3bIA8r_/_buildManifest.js",
-    "static/Us6VekckDPO4Bk3bIA8r_/_ssgManifest.js"
+    "static/DTtpVfshaYkWPTUoSdO3m/_buildManifest.js",
+    "static/DTtpVfshaYkWPTUoSdO3m/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
@@ -23,7 +23,7 @@
       "static/chunks/1130-6a9099c2299c26e2.js",
       "static/chunks/1664-48d5a30feb556041.js",
       "static/chunks/3750-373da3886a59b069.js",
-      "static/chunks/4560-0233bf77920f2315.js",
+      "static/chunks/4560-884fc191aa99530b.js",
       "static/chunks/pages/[lang]/apps/[slug]-f37f64eef32acec7.js"
     ],
     "/_app": [
@@ -64,7 +64,7 @@
       "static/chunks/1130-6a9099c2299c26e2.js",
       "static/chunks/1664-48d5a30feb556041.js",
       "static/chunks/3750-373da3886a59b069.js",
-      "static/chunks/4560-0233bf77920f2315.js",
+      "static/chunks/4560-884fc191aa99530b.js",
       "static/chunks/pages/apps/chat-export-studio-add4ec1ccc09f4c3.js"
     ],
     "/apps/chat-export-studio/privacy": [
@@ -92,7 +92,7 @@
       "static/chunks/1130-6a9099c2299c26e2.js",
       "static/chunks/1664-48d5a30feb556041.js",
       "static/chunks/3750-373da3886a59b069.js",
-      "static/chunks/4560-0233bf77920f2315.js",
+      "static/chunks/4560-884fc191aa99530b.js",
       "static/chunks/pages/apps/chat-link-qr-code-maker-8ecf2054f9ceadf7.js"
     ],
     "/apps/chat-link-qr-code-maker/privacy": [
@@ -158,7 +158,7 @@
       "static/chunks/1130-6a9099c2299c26e2.js",
       "static/chunks/1664-48d5a30feb556041.js",
       "static/chunks/3750-373da3886a59b069.js",
-      "static/chunks/4560-0233bf77920f2315.js",
+      "static/chunks/4560-884fc191aa99530b.js",
       "static/chunks/pages/apps/voice-note-audio-converter-9ba78ea8f7a92bfc.js"
     ],
     "/apps/voice-note-audio-converter/privacy": [
@@ -186,7 +186,7 @@
       "static/chunks/1130-6a9099c2299c26e2.js",
       "static/chunks/1664-48d5a30feb556041.js",
       "static/chunks/3750-373da3886a59b069.js",
-      "static/chunks/4560-0233bf77920f2315.js",
+      "static/chunks/4560-884fc191aa99530b.js",
       "static/chunks/pages/apps/voice-note-to-text-ad7ba43330a8534c.js"
     ],
     "/apps/voice-note-to-text/privacy": [

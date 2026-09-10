@@ -315,7 +315,7 @@ export default {
         { blurb: "Liens wa.me de discussion directe, QR codes imprimables et photos de profil sans recadrage. Gratuit." },
       ],
       disclaimer: "Chat Export Studio: PDF est un utilitaire indépendant. Il n’est ni affilié, ni approuvé, ni sponsorisé, ni officiellement lié de quelque manière que ce soit à WhatsApp LLC ou Meta Platforms, Inc. WhatsApp est une marque déposée de Meta Platforms, Inc. L’app lit les fichiers d’export de discussion standard et génère le PDF sur l’appareil.",
-      aso: { subtitle: "Imprimer, archiver, analyser", keywords: "imprimer,sauvegarde,historique,messages,conversation,statistiques,txt,zip,enregistrer,qui,parle,archive", promo: "Ouvrez une discussion exportée (.txt ou .zip) et obtenez un PDF propre et paginé plus des statistiques sur qui parle le plus. Traité sur votre téléphone uniquement." },
+      aso: { subtitle: "Imprimer, archiver, analyser", keywords: "imprimer,sauvegarde,historique,messages,conversation,statistiques,txt,zip,enregistrer,qui,parle", promo: "Ouvrez une discussion exportée (.txt ou .zip) et obtenez un PDF propre et paginé plus des statistiques sur qui parle le plus. Traité sur votre téléphone uniquement." },
     },
   },
 };

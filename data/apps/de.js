@@ -85,7 +85,7 @@ export default {
         { blurb: "Mach aus einem exportierten WhatsApp-Chat (.txt oder .zip) ein paginiertes PDF mit Statistiken." },
       ],
       disclaimer: "Chat Link & QR Code Maker ist ein unabhängiges Tool. Es ist weder mit WhatsApp LLC noch mit Meta Platforms, Inc. verbunden, wird nicht von ihnen unterstützt, gesponsert oder in irgendeiner Weise offiziell autorisiert. WhatsApp ist eine eingetragene Marke von Meta Platforms, Inc. Die App erzeugt standardmäßige wa.me-Links, die jeder Messenger öffnen kann.",
-      aso: { subtitle: "Links, Druck-QR & Profilbild", keywords: "link,generator,nachricht,nummer,kontakt,scannen,geschäft,speisekarte,flyer,visitenkarte,foto,profil,zuschnitt", promo: "Nummer eingeben, in Sekunden Chat-Link und druckbaren QR-Code bekommen. Bonus: ein Profilbild, das ohne Zuschnitt in den Kreis passt. Läuft auf deinem Gerät." },
+      aso: { subtitle: "Links, Druck-QR & Profilbild", keywords: "link,generator,nachricht,nummer,kontakt,scannen,geschäft,speisekarte,flyer,foto,profil,zuschnitt", promo: "Nummer eingeben, in Sekunden Chat-Link und druckbaren QR-Code bekommen. Bonus: ein Profilbild, das ohne Zuschnitt in den Kreis passt. Läuft auf deinem Gerät." },
     },
     "voice-note-audio-converter": {
       head: {
@@ -161,7 +161,7 @@ export default {
         { blurb: "wa.me-Klick-zum-Chat-Links, druckbare QR-Codes und Profilbilder ohne Zuschnitt." },
       ],
       disclaimer: "Voice Note Audio Converter ist ein unabhängiges Tool. Es ist weder mit WhatsApp LLC noch mit Meta Platforms, Inc. verbunden, wird nicht von ihnen unterstützt, gesponsert oder in irgendeiner Weise offiziell autorisiert. WhatsApp ist eine eingetragene Marke von Meta Platforms, Inc. Die Opus-Dekodierung nutzt das quelloffene libopus; die MP3-Kodierung läuft auf dem Gerät.",
-      aso: { subtitle: "Sprachnachrichten, OGG & M4A", keywords: "umwandeln,audio,sprachnachricht,nachricht,stapel,offline,datei,format,wav,aac,extrahieren,ton,musik,ptt", promo: "Wähle deine .opus-Sprachnachrichten, tippe auf Umwandeln, teile MP3 oder WAV. Stapelweise, offline, nichts wird hochgeladen." },
+      aso: { subtitle: "Sprachnachrichten, OGG & M4A", keywords: "umwandeln,audio,sprachnachricht,nachricht,stapel,offline,datei,format,wav,aac,ton,musik,ptt", promo: "Wähle deine .opus-Sprachnachrichten, tippe auf Umwandeln, teile MP3 oder WAV. Stapelweise, offline, nichts wird hochgeladen." },
     },
     "voice-note-to-text": {
       head: {
@@ -237,7 +237,7 @@ export default {
         { blurb: "wa.me-Klick-zum-Chat-Links, druckbare QR-Codes und Profilbilder ohne Zuschnitt. Kostenlos." },
       ],
       disclaimer: "Voice Note to Text ist ein unabhängiges Tool. Es ist weder mit WhatsApp LLC noch mit Meta Platforms, Inc. verbunden, wird nicht von ihnen unterstützt, gesponsert oder in irgendeiner Weise offiziell autorisiert. WhatsApp ist eine eingetragene Marke von Meta Platforms, Inc. Die Spracherkennung läuft auf dem Gerät mit einem quelloffenen Modell der Whisper-Familie.",
-      aso: { subtitle: "Private Audio-Transkription", keywords: "transkribieren,sprachnachricht,nachricht,sprache,text,audio,offline,opus,m4a,mp3,diktat,lesen,datei,privat", promo: "Sprachnachricht teilen, Sekunden später das Transkript lesen, kopieren oder als .txt senden. Jede Sprache, offline, Einmalkauf." },
+      aso: { subtitle: "Private Audio-Transkription", keywords: "transkribieren,sprachnachricht,nachricht,sprache,text,audio,offline,opus,m4a,mp3,lesen,datei,privat", promo: "Sprachnachricht teilen, Sekunden später das Transkript lesen, kopieren oder als .txt senden. Jede Sprache, offline, Einmalkauf." },
     },
     "chat-export-studio": {
       head: {
