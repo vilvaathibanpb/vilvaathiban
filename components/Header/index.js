@@ -190,6 +190,7 @@ const NAV_ITEMS = [
   { href: "/videos", label: "Videos" },
   { href: "/projects", label: "Projects" },
   { href: "/apps", label: "Apps" },
+  { href: "/tools", label: "Tools" },
   { href: "/reviews", label: "Reviews" },
 ];
 

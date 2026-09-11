@@ -112,6 +112,7 @@ export default {
     { title: "How to create a WhatsApp link with a message and a QR code (wa.me guide)", href: "/blog/whatsapp-link-generator-qr-code-full-size-dp", blurb: "The wa.me format explained, common number-format mistakes, and how to print a QR code for a menu or business card." },
   ],
   related: [
+    { name: "Free web tool: WhatsApp link & QR generator", href: "/tools/whatsapp-link-generator", blurb: "Make a wa.me link and a printable QR code in your browser, no install needed." },
     { name: "Voice Note Audio Converter", href: "/apps/voice-note-audio-converter", blurb: "Convert WhatsApp .opus voice notes to MP3 or WAV on your iPhone, free and offline." },
     { name: "Voice Note to Text", href: "/apps/voice-note-to-text", blurb: "Transcribe WhatsApp voice messages to text on-device, no upload, one-time purchase." },
     { name: "Chat Export Studio: PDF", href: "/apps/chat-export-studio", blurb: "Turn an exported WhatsApp chat (.txt or .zip) into a paginated PDF with statistics." },
@@ -206,6 +207,7 @@ export default {
     { title: "How to convert a WhatsApp voice note to MP3 on iPhone (offline, no upload)", href: "/blog/convert-whatsapp-voice-note-to-mp3-iphone", blurb: "Getting the .opus file out of WhatsApp, converting it, and sending the MP3 on, with the traps to avoid." },
   ],
   related: [
+    { name: "Free web tool: Opus to MP3 converter", href: "/tools/opus-to-mp3", blurb: "Convert .opus voice notes to MP3 or WAV in your browser, several at a time." },
     { name: "Voice Note to Text", href: "/apps/voice-note-to-text", blurb: "Transcribe voice messages to text on-device instead of converting them." },
     { name: "Chat Export Studio: PDF", href: "/apps/chat-export-studio", blurb: "Turn an exported chat (.txt or .zip) into a paginated PDF with statistics." },
     { name: "Chat Link & QR Code Maker", href: "/apps/chat-link-qr-code-maker", blurb: "wa.me click-to-chat links, printable QR codes and uncropped profile pictures." },
@@ -300,6 +302,7 @@ export default {
     { title: "How to transcribe WhatsApp voice messages to text on iPhone (any language, offline)", href: "/blog/transcribe-whatsapp-voice-message-to-text-iphone", blurb: "Why the built-in option is missing for many people, and a two-tap workflow that works for every saved voice note." },
   ],
   related: [
+    { name: "Free web tool: Opus to MP3 converter", href: "/tools/opus-to-mp3", blurb: "Just need the audio file rather than the words? Convert it in your browser, free." },
     { name: "Voice Note Audio Converter", href: "/apps/voice-note-audio-converter", blurb: "Convert .opus voice notes to MP3 or WAV instead of transcribing them. Free." },
     { name: "Chat Export Studio: PDF", href: "/apps/chat-export-studio", blurb: "Turn an exported chat into a paginated PDF with statistics, on-device." },
     { name: "Chat Link & QR Code Maker", href: "/apps/chat-link-qr-code-maker", blurb: "wa.me click-to-chat links, printable QR codes and uncropped profile pictures. Free." },
@@ -396,6 +399,7 @@ export default {
     { title: "How to export a WhatsApp chat to PDF on iPhone (and print it)", href: "/blog/export-whatsapp-chat-to-pdf-iphone", blurb: "Where the Export Chat option hides, what the .zip contains, and how to get a clean paginated PDF with statistics." },
   ],
   related: [
+    { name: "Free browser tools", href: "/tools", blurb: "Links, QR codes, profile pictures and audio conversion, all without installing anything." },
     { name: "Voice Note to Text", href: "/apps/voice-note-to-text", blurb: "Transcribe voice messages to text on-device, no upload, one-time purchase." },
     { name: "Voice Note Audio Converter", href: "/apps/voice-note-audio-converter", blurb: "Convert .opus voice notes to MP3 or WAV on your iPhone. Free." },
     { name: "Chat Link & QR Code Maker", href: "/apps/chat-link-qr-code-maker", blurb: "wa.me click-to-chat links, printable QR codes and uncropped profile pictures. Free." },
