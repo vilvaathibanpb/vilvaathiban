@@ -400,4 +400,199 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "write-a-script-that-doesnt-sound-written",
+    title: "How to Write a Video Script That Doesn't Sound Written",
+    description:
+      "The reason scripted videos sound stiff is not the teleprompter — it's the sentences. Eight rewriting habits that make a written script sound like you talking.",
+    datePublished: "2026-09-11",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "There is a specific flatness people can hear. You know it instantly when you watch someone else's video, and you can never quite locate it in your own. The delivery is fine. The lighting is fine. And yet the whole thing sounds like a person reading a document out loud, because that is exactly what is happening.",
+          },
+          {
+            type: "p",
+            text: "Almost everyone diagnoses this as a performance problem and tries to fix it with more takes. It is usually not a performance problem. It is a writing problem, and it starts the moment you open a blank document and your brain switches into essay mode.",
+          },
+          {
+            type: "p",
+            text: "Writing for the eye and writing for the ear are different crafts. Here is what actually changes between them.",
+          },
+        ],
+      },
+      {
+        heading: "1. Write it in the wrong medium on purpose",
+        blocks: [
+          {
+            type: "p",
+            text: "A blank word processor invites paragraphs. Paragraphs invite subordinate clauses. Subordinate clauses are where spoken language goes to die.",
+          },
+          {
+            type: "p",
+            text: "Try drafting the script as a voice memo to yourself first — just talk through the idea for two minutes as though a friend asked you about it. Then transcribe that and clean it up. What you get back is messy, but its bones are conversational, and cleaning up a conversation is far easier than warming up an essay.",
+          },
+          {
+            type: "p",
+            text: "If that feels too roundabout, the cheaper version is to write standing up, or to write in a notes app on your phone. Both nudge you toward shorter sentences without you having to think about it.",
+          },
+        ],
+      },
+      {
+        heading: "2. Read every line aloud, and cut anything you stumble on",
+        blocks: [
+          {
+            type: "p",
+            text: "This is the single highest-value habit and almost nobody does it, because reading your own draft aloud in an empty room feels ridiculous.",
+          },
+          {
+            type: "p",
+            text: "The rule is simple: if you trip over a sentence while reading it, the sentence is wrong. Not your mouth — the sentence. Your brain built it for eyes that can re-scan a line, and your mouth has no such luxury. Rewrite it until it comes out clean on the first pass.",
+          },
+          {
+            type: "p",
+            text: "Stumbles cluster around three things: long noun phrases, clauses stacked in front of the main verb, and words you would never actually say. All three are invisible on the page and obvious the second you speak them.",
+          },
+        ],
+      },
+      {
+        heading: "3. Put the verb early",
+        blocks: [
+          {
+            type: "p",
+            text: "\u201cWhat a lot of people who are new to this tend to find difficult is the first thirty seconds.\u201d That sentence makes a listener hold eleven words in memory before anything happens. Written down it reads fine. Spoken, it loses them.",
+          },
+          {
+            type: "p",
+            text: "\u201cThe first thirty seconds are the hard part.\u201d Same content. The listener gets the point immediately and can relax.",
+          },
+          {
+            type: "p",
+            text: "This one change probably accounts for a third of the difference between a script that sounds written and one that sounds spoken. Front-load the subject and verb; put the qualifications afterwards, in their own sentence.",
+          },
+        ],
+      },
+      {
+        heading: "4. Use contractions, every time",
+        blocks: [
+          {
+            type: "p",
+            text: "Nobody says \u201cdo not\u201d in conversation unless they are emphasising the not. Nobody says \u201cit is\u201d or \u201cyou will\u201d or \u201cwe have.\u201d When those appear uncontracted in a script, the performance turns formal without the speaker choosing to be formal.",
+          },
+          {
+            type: "p",
+            text: "Go through the draft and contract everything. Then uncontract the two or three places where you genuinely want weight \u2014 \u201cthis does not work\u201d hits harder precisely because everything around it is relaxed.",
+          },
+        ],
+      },
+      {
+        heading: "5. Leave the rough edges in",
+        blocks: [
+          {
+            type: "p",
+            text: "Real speech has false starts, small corrections, asides. Scripts have none, and their absence is part of what makes scripted delivery feel airless.",
+          },
+          {
+            type: "p",
+            text: "You can write a few back in deliberately. \u201cWell \u2014 sort of.\u201d \u201cActually, let me put that differently.\u201d \u201cAnd honestly, this bit surprised me.\u201d These are not filler; they are the texture that tells a listener a person is thinking rather than reciting.",
+          },
+          {
+            type: "p",
+            text: "Use them sparingly. Three or four in a two-minute script reads as natural. Twenty reads as an affectation, which is its own kind of stiff.",
+          },
+        ],
+      },
+      {
+        heading: "6. One idea per sentence, one point per breath",
+        blocks: [
+          {
+            type: "p",
+            text: "Punctuation on a page is a suggestion. Punctuation in a script is a breathing instruction.",
+          },
+          {
+            type: "p",
+            text: "When you read a script back, mark every place you naturally take a breath. If a sentence runs past two of those marks, split it. Your listener is breathing along with you whether they notice or not, and a sentence that outlasts a breath makes them tense.",
+          },
+          {
+            type: "p",
+            text: "Short sentences also give you somewhere to put emphasis. A long one flattens everything inside it to the same pitch.",
+          },
+        ],
+      },
+      {
+        heading: "7. Write to one person",
+        blocks: [
+          {
+            type: "p",
+            text: "\u201cHi everyone, welcome back to the channel\u201d addresses a crowd. Your viewer is one person holding a phone, usually alone, often in bed. Addressing them as a crowd creates a subtle distance that no amount of warm delivery closes.",
+          },
+          {
+            type: "p",
+            text: "Swap \u201cyou guys\u201d for \u201cyou.\u201d Swap \u201ca lot of people ask me\u201d for \u201cyou have probably wondered.\u201d Picture a specific person \u2014 an actual friend who does not know this topic \u2014 and write the whole thing to them. It changes the register more than any other single decision.",
+          },
+        ],
+      },
+      {
+        heading: "8. Script the shape, improvise the texture",
+        blocks: [
+          {
+            type: "p",
+            text: "The most natural-sounding creators are rarely reading word for word, and they are rarely winging it either. They script tightly where precision matters \u2014 the opening, the key explanation, the call to action \u2014 and loosely everywhere else.",
+          },
+          {
+            type: "p",
+            text: "In practice that means a script with two densities: full sentences for the parts you must get right, and bullet prompts for the parts where your own phrasing on the day will beat anything you planned.",
+          },
+          {
+            type: "p",
+            text: "This is where a voice-driven teleprompter earns its keep over a fixed auto-scroll. Because [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay) follows your actual voice using on-device speech recognition rather than a timer, you can slow down, expand on a bullet, or double back on a sentence and the script stays with you instead of running ahead. A constant-speed scroll punishes exactly the improvisation that makes you sound human. If you are unsure which mode suits you, that trade-off is worth thinking through before you hit record.",
+          },
+        ],
+      },
+      {
+        heading: "When a stiff script is the right answer",
+        blocks: [
+          {
+            type: "p",
+            text: "Not every video should sound like a chat, and it is worth saying so plainly.",
+          },
+          {
+            type: "p",
+            text: "If you are reading medical, legal or financial wording, the phrasing may be the whole point, and \u201cnatural\u201d rewriting can quietly change meaning. Same for a formal announcement, a sponsor read with approved copy, or anything where someone else signs off on the words. In those cases, script it exactly, read it exactly, and put your warmth into pace and expression instead.",
+          },
+          {
+            type: "p",
+            text: "The goal is not casualness for its own sake. It is that the register matches the situation \u2014 and for most talking-head video, the situation is a conversation.",
+          },
+        ],
+      },
+      {
+        heading: "A quick pass before you record",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Read the whole thing aloud once, start to finish, and mark every stumble.",
+              "Rewrite every marked sentence so the verb arrives in the first six or seven words.",
+              "Contract everything, then uncontract two or three lines for emphasis.",
+              "Split any sentence that outruns a breath.",
+              "Replace every plural address with a singular one.",
+              "Cut the first two sentences entirely \u2014 they are almost always throat-clearing.",
+            ],
+          },
+          {
+            type: "p",
+            text: "That pass takes about ten minutes and does more for how you sound than a second hour of takes. The earlier post on [the benefits of using a teleprompter app](/blog/benefits-of-using-a-teleprompter-app) covers why having the script by the lens matters once the writing is right \u2014 good words read off to the side still look like you are talking to someone else in the room.",
+          },
+          {
+            type: "p",
+            text: "Next in this series: voice-follow scrolling versus classic auto-scroll \u2014 which one to reach for, and when the old-fashioned speed slider is actually the better choice.",
+          },
+        ],
+      },
+    ],
+  },
 ];

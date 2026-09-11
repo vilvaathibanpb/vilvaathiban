@@ -3730,6 +3730,190 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  {
+    "slug": "import-json-in-nodejs",
+    "title": "Importing JSON in Node.js: require, Import Attributes, and TypeScript",
+    "description": "How to import JSON in Node.js in 2026 - require vs import attributes vs fs.readFile, why `with { type: 'json' }` is mandatory, and how to make TypeScript agree with you.",
+    "datePublished": "2026-09-11",
+    "readingMinutes": 8,
+    "content": [
+      {
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Importing a JSON file used to be the single most boring line in a Node codebase. You wrote `const config = require('./config.json')` and got on with your life. Then ESM arrived, that line stopped working, and a task with no conceptual content at all became something you have to look up."
+          },
+          {
+            "type": "p",
+            "text": "The good news is that it has settled. As of Node 22 and later, there is a proper, stable, standards-based way to import JSON in ES modules, and it is a one-liner. The bad news is that the one-liner has a mandatory piece of syntax nobody remembers, TypeScript needs convincing separately, and there is a real trade-off nobody mentions about whether you should be importing JSON at all."
+          }
+        ]
+      },
+      {
+        "heading": "The short answer",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "In an ES module, on Node 22 or newer:"
+          },
+          {
+            "type": "code",
+            "language": "js",
+            "code": "import config from './config.json' with { type: 'json' }\n\nconsole.log(config.name)"
+          },
+          {
+            "type": "p",
+            "text": "That is it. The `with { type: 'json' }` part is called an import attribute, it is not optional, and leaving it off produces an error rather than a warning. Import attributes reached TC39 stage 4 and were marked stable in Node - they are no longer behind an experimental flag."
+          },
+          {
+            "type": "p",
+            "text": "One detail that surprises people: a JSON module only ever exposes a default export. There are no named exports, even though the file is full of top-level keys."
+          },
+          {
+            "type": "code",
+            "language": "js",
+            "code": "// works\nimport pkg from './package.json' with { type: 'json' }\nconsole.log(pkg.version)\n\n// does NOT work - SyntaxError\n// import { version } from './package.json' with { type: 'json' }"
+          }
+        ]
+      },
+      {
+        "heading": "Why the attribute is mandatory",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "This looks like bureaucracy until you know what it is defending against. Without the attribute, the runtime would have to decide how to interpret a module based on its file extension or, worse, on the content type a server sent back. That is a security problem: a server could serve something that looks like JSON on one request and JavaScript on the next, and the importing code would have executed it."
+          },
+          {
+            "type": "p",
+            "text": "By making the expected type part of the import statement itself, the check moves to the consumer. You declare what you are expecting; if the module is not that, the import fails rather than silently executing. The same mechanism is what powers CSS module imports in browsers."
+          },
+          {
+            "type": "p",
+            "text": "This is also why the syntax changed once during standardisation - you may still find older articles and Stack Overflow answers using `assert { type: 'json' }` instead of `with`. The `assert` keyword was the earlier proposal spelling and is deprecated. Use `with`."
+          }
+        ]
+      },
+      {
+        "heading": "Dynamic import, and the case for it",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "The dynamic form takes the attributes in an options object, and note the doubled `with` - one for the option name, one for the attribute bag:"
+          },
+          {
+            "type": "code",
+            "language": "js",
+            "code": "const data = await import('./data.json', { with: { type: 'json' } })\nconsole.log(data.default.items.length)"
+          },
+          {
+            "type": "p",
+            "text": "The extra `.default` catches everyone at least once. A dynamic import resolves to the module namespace object, not to the default export, so the payload is one level deeper than with a static import."
+          },
+          {
+            "type": "p",
+            "text": "Dynamic import is the right tool when the path is computed at runtime - loading a locale file, a theme, a plugin manifest. If the path is a literal, prefer the static form: it is analysable by bundlers and it fails at load time rather than halfway through a request."
+          }
+        ]
+      },
+      {
+        "heading": "CommonJS is still fine",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "If your file is CommonJS, nothing has changed and nothing needs to. `require` of a `.json` file has worked since forever, returns the parsed object directly, and caches it."
+          },
+          {
+            "type": "code",
+            "language": "js",
+            "code": "const config = require('./config.json')"
+          },
+          {
+            "type": "p",
+            "text": "There is no reason to migrate a working CommonJS file to ESM purely to modernise a JSON import. The upgrade pressure should come from somewhere else - top-level await, or a dependency that ships ESM only."
+          }
+        ]
+      },
+      {
+        "heading": "The TypeScript half of the problem",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "A large share of searches for `import type json` are really people whose runtime is happy and whose compiler is not. TypeScript has its own gate: the `resolveJsonModule` compiler option. With it off, TypeScript does not consider a `.json` file to be a module at all and will tell you it cannot find one."
+          },
+          {
+            "type": "code",
+            "language": "json",
+            "code": "{\n  \"compilerOptions\": {\n    \"resolveJsonModule\": true,\n    \"module\": \"nodenext\",\n    \"moduleResolution\": \"nodenext\"\n  }\n}"
+          },
+          {
+            "type": "p",
+            "text": "With `resolveJsonModule` enabled, TypeScript reads the JSON file at compile time and infers a structural type from its literal contents. That is genuinely useful - you get autocompletion on the keys for free - but it has a sharp edge worth knowing about."
+          },
+          {
+            "type": "p",
+            "text": "The inferred type describes the file as it exists on your machine right now. If the JSON is configuration that varies between environments, or a fixture that someone will edit, your types are quietly asserting facts about data you do not control. An optional field that happens to be present in the committed file will be typed as required."
+          },
+          {
+            "type": "p",
+            "text": "Where that matters, do not import the JSON as a typed module. Read it, parse it, and validate it against a schema at the boundary - the resulting type is one you actually wrote down and can defend."
+          }
+        ]
+      },
+      {
+        "heading": "When not to import JSON at all",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "This is the part most guides skip. `import` is not always the right way to get JSON into your program, and the difference is not stylistic."
+          },
+          {
+            "type": "list",
+            "items": [
+              "**An imported JSON module is frozen at load time.** It is parsed once and cached for the life of the process. If the file changes on disk, your program will not notice. For anything you expect to be edited while running, use `fs.readFile` and parse it yourself.",
+              "**It is loaded eagerly and kept in memory.** A large fixture imported at the top of a module is parsed on startup whether or not any request needs it. For big files, lazy-load them.",
+              "**The path is resolved like a module, not like a file.** It is relative to the importing file, not to the process working directory - which is usually what you want, but it means you cannot point it at a user-supplied path.",
+              "**Secrets do not belong in it.** An imported config file is bundled and shipped by most build tools. Environment variables exist for a reason."
+            ]
+          },
+          {
+            "type": "p",
+            "text": "The honest rule: import JSON when it is static data that ships with your code, and read it from the filesystem when it is state that lives independently of your code. Most bugs in this area come from treating the second case as the first."
+          }
+        ]
+      },
+      {
+        "heading": "Reading it the boring way",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "For completeness, the version that has no caveats at all and works on every Node version anyone still runs:"
+          },
+          {
+            "type": "code",
+            "language": "js",
+            "code": "import { readFile } from 'node:fs/promises'\n\nconst raw = await readFile(new URL('./config.json', import.meta.url), 'utf8')\nconst config = JSON.parse(raw)"
+          },
+          {
+            "type": "p",
+            "text": "Using `new URL` with `import.meta.url` keeps the path relative to the module rather than to the working directory, which is the ESM equivalent of the old dirname trick. It is three lines instead of one, and in exchange you get fresh data on every read and a parse error you can catch."
+          }
+        ]
+      },
+      {
+        "heading": "Picking one",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Static import with `with { type: 'json' }` for package version strings, locale bundles, static lookup tables - anything that is genuinely part of the build. `fs.readFile` plus a schema check for configuration, user data, or anything that can change under you. `require` if you are in CommonJS and it already works."
+          },
+          {
+            "type": "p",
+            "text": "The syntax was the annoying part and it is now settled. The interesting question was always the one underneath it: is this file code, or is it data? Answer that first and the right mechanism follows."
+          }
+        ]
+      }
+    ]
+  },
   ...appPosts,
 ];
 
