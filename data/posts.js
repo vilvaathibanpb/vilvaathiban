@@ -3914,6 +3914,196 @@ navigation.addEventListener("navigateerror", () => {
       }
     ]
   },
+  {
+    slug: "tc39-type-annotations-types-as-comments-status",
+    title: "TC39 Type Annotations: What 'Types as Comments' Actually Proposes, and Where It Stands",
+    description:
+      "The proposal to put type syntax in JavaScript is still Stage 1 — while Node quietly shipped type stripping anyway. What is in scope, what is not, and what to do today.",
+    datePublished: "2026-09-12",
+    readingMinutes: 9,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Every few months a post goes around claiming that JavaScript is about to get types. It is usually wrong in an interesting way: the claim is not that TypeScript is being standardised, and the proposal it points at has moved considerably less than the surrounding ecosystem has.",
+          },
+          {
+            type: "p",
+            text: "The **Type Annotations** proposal — often called *types as comments* — has been at **Stage 1** since 2022. Meanwhile Node.js went ahead and shipped the practical half of the idea anyway. That gap between the standards track and the runtime reality is the genuinely useful thing to understand here, because it changes how you should write TypeScript today.",
+          },
+        ],
+      },
+      {
+        heading: "What the proposal actually says",
+        blocks: [
+          {
+            type: "p",
+            text: "The core idea is deliberately small. JavaScript engines would learn to *parse* type annotation syntax and then completely ignore it. Not check it, not evaluate it, not expose it at runtime — treat it exactly like a comment.",
+          },
+          {
+            type: "code",
+            language: "ts",
+            code: "// Under the proposal, this is valid JavaScript.\n// The engine parses the annotations and discards them.\n\nlet x: string;\n\nfunction equals(a: number, b: number): boolean {\n  return a === b;\n}\n\ninterface Person {\n  name: string;\n  age: number;\n}\n\ntype CoolBool = boolean;",
+          },
+          {
+            type: "p",
+            text: "Nothing in there has runtime semantics. Assigning a number to x would not throw. The interface body is skipped entirely. The goal is stated plainly in the proposal: let developers run programs written in TypeScript, Flow and similar supersets without transpilation, provided they stay inside a reasonably large subset.",
+          },
+          {
+            type: "p",
+            text: "That framing matters. This is not a type system for JavaScript. TC39 explicitly declined that, on the reasoning that a standardised checker would make improved type analysis a breaking change for end users rather than for developers, and that type system innovation would then become close to impossible.",
+          },
+        ],
+      },
+      {
+        heading: "The status everyone gets wrong",
+        blocks: [
+          {
+            type: "p",
+            text: "Stage 1. Not Stage 3, not \"shipping in ES2027\". Stage 1 means the committee has agreed the problem is worth exploring, and very little more than that.",
+          },
+          {
+            type: "p",
+            text: "The proposal README itself carries a warning that it has not been updated regularly, and points readers at TC39 meeting notes from 2022 and 2023 for the current state. The champions include Daniel Rosenwasser from the TypeScript team, Romulo Cintra, and Rob Palmer — so this is not a fringe effort. It is simply a genuinely hard one that has not found its next step.",
+          },
+          {
+            type: "p",
+            text: "If you want a comparison for how the pipeline normally looks when something is actually close, look at the features that shipped in ES2026 — iterator helpers, explicit resource management with [the using keyword](/blog/javascript-using-keyword-explicit-resource-management), and the rest. Those spent years at Stage 3 with implementations landing in engines. Type annotations has none of that.",
+          },
+        ],
+      },
+      {
+        heading: "What is deliberately left out",
+        blocks: [
+          {
+            type: "p",
+            text: "The proposal draws a hard line: anything that *generates code* is out of scope, because the whole model is erasure. That excludes three TypeScript features people use constantly.",
+          },
+          {
+            type: "code",
+            language: "ts",
+            code: "// All three of these are OUT of scope --\n// they emit real JavaScript, so they cannot be comments.\n\nenum Direction {\n  Up,\n  Down,\n}\n\nnamespace Utils {\n  export const x = 1;\n}\n\nclass Point {\n  // parameter properties: this assigns this.x\n  constructor(private x: number) {}\n}",
+          },
+          {
+            type: "p",
+            text: "JSX is also excluded, on the grounds that it is orthogonal to static typing and expands into meaningful JavaScript rather than being erased. A few things sit in an explicitly undecided bucket — ambient declare declarations, overload signatures, and class modifiers such as public, readonly and abstract.",
+          },
+          {
+            type: "p",
+            text: "Crucially, the proposal is clear that existing TypeScript codebases would not need to change. TypeScript would continue to exist alongside a narrower standard syntax. You would simply gain the *option* of restricting yourself to the subset that runs without a build step.",
+          },
+        ],
+      },
+      {
+        heading: "The hard problem: where does a type end?",
+        blocks: [
+          {
+            type: "p",
+            text: "The reason this has not advanced is not politics. It is grammar. To skip a type, the engine has to know where the type stops, without understanding what the type means — and type systems keep inventing new syntax.",
+          },
+          {
+            type: "p",
+            text: "Matching brackets get you a long way. Anything inside a balanced pair can be skipped wholesale. Beyond that it gets genuinely difficult, and one case is a clean illustration:",
+          },
+          {
+            type: "code",
+            language: "ts",
+            code: "// Ambiguous: is this a generic call, or two comparisons?\nadd<number>(4, 5);\n\n// Parsed as JavaScript today, it is:\n//   (add < number) > (4, 5)\n\n// One sketched option in the proposal is a prefix sigil:\nadd::<number>(4, 5);\nnew Point::<bigint>(4n, 5n);",
+          },
+          {
+            type: "p",
+            text: "The double-colon form is presented as an example rather than a decision, but it shows the shape of the trade-off. Making type syntax standard means either breaking existing valid JavaScript or asking TypeScript users to write something new. Neither is free, and that tension is roughly where the proposal has been sitting.",
+          },
+        ],
+      },
+      {
+        heading: "Meanwhile, the runtimes solved it anyway",
+        blocks: [
+          {
+            type: "p",
+            text: "Here is the part that actually affects your week. While the standard stalled, Node.js shipped **type stripping** — it can run a .ts file directly by erasing the annotations, using an internal stripper rather than a full TypeScript compiler. It started behind a flag and has since become the default behaviour in current versions.",
+          },
+          {
+            type: "code",
+            language: "bash",
+            code: "# Current Node: just run it.\nnode ./server.ts\n\n# Older versions needed the flag explicitly:\nnode --experimental-strip-types ./server.ts",
+          },
+          {
+            type: "p",
+            text: "The catch is exactly the catch the TC39 proposal predicted. Stripping can only remove things; it cannot generate code. So enums, namespaces and parameter properties — the same three features listed above — do not work. You get an error rather than silent weirdness, which is the right call, but it means a large TypeScript codebase will not simply run.",
+          },
+          {
+            type: "p",
+            text: "TypeScript added a compiler flag precisely for this, so you can find out at type-check time instead of at runtime:",
+          },
+          {
+            type: "code",
+            language: "json",
+            code: "{\n  \"compilerOptions\": {\n    \"erasableSyntaxOnly\": true,\n    \"verbatimModuleSyntax\": true\n  }\n}",
+          },
+          {
+            type: "p",
+            text: "With erasableSyntaxOnly on, the compiler rejects any syntax that would need emitting. Turn it on in a new project and you are effectively writing the TC39 subset, whether or not the proposal ever advances.",
+          },
+        ],
+      },
+      {
+        heading: "The import type detail worth knowing",
+        blocks: [
+          {
+            type: "p",
+            text: "One piece of this has a runtime consequence that surprises people, and it is worth internalising because it bites in both the stripping and the standards world.",
+          },
+          {
+            type: "code",
+            language: "ts",
+            code: "// Fully erased. The module is never loaded.\nimport type { SourceFile } from './parser';\n\n// NOT erased. The import statement remains,\n// so './parser' is still evaluated at runtime.\nimport { type SourceFile } from './parser';",
+          },
+          {
+            type: "p",
+            text: "A statement-level import type disappears entirely. Inline type specifiers only mark individual bindings as type-only — the import itself is retained, and any side effects in that module still run. If you rely on tree-shaking or care about module evaluation order, that distinction is not cosmetic. It pairs directly with [import defer and lazy module evaluation](/blog/import-defer-lazy-module-evaluation), which is the other half of controlling when a module's body actually executes.",
+          },
+        ],
+      },
+      {
+        heading: "What to do today",
+        blocks: [
+          {
+            type: "p",
+            text: "Treat the proposal as a direction of travel rather than a roadmap item. Practically:",
+          },
+          {
+            type: "list",
+            items: [
+              "Turn on erasableSyntaxOnly in new projects. It costs nothing and keeps the no-build-step option open.",
+              "Replace enums with union types or a const object plus a derived type. This is the single highest-value change and it is good practice independently.",
+              "Drop parameter properties. Assigning fields explicitly in the constructor is two extra lines and removes a whole category of tooling friction.",
+              "Prefer statement-level import type when you want the module gone entirely, and know that the inline form does not do that.",
+              "Do not restructure anything on the assumption that this reaches Stage 4. Four years at Stage 1 is a real signal.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Does the proposal still matter?",
+        blocks: [
+          {
+            type: "p",
+            text: "Less than it did, and that is arguably a success rather than a failure. The stated motivation was to remove the mandatory build step for type-annotated code. Node achieved that unilaterally, and other runtimes have done similar. The pressure that made the proposal urgent has largely been released.",
+          },
+          {
+            type: "p",
+            text: "What a standard would still buy is agreement. Right now every runtime and bundler implements its own approximately-compatible stripper, with its own edge cases, which is precisely the fragmentation TC39 processes exist to prevent. A specified grammar would turn a pile of conventions into one shared rule.",
+          },
+          {
+            type: "p",
+            text: "But the honest reading of the current state is this: the ecosystem routed around the standard, and the standard has not yet caught up. If you write in the erasable subset now, you are compatible with both outcomes — which is a comfortable place to be, and it costs you almost nothing.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
 ];
 
