@@ -4104,6 +4104,172 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  {
+    slug: "javascript-deep-copy-structuredclone-vs-json",
+    title: "Deep Copying in JavaScript: structuredClone, JSON Round-Tripping, and What Each One Quietly Breaks",
+    description: "structuredClone is in every modern browser and Node 17+. Here is exactly what it copies, what it throws on, and why JSON.parse(JSON.stringify(x)) silently corrupts data.",
+    datePublished: "2026-09-13",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Deep copying is one of those problems that looks solved from a distance and turns out to be a stack of trade-offs up close. For years the community answer was `JSON.parse(JSON.stringify(value))` — one line, no dependency, works on the object in front of you. It also silently destroys several common data types, and the destruction is quiet enough that you usually discover it in production.",
+          },
+          {
+            type: "p",
+            text: "The platform now ships a real answer. **structuredClone** is a global function available in every modern browser and in Node.js 17 and later, and it implements the structured clone algorithm — the same machinery the platform already used to send data to a Web Worker or into IndexedDB.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const original = {\n  when: new Date(),\n  tags: new Set(['a', 'b']),\n  lookup: new Map([[1, 'one']]),\n};\n\nconst copy = structuredClone(original);\n\ncopy.when instanceof Date;  // true\ncopy.tags instanceof Set;   // true\ncopy.tags === original.tags; // false — a real copy",
+          },
+          {
+            type: "p",
+            text: "That single example already shows three types the JSON round-trip gets wrong. It is worth going through the whole list properly, because the choice between these two approaches is not about elegance — it is about which failures you can live with.",
+          },
+        ],
+      },
+      {
+        heading: "What JSON Round-Tripping Actually Does to Your Data",
+        blocks: [
+          {
+            type: "p",
+            text: "`JSON.parse(JSON.stringify(value))` is a serialisation round trip through a format that has six types. Anything outside those six has to be approximated or dropped, and JSON.stringify does this without complaint.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Dates become strings.** `new Date()` serialises to an ISO string and parses back as a string. Every subsequent `.getTime()` throws.",
+              "**Map and Set become empty objects.** Neither has enumerable own properties, so both serialise to `{}` and the contents are gone.",
+              "**undefined disappears.** Object properties holding `undefined` are omitted entirely; in arrays they become `null`, which changes the length semantics.",
+              "**Functions and Symbols are dropped**, the same way as undefined.",
+              "**NaN and Infinity become null.** JSON has no representation for them.",
+              "**BigInt throws.** This is the one failure JSON.stringify is loud about.",
+              "**Class instances lose their prototype**, arriving as plain objects with no methods.",
+              "**Circular references throw** a TypeError.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Only the last two are noisy. The first six are silent, which is what makes the pattern genuinely dangerous — the bug surfaces far from the copy, usually as a method call on something that is no longer the type you think it is.",
+          },
+        ],
+      },
+      {
+        heading: "What structuredClone Handles",
+        blocks: [
+          {
+            type: "p",
+            text: "The structured clone algorithm covers a substantially wider set of types, and — importantly — it handles graphs rather than trees.",
+          },
+          {
+            type: "list",
+            items: [
+              "Primitives, including **BigInt**, plus `undefined`, `NaN` and `Infinity` preserved correctly.",
+              "Plain objects and arrays, including sparse arrays.",
+              "**Date**, **RegExp**, **Map**, **Set**, and **Error** objects.",
+              "**ArrayBuffer**, typed arrays and **DataView**.",
+              "**Blob**, **File** and **FileList** in browsers.",
+              "**Circular and shared references** — an object referenced twice in the source is the same object twice in the copy, not two copies.",
+            ],
+          },
+          {
+            type: "p",
+            text: "That last point is the one people underestimate. If your source graph has two properties pointing at the same node, structuredClone preserves that identity. A hand-rolled recursive copy almost never does, and neither does JSON.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const shared = { id: 1 };\nconst graph = { left: shared, right: shared };\ngraph.self = graph; // circular\n\nconst copy = structuredClone(graph);\n\ncopy.left === copy.right; // true — identity preserved\ncopy.self === copy;       // true — cycle preserved\ncopy.left === shared;     // false — genuinely a copy",
+          },
+        ],
+      },
+      {
+        heading: "What structuredClone Refuses to Do",
+        blocks: [
+          {
+            type: "p",
+            text: "structuredClone is not a universal deep copy, and the places it stops are deliberate. When it cannot clone something, it throws a **DataCloneError** rather than guessing — which is exactly the behaviour you want, and the opposite of the JSON approach.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Functions throw.** There is no meaningful way to serialise a closure, so it does not try.",
+              "**Symbols throw**, both as values and as keys.",
+              "**DOM nodes throw** (with the exception of a few specifically cloneable interfaces).",
+              "**Prototypes are not preserved.** A class instance clones into a plain object with the same own properties. The data survives; the methods do not.",
+              "**Property descriptors are not preserved.** Getters and setters are invoked and their current values copied as plain data. Non-enumerable and non-writable flags are lost.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The prototype rule is the one that catches people migrating away from a library like lodash's cloneDeep, which does walk prototypes. If you are copying class instances and expect `copy instanceof Thing` to hold, structuredClone is the wrong tool and you need a `clone()` method on the class instead.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "class Point {\n  constructor(x, y) { this.x = x; this.y = y; }\n  get length() { return Math.hypot(this.x, this.y); }\n}\n\nconst p = new Point(3, 4);\nconst c = structuredClone(p);\n\nc.x;                  // 3 — data survives\nc instanceof Point;   // false\nc.length;             // 5, but frozen as plain data, not a getter",
+          },
+        ],
+      },
+      {
+        heading: "Choosing Between Them",
+        blocks: [
+          {
+            type: "p",
+            text: "A short decision procedure that covers nearly every real case:",
+          },
+          {
+            type: "list",
+            items: [
+              "Copying data you control that contains only JSON types, and you want it fast? Either works; JSON is fine and marginally quicker on small plain objects.",
+              "Copying anything containing Dates, Maps, Sets, typed arrays, or cycles? **structuredClone**, always.",
+              "Copying class instances and needing methods afterwards? Neither — write an explicit clone method.",
+              "Copying something that might contain a function and you want to know about it? **structuredClone**, because it throws instead of silently deleting.",
+              "Needing to copy in a hot loop over very large plain objects? Measure. structuredClone crosses into the platform and is not always the faster option.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The performance point deserves a caveat: the numbers move between engines and between versions, and they depend heavily on shape and size. Both approaches are slower than not copying. The fastest deep copy remains the one you avoid by not mutating the original.",
+          },
+        ],
+      },
+      {
+        heading: "The Structural Alternative: Stop Copying",
+        blocks: [
+          {
+            type: "p",
+            text: "Most deep copies in application code exist to defend against mutation — you hand an object to something and you do not trust it to leave the object alone. That is a real problem, but copying is an expensive answer to it.",
+          },
+          {
+            type: "p",
+            text: "`Object.freeze` costs nothing at copy time and turns a silent mutation into a loud one in strict mode. For nested data, a shallow freeze at each level as you build it is usually enough, because the mutation you are defending against is almost always one level deep.",
+          },
+          {
+            type: "p",
+            text: "And where the object genuinely needs to be handed to a different execution context — a Worker, IndexedDB, `postMessage` — you do not need to call structuredClone at all. Those boundaries run the structured clone algorithm for you, with the same rules and the same DataCloneError. Calling structuredClone first just does the work twice.",
+          },
+        ],
+      },
+      {
+        heading: "The Short Version",
+        blocks: [
+          {
+            type: "p",
+            text: "Use **structuredClone** as the default. It is a global, it needs no import, it handles the types your data actually contains, it preserves reference identity, and when it cannot do the job it says so instead of handing you quietly corrupted data.",
+          },
+          {
+            type: "p",
+            text: "Reach past it only for class instances with methods, or when profiling has actually told you the copy is the bottleneck. And reach for `JSON.parse(JSON.stringify(x))` essentially never — its only genuine advantage is that it works on objects containing functions by deleting them, which is not an advantage.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
 ];
 

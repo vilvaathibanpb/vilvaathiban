@@ -770,4 +770,177 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "teleprompter-for-instagram-reels",
+    title: "Using a Teleprompter for Instagram Reels (Without Looking Like You Are Reading One)",
+    description: "How to script, position and record Instagram Reels with a teleprompter app — the vertical crop problem, the nine-second hook, and when a prompter makes Reels worse.",
+    datePublished: "2026-09-13",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Reels are the format where a teleprompter is most useful and most obvious. Useful, because you are trying to land a complete idea in under ninety seconds and there is no room to ramble. Obvious, because the viewer is watching a face fill a phone screen, and reading eyes on a vertical crop are unmissable in a way they are not on a widescreen talking head.",
+          },
+          {
+            type: "p",
+            text: "So the question is not whether to use a prompter for Reels. It is how to use one so the format works for you rather than exposing you. Three things change when you go vertical: where the text has to sit, how the first few seconds have to be written, and how long a script can realistically be.",
+          },
+        ],
+      },
+      {
+        heading: "The Vertical Crop Changes Where Text Has to Sit",
+        blocks: [
+          {
+            type: "p",
+            text: "On a horizontal frame, a prompter can put text almost anywhere along the top and your eyeline stays close enough to the lens. Vertical is unforgiving. The frame is narrow, your face occupies most of it, and the front camera sits in a specific spot at the top of the phone. Any text that sits low pulls your gaze down and the viewer reads it as distraction or dishonesty.",
+          },
+          {
+            type: "p",
+            text: "This is the whole reason an overlay prompter beats a second device. [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay) floats the script directly over the camera preview, right next to the front lens, so the distance your eyes travel between reading and looking at the camera is close to nothing. Propping a script on a laptop behind your phone gives you the same words and a visibly wrong eyeline.",
+          },
+          {
+            type: "p",
+            text: "Two practical adjustments for vertical specifically. Keep the text block narrow — a shorter line length means less horizontal eye movement, which is the movement viewers actually notice. And push the text as high in the frame as the app will let you, even if that means fewer visible lines at once.",
+          },
+        ],
+      },
+      {
+        heading: "Compose For the Crop, Not Just the Camera",
+        blocks: [
+          {
+            type: "p",
+            text: "Instagram overlays its own interface on a Reel: the caption, the audio strip, the action buttons down the right side. The bottom quarter and the right edge of your frame are effectively borrowed.",
+          },
+          {
+            type: "p",
+            text: "That matters for prompter use because it determines where your face should sit. Frame yourself in the upper-middle of the vertical frame, which is also where your eyeline wants to be for the overlay text. The two constraints happen to agree, which is convenient — but only if you frame deliberately rather than holding the phone at whatever height feels natural.",
+          },
+          {
+            type: "list",
+            items: [
+              "Get the lens at or very slightly above eye level. Below eye level is the single most common self-shot mistake and no prompter fixes it.",
+              "Leave the bottom quarter of the frame clear of anything you need the viewer to see.",
+              "Record in 4K portrait if you plan to crop or reframe later — you have resolution to spare.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "The First Nine Seconds Have to Be Written Differently",
+        blocks: [
+          {
+            type: "p",
+            text: "Reels are consumed in a feed where the cost of leaving is a thumb flick. Whatever the current retention numbers are for your account, the shape is always the same: the steepest drop happens at the very start, and everything after it is a smaller problem.",
+          },
+          {
+            type: "p",
+            text: "The practical consequence for scripting is that the opening lines carry disproportionate weight, and they are also the lines you are most likely to deliver badly — because that is when you are least warmed up and most aware of the text.",
+          },
+          {
+            type: "p",
+            text: "The fix is to write the opening so it can be delivered almost without reading. Make it short, make it concrete, and rehearse only that part until it is in your head. Then let the prompter carry the middle, where precision matters more and delivery matters less.",
+          },
+          {
+            type: "list",
+            items: [
+              "Open with the specific claim, not the preamble. Cut every sentence that exists to introduce the sentence after it.",
+              "Keep the first line under about twelve words so it fits on one prompter line and you read it in one glance.",
+              "Never open with your name or a greeting. Both are pure cost in a feed.",
+              "Say the thing the video is actually about before you say why it matters.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Voice-Follow Earns Its Keep on Short Scripts",
+        blocks: [
+          {
+            type: "p",
+            text: "Auto-scroll at a fixed speed is a reasonable default for a long, evenly paced piece. On a Reel it is a poor fit, because short-form delivery is deliberately uneven — you speed up through setup, stop dead before the payoff, and the pauses are doing real work.",
+          },
+          {
+            type: "p",
+            text: "Voice-driven scrolling follows your actual pace using on-device speech recognition, so a two-second dramatic pause does not leave the text sliding away from you. It also auto-detects the script language and finds your place again if you stumble, which on a sixty-second take is the difference between one usable recording and six.",
+          },
+          {
+            type: "p",
+            text: "If you have not compared the two modes on your own delivery, [voice-follow versus auto-scroll](/blog/voice-follow-vs-auto-scroll-teleprompter) walks through when each one is the better choice.",
+          },
+        ],
+      },
+      {
+        heading: "How Long Can a Reel Script Actually Be?",
+        blocks: [
+          {
+            type: "p",
+            text: "Conversational delivery on camera runs somewhere around 130 to 150 words a minute — slower than people expect, because pauses count. That puts a comfortable sixty-second Reel at roughly 130 to 150 words of actual script.",
+          },
+          {
+            type: "p",
+            text: "Almost everyone writes more than that on the first draft. The most reliable way to get a Reel to land is to write the script you want, then cut it by about a third, and the third you cut is almost always qualifiers, restatements, and the sentence at the end that summarises what you just said.",
+          },
+          {
+            type: "p",
+            text: "A prompter makes this easier to judge, because you can see the script as a block before you record. If it fills more than a couple of screens at a readable text size, it is long for the format.",
+          },
+        ],
+      },
+      {
+        heading: "When a Teleprompter Makes a Reel Worse",
+        blocks: [
+          {
+            type: "p",
+            text: "Worth being straight about this. There are Reels a prompter actively hurts.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Reaction and commentary content**, where the appeal is that you are clearly thinking in real time. A script flattens exactly the thing people came for.",
+              "**Anything under about fifteen seconds.** Reading eyes are proportionally more visible in a short clip, and fifteen seconds of speech is short enough to just remember.",
+              "**Videos where you are demonstrating something with your hands** and looking down at the work anyway — the prompter competes with the demo for your attention.",
+              "**The first few videos you ever make**, honestly. Reading badly looks worse than improvising badly, and the reading skill takes a handful of takes to acquire.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The general rule: use a prompter when the words need to be right — a claim you cannot misstate, a sequence of steps, a sponsored read, a topic where wording has consequences. Skip it when the appeal is spontaneity.",
+          },
+        ],
+      },
+      {
+        heading: "A Workable Reels Setup",
+        blocks: [
+          {
+            type: "p",
+            text: "Putting it together, and none of this needs equipment beyond the phone:",
+          },
+          {
+            type: "list",
+            items: [
+              "Write to about 140 words, then cut a third.",
+              "Rehearse only the opening line until you can say it looking straight at the lens.",
+              "Phone at eye level, framed upper-middle, bottom quarter kept clear.",
+              "Text high in the frame, narrow block, size large enough to read in one glance.",
+              "Voice-follow scrolling on, so your pauses stay yours.",
+              "Record portrait 4K and do two takes minimum — the second is almost always looser.",
+            ],
+          },
+          {
+            type: "p",
+            text: "One detail that matters more than it sounds: the script never appears in the saved video. What you get back is a clean recording, no watermark, ready to upload — the prompter exists only on your screen while you film. And because the speech recognition runs entirely on the device, nothing you write or record leaves the phone, which is worth knowing if you script anything under an NDA or record on a plane.",
+          },
+          {
+            type: "p",
+            text: "If you are earlier in the process than the recording, [writing a script that does not sound written](/blog/write-a-script-that-doesnt-sound-written) is the piece to read first — most delivery problems are sentence-construction problems wearing a disguise.",
+          },
+          {
+            type: "p",
+            text: "Next in this series: YouTube Shorts, which look like the same format as Reels and reward a noticeably different scripting approach — particularly at the end, where Shorts behave in a way Reels do not.",
+          },
+        ],
+      },
+    ],
+  },
 ];
