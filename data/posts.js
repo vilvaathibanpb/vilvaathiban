@@ -4270,6 +4270,207 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  {
+    slug: "es2026-error-iserror-map-getorinsert-uint8array-base64",
+    title:
+      "Five Small ES2026 APIs That Delete Utility Code You Have Been Writing for Years",
+    description:
+      "Error.isError, Map.getOrInsert, Uint8Array base64 and hex, Math.sumPrecise and Iterator.concat \u2014 the unglamorous half of ES2026, and the helper functions each one retires.",
+    datePublished: "2026-09-14",
+    readingMinutes: 9,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Every ECMAScript edition has two halves. There is the half that gets the conference talks \u2014 this year that was Array.fromAsync, Promise.try and explicit resource management \u2014 and there is the half that quietly deletes forty lines from your shared utils file and never gets mentioned again.",
+          },
+          {
+            type: "p",
+            text: "ECMAScript 2026 was approved by Ecma International on 30 June 2026, and its second half is unusually good. Five additions, none of them syntax, all of them replacing a workaround that most codebases have written at least once: Error.isError, the getOrInsert family on Map and WeakMap, base64 and hex methods on Uint8Array, Math.sumPrecise, and Iterator.concat from the iterator sequencing proposal.",
+          },
+          {
+            type: "p",
+            text: "Here is what each one actually replaces, and where each one still has a sharp edge.",
+          },
+        ],
+      },
+      {
+        heading: "Error.isError, and why instanceof was never enough",
+        blocks: [
+          {
+            type: "p",
+            text: "Checking whether a value is an Error is one of those problems that looks solved until you hit a realm boundary. An error thrown inside an iframe, a worker, or a Node vm context fails an instanceof Error check in the parent realm, because it is an instance of a different Error constructor entirely.",
+          },
+          {
+            type: "p",
+            text: "The workaround everyone converged on was a Object.prototype.toString brand check, which is both ugly and wrong \u2014 it can be spoofed with Symbol.toStringTag:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// the old workaround\nconst looksLikeError = (v) =>\n  Object.prototype.toString.call(v) === '[object Error]'\n\n// which this defeats\nconst liar = { [Symbol.toStringTag]: 'Error' }\nlooksLikeError(liar) // true. it is not an error.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// ES2026\nError.isError(new Error('boom'))        // true\nError.isError(new TypeError('boom'))    // true\nError.isError(liar)                     // false\nError.isError({ message: 'boom' })      // false",
+          },
+          {
+            type: "p",
+            text: "Error.isError inspects the internal slot that only genuine error objects have, so it is realm-independent and cannot be faked. If you maintain a library that normalises thrown values \u2014 a logger, an error reporter, a retry wrapper \u2014 this is the one to adopt first, because the old check was silently wrong in exactly the environments where errors matter most.",
+          },
+          {
+            type: "p",
+            text: "One thing it does not do: it is a check for error objects, not for thrown values. Code can throw a string, a number, or undefined, and Error.isError will correctly say false for all of them. Your normalisation layer still needs an else branch.",
+          },
+        ],
+      },
+      {
+        heading: "Map.getOrInsert, and the end of the double lookup",
+        blocks: [
+          {
+            type: "p",
+            text: "The grouping pattern is probably the single most-written snippet in JavaScript. You want a Map of arrays, and every insert needs the same three lines:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// before\nfor (const user of users) {\n  if (!byCity.has(user.city)) byCity.set(user.city, [])\n  byCity.get(user.city).push(user)\n}",
+          },
+          {
+            type: "p",
+            text: "That is two hash lookups on the miss path and two on the hit path, plus a conditional you have to read every time. ES2026 adds getOrInsert and getOrInsertComputed to both Map.prototype and WeakMap.prototype:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// after\nfor (const user of users) {\n  byCity.getOrInsert(user.city, []).push(user)\n}",
+          },
+          {
+            type: "p",
+            text: "There is a trap in that line, and it is worth being explicit about it. getOrInsert takes a value, and that value is evaluated on every iteration whether or not it gets used. For an empty array literal that is cheap and harmless. For anything expensive \u2014 a fresh database connection, a compiled regex, a parsed config \u2014 you want the lazy variant instead:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// eager: makeClient() runs on every call, even on a hit\nclients.getOrInsert(region, makeClient(region))\n\n// lazy: the callback runs only when the key is missing\nclients.getOrInsertComputed(region, () => makeClient(region))",
+          },
+          {
+            type: "p",
+            text: "The rule of thumb: literal defaults use getOrInsert, constructed defaults use getOrInsertComputed. Both return the stored value, so they chain cleanly, and both work on WeakMap, which is where the memoisation use case lives.",
+          },
+        ],
+      },
+      {
+        heading: "Uint8Array to and from base64, without the round trip through strings",
+        blocks: [
+          {
+            type: "p",
+            text: "Encoding binary data as base64 in JavaScript has been embarrassing for as long as JavaScript has had binary data. The browser route goes through btoa, which only accepts a string of code units below 256, so you first have to build a binary string one byte at a time:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// the old browser dance\nconst toBase64 = (bytes) => {\n  let binary = ''\n  for (const byte of bytes) binary += String.fromCharCode(byte)\n  return btoa(binary)\n}",
+          },
+          {
+            type: "p",
+            text: "That allocates a string roughly the size of your data, blows the call stack if you try to shortcut it with apply on a large array, and has no counterpart in the other direction that is any nicer. Node users reached for Buffer instead, which is not portable. ES2026 puts the methods where they belong:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const bytes = new Uint8Array([72, 101, 108, 108, 111])\n\nbytes.toBase64()   // 'SGVsbG8='\nbytes.toHex()      // '48656c6c6f'\n\nUint8Array.fromBase64('SGVsbG8=')   // Uint8Array(5)\nUint8Array.fromHex('48656c6c6f')    // Uint8Array(5)",
+          },
+          {
+            type: "p",
+            text: "There is an options bag for the URL-safe alphabet, which is what you want for anything that travels in a query string or a JWT segment:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "bytes.toBase64({ alphabet: 'base64url' })\nUint8Array.fromBase64(token, { alphabet: 'base64url' })",
+          },
+          {
+            type: "p",
+            text: "This is the one in the list with the most uneven support history \u2014 it reached stage 4 in July 2025 and landed in the non-V8 engines well before V8, so check current support for your target runtimes rather than assuming. It is also the easiest to polyfill safely, since the semantics are fully specified and there is no syntax involved.",
+          },
+        ],
+      },
+      {
+        heading: "Math.sumPrecise, for when floating point embarrasses you",
+        blocks: [
+          {
+            type: "p",
+            text: "Everyone knows the 0.1 plus 0.2 example. What people underestimate is how fast the error compounds once you are summing a long array, and how order-dependent the result becomes:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const xs = [1e20, 0.1, -1e20]\n\nxs.reduce((a, b) => a + b, 0)   // 0\nMath.sumPrecise(xs)             // 0.1",
+          },
+          {
+            type: "p",
+            text: "The reduce loses the 0.1 entirely, because adding it to 1e20 cannot be represented and the value is simply discarded before the subtraction brings the magnitude back down. Math.sumPrecise takes an iterable and computes the correctly-rounded sum, so the answer does not depend on the order of the input.",
+          },
+          {
+            type: "p",
+            text: "Where this matters in ordinary application code: summing a column of currency amounts, aggregating measurements of wildly different magnitudes, or anything where a user is going to compare your total against one computed elsewhere. Where it does not matter: adding up three numbers, or anything you were going to round to two decimal places anyway. It is slower than a naive loop by construction, so reach for it when correctness is the point.",
+          },
+          {
+            type: "p",
+            text: "Note that it takes an iterable rather than being a variadic function, so it is Math.sumPrecise(array), not Math.sumPrecise(...array) \u2014 which is a feature, since the spread version would hit the argument-count limit on large arrays.",
+          },
+        ],
+      },
+      {
+        heading: "Iterator.concat, the missing piece of iterator helpers",
+        blocks: [
+          {
+            type: "p",
+            text: "Iterator helpers shipped a set of lazy operations \u2014 map, filter, take, drop, flatMap \u2014 and most people noticed the gap immediately: there was no lazy way to run several iterators one after another. You could spread them all into an array, which defeats the laziness, or write a generator, which is three lines of ceremony for something that should be an expression.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// before\nfunction* chain(...its) {\n  for (const it of its) yield* it\n}\n\n// after\nIterator.concat(recentLogs(), archivedLogs(), remoteLogs())\n  .filter((l) => l.level === 'error')\n  .take(20)\n  .toArray()",
+          },
+          {
+            type: "p",
+            text: "The laziness is the entire point here. In that example, archivedLogs and remoteLogs are never touched if the first twenty errors all come from recentLogs \u2014 which is exactly the behaviour you want when the later sources are expensive. If you are new to the helper methods, the [iterator helpers guide](/blog/javascript-iterator-helpers) covers the rest of the surface.",
+          },
+        ],
+      },
+      {
+        heading: "What to adopt now, and what to wait on",
+        blocks: [
+          {
+            type: "p",
+            text: "These five are not equally ready, and treating them as one batch is how you end up shipping a runtime error to an older browser. A rough ordering:",
+          },
+          {
+            type: "list",
+            items: [
+              "Error.isError \u2014 adopt immediately in library code, behind a tiny fallback if you support old targets. The correctness win over instanceof is real.",
+              "getOrInsert and getOrInsertComputed \u2014 trivially polyfillable, and the readability gain is immediate. Just keep the eager-versus-lazy distinction straight.",
+              "Uint8Array base64 and hex \u2014 high value, most uneven support. Feature-detect, or pull in a polyfill that matches the spec options bag.",
+              "Math.sumPrecise \u2014 adopt where accuracy is load-bearing, ignore everywhere else. It is not a general replacement for reduce.",
+              "Iterator.concat \u2014 the newest of the group, so check your runtime baseline before leaning on it.",
+            ],
+          },
+          {
+            type: "p",
+            text: "None of these change how JavaScript reads, which is why they do not make the highlight reels. They just remove five small opportunities to be subtly wrong, and a codebase is mostly made of those.",
+          },
+          {
+            type: "p",
+            text: "If you want the louder half of the same release, the write-up on [Array.fromAsync, Promise.try and RegExp.escape](/blog/es2026-array-fromasync-promise-try-regexp-escape) covers it, and [explicit resource management with the using keyword](/blog/javascript-using-keyword-explicit-resource-management) is the one that actually changes how you write cleanup code.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
 ];
 

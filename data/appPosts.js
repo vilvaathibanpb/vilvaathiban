@@ -943,4 +943,156 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "teleprompter-for-youtube-shorts",
+    title: "Using a Teleprompter for YouTube Shorts: What Actually Changes from Reels",
+    description:
+      "Shorts and Reels look identical and reward different scripts. How to write, set up and record a Shorts script with a teleprompter \u2014 including when not to use one.",
+    datePublished: "2026-09-14",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "If you already record Reels, the temptation with Shorts is to change nothing. Same phone, same vertical frame, same script, upload to both. It works, in the sense that nothing breaks. It just quietly underperforms, and the reason is not the algorithm \u2014 it is that people arrive at a Short in a different state of mind than they arrive at a Reel, and a script written for one is slightly miscalibrated for the other.",
+          },
+          {
+            type: "p",
+            text: "This is the practical version: what to change in the writing, what to change in the setup, and the one place where reading from a prompter is the wrong call entirely.",
+          },
+        ],
+      },
+      {
+        heading: "The one difference that changes the script",
+        blocks: [
+          {
+            type: "p",
+            text: "Shorts sit inside YouTube. That sounds obvious and it is the whole thing. A viewer who finds you in the Shorts feed is one tap away from a channel with your longer videos on it, and YouTube has spent years training people to follow channels rather than individual posts. Instagram does not work that way \u2014 a Reel mostly has to justify itself alone.",
+          },
+          {
+            type: "p",
+            text: "Practically, that means the end of a Shorts script carries weight that the end of a Reel does not. On Reels, the last line is often a throwaway because the viewer is already gone. On Shorts, the last line is the handover \u2014 it is where a viewer decides whether there is more of this somewhere.",
+          },
+          {
+            type: "p",
+            text: "So when you adapt a script, do not just trim it. Rewrite the final eight to ten words so they point at something specific: the longer video this came from, the next part, the thing you cover on the channel. Not the word subscribe. Something concrete enough that following feels like a decision rather than a favour.",
+          },
+        ],
+      },
+      {
+        heading: "Front-load harder than you think you need to",
+        blocks: [
+          {
+            type: "p",
+            text: "The opening rule is the same in both places but less forgiving on Shorts, because the feed is deep and the thumb is fast. What that means for a scripted piece specifically:",
+          },
+          {
+            type: "list",
+            items: [
+              "Put the claim in the first sentence. Not the setup for the claim \u2014 the claim.",
+              "Cut every phrase that is throat-clearing: so, basically, I wanted to talk about, in this video.",
+              "Never open with your own name. It is the single most common wasted second in scripted short-form.",
+              "If the piece has a number in it \u2014 three ways, forty minutes, twice the speed \u2014 say the number early. Numbers survive being half-heard.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The advantage of working from a written script here is that you can see the throat-clearing on the page. Improvised openings almost always start two sentences before they need to, and you cannot hear yourself doing it in the moment. Reading the first line off the page, written deliberately, removes the problem before it exists.",
+          },
+        ],
+      },
+      {
+        heading: "Length, and the honest version of the rule",
+        blocks: [
+          {
+            type: "p",
+            text: "Shorts can run up to three minutes now, which has quietly made scripting harder rather than easier, because the extra room is a trap for scripted content. A tight forty-five seconds outperforms a padded ninety almost every time.",
+          },
+          {
+            type: "p",
+            text: "The number that has served me well: write to roughly 140 words for a sixty-second piece, then cut a third of it. Most people speak faster on camera than they expect, and a script that felt sparse on the page lands about right out loud. If you genuinely need two minutes, the test is whether every twenty-second block has its own small payoff \u2014 if any of them is only there to get you to the next one, cut it and make two Shorts.",
+          },
+        ],
+      },
+      {
+        heading: "Setting up the recording",
+        blocks: [
+          {
+            type: "p",
+            text: "The mechanics are where a prompter earns its place. The difficulty with reading a script on a phone is that the text is in the middle of the screen and the lens is at the top, so your eyes are visibly pointed at the wrong place for the entire take. That is the thing viewers read as shifty, even when they cannot say why.",
+          },
+          {
+            type: "p",
+            text: "[Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay) floats the script over the live camera preview and lets you position it right next to the front lens, so the gap between reading and looking down the barrel is a few millimetres. Concretely, for Shorts:",
+          },
+          {
+            type: "list",
+            items: [
+              "Phone at eye level, not below. Recording from your lap is the other half of the eye-contact problem.",
+              "Text block positioned high in the frame, close to the lens, and kept narrow \u2014 short lines mean your eyes travel less per line.",
+              "Text size large enough to read in a single glance from arm's length. If you are squinting, you are reading rather than talking.",
+              "Leave the bottom quarter of the frame clear. That is where the title, channel handle and subscribe button sit in the Shorts player, and it is where your face should not be.",
+              "Record portrait 4K. YouTube compresses hard, and giving it more to start with visibly survives the trip.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Voice-follow versus a speed slider, for this format",
+        blocks: [
+          {
+            type: "p",
+            text: "Both are available and for Shorts the choice matters more than it does at length, because a sixty-second script has no room to recover from a scroll that is running ahead of you.",
+          },
+          {
+            type: "p",
+            text: "Voice-driven scrolling follows your actual pace \u2014 the text advances as you speak, using on-device speech recognition, and finds its place again if you stumble or repeat a line. For short-form that is usually the right default, because the natural pauses that make a Short sound conversational are exactly what a fixed-speed scroll punishes. Auto-scroll with a speed slider is better when you already know the piece cold and want a metronome to keep you from rushing, which is a real failure mode when you are recording six takes in a row.",
+          },
+          {
+            type: "p",
+            text: "The [voice-follow versus auto-scroll comparison](/blog/voice-follow-vs-auto-scroll-teleprompter) goes into where each one falls down. For a first Shorts session, start with voice-follow.",
+          },
+        ],
+      },
+      {
+        heading: "When not to use a prompter at all",
+        blocks: [
+          {
+            type: "p",
+            text: "Worth saying plainly, because a post about a prompter app has an obvious incentive not to. There are Shorts formats where reading hurts.",
+          },
+          {
+            type: "p",
+            text: "Reaction and commentary pieces need the small hesitations and self-corrections that make a reaction read as genuine, and a script sands those off. Anything with your hands in the frame \u2014 a demo, a cooking step, a repair \u2014 works better with bullet points you glance at than with prose you follow, because your attention belongs on the object. And if the Short is genuinely a single sentence, writing it down and reading it is more setup than saying it.",
+          },
+          {
+            type: "p",
+            text: "Where a prompter is clearly worth it: explainers with an order that matters, anything with numbers or names you must get right, compliance-sensitive wording, a piece you are recording in a language you are less fluent in, and any session where you are batching several videos and your memory for the fourth script has quietly given up.",
+          },
+        ],
+      },
+      {
+        heading: "The thing that actually makes it not sound read",
+        blocks: [
+          {
+            type: "p",
+            text: "Most scripted Shorts fail at the sentence level, not the delivery level. Written sentences are longer than spoken ones, they front-load subordinate clauses, and they use words nobody says out loud. No amount of good reading fixes a sentence that was never meant to be spoken.",
+          },
+          {
+            type: "p",
+            text: "The cheapest fix is to read the script aloud once before you record and mark every place you ran out of breath or stumbled. Those are not delivery problems, they are punctuation problems, and shortening the sentence solves them permanently. [Writing a script that does not sound written](/blog/write-a-script-that-doesnt-sound-written) covers the rewriting patterns in more detail.",
+          },
+          {
+            type: "p",
+            text: "A few format details worth knowing: the script never appears in the saved video, so what you upload is clean with no watermark; the app is free with occasional ads and a one-time purchase to remove them rather than a subscription; and because the speech recognition runs entirely on the device, it works in airplane mode and nothing you write or record is uploaded anywhere. That last part matters more than it sounds if you script anything before it is public.",
+          },
+          {
+            type: "p",
+            text: "Next in this series: TikTok, where the scripting pressure moves to a different part of the video again \u2014 and where the thing that keeps people watching is not the hook or the ending but what happens around the fifteen-second mark.",
+          },
+        ],
+      },
+    ],
+  },
 ];
