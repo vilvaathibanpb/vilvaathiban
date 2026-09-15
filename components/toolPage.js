@@ -359,7 +359,7 @@ export default function ToolPage({ tool, children }) {
             <h3>{a.title}</h3>
             <p>{a.text}</p>
             <a
-              href={`https://apps.apple.com/app/id${a.appStoreId}`}
+              href={a.url || `https://apps.apple.com/app/id${a.appStoreId}`}
               aria-label={`Download ${a.name} on the App Store`}
               rel="noopener"
             >

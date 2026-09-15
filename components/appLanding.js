@@ -191,7 +191,8 @@ const LangBar = styled.nav`
 export default function AppLanding({ app, lang = LANGS[0], ui }) {
   const url = `${SITE}${lang.path}/apps/${app.slug}`;
   const rtl = lang.dir === "rtl";
-  const storeUrl = `https://apps.apple.com/app/id${app.appStoreId}`;
+  // Only released apps get a store link. An unreleased id 404s on the App Store.
+  const storeUrl = app.live ? app.appStoreUrl || `https://apps.apple.com/app/id${app.appStoreId}` : null;
   const icon = `${SITE}/apps/${app.iconBase}-icon.png`;
   const free = app.price.amount === "0";
   const priceLabel = free
@@ -208,9 +209,8 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
     applicationCategory: app.category || "UtilitiesApplication",
     operatingSystem: "iOS 15.1 or later",
     isAccessibleForFree: free,
-    offers: { "@type": "Offer", price: app.price.amount, priceCurrency: "USD", availability: "https://schema.org/InStock" },
-    downloadUrl: storeUrl,
-    installUrl: storeUrl,
+    offers: { "@type": "Offer", price: app.price.amount, priceCurrency: "USD", availability: app.live ? "https://schema.org/InStock" : "https://schema.org/PreOrder" },
+    ...(storeUrl ? { downloadUrl: storeUrl, installUrl: storeUrl, sameAs: storeUrl } : {}),
     featureList: app.features.map((f) => f.title),
     screenshot: app.screenshots.map((s) => ({ "@type": "ImageObject", contentUrl: `${SITE}${s.src}`, caption: s.alt })),
     image: icon,
@@ -269,7 +269,7 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
         <meta name="twitter:title" content={app.head.ogTitle || app.head.title} />
         <meta name="twitter:description" content={app.head.ogDescription || app.head.description} />
         <meta name="twitter:image" content={icon} />
-        <meta name="apple-itunes-app" content={`app-id=${app.appStoreId}`} />
+        {app.live && <meta name="apple-itunes-app" content={`app-id=${app.appStoreId}`} />}
       </Head>
       <JsonLd data={software} />
       <JsonLd data={howTo} />
@@ -293,9 +293,13 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
         </HeroRow>
         <Answer color={app.color}>{app.answer}</Answer>
         <Stores>
-          <a href={storeUrl} aria-label={`${ui.download}: ${app.name}`} rel="noopener">
-            <img src="/apps/app-store-badge.svg" alt={ui.download} width="156" height="52" />
-          </a>
+          {storeUrl ? (
+            <a href={storeUrl} aria-label={`${ui.download}: ${app.name}`} rel="noopener">
+              <img src="/apps/app-store-badge.svg" alt={ui.download} width="156" height="52" />
+            </a>
+          ) : (
+            <PlaySoon>{ui.appStoreSoon}</PlaySoon>
+          )}
           <PlaySoon>{ui.playSoon}</PlaySoon>
         </Stores>
         <LangBar aria-label={ui.language}>

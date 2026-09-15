@@ -12,16 +12,19 @@ const APPS = {
   chatLink: {
     name: "Chat Link & QR Code Maker",
     appStoreId: "6810372979",
+    url: "https://apps.apple.com/us/app/chat-link-qr-code-maker/id6810372979",
     color: "#0f766e",
   },
   converter: {
     name: "Opus to MP3 Converter",
     appStoreId: "6810373840",
+    url: "https://apps.apple.com/us/app/opus-to-mp3-converter/id6810373840",
     color: "#c2410c",
   },
   transcribe: {
     name: "Voice Note to Text: Offline",
     appStoreId: "6810376600",
+    url: "https://apps.apple.com/us/app/voice-note-to-text-offline/id6810376600",
     color: "#7c3aed",
   },
   export: {
