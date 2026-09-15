@@ -4471,6 +4471,201 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  {
+    slug: "javascript-object-groupby-map-groupby-guide",
+    title: "Object.groupBy and Map.groupBy: Grouping Arrays Without reduce()",
+    description: "ES2024 gave JavaScript native array grouping. How Object.groupBy and Map.groupBy work, the null-prototype and key-coercion details, and when reduce is still the right call.",
+    datePublished: "2026-09-15",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Grouping a list by some property is one of the most common things anyone does with an array, and until recently JavaScript had no built-in way to do it. Everyone wrote the same **reduce** by hand, got it slightly wrong the first time, and eventually pulled in lodash just for *groupBy*.",
+          },
+          {
+            type: "p",
+            text: "ES2024 added **Object.groupBy** and **Map.groupBy**, and they reached Baseline in March 2024. Both are boring in the best way - they do exactly the obvious thing. But there are three details that will bite you if you skip the spec, so this goes through them.",
+          },
+        ],
+      },
+      {
+        heading: "The reduce you have written a hundred times",
+        blocks: [
+          {
+            type: "p",
+            text: "Here is the pattern, for reference. Given a list of tasks, group them by status:",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "const tasks = [\n  { id: 1, status: 'done', owner: 'ana' },\n  { id: 2, status: 'open', owner: 'ben' },\n  { id: 3, status: 'done', owner: 'ana' },\n];\n\nconst byStatus = tasks.reduce((acc, task) => {\n  (acc[task.status] ||= []).push(task);\n  return acc;\n}, {});",
+          },
+          {
+            type: "p",
+            text: "It works. It is also four lines of ceremony around one idea, it mutates an accumulator, and the *||=* trick is the bit people get wrong.",
+          },
+        ],
+      },
+      {
+        heading: "Object.groupBy",
+        blocks: [
+          {
+            type: "p",
+            text: "The replacement is a static method that takes the iterable first and the key-selecting callback second:",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "const byStatus = Object.groupBy(tasks, (task) => task.status);\n\n// {\n//   done: [{ id: 1, ... }, { id: 3, ... }],\n//   open: [{ id: 2, ... }],\n// }",
+          },
+          {
+            type: "p",
+            text: "Note that it is **Object.groupBy(items, fn)** and not *items.groupBy(fn)*. That was deliberate. An earlier version of this proposal did add *Array.prototype.group*, and it had to be pulled because adding a *group* property to every array broke real websites - notably older versions of Sencha Ext JS, which relied on the name being absent. Moving the method to a static on Object and Map sidestepped the whole problem.",
+          },
+          {
+            type: "p",
+            text: "The callback also receives the index as a second argument, which is occasionally useful:",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "const halves = Object.groupBy(items, (item, index) =>\n  index < items.length / 2 ? 'first' : 'second'\n);",
+          },
+        ],
+      },
+      {
+        heading: "Detail one: the result has a null prototype",
+        blocks: [
+          {
+            type: "p",
+            text: "This is the detail that surprises people. **Object.groupBy returns an object with a null prototype**, not a plain object literal. That means it has no inherited methods at all:",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "const groups = Object.groupBy(tasks, (t) => t.status);\n\nObject.getPrototypeOf(groups); // null\ngroups.hasOwnProperty('done'); // TypeError: not a function\ngroups.toString(); // TypeError: not a function",
+          },
+          {
+            type: "p",
+            text: "This is a feature rather than an oversight. Because there is no prototype chain, a group key of *toString* or *constructor* or *__proto__* is just an ordinary key and cannot collide with anything inherited. The hand-rolled reduce version has a genuine bug here - grouping user-supplied data by a field whose value happens to be *__proto__* does something you did not intend.",
+          },
+          {
+            type: "p",
+            text: "In practice you rarely notice, because reading properties, spreading, *Object.keys*, *Object.entries* and *for...in* all work normally. But if you pass the result somewhere that calls a method on it, use **Object.hasOwn(groups, key)** instead of *groups.hasOwnProperty(key)*, and be aware that *structuredClone* and some deep-equality helpers treat null-prototype objects differently.",
+          },
+        ],
+      },
+      {
+        heading: "Detail two: keys are coerced to strings",
+        blocks: [
+          {
+            type: "p",
+            text: "Object keys can only be strings or symbols, so whatever your callback returns gets coerced. Most of the time this is invisible. Occasionally it collapses groups you wanted kept apart:",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "const values = [1, '1', true, 'true', null, undefined];\n\nObject.groupBy(values, (v) => v);\n// keys: '1', 'true', 'null', 'undefined'\n// the number 1 and the string '1' land in the SAME group",
+          },
+          {
+            type: "p",
+            text: "If your grouping key is a number, a boolean, a Date, or an object, that coercion is a real risk. Which is what the second method is for.",
+          },
+        ],
+      },
+      {
+        heading: "Map.groupBy, for keys that are not strings",
+        blocks: [
+          {
+            type: "p",
+            text: "**Map.groupBy** is identical in shape but returns a **Map**, so keys keep their type and are compared with SameValueZero - the same rule Map itself uses.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "const byTeam = Map.groupBy(people, (person) => person.team);\n// keys are the actual team objects, not '[object Object]'\n\nbyTeam.get(engineering); // works by reference\n\nconst byYear = Map.groupBy(orders, (order) => order.placedAt.getFullYear());\nbyYear.get(2026); // number key, not '2026'",
+          },
+          {
+            type: "p",
+            text: "Use **Map.groupBy** when the key is an object, a number you will look up by number, or anything where *String(key)* would lose information. Use **Object.groupBy** when the key is genuinely a string and you want something that spreads, serialises to JSON, and destructures naturally.",
+          },
+          {
+            type: "p",
+            text: "One thing worth remembering: grouping by an object reference only works if you have the same reference. Two structurally identical objects are different Map keys. If you are grouping by a value object, key on a stable primitive instead - an id, or a string you build yourself.",
+          },
+        ],
+      },
+      {
+        heading: "Detail three: order is insertion order, and empty groups do not exist",
+        blocks: [
+          {
+            type: "p",
+            text: "Groups appear in the order their first member was encountered, not sorted. And a group with no members simply is not in the result - there is no way to pre-declare the set of keys you expect.",
+          },
+          {
+            type: "p",
+            text: "That second point catches people building UI. If you are rendering a column per status and one status has no items today, the key is absent and your loop silently renders three columns instead of four. Seed the shape yourself when the set of keys is known:",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "const STATUSES = ['open', 'in-progress', 'done'];\nconst grouped = Object.groupBy(tasks, (t) => t.status);\n\nconst columns = STATUSES.map((status) => ({\n  status,\n  tasks: grouped[status] ?? [],\n}));",
+          },
+        ],
+      },
+      {
+        heading: "Where you can use it",
+        blocks: [
+          {
+            type: "p",
+            text: "Both methods are Baseline since March 2024, which means they work across current browsers and are safe for most production targets now:",
+          },
+          {
+            type: "list",
+            items: [
+              "Chrome and Edge 117+",
+              "Firefox 119+",
+              "Safari 17.4+",
+              "Node.js 21+",
+              "Deno 1.38+ and Bun 1.1+",
+            ],
+          },
+          {
+            type: "p",
+            text: "The practical constraint is usually your Node floor rather than your browser floor. Node 20 is the version that trips teams up - it is still widely deployed and does not have either method. Check before you ship server code that assumes them, because the failure mode is a *TypeError* at runtime rather than anything your bundler will warn you about.",
+          },
+        ],
+      },
+      {
+        heading: "When reduce is still the right answer",
+        blocks: [
+          {
+            type: "p",
+            text: "These methods do one thing: partition a list into buckets. They deliberately do not aggregate, and that limit matters more often than you would expect.",
+          },
+          {
+            type: "p",
+            text: "If what you actually want is a count per key, a sum per key, or a single representative per key, **groupBy builds intermediate arrays you are about to throw away**. For a few hundred items that is irrelevant. For a hot path over a large list it is real work:",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "// wasteful: builds arrays, then discards them\nconst counts = Object.fromEntries(\n  Object.entries(Object.groupBy(rows, (r) => r.type))\n    .map(([k, v]) => [k, v.length])\n);\n\n// direct\nconst counts2 = rows.reduce((acc, r) => {\n  acc[r.type] = (acc[r.type] ?? 0) + 1;\n  return acc;\n}, {});",
+          },
+          {
+            type: "p",
+            text: "Nested grouping is the other gap. There is no built-in way to group by two keys, so you end up mapping over the first result and grouping again - readable, but no longer obviously nicer than doing it by hand.",
+          },
+          {
+            type: "p",
+            text: "The honest summary: reach for **Object.groupBy** when you want the buckets themselves, which is most of the time, and keep **reduce** for the cases where the buckets are only a means to a number. If you are already using the other recent additions to the language, the [iterator helpers](/blog/javascript-iterator-helpers) compose well with grouping, and the [Set methods](/blog/javascript-set-methods-union-intersection-difference) landed in the same wave of quality-of-life work.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
 ];
 

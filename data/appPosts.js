@@ -1095,4 +1095,149 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "teleprompter-for-tiktok",
+    title: "Using a Teleprompter for TikTok: Where Scripted Videos Actually Lose People",
+    description: "TikTok punishes polish differently from Reels or Shorts. How to script for it, which teleprompter mode fits, and the videos where you should not use one at all.",
+    datePublished: "2026-09-15",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "If you have already read the [Reels](/blog/teleprompter-for-instagram-reels) and [Shorts](/blog/teleprompter-for-youtube-shorts) pieces in this series, you might reasonably expect TikTok to be the same advice with a different logo. It is not, and the difference is worth understanding before you script anything.",
+          },
+          {
+            type: "p",
+            text: "On Shorts, the risk is the opening - people leave in the first two seconds. On TikTok, plenty of viewers will give you the opening. Where they leave is the middle, somewhere around the fifteen-second mark, and scripted videos are unusually good at losing them there.",
+          },
+        ],
+      },
+      {
+        heading: "Why the middle is where scripts fail",
+        blocks: [
+          {
+            type: "p",
+            text: "A written script has a shape: setup, development, payoff. That shape is fine on paper, but the development section is where the writing gets most written - the connective sentences, the *and what that means is*, the careful restatement of the point you already made.",
+          },
+          {
+            type: "p",
+            text: "When you are improvising, you skip all of that instinctively, because you can feel yourself getting boring. When you are reading, you do not feel it, because the sentence is right there and reading it takes no effort. The script protects you from stumbling and also protects you from noticing.",
+          },
+          {
+            type: "p",
+            text: "The practical fix is structural rather than performative: cut the connective tissue out of the script before you record it. If a sentence exists to get you from one idea to the next, delete it and let the cut do that job. TikTok viewers are extremely comfortable with abrupt transitions.",
+          },
+        ],
+      },
+      {
+        heading: "Script for TikTok's tolerance for roughness",
+        blocks: [
+          {
+            type: "p",
+            text: "The platform rewards a specific register - fast, direct, slightly unfinished. A script that reads well in a document usually sounds a full notch too formal once it is out loud, and on TikTok that gap is more visible than anywhere else because the surrounding content is so casual.",
+          },
+          {
+            type: "p",
+            text: "Some things that help, none of which require any particular app:",
+          },
+          {
+            type: "list",
+            items: [
+              "Write in fragments. Not every line needs a subject and a verb.",
+              "Put the conclusion first and the reasoning second. TikTok is not a place for building to a point.",
+              "Use contractions everywhere, including the ones that feel slightly sloppy written down.",
+              "Read the whole thing out loud once and delete every sentence you had to take a breath in the middle of.",
+              "Leave one deliberate gap where you will say something unscripted - a reaction, an aside, a correction. It resets the rhythm.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The [script-writing piece](/blog/write-a-script-that-doesnt-sound-written) in this series goes through the rewriting patterns in more detail; they apply here with the dial turned further up.",
+          },
+        ],
+      },
+      {
+        heading: "Which mode to use",
+        blocks: [
+          {
+            type: "p",
+            text: "For TikTok specifically, voice-driven scrolling tends to fit better than fixed-speed auto-scroll, and the reason is the deliberate gap mentioned above. Auto-scroll runs at a constant rate, so the moment you go off-script for four seconds, the text has moved on without you and you spend the next line catching up. Voice-follow waits.",
+          },
+          {
+            type: "p",
+            text: "In [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay), the voice-driven mode uses Apple's on-device speech recognition to track where you are in the script and scroll to match - so pausing, ad-libbing, or repeating a line all work, and it finds your place again if you stumble. It auto-detects the script's language and supports every language iOS on-device recognition does, which matters if you switch languages mid-sentence the way a lot of creators do.",
+          },
+          {
+            type: "p",
+            text: "Auto-scroll with a speed slider is still there and still the better choice for a tightly timed read where you know you will not deviate. [The full comparison](/blog/voice-follow-vs-auto-scroll-teleprompter) covers when each wins.",
+          },
+        ],
+      },
+      {
+        heading: "The eye-contact problem is worse in vertical",
+        blocks: [
+          {
+            type: "p",
+            text: "TikTok is shot close and vertical, which means your face fills the frame and any gaze drift is obvious. A script taped below the phone, or read off a second device, reads immediately as *looking at something else*.",
+          },
+          {
+            type: "p",
+            text: "The overlay approach exists for this: the script floats over the live camera preview, positioned next to the front lens, so your eyes stay within a degree or two of the camera while you read. It is the single biggest difference between a scripted video that looks scripted and one that does not.",
+          },
+          {
+            type: "p",
+            text: "Two practical settings to get right. Make the text larger than feels necessary - bigger text means fewer words on screen, which means less eye travel per line. And if you are using a rig or a mirror setup, mirror mode flips the text so it reads correctly through the glass.",
+          },
+        ],
+      },
+      {
+        heading: "When you should not use a teleprompter on TikTok",
+        blocks: [
+          {
+            type: "p",
+            text: "This is the part most posts on the subject leave out, and on TikTok it is a bigger category than on other platforms.",
+          },
+          {
+            type: "p",
+            text: "Do not script a trend participation video. The whole appeal is that everyone is doing the same thing slightly differently, and a polished read makes you look like you missed the joke. Same for duets, stitches, and replies to comments - those formats are built on reacting, and a script kills the reaction.",
+          },
+          {
+            type: "p",
+            text: "Do not script anything under about fifteen seconds. Below that length the setup cost of writing, loading and reading is longer than just saying the thing, and short videos are where unscripted energy reads best anyway.",
+          },
+          {
+            type: "p",
+            text: "And be careful scripting anything emotional. A script is excellent at keeping you accurate and terrible at keeping you moved. If the video's job is to convey that you care about something, a bullet list of three points you improvise around will almost always beat a paragraph you read correctly.",
+          },
+          {
+            type: "p",
+            text: "Where a teleprompter genuinely earns its place on TikTok: explainers with facts you cannot get wrong, anything with numbers or names in it, videos in a language you are less fluent in, and long-form talking-head content where losing your place costs you a whole take.",
+          },
+        ],
+      },
+      {
+        heading: "A workflow that holds up",
+        blocks: [
+          {
+            type: "p",
+            text: "Write the script. Read it aloud once and cut a third of it. Load it, set the text size large, pick voice-follow, and record in portrait - the app records 4K and the script never appears in the saved video, so what comes out is clean and unwatermarked, ready to upload or edit.",
+          },
+          {
+            type: "p",
+            text: "Then do the take you did not plan. Record the same script a second time without looking at it, using only what you remember. Quite often that is the one you post, and the scripted take turns out to have been rehearsal. That is not a failure of the tool - getting the words into your head is most of what the tool is for.",
+          },
+          {
+            type: "p",
+            text: "Everything runs on the device, including the speech recognition, so this works in airplane mode and nothing you write or record leaves the phone. The app is free with occasional ads and a one-time purchase to remove them, no subscription. It is iOS-only for now.",
+          },
+          {
+            type: "p",
+            text: "Next in this series: how to keep eye contact with the camera - the mechanics of it, why looking *at* the lens and looking *near* the lens produce such different results on video, and what to do if you find it physically uncomfortable.",
+          },
+        ],
+      },
+    ],
+  },
 ];
