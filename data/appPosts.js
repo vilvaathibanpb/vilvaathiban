@@ -1240,4 +1240,153 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "how-to-keep-eye-contact-with-the-camera",
+    title: "How to Keep Eye Contact With the Camera (And Why It Is Harder Than It Looks)",
+    description:
+      "Looking at the lens and looking near the lens produce completely different results on video. The mechanics of camera eye contact, and how to fix it if you keep drifting.",
+    datePublished: "2026-09-17",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Watch a video where someone is reading off a screen and you can tell within two seconds. Not because you consciously spot the scanning - it is subtler than that. The eyes are pointed slightly below, or slightly to the side, and they move in small horizontal sweeps. You do not think *they are reading*. You think *something is off*, and you scroll.",
+          },
+          {
+            type: "p",
+            text: "That reaction is worth understanding, because it is the whole reason camera eye contact matters. It is not that looking at the lens is polite. It is that the human visual system is absurdly sensitive to gaze direction, and a couple of degrees of error reads as evasiveness.",
+          },
+        ],
+      },
+      {
+        heading: "Why a few degrees ruins it",
+        blocks: [
+          {
+            type: "p",
+            text: "People can detect where another person is looking with remarkable precision - it is one of the things our vision is specialised for. The high-contrast white sclera around a dark iris makes gaze direction unusually legible in humans compared with other primates, and we read it constantly without effort.",
+          },
+          {
+            type: "p",
+            text: "On video this becomes a problem because the viewer has no depth cues to help them. In a room, if someone looks past your shoulder, you understand they are looking at something behind you. On a flat screen there is no behind. There is only *at me* and *not at me*, and *not at me* defaults to the least generous interpretation.",
+          },
+          {
+            type: "p",
+            text: "This is the same effect that makes video calls feel subtly cold. Everyone is looking at the face on their screen rather than the camera above it, so nobody ever quite makes eye contact with anybody.",
+          },
+        ],
+      },
+      {
+        heading: "The distance between your script and the lens is the whole problem",
+        blocks: [
+          {
+            type: "p",
+            text: "Every fix for camera eye contact is really a fix for one thing: the angular gap between where your words are and where the lens is.",
+          },
+          {
+            type: "p",
+            text: "Hold your phone at arm's length and put your notes at the bottom of the screen, and that gap is maybe ten degrees. Visible. Put your script on a laptop next to the phone and it is forty degrees. Unmissable. Tape a note below the tripod and you are looking at the floor.",
+          },
+          {
+            type: "p",
+            text: "The distance also matters in the other direction: the further away the camera, the smaller the angle for the same physical offset. This is why studio setups get away with a teleprompter mirror at a couple of metres, and why phone-at-arm's-length is the hardest case.",
+          },
+          {
+            type: "p",
+            text: "So the goal is to shrink that angle to near zero. Which is exactly what a camera-overlay teleprompter does - [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay) floats the script directly over the camera preview, positioned next to the front lens, so reading and looking-at-the-lens become the same physical act. The gap stops being something you have to compensate for.",
+          },
+        ],
+      },
+      {
+        heading: "Why you still drift, even with the script in the right place",
+        blocks: [
+          {
+            type: "p",
+            text: "Here is the part nobody tells you: putting the words next to the lens removes the *geometric* problem and leaves the *cognitive* one entirely intact.",
+          },
+          {
+            type: "p",
+            text: "When you are reading, your eyes are doing saccades - rapid jumps along the line. When you are talking, your eyes are comparatively still, with occasional breaks as you think. Those are visibly different behaviours, and the second one is what viewers read as speaking to them. A script perfectly aligned with the lens will still look like reading if you are, in fact, reading it word by word.",
+          },
+          {
+            type: "p",
+            text: "The way out is not more discipline. It is knowing the line well enough that you are glancing rather than reading - taking in a phrase, delivering it to the lens, glancing again. That is a rhythm, and it has a prerequisite: the script has to be a script you can *say*, not just one you can read. We covered that in [writing a script that does not sound written](/blog/write-a-script-that-doesnt-sound-written), and it turns out to be an eye contact technique as much as a writing one.",
+          },
+        ],
+      },
+      {
+        heading: "Practical fixes, in order of how much they help",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Get the text next to the lens.** Everything else is a rounding error if this is wrong. On a phone, that means an overlay teleprompter rather than notes below the frame.",
+              "**Make the text bigger than feels necessary.** Larger text means fewer, longer glances and fewer horizontal sweeps. It is counterintuitive - less text on screen feels riskier - but it looks dramatically better.",
+              "**Let the script follow you, not the other way around.** Fixed-speed scrolling forces your eyes to track a moving target, which is visibly different from reading a still one. Voice-driven scrolling that matches your pace keeps the line you need where it was. The [comparison of voice-follow and auto-scroll](/blog/voice-follow-vs-auto-scroll-teleprompter) goes into when each is the right choice.",
+              "**Move the camera further back and zoom slightly in.** A longer distance shrinks the angle for free and flatters your face at the same time. Two steps back is worth more than most technique advice.",
+              "**Put the lens at eye height.** A camera below you means you are looking down, which reads as diminished no matter how good your gaze is. A camera above means you are looking up, which reads as hesitant.",
+              "**Rehearse the first and last lines to memory.** The open and close are where viewers decide about you. Delivering those two without a glance buys a lot of goodwill for the middle.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "The thing to stop doing",
+        blocks: [
+          {
+            type: "p",
+            text: "Do not stare. This is the most common overcorrection, and it is worse than the problem.",
+          },
+          {
+            type: "p",
+            text: "People in natural conversation break eye contact constantly - roughly every few seconds, usually while thinking or reaching for a word. Unbroken eye contact for sixty seconds is not warmth; it is interrogation. Viewers will not be able to say why the video feels intense, but they will feel it.",
+          },
+          {
+            type: "p",
+            text: "The natural-looking pattern is to hold the lens while you deliver a thought, break briefly at the end of it, and come back for the next one. Which is, conveniently, the same rhythm that glancing at a script produces anyway. If you are working in a second language or with unfamiliar material, those breaks get longer - and that is fine. They read as thinking, which is what they are.",
+          },
+        ],
+      },
+      {
+        heading: "When not to bother",
+        blocks: [
+          {
+            type: "p",
+            text: "Camera eye contact is not a universal virtue, and chasing it in the wrong format makes videos worse.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Screen recordings and tutorials.** If the viewer is watching your screen, your face is a small inset and gaze direction barely registers. Spend the effort on pacing instead.",
+              "**Interview-style and two-person content.** Looking at the person you are talking to is correct. Looking at the lens mid-conversation is the thing that looks strange.",
+              "**Genuinely spontaneous pieces.** A vlog-style video where you are clearly thinking out loud does not need it, and polished lens contact can make it feel staged.",
+              "**Anything where the words must be exact.** Compliance wording, legal disclaimers, precise numbers. Read it properly. A viewer forgives a glance down far more readily than a misstatement.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "A ten-minute practice that actually works",
+        blocks: [
+          {
+            type: "p",
+            text: "Record the same thirty seconds three times. First reading it straight off the script. Second with the script loaded but trying to glance rather than read. Third from memory, no script at all.",
+          },
+          {
+            type: "p",
+            text: "Watch them back with the sound off. The difference will be obvious, and it will be obvious in a way that no amount of reading about gaze can teach you - you will see your own eyes doing the thing that looks like reading, and afterwards you will feel when you are doing it.",
+          },
+          {
+            type: "p",
+            text: "Keeping all three takes is easy enough; the takes library holds them, the script never appears in the saved video, and none of it leaves the phone - the app runs entirely on-device, including the speech recognition, so this works in airplane mode. It is free with occasional ads and a one-time purchase to remove them, and it is iOS-only.",
+          },
+          {
+            type: "p",
+            text: "Next in this series: mirror mode and DIY teleprompter rigs - what the mirror setting is actually for, how to build a beam-splitter rig cheaply, and whether any of it is worth the effort when the phone can do the job on its own.",
+          },
+        ],
+      },
+    ],
+  },
 ];

@@ -4666,6 +4666,191 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  {
+    slug: "javascript-decorators-stage-3-practical-guide",
+    title: "JavaScript Decorators in 2026: The Stage 3 API, and Why Your Old Ones Still Work",
+    description:
+      "Standard decorators shipped in TypeScript 5.0 with a completely different API from experimentalDecorators. What changed, what you lose, and whether to migrate.",
+    datePublished: "2026-09-17",
+    readingMinutes: 9,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Decorators have been Stage 3 at TC39 since 2022, which makes them one of the longest-running near-misses in the language. In the meantime almost everyone has been using them anyway - through Angular, NestJS, MobX, TypeORM and a dozen other frameworks - via a TypeScript flag called `experimentalDecorators`.",
+          },
+          {
+            type: "p",
+            text: "The catch is that the thing behind that flag is **not the same feature**. It is a Stage 2 draft from years ago, with a different API, different capabilities, and no path to the standard beyond a rewrite. TypeScript 5.0 shipped the real Stage 3 implementation alongside it, and the two cannot be mixed.",
+          },
+          {
+            type: "p",
+            text: "So if you write TypeScript, you now have two decorator systems, one flag that switches between them, and a legitimate question about which to use. Here is the practical answer.",
+          },
+        ],
+      },
+      {
+        heading: "The flag decides which language you are writing",
+        blocks: [
+          {
+            type: "p",
+            text: "This is the single most important thing to internalise, and it trips people up constantly because the syntax is identical.",
+          },
+          {
+            type: "p",
+            text: "With `experimentalDecorators: true` in your tsconfig, the compiler emits the legacy form. Without it - and that is the default in TypeScript 5 and later - it emits the standard Stage 3 form. The `@` syntax at the call site looks the same either way. What changes is the signature of the function being called, which means a decorator written for one mode silently does the wrong thing in the other, or fails to compile.",
+          },
+          {
+            type: "p",
+            text: "There is no gradual migration inside a single compilation unit. The flag is per-project, so a project either speaks legacy or standard.",
+          },
+        ],
+      },
+      {
+        heading: "The API, concretely",
+        blocks: [
+          {
+            type: "p",
+            text: "Legacy decorators receive positional arguments describing the thing being decorated - roughly `target`, `propertyKey` and a property descriptor, varying by what you attached them to.",
+          },
+          {
+            type: "p",
+            text: "Standard decorators take exactly two arguments, always: the **value** being decorated, and a **context object** describing it.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "function logged(value, context) {\n  if (context.kind !== 'method') return value;\n\n  return function (...args) {\n    console.log('calling', context.name, 'with', args);\n    const result = value.call(this, ...args);\n    console.log('returned', result);\n    return result;\n  };\n}\n\nclass Repo {\n  @logged\n  find(id) {\n    return { id };\n  }\n}\n\nnew Repo().find(7);",
+          },
+          {
+            type: "p",
+            text: "The shape is much easier to reason about. A method decorator receives the method and returns a replacement. A getter decorator receives the getter and returns a replacement. The return value replaces the thing, and if you return nothing, the original stands.",
+          },
+          {
+            type: "p",
+            text: "The context object carries what you need to be generic:",
+          },
+          {
+            type: "list",
+            items: [
+              "`context.kind` - one of `class`, `method`, `getter`, `setter`, `field`, `accessor`. This is how one decorator handles several placements.",
+              "`context.name` - the member name, or a symbol.",
+              "`context.static` and `context.private` - booleans, which used to be awkward to determine.",
+              "`context.access` - an object with `get` and `set` functions that work even on private members, which is genuinely new capability.",
+              "`context.addInitializer(fn)` - registers a function to run at construction, the standard way to do per-instance setup.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Field decorators work differently, and it matters",
+        blocks: [
+          {
+            type: "p",
+            text: "A field has no value at decoration time, so a field decorator receives `undefined` and returns an **initializer function**. That function is called with the field's initial value and returns the value the field will actually hold.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "function clamp(min, max) {\n  return function (_value, context) {\n    if (context.kind !== 'field') {\n      throw new Error('@clamp only applies to fields');\n    }\n    return function (initial) {\n      return Math.min(max, Math.max(min, initial));\n    };\n  };\n}\n\nclass Volume {\n  @clamp(0, 100) level = 250;\n}\n\nconsole.log(new Volume().level);",
+          },
+          {
+            type: "p",
+            text: "Note that this runs once, at initialisation. If you want to clamp on every assignment, a field decorator is the wrong tool - you want `accessor`.",
+          },
+        ],
+      },
+      {
+        heading: "The accessor keyword is the piece people miss",
+        blocks: [
+          {
+            type: "p",
+            text: "Standard decorators introduced a companion feature: the `accessor` keyword, which turns a class field into an auto-generated getter/setter pair over a private backing slot. Decorating it gives you a hook on every read and write.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "function tracked(value, context) {\n  return {\n    get() {\n      return value.get.call(this);\n    },\n    set(next) {\n      console.log(String(context.name), 'changed to', next);\n      value.set.call(this, next);\n    },\n    init(initial) {\n      return initial;\n    },\n  };\n}\n\nclass Model {\n  @tracked accessor title = 'untitled';\n}\n\nconst m = new Model();\nm.title = 'draft';",
+          },
+          {
+            type: "p",
+            text: "This is the intended replacement for a large category of legacy decorator tricks - observable properties, validation on write, change tracking - that previously required rewriting a field into a getter/setter by hand. Reactivity libraries are the obvious consumer, and it composes naturally with the [signals proposal](/blog/javascript-signals-tc39-practical-guide) if that lands.",
+          },
+        ],
+      },
+      {
+        heading: "What you lose by moving to standard decorators",
+        blocks: [
+          {
+            type: "p",
+            text: "This is the section that decides most migrations, and it is worth being blunt about.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Parameter decorators do not exist.** The standard proposal does not include them. If your codebase uses constructor-parameter injection - which is the entire dependency injection story in NestJS and Angular - there is no direct equivalent.",
+              "**`emitDecoratorMetadata` is legacy-only.** The standard emits no `design:type`, `design:paramtypes` or `design:returntype` metadata. Any library that reads parameter types at runtime to wire things up depends on this.",
+              "**A decorator cannot change the kind of a member.** You cannot turn a field into a method or a method into an accessor. Legacy decorators were looser here, and a few libraries relied on it.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Together these explain why the legacy flag has not gone anywhere. Frameworks built on runtime type metadata cannot simply switch, and the standard is not going to grow those features quickly, because reflecting parameter types is a TypeScript capability rather than a JavaScript one.",
+          },
+        ],
+      },
+      {
+        heading: "What you gain",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**It is the actual language.** Once engines ship it natively, decorators stop being a compile-time transform. Your build output stops containing a helper shim.",
+              "**Private member access.** `context.access` lets a decorator read and write `#private` fields, which the legacy API could not do at all.",
+              "**A single coherent signature.** One shape for every placement, with `kind` to discriminate, instead of memorising which arguments arrive for which target.",
+              "**Portability.** A standard decorator is plain JavaScript. It does not require TypeScript, a specific tsconfig, or Babel plugin ordering to behave correctly.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "So which should you use?",
+        blocks: [
+          {
+            type: "p",
+            text: "The guidance is less exciting than a clean answer, but it holds up:",
+          },
+          {
+            type: "list",
+            items: [
+              "**New project, no framework demanding otherwise** - use the standard. Do not set `experimentalDecorators`. You are writing JavaScript that will keep working.",
+              "**Existing NestJS, Angular or TypeORM codebase** - stay on legacy. The flag is supported, the metadata story works, and migrating is a rewrite of your DI layer for no user-visible benefit. This is not technical debt; it is the only option the framework offers.",
+              "**Writing a library that others consume** - standard, and say so clearly in the README. Consumers on legacy cannot use your decorators, and they will find out at runtime otherwise.",
+              "**Mixed monorepo** - the flag is per-tsconfig, so packages can differ. What cannot differ is a single package, and a decorator crossing that boundary will not work.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "The honest state of things",
+        blocks: [
+          {
+            type: "p",
+            text: "Decorators are still Stage 3 after four years, and the reasons are not trivial - class field initialisation order and the separate metadata proposal have both been genuinely hard. Native engine support is not something you can currently assume, so in practice you are still compiling them.",
+          },
+          {
+            type: "p",
+            text: "What has changed is the destination. Before TypeScript 5.0, everyone using decorators was using a draft that was never going to be standardised. Now there is a real target, and new code can be written against it. That is worth something even while the transform is still in your build.",
+          },
+          {
+            type: "p",
+            text: "If you are working through the recent additions to the language more broadly, the [`using` keyword](/blog/javascript-using-keyword-explicit-resource-management) is the other Stage 3 feature that changes how classes are written, and [ES2026's shipped set](/blog/es2026-array-fromasync-promise-try-regexp-escape) covers what has already landed rather than what is still pending.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
 ];
 
