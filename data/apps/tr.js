@@ -13,13 +13,13 @@ export default {
   apps: {
     "chat-link-qr-code-maker": {
       head: {
-        title: "iPhone için WhatsApp Link Oluşturucu ve QR Kod Yapıcı (ücretsiz, wa.me)",
+        title: "iPhone için WhatsApp Link Oluşturucu ve QR Kod Yapıcı (wa.me)",
         description: "Hazır mesajlı wa.me WhatsApp linki oluşturun, yazdırılabilir QR koda dönüştürün ve kırpılmayan tam boy profil fotoğrafı yapın. Ücretsiz iOS uygulaması, çevrimdışı çalışır, hiçbir şey yüklenmez.",
         keywords: "whatsapp link oluşturucu, whatsapp linki oluşturma, wa.me link, whatsapp qr kod oluşturucu, mesajlı whatsapp linki, numara kaydetmeden whatsapp mesajı, işletme için whatsapp qr kodu, whatsapp profil fotoğrafı kırpmadan, instagram bio whatsapp linki",
-        ogTitle: "iPhone için ücretsiz WhatsApp link oluşturucu ve QR kod yapıcı",
+        ogTitle: "iPhone için WhatsApp link oluşturucu ve QR kod yapıcı",
         ogDescription: "Hazır mesajlı wa.me linkleri, yazdırılabilir QR kodlar ve kırpılmayan profil fotoğrafları. Ücretsiz, çevrimdışı, hiçbir şey yüklenmez.",
       },
-      h1: "WhatsApp link oluşturucu ve QR kod yapıcı, ücretsiz ve iPhone’unuzda",
+      h1: "WhatsApp link oluşturucu ve QR kod yapıcı, iPhone’unuzda",
       answer: "Chat Link & QR Code Maker herhangi bir telefon numarasını isteğe bağlı mesajlı bir wa.me sohbet linkine çevirir, bunu Fotoğraflar’a kaydedip yazdırabileceğiniz bir QR koda dönüştürür ve her fotoğrafı kare bir zemine yerleştirerek profil fotoğrafınızın tamamının daireye sığmasını sağlar. Ücretsizdir, hesap gerektirmez ve numaranızı ya da fotoğraflarınızı asla yüklemez.",
       quickFacts: [["Fiyat", "Ücretsiz, 1.0’da reklam yok, hesap yok"], ["Platform", "iPhone, iOS 15.1 veya üzeri"], ["Üretir", "wa.me linki · PNG QR kod · 1024×1024 kare fotoğraf"], ["Gizlilik", "Çevrimdışı çalışır. Hiçbir şey telefondan çıkmaz."]],
       screenshotsTitle: "Elde ettikleriniz: bir sohbet linki, bir QR kod ve daireye sığan bir profil fotoğrafı",
@@ -45,7 +45,7 @@ export default {
         { title: "Gerçekten yazdırılabilir QR kodlar", text: "Fotoğraflar’a tam çözünürlükte, filigransız, net bir PNG olarak kaydedilir; afiş, menü, el ilanı, etiket ya da kartvizit için hazırdır." },
         { title: "Kırpmasız profil fotoğrafı", text: "Yerleşik kırpma aracı kafaları ve logoları keser. Burada her fotoğraf beyaz kare zemine yerleştirilir, böylece görüntünün tamamı dairede kalır." },
         { title: "Çevrimdışı çalışır, hiçbir şey yüklenmez", text: "Linkler, QR kodlar ve fotoğraflar telefonda üretilir. Sunucu, hesap ve analitik yoktur; yazdığınız numaralar sizde kalır." },
-        { title: "Ücretsiz, filigransız", text: "1.0 sürümündeki her şey ücretsiz; QR kodda ya da fotoğrafta filigran yok, açılacak bir şey yok." },
+        { title: "Tek seferlik satın alma", text: "Bir kez ödersiniz ve her şey açılır; QR kodda ya da fotoğrafta filigran yok, abonelik ve uygulama içi satın alma da yok." },
       ],
       intentsTitle: "Bu uygulamanın yanıtladığı sorular",
       intents: [
@@ -65,11 +65,11 @@ export default {
           ["Yazdırılabilir QR kod", "✓ Tam çözünürlük PNG, filigransız", "Çoğu zaman filigranlı ya da küçük", "Yalnızca Business uygulaması, mesaj yok"],
           ["Numaranız gizli kalır", "✓ Telefondan asla çıkmaz", "✗ Siteye gönderilir", "✓ Evet"],
           ["Kırpmasız profil fotoğrafı", "✓ Evet", "✗ Hayır", "✗ Yalnızca kırpma aracı"],
-          ["Fiyat", "Ücretsiz", "Reklamlı ücretsiz ya da ücretli", "Ücretsiz"],
+          ["Fiyat", "Tek seferlik satın alma", "Reklamlı ücretsiz ya da ücretli", "Ücretsiz"],
         ],
       },
       faqs: [
-        { q: "Chat Link & QR Code Maker ücretsiz mi?", a: "Evet. 1.0 sürümü tamamen ücretsiz: tüm özellikler, filigran yok, hesap yok, uygulama içi satın alma yok. Tek bir geliştiricinin yaptığı bağımsız bir araçtır." },
+        { q: "Chat Link & QR Code Maker ne kadar?", a: "Tek seferlik satın almadır: tüm özellikler, filigran yok, hesap yok, abonelik ve uygulama içi satın alma yok. Tek bir geliştiricinin yaptığı bağımsız bir araçtır." },
         { q: "Link WhatsApp Business numaralarıyla çalışır mı?", a: "Evet. wa.me linkleri, uluslararası biçimde girildiği sürece WhatsApp veya WhatsApp Business’a kayıtlı her numara için sohbeti açar." },
         { q: "Hangi numara biçimini kullanmalıyım?", a: "Ülke kodu ve ardından numara, sadece rakam. Artı işaretini, boşlukları, tireleri, parantezleri ve baştaki sıfırı kaldırın. Örnek: Türkiye’deki bir cep telefonu için 905321234567." },
         { q: "Mesajım linkin içinde neden garip görünüyor?", a: "Bu URL kodlaması: boşluklar %20, özel karakterler kodlara dönüşür; böylece link her yere yapıştırılabilir. WhatsApp sohbet açılınca bunu normal metne geri çevirir." },

@@ -13,13 +13,13 @@ export default {
   apps: {
     "chat-link-qr-code-maker": {
       head: {
-        title: "Tạo link WhatsApp và mã QR trên iPhone (miễn phí, wa.me)",
-        description: "Tạo link wa.me kèm tin nhắn soạn sẵn, chuyển thành mã QR để in, và làm ảnh đại diện đầy đủ không bị cắt. Ứng dụng iOS miễn phí, chạy ngoại tuyến, không tải gì lên mạng.",
+        title: "Tạo link WhatsApp và mã QR trên iPhone (wa.me)",
+        description: "Tạo link wa.me kèm tin nhắn soạn sẵn, chuyển thành mã QR để in, và làm ảnh đại diện đầy đủ không bị cắt. Ứng dụng iOS mua một lần, chạy ngoại tuyến, không tải gì lên mạng.",
         keywords: "tạo link whatsapp, cách tạo link whatsapp, link wa.me, tạo mã qr whatsapp, link whatsapp kèm tin nhắn, nhắn tin whatsapp không cần lưu số, mã qr whatsapp cho cửa hàng, ảnh đại diện whatsapp không bị cắt, link whatsapp cho bio instagram",
-        ogTitle: "Công cụ tạo link WhatsApp và mã QR miễn phí cho iPhone",
+        ogTitle: "Công cụ tạo link WhatsApp và mã QR cho iPhone",
         ogDescription: "Link wa.me kèm tin nhắn soạn sẵn, mã QR để in và ảnh đại diện không bị cắt. Miễn phí, ngoại tuyến, không tải gì lên mạng.",
       },
-      h1: "Tạo link WhatsApp và mã QR, miễn phí và ngay trên iPhone",
+      h1: "Tạo link WhatsApp và mã QR ngay trên iPhone",
       answer: "Chat Link & QR Code Maker biến bất kỳ số điện thoại nào thành link wa.me mở thẳng cuộc trò chuyện, kèm tin nhắn soạn sẵn nếu bạn muốn. Link đó trở thành mã QR bạn có thể lưu vào Ảnh và đem in. Ngoài ra, ứng dụng đặt mọi tấm ảnh lên nền vuông để ảnh đại diện hiện đủ trong khung tròn. Ứng dụng miễn phí, không cần tài khoản, và số điện thoại cùng ảnh của bạn không bao giờ được tải lên đâu cả.",
       quickFacts: [["Giá", "Miễn phí, bản 1.0 không quảng cáo, không cần tài khoản"], ["Nền tảng", "iPhone, iOS 15.1 trở lên"], ["Tạo ra", "link wa.me · mã QR PNG · ảnh vuông 1024×1024"], ["Riêng tư", "Chạy ngoại tuyến. Không có gì rời khỏi máy."]],
       screenshotsTitle: "Bạn nhận được: một link trò chuyện, một mã QR và ảnh đại diện hiện đủ",
@@ -45,7 +45,7 @@ export default {
         { title: "Mã QR in được thật sự", text: "Lưu vào Ảnh dưới dạng PNG sắc nét, độ phân giải đầy đủ, không hình mờ, sẵn sàng cho áp phích, thực đơn, tờ rơi, nhãn dán hay danh thiếp." },
         { title: "Ảnh đại diện không bị cắt", text: "Công cụ cắt sẵn có thường cắt mất đầu người hoặc mép logo. Ở đây, mọi tấm ảnh được đặt lên nền vuông trắng để toàn bộ hình nằm gọn trong khung tròn." },
         { title: "Chạy ngoại tuyến, không tải gì lên", text: "Link, mã QR và ảnh đều được tạo ngay trên máy. Không có máy chủ, tài khoản hay công cụ phân tích, nên số bạn nhập vẫn là của riêng bạn." },
-        { title: "Miễn phí, không hình mờ", text: "Mọi thứ trong bản 1.0 đều miễn phí, mã QR và ảnh không có hình mờ, và cũng chẳng có gì phải mở khoá." },
+        { title: "Mua một lần", text: "Trả tiền một lần là mở khoá mọi thứ, mã QR và ảnh không có hình mờ, không thuê bao và không mua trong ứng dụng." },
       ],
       intentsTitle: "Những câu hỏi ứng dụng này trả lời",
       intents: [
@@ -69,7 +69,7 @@ export default {
         ],
       },
       faqs: [
-        { q: "Chat Link & QR Code Maker có miễn phí không?", a: "Có. Bản 1.0 hoàn toàn miễn phí: đủ mọi tính năng, không hình mờ, không tài khoản và không mua trong ứng dụng. Đây là công cụ độc lập do một lập trình viên làm ra." },
+        { q: "Chat Link & QR Code Maker giá bao nhiêu?", a: "Đây là ứng dụng mua một lần: đủ mọi tính năng, không hình mờ, không tài khoản, không thuê bao và không mua trong ứng dụng. Đây là công cụ độc lập do một lập trình viên làm ra." },
         { q: "Link có dùng được với số WhatsApp Business không?", a: "Có. Link wa.me mở cuộc trò chuyện với bất kỳ số nào đã đăng ký WhatsApp hoặc WhatsApp Business, miễn là nhập theo dạng quốc tế." },
         { q: "Nên nhập số theo định dạng nào?", a: "Mã quốc gia rồi tới số, chỉ chữ số. Bỏ dấu cộng, khoảng trắng, dấu gạch ngang, ngoặc đơn và số 0 đứng đầu. Ví dụ: 84912345678 cho số di động Việt Nam." },
         { q: "Vì sao tin nhắn trong link trông lạ vậy?", a: "Đó là mã hoá URL: khoảng trắng thành %20 và ký tự đặc biệt thành mã, để link không hỏng khi dán ở bất cứ đâu. Khi mở cuộc trò chuyện, WhatsApp chuyển lại thành chữ bình thường." },

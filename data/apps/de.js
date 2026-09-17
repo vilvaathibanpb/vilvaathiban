@@ -13,15 +13,15 @@ export default {
   apps: {
     "chat-link-qr-code-maker": {
       head: {
-        title: "WhatsApp-Link-Generator & QR-Code-Ersteller fürs iPhone (kostenlos, wa.me)",
-        description: "Erstelle einen wa.me-WhatsApp-Link mit vorgefertigter Nachricht, mach daraus einen druckbaren QR-Code und ein Profilbild in voller Größe ohne Zuschnitt. Kostenlose iOS-App, funktioniert offline, nichts wird hochgeladen.",
+        title: "WhatsApp-Link-Generator & QR-Code-Ersteller fürs iPhone (wa.me)",
+        description: "Erstelle einen wa.me-WhatsApp-Link mit vorgefertigter Nachricht, mach daraus einen druckbaren QR-Code und ein Profilbild in voller Größe ohne Zuschnitt. iOS-App als Einmalkauf, funktioniert offline, nichts wird hochgeladen.",
         keywords: "whatsapp link generator, whatsapp link erstellen, wa.me link, whatsapp qr code generator, whatsapp link mit nachricht, whatsapp nachricht ohne kontakt speichern, whatsapp qr code für unternehmen, whatsapp profilbild ohne zuschneiden, whatsapp link instagram bio",
-        ogTitle: "Kostenloser WhatsApp-Link-Generator & QR-Code-Ersteller fürs iPhone",
-        ogDescription: "wa.me-Links mit vorgefertigter Nachricht, druckbare QR-Codes und Profilbilder ohne Zuschnitt. Kostenlos, offline, nichts wird hochgeladen.",
+        ogTitle: "WhatsApp-Link-Generator & QR-Code-Ersteller fürs iPhone",
+        ogDescription: "wa.me-Links mit vorgefertigter Nachricht, druckbare QR-Codes und Profilbilder ohne Zuschnitt. Einmalkauf, offline, nichts wird hochgeladen.",
       },
-      h1: "WhatsApp-Link-Generator und QR-Code-Ersteller, kostenlos und auf deinem iPhone",
-      answer: "Chat Link & QR Code Maker macht aus jeder Telefonnummer einen wa.me-Klick-zum-Chat-Link mit optionaler Nachricht, wandelt ihn in einen QR-Code um, den du in Fotos speichern und drucken kannst, und legt jedes Foto auf ein Quadrat, damit dein ganzes Profilbild in den Kreis passt. Die App ist kostenlos, braucht kein Konto und lädt weder deine Nummer noch deine Fotos hoch.",
-      quickFacts: [["Preis", "Kostenlos, keine Werbung in 1.0, kein Konto"], ["Plattform", "iPhone, iOS 15.1 oder neuer"], ["Erzeugt", "wa.me-Link · PNG-QR-Code · quadratisches Foto 1024×1024"], ["Datenschutz", "Läuft offline. Nichts verlässt das Telefon."]],
+      h1: "WhatsApp-Link-Generator und QR-Code-Ersteller für dein iPhone",
+      answer: "Chat Link & QR Code Maker macht aus jeder Telefonnummer einen wa.me-Klick-zum-Chat-Link mit optionaler Nachricht, wandelt ihn in einen QR-Code um, den du in Fotos speichern und drucken kannst, und legt jedes Foto auf ein Quadrat, damit dein ganzes Profilbild in den Kreis passt. Die App ist ein Einmalkauf, braucht kein Konto und lädt weder deine Nummer noch deine Fotos hoch.",
+      quickFacts: [["Preis", "Einmalkauf, keine Werbung, kein Konto"], ["Plattform", "iPhone, iOS 15.1 oder neuer"], ["Erzeugt", "wa.me-Link · PNG-QR-Code · quadratisches Foto 1024×1024"], ["Datenschutz", "Läuft offline. Nichts verlässt das Telefon."]],
       screenshotsTitle: "Das bekommst du: einen Chat-Link, einen QR-Code und ein Profilbild, das passt",
       screenshots: [
         { alt: "WhatsApp-Link-Generator auf dem iPhone mit wa.me-Link, vorgefertigter Nachricht und QR-Code", caption: "Nummer + Nachricht → wa.me-Link + QR-Code" },
@@ -45,7 +45,7 @@ export default {
         { title: "QR-Codes, die sich wirklich drucken lassen", text: "In Fotos als scharfes PNG in voller Auflösung gespeichert, ohne Wasserzeichen, bereit für Plakat, Speisekarte, Flyer, Aufkleber oder Visitenkarte." },
         { title: "Profilbild ohne Zuschnitt", text: "Das eingebaute Zuschneiden kappt Köpfe und Logos. Hier wird jedes Foto auf ein weißes Quadrat gelegt, damit das ganze Bild im Kreis bleibt." },
         { title: "Funktioniert offline, nichts wird hochgeladen", text: "Links, QR-Codes und Fotos entstehen auf dem Telefon. Kein Server, kein Konto, keine Analytik: Die Nummern, die du eingibst, bleiben deine." },
-        { title: "Kostenlos, ohne Wasserzeichen", text: "Alles in Version 1.0 ist kostenlos, ohne Wasserzeichen auf QR-Code oder Bild, und es gibt nichts freizuschalten." },
+        { title: "Einmalkauf", text: "Einmal zahlen und alles ist freigeschaltet, ohne Wasserzeichen auf QR-Code oder Bild, ohne Abo und ohne In-App-Käufe." },
       ],
       intentsTitle: "Fragen, die diese App beantwortet",
       intents: [
@@ -65,11 +65,11 @@ export default {
           ["Druckbarer QR-Code", "✓ PNG in voller Auflösung, kein Wasserzeichen", "Oft mit Wasserzeichen oder klein", "Nur Business-App, ohne Nachrichtentext"],
           ["Deine Nummer bleibt privat", "✓ Verlässt nie das Telefon", "✗ Wird an die Website geschickt", "✓ Ja"],
           ["Profilbild ohne Zuschnitt", "✓ Ja", "✗ Nein", "✗ Nur Zuschneide-Werkzeug"],
-          ["Preis", "Kostenlos", "Kostenlos mit Werbung oder kostenpflichtig", "Kostenlos"],
+          ["Preis", "Einmalkauf", "Kostenlos mit Werbung oder kostenpflichtig", "Kostenlos"],
         ],
       },
       faqs: [
-        { q: "Ist Chat Link & QR Code Maker kostenlos?", a: "Ja. Version 1.0 ist komplett kostenlos: alle Funktionen, kein Wasserzeichen, kein Konto und kein In-App-Kauf. Es ist ein unabhängiges Tool eines einzelnen Entwicklers." },
+        { q: "Was kostet Chat Link & QR Code Maker?", a: "Es ist ein Einmalkauf: alle Funktionen, kein Wasserzeichen, kein Konto, kein Abo und keine In-App-Käufe. Es ist ein unabhängiges Tool eines einzelnen Entwicklers." },
         { q: "Funktioniert der Link mit WhatsApp-Business-Nummern?", a: "Ja. wa.me-Links öffnen den Chat für jede Nummer, die bei WhatsApp oder WhatsApp Business registriert ist, sofern sie im internationalen Format eingegeben wird." },
         { q: "Welches Nummernformat soll ich verwenden?", a: "Ländervorwahl gefolgt von der Nummer, nur Ziffern. Lass Pluszeichen, Leerzeichen, Bindestriche, Klammern und die führende Null weg. Beispiel: 4915112345678 für eine deutsche Handynummer." },
         { q: "Warum sieht meine Nachricht im Link seltsam aus?", a: "Das ist URL-Kodierung: Leerzeichen werden zu %20 und Sonderzeichen zu Codes, damit der Link überall eingefügt werden kann. WhatsApp macht daraus beim Öffnen des Chats wieder normalen Text." },

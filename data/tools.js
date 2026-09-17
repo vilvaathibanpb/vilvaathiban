@@ -148,7 +148,7 @@ export const TOOLS = {
       {
         ...APPS.chatLink,
         title: "Want this on your phone instead?",
-        text: "Chat Link & QR Code Maker does the same job on iPhone, offline, plus it saves QR codes straight to Photos and fixes profile pictures that get cropped. Free, no ads.",
+        text: "Chat Link & QR Code Maker does the same job on iPhone, offline, plus it saves QR codes straight to Photos and fixes profile pictures that get cropped. $2.99 one-time, no ads.",
       },
     ],
     related: [
@@ -260,7 +260,7 @@ export const TOOLS = {
       {
         ...APPS.chatLink,
         title: "Do it from your camera roll instead",
-        text: "Chat Link & QR Code Maker does this on iPhone without a browser, straight from Photos, and makes click-to-chat links and QR codes too. Free, no ads.",
+        text: "Chat Link & QR Code Maker does this on iPhone without a browser, straight from Photos, and makes click-to-chat links and QR codes too. $2.99 one-time, no ads.",
       },
     ],
     related: [

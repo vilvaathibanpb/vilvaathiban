@@ -13,15 +13,15 @@ export default {
   apps: {
     "chat-link-qr-code-maker": {
       head: {
-        title: "Pembuat Link WhatsApp & Kode QR untuk iPhone (gratis, wa.me)",
-        description: "Buat link wa.me WhatsApp dengan pesan otomatis, ubah jadi kode QR siap cetak, dan buat foto profil ukuran penuh tanpa terpotong. Aplikasi iOS gratis, bisa offline, tidak ada yang diunggah.",
+        title: "Pembuat Link WhatsApp & Kode QR untuk iPhone (wa.me)",
+        description: "Buat link wa.me WhatsApp dengan pesan otomatis, ubah jadi kode QR siap cetak, dan buat foto profil ukuran penuh tanpa terpotong. Aplikasi iOS sekali beli, bisa offline, tidak ada yang diunggah.",
         keywords: "pembuat link whatsapp, cara membuat link whatsapp, link wa.me, generator kode qr whatsapp, link whatsapp dengan pesan, kirim pesan whatsapp tanpa simpan nomor, kode qr whatsapp untuk bisnis, foto profil whatsapp tanpa crop, link whatsapp untuk bio instagram, wa.me generator",
-        ogTitle: "Pembuat link WhatsApp & kode QR gratis untuk iPhone",
-        ogDescription: "Link wa.me dengan pesan otomatis, kode QR siap cetak, dan foto profil tanpa terpotong. Gratis, offline, tidak ada yang diunggah.",
+        ogTitle: "Pembuat link WhatsApp & kode QR untuk iPhone",
+        ogDescription: "Link wa.me dengan pesan otomatis, kode QR siap cetak, dan foto profil tanpa terpotong. Sekali beli, offline, tidak ada yang diunggah.",
       },
-      h1: "Pembuat link WhatsApp dan kode QR, gratis dan langsung di iPhone Anda",
+      h1: "Pembuat link WhatsApp dan kode QR, langsung di iPhone Anda",
       answer: "Chat Link & QR Code Maker mengubah nomor telepon apa pun menjadi link wa.me klik-untuk-chat dengan pesan opsional, mengubahnya menjadi kode QR yang bisa disimpan ke Foto dan dicetak, dan menempatkan foto apa pun di atas kotak persegi sehingga seluruh foto profil Anda muat di lingkaran. Gratis, tanpa akun, dan nomor maupun foto Anda tidak pernah diunggah.",
-      quickFacts: [["Harga", "Gratis, tanpa iklan di 1.0, tanpa akun"], ["Platform", "iPhone, iOS 15.1 atau lebih baru"], ["Menghasilkan", "link wa.me · kode QR PNG · foto persegi 1024×1024"], ["Privasi", "Bisa offline. Tidak ada yang keluar dari ponsel."]],
+      quickFacts: [["Harga", "Sekali beli, tanpa iklan, tanpa akun"], ["Platform", "iPhone, iOS 15.1 atau lebih baru"], ["Menghasilkan", "link wa.me · kode QR PNG · foto persegi 1024×1024"], ["Privasi", "Bisa offline. Tidak ada yang keluar dari ponsel."]],
       screenshotsTitle: "Yang Anda dapat: link chat, kode QR, dan foto profil yang pas",
       screenshots: [
         { alt: "Pembuat link WhatsApp di iPhone menampilkan link wa.me dengan pesan otomatis dan kode QR-nya", caption: "Nomor + pesan → link wa.me + kode QR" },
@@ -45,7 +45,7 @@ export default {
         { title: "Kode QR yang benar-benar bisa dicetak", text: "Disimpan ke Foto sebagai PNG tajam resolusi penuh, tanpa watermark, siap untuk poster, menu, brosur, stiker, atau kartu nama." },
         { title: "Foto profil tanpa crop", text: "Alat crop bawaan memotong kepala dan logo. Aplikasi ini menempatkan foto apa pun di kotak putih sehingga seluruh gambar berada di dalam lingkaran." },
         { title: "Bisa offline, tidak ada yang diunggah", text: "Link, kode QR, dan foto dibuat di ponsel. Tidak ada server, akun, atau analitik, jadi nomor yang Anda ketik tetap milik Anda." },
-        { title: "Gratis, tanpa watermark", text: "Semua di versi 1.0 gratis, tanpa watermark di kode QR maupun foto, dan tidak ada yang perlu dibuka." },
+        { title: "Sekali beli", text: "Bayar sekali dan semuanya terbuka, tanpa watermark di kode QR maupun foto, tanpa langganan dan tanpa pembelian dalam aplikasi." },
       ],
       intentsTitle: "Pertanyaan yang dijawab aplikasi ini",
       intents: [
@@ -65,11 +65,11 @@ export default {
           ["Kode QR siap cetak", "✓ PNG resolusi penuh, tanpa watermark", "Sering berwatermark atau kecil", "Hanya aplikasi Business, tanpa pesan"],
           ["Nomor Anda tetap privat", "✓ Tidak pernah keluar dari ponsel", "✗ Dikirim ke situs", "✓ Ya"],
           ["Foto profil tanpa crop", "✓ Ya", "✗ Tidak", "✗ Hanya alat crop"],
-          ["Harga", "Gratis", "Gratis dengan iklan, atau berbayar", "Gratis"],
+          ["Harga", "Sekali beli", "Gratis dengan iklan, atau berbayar", "Gratis"],
         ],
       },
       faqs: [
-        { q: "Apakah Chat Link & QR Code Maker gratis?", a: "Ya. Versi 1.0 sepenuhnya gratis: semua fitur, tanpa watermark, tanpa akun, dan tanpa pembelian dalam aplikasi. Ini utilitas independen yang dibuat oleh satu pengembang." },
+        { q: "Berapa harga Chat Link & QR Code Maker?", a: "Sekali beli: semua fitur, tanpa watermark, tanpa akun, tanpa langganan, dan tanpa pembelian dalam aplikasi. Ini utilitas independen yang dibuat oleh satu pengembang." },
         { q: "Apakah link berfungsi untuk nomor WhatsApp Business?", a: "Ya. Link wa.me membuka chat untuk nomor apa pun yang terdaftar di WhatsApp atau WhatsApp Business, selama dimasukkan dalam format internasional." },
         { q: "Format nomor apa yang harus dipakai?", a: "Kode negara diikuti nomor, angka saja. Hapus tanda plus, spasi, tanda hubung, kurung, dan nol di depan. Contoh: 6281234567890 untuk nomor seluler Indonesia." },
         { q: "Kenapa pesan saya terlihat aneh di dalam link?", a: "Itu encoding URL: spasi menjadi %20 dan karakter khusus menjadi kode agar link tetap utuh saat ditempel di mana pun. WhatsApp mengubahnya kembali menjadi teks biasa saat chat terbuka." },

@@ -34,22 +34,22 @@ export default {
   appStoreId: "6810372979",
   appStoreUrl: "https://apps.apple.com/us/app/chat-link-qr-code-maker/id6810372979",
   live: true,
-  price: { amount: "0", label: "Free" },
+  price: { amount: "2.99", label: "$2.99 one-time" },
   color: "#0891B2",
   head: {
-    title: "WhatsApp Link Generator & QR Code Maker for iPhone (Free, wa.me)",
+    title: "WhatsApp Link Generator & QR Code Maker for iPhone (wa.me)",
     description:
-      "Create a wa.me click-to-chat WhatsApp link with a pre-filled message, turn it into a printable QR code, and make a full-size profile picture that is not cropped. Free iOS app, works offline, nothing is uploaded.",
+      "Create a wa.me click-to-chat WhatsApp link with a pre-filled message, turn it into a printable QR code, and make a full-size profile picture that is not cropped. iOS app, one-time $2.99, works offline, nothing is uploaded.",
     keywords:
       "whatsapp link generator, wa.me link generator, whatsapp qr code generator, whatsapp click to chat link, create whatsapp link with message, whatsapp link for instagram bio, send whatsapp message without saving number, whatsapp qr code for business, whatsapp dp full size without crop, whatsapp profile picture without cropping, whatsapp link maker iphone",
-    ogTitle: "Free WhatsApp Link Generator & QR Code Maker for iPhone",
-    ogDescription: "wa.me click-to-chat links with a pre-filled message, printable QR codes, and full-size profile pictures that do not get cropped. Free, offline, nothing uploaded.",
+    ogTitle: "WhatsApp Link Generator & QR Code Maker for iPhone",
+    ogDescription: "wa.me click-to-chat links with a pre-filled message, printable QR codes, and full-size profile pictures that do not get cropped. One-time purchase, offline, nothing uploaded.",
   },
-  h1: "WhatsApp link generator & QR code maker, free and on your iPhone",
+  h1: "WhatsApp link generator & QR code maker on your iPhone",
   answer:
-    "Chat Link & QR Code Maker turns any phone number into a wa.me click-to-chat link with an optional pre-written message, renders it as a QR code you can save to Photos and print, and pads any photo onto a square so your whole profile picture fits inside the circle. It is free, needs no account, and never uploads your number or your photos.",
+    "Chat Link & QR Code Maker turns any phone number into a wa.me click-to-chat link with an optional pre-written message, renders it as a QR code you can save to Photos and print, and pads any photo onto a square so your whole profile picture fits inside the circle. It is a one-time $2.99 purchase, needs no account, and never uploads your number or your photos.",
   quickFacts: [
-    ["Price", "Free, no ads in 1.0, no account"],
+    ["Price", "$2.99 one-time, no ads, no account"],
     ["Platform", "iPhone, iOS 15.1 or later"],
     ["Makes", "wa.me link · PNG QR code · 1024×1024 square photo"],
     ["Privacy", "Runs offline. Nothing leaves the phone."],
@@ -77,7 +77,7 @@ export default {
     { icon: "🖨️", title: "QR codes you can actually print", text: "Saved to Photos as a crisp PNG at full resolution, without a watermark, ready for a poster, menu, flyer, sticker or business card." },
     { icon: "🖼️", title: "Profile picture without the crop", text: "The built-in crop tool cuts off heads and logos. This pads any photo onto a white square, so the whole image sits inside the round profile picture." },
     { icon: "✈️", title: "Works offline, nothing uploaded", text: "Links, QR codes and photos are generated on the phone. There is no server, no account and no analytics, so the numbers you type stay yours." },
-    { icon: "🆓", title: "Free, no watermark", text: "Everything in version 1.0 is free with no watermark on the QR code or the picture, and there is nothing to unlock." },
+    { icon: "🔓", title: "One-time purchase", text: "Pay once and everything is unlocked, with no watermark on the QR code or the picture, no subscription and no in-app purchases." },
   ],
   intentsTitle: "Questions this app answers",
   intents: [
@@ -97,11 +97,11 @@ export default {
       ["Printable QR code", "✓ Full-resolution PNG, no watermark", "Often watermarked or small", "Business app only, no message text"],
       ["Your number stays private", "✓ Never leaves the phone", "✗ Sent to the website", "✓ Yes"],
       ["Profile picture without crop", "✓ Yes", "✗ No", "✗ Crop tool only"],
-      ["Price", "Free", "Free with ads, or paid tiers", "Free"],
+      ["Price", "$2.99 one-time", "Free with ads, or paid tiers", "Free"],
     ],
   },
   faqs: [
-    { q: "Is Chat Link & QR Code Maker free?", a: "Yes. Version 1.0 is completely free: every feature, no watermark, no account, and no in-app purchase. It is an independent utility built by one developer." },
+    { q: "How much does Chat Link & QR Code Maker cost?", a: "It is a one-time $2.99 purchase. Every feature is included, with no watermark, no account, no subscription and no in-app purchases. It is an independent utility built by one developer." },
     { q: "Does the link work for WhatsApp Business numbers?", a: "Yes. wa.me links open the chat for any number registered on WhatsApp or WhatsApp Business, as long as the number is entered in international format." },
     { q: "Which number format should I use?", a: "Country code followed by the number, digits only. Drop the plus sign, spaces, dashes, brackets and any leading zero from the local part. Example: 447700900123 for a UK mobile." },
     { q: "Why does my pre-filled message look strange in the link?", a: "That is URL encoding: spaces become %20 and special characters become codes so the link survives being pasted anywhere. WhatsApp decodes it back into normal text when the chat opens." },

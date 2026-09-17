@@ -13,15 +13,15 @@ export default {
   apps: {
     "chat-link-qr-code-maker": {
       head: {
-        title: "Gerador de link do WhatsApp e QR Code para iPhone (grátis, wa.me)",
-        description: "Crie um link wa.me do WhatsApp com mensagem pronta, transforme em QR Code para imprimir e faça uma foto de perfil inteira, sem cortes. App grátis para iOS, funciona offline, nada é enviado.",
+        title: "Gerador de link do WhatsApp e QR Code para iPhone (wa.me)",
+        description: "Crie um link wa.me do WhatsApp com mensagem pronta, transforme em QR Code para imprimir e faça uma foto de perfil inteira, sem cortes. App de iOS de compra única, funciona offline, nada é enviado.",
         keywords: "gerador de link whatsapp, criar link do whatsapp, link wa.me, gerador qr code whatsapp, link whatsapp com mensagem, mandar mensagem no whatsapp sem salvar contato, qr code whatsapp para empresa, foto de perfil whatsapp sem cortar, link whatsapp para bio do instagram",
-        ogTitle: "Gerador grátis de link do WhatsApp e QR Code para iPhone",
-        ogDescription: "Links wa.me com mensagem pronta, QR Codes para imprimir e fotos de perfil sem cortes. Grátis, offline, nada é enviado.",
+        ogTitle: "Gerador de link do WhatsApp e QR Code para iPhone",
+        ogDescription: "Links wa.me com mensagem pronta, QR Codes para imprimir e fotos de perfil sem cortes. Compra única, offline, nada é enviado.",
       },
-      h1: "Gerador de link do WhatsApp e QR Code, grátis e no seu iPhone",
-      answer: "O Chat Link & QR Code Maker transforma qualquer número de telefone em um link wa.me de conversa direta com mensagem opcional, gera um QR Code que você salva nas Fotos e imprime, e coloca qualquer foto em um quadrado para que sua foto de perfil inteira caiba no círculo. É grátis, não precisa de conta e nunca envia seu número nem suas fotos.",
-      quickFacts: [["Preço", "Grátis, sem anúncios na 1.0, sem conta"], ["Plataforma", "iPhone, iOS 15.1 ou mais recente"], ["Cria", "link wa.me · QR Code PNG · foto quadrada 1024×1024"], ["Privacidade", "Funciona offline. Nada sai do celular."]],
+      h1: "Gerador de link do WhatsApp e QR Code no seu iPhone",
+      answer: "O Chat Link & QR Code Maker transforma qualquer número de telefone em um link wa.me de conversa direta com mensagem opcional, gera um QR Code que você salva nas Fotos e imprime, e coloca qualquer foto em um quadrado para que sua foto de perfil inteira caiba no círculo. É uma compra única, não precisa de conta e nunca envia seu número nem suas fotos.",
+      quickFacts: [["Preço", "Compra única, sem anúncios, sem conta"], ["Plataforma", "iPhone, iOS 15.1 ou mais recente"], ["Cria", "link wa.me · QR Code PNG · foto quadrada 1024×1024"], ["Privacidade", "Funciona offline. Nada sai do celular."]],
       screenshotsTitle: "O que você recebe: um link de conversa, um QR Code e uma foto de perfil que cabe",
       screenshots: [
         { alt: "Gerador de link do WhatsApp no iPhone mostrando um link wa.me com mensagem pronta e seu QR Code", caption: "Número + mensagem → link wa.me + QR Code" },
@@ -45,7 +45,7 @@ export default {
         { title: "QR Codes que dá para imprimir", text: "Salvos nas Fotos como PNG nítido em resolução total, sem marca d’água, prontos para cartaz, cardápio, panfleto, adesivo ou cartão de visita." },
         { title: "Foto de perfil sem corte", text: "A ferramenta de corte padrão corta cabeças e logotipos. Este app coloca qualquer foto em um quadrado branco para que a imagem inteira fique dentro do círculo." },
         { title: "Funciona offline, nada é enviado", text: "Links, QR Codes e fotos são gerados no celular. Não há servidor, conta nem análises, então os números que você digita são só seus." },
-        { title: "Grátis, sem marca d’água", text: "Tudo na versão 1.0 é grátis, sem marca d’água no QR Code ou na foto, e não há nada para desbloquear." },
+        { title: "Compra única", text: "Você paga uma vez e tudo fica liberado, sem marca d’água no QR Code ou na foto, sem assinatura e sem compras dentro do app." },
       ],
       intentsTitle: "Perguntas que este app responde",
       intents: [
@@ -65,11 +65,11 @@ export default {
           ["QR Code para imprimir", "✓ PNG em resolução total, sem marca d’água", "Muitas vezes com marca d’água ou pequeno", "Só no app Business, sem mensagem"],
           ["Seu número fica privado", "✓ Nunca sai do celular", "✗ Enviado ao site", "✓ Sim"],
           ["Foto de perfil sem corte", "✓ Sim", "✗ Não", "✗ Só a ferramenta de corte"],
-          ["Preço", "Grátis", "Grátis com anúncios ou planos pagos", "Grátis"],
+          ["Preço", "Compra única", "Grátis com anúncios ou planos pagos", "Grátis"],
         ],
       },
       faqs: [
-        { q: "O Chat Link & QR Code Maker é grátis?", a: "Sim. A versão 1.0 é totalmente gratuita: todos os recursos, sem marca d’água, sem conta e sem compra dentro do app. É um utilitário independente feito por um único desenvolvedor." },
+        { q: "Quanto custa o Chat Link & QR Code Maker?", a: "É uma compra única: todos os recursos, sem marca d’água, sem conta, sem assinatura e sem compras dentro do app. É um utilitário independente feito por um único desenvolvedor." },
         { q: "O link funciona com números do WhatsApp Business?", a: "Sim. Links wa.me abrem a conversa de qualquer número registrado no WhatsApp ou no WhatsApp Business, desde que o número esteja no formato internacional." },
         { q: "Que formato de número devo usar?", a: "Código do país seguido do número, só dígitos. Tire o sinal de mais, espaços, traços, parênteses e o zero inicial. Exemplo: 5521987654321 para um celular do Rio." },
         { q: "Por que minha mensagem fica estranha dentro do link?", a: "É a codificação de URL: espaços viram %20 e caracteres especiais viram códigos para o link sobreviver ao ser colado em qualquer lugar. O WhatsApp converte de volta em texto normal quando a conversa abre." },
