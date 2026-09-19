@@ -7,7 +7,7 @@ import Footer from "../../components/Footer";
 import { Wrap, Eyebrow, Section, JsonLd } from "../../components/service";
 import { TOOL_LIST } from "../../data/tools";
 
-const SITE = "https://vilvaathiban.com";
+const SITE = "https://www.vilvaathiban.com";
 const SANS = `ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`;
 
 const H1 = styled.h1`

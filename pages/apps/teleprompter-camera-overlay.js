@@ -20,7 +20,7 @@ import {
   LanguageSwitcher,
 } from "../../components/teleprompterI18n";
 
-const URL = "https://vilvaathiban.com/apps/teleprompter-camera-overlay";
+const URL = "https://www.vilvaathiban.com/apps/teleprompter-camera-overlay";
 const APP_STORE_URL =
   "https://apps.apple.com/app/teleprompter-camera-overlay/id6805037497";
 
@@ -158,7 +158,7 @@ const TeleprompterPage = () => (
       />
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content="https://vilvaathiban.com/apps/teleprompter-icon.png" />
+      <meta property="og:image" content="https://www.vilvaathiban.com/apps/teleprompter-icon.png" />
       <meta name="twitter:card" content="summary" />
     </Head>
     <JsonLd
@@ -178,10 +178,10 @@ const TeleprompterPage = () => (
         author: {
           "@type": "Person",
           name: "Vilva Athiban P B",
-          url: "https://vilvaathiban.com",
+          url: "https://www.vilvaathiban.com",
         },
         url: URL,
-        image: "https://vilvaathiban.com/apps/teleprompter-icon.png",
+        image: "https://www.vilvaathiban.com/apps/teleprompter-icon.png",
       }}
     />
     <JsonLd

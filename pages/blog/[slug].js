@@ -7,7 +7,7 @@ import Footer from "../../components/Footer";
 import { Wrap, Eyebrow, Title, Lead, Section, JsonLd } from "../../components/service";
 import { getAllPosts, getPostBySlug } from "../../data/posts";
 
-const SITE = "https://vilvaathiban.com";
+const SITE = "https://www.vilvaathiban.com";
 
 const PostMeta = styled.div`
   font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;

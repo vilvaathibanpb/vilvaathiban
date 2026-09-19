@@ -21,7 +21,7 @@ import {
   JsonLd,
 } from "../../../components/service";
 
-const URL = "https://vilvaathiban.com/services/eu-ai-act/readiness-assessment";
+const URL = "https://www.vilvaathiban.com/services/eu-ai-act/readiness-assessment";
 const CAL = "https://cal.com/vilva-athiban/30min";
 
 const FAQS = [
@@ -59,7 +59,7 @@ const LD = [
       "@type": "Person",
       name: "Vilva Athiban P B",
       jobTitle: "Lead AI Engineer",
-      url: "https://vilvaathiban.com/about",
+      url: "https://www.vilvaathiban.com/about",
       sameAs: [socials.linkedin, socials.twitter, socials.github],
     },
     areaServed: "European Union",
@@ -78,9 +78,9 @@ const LD = [
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://vilvaathiban.com/" },
-      { "@type": "ListItem", position: 2, name: "Services", item: "https://vilvaathiban.com/services" },
-      { "@type": "ListItem", position: 3, name: "EU AI Act", item: "https://vilvaathiban.com/services/eu-ai-act" },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.vilvaathiban.com/" },
+      { "@type": "ListItem", position: 2, name: "Services", item: "https://www.vilvaathiban.com/services" },
+      { "@type": "ListItem", position: 3, name: "EU AI Act", item: "https://www.vilvaathiban.com/services/eu-ai-act" },
       { "@type": "ListItem", position: 4, name: "Readiness assessment", item: URL },
     ],
   },

@@ -4,7 +4,7 @@ import styled from "styled-components";
 // Translations + shared helpers for the localized
 // /apps/teleprompter-camera-overlay/[lang] landing pages.
 
-export const BASE_URL = "https://vilvaathiban.com/apps/teleprompter-camera-overlay";
+export const BASE_URL = "https://www.vilvaathiban.com/apps/teleprompter-camera-overlay";
 export const APP_STORE_BASE =
   "https://apps.apple.com/app/teleprompter-camera-overlay/id6805037497";
 

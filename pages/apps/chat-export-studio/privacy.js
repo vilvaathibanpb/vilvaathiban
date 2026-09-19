@@ -5,7 +5,7 @@ import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import { Wrap, Eyebrow, Title, Lead, Section } from "../../../components/service";
 
-const URL = "https://vilvaathiban.com/apps/chat-export-studio/privacy";
+const URL = "https://www.vilvaathiban.com/apps/chat-export-studio/privacy";
 
 const PrivacyPage = () => (
   <Container>

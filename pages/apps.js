@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Wrap, Eyebrow, Title, Lead, JsonLd } from "../components/service";
 
-const URL = "https://vilvaathiban.com/apps";
+const URL = "https://www.vilvaathiban.com/apps";
 
 const APPS = [
   {
@@ -190,7 +190,7 @@ const AppsPage = () => (
       />
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content="https://vilvaathiban.com/apps/teleprompter-icon.png" />
+      <meta property="og:image" content="https://www.vilvaathiban.com/apps/teleprompter-icon.png" />
     </Head>
     <JsonLd
       data={{
@@ -201,7 +201,7 @@ const AppsPage = () => (
         hasPart: APPS.map((app) => ({
           "@type": app.internal ? "SoftwareApplication" : "WebSite",
           name: app.name,
-          url: app.internal ? `https://vilvaathiban.com${app.href}` : app.href,
+          url: app.internal ? `https://www.vilvaathiban.com${app.href}` : app.href,
           description: app.summary,
         })),
       }}

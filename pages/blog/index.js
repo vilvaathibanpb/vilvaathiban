@@ -7,7 +7,7 @@ import Footer from "../../components/Footer";
 import { Wrap, Eyebrow, Title, Lead, JsonLd } from "../../components/service";
 import { getAllPosts } from "../../data/posts";
 
-const URL = "https://vilvaathiban.com/blog";
+const URL = "https://www.vilvaathiban.com/blog";
 
 const List = styled.div`
   margin-top: 40px;
@@ -91,7 +91,7 @@ const LD = (postList) => [
     author: {
       "@type": "Person",
       name: "Vilva Athiban P B",
-      url: "https://vilvaathiban.com/about",
+      url: "https://www.vilvaathiban.com/about",
     },
     blogPost: postList.map((p) => ({
       "@type": "BlogPosting",

@@ -19,7 +19,7 @@ import { Wrap, Eyebrow, Section, Steps, Cards, Card, Faq, JsonLd } from "./servi
 // page is real HTML for a crawler; only the browser APIs are deferred to effects
 // and event handlers.
 
-const SITE = "https://vilvaathiban.com";
+const SITE = "https://www.vilvaathiban.com";
 const SANS = `ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`;
 
 const H1 = styled.h1`

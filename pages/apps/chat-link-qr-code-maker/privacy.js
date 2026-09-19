@@ -5,7 +5,7 @@ import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import { Wrap, Eyebrow, Title, Lead, Section } from "../../../components/service";
 
-const URL = "https://vilvaathiban.com/apps/chat-link-qr-code-maker/privacy";
+const URL = "https://www.vilvaathiban.com/apps/chat-link-qr-code-maker/privacy";
 
 const PrivacyPage = () => (
   <Container>

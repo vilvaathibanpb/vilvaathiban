@@ -3,7 +3,7 @@ import { useMemo, useRef, useState, useEffect, useCallback } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { SECTIONS, FAQS, TOTAL_ROWS } from "../data/jsPythonCheatsheet";
 
-const URL = "https://vilvaathiban.com/python-js-cheatsheet";
+const URL = "https://www.vilvaathiban.com/python-js-cheatsheet";
 
 const COURSE_URL =
   "https://www.udemy.com/course/python-for-javascript-developers-become-an-ai-engineer-/?referralCode=EB10E216AF4BB05E1B62";
@@ -27,12 +27,12 @@ const LD = [
       "@type": "Person",
       name: "Vilva Athiban P B",
       jobTitle: "Lead AI Engineer",
-      url: "https://vilvaathiban.com/about",
+      url: "https://www.vilvaathiban.com/about",
     },
     publisher: {
       "@type": "Person",
       name: "Vilva Athiban P B",
-      url: "https://vilvaathiban.com",
+      url: "https://www.vilvaathiban.com",
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": URL },
   },
@@ -59,7 +59,7 @@ const LD = [
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    url: "https://vilvaathiban.com",
+    url: "https://www.vilvaathiban.com",
     name: "vilvaathiban.com",
     potentialAction: {
       "@type": "SearchAction",

@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 import Subscribe from "../components/Subscribe";
 import { Wrap, Eyebrow, Title, Lead, Section, Cta, CtaRow, JsonLd } from "../components/service";
 
-const URL = "https://vilvaathiban.com/services";
+const URL = "https://www.vilvaathiban.com/services";
 const CAL = "https://cal.com/vilva-athiban/30min";
 
 const SERVICES = [
@@ -83,14 +83,14 @@ const LD = [
       "@type": "ListItem",
       position: i + 1,
       name: s.title,
-      url: `https://vilvaathiban.com${s.href}`,
+      url: `https://www.vilvaathiban.com${s.href}`,
     })),
   },
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://vilvaathiban.com/" },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.vilvaathiban.com/" },
       { "@type": "ListItem", position: 2, name: "Services", item: URL },
     ],
   },

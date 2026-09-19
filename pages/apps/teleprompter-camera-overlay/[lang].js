@@ -113,7 +113,7 @@ const LocalizedTeleprompterPage = ({ lang }) => {
         <meta property="og:locale" content={lang} />
         <meta
           property="og:image"
-          content="https://vilvaathiban.com/apps/teleprompter-icon.png"
+          content="https://www.vilvaathiban.com/apps/teleprompter-icon.png"
         />
         <meta name="twitter:card" content="summary" />
       </Head>
@@ -134,10 +134,10 @@ const LocalizedTeleprompterPage = ({ lang }) => {
           author: {
             "@type": "Person",
             name: "Vilva Athiban P B",
-            url: "https://vilvaathiban.com",
+            url: "https://www.vilvaathiban.com",
           },
           url,
-          image: "https://vilvaathiban.com/apps/teleprompter-icon.png",
+          image: "https://www.vilvaathiban.com/apps/teleprompter-icon.png",
         }}
       />
       <JsonLd

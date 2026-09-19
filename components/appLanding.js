@@ -13,7 +13,7 @@ import { LANGS } from "../data/apps";
 // how-to, the "why on-device" argument, a comparison, FAQs and related guides.
 // Structured data: SoftwareApplication + HowTo + FAQPage + BreadcrumbList.
 
-const SITE = "https://vilvaathiban.com";
+const SITE = "https://www.vilvaathiban.com";
 const SANS = `ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`;
 
 const H1 = styled.h1`
