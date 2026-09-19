@@ -4,12 +4,12 @@
 export default {
   ui: {
     dir: "ltr",
-    priceOnce: "${amount} one-time",
+    priceOnce: "One-time purchase",
     apps: "Apps",
     ios: "iOS",
     free: "Free",
     pillFree: "Free iOS app",
-    pillPaid: "{price} · no subscription",
+    pillPaid: "One-time purchase",
     pillOnDevice: "100% on-device",
     pillOffline: "Works offline",
     download: "Download on the App Store",
@@ -34,12 +34,12 @@ export default {
   appStoreId: "6810372979",
   appStoreUrl: "https://apps.apple.com/us/app/chat-link-qr-code-maker/id6810372979",
   live: true,
-  price: { amount: "2.99", label: "$2.99 one-time" },
+  price: { amount: "2.99", label: "One-time purchase" },
   color: "#0891B2",
   head: {
     title: "WhatsApp Link Generator & QR Code Maker for iPhone (wa.me)",
     description:
-      "Create a wa.me click-to-chat WhatsApp link with a pre-filled message, turn it into a printable QR code, and make a full-size profile picture that is not cropped. iOS app, one-time $2.99, works offline, nothing is uploaded.",
+      "Create a wa.me click-to-chat WhatsApp link with a pre-filled message, turn it into a printable QR code, and make a full-size profile picture that is not cropped. iOS app, works offline, nothing is uploaded.",
     keywords:
       "whatsapp link generator, wa.me link generator, whatsapp qr code generator, whatsapp click to chat link, create whatsapp link with message, whatsapp link for instagram bio, send whatsapp message without saving number, whatsapp qr code for business, whatsapp dp full size without crop, whatsapp profile picture without cropping, whatsapp link maker iphone",
     ogTitle: "WhatsApp Link Generator & QR Code Maker for iPhone",
@@ -47,9 +47,9 @@ export default {
   },
   h1: "WhatsApp link generator & QR code maker on your iPhone",
   answer:
-    "Chat Link & QR Code Maker turns any phone number into a wa.me click-to-chat link with an optional pre-written message, renders it as a QR code you can save to Photos and print, and pads any photo onto a square so your whole profile picture fits inside the circle. It is a one-time $2.99 purchase, needs no account, and never uploads your number or your photos.",
+    "Chat Link & QR Code Maker turns any phone number into a wa.me click-to-chat link with an optional pre-written message, renders it as a QR code you can save to Photos and print, and pads any photo onto a square so your whole profile picture fits inside the circle. It is a one-time purchase, needs no account, and never uploads your number or your photos.",
   quickFacts: [
-    ["Price", "$2.99 one-time, no ads, no account"],
+    ["Price", "One-time purchase, no ads, no account"],
     ["Platform", "iPhone, iOS 15.1 or later"],
     ["Makes", "wa.me link · PNG QR code · 1024×1024 square photo"],
     ["Privacy", "Runs offline. Nothing leaves the phone."],
@@ -97,11 +97,11 @@ export default {
       ["Printable QR code", "✓ Full-resolution PNG, no watermark", "Often watermarked or small", "Business app only, no message text"],
       ["Your number stays private", "✓ Never leaves the phone", "✗ Sent to the website", "✓ Yes"],
       ["Profile picture without crop", "✓ Yes", "✗ No", "✗ Crop tool only"],
-      ["Price", "$2.99 one-time", "Free with ads, or paid tiers", "Free"],
+      ["Price", "One-time purchase", "Free with ads, or paid tiers", "Free"],
     ],
   },
   faqs: [
-    { q: "How much does Chat Link & QR Code Maker cost?", a: "It is a one-time $2.99 purchase. Every feature is included, with no watermark, no account, no subscription and no in-app purchases. It is an independent utility built by one developer." },
+    { q: "Is there a subscription?", a: "No. It is a one-time purchase. Every feature is included, with no watermark, no account, no subscription and no in-app purchases. It is an independent utility built by one developer." },
     { q: "Does the link work for WhatsApp Business numbers?", a: "Yes. wa.me links open the chat for any number registered on WhatsApp or WhatsApp Business, as long as the number is entered in international format." },
     { q: "Which number format should I use?", a: "Country code followed by the number, digits only. Drop the plus sign, spaces, dashes, brackets and any leading zero from the local part. Example: 447700900123 for a UK mobile." },
     { q: "Why does my pre-filled message look strange in the link?", a: "That is URL encoding: spaces become %20 and special characters become codes so the link survives being pasted anywhere. WhatsApp decodes it back into normal text when the chat opens." },
@@ -228,13 +228,13 @@ export default {
   appStoreId: "6810376600",
   appStoreUrl: "https://apps.apple.com/us/app/voice-note-to-text-offline/id6810376600",
   live: true,
-  price: { amount: "2.99", label: "$2.99 one-time" },
+  price: { amount: "2.99", label: "One-time purchase" },
   color: "#7C3AED",
   category: "UtilitiesApplication",
   head: {
     title: "Transcribe WhatsApp Voice Messages to Text on iPhone — Offline, Private",
     description:
-      "Voice Note to Text transcribes WhatsApp voice notes and any .opus, .m4a, .mp3 or .wav file to text entirely on your iPhone. Automatic language detection, works offline, no upload, no subscription: a one-time $2.99 purchase.",
+      "Voice Note to Text transcribes WhatsApp voice notes and any .opus, .m4a, .mp3 or .wav file to text entirely on your iPhone. Automatic language detection, works offline, no upload and no subscription.",
     keywords:
       "transcribe whatsapp voice note, whatsapp voice message to text iphone, convert voice note to text, voice note transcription app, whatsapp voice to text not available, read whatsapp voice message as text, offline transcription app iphone, transcribe audio file iphone, opus to text, voice message transcriber, voice note to text app, transcribe voice memo iphone",
     ogTitle: "Voice Note to Text: transcribe WhatsApp voice messages on your iPhone, offline",
@@ -242,9 +242,9 @@ export default {
   },
   h1: "Transcribe WhatsApp voice messages to text on your iPhone, offline and private",
   answer:
-    "Voice Note to Text turns a voice note into readable text in a few seconds, without sending the audio anywhere. Pick a .opus, .m4a, .mp3 or .wav file (or share it from any chat app), the language is detected automatically, and the transcript appears on screen ready to copy or share as a .txt file. The speech model ships inside the app, so it works in airplane mode, and it is a single $2.99 purchase with no subscription.",
+    "Voice Note to Text turns a voice note into readable text in a few seconds, without sending the audio anywhere. Pick a .opus, .m4a, .mp3 or .wav file (or share it from any chat app), the language is detected automatically, and the transcript appears on screen ready to copy or share as a .txt file. The speech model ships inside the app, so it works in airplane mode, and it is a single purchase with no subscription.",
   quickFacts: [
-    ["Price", "$2.99 once. No subscription, no credits"],
+    ["Price", "One-time purchase. No subscription, no credits"],
     ["Input", ".opus .ogg .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp"],
     ["Languages", "Around 100, detected automatically"],
     ["Privacy", "On-device speech recognition, no upload, no account"],
@@ -267,7 +267,7 @@ export default {
   featuresTitle: "Why this is different from cloud transcription apps",
   features: [
     { icon: "🔒", title: "Nothing is uploaded", text: "Speech recognition runs on the iPhone using a bundled model. The audio and the transcript never leave the device, which is what a private voice message deserves." },
-    { icon: "💸", title: "One-time purchase", text: "Most transcription apps charge a monthly subscription or sell minutes. This is $2.99 once, with unlimited transcriptions and no account." },
+    { icon: "💸", title: "One-time purchase", text: "Most transcription apps charge a monthly subscription or sell minutes. This is a single purchase, with unlimited transcriptions and no account." },
     { icon: "🌍", title: "Around 100 languages, auto-detected", text: "English, Spanish, German, French, Portuguese, Hindi, Tamil, Arabic, Turkish and many more. You do not pick the language; the model detects it." },
     { icon: "✈️", title: "Works in airplane mode", text: "The speech model ships inside the app, so the first run needs no download and the app is complete without a connection." },
     { icon: "🎧", title: "Opens .opus voice notes directly", text: "Native Opus and Ogg decoding means WhatsApp, Telegram and Signal voice messages transcribe without converting them first. Voice Memos and voicemail (.m4a) work too." },
@@ -289,7 +289,7 @@ export default {
       ["Works for saved .opus / .m4a / .mp3 files", "✓ Yes", "✗ Only inside the chat", "✓ Usually"],
       ["Available in every country and language", "✓ ~100 languages, auto-detected", "✗ Limited regions and languages", "✓ Mostly"],
       ["Audio stays on the phone", "✓ Yes, verified offline", "✓ On-device", "✗ Uploaded to a server"],
-      ["Price", "$2.99 once", "Free", "Subscription or per-minute credits"],
+      ["Price", "One-time purchase", "Free", "Subscription or per-minute credits"],
       ["Copy / share as .txt", "✓ Yes", "Copy only", "✓ Yes"],
       ["Works in airplane mode", "✓ Yes", "✓ Yes", "✗ No"],
     ],
@@ -297,7 +297,7 @@ export default {
   faqs: [
     { q: "How accurate is the transcription?", a: "It uses a Whisper-family speech model running on the phone. Clear speech in a major language is typically transcribed with very few errors; heavy background noise, overlapping speakers or strong accents lower accuracy, as with any transcription tool." },
     { q: "Which languages are supported?", a: "Around 100, including English, Spanish, German, French, Italian, Portuguese, Dutch, Russian, Turkish, Arabic, Hindi, Tamil, Bengali, Indonesian, Japanese, Korean and Chinese. The language is detected automatically per file." },
-    { q: "Is there a subscription?", a: "No. Voice Note to Text is a one-time purchase of $2.99 with unlimited use. There are no credits, minutes, accounts or upsells." },
+    { q: "Is there a subscription?", a: "No. Voice Note to Text is a one-time purchase with unlimited use. There are no credits, minutes, accounts or upsells." },
     { q: "Does it upload my voice notes anywhere?", a: "No. The speech model is bundled with the app and inference runs on the iPhone. The app makes no network requests at all; it works with airplane mode on." },
     { q: "Why is the app around 60 MB?", a: "Because the speech model ships inside it. That is what makes the first transcription instant and offline, with nothing to download later." },
     { q: "Can I transcribe Telegram, Signal or iMessage audio messages?", a: "Yes. Save or share the audio file to the app. Telegram and Signal produce .ogg or .m4a files, iMessage audio messages are .caf or .m4a; all are supported." },
@@ -325,23 +325,23 @@ export default {
   appStoreId: "6810375389",
   appStoreUrl: "",
   live: false,
-  price: { amount: "4.99", label: "$4.99 one-time" },
+  price: { amount: "4.99", label: "One-time purchase" },
   color: "#1D4ED8",
   category: "UtilitiesApplication",
   head: {
     title: "Export a WhatsApp Chat to PDF on iPhone — Printable, With Statistics",
     description:
-      "Chat Export Studio turns the .txt or .zip that WhatsApp’s Export Chat produces into a clean, paginated PDF with message bubbles, plus instant statistics: messages per person, busiest hour, top emoji. Everything stays on your iPhone. One-time $4.99.",
+      "Chat Export Studio turns the .txt or .zip that WhatsApp’s Export Chat produces into a clean, paginated PDF with message bubbles, plus instant statistics: messages per person, busiest hour, top emoji. Everything stays on your iPhone. One-time purchase.",
     keywords:
       "export whatsapp chat to pdf, whatsapp chat to pdf iphone, print whatsapp conversation, save whatsapp chat as pdf, convert whatsapp txt export to pdf, whatsapp chat analyzer, whatsapp chat statistics, who texts more whatsapp, whatsapp export chat txt to pdf, archive whatsapp chat, whatsapp chat backup pdf iphone, whatsapp conversation printout",
     ogTitle: "Export a WhatsApp chat to PDF on iPhone, with statistics",
-    ogDescription: "Open the .txt or .zip export, get a paginated PDF with bubbles and instant stats. Parsed on your phone only, nothing uploaded. $4.99 once.",
+    ogDescription: "Open the .txt or .zip export, get a paginated PDF with bubbles and instant stats. Parsed on your phone only, nothing uploaded. One-time purchase.",
   },
   h1: "Export a WhatsApp chat to PDF on your iPhone, printable and with statistics",
   answer:
-    "Chat Export Studio: PDF opens the .txt or .zip that WhatsApp’s Export Chat produces and turns it into a clean, paginated PDF that looks like the conversation did on screen: one bubble per message with sender, date and time, colours per participant in group chats. It also shows instant statistics: total messages and words, messages per person, busiest hour, date range and top emoji. The chat is parsed on your iPhone only, nothing is uploaded, and it is a one-time $4.99 purchase.",
+    "Chat Export Studio: PDF opens the .txt or .zip that WhatsApp’s Export Chat produces and turns it into a clean, paginated PDF that looks like the conversation did on screen: one bubble per message with sender, date and time, colours per participant in group chats. It also shows instant statistics: total messages and words, messages per person, busiest hour, date range and top emoji. The chat is parsed on your iPhone only, nothing is uploaded, and it is a one-time purchase.",
   quickFacts: [
-    ["Price", "$4.99 once. No subscription"],
+    ["Price", "One-time purchase. No subscription"],
     ["Input", "WhatsApp Export Chat: .txt or .zip, iPhone or Android, 12 h or 24 h times"],
     ["Output", "Paginated PDF + statistics"],
     ["Privacy", "Parsed on-device, no upload, no account"],
@@ -389,7 +389,7 @@ export default {
       ["Statistics (who talks most, busiest hour)", "✓ Built in", "✗ No", "Sometimes, after upload"],
       ["Conversation stays on your phone", "✓ Never leaves the device", "✓ Yes", "✗ Uploaded to their server"],
       ["Works offline", "✓ Yes", "✓ Yes", "✗ No"],
-      ["Price", "$4.99 once", "Free", "Free with ads, or paid"],
+      ["Price", "One-time purchase", "Free", "Free with ads, or paid"],
     ],
   },
   faqs: [
@@ -400,7 +400,7 @@ export default {
     { q: "Can the PDF be used as evidence?", a: "The PDF reproduces the export faithfully and is generated without any cloud processing, but whether a document is accepted depends on the organisation or jurisdiction involved. Keep the original .zip or .txt export next to the PDF, and ask the person or body requesting the record what format they need." },
     { q: "How long a chat can it handle?", a: "Chats with tens of thousands of messages work; PDF generation takes longer for very long chats. Statistics appear almost instantly." },
     { q: "Can I export more than one chat?", a: "Yes. Tap Close this chat and open the next export. There is no limit." },
-    { q: "Is there a subscription?", a: "No. Chat Export Studio: PDF is a one-time purchase of $4.99." },
+    { q: "Is there a subscription?", a: "No. Chat Export Studio: PDF is a one-time purchase." },
     { q: "Is there an Android version?", a: "Not yet. The iPhone app is available now; an Android build is in progress and this page will link to Google Play when it is live." },
     { q: "Is this an official WhatsApp app?", a: "No. Chat Export Studio: PDF is an independent utility and is not affiliated with, endorsed by or connected to WhatsApp LLC or Meta Platforms, Inc. It reads the standard export files that the chat app produces." },
   ],

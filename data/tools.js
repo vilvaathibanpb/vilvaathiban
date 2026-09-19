@@ -148,7 +148,7 @@ export const TOOLS = {
       {
         ...APPS.chatLink,
         title: "Want this on your phone instead?",
-        text: "Chat Link & QR Code Maker does the same job on iPhone, offline, plus it saves QR codes straight to Photos and fixes profile pictures that get cropped. $2.99 one-time, no ads.",
+        text: "Chat Link & QR Code Maker does the same job on iPhone, offline, plus it saves QR codes straight to Photos and fixes profile pictures that get cropped. One-time purchase, no ads.",
       },
     ],
     related: [
@@ -260,7 +260,7 @@ export const TOOLS = {
       {
         ...APPS.chatLink,
         title: "Do it from your camera roll instead",
-        text: "Chat Link & QR Code Maker does this on iPhone without a browser, straight from Photos, and makes click-to-chat links and QR codes too. $2.99 one-time, no ads.",
+        text: "Chat Link & QR Code Maker does this on iPhone without a browser, straight from Photos, and makes click-to-chat links and QR codes too. One-time purchase, no ads.",
       },
     ],
     related: [
@@ -380,7 +380,7 @@ export const TOOLS = {
       {
         ...APPS.transcribe,
         title: "If you actually wanted the words, not the file",
-        text: "Most people converting a voice note are trying to avoid listening to it. Voice Note to Text transcribes it on your iPhone, offline, and gives you text you can copy. The speech model ships inside the app, so it works in airplane mode. $2.99, once, no subscription.",
+        text: "Most people converting a voice note are trying to avoid listening to it. Voice Note to Text transcribes it on your iPhone, offline, and gives you text you can copy. The speech model ships inside the app, so it works in airplane mode. One-time purchase, no subscription.",
       },
       {
         ...APPS.converter,

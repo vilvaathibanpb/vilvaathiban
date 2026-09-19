@@ -1,7 +1,7 @@
 // Tiếng Việt
 export default {
   ui: {
-    priceOnce: "{amount} đô la một lần",
+    priceOnce: "Mua một lần",
     apps: "Ứng dụng", ios: "iOS", free: "Miễn phí",
     pillFree: "Ứng dụng iOS miễn phí", pillPaid: "{price} · không thuê bao",
     pillOnDevice: "100% xử lý trên máy", pillOffline: "Hoạt động ngoại tuyến",
@@ -166,14 +166,14 @@ export default {
     "voice-note-to-text": {
       head: {
         title: "Chuyển tin nhắn thoại WhatsApp thành chữ trên iPhone — ngoại tuyến và riêng tư",
-        description: "Voice Note to Text chuyển tin nhắn thoại WhatsApp và mọi tệp .opus, .m4a, .mp3 hay .wav thành chữ, hoàn toàn trên iPhone của bạn. Tự nhận diện ngôn ngữ, chạy ngoại tuyến, không tải lên, không thuê bao: trả một lần 2,99 đô la.",
+        description: "Voice Note to Text chuyển tin nhắn thoại WhatsApp và mọi tệp .opus, .m4a, .mp3 hay .wav thành chữ, hoàn toàn trên iPhone của bạn. Tự nhận diện ngôn ngữ, chạy ngoại tuyến, không tải lên, không thuê bao: trả một lần.",
         keywords: "chuyển tin nhắn thoại whatsapp thành chữ, chuyển giọng nói thành văn bản iphone, gỡ băng tin nhắn thoại, ứng dụng chuyển âm thanh thành chữ, whatsapp không có chuyển giọng nói thành chữ, đọc tin nhắn thoại thay vì nghe, ứng dụng gỡ băng ngoại tuyến iphone, opus sang chữ",
         ogTitle: "Voice Note to Text: chuyển tin nhắn thoại WhatsApp thành chữ trên iPhone, ngoại tuyến",
         ogDescription: "Chọn một tin nhắn thoại, vài giây sau đọc được bản chữ, sao chép hoặc chia sẻ. Mọi ngôn ngữ, không tải lên, không thuê bao.",
       },
       h1: "Chuyển tin nhắn thoại WhatsApp thành chữ trên iPhone, ngoại tuyến và riêng tư",
-      answer: "Voice Note to Text biến tin nhắn thoại thành chữ đọc được chỉ trong vài giây mà không gửi âm thanh đi đâu cả. Chọn tệp .opus, .m4a, .mp3 hay .wav (hoặc chia sẻ từ bất kỳ ứng dụng chat nào), ngôn ngữ được nhận diện tự động, và bản chữ hiện lên màn hình, sẵn sàng để sao chép hoặc chia sẻ dưới dạng tệp .txt. Mô hình giọng nói nằm sẵn trong ứng dụng nên nó chạy được ở chế độ máy bay, và đây là khoản mua một lần 2,99 đô la, không thuê bao.",
-      quickFacts: [["Giá", "2,99 đô la một lần. Không thuê bao, không tính phút"], ["Đầu vào", ".opus .ogg .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp"], ["Ngôn ngữ", "Khoảng 100, tự nhận diện"], ["Riêng tư", "Nhận dạng giọng nói trên máy, không tải lên, không cần tài khoản"]],
+      answer: "Voice Note to Text biến tin nhắn thoại thành chữ đọc được chỉ trong vài giây mà không gửi âm thanh đi đâu cả. Chọn tệp .opus, .m4a, .mp3 hay .wav (hoặc chia sẻ từ bất kỳ ứng dụng chat nào), ngôn ngữ được nhận diện tự động, và bản chữ hiện lên màn hình, sẵn sàng để sao chép hoặc chia sẻ dưới dạng tệp .txt. Mô hình giọng nói nằm sẵn trong ứng dụng nên nó chạy được ở chế độ máy bay, và đây là khoản mua một lần, không thuê bao.",
+      quickFacts: [["Giá", "Mua một lần. Không thuê bao, không tính phút"], ["Đầu vào", ".opus .ogg .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp"], ["Ngôn ngữ", "Khoảng 100, tự nhận diện"], ["Riêng tư", "Nhận dạng giọng nói trên máy, không tải lên, không cần tài khoản"]],
       screenshotsTitle: "Bạn nhận được: bản chữ để đọc, sao chép và chia sẻ",
       screenshots: [
         { alt: "Tin nhắn thoại WhatsApp đã chuyển thành chữ trên iPhone với nút Sao chép và Chia sẻ .txt", caption: "Tin nhắn thoại → chữ, kèm Sao chép và Chia sẻ" },
@@ -192,7 +192,7 @@ export default {
       featuresTitle: "Điểm khác biệt so với các ứng dụng gỡ băng qua đám mây",
       features: [
         { title: "Không tải gì lên", text: "Việc nhận dạng giọng nói chạy trên iPhone bằng mô hình đi kèm. Âm thanh và bản chữ không bao giờ rời khỏi máy, đúng như một tin nhắn thoại riêng tư xứng đáng được đối xử." },
-        { title: "Mua một lần", text: "Phần lớn ứng dụng gỡ băng thu phí thuê bao hằng tháng hoặc bán theo phút. Ứng dụng này chỉ 2,99 đô la một lần, dùng không giới hạn và không cần tài khoản." },
+        { title: "Mua một lần", text: "Phần lớn ứng dụng gỡ băng thu phí thuê bao hằng tháng hoặc bán theo phút. Ứng dụng này chỉ mua một lần, dùng không giới hạn và không cần tài khoản." },
         { title: "Khoảng 100 ngôn ngữ, tự nhận diện", text: "Tiếng Việt, tiếng Anh, tiếng Trung, tiếng Nhật, tiếng Hàn, tiếng Tây Ban Nha, tiếng Đức, tiếng Pháp, tiếng Ả Rập, tiếng Hindi và nhiều thứ tiếng khác. Bạn không phải chọn ngôn ngữ; mô hình tự nhận ra." },
         { title: "Dùng được ở chế độ máy bay", text: "Mô hình giọng nói nằm trong ứng dụng nên lần chạy đầu tiên không cần tải gì, và ứng dụng vẫn đầy đủ tính năng khi không có mạng." },
         { title: "Mở thẳng tin nhắn thoại .opus", text: "Nhờ giải mã Opus và Ogg tích hợp sẵn, tin nhắn thoại của WhatsApp, Telegram và Signal được chuyển thành chữ mà không cần đổi định dạng trước. Ghi âm và hộp thư thoại (.m4a) cũng dùng được." },
@@ -214,7 +214,7 @@ export default {
           ["Dùng được với tệp .opus / .m4a / .mp3 đã lưu", "✓ Có", "✗ Chỉ trong cuộc trò chuyện", "✓ Thường được"],
           ["Có ở mọi quốc gia và ngôn ngữ", "✓ Khoảng 100 ngôn ngữ, tự nhận diện", "✗ Giới hạn khu vực và ngôn ngữ", "✓ Phần lớn"],
           ["Âm thanh ở lại trên máy", "✓ Có, kiểm chứng được khi ngoại tuyến", "✓ Trên máy", "✗ Tải lên máy chủ"],
-          ["Giá", "2,99 đô la một lần", "Miễn phí", "Thuê bao hoặc tính theo phút"],
+          ["Giá", "Mua một lần", "Miễn phí", "Thuê bao hoặc tính theo phút"],
           ["Sao chép / chia sẻ dạng .txt", "✓ Có", "Chỉ sao chép", "✓ Có"],
           ["Dùng được ở chế độ máy bay", "✓ Có", "✓ Có", "✗ Không"],
         ],
@@ -222,7 +222,7 @@ export default {
       faqs: [
         { q: "Độ chính xác thế nào?", a: "Ứng dụng dùng mô hình giọng nói thuộc dòng Whisper chạy ngay trên máy. Lời nói rõ ràng ở một ngôn ngữ phổ biến thường được ghi lại với rất ít lỗi; tiếng ồn lớn, nhiều người nói chồng lên nhau hay giọng vùng miền nặng sẽ làm giảm độ chính xác, giống như mọi công cụ gỡ băng khác." },
         { q: "Hỗ trợ những ngôn ngữ nào?", a: "Khoảng 100 ngôn ngữ, gồm tiếng Việt, Anh, Trung, Nhật, Hàn, Tây Ban Nha, Đức, Pháp, Ý, Bồ Đào Nha, Hà Lan, Nga, Thổ Nhĩ Kỳ, Ả Rập, Hindi, Tamil, Bengal và Indonesia. Ngôn ngữ được nhận diện tự động cho từng tệp." },
-        { q: "Có thuê bao không?", a: "Không. Voice Note to Text là khoản mua một lần 2,99 đô la, dùng không giới hạn. Không có gói phút, tài khoản hay bán thêm gì cả." },
+        { q: "Có thuê bao không?", a: "Không. Voice Note to Text là khoản mua một lần, dùng không giới hạn. Không có gói phút, tài khoản hay bán thêm gì cả." },
         { q: "Tin nhắn thoại của tôi có bị tải lên đâu không?", a: "Không. Mô hình giọng nói đi kèm ứng dụng và toàn bộ xử lý chạy trên iPhone. Ứng dụng không thực hiện bất kỳ yêu cầu mạng nào; nó chạy ngay cả khi bật chế độ máy bay." },
         { q: "Vì sao ứng dụng nặng khoảng 60 MB?", a: "Vì mô hình giọng nói nằm bên trong. Chính điều đó khiến lần chuyển đổi đầu tiên diễn ra ngay lập tức và ngoại tuyến, về sau cũng không phải tải thêm gì." },
         { q: "Có gỡ băng được audio của Telegram, Signal hay iMessage không?", a: "Có. Hãy lưu hoặc chia sẻ tệp âm thanh sang ứng dụng. Telegram và Signal tạo tệp .ogg hoặc .m4a, tin nhắn âm thanh của iMessage là .caf hoặc .m4a; tất cả đều được hỗ trợ." },
@@ -242,14 +242,14 @@ export default {
     "chat-export-studio": {
       head: {
         title: "Xuất cuộc trò chuyện WhatsApp ra PDF trên iPhone — in được, kèm thống kê",
-        description: "Chat Export Studio biến tệp .txt hoặc .zip do “Xuất cuộc trò chuyện” của WhatsApp tạo ra thành PDF chia trang gọn gàng với bong bóng tin nhắn, kèm thống kê tức thì: số tin nhắn mỗi người, giờ bận rộn nhất, biểu tượng cảm xúc hay dùng. Mọi thứ ở lại trên iPhone của bạn. Trả một lần 4,99 đô la.",
+        description: "Chat Export Studio biến tệp .txt hoặc .zip do “Xuất cuộc trò chuyện” của WhatsApp tạo ra thành PDF chia trang gọn gàng với bong bóng tin nhắn, kèm thống kê tức thì: số tin nhắn mỗi người, giờ bận rộn nhất, biểu tượng cảm xúc hay dùng. Mọi thứ ở lại trên iPhone của bạn. Trả một lần.",
         keywords: "xuất tin nhắn whatsapp ra pdf, chuyển cuộc trò chuyện whatsapp sang pdf, in tin nhắn whatsapp, lưu chat whatsapp thành pdf, chuyển txt whatsapp sang pdf, phân tích cuộc trò chuyện whatsapp, thống kê chat whatsapp, ai nhắn nhiều hơn whatsapp, sao lưu chat whatsapp pdf",
         ogTitle: "Xuất cuộc trò chuyện WhatsApp ra PDF kèm thống kê trên iPhone",
-        ogDescription: "Mở tệp .txt hoặc .zip đã xuất và nhận PDF chia trang với bong bóng tin nhắn cùng thống kê tức thì. Xử lý chỉ trên máy, không tải gì lên. 4,99 đô la một lần.",
+        ogDescription: "Mở tệp .txt hoặc .zip đã xuất và nhận PDF chia trang với bong bóng tin nhắn cùng thống kê tức thì. Xử lý chỉ trên máy, không tải gì lên. Mua một lần.",
       },
       h1: "Xuất cuộc trò chuyện WhatsApp ra PDF trên iPhone, in được và kèm thống kê",
-      answer: "Chat Export Studio: PDF mở tệp .txt hoặc .zip do “Xuất cuộc trò chuyện” của WhatsApp tạo ra và biến nó thành PDF chia trang gọn gàng, trông giống hệt cuộc trò chuyện trên màn hình: mỗi tin nhắn một bong bóng kèm người gửi, ngày và giờ, còn nhóm thì mỗi người một màu. Ứng dụng cũng hiển thị thống kê ngay: tổng số tin nhắn và từ, số tin nhắn của từng người, giờ bận rộn nhất, khoảng thời gian và biểu tượng cảm xúc hay dùng. Cuộc trò chuyện chỉ được xử lý trên iPhone của bạn, không có gì được tải lên, và đây là khoản mua một lần 4,99 đô la.",
-      quickFacts: [["Giá", "4,99 đô la một lần. Không thuê bao"], ["Đầu vào", "Xuất cuộc trò chuyện WhatsApp: .txt hoặc .zip, từ iPhone hay Android, giờ 12 hoặc 24"], ["Đầu ra", "PDF chia trang + thống kê"], ["Riêng tư", "Xử lý trên máy, không tải lên, không cần tài khoản"]],
+      answer: "Chat Export Studio: PDF mở tệp .txt hoặc .zip do “Xuất cuộc trò chuyện” của WhatsApp tạo ra và biến nó thành PDF chia trang gọn gàng, trông giống hệt cuộc trò chuyện trên màn hình: mỗi tin nhắn một bong bóng kèm người gửi, ngày và giờ, còn nhóm thì mỗi người một màu. Ứng dụng cũng hiển thị thống kê ngay: tổng số tin nhắn và từ, số tin nhắn của từng người, giờ bận rộn nhất, khoảng thời gian và biểu tượng cảm xúc hay dùng. Cuộc trò chuyện chỉ được xử lý trên iPhone của bạn, không có gì được tải lên, và đây là khoản mua một lần.",
+      quickFacts: [["Giá", "Mua một lần. Không thuê bao"], ["Đầu vào", "Xuất cuộc trò chuyện WhatsApp: .txt hoặc .zip, từ iPhone hay Android, giờ 12 hoặc 24"], ["Đầu ra", "PDF chia trang + thống kê"], ["Riêng tư", "Xử lý trên máy, không tải lên, không cần tài khoản"]],
       screenshotsTitle: "Bạn nhận được: thống kê chỉ một chạm và một tệp PDF chia trang chỉn chu",
       screenshots: [
         { alt: "Thống kê cuộc trò chuyện WhatsApp trên iPhone: số tin nhắn, số từ, giờ bận rộn nhất, tin nhắn theo từng người và biểu tượng cảm xúc hay dùng", caption: "Thống kê cuộc trò chuyện chỉ một chạm" },
@@ -293,7 +293,7 @@ export default {
           ["Thống kê (ai nói nhiều nhất, giờ bận rộn)", "✓ Tích hợp sẵn", "✗ Không", "Đôi khi có, sau khi tải lên"],
           ["Cuộc trò chuyện ở lại trên máy", "✓ Không bao giờ rời khỏi máy", "✓ Có", "✗ Tải lên máy chủ của họ"],
           ["Chạy ngoại tuyến", "✓ Có", "✓ Có", "✗ Không"],
-          ["Giá", "4,99 đô la một lần", "Miễn phí", "Miễn phí kèm quảng cáo hoặc trả phí"],
+          ["Giá", "Mua một lần", "Miễn phí", "Miễn phí kèm quảng cáo hoặc trả phí"],
         ],
       },
       faqs: [
@@ -304,7 +304,7 @@ export default {
         { q: "Tệp PDF có dùng làm bằng chứng được không?", a: "Tệp PDF tái hiện trung thực bản xuất và được tạo ra mà không qua bất kỳ xử lý đám mây nào, nhưng việc một tài liệu có được chấp nhận hay không tuỳ thuộc vào tổ chức hoặc thẩm quyền liên quan. Hãy giữ tệp .zip hoặc .txt gốc bên cạnh PDF và hỏi bên yêu cầu xem họ cần định dạng nào." },
         { q: "Cuộc trò chuyện dài đến đâu thì xử lý được?", a: "Những cuộc trò chuyện hàng chục nghìn tin nhắn vẫn chạy được; với cuộc trò chuyện rất dài thì việc tạo PDF lâu hơn. Thống kê thì hiện gần như tức thì." },
         { q: "Tôi có thể xuất nhiều cuộc trò chuyện không?", a: "Có. Chạm “Đóng cuộc trò chuyện này” rồi mở bản xuất tiếp theo. Không có giới hạn." },
-        { q: "Có thuê bao không?", a: "Không. Chat Export Studio: PDF là khoản mua một lần 4,99 đô la." },
+        { q: "Có thuê bao không?", a: "Không. Chat Export Studio: PDF là khoản mua một lần." },
         { q: "Có bản Android không?", a: "Chưa. Ứng dụng cho iPhone đã có; bản Android đang được phát triển và trang này sẽ dẫn tới Google Play khi sẵn sàng." },
         { q: "Đây có phải ứng dụng chính thức của WhatsApp không?", a: "Không. Chat Export Studio: PDF là công cụ độc lập, không liên kết, không được chứng thực và không có quan hệ nào với WhatsApp LLC hay Meta Platforms, Inc. Ứng dụng chỉ đọc các tệp xuất tiêu chuẩn do ứng dụng nhắn tin tạo ra." },
       ],

@@ -1,7 +1,7 @@
 // Français
 export default {
   ui: {
-    priceOnce: "{amount} $ en une fois",
+    priceOnce: "Achat unique",
     apps: "Apps", ios: "iOS", free: "Gratuit",
     pillFree: "App iOS gratuite", pillPaid: "{price} · sans abonnement",
     pillOnDevice: "100 % sur l’appareil", pillOffline: "Fonctionne hors ligne",
@@ -166,14 +166,14 @@ export default {
     "voice-note-to-text": {
       head: {
         title: "Transcrire un vocal WhatsApp en texte sur iPhone, hors ligne et privé",
-        description: "Voice Note to Text transcrit les vocaux WhatsApp et tout fichier .opus, .m4a, .mp3 ou .wav en texte, entièrement sur votre iPhone. Détection automatique de la langue, hors ligne, sans envoi, sans abonnement : un achat unique de 2,99 $.",
+        description: "Voice Note to Text transcrit les vocaux WhatsApp et tout fichier .opus, .m4a, .mp3 ou .wav en texte, entièrement sur votre iPhone. Détection automatique de la langue, hors ligne, sans envoi, sans abonnement : un achat unique.",
         keywords: "transcrire vocal whatsapp, vocal whatsapp en texte iphone, convertir message vocal en texte, app transcription vocaux, transcription vocal whatsapp non disponible, lire un vocal whatsapp en texte, app transcription hors ligne iphone, transcrire fichier audio iphone, opus en texte",
         ogTitle: "Voice Note to Text : transcrivez les vocaux WhatsApp sur votre iPhone, hors ligne",
         ogDescription: "Choisissez un vocal, lisez la transcription quelques secondes plus tard, copiez ou partagez. Toutes les langues, rien n’est envoyé, sans abonnement.",
       },
       h1: "Transcrivez vos vocaux WhatsApp en texte sur votre iPhone, hors ligne et en privé",
-      answer: "Voice Note to Text transforme un vocal en texte lisible en quelques secondes, sans envoyer l’audio nulle part. Choisissez un fichier .opus, .m4a, .mp3 ou .wav (ou partagez-le depuis n’importe quelle messagerie), la langue est détectée automatiquement et la transcription s’affiche, prête à être copiée ou partagée en .txt. Le modèle vocal est embarqué dans l’app, donc ça marche en mode avion, et c’est un achat unique de 2,99 $ sans abonnement.",
-      quickFacts: [["Prix", "2,99 $ une fois. Sans abonnement, sans crédits"], ["Entrée", ".opus .ogg .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp"], ["Langues", "Une centaine, détectées automatiquement"], ["Confidentialité", "Reconnaissance vocale sur l’appareil, sans envoi, sans compte"]],
+      answer: "Voice Note to Text transforme un vocal en texte lisible en quelques secondes, sans envoyer l’audio nulle part. Choisissez un fichier .opus, .m4a, .mp3 ou .wav (ou partagez-le depuis n’importe quelle messagerie), la langue est détectée automatiquement et la transcription s’affiche, prête à être copiée ou partagée en .txt. Le modèle vocal est embarqué dans l’app, donc ça marche en mode avion, et c’est un achat unique sans abonnement.",
+      quickFacts: [["Prix", "Achat unique. Sans abonnement, sans crédits"], ["Entrée", ".opus .ogg .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp"], ["Langues", "Une centaine, détectées automatiquement"], ["Confidentialité", "Reconnaissance vocale sur l’appareil, sans envoi, sans compte"]],
       screenshotsTitle: "Ce que vous obtenez : une transcription à lire, copier et partager",
       screenshots: [
         { alt: "Vocal WhatsApp transcrit en texte sur iPhone avec les boutons Copier et Partager .txt", caption: "Vocal → texte, avec Copier et Partager" },
@@ -192,7 +192,7 @@ export default {
       featuresTitle: "En quoi c’est différent des apps de transcription dans le cloud",
       features: [
         { title: "Rien n’est envoyé", text: "La reconnaissance vocale s’exécute sur l’iPhone avec un modèle embarqué. L’audio et la transcription ne quittent jamais l’appareil, ce qu’un vocal privé mérite." },
-        { title: "Achat unique", text: "La plupart des apps de transcription facturent un abonnement mensuel ou vendent des minutes. Ici, 2,99 $ une fois, transcriptions illimitées, sans compte." },
+        { title: "Achat unique", text: "La plupart des apps de transcription facturent un abonnement mensuel ou vendent des minutes. Ici, un achat unique, transcriptions illimitées, sans compte." },
         { title: "Une centaine de langues, détectées automatiquement", text: "Français, anglais, espagnol, portugais, allemand, italien, arabe, hindi, turc et bien d’autres. Vous ne choisissez pas la langue ; le modèle la détecte." },
         { title: "Fonctionne en mode avion", text: "Le modèle vocal est embarqué dans l’app : aucun téléchargement à la première utilisation, et l’app est complète sans connexion." },
         { title: "Ouvre directement les vocaux .opus", text: "Le décodage natif Opus et Ogg transcrit les vocaux WhatsApp, Telegram et Signal sans conversion préalable. Dictaphone et messagerie vocale (.m4a) fonctionnent aussi." },
@@ -214,7 +214,7 @@ export default {
           ["Fonctionne avec des fichiers .opus / .m4a / .mp3 enregistrés", "✓ Oui", "✗ Uniquement dans la discussion", "✓ Généralement"],
           ["Disponible dans tous les pays et toutes les langues", "✓ ~100 langues, détection automatique", "✗ Régions et langues limitées", "✓ Le plus souvent"],
           ["L’audio reste sur le téléphone", "✓ Oui, vérifiable hors ligne", "✓ Sur l’appareil", "✗ Envoyé à un serveur"],
-          ["Prix", "2,99 $ une fois", "Gratuit", "Abonnement ou crédits à la minute"],
+          ["Prix", "Achat unique", "Gratuit", "Abonnement ou crédits à la minute"],
           ["Copier / partager en .txt", "✓ Oui", "Copier seulement", "✓ Oui"],
           ["Fonctionne en mode avion", "✓ Oui", "✓ Oui", "✗ Non"],
         ],
@@ -222,7 +222,7 @@ export default {
       faqs: [
         { q: "Quelle est la précision de la transcription ?", a: "Elle utilise un modèle vocal de la famille Whisper exécuté sur le téléphone. Une parole claire dans une langue majeure est en général transcrite avec très peu d’erreurs ; un fort bruit de fond, des voix qui se chevauchent ou un accent marqué réduisent la précision, comme pour tout outil de transcription." },
         { q: "Quelles langues sont prises en charge ?", a: "Une centaine, dont le français, l’anglais, l’espagnol, le portugais, l’allemand, l’italien, le néerlandais, le russe, le turc, l’arabe, l’hindi, le tamoul, le bengali, l’indonésien, le japonais, le coréen et le chinois. La langue est détectée automatiquement pour chaque fichier." },
-        { q: "Y a-t-il un abonnement ?", a: "Non. Voice Note to Text est un achat unique de 2,99 $ avec utilisation illimitée. Pas de crédits, de minutes, de compte ni de ventes additionnelles." },
+        { q: "Y a-t-il un abonnement ?", a: "Non. Voice Note to Text est un achat unique avec utilisation illimitée. Pas de crédits, de minutes, de compte ni de ventes additionnelles." },
         { q: "Mes vocaux sont-ils envoyés quelque part ?", a: "Non. Le modèle vocal est livré avec l’app et l’inférence s’exécute sur l’iPhone. L’app ne fait aucune requête réseau ; elle fonctionne en mode avion." },
         { q: "Pourquoi l’app pèse-t-elle environ 60 Mo ?", a: "Parce que le modèle vocal est embarqué. C’est ce qui rend la première transcription instantanée et hors ligne, sans rien à télécharger ensuite." },
         { q: "Puis-je transcrire des audios Telegram, Signal ou iMessage ?", a: "Oui. Enregistrez ou partagez le fichier audio vers l’app. Telegram et Signal produisent des .ogg ou .m4a, les messages audio iMessage sont en .caf ou .m4a ; tous sont pris en charge." },
@@ -242,14 +242,14 @@ export default {
     "chat-export-studio": {
       head: {
         title: "Exporter une discussion WhatsApp en PDF sur iPhone, imprimable, avec statistiques",
-        description: "Chat Export Studio transforme le .txt ou .zip produit par Exporter la discussion de WhatsApp en un PDF propre et paginé avec bulles de messages, plus des statistiques instantanées : messages par personne, heure la plus active, emojis favoris. Tout reste sur votre iPhone. Achat unique de 4,99 $.",
+        description: "Chat Export Studio transforme le .txt ou .zip produit par Exporter la discussion de WhatsApp en un PDF propre et paginé avec bulles de messages, plus des statistiques instantanées : messages par personne, heure la plus active, emojis favoris. Tout reste sur votre iPhone. Achat unique de achat unique.",
         keywords: "exporter discussion whatsapp en pdf, whatsapp en pdf iphone, imprimer conversation whatsapp, enregistrer discussion whatsapp en pdf, convertir export txt whatsapp en pdf, analyseur discussion whatsapp, statistiques discussion whatsapp, qui écrit le plus whatsapp, sauvegarde discussion whatsapp pdf iphone",
         ogTitle: "Exportez une discussion WhatsApp en PDF sur iPhone, avec statistiques",
-        ogDescription: "Ouvrez le .txt ou .zip exporté et obtenez un PDF paginé avec bulles et statistiques instantanées. Traité sur votre téléphone uniquement, rien n’est envoyé. 4,99 $ une fois.",
+        ogDescription: "Ouvrez le .txt ou .zip exporté et obtenez un PDF paginé avec bulles et statistiques instantanées. Traité sur votre téléphone uniquement, rien n’est envoyé. Achat unique.",
       },
       h1: "Exportez une discussion WhatsApp en PDF sur votre iPhone, imprimable et avec statistiques",
-      answer: "Chat Export Studio: PDF ouvre le .txt ou .zip produit par Exporter la discussion de WhatsApp et le transforme en un PDF propre et paginé qui ressemble à la conversation à l’écran : une bulle par message avec expéditeur, date et heure, et une couleur par participant dans les groupes. Il affiche aussi des statistiques instantanées : total de messages et de mots, messages par personne, heure la plus active, période et emojis favoris. La discussion est analysée sur votre iPhone uniquement, rien n’est envoyé, et c’est un achat unique de 4,99 $.",
-      quickFacts: [["Prix", "4,99 $ une fois. Sans abonnement"], ["Entrée", "Exporter la discussion WhatsApp : .txt ou .zip, iPhone ou Android, 12 h ou 24 h"], ["Sortie", "PDF paginé + statistiques"], ["Confidentialité", "Analysé sur l’appareil, sans envoi, sans compte"]],
+      answer: "Chat Export Studio: PDF ouvre le .txt ou .zip produit par Exporter la discussion de WhatsApp et le transforme en un PDF propre et paginé qui ressemble à la conversation à l’écran : une bulle par message avec expéditeur, date et heure, et une couleur par participant dans les groupes. Il affiche aussi des statistiques instantanées : total de messages et de mots, messages par personne, heure la plus active, période et emojis favoris. La discussion est analysée sur votre iPhone uniquement, rien n’est envoyé, et c’est un achat unique.",
+      quickFacts: [["Prix", "Achat unique. Sans abonnement"], ["Entrée", "Exporter la discussion WhatsApp : .txt ou .zip, iPhone ou Android, 12 h ou 24 h"], ["Sortie", "PDF paginé + statistiques"], ["Confidentialité", "Analysé sur l’appareil, sans envoi, sans compte"]],
       screenshotsTitle: "Ce que vous obtenez : des statistiques en un geste et un PDF paginé et stylé",
       screenshots: [
         { alt: "Statistiques d’une discussion WhatsApp sur iPhone : messages, mots, heure la plus active, messages par participant et emojis favoris", caption: "Statistiques de la discussion en un geste" },
@@ -293,7 +293,7 @@ export default {
           ["Statistiques (qui parle le plus, heure la plus active)", "✓ Intégrées", "✗ Non", "Parfois, après envoi"],
           ["La conversation reste sur votre téléphone", "✓ Ne quitte jamais l’appareil", "✓ Oui", "✗ Envoyée sur leur serveur"],
           ["Fonctionne hors ligne", "✓ Oui", "✓ Oui", "✗ Non"],
-          ["Prix", "4,99 $ une fois", "Gratuit", "Gratuit avec pubs, ou payant"],
+          ["Prix", "Achat unique", "Gratuit", "Gratuit avec pubs, ou payant"],
         ],
       },
       faqs: [
@@ -304,7 +304,7 @@ export default {
         { q: "Le PDF peut-il servir de preuve ?", a: "Le PDF reproduit fidèlement l’export et est généré sans aucun traitement cloud, mais l’acceptation d’un document dépend de l’organisation ou de la juridiction concernée. Conservez l’export .zip ou .txt d’origine avec le PDF et demandez à la personne ou l’organisme concerné le format attendu." },
         { q: "Quelle longueur de discussion est prise en charge ?", a: "Des discussions de dizaines de milliers de messages fonctionnent ; la génération du PDF est plus longue pour les très longues discussions. Les statistiques apparaissent presque instantanément." },
         { q: "Puis-je exporter plusieurs discussions ?", a: "Oui. Touchez Fermer cette discussion et ouvrez l’export suivant. Aucune limite." },
-        { q: "Y a-t-il un abonnement ?", a: "Non. Chat Export Studio: PDF est un achat unique de 4,99 $." },
+        { q: "Y a-t-il un abonnement ?", a: "Non. Chat Export Studio: PDF est un achat unique." },
         { q: "Existe-t-il une version Android ?", a: "Pas encore. L’app iPhone est disponible ; une version Android est en préparation et cette page renverra vers Google Play dès qu’elle sera prête." },
         { q: "Est-ce une app officielle de WhatsApp ?", a: "Non. Chat Export Studio: PDF est un utilitaire indépendant, sans affiliation, approbation ni lien avec WhatsApp LLC ou Meta Platforms, Inc. Il lit les fichiers d’export standard produits par l’app de messagerie." },
       ],

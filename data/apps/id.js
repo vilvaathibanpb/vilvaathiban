@@ -1,7 +1,7 @@
 // Bahasa Indonesia
 export default {
   ui: {
-    priceOnce: "${amount} sekali bayar",
+    priceOnce: "Sekali beli",
     apps: "Aplikasi", ios: "iOS", free: "Gratis",
     pillFree: "Aplikasi iOS gratis", pillPaid: "{price} · tanpa langganan",
     pillOnDevice: "100% di perangkat", pillOffline: "Bisa offline",
@@ -166,14 +166,14 @@ export default {
     "voice-note-to-text": {
       head: {
         title: "Transkripsi Pesan Suara WhatsApp ke Teks di iPhone, Offline dan Privat",
-        description: "Voice Note to Text mentranskripsi pesan suara WhatsApp dan file .opus, .m4a, .mp3, atau .wav apa pun menjadi teks sepenuhnya di iPhone Anda. Deteksi bahasa otomatis, bisa offline, tanpa unggah, tanpa langganan: bayar sekali $2,99.",
+        description: "Voice Note to Text mentranskripsi pesan suara WhatsApp dan file .opus, .m4a, .mp3, atau .wav apa pun menjadi teks sepenuhnya di iPhone Anda. Deteksi bahasa otomatis, bisa offline, tanpa unggah, tanpa langganan: bayar sekali.",
         keywords: "transkripsi pesan suara whatsapp, vn whatsapp jadi teks iphone, ubah pesan suara jadi teks, aplikasi transkripsi pesan suara, transkrip vn whatsapp tidak tersedia, baca vn whatsapp sebagai teks, aplikasi transkripsi offline iphone, transkripsi file audio iphone, opus ke teks, vn ke teks",
         ogTitle: "Voice Note to Text: transkripsi pesan suara WhatsApp di iPhone Anda, offline",
         ogDescription: "Pilih pesan suara, baca transkripnya beberapa detik kemudian, salin atau bagikan. Bahasa apa pun, tidak ada yang diunggah, tanpa langganan.",
       },
       h1: "Transkripsi pesan suara WhatsApp ke teks di iPhone Anda, offline dan privat",
-      answer: "Voice Note to Text mengubah pesan suara menjadi teks yang bisa dibaca dalam beberapa detik, tanpa mengirim audio ke mana pun. Pilih file .opus, .m4a, .mp3, atau .wav (atau bagikan dari aplikasi chat mana pun), bahasa terdeteksi otomatis, dan transkrip muncul di layar siap disalin atau dibagikan sebagai file .txt. Model suaranya ada di dalam aplikasi, jadi bisa dipakai dalam mode pesawat, dan harganya sekali bayar $2,99 tanpa langganan.",
-      quickFacts: [["Harga", "$2,99 sekali bayar. Tanpa langganan, tanpa kredit"], ["Input", ".opus .ogg .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp"], ["Bahasa", "Sekitar 100, terdeteksi otomatis"], ["Privasi", "Pengenalan suara di perangkat, tanpa unggah, tanpa akun"]],
+      answer: "Voice Note to Text mengubah pesan suara menjadi teks yang bisa dibaca dalam beberapa detik, tanpa mengirim audio ke mana pun. Pilih file .opus, .m4a, .mp3, atau .wav (atau bagikan dari aplikasi chat mana pun), bahasa terdeteksi otomatis, dan transkrip muncul di layar siap disalin atau dibagikan sebagai file .txt. Model suaranya ada di dalam aplikasi, jadi bisa dipakai dalam mode pesawat, dan harganya sekali bayar tanpa langganan.",
+      quickFacts: [["Harga", "Sekali bayar. Tanpa langganan, tanpa kredit"], ["Input", ".opus .ogg .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp"], ["Bahasa", "Sekitar 100, terdeteksi otomatis"], ["Privasi", "Pengenalan suara di perangkat, tanpa unggah, tanpa akun"]],
       screenshotsTitle: "Yang Anda dapat: transkrip yang bisa dibaca, disalin, dan dibagikan",
       screenshots: [
         { alt: "Pesan suara WhatsApp yang ditranskripsi menjadi teks di iPhone dengan tombol Salin dan Bagikan .txt", caption: "Pesan suara → teks, dengan Salin dan Bagikan" },
@@ -192,7 +192,7 @@ export default {
       featuresTitle: "Kenapa ini berbeda dari aplikasi transkripsi cloud",
       features: [
         { title: "Tidak ada yang diunggah", text: "Pengenalan suara berjalan di iPhone dengan model bawaan. Audio dan transkrip tidak pernah keluar dari perangkat, sebagaimana layaknya pesan suara pribadi." },
-        { title: "Bayar sekali", text: "Kebanyakan aplikasi transkripsi memungut langganan bulanan atau menjual menit. Yang ini $2,99 sekali bayar, transkripsi tak terbatas, tanpa akun." },
+        { title: "Bayar sekali", text: "Kebanyakan aplikasi transkripsi memungut langganan bulanan atau menjual menit. Yang ini sekali bayar, transkripsi tak terbatas, tanpa akun." },
         { title: "Sekitar 100 bahasa, terdeteksi otomatis", text: "Bahasa Indonesia, Inggris, Arab, Mandarin, Jepang, Korea, Spanyol, Hindi, dan banyak lagi. Anda tidak memilih bahasa; model yang mendeteksinya." },
         { title: "Bisa dalam mode pesawat", text: "Model suara ada di dalam aplikasi, jadi penggunaan pertama tidak perlu unduhan dan aplikasi lengkap tanpa koneksi." },
         { title: "Membuka pesan suara .opus langsung", text: "Decoding Opus dan Ogg bawaan berarti pesan suara WhatsApp, Telegram, dan Signal langsung ditranskripsi tanpa dikonversi dulu. Memo Suara dan voicemail (.m4a) juga bisa." },
@@ -214,7 +214,7 @@ export default {
           ["Berfungsi untuk file .opus / .m4a / .mp3 tersimpan", "✓ Ya", "✗ Hanya di dalam chat", "✓ Biasanya"],
           ["Tersedia di semua negara dan bahasa", "✓ ~100 bahasa, deteksi otomatis", "✗ Wilayah dan bahasa terbatas", "✓ Sebagian besar"],
           ["Audio tetap di ponsel", "✓ Ya, bisa diverifikasi offline", "✓ Di perangkat", "✗ Diunggah ke server"],
-          ["Harga", "$2,99 sekali", "Gratis", "Langganan atau kredit per menit"],
+          ["Harga", "Sekali beli", "Gratis", "Langganan atau kredit per menit"],
           ["Salin / bagikan sebagai .txt", "✓ Ya", "Hanya salin", "✓ Ya"],
           ["Bisa dalam mode pesawat", "✓ Ya", "✓ Ya", "✗ Tidak"],
         ],
@@ -222,7 +222,7 @@ export default {
       faqs: [
         { q: "Seberapa akurat transkripsinya?", a: "Menggunakan model suara keluarga Whisper yang berjalan di ponsel. Ucapan jelas dalam bahasa besar biasanya ditranskripsi dengan sangat sedikit kesalahan; kebisingan latar yang berat, pembicara yang tumpang tindih, atau aksen kuat menurunkan akurasi, seperti alat transkripsi mana pun." },
         { q: "Bahasa apa saja yang didukung?", a: "Sekitar 100, termasuk Indonesia, Inggris, Spanyol, Jerman, Prancis, Italia, Portugis, Belanda, Rusia, Turki, Arab, Hindi, Tamil, Bengali, Jepang, Korea, dan Mandarin. Bahasa terdeteksi otomatis per file." },
-        { q: "Apakah ada langganan?", a: "Tidak. Voice Note to Text sekali bayar $2,99 dengan penggunaan tak terbatas. Tidak ada kredit, menit, akun, atau penawaran tambahan." },
+        { q: "Apakah ada langganan?", a: "Tidak. Voice Note to Text sekali bayar dengan penggunaan tak terbatas. Tidak ada kredit, menit, akun, atau penawaran tambahan." },
         { q: "Apakah pesan suara saya diunggah ke mana pun?", a: "Tidak. Model suara dibundel bersama aplikasi dan inferensi berjalan di iPhone. Aplikasi tidak melakukan permintaan jaringan sama sekali; bisa dipakai dengan mode pesawat menyala." },
         { q: "Kenapa ukuran aplikasinya sekitar 60 MB?", a: "Karena model suaranya ada di dalamnya. Itulah yang membuat transkripsi pertama instan dan offline, tanpa perlu mengunduh apa pun nanti." },
         { q: "Bisa mentranskripsi audio Telegram, Signal, atau iMessage?", a: "Bisa. Simpan atau bagikan file audio ke aplikasi. Telegram dan Signal menghasilkan file .ogg atau .m4a, pesan audio iMessage berformat .caf atau .m4a; semuanya didukung." },
@@ -242,14 +242,14 @@ export default {
     "chat-export-studio": {
       head: {
         title: "Ekspor Chat WhatsApp ke PDF di iPhone, Siap Cetak, dengan Statistik",
-        description: "Chat Export Studio mengubah file .txt atau .zip hasil Ekspor Chat WhatsApp menjadi PDF rapi berhalaman dengan gelembung pesan, plus statistik instan: pesan per orang, jam tersibuk, emoji favorit. Semua tetap di iPhone Anda. Bayar sekali $4,99.",
+        description: "Chat Export Studio mengubah file .txt atau .zip hasil Ekspor Chat WhatsApp menjadi PDF rapi berhalaman dengan gelembung pesan, plus statistik instan: pesan per orang, jam tersibuk, emoji favorit. Semua tetap di iPhone Anda. Bayar sekali.",
         keywords: "ekspor chat whatsapp ke pdf, whatsapp ke pdf iphone, cetak percakapan whatsapp, simpan chat whatsapp jadi pdf, ubah txt whatsapp ke pdf, analisis chat whatsapp, statistik chat whatsapp, siapa yang lebih sering chat di whatsapp, backup chat whatsapp pdf iphone",
         ogTitle: "Ekspor chat WhatsApp ke PDF di iPhone, dengan statistik",
-        ogDescription: "Buka ekspor .txt atau .zip, dapatkan PDF berhalaman dengan gelembung dan statistik instan. Diproses hanya di ponsel Anda, tidak ada yang diunggah. $4,99 sekali.",
+        ogDescription: "Buka ekspor .txt atau .zip, dapatkan PDF berhalaman dengan gelembung dan statistik instan. Diproses hanya di ponsel Anda, tidak ada yang diunggah. Sekali beli.",
       },
       h1: "Ekspor chat WhatsApp ke PDF di iPhone Anda, siap cetak dan dengan statistik",
-      answer: "Chat Export Studio: PDF membuka file .txt atau .zip hasil Ekspor Chat WhatsApp dan mengubahnya menjadi PDF rapi berhalaman yang tampak seperti percakapan di layar: satu gelembung per pesan dengan pengirim, tanggal, dan waktu, serta warna per peserta di grup. Juga menampilkan statistik instan: total pesan dan kata, pesan per orang, jam tersibuk, rentang tanggal, dan emoji favorit. Chat diproses hanya di iPhone Anda, tidak ada yang diunggah, dan harganya sekali bayar $4,99.",
-      quickFacts: [["Harga", "$4,99 sekali bayar. Tanpa langganan"], ["Input", "Ekspor Chat WhatsApp: .txt atau .zip, iPhone atau Android, format 12 atau 24 jam"], ["Output", "PDF berhalaman + statistik"], ["Privasi", "Diproses di perangkat, tanpa unggah, tanpa akun"]],
+      answer: "Chat Export Studio: PDF membuka file .txt atau .zip hasil Ekspor Chat WhatsApp dan mengubahnya menjadi PDF rapi berhalaman yang tampak seperti percakapan di layar: satu gelembung per pesan dengan pengirim, tanggal, dan waktu, serta warna per peserta di grup. Juga menampilkan statistik instan: total pesan dan kata, pesan per orang, jam tersibuk, rentang tanggal, dan emoji favorit. Chat diproses hanya di iPhone Anda, tidak ada yang diunggah, dan harganya sekali bayar.",
+      quickFacts: [["Harga", "Sekali bayar. Tanpa langganan"], ["Input", "Ekspor Chat WhatsApp: .txt atau .zip, iPhone atau Android, format 12 atau 24 jam"], ["Output", "PDF berhalaman + statistik"], ["Privasi", "Diproses di perangkat, tanpa unggah, tanpa akun"]],
       screenshotsTitle: "Yang Anda dapat: statistik sekali ketuk dan PDF berhalaman yang rapi",
       screenshots: [
         { alt: "Statistik chat WhatsApp di iPhone: pesan, kata, jam tersibuk, pesan per peserta, dan emoji favorit", caption: "Statistik chat sekali ketuk" },
@@ -293,7 +293,7 @@ export default {
           ["Statistik (siapa paling banyak, jam tersibuk)", "✓ Bawaan", "✗ Tidak", "Kadang, setelah diunggah"],
           ["Percakapan tetap di ponsel Anda", "✓ Tidak pernah keluar dari perangkat", "✓ Ya", "✗ Diunggah ke server mereka"],
           ["Bisa offline", "✓ Ya", "✓ Ya", "✗ Tidak"],
-          ["Harga", "$4,99 sekali", "Gratis", "Gratis dengan iklan, atau berbayar"],
+          ["Harga", "Sekali beli", "Gratis", "Gratis dengan iklan, atau berbayar"],
         ],
       },
       faqs: [
@@ -304,7 +304,7 @@ export default {
         { q: "Bisakah PDF-nya dipakai sebagai bukti?", a: "PDF mereproduksi ekspor dengan setia dan dibuat tanpa pemrosesan cloud apa pun, tetapi diterima atau tidaknya sebuah dokumen bergantung pada organisasi atau yurisdiksi terkait. Simpan ekspor .zip atau .txt aslinya di samping PDF, dan tanyakan format yang dibutuhkan kepada pihak yang meminta." },
         { q: "Seberapa panjang chat yang bisa ditangani?", a: "Chat dengan puluhan ribu pesan bisa; pembuatan PDF butuh waktu lebih lama untuk chat yang sangat panjang. Statistik muncul hampir seketika." },
         { q: "Bisakah mengekspor lebih dari satu chat?", a: "Bisa. Ketuk Tutup chat ini dan buka ekspor berikutnya. Tidak ada batas." },
-        { q: "Apakah ada langganan?", a: "Tidak. Chat Export Studio: PDF sekali bayar $4,99." },
+        { q: "Apakah ada langganan?", a: "Tidak. Chat Export Studio: PDF sekali bayar." },
         { q: "Apakah ada versi Android?", a: "Belum. Aplikasi iPhone sudah tersedia; versi Android sedang disiapkan dan halaman ini akan menautkan ke Google Play saat sudah siap." },
         { q: "Apakah ini aplikasi resmi WhatsApp?", a: "Bukan. Chat Export Studio: PDF adalah utilitas independen dan tidak berafiliasi, didukung, atau terhubung dengan WhatsApp LLC maupun Meta Platforms, Inc. Aplikasi ini membaca file ekspor standar yang dihasilkan aplikasi chat." },
       ],

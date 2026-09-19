@@ -1,7 +1,7 @@
 // 简体中文
 export default {
   ui: {
-    priceOnce: "一次性 {amount} 美元",
+    priceOnce: "一次购买",
     apps: "应用", ios: "iOS", free: "免费",
     pillFree: "免费 iOS 应用", pillPaid: "{price} · 无订阅",
     pillOnDevice: "100% 设备本地处理", pillOffline: "离线可用",
@@ -166,14 +166,14 @@ export default {
     "voice-note-to-text": {
       head: {
         title: "在 iPhone 上把 WhatsApp 语音消息转成文字，离线且私密",
-        description: "Voice Note to Text 完全在你的 iPhone 上把 WhatsApp 语音消息以及任意 .opus、.m4a、.mp3、.wav 文件转写成文字。自动识别语言，离线可用，不上传，无订阅：一次性购买 2.99 美元。",
+        description: "Voice Note to Text 完全在你的 iPhone 上把 WhatsApp 语音消息以及任意 .opus、.m4a、.mp3、.wav 文件转写成文字。自动识别语言，离线可用，不上传，无订阅：一次性购买。",
         keywords: "whatsapp语音转文字, whatsapp语音消息转文字 iphone, 语音转文字app, 语音消息转写, whatsapp语音转文字不可用, 用读代替听语音消息, 离线转写app iphone, iphone音频文件转文字, opus转文字",
         ogTitle: "Voice Note to Text：在 iPhone 上离线转写 WhatsApp 语音消息",
         ogDescription: "选一条语音消息，几秒后读到文字，可复制或分享。支持各种语言，不上传，无订阅。",
       },
       h1: "在 iPhone 上把 WhatsApp 语音消息转成文字，离线且私密",
-      answer: "Voice Note to Text 能在几秒内把语音消息变成可读文字，而且不会把音频发到任何地方。选择 .opus、.m4a、.mp3 或 .wav 文件（也可以从任意聊天应用分享过来），语言会自动识别，转写结果直接显示在屏幕上，可复制或以 .txt 文件分享。语音模型内置在应用中，因此飞行模式下也能用；一次性购买 2.99 美元，没有订阅。",
-      quickFacts: [["价格", "一次性 2.99 美元。无订阅、无点数"], ["输入", ".opus .ogg .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp"], ["语言", "约 100 种，自动识别"], ["隐私", "本机语音识别，不上传，无需账号"]],
+      answer: "Voice Note to Text 能在几秒内把语音消息变成可读文字，而且不会把音频发到任何地方。选择 .opus、.m4a、.mp3 或 .wav 文件（也可以从任意聊天应用分享过来），语言会自动识别，转写结果直接显示在屏幕上，可复制或以 .txt 文件分享。语音模型内置在应用中，因此飞行模式下也能用；一次性购买，没有订阅。",
+      quickFacts: [["价格", "一次性买断。无订阅、无点数"], ["输入", ".opus .ogg .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp"], ["语言", "约 100 种，自动识别"], ["隐私", "本机语音识别，不上传，无需账号"]],
       screenshotsTitle: "你会得到：可阅读、可复制、可分享的转写文字",
       screenshots: [
         { alt: "iPhone 上转写成文字的 WhatsApp 语音消息，带「复制」和「分享 .txt」按钮", caption: "语音消息 → 文字，可复制可分享" },
@@ -192,7 +192,7 @@ export default {
       featuresTitle: "它与云端转写应用的不同之处",
       features: [
         { title: "不上传任何内容", text: "语音识别使用内置模型在 iPhone 上运行。音频和转写文字从不离开设备，这正是私密语音消息应有的待遇。" },
-        { title: "一次性买断", text: "多数转写应用要按月订阅或出售分钟数。这款只需一次性支付 2.99 美元，转写次数不限，也不需要账号。" },
+        { title: "一次性买断", text: "多数转写应用要按月订阅或出售分钟数。这款只需一次性支付，转写次数不限，也不需要账号。" },
         { title: "约 100 种语言，自动识别", text: "中文、英语、西班牙语、德语、法语、葡萄牙语、阿拉伯语、印地语、土耳其语等等。你不用选语言，模型会自动判断。" },
         { title: "飞行模式可用", text: "语音模型内置在应用里，首次运行无需下载，没有网络也功能完整。" },
         { title: "直接打开 .opus 语音消息", text: "内置 Opus 与 Ogg 解码，因此 WhatsApp、Telegram、Signal 的语音消息无需先转格式即可转写。语音备忘录和语音信箱（.m4a）同样支持。" },
@@ -214,7 +214,7 @@ export default {
           ["支持已保存的 .opus / .m4a / .mp3 文件", "✓ 是", "✗ 仅限聊天内", "✓ 通常支持"],
           ["所有国家和语言都能用", "✓ 约 100 种语言，自动识别", "✗ 地区和语言受限", "✓ 多数支持"],
           ["音频留在手机上", "✓ 是，可离线验证", "✓ 本机处理", "✗ 上传到服务器"],
-          ["价格", "一次性 2.99 美元", "免费", "订阅或按分钟计费"],
+          ["价格", "一次性买断", "免费", "订阅或按分钟计费"],
           ["复制 / 以 .txt 分享", "✓ 是", "仅可复制", "✓ 是"],
           ["飞行模式可用", "✓ 是", "✓ 是", "✗ 否"],
         ],
@@ -222,7 +222,7 @@ export default {
       faqs: [
         { q: "转写准确度如何？", a: "它使用在手机上运行的 Whisper 系列语音模型。主流语言中清晰的语音通常几乎没有错误；强烈的背景噪音、多人同时说话或很重的口音会降低准确度，这与任何转写工具一样。" },
         { q: "支持哪些语言？", a: "约 100 种，包括中文、英语、西班牙语、德语、法语、意大利语、葡萄牙语、荷兰语、俄语、土耳其语、阿拉伯语、印地语、泰米尔语、孟加拉语、印尼语、日语和韩语。每个文件都会自动识别语言。" },
-        { q: "有订阅吗？", a: "没有。Voice Note to Text 是一次性 2.99 美元买断，使用次数不限。没有点数、分钟数、账号或额外销售。" },
+        { q: "有订阅吗？", a: "没有。Voice Note to Text 是一次性买断，使用次数不限。没有点数、分钟数、账号或额外销售。" },
         { q: "我的语音消息会被上传吗？", a: "不会。语音模型随应用一起打包，推理在 iPhone 上完成。应用完全不发起网络请求，打开飞行模式也能使用。" },
         { q: "为什么应用大约 60 MB？", a: "因为语音模型就装在里面。正是这一点让第一次转写既即时又能离线，之后也不需要再下载任何东西。" },
         { q: "可以转写 Telegram、Signal 或 iMessage 的音频吗？", a: "可以。把音频文件保存或分享到应用即可。Telegram 与 Signal 生成 .ogg 或 .m4a，iMessage 语音消息是 .caf 或 .m4a，这些都受支持。" },
@@ -242,14 +242,14 @@ export default {
     "chat-export-studio": {
       head: {
         title: "在 iPhone 上把 WhatsApp 聊天记录导出为 PDF，可打印且带统计",
-        description: "Chat Export Studio 把 WhatsApp「导出聊天」生成的 .txt 或 .zip 变成整洁的分页 PDF，带消息气泡，同时给出即时统计：每人消息数、最活跃时段、常用表情。所有处理都在你的 iPhone 上完成。一次性 4.99 美元。",
+        description: "Chat Export Studio 把 WhatsApp「导出聊天」生成的 .txt 或 .zip 变成整洁的分页 PDF，带消息气泡，同时给出即时统计：每人消息数、最活跃时段、常用表情。所有处理都在你的 iPhone 上完成。一次性买断。",
         keywords: "whatsapp聊天记录导出pdf, whatsapp转pdf iphone, 打印whatsapp聊天记录, whatsapp聊天保存为pdf, whatsapp txt导出转pdf, whatsapp聊天分析, whatsapp聊天统计, whatsapp谁发的消息多, whatsapp聊天备份pdf iphone",
         ogTitle: "在 iPhone 上把 WhatsApp 聊天记录导出成带统计的 PDF",
-        ogDescription: "打开导出的 .txt 或 .zip，得到带气泡和即时统计的分页 PDF。只在你的手机上处理，不上传任何内容。一次性 4.99 美元。",
+        ogDescription: "打开导出的 .txt 或 .zip，得到带气泡和即时统计的分页 PDF。只在你的手机上处理，不上传任何内容。一次性买断。",
       },
       h1: "在 iPhone 上把 WhatsApp 聊天记录导出为 PDF，可打印且带统计",
-      answer: "Chat Export Studio: PDF 会打开 WhatsApp「导出聊天」生成的 .txt 或 .zip，把它变成整洁的分页 PDF，样子就像屏幕上的对话：每条消息一个气泡，带发送者、日期和时间，群聊中每位成员一种颜色。它还提供即时统计：消息与字数总计、每人消息数、最活跃时段、日期范围和常用表情。聊天记录只在你的 iPhone 上解析，不上传任何内容，一次性购买 4.99 美元。",
-      quickFacts: [["价格", "一次性 4.99 美元，无订阅"], ["输入", "WhatsApp 导出聊天：.txt 或 .zip，iPhone 或安卓，12 或 24 小时制"], ["输出", "分页 PDF + 统计"], ["隐私", "本机解析，不上传，无需账号"]],
+      answer: "Chat Export Studio: PDF 会打开 WhatsApp「导出聊天」生成的 .txt 或 .zip，把它变成整洁的分页 PDF，样子就像屏幕上的对话：每条消息一个气泡，带发送者、日期和时间，群聊中每位成员一种颜色。它还提供即时统计：消息与字数总计、每人消息数、最活跃时段、日期范围和常用表情。聊天记录只在你的 iPhone 上解析，不上传任何内容，一次性购买。",
+      quickFacts: [["价格", "一次性买断，无订阅"], ["输入", "WhatsApp 导出聊天：.txt 或 .zip，iPhone 或安卓，12 或 24 小时制"], ["输出", "分页 PDF + 统计"], ["隐私", "本机解析，不上传，无需账号"]],
       screenshotsTitle: "你会得到：一键统计和一份精美的分页 PDF",
       screenshots: [
         { alt: "iPhone 上的 WhatsApp 聊天统计：消息数、字数、最活跃时段、每位成员的消息数和常用表情", caption: "一键查看聊天统计" },
@@ -293,7 +293,7 @@ export default {
           ["统计（谁说得最多、最活跃时段）", "✓ 内置", "✗ 否", "有时有，但需先上传"],
           ["对话留在你的手机上", "✓ 永不离开设备", "✓ 是", "✗ 上传到对方服务器"],
           ["离线可用", "✓ 是", "✓ 是", "✗ 否"],
-          ["价格", "一次性 4.99 美元", "免费", "含广告免费或付费"],
+          ["价格", "一次性买断", "免费", "含广告免费或付费"],
         ],
       },
       faqs: [
@@ -304,7 +304,7 @@ export default {
         { q: "这份 PDF 能当作证据吗？", a: "PDF 忠实还原导出内容，且全程没有云端处理，但某份文件是否被接受取决于相关机构或司法辖区。请把原始 .zip 或 .txt 与 PDF 一起保存，并向索取记录的人或机构确认所需格式。" },
         { q: "能处理多长的聊天记录？", a: "几万条消息的聊天都能处理；聊天极长时 PDF 生成会久一些。统计几乎是瞬间显示的。" },
         { q: "可以导出多个聊天吗？", a: "可以。点「关闭此聊天」再打开下一个导出文件，没有数量限制。" },
-        { q: "有订阅吗？", a: "没有。Chat Export Studio: PDF 是一次性 4.99 美元买断。" },
+        { q: "有订阅吗？", a: "没有。Chat Export Studio: PDF 是一次性买断。" },
         { q: "有安卓版吗？", a: "暂时没有。iPhone 版现已上线；安卓版本正在开发，完成后本页会附上 Google Play 链接。" },
         { q: "这是 WhatsApp 官方应用吗？", a: "不是。Chat Export Studio: PDF 是独立实用工具，与 WhatsApp LLC 或 Meta Platforms, Inc. 没有任何隶属、认可或关联关系。它读取的是聊天应用生成的标准导出文件。" },
       ],

@@ -1,7 +1,7 @@
 // Türkçe
 export default {
   ui: {
-    priceOnce: "tek seferlik {amount} $",
+    priceOnce: "Tek seferlik satın alma",
     apps: "Uygulamalar", ios: "iOS", free: "Ücretsiz",
     pillFree: "Ücretsiz iOS uygulaması", pillPaid: "{price} · abonelik yok",
     pillOnDevice: "%100 cihaz üzerinde", pillOffline: "Çevrimdışı çalışır",
@@ -166,14 +166,14 @@ export default {
     "voice-note-to-text": {
       head: {
         title: "WhatsApp sesli mesajlarını iPhone’da yazıya dökme, çevrimdışı ve gizli",
-        description: "Voice Note to Text, WhatsApp sesli mesajlarını ve her .opus, .m4a, .mp3 ya da .wav dosyasını tamamen iPhone’unuzda yazıya döker. Otomatik dil algılama, çevrimdışı çalışır, yükleme yok, abonelik yok: tek seferlik 2,99 $.",
+        description: "Voice Note to Text, WhatsApp sesli mesajlarını ve her .opus, .m4a, .mp3 ya da .wav dosyasını tamamen iPhone’unuzda yazıya döker. Otomatik dil algılama, çevrimdışı çalışır, yükleme yok, abonelik yok: tek seferlik satın alma.",
         keywords: "whatsapp sesli mesaj yazıya dökme, whatsapp sesli mesajı yazıya çevirme iphone, sesli mesajı metne çevirme, sesli mesaj transkript uygulaması, whatsapp sesli mesaj yazıya dönüştürme yok, whatsapp sesli mesajı okuma, çevrimdışı transkript uygulaması iphone, ses dosyası yazıya dökme iphone, opus metin",
         ogTitle: "Voice Note to Text: WhatsApp sesli mesajlarını iPhone’unuzda çevrimdışı yazıya dökün",
         ogDescription: "Bir sesli mesaj seçin, saniyeler sonra metni okuyun, kopyalayın ya da paylaşın. Her dil, hiçbir şey yüklenmez, abonelik yok.",
       },
       h1: "WhatsApp sesli mesajlarını iPhone’unuzda yazıya dökün, çevrimdışı ve gizli",
-      answer: "Voice Note to Text, sesli bir mesajı sesi hiçbir yere göndermeden birkaç saniyede okunabilir metne çevirir. Bir .opus, .m4a, .mp3 ya da .wav dosyası seçin (veya herhangi bir sohbet uygulamasından paylaşın), dil otomatik algılanır ve metin ekranda belirir; kopyalamaya ya da .txt olarak paylaşmaya hazırdır. Konuşma modeli uygulamanın içinde geldiğinden uçak modunda çalışır; aboneliksiz, tek seferlik 2,99 $’lık bir satın almadır.",
-      quickFacts: [["Fiyat", "Tek seferlik 2,99 $. Abonelik yok, kredi yok"], ["Girdi", ".opus .ogg .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp"], ["Diller", "Yaklaşık 100, otomatik algılanır"], ["Gizlilik", "Cihaz üzerinde konuşma tanıma, yükleme yok, hesap yok"]],
+      answer: "Voice Note to Text, sesli bir mesajı sesi hiçbir yere göndermeden birkaç saniyede okunabilir metne çevirir. Bir .opus, .m4a, .mp3 ya da .wav dosyası seçin (veya herhangi bir sohbet uygulamasından paylaşın), dil otomatik algılanır ve metin ekranda belirir; kopyalamaya ya da .txt olarak paylaşmaya hazırdır. Konuşma modeli uygulamanın içinde geldiğinden uçak modunda çalışır; aboneliksiz, tek seferlik bir satın almadır.",
+      quickFacts: [["Fiyat", "Tek seferlik satın alma. Abonelik yok, kredi yok"], ["Girdi", ".opus .ogg .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp"], ["Diller", "Yaklaşık 100, otomatik algılanır"], ["Gizlilik", "Cihaz üzerinde konuşma tanıma, yükleme yok, hesap yok"]],
       screenshotsTitle: "Elde ettikleriniz: okuyabileceğiniz, kopyalayıp paylaşabileceğiniz bir metin",
       screenshots: [
         { alt: "iPhone’da yazıya dökülmüş WhatsApp sesli mesajı, Kopyala ve .txt Paylaş düğmeleriyle", caption: "Sesli mesaj → metin, Kopyala ve Paylaş ile" },
@@ -192,7 +192,7 @@ export default {
       featuresTitle: "Bulut tabanlı yazıya dökme uygulamalarından farkı",
       features: [
         { title: "Hiçbir şey yüklenmez", text: "Konuşma tanıma, paketlenmiş bir modelle iPhone üzerinde çalışır. Ses ve metin cihazdan asla çıkmaz; özel bir sesli mesaj bunu hak eder." },
-        { title: "Tek seferlik satın alma", text: "Çoğu yazıya dökme uygulaması aylık abonelik ister ya da dakika satar. Bu uygulama tek seferlik 2,99 $; sınırsız yazıya dökme ve hesap yok." },
+        { title: "Tek seferlik satın alma", text: "Çoğu yazıya dökme uygulaması aylık abonelik ister ya da dakika satar. Bu uygulama tek seferlik satın alma; sınırsız yazıya dökme ve hesap yok." },
         { title: "Yaklaşık 100 dil, otomatik algılanır", text: "Türkçe, İngilizce, Almanca, Arapça, İspanyolca, Fransızca, Rusça, Hintçe ve daha birçoğu. Dili siz seçmezsiniz; model algılar." },
         { title: "Uçak modunda çalışır", text: "Konuşma modeli uygulamanın içinde gelir; ilk çalıştırmada indirme gerekmez ve uygulama bağlantısız da tamdır." },
         { title: ".opus sesli mesajlarını doğrudan açar", text: "Yerleşik Opus ve Ogg çözme sayesinde WhatsApp, Telegram ve Signal sesli mesajları önce dönüştürülmeden yazıya dökülür. Sesli Notlar ve telesekreter (.m4a) de çalışır." },
@@ -214,7 +214,7 @@ export default {
           ["Kaydedilmiş .opus / .m4a / .mp3 dosyalarıyla çalışır", "✓ Evet", "✗ Yalnızca sohbet içinde", "✓ Genellikle"],
           ["Her ülke ve dilde kullanılabilir", "✓ ~100 dil, otomatik algılama", "✗ Sınırlı bölge ve dil", "✓ Çoğunlukla"],
           ["Ses telefonda kalır", "✓ Evet, çevrimdışı doğrulanabilir", "✓ Cihaz üzerinde", "✗ Sunucuya yüklenir"],
-          ["Fiyat", "Tek seferlik 2,99 $", "Ücretsiz", "Abonelik ya da dakika kredisi"],
+          ["Fiyat", "Tek seferlik satın alma", "Ücretsiz", "Abonelik ya da dakika kredisi"],
           [".txt olarak kopyala / paylaş", "✓ Evet", "Yalnızca kopyala", "✓ Evet"],
           ["Uçak modunda çalışır", "✓ Evet", "✓ Evet", "✗ Hayır"],
         ],
@@ -222,7 +222,7 @@ export default {
       faqs: [
         { q: "Yazıya dökme ne kadar doğru?", a: "Telefonda çalışan Whisper ailesinden bir konuşma modeli kullanır. Büyük bir dilde net konuşma genellikle çok az hatayla yazıya dökülür; yoğun arka plan gürültüsü, üst üste konuşanlar ya da güçlü aksanlar, her yazıya dökme aracında olduğu gibi doğruluğu düşürür." },
         { q: "Hangi diller destekleniyor?", a: "Türkçe, İngilizce, İspanyolca, Almanca, Fransızca, İtalyanca, Portekizce, Felemenkçe, Rusça, Arapça, Hintçe, Tamilce, Bengalce, Endonezce, Japonca, Korece ve Çince dahil yaklaşık 100 dil. Dil her dosya için otomatik algılanır." },
-        { q: "Abonelik var mı?", a: "Hayır. Voice Note to Text sınırsız kullanımlı tek seferlik 2,99 $’lık bir satın almadır. Kredi, dakika, hesap ya da ek satış yoktur." },
+        { q: "Abonelik var mı?", a: "Hayır. Voice Note to Text sınırsız kullanımlı tek seferlik bir satın almadır. Kredi, dakika, hesap ya da ek satış yoktur." },
         { q: "Sesli mesajlarım bir yere yükleniyor mu?", a: "Hayır. Konuşma modeli uygulamayla birlikte gelir ve çıkarım iPhone üzerinde çalışır. Uygulama hiçbir ağ isteği yapmaz; uçak modu açıkken çalışır." },
         { q: "Uygulama neden yaklaşık 60 MB?", a: "Çünkü konuşma modeli içinde geliyor. İlk yazıya dökmeyi anında ve çevrimdışı yapan, sonradan indirecek bir şey bırakmayan da bu." },
         { q: "Telegram, Signal ya da iMessage seslerini yazıya dökebilir miyim?", a: "Evet. Ses dosyasını kaydedin ya da uygulamayla paylaşın. Telegram ve Signal .ogg ya da .m4a üretir, iMessage sesli mesajları .caf ya da .m4a’dır; hepsi desteklenir." },
@@ -242,14 +242,14 @@ export default {
     "chat-export-studio": {
       head: {
         title: "WhatsApp sohbetini iPhone’da PDF olarak dışa aktarma, yazdırılabilir, istatistikli",
-        description: "Chat Export Studio, WhatsApp’ın Sohbeti Dışa Aktar özelliğinin ürettiği .txt veya .zip dosyasını mesaj balonlu, temiz ve sayfalanmış bir PDF’e dönüştürür; ayrıca anında istatistikler verir: kişi başı mesaj, en yoğun saat, en çok kullanılan emojiler. Her şey iPhone’unuzda kalır. Tek seferlik 4,99 $.",
+        description: "Chat Export Studio, WhatsApp’ın Sohbeti Dışa Aktar özelliğinin ürettiği .txt veya .zip dosyasını mesaj balonlu, temiz ve sayfalanmış bir PDF’e dönüştürür; ayrıca anında istatistikler verir: kişi başı mesaj, en yoğun saat, en çok kullanılan emojiler. Her şey iPhone’unuzda kalır. Tek seferlik satın alma.",
         keywords: "whatsapp sohbet pdf dışa aktarma, whatsapp pdf iphone, whatsapp konuşması yazdırma, whatsapp sohbetini pdf kaydetme, whatsapp txt pdf dönüştürme, whatsapp sohbet analizi, whatsapp sohbet istatistikleri, whatsapp’ta kim daha çok yazıyor, whatsapp sohbet yedeği pdf iphone",
         ogTitle: "WhatsApp sohbetini iPhone’da istatistikli PDF olarak dışa aktarın",
-        ogDescription: "Dışa aktarılan .txt veya .zip dosyasını açın, balonlu ve istatistikli sayfalanmış bir PDF alın. Yalnızca telefonunuzda işlenir, hiçbir şey yüklenmez. Tek seferlik 4,99 $.",
+        ogDescription: "Dışa aktarılan .txt veya .zip dosyasını açın, balonlu ve istatistikli sayfalanmış bir PDF alın. Yalnızca telefonunuzda işlenir, hiçbir şey yüklenmez. Tek seferlik satın alma.",
       },
       h1: "WhatsApp sohbetini iPhone’unuzda PDF olarak dışa aktarın, yazdırılabilir ve istatistikli",
-      answer: "Chat Export Studio: PDF, WhatsApp’ın Sohbeti Dışa Aktar özelliğinin ürettiği .txt veya .zip dosyasını açar ve ekrandaki konuşmaya benzeyen temiz, sayfalanmış bir PDF’e dönüştürür: her mesaj için gönderen, tarih ve saat içeren bir balon, gruplarda katılımcı başına bir renk. Ayrıca anında istatistikler gösterir: toplam mesaj ve kelime, kişi başı mesaj, en yoğun saat, tarih aralığı ve en çok kullanılan emojiler. Sohbet yalnızca iPhone’unuzda işlenir, hiçbir şey yüklenmez; tek seferlik 4,99 $’lık bir satın almadır.",
-      quickFacts: [["Fiyat", "Tek seferlik 4,99 $. Abonelik yok"], ["Girdi", "WhatsApp Sohbeti Dışa Aktar: .txt veya .zip, iPhone ya da Android, 12 veya 24 saat"], ["Çıktı", "Sayfalanmış PDF + istatistikler"], ["Gizlilik", "Cihaz üzerinde işlenir, yükleme yok, hesap yok"]],
+      answer: "Chat Export Studio: PDF, WhatsApp’ın Sohbeti Dışa Aktar özelliğinin ürettiği .txt veya .zip dosyasını açar ve ekrandaki konuşmaya benzeyen temiz, sayfalanmış bir PDF’e dönüştürür: her mesaj için gönderen, tarih ve saat içeren bir balon, gruplarda katılımcı başına bir renk. Ayrıca anında istatistikler gösterir: toplam mesaj ve kelime, kişi başı mesaj, en yoğun saat, tarih aralığı ve en çok kullanılan emojiler. Sohbet yalnızca iPhone’unuzda işlenir, hiçbir şey yüklenmez; tek seferlik bir satın almadır.",
+      quickFacts: [["Fiyat", "Tek seferlik satın alma. Abonelik yok"], ["Girdi", "WhatsApp Sohbeti Dışa Aktar: .txt veya .zip, iPhone ya da Android, 12 veya 24 saat"], ["Çıktı", "Sayfalanmış PDF + istatistikler"], ["Gizlilik", "Cihaz üzerinde işlenir, yükleme yok, hesap yok"]],
       screenshotsTitle: "Elde ettikleriniz: tek dokunuşla istatistikler ve şık, sayfalanmış bir PDF",
       screenshots: [
         { alt: "iPhone’da WhatsApp sohbet istatistikleri: mesajlar, kelimeler, en yoğun saat, katılımcı başına mesaj ve en çok kullanılan emojiler", caption: "Tek dokunuşla sohbet istatistikleri" },
@@ -293,7 +293,7 @@ export default {
           ["İstatistikler (kim çok konuşuyor, en yoğun saat)", "✓ Yerleşik", "✗ Hayır", "Bazen, yükledikten sonra"],
           ["Konuşma telefonunuzda kalır", "✓ Cihazdan asla çıkmaz", "✓ Evet", "✗ Sunucularına yüklenir"],
           ["Çevrimdışı çalışır", "✓ Evet", "✓ Evet", "✗ Hayır"],
-          ["Fiyat", "Tek seferlik 4,99 $", "Ücretsiz", "Reklamlı ücretsiz ya da ücretli"],
+          ["Fiyat", "Tek seferlik satın alma", "Ücretsiz", "Reklamlı ücretsiz ya da ücretli"],
         ],
       },
       faqs: [
@@ -304,7 +304,7 @@ export default {
         { q: "PDF delil olarak kullanılabilir mi?", a: "PDF dışa aktarımı birebir yansıtır ve hiçbir bulut işlemi olmadan üretilir; ancak bir belgenin kabul edilip edilmeyeceği ilgili kuruma ya da yargı bölgesine bağlıdır. Orijinal .zip ya da .txt dışa aktarımını PDF’in yanında saklayın ve kaydı isteyen tarafa hangi biçimi istediğini sorun." },
         { q: "Sohbet ne kadar uzun olabilir?", a: "On binlerce mesajlı sohbetler çalışır; çok uzun sohbetlerde PDF üretimi daha uzun sürer. İstatistikler neredeyse anında görünür." },
         { q: "Birden fazla sohbet dışa aktarabilir miyim?", a: "Evet. Bu sohbeti kapat’a dokunup bir sonraki dışa aktarımı açın. Sınır yok." },
-        { q: "Abonelik var mı?", a: "Hayır. Chat Export Studio: PDF tek seferlik 4,99 $’lık bir satın almadır." },
+        { q: "Abonelik var mı?", a: "Hayır. Chat Export Studio: PDF tek seferlik bir satın almadır." },
         { q: "Android sürümü var mı?", a: "Henüz yok. iPhone uygulaması şu an mevcut; Android sürümü hazırlanıyor ve hazır olduğunda bu sayfa Google Play’e bağlanacak." },
         { q: "Bu resmi bir WhatsApp uygulaması mı?", a: "Hayır. Chat Export Studio: PDF bağımsız bir araçtır; WhatsApp LLC veya Meta Platforms, Inc. ile bağlantılı değildir, onlar tarafından onaylanmamıştır. Sohbet uygulamasının ürettiği standart dışa aktarma dosyalarını okur." },
       ],
