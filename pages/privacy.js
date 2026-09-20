@@ -1,47 +1,192 @@
-import React from 'react';const PP = () => (<div>
-<h1>Privacy Policy for Mileglass App </h1>
-At Mileglass, we are committed to protecting the privacy of our users. This Privacy Policy outlines how we collect, use, disclose, and store your personal information when you use the Mileglass mobile application ("the App"). By using the App, you consent to the practices described in this Privacy Policy.
-<br />
-<br />
-1. Information Collection and Usage:
-<br /><br />
-1.1 Personal Information:
-We do not collect any personally identifiable information (PII) such as your name, email address, or phone number.
-<br /><br />
-1.2 Location Information:
-The App collects your device's location information solely for the purpose of providing location-based alarm services. This information is not stored or transmitted to any third parties.
-<br /><br />
-2. Data Security:
-<br /><br />
-2.1 Data Storage:
-The location data collected by the App is stored locally on your device. We do not store this information on our servers or any external storage.
-<br /><br />
-2.2 Data Access:
-We do not access or share your location data with any third parties. The App solely utilizes your location data to trigger alarms based on your specified distance.
-<br /><br />
-3. Analytics and Cookies:
-<br /><br />
-3.1 Analytics:
-The App may use analytics tools to collect non-personal, aggregated data such as the number of users, frequency of app usage, and user interactions. This helps us improve the App's performance and user experience. These analytics do not track any personally identifiable information.
-<br /><br />
-3.2 Cookies:
-The App does not use cookies or similar tracking technologies.
-<br /><br />
-4. Third-Party Links:
-<br /><br />
-The App may contain links to third-party websites or services. We are not responsible for the privacy practices or content of such third-party sites. We encourage you to review the privacy policies of these third-party websites before providing any personal information.
-<br /><br />
-5. Children's Privacy:
-<br /><br />
-The App is not intended for use by individuals under the age of 13. We do not knowingly collect any personal information from children. If you are a parent or guardian and believe that your child has provided us with personal information, please contact us immediately, and we will take appropriate steps to remove the information from our systems.
-<br /><br />
-6. Changes to the Privacy Policy:
-<br /><br />
-We may update this Privacy Policy from time to time. Any changes will be effective when the revised Privacy Policy is made available within the App. We encourage you to review this Privacy Policy periodically for any updates.
-<br /><br />
-7. Contact Us:
-<br /><br />
-If you have any questions or concerns about this Privacy Policy or the App's privacy practices, please contact us at [email address].
-<br /><br />
-By using the Mileglass App, you acknowledge that you have read and understood this Privacy Policy and agree to the collection, use, and disclosure of your information as described herein.
-</div>);export default PP
+import Head from "next/head";
+import Link from "next/link";
+import { Container } from "./about";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import { CookieSettingsLink } from "../components/CookieConsent";
+import { Wrap, Eyebrow, Title, Lead, Section } from "../components/service";
+
+const URL = "https://www.vilvaathiban.com/privacy";
+
+const PrivacyPage = () => (
+  <Container>
+    <Head>
+      <title>Privacy Policy — vilvaathiban.com</title>
+      <meta
+        name="description"
+        content="Privacy policy for vilvaathiban.com: what this static personal site collects, the consent-gated Google Analytics setup, and your rights under the GDPR."
+      />
+      <link rel="canonical" href={URL} />
+    </Head>
+    <Header />
+    <Wrap>
+      <Eyebrow>vilvaathiban.com</Eyebrow>
+      <Title>Privacy Policy</Title>
+      <Lead>Last updated: 21 September 2026</Lead>
+
+      <Section>
+        <h2>1. Who we are</h2>
+        <p>
+          This site, <b>vilvaathiban.com</b>, is the personal site and blog of{" "}
+          <b>Vilva Athiban Periyasamy Boominathan</b>, an individual based in
+          Germany. He is the data controller for the processing described on
+          this page.
+        </p>
+        <p>
+          Contact:{" "}
+          <a href="mailto:vilvaathiban@gmail.com">vilvaathiban@gmail.com</a>. The
+          full legal notice is on the <Link href="/impressum">Impressum</Link>{" "}
+          page.
+        </p>
+      </Section>
+
+      <Section>
+        <h2>2. What we collect</h2>
+        <p>
+          This is a static site: the pages are pre-built files served to your
+          browser. There are no accounts, no logins, no comment form, no
+          newsletter sign-up handled here, and no database.
+        </p>
+        <p>
+          Beyond the access logs kept by our hosting provider (section 3) and —
+          only if you agree to it — Google Analytics (section 4), we collect
+          nothing about you. We do not sell data and we do not use it for
+          advertising.
+        </p>
+      </Section>
+
+      <Section>
+        <h2>3. Server logs</h2>
+        <p>
+          Our hosting provider records standard access logs when your browser
+          requests a page. These typically include your IP address, the time of
+          the request, the page requested, the referring page, and your browser
+          and operating system version.
+        </p>
+        <p>
+          This happens for every website on the internet and is necessary to
+          deliver the page, keep the site available, and investigate abuse or
+          errors. The legal basis is our legitimate interest in a secure and
+          functioning website, Article 6(1)(f) GDPR. We do not combine these logs
+          with anything else and we do not use them to identify visitors.
+        </p>
+      </Section>
+
+      <Section>
+        <h2>4. Cookies and analytics</h2>
+        <p>
+          We use Google Analytics 4 to understand which pages people find useful
+          — how visitors arrive, which articles they read, and how far down they
+          get. We use it to improve what we write, not to profile individuals,
+          and we do not use it for advertising.
+        </p>
+        <p>
+          <b>Nothing loads until you agree.</b> When you first visit, a banner
+          asks whether you accept analytics cookies. Until you choose
+          &quot;Accept&quot;, no analytics script is downloaded, no cookie is
+          set, and no data about your visit is sent to Google. If you choose
+          &quot;Reject&quot;, or simply ignore the banner, that remains true for
+          your entire visit. The site works identically either way.
+        </p>
+        <p>
+          <b>If you accept</b>, Google Analytics sets cookies (named{" "}
+          <code>_ga</code> and <code>_ga_&lt;id&gt;</code>) that hold a randomly
+          generated identifier. That identifier lets us recognise a returning
+          browser so a person who reads three pages is counted once rather than
+          three times. We enable IP anonymisation, so your IP address is
+          truncated before it is stored. These cookies expire after up to two
+          years, and analytics data is retained for 14 months.
+        </p>
+        <p>
+          <b>What we measure</b>, if you accept: the pages you view, roughly how
+          far you scroll, which sections of an article hold your attention, how
+          long you stay, and whether you click a link that leads off the site.
+          This is aggregated in Google&apos;s reporting; we do not attempt to
+          identify individual readers.
+        </p>
+        <p>
+          <b>Who receives it:</b> Google Ireland Limited, and its parent Google
+          LLC in the United States, act as our analytics provider. Data may be
+          transferred outside the EU; Google relies on the European
+          Commission&apos;s Standard Contractual Clauses and the EU–US Data
+          Privacy Framework for those transfers. Google&apos;s own description is
+          at{" "}
+          <a
+            href="https://policies.google.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            policies.google.com/privacy
+          </a>
+          .
+        </p>
+        <p>
+          <b>Legal basis:</b> your consent, under Article 6(1)(a) GDPR and § 25(1)
+          TTDSG. You can withdraw it at any time using the{" "}
+          <CookieSettingsLink /> link in the footer — or{" "}
+          <CookieSettingsLink style={{ fontWeight: 600 }} /> right here.
+          Withdrawing deletes the analytics cookies from your browser and stops
+          any further collection. Withdrawal does not affect the lawfulness of
+          what was collected beforehand.
+        </p>
+        <p>
+          <b>Strictly necessary cookies:</b> any cookie required to make the site
+          work (for example, keeping you signed in, or remembering this very
+          cookie choice) is stored on your own device, is not shared with anyone,
+          and does not require consent. Your cookie choice itself is kept in your
+          browser&apos;s local storage under the key{" "}
+          <code>cookie-consent</code> and is never sent to us.
+        </p>
+      </Section>
+
+      <Section>
+        <h2>5. Who else receives data</h2>
+        <p>
+          Our hosting provider, which serves the pages and keeps the access logs
+          described in section 3, and Google, for analytics, but only if you
+          accepted analytics cookies. Nobody else.
+        </p>
+        <p>
+          Pages on this site link out to third-party platforms (for example
+          GitHub, LinkedIn, YouTube, Medium and dev.to). Following such a link
+          takes you to a service with its own privacy policy, over which we have
+          no control.
+        </p>
+      </Section>
+
+      <Section>
+        <h2>6. Your rights</h2>
+        <p>
+          Under the GDPR you have the right to access your personal data, to have
+          it rectified or erased, to have its processing restricted, to object to
+          processing, and to data portability. Where processing is based on
+          consent, you may withdraw that consent at any time — for analytics,
+          through the <CookieSettingsLink /> link.
+        </p>
+        <p>
+          In practice we hold no account or contact record for you, so for most
+          requests there is simply nothing on our side to retrieve or delete.
+          Write to{" "}
+          <a href="mailto:vilvaathiban@gmail.com">vilvaathiban@gmail.com</a> if
+          you want to exercise a right.
+        </p>
+        <p>
+          You also have the right to lodge a complaint with a data protection
+          supervisory authority — in Germany, the authority of the federal state
+          in which the operator resides.
+        </p>
+      </Section>
+
+      <Section>
+        <h2>7. Changes</h2>
+        <p>
+          We update this page when the site changes, and we change the date at
+          the top when we do.
+        </p>
+      </Section>
+    </Wrap>
+    <Footer />
+  </Container>
+);
+
+export default PrivacyPage;
