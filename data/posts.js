@@ -4851,6 +4851,158 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  {
+    slug: "abortsignal-timeout-any-request-timeouts",
+    title:
+      "AbortSignal.timeout() and AbortSignal.any(): Request Timeouts Without the setTimeout Dance",
+    description:
+      "Stop hand-rolling AbortController timeouts. How AbortSignal.timeout() and AbortSignal.any() work, how to tell a timeout from a user cancel, and what to watch for in Node.",
+    datePublished: "2026-09-21",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Almost every codebase has this function in it somewhere. Someone needed a fetch with a timeout, discovered that `fetch` does not have one, found `AbortController`, and wrote the obvious thing:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "async function fetchWithTimeout(url, ms) {\n  const controller = new AbortController()\n  const timer = setTimeout(() => controller.abort(), ms)\n  try {\n    return await fetch(url, { signal: controller.signal })\n  } finally {\n    clearTimeout(timer)\n  }\n}",
+          },
+          {
+            type: "p",
+            text: "It works. It is also four moving parts to express one idea, it leaks a timer if you forget the `finally`, and the error it throws is indistinguishable from a user pressing cancel. All three of those have had a platform fix for a while now, and a surprising number of codebases have not picked it up.",
+          },
+        ],
+      },
+      {
+        heading: "AbortSignal.timeout() is the whole thing",
+        blocks: [
+          {
+            type: "p",
+            text: "`AbortSignal.timeout(ms)` is a static method that hands you a signal which aborts itself after `ms` milliseconds. No controller, no timer variable, no cleanup.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const res = await fetch(url, { signal: AbortSignal.timeout(5000) })",
+          },
+          {
+            type: "p",
+            text: "That is the entire replacement for the function above. It has been available in Node since **17.3**, and it is supported across current browsers.",
+          },
+          {
+            type: "p",
+            text: "Two details make it better than the hand-rolled version rather than merely shorter. First, there is no timer for you to leak: the signal owns its own timer and the platform cleans it up. In Node specifically, that timer does not hold the event loop open, so a script whose only pending work is an unfired timeout signal still exits cleanly. Second, and more usefully, it aborts with a different error.",
+          },
+        ],
+      },
+      {
+        heading: "TimeoutError vs AbortError: the part people miss",
+        blocks: [
+          {
+            type: "p",
+            text: "When you call `controller.abort()` yourself, the rejection is a `DOMException` whose `name` is `\"AbortError\"`. When a timeout signal fires, the name is `\"TimeoutError\"`. That distinction is free, and it is the difference between a useful error path and a useless one.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "try {\n  const res = await fetch(url, { signal: AbortSignal.timeout(5000) })\n  return await res.json()\n} catch (err) {\n  if (err.name === 'TimeoutError') {\n    // the server was too slow - retry, or degrade\n    return null\n  }\n  if (err.name === 'AbortError') {\n    // the user navigated away - say nothing, do nothing\n    return null\n  }\n  throw err\n}",
+          },
+          {
+            type: "p",
+            text: "In the hand-rolled version both cases arrive as `AbortError`, which is why so many apps show a *Something went wrong* toast to users who simply clicked the back button. If you take one thing from this post, take this: stop swallowing every abort identically.",
+          },
+        ],
+      },
+      {
+        heading: "AbortSignal.any() composes signals",
+        blocks: [
+          {
+            type: "p",
+            text: "Real requests usually have more than one reason to stop. A timeout, *and* a cancel button, *and* a React effect cleanup when the component unmounts. Before `AbortSignal.any()` you either nested controllers or wired `abort` listeners by hand.",
+          },
+          {
+            type: "p",
+            text: "`AbortSignal.any(iterable)` takes any iterable of signals and returns one signal that aborts as soon as the first of them does. The `reason` on the combined signal is the reason of whichever signal won, so the `err.name` check above still works unchanged.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "function load(url, userSignal) {\n  const signal = AbortSignal.any([\n    userSignal,\n    AbortSignal.timeout(10_000),\n  ])\n  return fetch(url, { signal })\n}",
+          },
+          {
+            type: "p",
+            text: "It became newly available across browsers in **Baseline 2024**, and landed in Node **20**. In React that gives you a clean effect:",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: "useEffect(() => {\n  const controller = new AbortController()\n  const signal = AbortSignal.any([\n    controller.signal,\n    AbortSignal.timeout(8000),\n  ])\n\n  fetch('/api/items', { signal })\n    .then((r) => r.json())\n    .then(setItems)\n    .catch((err) => {\n      if (err.name === 'TimeoutError') setError('The server took too long.')\n      // AbortError here means unmount - deliberately ignored\n    })\n\n  return () => controller.abort()\n}, [])",
+          },
+        ],
+      },
+      {
+        heading: "The sharp edges",
+        blocks: [
+          {
+            type: "p",
+            text: "Three things are worth knowing before you put `AbortSignal.any()` on a hot path.",
+          },
+          {
+            type: "list",
+            items: [
+              "**There is no way to unsubscribe.** A combined signal cannot be detached from its inputs. Aborting the combined signal does not abort the inputs or cancel their timeouts either - the composition is one-directional.",
+              "**Listeners still need removing.** The spec links combined signals to their sources through weak references, but a non-aborted combined signal is kept alive while it has source signals and registered `abort` listeners. If you attach your own listener to a combined signal, remove it when the operation finishes, exactly as you would for any other signal.",
+              "**Creating one per request in a tight loop is real work.** For a handful of concurrent requests this is irrelevant. For thousands, hoist the long-lived signals and only build the per-request timeout.",
+            ],
+          },
+          {
+            type: "p",
+            text: "There is also one genuine reason to keep the old pattern: if you need to *extend* or *reset* the deadline while the request is in flight - a heartbeat-style idle timeout rather than a total-duration timeout - `AbortSignal.timeout()` cannot help you. Its clock starts when the signal is created and cannot be restarted. That is a case for a controller and a timer you own.",
+          },
+        ],
+      },
+      {
+        heading: "It is not only for fetch",
+        blocks: [
+          {
+            type: "p",
+            text: "Both methods return a plain `AbortSignal`, so anything that accepts one accepts these. In the browser that includes `addEventListener` - passing a signal in the options object removes the listener when the signal aborts, which is the tidiest way to clean up a group of listeners at once.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const signal = AbortSignal.timeout(30_000)\nwindow.addEventListener('scroll', onScroll, { signal })\nwindow.addEventListener('resize', onResize, { signal })\n// both listeners detach automatically after 30 seconds",
+          },
+          {
+            type: "p",
+            text: "In Node, most of the async APIs that can be cancelled take a `signal` option too - `fs/promises` reads, `readline`, `child_process`, stream helpers, timers promises. The same signal can gate all of them.",
+          },
+        ],
+      },
+      {
+        heading: "What to change today",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Grep for `new AbortController()` followed by a `setTimeout`. Nearly all of those are one-line replacements.",
+              "Grep for `err.name === 'AbortError'` and check whether the branch is really meant to catch timeouts too. Split it.",
+              "Where a request has more than one cancellation source, compose with `AbortSignal.any()` instead of threading controllers through call signatures.",
+              "Keep a hand-rolled controller only where you need to move the deadline after the fact.",
+            ],
+          },
+          {
+            type: "p",
+            text: "If you want the broader picture of how signals, reasons and `throwIfAborted()` fit together, the [practical guide to AbortController and AbortSignal](/blog/abortcontroller-abortsignal-practical-guide) covers the fundamentals this post builds on.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
 ];
 

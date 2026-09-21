@@ -1389,4 +1389,175 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "recording-video-in-a-second-language",
+    title: "Recording Video Confidently in a Second Language",
+    description:
+      "Filming in a language you did not grow up speaking is a memory problem, not a fluency problem. How to script, pace and record so you sound like yourself on camera.",
+    datePublished: "2026-09-21",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "You speak the language perfectly well. You hold meetings in it, you argue in it, you make jokes in it. Then you point a camera at yourself and something collapses. The sentence you had planned comes out in the wrong order, you hear your own accent for the first time in years, and take eleven is somehow worse than take one.",
+          },
+          {
+            type: "p",
+            text: "This is extremely common and it is almost never a fluency problem. It is a load problem. Speaking a second language costs you working memory; performing to a camera costs you working memory; remembering what you meant to say costs you working memory. Do all three at once and something has to give.",
+          },
+          {
+            type: "p",
+            text: "The fix is to take the third one off the table entirely, and then to write for the mouth you actually have rather than the one you wish you had.",
+          },
+        ],
+      },
+      {
+        heading: "Why the camera makes a fluent speaker stumble",
+        blocks: [
+          {
+            type: "p",
+            text: "In conversation you get help you never notice. The other person nods, so you know you are landing. You can pause without it being awkward. If a word escapes you, you point, or you say *the thing for the* and they finish it. None of that exists when you are talking to a lens.",
+          },
+          {
+            type: "p",
+            text: "On top of that, unscripted second-language speech leans on filler and repair - *how do you say*, *I mean*, *sorry, again* - which is completely normal in conversation and sounds like uncertainty on video. So people over-correct by memorising a script word for word, and memorised text in a second language is the fastest route to sounding stiff, because now you are translating *and* reciting.",
+          },
+        ],
+      },
+      {
+        heading: "Write in the register you actually speak",
+        blocks: [
+          {
+            type: "p",
+            text: "Here is the trap almost everyone falls into. When we write in a second language, we write formally - that is the register school taught, and it is the register of the articles we read. Then we read that writing aloud and it sounds like a textbook, which is not how we talk at all.",
+          },
+          {
+            type: "p",
+            text: "So write the script badly on purpose, in the way you would actually say it to a colleague:",
+          },
+          {
+            type: "list",
+            items: [
+              "Short sentences. One idea each. A comma in a second-language script is usually a place you will stumble - make it a full stop instead.",
+              "Contractions everywhere. *It is not* becomes *it isn't*. Formal writing avoids them; speech does not.",
+              "Swap out any word you would not use in a meeting. If you have written *utilise*, you meant *use*. If you have written *subsequently*, you meant *then*.",
+              "Cut the linking phrases you learned for essays - *moreover*, *in conclusion*, *furthermore*. Nobody says them.",
+              "Where you know a sound is hard for you, choose a different word. This is not cheating, it is the same thing native speakers do unconsciously.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Then read the whole thing out loud once before you record anything. Every place you trip is a place to rewrite, not a place to practise harder. The [guide to writing a script that doesn't sound written](/blog/write-a-script-that-doesnt-sound-written) goes deeper on this, and everything in it applies double here.",
+          },
+        ],
+      },
+      {
+        heading: "Put the script next to the lens, not in your memory",
+        blocks: [
+          {
+            type: "p",
+            text: "Once the words are on a teleprompter you stop spending memory on recall and spend all of it on delivery. That single change is usually worth more than weeks of practice.",
+          },
+          {
+            type: "p",
+            text: "[Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay) floats the script directly over the camera preview, right next to the front lens, so you can read without your eyes drifting off to the side. The script never appears in the saved video - it exists only on your screen while you record.",
+          },
+          {
+            type: "p",
+            text: "The feature that matters most for a second language is the **voice-driven scrolling**. Instead of the text crawling at a fixed speed you have to chase, the app listens and follows your pace using Apple's on-device speech recognition. It auto-detects the language of your script, and supports every language iOS on-device recognition supports - so if you are recording in Spanish, German, Hindi or Japanese, it follows you in that language rather than trying to match English sounds.",
+          },
+          {
+            type: "p",
+            text: "That matters because the thing that derails second-language takes is the stumble. You mispronounce a word, go back, say it again. A fixed-speed scroll keeps going and you lose your line. Voice-follow waits, finds your place again, and carries on. You are allowed to be imperfect mid-sentence without losing the take.",
+          },
+        ],
+      },
+      {
+        heading: "Record in passes, not in takes",
+        blocks: [
+          {
+            type: "p",
+            text: "Stop trying to nail a three-minute video in one go. Record it in four chunks of forty seconds, with a breath between each, and cut them together. Your failure rate per chunk is dramatically lower, and the confidence of having banked three good chunks changes how the fourth one sounds.",
+          },
+          {
+            type: "p",
+            text: "Two habits that compound with this:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Record the hardest section first**, while you still have patience. The bit you are dreading gets worse every time you postpone it.",
+              "**Do one deliberately fast throwaway pass** before the real ones. Speaking too quickly on purpose gets the self-monitoring voice out of the way, and take two usually comes out at a natural pace.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "About the accent",
+        blocks: [
+          {
+            type: "p",
+            text: "Worth saying plainly, because it is the thing most people are actually worried about: an accent is not a defect to be edited out. Clarity matters - pacing, articulation, finishing your words - and accent does not. Viewers forgive an accent instantly. They do not forgive being unable to follow.",
+          },
+          {
+            type: "p",
+            text: "If clarity is genuinely the issue, the levers are speed and stress, not vowel sounds. Slow down about fifteen percent from what feels natural. Land firmly on the one stressed word in each sentence. Leave a real pause at every full stop instead of running sentences together. That is most of it.",
+          },
+        ],
+      },
+      {
+        heading: "When not to do this",
+        blocks: [
+          {
+            type: "p",
+            text: "A teleprompter is the wrong tool for some second-language recording, and pretending otherwise would be useless.",
+          },
+          {
+            type: "list",
+            items: [
+              "**If you are genuinely still learning the language**, reading a script you cannot produce yourself will show. The mismatch between your written and spoken register becomes audible, and viewers read it as inauthentic rather than impressive.",
+              "**For anything conversational** - a Q&A, a reaction, a livestream - scripting kills the format. Use bullet prompts, not sentences.",
+              "**For very short clips**, under about twenty seconds, the setup costs more than it saves. Just learn the four lines.",
+            ],
+          },
+          {
+            type: "p",
+            text: "There is also an honest trade-off with voice-follow specifically: it works by listening, so it needs you to be reasonably audible. In a noisy cafe, classic auto-scroll with the speed slider is the more reliable choice. The [comparison of voice-follow and auto-scroll](/blog/voice-follow-vs-auto-scroll-teleprompter) covers when each one wins.",
+          },
+        ],
+      },
+      {
+        heading: "The practical setup",
+        blocks: [
+          {
+            type: "p",
+            text: "For a second-language recording specifically, a few settings earn their keep. Turn the text size up more than you think you need - larger text means fewer words per line, which means less scanning, which means less of the sideways eye movement that reads as *reading*. Keep chunks short in the script itself, with plenty of line breaks at natural breathing points.",
+          },
+          {
+            type: "p",
+            text: "Everything runs on the device: the speech recognition is on-device, the app works in airplane mode, and nothing about your script or your takes is uploaded anywhere. For people rehearsing in a language they are self-conscious about, that tends to matter more than any feature - the fumbling takes stay on your phone.",
+          },
+          {
+            type: "p",
+            text: "The app records in portrait 4K, keeps unlimited scripts and a library of takes, and is free with occasional ads, with a small one-time purchase to remove them. No subscription, no watermark. It is iOS only.",
+          },
+        ],
+      },
+      {
+        heading: "Next",
+        blocks: [
+          {
+            type: "p",
+            text: "The eye contact problem is a close cousin of this one, and it gets worse when you are concentrating on pronunciation - your eyes drift to the text exactly when you need them on the lens. [How to keep eye contact with the camera](/blog/how-to-keep-eye-contact-with-the-camera) is the companion piece.",
+          },
+          {
+            type: "p",
+            text: "Next in this series: mirror mode and DIY teleprompter rigs - what you actually need to build one, and when a phone propped against a laptop is genuinely good enough.",
+          },
+        ],
+      },
+    ],
+  },
 ];
