@@ -1,5 +1,7 @@
 import Head from "next/head";
+import Link from "next/link";
 import dynamic from "next/dynamic";
+import { CookieSettingsLink } from "../components/CookieConsent";
 
 const Game = dynamic(() => import("../components/Game"), {
   ssr: false,
@@ -67,6 +69,38 @@ export default function Home() {
         />
       </Head>
       <Game />
+      {/* The homepage is a full-screen canvas with no room for the site footer,
+          but § 5 DDG expects the Impressum to be reachable from the landing
+          page. Inline styles so this never depends on the 3D scene's CSS. */}
+      <div
+        style={{
+          position: "fixed",
+          right: 12,
+          bottom: 10,
+          zIndex: 2147482000,
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "4px 12px",
+          alignItems: "center",
+          padding: "6px 12px",
+          borderRadius: 999,
+          background: "rgba(17, 24, 39, 0.62)",
+          backdropFilter: "blur(4px)",
+          fontFamily:
+            'ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+          fontSize: 12,
+          lineHeight: 1.4,
+          color: "#e5e7eb",
+        }}
+      >
+        <Link href="/privacy" style={{ color: "#e5e7eb", textDecoration: "underline" }}>
+          Privacy
+        </Link>
+        <Link href="/impressum" style={{ color: "#e5e7eb", textDecoration: "underline" }}>
+          Impressum
+        </Link>
+        <CookieSettingsLink style={{ color: "#e5e7eb", fontSize: 12 }} />
+      </div>
     </>
   );
 }

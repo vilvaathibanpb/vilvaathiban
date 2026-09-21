@@ -1,5 +1,7 @@
 import styled from "styled-components";
+import NextLink from "next/link";
 import { socials } from "../../data/social";
+import { CookieSettingsLink } from "../CookieConsent";
 
 const Box = styled.footer`
   background: #111827;
@@ -54,6 +56,24 @@ const Meta = styled.div`
   margin-top: 8px;
 `;
 
+const Legal = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4px;
+  font-size: 13px;
+  color: #cbd5e1;
+
+  a {
+    color: #cbd5e1;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  a:hover { color: #ffffff; }
+`;
+
 export default function Footer() {
   return (
     <Box>
@@ -66,6 +86,11 @@ export default function Footer() {
             </Link>
           ))}
         </Links>
+        <Legal>
+          <NextLink href="/privacy">Privacy</NextLink>
+          <NextLink href="/impressum">Impressum</NextLink>
+          <CookieSettingsLink style={{ color: "#cbd5e1" }} />
+        </Legal>
         <Meta>© {new Date().getFullYear()} Vilva Athiban P B</Meta>
       </Inner>
     </Box>
