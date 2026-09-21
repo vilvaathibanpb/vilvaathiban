@@ -1560,4 +1560,159 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "mirror-mode-and-diy-teleprompter-rigs",
+    title:
+      "Mirror Mode and DIY Teleprompter Rigs: What You Actually Need to Build One",
+    description:
+      "How teleprompter mirror mode works, how to build a beam-splitter rig at home, and the honest test for whether you need a rig at all or just a better phone position.",
+    datePublished: "2026-09-21",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Somewhere in every creator's second year there is an evening spent watching rig build videos. Glass at forty-five degrees, a hood made of blackout fabric, a tablet lying face-up underneath. It looks like the thing that separates amateur footage from the stuff on television, and there is a version of that which is true.",
+          },
+          {
+            type: "p",
+            text: "There is also a version where you spend a weekend and eighty pounds to solve a problem you did not have. This post covers what mirror mode is actually for, how to build a rig if you need one, and - more usefully for most people - the test for whether you do.",
+          },
+        ],
+      },
+      {
+        heading: "What mirror mode is, in one paragraph",
+        blocks: [
+          {
+            type: "p",
+            text: "A proper teleprompter puts a piece of half-silvered glass at forty-five degrees in front of the lens. The camera looks straight through it. You, standing in front, see the reflection of a screen lying face-up below. Your eyes are on the lens and on the script at the same time, which is the entire point.",
+          },
+          {
+            type: "p",
+            text: "A reflection is laterally reversed. So the screen has to display the text already flipped, and the mirror un-flips it back for you. That is all mirror mode is: a horizontal flip of the text so it reads correctly after one bounce. Turn it on when there is a mirror in the light path, and off when there is not. Turning it on without a mirror gives you a screen of backwards text, which is a five-second mystery that has briefly confused everybody who has ever used the setting.",
+          },
+        ],
+      },
+      {
+        heading: "Building one: the minimum viable rig",
+        blocks: [
+          {
+            type: "p",
+            text: "If you want to build rather than buy, the parts list is genuinely short.",
+          },
+          {
+            type: "list",
+            items: [
+              "**A beam splitter.** This is the one part not to improvise. A standard household mirror reflects off both the glass surface and the silvered back, so you get a faint double image of every letter. Teleprompter glass, or a sheet of beam-splitter film on clear acrylic, is what you want.",
+              "**A frame holding the glass at 45 degrees** to the lens axis. Foam board, a cardboard box cut to a triangle, or three pieces of timber all work. The angle matters more than the material.",
+              "**A shroud.** Some black fabric or card wrapping the camera side of the glass. Without it, the camera sees the room reflected in the glass and your footage gets a milky wash across it. This is the step most first builds skip and then quietly re-do.",
+              "**A shelf for the phone**, screen up, directly under the glass.",
+              "**A second camera.** If your script phone is under the glass, it cannot also be the camera.",
+            ],
+          },
+          {
+            type: "p",
+            text: "That last point is the one that catches people out with a phone-based workflow. A single phone cannot be both the face-up screen and the through-the-glass camera. So the DIY rig is really a two-device setup: an old phone or tablet running the script, and your main phone shooting through the glass.",
+          },
+        ],
+      },
+      {
+        heading: "The overlay alternative, and why it exists",
+        blocks: [
+          {
+            type: "p",
+            text: "The other way to solve eye contact is to put the script *on* the camera preview rather than in front of the lens. That is what [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay) does - the text floats over the live preview, positioned up next to the front lens, so your eyes are already about a centimetre from the camera while you read. One phone, no glass, no shroud, nothing to assemble.",
+          },
+          {
+            type: "p",
+            text: "It is not optically identical to a beam splitter. With real prompter glass your eyeline is exactly on the lens. With an overlay it is very close to it - close enough that at any normal framing, nobody watching can tell. The gap only becomes visible in extreme close-ups shot from a metre away.",
+          },
+          {
+            type: "p",
+            text: "The app keeps mirror mode as a setting precisely for the case where you *are* using a rig: prop the phone face-up under a beam splitter, flip the text, and the voice-driven scrolling still works, because the on-device speech recognition is listening to you rather than watching the screen.",
+          },
+        ],
+      },
+      {
+        heading: "The honest test: do you need a rig?",
+        blocks: [
+          {
+            type: "p",
+            text: "Record ninety seconds of the thing you actually make, using nothing but a phone at eye level with an overlay prompter. Watch it back on a laptop, full screen. Then ask one question: can you tell I am reading?",
+          },
+          {
+            type: "p",
+            text: "If the answer is no - and for talking-head content at arm's length or further, it usually is - a rig will not improve the video. It will improve the setup time, in the wrong direction.",
+          },
+          {
+            type: "p",
+            text: "The cases where a rig earns its place are fairly specific:",
+          },
+          {
+            type: "list",
+            items: [
+              "You shoot with a dedicated camera and lens rather than a phone, so there is no screen next to the sensor to put text on.",
+              "Your framing is a tight close-up where a centimetre of eyeline offset becomes visible.",
+              "You read long-form, near-verbatim scripts - legal, medical, corporate - where you cannot afford to paraphrase and need continuous reading for ten minutes at a time.",
+              "Somebody else is operating the camera and controlling the scroll, which is a genuinely different workflow from solo recording.",
+            ],
+          },
+          {
+            type: "p",
+            text: "If none of those describe your work, the honest answer is that the rig is a hobby, and an enjoyable one - just do not file it under production quality.",
+          },
+        ],
+      },
+      {
+        heading: "If you do build one, four things that go wrong",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Double text.** You used a household mirror instead of beam-splitter glass. There is no setting that fixes this.",
+              "**Washed-out footage.** No shroud. The camera is photographing the room's reflection along with your face.",
+              "**Backwards text.** Mirror mode off when it should be on, or on when there is no mirror in the path.",
+              "**Screen glare in the frame.** The face-up screen at full brightness can bounce into the lens. Drop the brightness until the reflection is comfortably readable and no further.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "One thing a rig cannot fix",
+        blocks: [
+          {
+            type: "p",
+            text: "A beam splitter puts your eyes on the lens. It does nothing at all about sounding like someone reading, which is the failure mode viewers actually notice. Plenty of very expensively rigged footage still has the flat, evenly-paced delivery of a person working through a paragraph.",
+          },
+          {
+            type: "p",
+            text: "That is a scripting problem, and it is solved before the camera comes out - [writing a script that doesn't sound written](/blog/write-a-script-that-doesnt-sound-written) is the piece on it. And if your eyes drift to the text mid-sentence rather than staying forward, [how to keep eye contact with the camera](/blog/how-to-keep-eye-contact-with-the-camera) covers the habit side of the same problem.",
+          },
+        ],
+      },
+      {
+        heading: "The app, briefly",
+        blocks: [
+          {
+            type: "p",
+            text: "For completeness, since it is the thing being compared against a rig here: the script floats over the camera preview next to the front lens, voice-driven scrolling follows your pace using Apple's on-device speech recognition - it detects the script's language automatically and finds your place again if you stumble - and classic auto-scroll with a speed slider is there when you would rather set a pace. Text size is adjustable, mirror mode is available for rig setups, it records portrait 4K, and the script never appears in the saved video.",
+          },
+          {
+            type: "p",
+            text: "Everything runs on the device. It works in airplane mode and nothing is uploaded. Unlimited scripts, a takes library, free with occasional ads and a small one-time purchase to remove them - no subscription, no watermark. iOS only.",
+          },
+        ],
+      },
+      {
+        heading: "Next",
+        blocks: [
+          {
+            type: "p",
+            text: "Next in this series: what to actually look for in a free teleprompter app - which limitations are reasonable trade-offs and which ones quietly make the app useless for real recording.",
+          },
+        ],
+      },
+    ],
+  },
 ];

@@ -5003,6 +5003,211 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  {
+    slug: "javascript-compare-sets-equality-subset-superset",
+    title:
+      "Comparing Two Sets in JavaScript: Equality, Subset, Superset and Disjoint",
+    description:
+      "JavaScript has isSubsetOf, isSupersetOf and isDisjointFrom but no equals. How to test set equality correctly, what set-like means, and the gotchas that bite.",
+    datePublished: "2026-09-21",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "The 2024 Set methods gave JavaScript real set algebra: `union`, `intersection`, `difference` and `symmetricDifference` produce new sets, and `isSubsetOf`, `isSupersetOf` and `isDisjointFrom` answer yes-or-no questions about the relationship between two sets. They have been Baseline since June 2024 and are available in every current browser engine and in Node 22 and later.",
+          },
+          {
+            type: "p",
+            text: "There is one obvious question the proposal deliberately did not answer: are these two sets *equal*? There is no `Set.prototype.equals`. This post covers how to answer it correctly, the three comparison predicates that do exist, and the handful of things about these methods that surprise people the first time.",
+          },
+        ],
+      },
+      {
+        heading: "The three comparison methods you do have",
+        blocks: [
+          {
+            type: "p",
+            text: "All three return a boolean and none of them mutates anything.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const a = new Set([1, 2, 3]);\nconst b = new Set([1, 2, 3, 4, 5]);\nconst c = new Set([9, 10]);\n\na.isSubsetOf(b);     // true  - every member of a is in b\nb.isSupersetOf(a);   // true  - the same relation, read the other way\na.isDisjointFrom(c); // true  - they share nothing\na.isDisjointFrom(b); // false - they share 1, 2 and 3",
+          },
+          {
+            type: "p",
+            text: "Two properties of these worth internalising, because they are the source of most confusion:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Subset is not strict.** A set is a subset of itself. `a.isSubsetOf(a)` is `true`. There is no built-in strict-subset check - you compose one, which we will do below.",
+              "**The empty set is a subset of everything** and is disjoint from everything, including itself. `new Set().isDisjointFrom(new Set())` is `true`. This is mathematically correct and it will still surprise you in a test at some point.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Set equality: two correct ways",
+        blocks: [
+          {
+            type: "p",
+            text: "Two sets are equal when each is a subset of the other. That is the definition, and it is also a perfectly good implementation:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const setsEqual = (a, b) => a.isSubsetOf(b) && b.isSubsetOf(a);",
+          },
+          {
+            type: "p",
+            text: "It is correct and it reads like the maths. It is also doing more work than it needs to, because each call walks a whole set. The faster version uses the fact that for two sets, equal size plus one-way containment is enough:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const setsEqual = (a, b) => a.size === b.size && a.isSubsetOf(b);",
+          },
+          {
+            type: "p",
+            text: "The size check is an O(1) early exit that rejects most unequal pairs immediately, and when the sizes do match, a one-way subset test is sufficient. This is the version to reach for.",
+          },
+          {
+            type: "p",
+            text: "If you are stuck on an older runtime without the Set methods, the hand-rolled equivalent is short:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const setsEqual = (a, b) => {\n  if (a.size !== b.size) return false;\n  for (const value of a) {\n    if (!b.has(value)) return false;\n  }\n  return true;\n};",
+          },
+        ],
+      },
+      {
+        heading: "Strict subset and strict superset",
+        blocks: [
+          {
+            type: "p",
+            text: "Strict (or proper) subset means every member of `a` is in `b` **and** `b` has something `a` does not. Compose it from the size:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const isStrictSubset = (a, b) => a.size < b.size && a.isSubsetOf(b);\nconst isStrictSuperset = (a, b) => a.size > b.size && a.isSupersetOf(b);\n\nconst x = new Set([1, 2]);\nconst y = new Set([1, 2, 3]);\n\nisStrictSubset(x, y); // true\nisStrictSubset(x, x); // false",
+          },
+        ],
+      },
+      {
+        heading: "The argument has to be set-like, not merely iterable",
+        blocks: [
+          {
+            type: "p",
+            text: "This is the single most common runtime error with these methods, and it is easy to get wrong because it reads like it should work:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const a = new Set([1, 2, 3]);\n\na.isSubsetOf([1, 2, 3, 4]);\n// TypeError: object is not set-like",
+          },
+          {
+            type: "p",
+            text: "Every one of the new methods requires a **set-like** argument: an object with a numeric `size` property, a callable `has` method, and a callable `keys` method that returns an iterator. An array has none of those. A plain iterable has none of those.",
+          },
+          {
+            type: "p",
+            text: "So arrays need wrapping, and the wrap is cheap enough not to think about:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "a.isSubsetOf(new Set([1, 2, 3, 4])); // true",
+          },
+          {
+            type: "p",
+            text: "The pleasant consequence of the set-like contract is that a `Map` satisfies it - `size`, `has` and `keys` are all there - so you can compare a Set against a Map's keys directly without materialising them:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const required = new Set([\"id\", \"email\"]);\nconst record = new Map([\n  [\"id\", 7],\n  [\"email\", \"a@b.c\"],\n  [\"name\", \"Ada\"],\n]);\n\nrequired.isSubsetOf(record); // true - compares against record's keys",
+          },
+          {
+            type: "p",
+            text: "Any object you write yourself with those three members works too, which is the intended extension point for custom collection types.",
+          },
+        ],
+      },
+      {
+        heading: "How values are compared",
+        blocks: [
+          {
+            type: "p",
+            text: "Set membership uses SameValueZero, the same algorithm `Set` and `Map` have always used. Practically:",
+          },
+          {
+            type: "list",
+            items: [
+              "`NaN` equals `NaN`, so a set containing `NaN` behaves sanely.",
+              "`0` and `-0` are the same member.",
+              "Everything else is strict equality, which means **objects compare by identity**.",
+            ],
+          },
+          {
+            type: "p",
+            text: "That last point is the one that quietly ruins comparisons of sets of objects:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const a = new Set([{ id: 1 }]);\nconst b = new Set([{ id: 1 }]);\n\nsetsEqual(a, b); // false - two distinct object references",
+          },
+          {
+            type: "p",
+            text: "There is no built-in structural comparison, and adding one is not a small ask - you would need a canonical key per value. The pragmatic approach is to compare sets of primitive keys and keep the objects in a `Map` beside them:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const byId = new Map(users.map((u) => [u.id, u]));\nconst incoming = new Set(payload.map((u) => u.id));\nconst existing = new Set(byId.keys());\n\nconst added = incoming.difference(existing);\nconst removed = existing.difference(incoming);\nconst unchanged = incoming.intersection(existing);",
+          },
+          {
+            type: "p",
+            text: "That diff-by-id shape is by far the most common real use of these methods, and it sidesteps identity comparison entirely.",
+          },
+        ],
+      },
+      {
+        heading: "One asymmetry worth knowing",
+        blocks: [
+          {
+            type: "p",
+            text: "`union`, `intersection` and the rest return a new `Set` whose insertion order follows the receiver first, then the argument. That matters if you iterate the result, and it means `a.union(b)` and `b.union(a)` contain the same members in a different order. Set equality, being order-independent, is unaffected - but `JSON.stringify([...a])` comparisons are not, which is one more reason not to use stringification as an equality test.",
+          },
+        ],
+      },
+      {
+        heading: "The short version",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Equality: `a.size === b.size && a.isSubsetOf(b)`. There is no built-in `equals`.",
+              "Strict subset: `a.size < b.size && a.isSubsetOf(b)`.",
+              "Arguments must be set-like (`size`, `has`, `keys`) - arrays throw, `Map` works.",
+              "Membership is SameValueZero, so objects compare by reference. Diff by id instead.",
+              "Baseline since June 2024; Node 22+.",
+            ],
+          },
+          {
+            type: "p",
+            text: "If you want the producing half of this - union, intersection, difference and symmetricDifference with the performance notes - that is in the [guide to the JavaScript Set methods](/blog/javascript-set-methods-union-intersection-difference).",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
 ];
 
