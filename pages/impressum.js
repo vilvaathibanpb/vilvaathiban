@@ -26,13 +26,12 @@ const ImpressumPage = () => (
 
       <Section>
         <h2>Angaben gemäß § 5 DDG</h2>
-        {/* TODO: fill before merging — replace the two address placeholders below. */}
         <p>
           Vilva Athiban Periyasamy Boominathan
           <br />
-          [STREET AND NUMBER]
+          Hiddenseer Stra&szlig;e 1A
           <br />
-          [POSTAL CODE AND CITY]
+          10437 Berlin
           <br />
           Germany
         </p>
@@ -48,25 +47,17 @@ const ImpressumPage = () => (
 
       <Section>
         <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
-        {/* TODO: fill before merging — same address as above. */}
         <p>
           Vilva Athiban Periyasamy Boominathan
           <br />
-          [STREET AND NUMBER]
+          Hiddenseer Stra&szlig;e 1A
           <br />
-          [POSTAL CODE AND CITY]
+          10437 Berlin
           <br />
           Germany
         </p>
       </Section>
 
-      <Section>
-        <h2>Umsatzsteuer-ID</h2>
-        {/* TODO: fill before merging — enter the VAT ID, or delete this whole
-            section and keep only the Kleinunternehmer sentence below. */}
-        <p>[VAT ID — or delete this section and keep the Kleinunternehmer note]</p>
-        <p>Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.</p>
-      </Section>
 
       <Section>
         <h2>Streitschlichtung</h2>
