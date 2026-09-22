@@ -1,4 +1,12 @@
-import en from "./en";
+import baseEn from "./en";
+import extraEn from "./extra/en";
+
+// New apps (utility-apps workspace, Sept 2026) live in ./extra/<lang>.js so the
+// original per-language files stay untouched; they are merged here.
+function withExtra(base, extra) {
+  return { ...base, apps: { ...(base.apps || {}), ...(extra || {}) } };
+}
+const en = withExtra(baseEn, extraEn);
 
 // The 15 most-searched languages on the web. `path` is the URL prefix ("" for
 // English, which stays at /apps/<slug>); `hreflang` is what search engines get.
@@ -25,20 +33,20 @@ export const SLUGS = Object.keys(en.apps);
 // Translations are loaded statically so `next export` can inline them.
 const LOCALES = {
   en,
-  es: require("./es").default,
-  zh: require("./zh").default,
-  hi: require("./hi").default,
-  ar: require("./ar").default,
-  pt: require("./pt").default,
-  ru: require("./ru").default,
-  ja: require("./ja").default,
-  fr: require("./fr").default,
-  de: require("./de").default,
-  id: require("./id").default,
-  ko: require("./ko").default,
-  tr: require("./tr").default,
-  it: require("./it").default,
-  vi: require("./vi").default,
+  es: withExtra(require("./es").default, require("./extra/es").default),
+  zh: withExtra(require("./zh").default, require("./extra/zh").default),
+  hi: withExtra(require("./hi").default, require("./extra/hi").default),
+  ar: withExtra(require("./ar").default, require("./extra/ar").default),
+  pt: withExtra(require("./pt").default, require("./extra/pt").default),
+  ru: withExtra(require("./ru").default, require("./extra/ru").default),
+  ja: withExtra(require("./ja").default, require("./extra/ja").default),
+  fr: withExtra(require("./fr").default, require("./extra/fr").default),
+  de: withExtra(require("./de").default, require("./extra/de").default),
+  id: withExtra(require("./id").default, require("./extra/id").default),
+  ko: withExtra(require("./ko").default, require("./extra/ko").default),
+  tr: withExtra(require("./tr").default, require("./extra/tr").default),
+  it: withExtra(require("./it").default, require("./extra/it").default),
+  vi: withExtra(require("./vi").default, require("./extra/vi").default),
 };
 
 // Structural fields (ids, prices, image paths, colours) are only defined in

@@ -50,6 +50,16 @@ const APPS = [
     badge: "iOS · $4.99",
   },
   {
+    name: "Electrician Calculator Pro",
+    tagline: "Voltage drop, wire size, conduit and box fill, offline, based on the 2023 NEC tables.",
+    summary:
+      "Eight job-site calculators with the code table on every result: voltage drop, wire size with derating, conduit fill, box fill, load & breaker, Ohm's law, resistor codes and reference tables. One-time $9.99, 19 languages.",
+    image: "/apps/electrician-calculator-logo.png",
+    href: "/apps/electrician-calculator",
+    internal: true,
+    badge: "iOS · $9.99",
+  },
+  {
     name: "Teleprompter: Camera Overlay",
     tagline: "Free iOS teleprompter that floats your script over the camera and scrolls as you speak.",
     summary:
