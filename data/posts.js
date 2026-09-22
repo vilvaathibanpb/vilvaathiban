@@ -5208,6 +5208,195 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  {
+    slug: "promise-withresolvers-practical-guide",
+    title: "Promise.withResolvers(): The Escape Hatch for Promises You Resolve Later",
+    description:
+      "Promise.withResolvers() is now widely available. A practical guide to what it replaces, where it genuinely helps, and the two places it will quietly hurt you.",
+    datePublished: "2026-09-22",
+    readingMinutes: 9,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "There is a pattern almost every JavaScript codebase has a version of: you need a promise now, but the thing that settles it happens somewhere else entirely — an event listener, a message handler, a callback from a library you do not control.",
+          },
+          {
+            type: "p",
+            text: "For years the only way to write that was the *deferred* trick: declare two variables, construct a promise, and reach into the executor to smuggle `resolve` and `reject` back out. `Promise.withResolvers()` is the standard version of that trick, and as of September 2026 it has crossed into *widely available* on the Baseline scale — supported since Chrome 119, Edge 119, Firefox 121 and Safari 17.4.",
+          },
+        ],
+      },
+      {
+        heading: "The pattern it replaces",
+        blocks: [
+          {
+            type: "p",
+            text: "Here is the shape you have almost certainly written:",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "let resolve;\nlet reject;\n\nconst promise = new Promise((res, rej) => {\n  resolve = res;\n  reject = rej;\n});\n\n// ...somewhere far away\nsocket.addEventListener('message', (e) => resolve(e.data));",
+          },
+          {
+            type: "p",
+            text: "It works, but it is genuinely awkward. The two variables are declared with `let` because they must be, so they are mutable forever. They are typed as possibly-undefined in TypeScript even though you know the executor runs synchronously. And the whole thing takes six lines to express one idea.",
+          },
+          {
+            type: "p",
+            text: "The replacement is one line:",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "const { promise, resolve, reject } = Promise.withResolvers();\n\nsocket.addEventListener('message', (e) => resolve(e.data));",
+          },
+          {
+            type: "p",
+            text: "Three `const` bindings, no mutation, no undefined-until-proven-otherwise. `Promise.withResolvers()` returns a plain object with exactly those three properties. That is the entire API.",
+          },
+        ],
+      },
+      {
+        heading: "Where it actually earns its place",
+        blocks: [
+          {
+            type: "p",
+            text: "The method is small enough that the interesting question is not how it works but when reaching for it is the right call. Four cases come up repeatedly.",
+          },
+          {
+            type: "p",
+            text: "**Bridging an event-based API to async/await.** Anything where the resolution arrives through a listener rather than a return value — WebSockets, `postMessage`, a legacy library that takes a callback.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "function waitForWorkerReady(worker) {\n  const { promise, resolve, reject } = Promise.withResolvers();\n\n  worker.addEventListener('message', function onMessage(e) {\n    if (e.data?.type === 'ready') {\n      worker.removeEventListener('message', onMessage);\n      resolve(e.data.payload);\n    }\n  }, { once: false });\n\n  worker.addEventListener('error', reject, { once: true });\n\n  return promise;\n}",
+          },
+          {
+            type: "p",
+            text: "**A queue of pending requests keyed by id.** This is where it shines most, because the resolver has to survive in a data structure until a matching response arrives — exactly the case the old deferred pattern handled worst.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "const pending = new Map();\n\nexport function request(method, params) {\n  const id = crypto.randomUUID();\n  const { promise, resolve, reject } = Promise.withResolvers();\n\n  pending.set(id, { resolve, reject });\n  socket.send(JSON.stringify({ id, method, params }));\n\n  return promise;\n}\n\nsocket.addEventListener('message', (e) => {\n  const msg = JSON.parse(e.data);\n  const entry = pending.get(msg.id);\n  if (!entry) return;\n\n  pending.delete(msg.id);\n  if (msg.error) entry.reject(new Error(msg.error));\n  else entry.resolve(msg.result);\n});",
+          },
+          {
+            type: "p",
+            text: "**A one-shot latch.** Something that many callers await and one caller opens — a config load, an auth handshake, a feature-flag fetch.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "const ready = Promise.withResolvers();\n\nexport const whenReady = () => ready.promise;\nexport const markReady = (value) => ready.resolve(value);",
+          },
+          {
+            type: "p",
+            text: "Note that calling `resolve` a second time is a harmless no-op — a promise settles once and ignores everything after — so a latch built this way is naturally idempotent without any guard of your own.",
+          },
+          {
+            type: "p",
+            text: "**Tests that need to control timing.** Being able to hold a promise open, assert on the loading state, and then resolve it on your own schedule is far cleaner than racing a timer.",
+          },
+        ],
+      },
+      {
+        heading: "Two places it will quietly hurt you",
+        blocks: [
+          {
+            type: "p",
+            text: "This is the part most introductions skip, and both problems come from the same root cause: the promise and the code that settles it are no longer in the same place.",
+          },
+          {
+            type: "p",
+            text: "**Unhandled rejections get harder to trace.** With `new Promise(executor)`, a throw inside the executor automatically rejects the promise. With `withResolvers()` there is no executor, so a throw in your surrounding code does *not* reject anything — it propagates normally and leaves the promise pending forever. Any caller awaiting it hangs silently, with no error, no timeout and no stack trace pointing at the cause.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "// The bug: setup throws, the promise is never settled,\n// and every awaiting caller hangs forever.\nfunction connect() {\n  const { promise, resolve, reject } = Promise.withResolvers();\n\n  const socket = openSocket();   // throws\n  socket.onopen = () => resolve(socket);\n\n  return promise;\n}\n\n// The fix: settle it yourself.\nfunction connectSafely() {\n  const { promise, resolve, reject } = Promise.withResolvers();\n\n  try {\n    const socket = openSocket();\n    socket.onopen = () => resolve(socket);\n    socket.onerror = () => reject(new Error('socket failed'));\n  } catch (err) {\n    reject(err);\n  }\n\n  return promise;\n}",
+          },
+          {
+            type: "p",
+            text: "**Nobody owns the timeout.** A deferred promise has no inherent lifetime. In the request-queue example above, if a response never arrives, that entry sits in the `Map` forever and the caller waits forever. The old executor pattern had the same flaw, but the ergonomics of `withResolvers()` make the pattern attractive enough that you will use it in more places — so the leak shows up in more places too.",
+          },
+          {
+            type: "p",
+            text: "The fix is to give every deferred promise an owner and a deadline. `AbortSignal.timeout()` pairs with this well:",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "function requestWithTimeout(method, params, ms = 10000) {\n  const { promise, resolve, reject } = Promise.withResolvers();\n  const id = crypto.randomUUID();\n  const signal = AbortSignal.timeout(ms);\n\n  signal.addEventListener('abort', () => {\n    pending.delete(id);\n    reject(signal.reason);\n  }, { once: true });\n\n  pending.set(id, { resolve, reject });\n  socket.send(JSON.stringify({ id, method, params }));\n\n  return promise;\n}",
+          },
+          {
+            type: "p",
+            text: "I wrote about the signal side of this separately in the guides on [AbortController and AbortSignal](/blog/abortcontroller-abortsignal-practical-guide) and [AbortSignal.timeout and AbortSignal.any](/blog/abortsignal-timeout-any-request-timeouts).",
+          },
+        ],
+      },
+      {
+        heading: "When not to use it",
+        blocks: [
+          {
+            type: "p",
+            text: "The honest trade-off: `Promise.withResolvers()` makes a pattern more pleasant to write, and that pattern is one you should mostly be avoiding.",
+          },
+          {
+            type: "p",
+            text: "If the async work is already promise-shaped, `new Promise()` with a real executor is *better*, not worse — it keeps creation and settlement in one lexically scoped place, and it converts throws into rejections for free. If you are wrapping a callback API in a function that returns immediately, the executor form is still the right answer:",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "// Still the better shape — don't 'upgrade' this.\nconst readFile = (path) =>\n  new Promise((resolve, reject) => {\n    fs.readFile(path, (err, data) => (err ? reject(err) : resolve(data)));\n  });",
+          },
+          {
+            type: "p",
+            text: "`withResolvers()` is for the genuinely harder case where the resolver must outlive the function that created it. Used there it is a clear improvement. Used as a blanket replacement for `new Promise()`, it scatters your settlement logic across a file and throws away the automatic error handling the executor gave you.",
+          },
+        ],
+      },
+      {
+        heading: "Support and fallback",
+        blocks: [
+          {
+            type: "p",
+            text: "Baseline-wise it went newly available in March 2024 and reached widely available in September 2026, which means it is now safe in ordinary browser code without a polyfill for most audiences. Node has supported it since v22.",
+          },
+          {
+            type: "p",
+            text: "If you still need to support something older, the polyfill is four lines and needs no feature detection beyond the existence check:",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "if (typeof Promise.withResolvers !== 'function') {\n  Promise.withResolvers = function withResolvers() {\n    let resolve, reject;\n    const promise = new this((res, rej) => {\n      resolve = res;\n      reject = rej;\n    });\n    return { promise, resolve, reject };\n  };\n}",
+          },
+          {
+            type: "p",
+            text: "Note the `new this(...)` rather than `new Promise(...)` — that is what the spec does, and it keeps the method working on Promise subclasses.",
+          },
+        ],
+      },
+      {
+        heading: "The short version",
+        blocks: [
+          {
+            type: "p",
+            text: "Use `Promise.withResolvers()` when the thing that settles the promise lives somewhere the executor cannot reach — an event listener, a message router, a map of pending requests. Keep `new Promise()` when it can.",
+          },
+          {
+            type: "p",
+            text: "And whenever you reach for it, write down two things at the same time: what rejects this, and what times it out. The method removes the boilerplate; it does not remove the responsibility that the boilerplate was hiding.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
 ];
 

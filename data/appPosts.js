@@ -1715,4 +1715,185 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "what-to-look-for-in-a-free-teleprompter-app",
+    title: "What to Look For in a Free Teleprompter App (and What “Free” Usually Costs)",
+    description:
+      "A buyer's checklist for free teleprompter apps: the five features that actually change your footage, the three traps hidden in the word free, and when to skip the app entirely.",
+    datePublished: "2026-09-22",
+    readingMinutes: 9,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Search the App Store for “teleprompter” and you get hundreds of results, most of them labelled free. Download five of them and you will find that the word is doing a lot of work: one adds a watermark, one caps your script at 300 words, one wants £9.99 a month before it will let you record at all.",
+          },
+          {
+            type: "p",
+            text: "The problem is that the things that separate a good teleprompter app from a bad one are not visible on the store listing. They only show up once you have recorded something and are watching it back, wondering why your eyes look wrong. Here is what to actually check.",
+          },
+        ],
+      },
+      {
+        heading: "1. Where the text sits relative to the lens",
+        blocks: [
+          {
+            type: "p",
+            text: "This is the single feature that determines whether your video looks like you are talking to someone or reading a screen, and it is the one most apps get wrong.",
+          },
+          {
+            type: "p",
+            text: "A lot of “teleprompter” apps are really just scrolling text displays. You put your phone next to the camera, or you read from one device while filming on another. Your eyes land somewhere off to the side, and every viewer registers it instantly — not consciously, usually, just as a vague sense that you are distracted.",
+          },
+          {
+            type: "p",
+            text: "What you want instead is text overlaid on the camera preview, positioned close to the front lens. The distance between where your eyes are looking and where the lens is becomes small enough that it reads as eye contact. This is the core of what Teleprompter: Camera Overlay does, and it is worth checking on any app you try: does the script float over the live camera view, or is the camera somewhere else entirely?",
+          },
+          {
+            type: "p",
+            text: "There is more on the mechanics of this in the guide to [keeping eye contact with the camera](/blog/how-to-keep-eye-contact-with-the-camera).",
+          },
+        ],
+      },
+      {
+        heading: "2. How the scroll is driven",
+        blocks: [
+          {
+            type: "p",
+            text: "Almost every app gives you auto-scroll with a speed slider. Very few give you anything better, and the difference is enormous once you are actually recording.",
+          },
+          {
+            type: "p",
+            text: "Auto-scroll assumes you will read at a constant rate. You will not. You will pause for emphasis, stumble on a word, speed up when you are nervous. Within about forty seconds the text is either ahead of you or behind you, and you spend the rest of the take fighting it — which is exactly the tension that shows up on your face.",
+          },
+          {
+            type: "p",
+            text: "Voice-driven scrolling solves this by following what you are actually saying. The script moves at your pace, and if you stumble and repeat a line, it finds your place again instead of marching on without you. Check whether the app offers it, and then check the next thing, which matters just as much.",
+          },
+          {
+            type: "p",
+            text: "That said, auto-scroll is not obsolete. It is better for a piece you intend to read at a deliberately even pace, and better in a genuinely loud room. The [comparison of voice-follow and auto-scroll](/blog/voice-follow-vs-auto-scroll-teleprompter) goes into which to pick for which job.",
+          },
+        ],
+      },
+      {
+        heading: "3. Whether the speech recognition runs on the device",
+        blocks: [
+          {
+            type: "p",
+            text: "If an app listens to your voice, ask where the audio goes. Some send it to a server for processing. That has three consequences most listings do not mention: it needs a connection, it adds latency, and it means your script and your voice have left your phone.",
+          },
+          {
+            type: "p",
+            text: "On-device recognition avoids all three. Teleprompter: Camera Overlay uses Apple's on-device speech recognition, which means voice-follow works in airplane mode and nothing is uploaded. It also auto-detects the language of your script and supports every language iOS on-device recognition supports, which matters more than it sounds if you record in a language other than English — see [recording confidently in a second language](/blog/recording-video-in-a-second-language).",
+          },
+          {
+            type: "p",
+            text: "If you are recording anything under NDA, anything medical or legal, or anything for a client before announcement, this is not a preference. It is the requirement.",
+          },
+        ],
+      },
+      {
+        heading: "4. Whether the script ends up in the video",
+        blocks: [
+          {
+            type: "p",
+            text: "A surprising number of overlay apps record the screen rather than the camera feed, which means the text is burned into your footage. You find this out at the editing stage, which is the worst possible time.",
+          },
+          {
+            type: "p",
+            text: "Test it before you rely on it: write two lines, record ten seconds, and watch the file back in Photos. The script should be nowhere in it. While you are there, check what resolution came out — plenty of free apps quietly record at 1080p or lower even on a phone capable of 4K.",
+          },
+        ],
+      },
+      {
+        heading: "5. The boring settings that decide whether you can read it",
+        blocks: [
+          {
+            type: "p",
+            text: "Adjustable text size sounds trivial until you are filming at arm's length rather than at desk distance and discover the app has three fixed sizes, none of which work. Mirror mode matters if you ever put the phone behind beam-splitter glass on a rig — covered in [mirror mode and DIY teleprompter rigs](/blog/mirror-mode-and-diy-teleprompter-rigs).",
+          },
+          {
+            type: "p",
+            text: "And check how many scripts you are allowed to save. A cap of three is fine for trying the app and useless the moment you are batching a week of content.",
+          },
+        ],
+      },
+      {
+        heading: "The three things “free” usually means",
+        blocks: [
+          {
+            type: "p",
+            text: "Worth being blunt about the business models, because they are not all equivalent and the store listing will not distinguish them.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Free with a watermark.** Your footage carries the app's branding unless you pay. This is the one to avoid outright — it makes every video you produce an advert for someone else, and there is no version of your content where that looks good.",
+              "**Free trial, subscription after.** Fully functional for seven days, then a recurring charge. Reasonable if you record constantly; poor value if you make a video a month, which describes most people.",
+              "**Free with ads, one-time unlock.** You see occasional ads, and a single purchase removes them permanently. Teleprompter: Camera Overlay works this way — free with occasional ads, a small one-time purchase to remove them, no subscription and no watermark.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The honest trade-off with the third model: you do watch the occasional ad if you never pay. Whether that beats a subscription depends entirely on how often you record. For someone shooting weekly, a one-time unlock stops costing anything after the first month; for someone shooting daily and professionally, a subscription app with more production features may genuinely be the better buy.",
+          },
+        ],
+      },
+      {
+        heading: "When to skip the app entirely",
+        blocks: [
+          {
+            type: "p",
+            text: "Not every video wants a teleprompter, and pretending otherwise is how people end up with stiff footage and a vague sense the tool failed them.",
+          },
+          {
+            type: "p",
+            text: "If your video is under about twenty seconds, you are better off learning the line. If it is a genuine reaction, a demo you are narrating live, or anything conversational with another person, a script will fight you rather than help you. And if the reason you want a prompter is that you are not sure what you want to say, the prompter is not the missing piece — the script is. Writing one that survives being read aloud is its own skill, covered in [writing a script that doesn't sound written](/blog/write-a-script-that-doesnt-sound-written).",
+          },
+          {
+            type: "p",
+            text: "Teleprompters are for the middle case, which is also the most common one: you know roughly what you want to say, it is longer than you can hold in your head, and you want to say it once cleanly instead of eleven times badly.",
+          },
+        ],
+      },
+      {
+        heading: "A ten-minute test before you commit",
+        blocks: [
+          {
+            type: "p",
+            text: "Whatever app you are evaluating, run this before you build a workflow on it:",
+          },
+          {
+            type: "list",
+            items: [
+              "Paste in 200 words of real script, not a test sentence.",
+              "Record 30 seconds at arm's length, the way you actually film.",
+              "Watch it back on a phone screen, not a laptop — that is where it will be watched.",
+              "Check three things: do your eyes look right, is the script absent from the video, and what resolution did it save at.",
+              "Then deliberately stumble and repeat a line, and see whether the app keeps up or leaves you behind.",
+            ],
+          },
+          {
+            type: "p",
+            text: "That last step is the one that separates the apps. Most of them handle a clean read fine. Almost none of them handle the take where you fumble a word — which is every take.",
+          },
+          {
+            type: "p",
+            text: "You can try the approach described here for yourself with [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay), which is free on iOS.",
+          },
+        ],
+      },
+      {
+        heading: "Next in this series",
+        blocks: [
+          {
+            type: "p",
+            text: "Picking the app is the easy half. The harder half is the room — where the light comes from, where the phone sits, and what the microphone can hear. Next up: a full talking-head filming setup, built entirely from things you probably already own.",
+          },
+        ],
+      },
+    ],
+  },
 ];
