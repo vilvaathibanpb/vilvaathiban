@@ -50,24 +50,34 @@ const APPS = [
     badge: "iOS · $4.99",
   },
   {
+    name: "Unit Price Calculator & Tax",
+    tagline: "Which pack is really cheaper? Price per kg or litre, stacked discounts, sales tax, cart budget, bill split.",
+    summary:
+      "Five checkout calculators in one free iPhone app: unit price comparison across g, kg, oz, lb, ml, L, stacked discounts with coupons, add or remove tax, a cart total against a budget, and split with tip. Offline, 19 languages.",
+    image: "/apps/unit-price-calculator-logo.png",
+    href: "/apps/unit-price-calculator",
+    internal: true,
+    badge: "Free iOS app",
+  },
+  {
     name: "Warranty Tracker & Receipt Log",
     tagline: "Photograph the receipt, set the warranty length, get reminded before it expires.",
     summary:
-      "Every product with its receipt photo, purchase date, serial number and warranty countdown. Local reminders 90 to 1 day before expiry, CSV export, fully offline. One-time $4.99, 19 languages.",
+      "Every product with its receipt photo, purchase date, serial number and warranty countdown. Local reminders 90 to 1 day before expiry, CSV export, fully offline. One-time $0.99, 19 languages.",
     image: "/apps/warranty-tracker-logo.png",
     href: "/apps/warranty-tracker",
     internal: true,
-    badge: "iOS · $4.99",
+    badge: "iOS · $0.99",
   },
   {
     name: "Electrician Calculator Toolkit",
     tagline: "Voltage drop, wire size, conduit and box fill, offline, based on the 2023 NEC tables.",
     summary:
-      "Eight job-site calculators with the code table on every result: voltage drop, wire size with derating, conduit fill, box fill, load & breaker, Ohm's law, resistor codes and reference tables. One-time $9.99, 19 languages.",
+      "Eight job-site calculators with the code table on every result: voltage drop, wire size with derating, conduit fill, box fill, load & breaker, Ohm's law, resistor codes and reference tables. One-time $3.99, 19 languages.",
     image: "/apps/electrician-calculator-logo.png",
     href: "/apps/electrician-calculator",
     internal: true,
-    badge: "iOS · $9.99",
+    badge: "iOS · $3.99",
   },
   {
     name: "Teleprompter: Camera Overlay",

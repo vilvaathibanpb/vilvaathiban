@@ -10,7 +10,7 @@ export default {
     appStoreId: "",
     appStoreUrl: "",
     live: false,
-    price: { amount: "9.99", label: "One-time purchase" },
+    price: { amount: "3.99", label: "One-time purchase" },
     color: "#D98A00",
     category: "UtilitiesApplication",
     head: {
@@ -90,7 +90,7 @@ export default {
     guides: [],
     related: [
       { name: "Warranty Tracker & Receipt Log", href: "/apps/warranty-tracker", blurb: "Photograph a receipt, set the warranty length, get reminded before it expires. Offline, one-time purchase." },
-      { name: "Unit Price Calculator & Tax", href: "/apps/unit-price-calculator", blurb: "Compare price per unit, add sales tax, take a percentage off. Free." },
+      { name: "Unit Price Calculator & Tax", href: "/apps/unit-price-calculator", blurb: "Which pack is cheaper per kg or litre, stacked discounts, sales tax, cart budget and bill splitting. Free." },
       { name: "Caffeine Tracker: Curfew", href: "/apps/caffeine-tracker", blurb: "Log coffee and tea, see what is still in your system, and get a bedtime cutoff. Free." },
     ],
     disclaimer:
@@ -104,7 +104,7 @@ export default {
     appStoreId: "",
     appStoreUrl: "",
     live: false,
-    price: { amount: "4.99", label: "One-time purchase" },
+    price: { amount: "0.99", label: "One-time purchase" },
     color: "#0B9A6A",
     category: "UtilitiesApplication",
     head: {
@@ -185,10 +185,106 @@ export default {
     guides: [],
     related: [
       { name: "Electrician Calculator Toolkit", href: "/apps/electrician-calculator", blurb: "Voltage drop, wire size, conduit and box fill from the 2023 NEC tables, offline. One-time purchase." },
-      { name: "Unit Price Calculator & Tax", href: "/apps/unit-price-calculator", blurb: "Compare price per unit, add sales tax, take a percentage off. Free." },
+      { name: "Unit Price Calculator & Tax", href: "/apps/unit-price-calculator", blurb: "Which pack is cheaper per kg or litre, stacked discounts, sales tax, cart budget and bill splitting. Free." },
       { name: "Caffeine Tracker: Curfew", href: "/apps/caffeine-tracker", blurb: "Log coffee and tea, see what is still in your system, and get a bedtime cutoff. Free." },
     ],
     disclaimer:
       "Warranty Tracker & Receipt Log is a personal record-keeping tool. Warranty terms are set by the manufacturer or retailer; always check the original terms before making a claim.",
+  },
+  "unit-price-calculator": {
+    slug: "unit-price-calculator",
+    iconBase: "unit-price-calculator",
+    name: "Unit Price Calculator & Tax",
+    alternateNames: ["unit price calculator", "price per unit calculator", "grocery calculator", "discount calculator", "sales tax calculator", "shopping calculator app"],
+    appStoreId: "",
+    appStoreUrl: "",
+    live: false,
+    price: { amount: "0", label: "Free, optional one-time ad removal" },
+    color: "#1E4FD8",
+    category: "UtilitiesApplication",
+    head: {
+      title: "Unit Price Calculator App for iPhone: Price per kg, lb, L, Discounts, Sales Tax, Cart Budget",
+      description:
+        "Free shopping calculator for iPhone: compare price per kg, lb, litre or piece across packs, stack discounts and coupons, add or remove sales tax, keep a cart total under budget and split the bill. Offline, no account, 19 languages.",
+      keywords:
+        "unit price calculator, price per unit calculator, price per ounce calculator, price per kg calculator, grocery calculator app, shopping calculator, discount calculator, percent off calculator, sales tax calculator, vat calculator, cart total calculator, bill split calculator, tip calculator",
+      ogTitle: "Unit Price Calculator & Tax: which pack is really cheaper?",
+      ogDescription: "Compare price per kg, lb or litre, stack discounts, add sales tax, keep a cart under budget, split the bill. Free iPhone app, offline.",
+    },
+    h1: "A unit price calculator for the supermarket aisle: price per kg or litre, stacked discounts, sales tax, cart budget and bill splitting",
+    answer:
+      "Unit Price Calculator & Tax is a free iPhone shopping calculator. Enter the price and size of each pack and it converts everything to one basis (per kg, lb, L, fl oz or piece) and marks the best value. It also stacks discounts the way stores apply them, adds or removes sales tax and VAT, keeps a running cart total against a budget, and splits a bill with tip. Everything runs offline with no account. The free version shows a small banner; a one-time purchase removes it.",
+    quickFacts: [
+      ["Price", "Free. Optional one-time ad removal, no subscription"],
+      ["Tools", "Unit price compare, discount, sales tax, cart total with budget, split & tip"],
+      ["Units", "g, kg, oz, lb, ml, L, fl oz, gal, pieces, packs, multipacks"],
+      ["Privacy", "Offline, no account; lists stay on the phone"],
+    ],
+    screenshotsTitle: "What you get: the cheaper pack, the real sale price, and a cart that stays under budget",
+    screenshots: [
+      { src: "/apps/unit-price-calculator/01.webp", alt: "Unit price calculator on iPhone comparing three packs with price per kilogram and the best value highlighted", caption: "Which pack is really cheaper" },
+      { src: "/apps/unit-price-calculator/02.webp", alt: "Discount calculator with 30 percent off, an extra 10 percent, a coupon and tax showing the final price and savings", caption: "Stacked discounts, final price" },
+      { src: "/apps/unit-price-calculator/03.webp", alt: "Cart total screen with items, tax, and the amount left in a 60 budget", caption: "Stay under budget as you shop" },
+      { src: "/apps/unit-price-calculator/04.webp", alt: "Sales tax calculator removing 19 percent VAT from a tax-inclusive price", caption: "Add or remove sales tax" },
+      { src: "/apps/unit-price-calculator/05.webp", alt: "Bill split screen with 15 percent tip for four people rounded up", caption: "Split the bill, round it up" },
+    ],
+    howTo: {
+      title: "How to compare unit prices in the store",
+      intro: "Shelf labels show price per 100 g on one product and per kg on the next, or nothing at all on multipacks. Here is the 20-second version.",
+      steps: [
+        { name: "Pick the measure", text: "Weight, volume, pieces or length. The unit menu then only shows units that make sense (g, kg, oz, lb for weight; ml, L, fl oz, gal for volume)." },
+        { name: "Enter each pack", text: "Price, amount and unit for A and B. For a multipack, set Packs to 6 and Amount to 330 ml. Add up to six options." },
+        { name: "Read the result", text: "The best value gets a green badge and every other option shows how many percent more it costs. Switch the basis (per kg, per 100 g, per lb) from the Show price per menu." },
+        { name: "Then check the deal", text: "Jump to Discount to stack the shelf discount, the extra percent at the till and a coupon, with tax if your country adds it at checkout." },
+      ],
+    },
+    featuresTitle: "Five calculators for the checkout aisle",
+    features: [
+      { icon: "⚖️", title: "Unit price comparison", text: "Up to six packs, mixed metric and imperial units, multipacks, best value highlighted with the percent premium of every other option." },
+      { icon: "🏷️", title: "Stacked discounts", text: "Percent off, extra percent off the reduced price, fixed coupon, then tax: applied in store order, with what you pay and what you save." },
+      { icon: "🧾", title: "Sales tax and VAT", text: "Add tax to a price or back it out of a tax-inclusive one. Quick chips for common rates; pin your own as the default." },
+      { icon: "🛒", title: "Cart total with budget", text: "Tap items in as you shop, check them off, see tax and the amount left in your budget with a progress bar." },
+      { icon: "👥", title: "Split and tip", text: "Bill, tip percent, number of people and a round-up option so each share is a whole amount." },
+      { icon: "🌍", title: "Your currency and language", text: "Follows your currency symbol and decimal separator; 19 languages; remembers your lists and tax rate between trips." },
+    ],
+    intentsTitle: "Questions this app answers",
+    intents: [
+      { h: "How do I calculate price per unit?", p: "Divide the price by the amount, in a common unit. The app does the conversion: a 500 g pack at 4.49 is 8.98 per kg; a 1.2 lb pack at 4.99 is 9.17 per kg. The lower number is the better deal." },
+      { h: "Is the bigger pack always cheaper?", p: "Usually, but not always, and multipacks and promotions break the rule often enough to check. Enter both and the app shows the exact percent difference." },
+      { h: "How much is 30% off plus an extra 10%?", p: "Not 40%. The extra 10% applies to the already reduced price, so 100 becomes 70 and then 63: a 37% saving. The Discount tab shows each step." },
+      { h: "How do I remove VAT from a price?", p: "Divide by 1 plus the rate: 119 at 19% VAT is 100 net. Choose Remove tax, enter the amount and the rate." },
+      { h: "Does it need internet or an account?", p: "No. Every calculation runs on the phone and your lists are stored locally. The only network use is the small ad banner in the free version, which a one-time purchase removes." },
+    ],
+    compare: {
+      title: "Unit Price Calculator & Tax vs the phone calculator and single-purpose apps",
+      intro: "The built-in calculator works if you remember the conversions and do them twice. Most single-purpose apps do one of these jobs. This app puts the five checkout calculations together and remembers your settings.",
+      columns: ["", "Unit Price Calculator & Tax", "Phone calculator", "Single-purpose apps"],
+      rows: [
+        ["Converts g, kg, oz, lb, ml, L automatically", "✓", "✗ Manual", "Some"],
+        ["Multipacks and up to six options", "✓", "✗", "Rarely"],
+        ["Stacked discounts with coupon and tax", "✓", "✗ Step by step", "Discount apps only"],
+        ["Cart total against a budget", "✓", "✗", "List apps only"],
+        ["Bill split with tip and round-up", "✓", "✗", "Tip apps only"],
+        ["Price", "Free, one-time ad removal", "Free", "Free with ads or subscription"],
+      ],
+    },
+    faqs: [
+      { q: "Is the app free?", a: "Yes. The free version shows a small banner at the bottom. Remove ads is a single one-time purchase; there is no subscription and no other in-app purchase." },
+      { q: "Which units are supported?", a: "Weight: mg, g, kg, oz, lb. Volume: ml, L, fl oz, cup, gal. Count: piece, pack, dozen. Length: cm, m, in, ft. You can mix metric and imperial in one comparison." },
+      { q: "Can I change the unit the price is shown per?", a: "Yes. Show price per lets you pick per kg, per 100 g, per lb, per L, per 100 ml, per fl oz, per gallon and so on." },
+      { q: "Does it remember my tax rate?", a: "Yes. Pin a rate as default from the Tax tab or set it in Settings; Discount and Cart use it automatically." },
+      { q: "Which currency does it use?", a: "Your device currency by default. You can pick another in Settings." },
+      { q: "Does it work offline?", a: "Yes. Calculations and lists never leave the phone. Without a connection, no ad is shown." },
+      { q: "Which languages?", a: "English, Spanish, German, French, Italian, Portuguese, Dutch, Polish, Russian, Ukrainian, Turkish, Arabic, Hindi, Indonesian, Vietnamese, Thai, Japanese, Korean and Simplified Chinese." },
+      { q: "Is there an Android version?", a: "Not yet. The iPhone app ships first; an Android build is planned and this page will link to Google Play when it is live." },
+    ],
+    guides: [],
+    related: [
+      { name: "Warranty Tracker & Receipt Log", href: "/apps/warranty-tracker", blurb: "Photograph the receipt, set the warranty length, get reminded before it expires. Offline, one-time purchase." },
+      { name: "Electrician Calculator Toolkit", href: "/apps/electrician-calculator", blurb: "Voltage drop, wire size, conduit and box fill from the 2023 NEC tables, offline. One-time purchase." },
+      { name: "Caffeine Tracker: Curfew", href: "/apps/caffeine-tracker", blurb: "Log coffee and tea, see what is still in your system, and get a bedtime cutoff. Free." },
+    ],
+    disclaimer:
+      "Unit Price Calculator & Tax is a shopping aid. Tax rates and rounding rules vary by country and store; check the receipt for the final amount.",
   },
 };
