@@ -63,6 +63,7 @@ export function getApp(code, slug) {
     iconBase: base.iconBase,
     appStoreId: base.appStoreId,
     appStoreUrl: base.appStoreUrl,
+    playUrl: base.playUrl,
     live: base.live,
     price: base.price,
     color: base.color,

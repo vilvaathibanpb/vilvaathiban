@@ -207,10 +207,12 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
     alternateName: app.alternateNames,
     description: app.head.description,
     applicationCategory: app.category || "UtilitiesApplication",
-    operatingSystem: "iOS 15.1 or later",
+    operatingSystem: app.playUrl ? "iOS 15.1 or later, Android 7.0 or later" : "iOS 15.1 or later",
     isAccessibleForFree: free,
     offers: { "@type": "Offer", price: app.price.amount, priceCurrency: "USD", availability: app.live ? "https://schema.org/InStock" : "https://schema.org/PreOrder" },
-    ...(storeUrl ? { downloadUrl: storeUrl, installUrl: storeUrl, sameAs: storeUrl } : {}),
+    ...(storeUrl ? { downloadUrl: storeUrl, installUrl: storeUrl } : {}),
+    // Both store listings are the same app, so both belong in sameAs.
+    ...(storeUrl || app.playUrl ? { sameAs: [storeUrl, app.playUrl].filter(Boolean) } : {}),
     featureList: app.features.map((f) => f.title),
     screenshot: app.screenshots.map((s) => ({ "@type": "ImageObject", contentUrl: `${SITE}${s.src}`, caption: s.alt })),
     image: icon,
@@ -300,7 +302,13 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
           ) : (
             <PlaySoon>{ui.appStoreSoon}</PlaySoon>
           )}
-          <PlaySoon>{ui.playSoon}</PlaySoon>
+          {app.playUrl ? (
+            <a href={app.playUrl} aria-label={`${ui.downloadPlay}: ${app.name}`} rel="noopener">
+              <img src="/apps/google-play-badge.svg" alt={ui.downloadPlay} width="134" height="52" />
+            </a>
+          ) : (
+            <PlaySoon>{ui.playSoon}</PlaySoon>
+          )}
         </Stores>
         <LangBar aria-label={ui.language}>
           <span>{ui.language}</span>

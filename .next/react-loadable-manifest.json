@@ -1,4 +1,16 @@
 {
+  "../components/tools/LinkQrTool.js -> qrcode": {
+    "id": 2592,
+    "files": [
+      "static/chunks/2592.be5b5cf02a22b42f.js"
+    ]
+  },
+  "../components/tools/OpusTool.js -> @breezystack/lamejs": {
+    "id": 8222,
+    "files": [
+      "static/chunks/dbdcd524.026aab677a9684a9.js"
+    ]
+  },
   "../node_modules/next/dist/client/index.js -> ../pages/_app": {
     "id": 7403,
     "files": [
@@ -16,7 +28,6 @@
     "files": [
       "static/chunks/fb7d5399.9a14f82669bf7379.js",
       "static/chunks/91794568.16d540778997158a.js",
-      "static/chunks/1664-48d5a30feb556041.js",
       "static/chunks/6283.ee3ee33ece85f4b1.js",
       "static/chunks/187.be5bdd3a64b44e72.js"
     ]

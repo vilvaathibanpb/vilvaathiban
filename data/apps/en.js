@@ -13,6 +13,7 @@ export default {
     pillOnDevice: "100% on-device",
     pillOffline: "Works offline",
     download: "Download on the App Store",
+    downloadPlay: "Get it on Google Play",
     playSoon: "Google Play: Android version in progress",
     appStoreSoon: "Coming soon to the App Store",
     faqTitle: "Frequently asked questions",
@@ -227,6 +228,9 @@ export default {
   alternateNames: ["WhatsApp voice note to text", "voice message transcriber", "offline audio transcription iPhone"],
   appStoreId: "6810376600",
   appStoreUrl: "https://apps.apple.com/us/app/voice-note-to-text-offline/id6810376600",
+  // Android. Only set once the Play listing is actually published — the badge
+  // renders off this field, so an unpublished id would ship a 404.
+  playUrl: "https://play.google.com/store/apps/details?id=com.vilva.wavoicetotext",
   live: true,
   price: { amount: "0", label: "Free · 3 transcriptions included" },
   color: "#7C3AED",

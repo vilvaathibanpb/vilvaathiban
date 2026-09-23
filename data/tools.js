@@ -25,6 +25,8 @@ const APPS = {
     name: "Voice Note to Text: Offline",
     appStoreId: "6810376600",
     url: "https://apps.apple.com/us/app/voice-note-to-text-offline/id6810376600",
+    // Set only once the Play listing is live; the badge renders off this.
+    playUrl: "https://play.google.com/store/apps/details?id=com.vilva.wavoicetotext",
     color: "#7c3aed",
   },
   export: {
