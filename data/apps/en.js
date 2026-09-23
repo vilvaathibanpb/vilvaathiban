@@ -117,7 +117,7 @@ export default {
   related: [
     { name: "Free web tool: WhatsApp link & QR generator", href: "/tools/whatsapp-link-generator", blurb: "Make a wa.me link and a printable QR code in your browser, no install needed." },
     { name: "Voice Note Audio Converter", href: "/apps/voice-note-audio-converter", blurb: "Convert WhatsApp .opus voice notes to MP3 or WAV on your iPhone, free and offline." },
-    { name: "Voice Note to Text", href: "/apps/voice-note-to-text", blurb: "Transcribe WhatsApp voice messages to text on-device, no upload, one-time purchase." },
+    { name: "Voice Note to Text", href: "/apps/voice-note-to-text", blurb: "Transcribe WhatsApp voice messages to text on-device, no upload, 3 free transcriptions, then a one-time unlock." },
     { name: "Chat Export Studio: PDF", href: "/apps/chat-export-studio", blurb: "Turn an exported WhatsApp chat (.txt or .zip) into a paginated PDF with statistics." },
   ],
   disclaimer:
@@ -147,7 +147,7 @@ export default {
   answer:
     "Voice Note Audio Converter is an opus to MP3 converter that runs entirely on your iPhone. Pick one or a hundred .opus, .ogg, .m4a, .aac or .wav files, choose MP3 or WAV, tap Convert, and share the results to Files, Mail, AirDrop or any app. Nothing is uploaded to a server, no account is needed, and it works in airplane mode.",
   quickFacts: [
-    ["Price", "Free, no watermark, no limits"],
+    ["Price", "Free, no watermark, no limits. A small ad banner; one-time Remove Ads ($0.99)"],
     ["Input", ".opus .ogg .oga .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp .mp4"],
     ["Output", "MP3 (128 kbps) or WAV (16-bit PCM)"],
     ["Privacy", "On-device conversion, no upload, no account"],
@@ -228,7 +228,7 @@ export default {
   appStoreId: "6810376600",
   appStoreUrl: "https://apps.apple.com/us/app/voice-note-to-text-offline/id6810376600",
   live: true,
-  price: { amount: "2.99", label: "One-time purchase" },
+  price: { amount: "0", label: "Free · 3 transcriptions included" },
   color: "#7C3AED",
   category: "UtilitiesApplication",
   head: {
@@ -244,7 +244,7 @@ export default {
   answer:
     "Voice Note to Text turns a voice note into readable text in a few seconds, without sending the audio anywhere. Pick a .opus, .m4a, .mp3 or .wav file (or share it from any chat app), the language is detected automatically, and the transcript appears on screen ready to copy or share as a .txt file. The speech model ships inside the app, so it works in airplane mode, and it is a single purchase with no subscription.",
   quickFacts: [
-    ["Price", "One-time purchase. No subscription, no credits"],
+    ["Price", "Free to download with 3 transcriptions included, then a one-time $2.99 unlock. No subscription, no credits"],
     ["Input", ".opus .ogg .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp"],
     ["Languages", "Around 100, detected automatically"],
     ["Privacy", "On-device speech recognition, no upload, no account"],
@@ -267,7 +267,7 @@ export default {
   featuresTitle: "Why this is different from cloud transcription apps",
   features: [
     { icon: "🔒", title: "Nothing is uploaded", text: "Speech recognition runs on the iPhone using a bundled model. The audio and the transcript never leave the device, which is what a private voice message deserves." },
-    { icon: "💸", title: "One-time purchase", text: "Most transcription apps charge a monthly subscription or sell minutes. This is a single purchase, with unlimited transcriptions and no account." },
+    { icon: "💸", title: "Free to try, then one payment", text: "Most transcription apps charge a monthly subscription or sell minutes. Here the first 3 transcriptions are free; after that a one-time $2.99 purchase unlocks unlimited transcriptions, with no account." },
     { icon: "🌍", title: "Around 100 languages, auto-detected", text: "English, Spanish, German, French, Portuguese, Hindi, Tamil, Arabic, Turkish and many more. You do not pick the language; the model detects it." },
     { icon: "✈️", title: "Works in airplane mode", text: "The speech model ships inside the app, so the first run needs no download and the app is complete without a connection." },
     { icon: "🎧", title: "Opens .opus voice notes directly", text: "Native Opus and Ogg decoding means WhatsApp, Telegram and Signal voice messages transcribe without converting them first. Voice Memos and voicemail (.m4a) work too." },
@@ -289,7 +289,7 @@ export default {
       ["Works for saved .opus / .m4a / .mp3 files", "✓ Yes", "✗ Only inside the chat", "✓ Usually"],
       ["Available in every country and language", "✓ ~100 languages, auto-detected", "✗ Limited regions and languages", "✓ Mostly"],
       ["Audio stays on the phone", "✓ Yes, verified offline", "✓ On-device", "✗ Uploaded to a server"],
-      ["Price", "One-time purchase", "Free", "Subscription or per-minute credits"],
+      ["Price", "Free, then one-time unlock", "Free", "Subscription or per-minute credits"],
       ["Copy / share as .txt", "✓ Yes", "Copy only", "✓ Yes"],
       ["Works in airplane mode", "✓ Yes", "✓ Yes", "✗ No"],
     ],
@@ -297,7 +297,7 @@ export default {
   faqs: [
     { q: "How accurate is the transcription?", a: "It uses a Whisper-family speech model running on the phone. Clear speech in a major language is typically transcribed with very few errors; heavy background noise, overlapping speakers or strong accents lower accuracy, as with any transcription tool." },
     { q: "Which languages are supported?", a: "Around 100, including English, Spanish, German, French, Italian, Portuguese, Dutch, Russian, Turkish, Arabic, Hindi, Tamil, Bengali, Indonesian, Japanese, Korean and Chinese. The language is detected automatically per file." },
-    { q: "Is there a subscription?", a: "No. Voice Note to Text is a one-time purchase with unlimited use. There are no credits, minutes, accounts or upsells." },
+    { q: "Is there a subscription?", a: "No. The first 3 transcriptions are free; after that a single one-time purchase ($2.99) unlocks unlimited use. No credits, minutes, accounts or upsells." },
     { q: "Does it upload my voice notes anywhere?", a: "No. The speech model is bundled with the app and inference runs on the iPhone. The app makes no network requests at all; it works with airplane mode on." },
     { q: "Why is the app around 60 MB?", a: "Because the speech model ships inside it. That is what makes the first transcription instant and offline, with nothing to download later." },
     { q: "Can I transcribe Telegram, Signal or iMessage audio messages?", a: "Yes. Save or share the audio file to the app. Telegram and Signal produce .ogg or .m4a files, iMessage audio messages are .caf or .m4a; all are supported." },
@@ -409,7 +409,7 @@ export default {
   ],
   related: [
     { name: "Free browser tools", href: "/tools", blurb: "Links, QR codes, profile pictures and audio conversion, all without installing anything." },
-    { name: "Voice Note to Text", href: "/apps/voice-note-to-text", blurb: "Transcribe voice messages to text on-device, no upload, one-time purchase." },
+    { name: "Voice Note to Text", href: "/apps/voice-note-to-text", blurb: "Transcribe voice messages to text on-device, no upload, 3 free transcriptions, then a one-time unlock." },
     { name: "Voice Note Audio Converter", href: "/apps/voice-note-audio-converter", blurb: "Convert .opus voice notes to MP3 or WAV on your iPhone. Free." },
     { name: "Chat Link & QR Code Maker", href: "/apps/chat-link-qr-code-maker", blurb: "wa.me click-to-chat links, printable QR codes and uncropped profile pictures. Free." },
   ],

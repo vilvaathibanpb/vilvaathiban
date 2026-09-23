@@ -311,7 +311,7 @@ export default {
     answer:
       "Caffeine Tracker: Curfew estimates the caffeine active in your body from what you logged, using a half-life model (about 5 hours for most adults, adjustable). Log espresso, drip, latte, tea, matcha, energy drinks and more in two taps, watch a 12-hour curve, keep today under 400 mg, and set a bedtime with a target (25, 50 or 100 mg) to get a curfew: the latest time for your last drink. It works offline with no account. A one-time Pro unlock adds Apple Health sync, 30-day history and custom drinks.",
     quickFacts: [
-      ["Price", "Free. One-time Pro unlock, no subscription"],
+      ["Price", "Free with a small ad banner. One-time Pro removes ads, no subscription"],
       ["Model", "Half-life decay, 2.5 to 8 h, default 5 h"],
       ["Drinks", "21 presets with typical mg, small / regular / large, custom with Pro"],
       ["Privacy", "Offline, no account; Apple Health write only if you turn it on"],
@@ -340,7 +340,7 @@ export default {
       { icon: "⚡", title: "Two-tap logging", text: "Six favourites on the home screen; 21 presets with typical caffeine contents; small, regular and large; backdate a drink." },
       { icon: "📊", title: "Daily limit and history", text: "Progress against 400, 300 or 200 mg. Seven days of totals with average and over-limit days; 30 days with Pro." },
       { icon: "❤️", title: "Apple Health (Pro)", text: "Write dietary caffeine to Health so it sits next to your sleep data. Deleting a drink removes the sample." },
-      { icon: "🌍", title: "19 languages, offline", text: "Nothing leaves the phone. No account, no ads, no analytics." },
+      { icon: "🌍", title: "19 languages, offline", text: "Nothing leaves the phone. No account, no analytics of our own; Pro removes the ad banner." },
     ],
     intentsTitle: "Questions this app answers",
     intents: [

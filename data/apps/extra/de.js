@@ -490,7 +490,7 @@ export default {
       {
         "icon": "🌍",
         "title": "19 Sprachen, offline",
-        "text": "Nichts verlässt das Handy. Kein Konto, keine Werbung, keine Analysen."
+        "text": "Nichts verlässt das Handy. Kein Konto, keine eigenen Analysen; Pro entfernt das Werbebanner."
       }
     ],
     "intentsTitle": "Fragen, die diese App beantwortet",

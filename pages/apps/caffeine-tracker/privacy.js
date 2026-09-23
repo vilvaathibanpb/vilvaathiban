@@ -24,16 +24,17 @@ const PrivacyPage = () => (
         <Link href="/apps/caffeine-tracker">Caffeine Tracker: Curfew</Link>
       </Eyebrow>
       <Title>Privacy Policy</Title>
-      <Lead>Last updated: September 23, 2026</Lead>
+      <Lead>Last updated: September 24, 2026</Lead>
 
       <Section>
         <p>
           This Privacy Policy describes how the iOS application <b>Caffeine Tracker: Curfew</b> (&quot;the
           App&quot;), developed by Vilva Athiban P B (&quot;we&quot;, &quot;us&quot;), handles your
           information. The App lets you log caffeinated drinks and estimates how much caffeine is still in
-          your body, entirely on your device. The short version: <b>we do not collect any data.</b> We
-          operate no servers, there are no user accounts, no analytics, no crash reporting and no
-          advertising, and we cannot see anything you log.
+          your body, entirely on your device. The short version: <b>we do not collect any data ourselves.</b> We
+          operate no servers and there are no user accounts, and we cannot see anything you log. The free
+          version shows a small advertising banner served by Google AdMob, the only third-party component
+          that processes data (see section 4); the one-time Pro purchase removes it.
         </p>
       </Section>
 
@@ -64,14 +65,27 @@ const PrivacyPage = () => (
         <h2>3. Network access</h2>
         <p>
           The App makes no network requests of its own. The only links that leave the App are the ones you
-          tap yourself in Settings (this policy, the support page and the App Store rating page). The Pro
-          purchase is processed by Apple through the App Store; we receive no personal information from it.
+          tap yourself in Settings (this policy, the support page and the App Store rating page). While ads
+          are enabled, the Google AdMob SDK requests and reports banner ads; your caffeine log is never part
+          of that traffic. The Pro purchase is processed by Apple through the App Store; we receive no
+          personal information from it.
         </p>
       </Section>
 
       <Section>
         <h2>4. Third parties</h2>
-        <p>The App contains no third-party SDKs, advertising networks or analytics libraries.</p>
+        <p>
+          <b>Google AdMob</b> serves the banner ads in the free version. To do so Google may collect device
+          identifiers (including the advertising identifier if you allow tracking in the App Tracking
+          Transparency prompt), coarse location derived from your IP address, ad interaction data and
+          performance and crash diagnostics, and may use them for advertising, analytics and fraud prevention
+          as described in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> and{" "}
+          <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps that use our services</a>.
+          In the European Economic Area, the United Kingdom and Switzerland a consent form is shown before
+          any ad loads, and &quot;Ad privacy options&quot; in Settings lets you change your choice at any
+          time. Buying Pro removes the banner and stops all AdMob requests. Health data (section 2) is never
+          shared with Google or anyone else. We use no analytics library of our own.
+        </p>
       </Section>
 
       <Section>

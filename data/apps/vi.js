@@ -97,7 +97,7 @@ export default {
       },
       h1: "Chuyển tin nhắn thoại WhatsApp (.opus) sang MP3 trên iPhone, miễn phí và ngoại tuyến",
       answer: "Voice Note Audio Converter là công cụ chuyển opus sang MP3 chạy hoàn toàn trên iPhone của bạn. Chọn một hay một trăm tệp .opus, .ogg, .m4a, .aac hoặc .wav, chọn MP3 hay WAV, chạm “Chuyển đổi”, rồi chia sẻ kết quả tới Tệp, Mail, AirDrop hay bất kỳ ứng dụng nào. Không có gì được gửi lên máy chủ, không cần tài khoản, và ứng dụng dùng được cả khi bật chế độ máy bay.",
-      quickFacts: [["Giá", "Miễn phí, không hình mờ, không giới hạn"], ["Đầu vào", ".opus .ogg .oga .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp .mp4"], ["Đầu ra", "MP3 (128 kbps) hoặc WAV (PCM 16-bit)"], ["Riêng tư", "Chuyển đổi trên máy, không tải lên, không cần tài khoản"]],
+      quickFacts: [["Giá", "Miễn phí, không watermark, không giới hạn. Một banner quảng cáo nhỏ; mua “Xóa quảng cáo” một lần (0,99 đô la)"], ["Đầu vào", ".opus .ogg .oga .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp .mp4"], ["Đầu ra", "MP3 (128 kbps) hoặc WAV (PCM 16-bit)"], ["Riêng tư", "Chuyển đổi trên máy, không tải lên, không cần tài khoản"]],
       screenshotsTitle: "Bạn nhận được: tệp MP3 hoặc WAV để nghe, chỉnh sửa và gửi đi bất cứ đâu",
       screenshots: [
         { alt: "Công cụ chuyển opus sang MP3 trên iPhone với danh sách tin nhắn thoại WhatsApp và nút Chuyển sang MP3", caption: "Tin nhắn thoại → MP3 hoặc WAV chỉ một chạm" },
@@ -173,7 +173,7 @@ export default {
       },
       h1: "Chuyển tin nhắn thoại WhatsApp thành chữ trên iPhone, ngoại tuyến và riêng tư",
       answer: "Voice Note to Text biến tin nhắn thoại thành chữ đọc được chỉ trong vài giây mà không gửi âm thanh đi đâu cả. Chọn tệp .opus, .m4a, .mp3 hay .wav (hoặc chia sẻ từ bất kỳ ứng dụng chat nào), ngôn ngữ được nhận diện tự động, và bản chữ hiện lên màn hình, sẵn sàng để sao chép hoặc chia sẻ dưới dạng tệp .txt. Mô hình giọng nói nằm sẵn trong ứng dụng nên nó chạy được ở chế độ máy bay, và đây là khoản mua một lần, không thuê bao.",
-      quickFacts: [["Giá", "Mua một lần. Không thuê bao, không tính phút"], ["Đầu vào", ".opus .ogg .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp"], ["Ngôn ngữ", "Khoảng 100, tự nhận diện"], ["Riêng tư", "Nhận dạng giọng nói trên máy, không tải lên, không cần tài khoản"]],
+      quickFacts: [["Giá", "Tải miễn phí kèm 3 lần gỡ băng, sau đó mua một lần 2,99 đô la để dùng không giới hạn. Không thuê bao, không tín dụng"], ["Đầu vào", ".opus .ogg .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp"], ["Ngôn ngữ", "Khoảng 100, tự nhận diện"], ["Riêng tư", "Nhận dạng giọng nói trên máy, không tải lên, không cần tài khoản"]],
       screenshotsTitle: "Bạn nhận được: bản chữ để đọc, sao chép và chia sẻ",
       screenshots: [
         { alt: "Tin nhắn thoại WhatsApp đã chuyển thành chữ trên iPhone với nút Sao chép và Chia sẻ .txt", caption: "Tin nhắn thoại → chữ, kèm Sao chép và Chia sẻ" },
@@ -192,7 +192,7 @@ export default {
       featuresTitle: "Điểm khác biệt so với các ứng dụng gỡ băng qua đám mây",
       features: [
         { title: "Không tải gì lên", text: "Việc nhận dạng giọng nói chạy trên iPhone bằng mô hình đi kèm. Âm thanh và bản chữ không bao giờ rời khỏi máy, đúng như một tin nhắn thoại riêng tư xứng đáng được đối xử." },
-        { title: "Mua một lần", text: "Phần lớn ứng dụng gỡ băng thu phí thuê bao hằng tháng hoặc bán theo phút. Ứng dụng này chỉ mua một lần, dùng không giới hạn và không cần tài khoản." },
+        { title: "Dùng thử miễn phí, rồi trả một lần", text: "Phần lớn ứng dụng gỡ băng thu phí thuê bao hằng tháng hoặc bán theo phút. Ở đây 3 lần đầu miễn phí; sau đó mua một lần 2,99 đô la để gỡ băng không giới hạn, không cần tài khoản." },
         { title: "Khoảng 100 ngôn ngữ, tự nhận diện", text: "Tiếng Việt, tiếng Anh, tiếng Trung, tiếng Nhật, tiếng Hàn, tiếng Tây Ban Nha, tiếng Đức, tiếng Pháp, tiếng Ả Rập, tiếng Hindi và nhiều thứ tiếng khác. Bạn không phải chọn ngôn ngữ; mô hình tự nhận ra." },
         { title: "Dùng được ở chế độ máy bay", text: "Mô hình giọng nói nằm trong ứng dụng nên lần chạy đầu tiên không cần tải gì, và ứng dụng vẫn đầy đủ tính năng khi không có mạng." },
         { title: "Mở thẳng tin nhắn thoại .opus", text: "Nhờ giải mã Opus và Ogg tích hợp sẵn, tin nhắn thoại của WhatsApp, Telegram và Signal được chuyển thành chữ mà không cần đổi định dạng trước. Ghi âm và hộp thư thoại (.m4a) cũng dùng được." },
@@ -214,7 +214,7 @@ export default {
           ["Dùng được với tệp .opus / .m4a / .mp3 đã lưu", "✓ Có", "✗ Chỉ trong cuộc trò chuyện", "✓ Thường được"],
           ["Có ở mọi quốc gia và ngôn ngữ", "✓ Khoảng 100 ngôn ngữ, tự nhận diện", "✗ Giới hạn khu vực và ngôn ngữ", "✓ Phần lớn"],
           ["Âm thanh ở lại trên máy", "✓ Có, kiểm chứng được khi ngoại tuyến", "✓ Trên máy", "✗ Tải lên máy chủ"],
-          ["Giá", "Mua một lần", "Miễn phí", "Thuê bao hoặc tính theo phút"],
+          ["Giá", "Miễn phí, sau đó mua một lần", "Miễn phí", "Thuê bao hoặc tính theo phút"],
           ["Sao chép / chia sẻ dạng .txt", "✓ Có", "Chỉ sao chép", "✓ Có"],
           ["Dùng được ở chế độ máy bay", "✓ Có", "✓ Có", "✗ Không"],
         ],
@@ -222,7 +222,7 @@ export default {
       faqs: [
         { q: "Độ chính xác thế nào?", a: "Ứng dụng dùng mô hình giọng nói thuộc dòng Whisper chạy ngay trên máy. Lời nói rõ ràng ở một ngôn ngữ phổ biến thường được ghi lại với rất ít lỗi; tiếng ồn lớn, nhiều người nói chồng lên nhau hay giọng vùng miền nặng sẽ làm giảm độ chính xác, giống như mọi công cụ gỡ băng khác." },
         { q: "Hỗ trợ những ngôn ngữ nào?", a: "Khoảng 100 ngôn ngữ, gồm tiếng Việt, Anh, Trung, Nhật, Hàn, Tây Ban Nha, Đức, Pháp, Ý, Bồ Đào Nha, Hà Lan, Nga, Thổ Nhĩ Kỳ, Ả Rập, Hindi, Tamil, Bengal và Indonesia. Ngôn ngữ được nhận diện tự động cho từng tệp." },
-        { q: "Có thuê bao không?", a: "Không. Voice Note to Text là khoản mua một lần, dùng không giới hạn. Không có gói phút, tài khoản hay bán thêm gì cả." },
+        { q: "Có thuê bao không?", a: "Không. 3 lần gỡ băng đầu tiên miễn phí; sau đó chỉ một lần mua (2,99 đô la) để dùng không giới hạn. Không tín dụng, không bán theo phút, không tài khoản, không bán thêm." },
         { q: "Tin nhắn thoại của tôi có bị tải lên đâu không?", a: "Không. Mô hình giọng nói đi kèm ứng dụng và toàn bộ xử lý chạy trên iPhone. Ứng dụng không thực hiện bất kỳ yêu cầu mạng nào; nó chạy ngay cả khi bật chế độ máy bay." },
         { q: "Vì sao ứng dụng nặng khoảng 60 MB?", a: "Vì mô hình giọng nói nằm bên trong. Chính điều đó khiến lần chuyển đổi đầu tiên diễn ra ngay lập tức và ngoại tuyến, về sau cũng không phải tải thêm gì." },
         { q: "Có gỡ băng được audio của Telegram, Signal hay iMessage không?", a: "Có. Hãy lưu hoặc chia sẻ tệp âm thanh sang ứng dụng. Telegram và Signal tạo tệp .ogg hoặc .m4a, tin nhắn âm thanh của iMessage là .caf hoặc .m4a; tất cả đều được hỗ trợ." },

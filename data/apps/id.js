@@ -97,7 +97,7 @@ export default {
       },
       h1: "Konversi pesan suara WhatsApp (.opus) ke MP3 di iPhone Anda, gratis dan offline",
       answer: "Voice Note Audio Converter adalah konverter opus ke MP3 yang berjalan sepenuhnya di iPhone Anda. Pilih satu atau seratus file .opus, .ogg, .m4a, .aac, atau .wav, pilih MP3 atau WAV, ketuk Konversi, lalu bagikan hasilnya ke Files, Mail, AirDrop, atau aplikasi apa pun. Tidak ada yang diunggah ke server, tanpa akun, dan bisa dipakai dalam mode pesawat.",
-      quickFacts: [["Harga", "Gratis, tanpa watermark, tanpa batas"], ["Input", ".opus .ogg .oga .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp .mp4"], ["Output", "MP3 (128 kbps) atau WAV (PCM 16-bit)"], ["Privasi", "Konversi di perangkat, tanpa unggah, tanpa akun"]],
+      quickFacts: [["Harga", "Gratis, tanpa tanda air, tanpa batas. Banner iklan kecil; pembelian sekali bayar Hapus Iklan ($0,99)"], ["Input", ".opus .ogg .oga .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp .mp4"], ["Output", "MP3 (128 kbps) atau WAV (PCM 16-bit)"], ["Privasi", "Konversi di perangkat, tanpa unggah, tanpa akun"]],
       screenshotsTitle: "Yang Anda dapat: file MP3 atau WAV yang bisa diputar, diedit, dan dikirim ke mana saja",
       screenshots: [
         { alt: "Konverter opus ke MP3 di iPhone dengan daftar pesan suara WhatsApp dan tombol Konversi ke MP3", caption: "Pesan suara → MP3 atau WAV sekali ketuk" },
@@ -173,7 +173,7 @@ export default {
       },
       h1: "Transkripsi pesan suara WhatsApp ke teks di iPhone Anda, offline dan privat",
       answer: "Voice Note to Text mengubah pesan suara menjadi teks yang bisa dibaca dalam beberapa detik, tanpa mengirim audio ke mana pun. Pilih file .opus, .m4a, .mp3, atau .wav (atau bagikan dari aplikasi chat mana pun), bahasa terdeteksi otomatis, dan transkrip muncul di layar siap disalin atau dibagikan sebagai file .txt. Model suaranya ada di dalam aplikasi, jadi bisa dipakai dalam mode pesawat, dan harganya sekali bayar tanpa langganan.",
-      quickFacts: [["Harga", "Sekali bayar. Tanpa langganan, tanpa kredit"], ["Input", ".opus .ogg .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp"], ["Bahasa", "Sekitar 100, terdeteksi otomatis"], ["Privasi", "Pengenalan suara di perangkat, tanpa unggah, tanpa akun"]],
+      quickFacts: [["Harga", "Unduh gratis dengan 3 transkrip, lalu sekali bayar $2,99 untuk pemakaian tanpa batas. Tanpa langganan, tanpa kredit"], ["Input", ".opus .ogg .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp"], ["Bahasa", "Sekitar 100, terdeteksi otomatis"], ["Privasi", "Pengenalan suara di perangkat, tanpa unggah, tanpa akun"]],
       screenshotsTitle: "Yang Anda dapat: transkrip yang bisa dibaca, disalin, dan dibagikan",
       screenshots: [
         { alt: "Pesan suara WhatsApp yang ditranskripsi menjadi teks di iPhone dengan tombol Salin dan Bagikan .txt", caption: "Pesan suara → teks, dengan Salin dan Bagikan" },
@@ -192,7 +192,7 @@ export default {
       featuresTitle: "Kenapa ini berbeda dari aplikasi transkripsi cloud",
       features: [
         { title: "Tidak ada yang diunggah", text: "Pengenalan suara berjalan di iPhone dengan model bawaan. Audio dan transkrip tidak pernah keluar dari perangkat, sebagaimana layaknya pesan suara pribadi." },
-        { title: "Bayar sekali", text: "Kebanyakan aplikasi transkripsi memungut langganan bulanan atau menjual menit. Yang ini sekali bayar, transkripsi tak terbatas, tanpa akun." },
+        { title: "Coba gratis, lalu bayar sekali", text: "Kebanyakan aplikasi transkripsi memungut langganan bulanan atau menjual menit. Di sini 3 transkrip pertama gratis; setelah itu sekali bayar $2,99 membuka transkripsi tak terbatas, tanpa akun." },
         { title: "Sekitar 100 bahasa, terdeteksi otomatis", text: "Bahasa Indonesia, Inggris, Arab, Mandarin, Jepang, Korea, Spanyol, Hindi, dan banyak lagi. Anda tidak memilih bahasa; model yang mendeteksinya." },
         { title: "Bisa dalam mode pesawat", text: "Model suara ada di dalam aplikasi, jadi penggunaan pertama tidak perlu unduhan dan aplikasi lengkap tanpa koneksi." },
         { title: "Membuka pesan suara .opus langsung", text: "Decoding Opus dan Ogg bawaan berarti pesan suara WhatsApp, Telegram, dan Signal langsung ditranskripsi tanpa dikonversi dulu. Memo Suara dan voicemail (.m4a) juga bisa." },
@@ -214,7 +214,7 @@ export default {
           ["Berfungsi untuk file .opus / .m4a / .mp3 tersimpan", "✓ Ya", "✗ Hanya di dalam chat", "✓ Biasanya"],
           ["Tersedia di semua negara dan bahasa", "✓ ~100 bahasa, deteksi otomatis", "✗ Wilayah dan bahasa terbatas", "✓ Sebagian besar"],
           ["Audio tetap di ponsel", "✓ Ya, bisa diverifikasi offline", "✓ Di perangkat", "✗ Diunggah ke server"],
-          ["Harga", "Sekali beli", "Gratis", "Langganan atau kredit per menit"],
+          ["Harga", "Gratis, lalu bayar sekali", "Gratis", "Langganan atau kredit per menit"],
           ["Salin / bagikan sebagai .txt", "✓ Ya", "Hanya salin", "✓ Ya"],
           ["Bisa dalam mode pesawat", "✓ Ya", "✓ Ya", "✗ Tidak"],
         ],
@@ -222,7 +222,7 @@ export default {
       faqs: [
         { q: "Seberapa akurat transkripsinya?", a: "Menggunakan model suara keluarga Whisper yang berjalan di ponsel. Ucapan jelas dalam bahasa besar biasanya ditranskripsi dengan sangat sedikit kesalahan; kebisingan latar yang berat, pembicara yang tumpang tindih, atau aksen kuat menurunkan akurasi, seperti alat transkripsi mana pun." },
         { q: "Bahasa apa saja yang didukung?", a: "Sekitar 100, termasuk Indonesia, Inggris, Spanyol, Jerman, Prancis, Italia, Portugis, Belanda, Rusia, Turki, Arab, Hindi, Tamil, Bengali, Jepang, Korea, dan Mandarin. Bahasa terdeteksi otomatis per file." },
-        { q: "Apakah ada langganan?", a: "Tidak. Voice Note to Text sekali bayar dengan penggunaan tak terbatas. Tidak ada kredit, menit, akun, atau penawaran tambahan." },
+        { q: "Apakah ada langganan?", a: "Tidak. 3 transkrip pertama gratis; setelah itu satu pembelian sekali bayar ($2,99) membuka pemakaian tanpa batas. Tanpa kredit, menit, akun, atau tawaran tambahan." },
         { q: "Apakah pesan suara saya diunggah ke mana pun?", a: "Tidak. Model suara dibundel bersama aplikasi dan inferensi berjalan di iPhone. Aplikasi tidak melakukan permintaan jaringan sama sekali; bisa dipakai dengan mode pesawat menyala." },
         { q: "Kenapa ukuran aplikasinya sekitar 60 MB?", a: "Karena model suaranya ada di dalamnya. Itulah yang membuat transkripsi pertama instan dan offline, tanpa perlu mengunduh apa pun nanti." },
         { q: "Bisa mentranskripsi audio Telegram, Signal, atau iMessage?", a: "Bisa. Simpan atau bagikan file audio ke aplikasi. Telegram dan Signal menghasilkan file .ogg atau .m4a, pesan audio iMessage berformat .caf atau .m4a; semuanya didukung." },

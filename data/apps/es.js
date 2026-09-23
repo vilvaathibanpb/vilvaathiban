@@ -97,7 +97,7 @@ export default {
       },
       h1: "Convierte notas de voz de WhatsApp (.opus) a MP3 en tu iPhone, gratis y sin conexión",
       answer: "Voice Note Audio Converter es un conversor de opus a MP3 que funciona completamente en tu iPhone. Elige una o cien notas de voz .opus, .ogg, .m4a, .aac o .wav, escoge MP3 o WAV, toca Convertir y comparte los resultados a Archivos, Mail, AirDrop o cualquier app. Nada se sube a un servidor, no hace falta cuenta y funciona en modo avión.",
-      quickFacts: [["Precio", "Gratis, sin marca de agua, sin límites"], ["Entrada", ".opus .ogg .oga .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp .mp4"], ["Salida", "MP3 (128 kbps) o WAV (PCM de 16 bits)"], ["Privacidad", "Conversión en el dispositivo, sin subir nada, sin cuenta"]],
+      quickFacts: [["Precio", "Gratis, sin marca de agua ni límites. Pequeño banner publicitario; compra única Quitar anuncios (0,99 US$)"], ["Entrada", ".opus .ogg .oga .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp .mp4"], ["Salida", "MP3 (128 kbps) o WAV (PCM de 16 bits)"], ["Privacidad", "Conversión en el dispositivo, sin subir nada, sin cuenta"]],
       screenshotsTitle: "Lo que obtienes: archivos MP3 o WAV que puedes reproducir, editar y enviar a cualquier parte",
       screenshots: [
         { alt: "Conversor de opus a MP3 en iPhone con una lista de notas de voz de WhatsApp y un botón Convertir a MP3", caption: "Notas de voz → MP3 o WAV con un toque" },
@@ -173,7 +173,7 @@ export default {
       },
       h1: "Transcribe mensajes de voz de WhatsApp a texto en tu iPhone, sin conexión y en privado",
       answer: "Voice Note to Text convierte una nota de voz en texto legible en pocos segundos, sin enviar el audio a ningún sitio. Elige un archivo .opus, .m4a, .mp3 o .wav (o compártelo desde cualquier app de chat), el idioma se detecta automáticamente y la transcripción aparece en pantalla lista para copiar o compartir como archivo .txt. El modelo de voz va dentro de la app, así que funciona en modo avión, y es un pago único sin suscripción.",
-      quickFacts: [["Precio", "Pago único. Sin suscripción, sin créditos"], ["Entrada", ".opus .ogg .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp"], ["Idiomas", "Unos 100, detectados automáticamente"], ["Privacidad", "Reconocimiento de voz en el dispositivo, sin subir nada, sin cuenta"]],
+      quickFacts: [["Precio", "Descarga gratis con 3 transcripciones incluidas; después, un único pago de 2,99 US$ para uso ilimitado. Sin suscripción ni créditos"], ["Entrada", ".opus .ogg .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp"], ["Idiomas", "Unos 100, detectados automáticamente"], ["Privacidad", "Reconocimiento de voz en el dispositivo, sin subir nada, sin cuenta"]],
       screenshotsTitle: "Lo que obtienes: una transcripción que puedes leer, copiar y compartir",
       screenshots: [
         { alt: "Nota de voz de WhatsApp transcrita a texto en iPhone con botones Copiar y Compartir .txt", caption: "Nota de voz → texto, con Copiar y Compartir" },
@@ -192,7 +192,7 @@ export default {
       featuresTitle: "Por qué es diferente de las apps de transcripción en la nube",
       features: [
         { title: "Nada se sube", text: "El reconocimiento de voz se ejecuta en el iPhone con un modelo incluido. El audio y la transcripción nunca salen del dispositivo, que es lo que merece un mensaje de voz privado." },
-        { title: "Pago único", text: "La mayoría de apps de transcripción cobran una suscripción mensual o venden minutos. Esta se paga una sola vez, con transcripciones ilimitadas y sin cuenta." },
+        { title: "Prueba gratis, paga una vez", text: "La mayoría de apps de transcripción cobran una suscripción mensual o venden minutos. Aquí las 3 primeras transcripciones son gratis; después, un pago único de 2,99 US$ desbloquea transcripciones ilimitadas, sin cuenta." },
         { title: "Unos 100 idiomas, detección automática", text: "Español, inglés, portugués, francés, alemán, italiano, árabe, hindi, turco y muchos más. No eliges el idioma; el modelo lo detecta." },
         { title: "Funciona en modo avión", text: "El modelo de voz va dentro de la app, así que la primera ejecución no necesita descargas y la app está completa sin conexión." },
         { title: "Abre notas de voz .opus directamente", text: "La decodificación nativa de Opus y Ogg permite transcribir mensajes de voz de WhatsApp, Telegram y Signal sin convertirlos antes. Las Notas de Voz y el buzón de voz (.m4a) también funcionan." },
@@ -214,7 +214,7 @@ export default {
           ["Funciona con archivos .opus / .m4a / .mp3 guardados", "✓ Sí", "✗ Solo dentro del chat", "✓ Normalmente"],
           ["Disponible en todos los países e idiomas", "✓ ~100 idiomas, detección automática", "✗ Regiones e idiomas limitados", "✓ En general"],
           ["El audio se queda en el teléfono", "✓ Sí, verificable sin conexión", "✓ En el dispositivo", "✗ Se sube a un servidor"],
-          ["Precio", "Pago único", "Gratis", "Suscripción o créditos por minuto"],
+          ["Precio", "Gratis, luego pago único", "Gratis", "Suscripción o créditos por minuto"],
           ["Copiar / compartir como .txt", "✓ Sí", "Solo copiar", "✓ Sí"],
           ["Funciona en modo avión", "✓ Sí", "✓ Sí", "✗ No"],
         ],
@@ -222,7 +222,7 @@ export default {
       faqs: [
         { q: "¿Qué tan precisa es la transcripción?", a: "Usa un modelo de voz de la familia Whisper que se ejecuta en el teléfono. El habla clara en un idioma principal suele transcribirse con muy pocos errores; el ruido de fondo intenso, varias voces a la vez o acentos muy marcados reducen la precisión, como con cualquier herramienta de transcripción." },
         { q: "¿Qué idiomas admite?", a: "Unos 100, incluidos español, inglés, portugués, francés, alemán, italiano, holandés, ruso, turco, árabe, hindi, tamil, bengalí, indonesio, japonés, coreano y chino. El idioma se detecta automáticamente en cada archivo." },
-        { q: "¿Hay suscripción?", a: "No. Voice Note to Text es un pago único con uso ilimitado. No hay créditos, minutos, cuentas ni ventas adicionales." },
+        { q: "¿Hay suscripción?", a: "No. Las 3 primeras transcripciones son gratis; después, un único pago (2,99 US$) desbloquea el uso ilimitado. Sin créditos, minutos, cuentas ni ventas adicionales." },
         { q: "¿Sube mis notas de voz a algún sitio?", a: "No. El modelo de voz viene incluido en la app y la inferencia se ejecuta en el iPhone. La app no hace ninguna petición de red; funciona con el modo avión activado." },
         { q: "¿Por qué la app ocupa unos 60 MB?", a: "Porque el modelo de voz va dentro. Eso es lo que hace que la primera transcripción sea instantánea y sin conexión, sin nada que descargar después." },
         { q: "¿Puedo transcribir audios de Telegram, Signal o iMessage?", a: "Sí. Guarda o comparte el archivo de audio con la app. Telegram y Signal producen archivos .ogg o .m4a; los mensajes de audio de iMessage son .caf o .m4a; todos son compatibles." },

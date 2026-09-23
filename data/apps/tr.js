@@ -97,7 +97,7 @@ export default {
       },
       h1: "WhatsApp sesli mesajlarını (.opus) iPhone’unuzda MP3’e dönüştürün, ücretsiz ve çevrimdışı",
       answer: "Voice Note Audio Converter tamamen iPhone’unuzda çalışan bir opus’tan MP3’e dönüştürücüdür. Bir ya da yüz .opus, .ogg, .m4a, .aac veya .wav dosyası seçin, MP3 ya da WAV’ı belirleyin, Dönüştür’e dokunun ve sonuçları Dosyalar, Mail, AirDrop ya da herhangi bir uygulamayla paylaşın. Sunucuya hiçbir şey gönderilmez, hesap gerekmez ve uçak modunda çalışır.",
-      quickFacts: [["Fiyat", "Ücretsiz, filigran yok, sınır yok"], ["Girdi", ".opus .ogg .oga .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp .mp4"], ["Çıktı", "MP3 (128 kbps) veya WAV (16 bit PCM)"], ["Gizlilik", "Cihaz üzerinde dönüştürme, yükleme yok, hesap yok"]],
+      quickFacts: [["Fiyat", "Ücretsiz, filigran yok, sınır yok. Küçük bir reklam bandı; tek seferlik “Reklamları kaldır” (0,99 $)"], ["Girdi", ".opus .ogg .oga .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp .mp4"], ["Çıktı", "MP3 (128 kbps) veya WAV (16 bit PCM)"], ["Gizlilik", "Cihaz üzerinde dönüştürme, yükleme yok, hesap yok"]],
       screenshotsTitle: "Elde ettikleriniz: her yerde çalan, düzenlenebilen ve gönderilebilen MP3 veya WAV dosyaları",
       screenshots: [
         { alt: "iPhone’da opus’tan MP3’e dönüştürücü: WhatsApp sesli mesaj listesi ve MP3’e Dönüştür düğmesi", caption: "Sesli mesajlar → tek dokunuşla MP3 veya WAV" },
@@ -173,7 +173,7 @@ export default {
       },
       h1: "WhatsApp sesli mesajlarını iPhone’unuzda yazıya dökün, çevrimdışı ve gizli",
       answer: "Voice Note to Text, sesli bir mesajı sesi hiçbir yere göndermeden birkaç saniyede okunabilir metne çevirir. Bir .opus, .m4a, .mp3 ya da .wav dosyası seçin (veya herhangi bir sohbet uygulamasından paylaşın), dil otomatik algılanır ve metin ekranda belirir; kopyalamaya ya da .txt olarak paylaşmaya hazırdır. Konuşma modeli uygulamanın içinde geldiğinden uçak modunda çalışır; aboneliksiz, tek seferlik bir satın almadır.",
-      quickFacts: [["Fiyat", "Tek seferlik satın alma. Abonelik yok, kredi yok"], ["Girdi", ".opus .ogg .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp"], ["Diller", "Yaklaşık 100, otomatik algılanır"], ["Gizlilik", "Cihaz üzerinde konuşma tanıma, yükleme yok, hesap yok"]],
+      quickFacts: [["Fiyat", "3 yazıya dökme dahil ücretsiz indirme, sonrasında sınırsız kullanım için tek seferlik 2,99 $. Abonelik yok, kredi yok"], ["Girdi", ".opus .ogg .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp"], ["Diller", "Yaklaşık 100, otomatik algılanır"], ["Gizlilik", "Cihaz üzerinde konuşma tanıma, yükleme yok, hesap yok"]],
       screenshotsTitle: "Elde ettikleriniz: okuyabileceğiniz, kopyalayıp paylaşabileceğiniz bir metin",
       screenshots: [
         { alt: "iPhone’da yazıya dökülmüş WhatsApp sesli mesajı, Kopyala ve .txt Paylaş düğmeleriyle", caption: "Sesli mesaj → metin, Kopyala ve Paylaş ile" },
@@ -192,7 +192,7 @@ export default {
       featuresTitle: "Bulut tabanlı yazıya dökme uygulamalarından farkı",
       features: [
         { title: "Hiçbir şey yüklenmez", text: "Konuşma tanıma, paketlenmiş bir modelle iPhone üzerinde çalışır. Ses ve metin cihazdan asla çıkmaz; özel bir sesli mesaj bunu hak eder." },
-        { title: "Tek seferlik satın alma", text: "Çoğu yazıya dökme uygulaması aylık abonelik ister ya da dakika satar. Bu uygulama tek seferlik satın alma; sınırsız yazıya dökme ve hesap yok." },
+        { title: "Önce ücretsiz deneyin, sonra bir kez ödeyin", text: "Çoğu yazıya dökme uygulaması aylık abonelik ister ya da dakika satar. Burada ilk 3 yazıya dökme ücretsiz; sonrasında tek seferlik 2,99 $ ile sınırsız yazıya dökme, hesap gerekmeden." },
         { title: "Yaklaşık 100 dil, otomatik algılanır", text: "Türkçe, İngilizce, Almanca, Arapça, İspanyolca, Fransızca, Rusça, Hintçe ve daha birçoğu. Dili siz seçmezsiniz; model algılar." },
         { title: "Uçak modunda çalışır", text: "Konuşma modeli uygulamanın içinde gelir; ilk çalıştırmada indirme gerekmez ve uygulama bağlantısız da tamdır." },
         { title: ".opus sesli mesajlarını doğrudan açar", text: "Yerleşik Opus ve Ogg çözme sayesinde WhatsApp, Telegram ve Signal sesli mesajları önce dönüştürülmeden yazıya dökülür. Sesli Notlar ve telesekreter (.m4a) de çalışır." },
@@ -214,7 +214,7 @@ export default {
           ["Kaydedilmiş .opus / .m4a / .mp3 dosyalarıyla çalışır", "✓ Evet", "✗ Yalnızca sohbet içinde", "✓ Genellikle"],
           ["Her ülke ve dilde kullanılabilir", "✓ ~100 dil, otomatik algılama", "✗ Sınırlı bölge ve dil", "✓ Çoğunlukla"],
           ["Ses telefonda kalır", "✓ Evet, çevrimdışı doğrulanabilir", "✓ Cihaz üzerinde", "✗ Sunucuya yüklenir"],
-          ["Fiyat", "Tek seferlik satın alma", "Ücretsiz", "Abonelik ya da dakika kredisi"],
+          ["Fiyat", "Ücretsiz, sonra tek seferlik ödeme", "Ücretsiz", "Abonelik ya da dakika kredisi"],
           [".txt olarak kopyala / paylaş", "✓ Evet", "Yalnızca kopyala", "✓ Evet"],
           ["Uçak modunda çalışır", "✓ Evet", "✓ Evet", "✗ Hayır"],
         ],
@@ -222,7 +222,7 @@ export default {
       faqs: [
         { q: "Yazıya dökme ne kadar doğru?", a: "Telefonda çalışan Whisper ailesinden bir konuşma modeli kullanır. Büyük bir dilde net konuşma genellikle çok az hatayla yazıya dökülür; yoğun arka plan gürültüsü, üst üste konuşanlar ya da güçlü aksanlar, her yazıya dökme aracında olduğu gibi doğruluğu düşürür." },
         { q: "Hangi diller destekleniyor?", a: "Türkçe, İngilizce, İspanyolca, Almanca, Fransızca, İtalyanca, Portekizce, Felemenkçe, Rusça, Arapça, Hintçe, Tamilce, Bengalce, Endonezce, Japonca, Korece ve Çince dahil yaklaşık 100 dil. Dil her dosya için otomatik algılanır." },
-        { q: "Abonelik var mı?", a: "Hayır. Voice Note to Text sınırsız kullanımlı tek seferlik bir satın almadır. Kredi, dakika, hesap ya da ek satış yoktur." },
+        { q: "Abonelik var mı?", a: "Hayır. İlk 3 yazıya dökme ücretsizdir; sonrasında tek bir satın alma (2,99 $) sınırsız kullanımın kilidini açar. Kredi, dakika, hesap ya da ek satış yok." },
         { q: "Sesli mesajlarım bir yere yükleniyor mu?", a: "Hayır. Konuşma modeli uygulamayla birlikte gelir ve çıkarım iPhone üzerinde çalışır. Uygulama hiçbir ağ isteği yapmaz; uçak modu açıkken çalışır." },
         { q: "Uygulama neden yaklaşık 60 MB?", a: "Çünkü konuşma modeli içinde geliyor. İlk yazıya dökmeyi anında ve çevrimdışı yapan, sonradan indirecek bir şey bırakmayan da bu." },
         { q: "Telegram, Signal ya da iMessage seslerini yazıya dökebilir miyim?", a: "Evet. Ses dosyasını kaydedin ya da uygulamayla paylaşın. Telegram ve Signal .ogg ya da .m4a üretir, iMessage sesli mesajları .caf ya da .m4a’dır; hepsi desteklenir." },
