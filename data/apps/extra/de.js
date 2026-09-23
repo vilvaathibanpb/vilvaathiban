@@ -161,4 +161,456 @@ export default {
     ],
     disclaimer: "Garantie & Kassenbon Tracker ist ein persönliches Werkzeug zur Aufzeichnung. Garantiebedingungen legt der Hersteller oder Händler fest; prüfe vor einer Reklamation immer die Originalbedingungen.",
   },
+  "unit-price-calculator": {
+    "head": {
+      "title": "Grundpreis-Rechner fürs iPhone: Preis pro kg, l, Stück, Rabatte, Mehrwertsteuer, Einkaufsbudget",
+      "description": "Kostenloser Einkaufsrechner fürs iPhone: Preis pro kg, lb, Liter oder Stück über Packungen vergleichen, Rabatte und Gutscheine staffeln, Steuer aufschlagen oder herausrechnen, Korbsumme im Budget halten, Rechnung teilen. Offline, ohne Konto, 19 Sprachen.",
+      "keywords": "grundpreis rechner, preis pro kilo rechner, preisvergleich app einkaufen, einkaufsrechner, rabatt rechner, prozent rechner, mehrwertsteuer rechner, brutto netto rechner, warenkorb rechner, rechnung teilen app, trinkgeld rechner",
+      "ogTitle": "Unit Price Calculator & Tax: Welche Packung ist wirklich günstiger?",
+      "ogDescription": "Preis pro kg, lb oder Liter vergleichen, Rabatte staffeln, Steuer aufschlagen, Korb im Budget halten, Rechnung teilen. Kostenlose iPhone-App, offline."
+    },
+    "h1": "Ein Grundpreis-Rechner für den Supermarktgang: Preis pro kg oder Liter, gestaffelte Rabatte, Steuer, Einkaufsbudget und Rechnung teilen",
+    "answer": "Unit Price Calculator & Tax ist ein kostenloser Einkaufsrechner fürs iPhone. Gib Preis und Größe jeder Packung ein, und die App rechnet alles auf eine Basis um (pro kg, lb, l, fl oz oder Stück) und markiert den besten Preis. Sie staffelt Rabatte so, wie Läden sie anwenden, schlägt Mehrwertsteuer auf oder rechnet sie heraus, führt eine laufende Korbsumme gegen ein Budget und teilt eine Rechnung mit Trinkgeld. Alles läuft offline ohne Konto. Die Gratisversion zeigt ein kleines Banner; ein Einmalkauf entfernt es.",
+    "quickFacts": [
+      [
+        "Preis",
+        "Kostenlos. Optionaler Einmalkauf ohne Werbung, kein Abo"
+      ],
+      [
+        "Werkzeuge",
+        "Grundpreisvergleich, Rabatt, Steuer, Korbsumme mit Budget, Teilen & Trinkgeld"
+      ],
+      [
+        "Einheiten",
+        "g, kg, oz, lb, ml, l, fl oz, gal, Stück, Packungen, Multipacks"
+      ],
+      [
+        "Datenschutz",
+        "Offline, kein Konto; Listen bleiben auf dem Handy"
+      ]
+    ],
+    "screenshotsTitle": "Was du bekommst: die günstigere Packung, den echten Aktionspreis und einen Korb, der im Budget bleibt",
+    "screenshots": [
+      {
+        "alt": "Grundpreis-Rechner auf dem iPhone vergleicht drei Packungen mit Preis pro Kilogramm, bester Preis hervorgehoben",
+        "caption": "Welche Packung wirklich günstiger ist"
+      },
+      {
+        "alt": "Rabattrechner mit 30 % Rabatt, zusätzlichen 10 %, Gutschein und Steuer mit Endpreis und Ersparnis",
+        "caption": "Gestaffelte Rabatte, Endpreis"
+      },
+      {
+        "alt": "Korbsumme mit Artikeln, Steuer und Restbetrag eines 60er-Budgets",
+        "caption": "Beim Einkauf im Budget bleiben"
+      },
+      {
+        "alt": "Steuerrechner, der 19 % MwSt. aus einem Bruttopreis herausrechnet",
+        "caption": "Steuer aufschlagen oder herausrechnen"
+      },
+      {
+        "alt": "Rechnung teilen mit 15 % Trinkgeld für vier Personen, aufgerundet",
+        "caption": "Rechnung teilen, aufrunden"
+      }
+    ],
+    "howTo": {
+      "title": "So vergleichst du Grundpreise im Laden",
+      "intro": "Regaletiketten zeigen bei einem Produkt den Preis pro 100 g, beim nächsten pro kg und bei Multipacks gar nichts. Hier die 20-Sekunden-Version.",
+      "steps": [
+        {
+          "name": "Maß wählen",
+          "text": "Gewicht, Volumen, Stück oder Länge. Das Einheitenmenü zeigt dann nur passende Einheiten (g, kg, oz, lb bei Gewicht; ml, l, fl oz, gal bei Volumen)."
+        },
+        {
+          "name": "Jede Packung eingeben",
+          "text": "Preis, Menge und Einheit für A und B. Bei einem Multipack Packungen auf 6 und Menge auf 330 ml setzen. Bis zu sechs Optionen."
+        },
+        {
+          "name": "Ergebnis lesen",
+          "text": "Der beste Preis bekommt ein grünes Abzeichen, jede andere Option zeigt, wie viel Prozent sie mehr kostet. Die Basis (pro kg, pro 100 g, pro lb) wechselst du im Menü Preis anzeigen pro."
+        },
+        {
+          "name": "Dann das Angebot prüfen",
+          "text": "Wechsle zu Rabatt, um Regalrabatt, Zusatzprozent an der Kasse und Gutschein zu staffeln, mit Steuer, falls dein Land sie an der Kasse aufschlägt."
+        }
+      ]
+    },
+    "featuresTitle": "Fünf Rechner für den Kassenbereich",
+    "features": [
+      {
+        "icon": "⚖️",
+        "title": "Grundpreisvergleich",
+        "text": "Bis zu sechs Packungen, metrische und imperiale Einheiten gemischt, Multipacks, bester Preis mit Aufschlag jeder anderen Option in Prozent."
+      },
+      {
+        "icon": "🏷️",
+        "title": "Gestaffelte Rabatte",
+        "text": "Prozent Rabatt, Zusatzprozent auf den reduzierten Preis, fester Gutschein, dann Steuer: in Ladenreihenfolge, mit dem, was du zahlst und sparst."
+      },
+      {
+        "icon": "🧾",
+        "title": "Mehrwertsteuer",
+        "text": "Steuer auf einen Preis aufschlagen oder aus einem Bruttopreis herausrechnen. Schnellchips für gängige Sätze; deinen als Standard anheften."
+      },
+      {
+        "icon": "🛒",
+        "title": "Korbsumme mit Budget",
+        "text": "Artikel beim Einkaufen antippen, abhaken, Steuer und Restbudget mit Fortschrittsbalken sehen."
+      },
+      {
+        "icon": "👥",
+        "title": "Teilen und Trinkgeld",
+        "text": "Rechnung, Trinkgeld in Prozent, Personenzahl und Aufrunden, damit jeder Anteil glatt ist."
+      },
+      {
+        "icon": "🌍",
+        "title": "Deine Währung und Sprache",
+        "text": "Folgt deinem Währungssymbol und Dezimaltrennzeichen; 19 Sprachen; merkt sich Listen und Steuersatz zwischen Einkäufen."
+      }
+    ],
+    "intentsTitle": "Fragen, die diese App beantwortet",
+    "intents": [
+      {
+        "h": "Wie berechne ich den Preis pro Einheit?",
+        "p": "Preis durch Menge in einer gemeinsamen Einheit teilen. Die App rechnet um: 500 g für 4,49 sind 8,98 pro kg; 1,2 lb für 4,99 sind 9,17 pro kg. Die kleinere Zahl ist das bessere Angebot."
+      },
+      {
+        "h": "Ist die größere Packung immer günstiger?",
+        "p": "Meistens, aber nicht immer, und Multipacks und Aktionen brechen die Regel oft genug, um nachzurechnen. Beide eingeben, und die App zeigt den genauen Prozentunterschied."
+      },
+      {
+        "h": "Wie viel sind 30 % Rabatt plus 10 % extra?",
+        "p": "Nicht 40 %. Die zusätzlichen 10 % gelten auf den bereits reduzierten Preis, aus 100 werden 70 und dann 63: 37 % Ersparnis. Der Rabatt-Tab zeigt jeden Schritt."
+      },
+      {
+        "h": "Wie rechne ich die Mehrwertsteuer aus einem Preis heraus?",
+        "p": "Durch 1 plus Satz teilen: 119 bei 19 % MwSt. sind 100 netto. Steuer herausrechnen wählen, Betrag und Satz eingeben."
+      },
+      {
+        "h": "Braucht die App Internet oder ein Konto?",
+        "p": "Nein. Jede Berechnung läuft auf dem Handy, deine Listen bleiben lokal. Die einzige Netznutzung ist das kleine Werbebanner der Gratisversion, das ein Einmalkauf entfernt."
+      }
+    ],
+    "compare": {
+      "title": "Unit Price Calculator & Tax vs. Handy-Taschenrechner und Einzweck-Apps",
+      "intro": "Der eingebaute Taschenrechner funktioniert, wenn du die Umrechnungen im Kopf hast und sie zweimal machst. Die meisten Einzweck-Apps erledigen eine dieser Aufgaben. Diese App vereint die fünf Kassenrechnungen und merkt sich deine Einstellungen.",
+      "columns": [
+        "",
+        "Unit Price Calculator & Tax",
+        "Handy-Taschenrechner",
+        "Einzweck-Apps"
+      ],
+      "rows": [
+        [
+          "Rechnet g, kg, oz, lb, ml, l automatisch um",
+          "✓",
+          "✗ Manuell",
+          "Teils"
+        ],
+        [
+          "Multipacks und bis zu sechs Optionen",
+          "✓",
+          "✗",
+          "Selten"
+        ],
+        [
+          "Gestaffelte Rabatte mit Gutschein und Steuer",
+          "✓",
+          "✗ Schritt für Schritt",
+          "Nur Rabatt-Apps"
+        ],
+        [
+          "Korbsumme gegen ein Budget",
+          "✓",
+          "✗",
+          "Nur Listen-Apps"
+        ],
+        [
+          "Rechnung teilen mit Trinkgeld und Aufrunden",
+          "✓",
+          "✗",
+          "Nur Trinkgeld-Apps"
+        ],
+        [
+          "Preis",
+          "Kostenlos, Einmalkauf ohne Werbung",
+          "Kostenlos",
+          "Kostenlos mit Werbung oder Abo"
+        ]
+      ]
+    },
+    "faqs": [
+      {
+        "q": "Ist die App kostenlos?",
+        "a": "Ja. Die Gratisversion zeigt unten ein kleines Banner. Werbung entfernen ist ein einziger Einmalkauf; es gibt kein Abo und keinen anderen In-App-Kauf."
+      },
+      {
+        "q": "Welche Einheiten werden unterstützt?",
+        "a": "Gewicht: mg, g, kg, oz, lb. Volumen: ml, l, fl oz, cup, gal. Stück: Stück, Packung, Dutzend. Länge: cm, m, in, ft. Metrisch und imperial lassen sich in einem Vergleich mischen."
+      },
+      {
+        "q": "Kann ich die Basis des Grundpreises ändern?",
+        "a": "Ja. Unter Preis anzeigen pro wählst du pro kg, pro 100 g, pro lb, pro l, pro 100 ml, pro fl oz, pro Gallone und mehr."
+      },
+      {
+        "q": "Merkt sie sich meinen Steuersatz?",
+        "a": "Ja. Hefte im Steuer-Tab einen Satz als Standard an oder setze ihn in den Einstellungen; Rabatt und Korb nutzen ihn automatisch."
+      },
+      {
+        "q": "Welche Währung wird verwendet?",
+        "a": "Standardmäßig deine Gerätewährung. In den Einstellungen kannst du eine andere wählen."
+      },
+      {
+        "q": "Funktioniert sie offline?",
+        "a": "Ja. Berechnungen und Listen verlassen das Handy nie. Ohne Verbindung wird keine Werbung gezeigt."
+      },
+      {
+        "q": "Welche Sprachen?",
+        "a": "Englisch, Spanisch, Deutsch, Französisch, Italienisch, Portugiesisch, Niederländisch, Polnisch, Russisch, Ukrainisch, Türkisch, Arabisch, Hindi, Indonesisch, Vietnamesisch, Thai, Japanisch, Koreanisch und vereinfachtes Chinesisch."
+      },
+      {
+        "q": "Gibt es eine Android-Version?",
+        "a": "Noch nicht. Die iPhone-App erscheint zuerst; eine Android-Version ist geplant, und diese Seite verlinkt Google Play, sobald sie live ist."
+      }
+    ],
+    "related": [
+      {
+        "name": "Warranty Tracker & Receipt Log",
+        "href": "/apps/warranty-tracker",
+        "blurb": "Beleg fotografieren, Garantiedauer setzen, vor Ablauf erinnert werden. Offline, Einmalkauf."
+      },
+      {
+        "name": "Electrician Calculator Toolkit",
+        "href": "/apps/electrician-calculator",
+        "blurb": "Spannungsabfall, Querschnitt, Rohr- und Dosenfüllung nach NEC 2023, offline. Einmalkauf."
+      },
+      {
+        "name": "Caffeine Tracker: Curfew",
+        "href": "/apps/caffeine-tracker",
+        "blurb": "Wie viel Koffein noch wirkt und bis wann der letzte Kaffee sein darf. Kostenlos."
+      }
+    ],
+    "disclaimer": "Unit Price Calculator & Tax ist eine Einkaufshilfe. Steuersätze und Rundungsregeln unterscheiden sich je nach Land und Laden; prüfe den Endbetrag auf dem Kassenbon."
+  },
+  "caffeine-tracker": {
+    "head": {
+      "title": "Koffein-Tracker fürs iPhone: Wie viel Koffein noch in dir steckt und deine Schlafenszeit-Grenze",
+      "description": "Kostenloser Koffein-Tracker fürs iPhone: Kaffee, Tee und Energydrinks in zwei Tipps loggen, die noch wirksamen Milligramm per Halbwertszeit-Modell sehen und eine Sperrstunde für die letzte Tasse bekommen. Offline, ohne Konto, 19 Sprachen.",
+      "keywords": "koffein tracker app, koffein rechner, koffein halbwertszeit rechner, kaffee tracker, koffein tagebuch, wie lange wirkt koffein, wann letzter kaffee vor dem schlafen, koffein schlaf rechner, koffein im körper berechnen",
+      "ogTitle": "Caffeine Tracker: Curfew – wie viel Koffein wirkt noch in dir?",
+      "ogDescription": "Ein Getränk in zwei Tipps loggen, den Spiegel sinken sehen und die späteste Zeit für den letzten Kaffee bekommen, wenn du pünktlich schlafen willst. Kostenlose iPhone-App."
+    },
+    "h1": "Ein Koffein-Tracker, der zeigt, was noch in deinem Körper wirkt und bis wann der letzte Kaffee sein darf",
+    "answer": "Caffeine Tracker: Curfew schätzt aus deinen Einträgen das aktive Koffein im Körper mit einem Halbwertszeit-Modell (etwa 5 Stunden bei den meisten Erwachsenen, einstellbar). Logge Espresso, Filterkaffee, Latte, Tee, Matcha, Energydrinks und mehr in zwei Tipps, sieh eine 12-Stunden-Kurve, bleibe heute unter 400 mg und lege Schlafenszeit und Ziel (25, 50 oder 100 mg) fest, um eine Sperrstunde zu bekommen: die späteste Zeit für dein letztes Getränk. Funktioniert offline ohne Konto. Ein einmaliges Pro-Upgrade ergänzt Apple-Health-Sync, 30-Tage-Verlauf und eigene Getränke.",
+    "quickFacts": [
+      [
+        "Preis",
+        "Kostenlos. Einmaliges Pro-Upgrade, kein Abo"
+      ],
+      [
+        "Modell",
+        "Halbwertszeit-Abbau, 2,5 bis 8 h, Standard 5 h"
+      ],
+      [
+        "Getränke",
+        "21 Vorlagen mit typischen mg, klein / normal / groß, eigene mit Pro"
+      ],
+      [
+        "Datenschutz",
+        "Offline, kein Konto; Apple Health nur schreibend und nur auf Wunsch"
+      ]
+    ],
+    "screenshotsTitle": "Was du bekommst: die Zahl, die jetzt zählt, eine Sperrstunde für heute Abend und eine lesbare Woche",
+    "screenshots": [
+      {
+        "alt": "Startbildschirm des Koffein-Trackers auf dem iPhone mit 128 mg im Körper, Tagessumme gegen 400 mg, Schlafenszeit-Sperrstunde und 12-Stunden-Abbaukurve",
+        "caption": "Wie viel Koffein noch in dir steckt"
+      },
+      {
+        "alt": "Getränk hinzufügen mit ausgewähltem Cold Brew, Größenwahl, Zeitwahl und durchsuchbarer Kaffeeliste",
+        "caption": "Ein Getränk in zwei Tipps loggen"
+      },
+      {
+        "alt": "Verlaufsbildschirm mit Balkendiagramm der Tagessummen von sieben Tagen und dem Tagesdurchschnitt",
+        "caption": "Deine Woche sehen, Muster erkennen"
+      },
+      {
+        "alt": "Einstellungen mit Schlafenszeit, Koffein zur Schlafenszeit, Halbwertszeit-Stepper und Tageslimit",
+        "caption": "Schlafenszeit setzen, Sperrstunde bekommen"
+      }
+    ],
+    "howTo": {
+      "title": "So findest du deine Koffein-Grenze",
+      "intro": "Die Frage ist nicht, wie viel Kaffee du trinkst, sondern wie viel noch übrig ist, wenn du im Bett liegst. Drei Einstellungen, den Rest rechnet die App.",
+      "steps": [
+        {
+          "name": "Schlafenszeit setzen",
+          "text": "Einstellungen → Schlaf → Schlafenszeit. Die App zielt immer auf die heutige Schlafenszeit, auch wenn du ein spätes Getränk nach Mitternacht loggst."
+        },
+        {
+          "name": "Wählen, womit du einschlafen kannst",
+          "text": "25 mg bei leichtem Schlaf, 50 mg für die meisten, 100 mg, wenn Koffein dich kaum beeinflusst. Das ist der Zielwert zur Schlafenszeit."
+        },
+        {
+          "name": "Loggen, was du trinkst",
+          "text": "Tippe ein Getränk auf dem Startbildschirm an (Espresso, Filter, Latte, Tee, Energydrink) oder öffne die volle Liste mit Größen und Zeitwahl für die vergessene Tasse."
+        },
+        {
+          "name": "Sperrstunde lesen",
+          "text": "Die Karte Koffein-Sperrstunde sagt zum Beispiel: „Letztes Getränk mit 95 mg bis 15:40, um zur Schlafenszeit unter 50 mg zu sein.“ Danach zeigt sie, was eine weitere Tasse zur Schlafenszeit übrig ließe."
+        }
+      ]
+    },
+    "featuresTitle": "Gebaut um eine Zahl: was gerade wirkt",
+    "features": [
+      {
+        "icon": "☕",
+        "title": "Aktueller Spiegel",
+        "text": "Jede Dosis klingt per Halbwertszeit ab. Sieh die aktiven Milligramm, einen Status (frei, aktiv, aufgedreht) und wie lange es bis unter dein Schlafziel dauert."
+      },
+      {
+        "icon": "🌙",
+        "title": "Koffein-Sperrstunde",
+        "text": "Späteste Zeit für dein übliches Getränk, um zur Schlafenszeit unter dem Ziel zu bleiben. Einstellbare Halbwertszeit für Schwangerschaft, Medikamente oder schnellen Stoffwechsel."
+      },
+      {
+        "icon": "⚡",
+        "title": "Loggen in zwei Tipps",
+        "text": "Sechs Favoriten auf dem Startbildschirm; 21 Vorlagen mit typischen Koffeingehalten; klein, normal und groß; Getränke nachtragen."
+      },
+      {
+        "icon": "📊",
+        "title": "Tageslimit und Verlauf",
+        "text": "Fortschritt gegen 400, 300 oder 200 mg. Sieben Tage Summen mit Durchschnitt und Tagen über dem Limit; 30 Tage mit Pro."
+      },
+      {
+        "icon": "❤️",
+        "title": "Apple Health (Pro)",
+        "text": "Koffein in Health schreiben, damit es neben deinen Schlafdaten liegt. Ein gelöschtes Getränk entfernt den Eintrag."
+      },
+      {
+        "icon": "🌍",
+        "title": "19 Sprachen, offline",
+        "text": "Nichts verlässt das Handy. Kein Konto, keine Werbung, keine Analysen."
+      }
+    ],
+    "intentsTitle": "Fragen, die diese App beantwortet",
+    "intents": [
+      {
+        "h": "Wie lange bleibt Koffein im Körper?",
+        "p": "Die Halbwertszeit liegt bei den meisten Erwachsenen bei etwa 5 Stunden: Eine Tasse mit 95 mg um 15 Uhr sind um 20 Uhr noch etwa 48 mg und um 1 Uhr 24 mg. Die App zeichnet genau diese Kurve für alles, was du geloggt hast."
+      },
+      {
+        "h": "Wann sollte ich aufhören, Kaffee zu trinken, um zu schlafen?",
+        "p": "Das hängt von Schlafenszeit, Empfindlichkeit und dem bereits Getrunkenen ab. Mit 50 mg Ziel und 23 Uhr Schlafenszeit muss ein einzelner Kaffee mit 95 mg bis etwa 18:20 Uhr getrunken sein; nach zwei früheren Tassen deutlich früher. Die Sperrstunden-Karte rechnet das laufend."
+      },
+      {
+        "h": "Wie viel Koffein steckt in Espresso, Latte oder Cold Brew?",
+        "p": "Typische Werte: Espresso 63 mg, Latte oder Cappuccino 75 mg (ein Shot), Filterkaffee 95 mg, Cold Brew 200 mg, Schwarztee 47 mg, Grüntee 28 mg, Matcha 70 mg, ein 250-ml-Energydrink 80 mg. Alle Vorlagen sind nach Größe anpassbar, mit Pro auch exakte Mengen."
+      },
+      {
+        "h": "Wie viel Koffein am Tag ist zu viel?",
+        "p": "Der häufig genannte Richtwert für gesunde Erwachsene liegt bei 400 mg am Tag, 200 mg in der Schwangerschaft. Die App führt einen Fortschrittsbalken gegen das gewählte Limit."
+      },
+      {
+        "h": "Braucht die App Internet oder ein Konto?",
+        "p": "Nein. Alles läuft auf dem Handy. In Apple Health wird nur geschrieben, wenn du es in Pro aktivierst."
+      }
+    ],
+    "compare": {
+      "title": "Caffeine Tracker: Curfew vs. Notizen-App und Abo-Koffein-Tracker",
+      "intro": "Tassen zählen sagt nichts über heute Abend. Die meisten Koffein-Apps berechnen den Spiegel zwar, verlangen dafür aber ein Monatsabo. Diese App liefert Spiegel, Sperrstunde und Verlauf kostenlos, mit einem einmaligen Pro für den Health-Sync.",
+      "columns": [
+        "",
+        "Caffeine Tracker: Curfew",
+        "Notizen / Gedächtnis",
+        "Abo-Tracker"
+      ],
+      "rows": [
+        [
+          "Aktives Koffein mit Abbaukurve",
+          "✓",
+          "✗",
+          "✓"
+        ],
+        [
+          "Schlafenszeit-Sperrstunde für das letzte Getränk",
+          "✓",
+          "✗",
+          "Teils"
+        ],
+        [
+          "Loggen in zwei Tipps mit typischen mg",
+          "✓",
+          "✗",
+          "✓"
+        ],
+        [
+          "Apple-Health-Sync",
+          "✓ Pro (einmalig)",
+          "✗",
+          "✓ Abo"
+        ],
+        [
+          "Offline, ohne Konto",
+          "✓",
+          "✓",
+          "Unterschiedlich"
+        ],
+        [
+          "Preis",
+          "Kostenlos, einmaliges Pro",
+          "Kostenlos",
+          "Monatlich oder jährlich"
+        ]
+      ]
+    },
+    "faqs": [
+      {
+        "q": "Wie genau ist die Schätzung?",
+        "a": "Es ist eine Schätzung. Koffeingehalt variiert nach Zubereitung und Marke, die Halbwertszeit zwischen Menschen (etwa 3 bis 7 Stunden). Passe die Halbwertszeit in den Einstellungen an, wenn du Koffein langsam oder schnell abbaust. Keine medizinische Beratung."
+      },
+      {
+        "q": "Was ist in Pro enthalten?",
+        "a": "Apple-Health-Sync (Koffein), 30-Tage-Verlauf statt 7 und eigene Getränke mit exakten Mengen. Ein einziger Einmalkauf, kein Abo."
+      },
+      {
+        "q": "Liest sie meine Health-Daten?",
+        "a": "Nein. Mit Pro und aktiviertem Schalter schreibt sie Koffeineinträge in Health und löscht sie, wenn du ein Getränk löschst. Sie liest nie etwas."
+      },
+      {
+        "q": "Kann ich ein vergessenes Getränk nachtragen?",
+        "a": "Ja. Öffne die volle Getränkeliste und ändere die Zeit vor dem Hinzufügen."
+      },
+      {
+        "q": "Was, wenn meine Schlafenszeit nach Mitternacht ist?",
+        "a": "Stelle sie normal ein (zum Beispiel 1:00 Uhr). Ein um 23 Uhr geloggtes Getränk zählt trotzdem zu heute Nacht."
+      },
+      {
+        "q": "Welche Sprachen?",
+        "a": "Englisch, Spanisch, Deutsch, Französisch, Italienisch, Portugiesisch, Niederländisch, Polnisch, Russisch, Ukrainisch, Türkisch, Arabisch, Hindi, Indonesisch, Vietnamesisch, Thai, Japanisch, Koreanisch und vereinfachtes Chinesisch."
+      },
+      {
+        "q": "Gibt es eine Android-Version?",
+        "a": "Noch nicht. Die iPhone-App erscheint zuerst; eine Android-Version ist geplant, und diese Seite verlinkt Google Play, sobald sie live ist."
+      }
+    ],
+    "related": [
+      {
+        "name": "Unit Price Calculator & Tax",
+        "href": "/apps/unit-price-calculator",
+        "blurb": "Welche Packung pro kg oder Liter günstiger ist, gestaffelte Rabatte, Steuer, Einkaufsbudget und Rechnung teilen. Kostenlos."
+      },
+      {
+        "name": "Warranty Tracker & Receipt Log",
+        "href": "/apps/warranty-tracker",
+        "blurb": "Beleg fotografieren, Garantiedauer setzen, vor Ablauf erinnert werden. Offline, Einmalkauf."
+      },
+      {
+        "name": "Electrician Calculator Toolkit",
+        "href": "/apps/electrician-calculator",
+        "blurb": "Spannungsabfall, Querschnitt, Rohr- und Dosenfüllung nach NEC 2023, offline. Einmalkauf."
+      }
+    ],
+    "disclaimer": "Caffeine Tracker: Curfew nutzt ein einfaches Halbwertszeit-Modell und durchschnittliche Koffeingehalte. Es ist kein Medizinprodukt und keine medizinische Beratung; sprich mit einer Fachperson über Koffein und deine Gesundheit."
+  },
 };

@@ -161,4 +161,456 @@ export default {
     ],
     disclaimer: "Garanties & Tickets de caisse est un outil personnel de suivi. Les conditions de garantie sont fixées par le fabricant ou le vendeur ; vérifiez toujours les conditions d'origine avant toute réclamation.",
   },
+  "unit-price-calculator": {
+    "head": {
+      "title": "Calculatrice de prix au kilo pour iPhone : prix au kg, au litre, à la pièce, remises, TVA, budget courses",
+      "description": "Calculatrice de courses gratuite pour iPhone : comparez le prix au kg, à la livre, au litre ou à la pièce entre paquets, cumulez remises et bons, ajoutez ou retirez la TVA, gardez le panier dans le budget et partagez l'addition. Hors ligne, sans compte, 19 langues.",
+      "keywords": "calculatrice prix au kilo, prix unitaire calculatrice, comparer prix supermarché app, calculatrice courses, calculatrice remise, calcul pourcentage, calculatrice tva, calcul ht ttc, calculatrice panier, partager addition app, calculatrice pourboire",
+      "ogTitle": "Unit Price Calculator & Tax : quel paquet est vraiment moins cher ?",
+      "ogDescription": "Comparez le prix au kg, à la livre ou au litre, cumulez les remises, ajoutez la TVA, gardez le panier dans le budget, partagez l'addition. App iPhone gratuite, hors ligne."
+    },
+    "h1": "Une calculatrice de prix unitaire pour le rayon du supermarché : prix au kg ou au litre, remises cumulées, TVA, budget panier et partage d'addition",
+    "answer": "Unit Price Calculator & Tax est une calculatrice de courses gratuite pour iPhone. Saisissez le prix et la taille de chaque paquet : l'app ramène tout à une même base (au kg, à la livre, au litre, au fl oz ou à la pièce) et marque le meilleur prix. Elle cumule aussi les remises comme les magasins les appliquent, ajoute ou retire la TVA, tient un total de panier face à un budget et partage une addition avec pourboire. Tout fonctionne hors ligne, sans compte. La version gratuite affiche une petite bannière ; un achat unique la supprime.",
+    "quickFacts": [
+      [
+        "Prix",
+        "Gratuit. Suppression des pubs en achat unique facultatif, sans abonnement"
+      ],
+      [
+        "Outils",
+        "Comparaison de prix unitaire, remise, TVA, total du panier avec budget, partage et pourboire"
+      ],
+      [
+        "Unités",
+        "g, kg, oz, lb, ml, l, fl oz, gal, pièces, paquets, multipacks"
+      ],
+      [
+        "Confidentialité",
+        "Hors ligne, sans compte ; les listes restent sur le téléphone"
+      ]
+    ],
+    "screenshotsTitle": "Ce que vous obtenez : le paquet le moins cher, le vrai prix de la promo et un panier qui reste dans le budget",
+    "screenshots": [
+      {
+        "alt": "Calculatrice de prix unitaire sur iPhone comparant trois paquets avec le prix au kilo et le meilleur prix en évidence",
+        "caption": "Quel paquet est vraiment moins cher"
+      },
+      {
+        "alt": "Calculatrice de remise avec 30 % de remise, 10 % supplémentaires, un bon et la taxe, affichant le prix final et l'économie",
+        "caption": "Remises cumulées, prix final"
+      },
+      {
+        "alt": "Total du panier avec articles, taxe et reste d'un budget de 60",
+        "caption": "Restez dans le budget en faisant les courses"
+      },
+      {
+        "alt": "Calculatrice de taxe retirant 19 % de TVA d'un prix TTC",
+        "caption": "Ajouter ou retirer la TVA"
+      },
+      {
+        "alt": "Partage d'addition avec 15 % de pourboire pour quatre personnes, arrondi",
+        "caption": "Partagez l'addition, arrondissez"
+      }
+    ],
+    "howTo": {
+      "title": "Comment comparer les prix unitaires en magasin",
+      "intro": "Les étiquettes affichent le prix aux 100 g sur un produit et au kg sur le suivant, ou rien du tout sur les multipacks. Voici la version en 20 secondes.",
+      "steps": [
+        {
+          "name": "Choisissez la mesure",
+          "text": "Poids, volume, pièces ou longueur. Le menu des unités n'affiche alors que celles qui ont un sens (g, kg, oz, lb pour le poids ; ml, l, fl oz, gal pour le volume)."
+        },
+        {
+          "name": "Saisissez chaque paquet",
+          "text": "Prix, quantité et unité pour A et B. Pour un multipack, mettez Paquets à 6 et Quantité à 330 ml. Jusqu'à six options."
+        },
+        {
+          "name": "Lisez le résultat",
+          "text": "Le meilleur prix reçoit un badge vert et chaque autre option affiche son surcoût en pourcentage. Changez la base (au kg, aux 100 g, à la livre) dans le menu Prix affiché par."
+        },
+        {
+          "name": "Puis vérifiez la promo",
+          "text": "Passez à Remise pour cumuler la remise en rayon, le pourcentage supplémentaire en caisse et un bon, avec la taxe si votre pays l'ajoute au paiement."
+        }
+      ]
+    },
+    "featuresTitle": "Cinq calculatrices pour la caisse",
+    "features": [
+      {
+        "icon": "⚖️",
+        "title": "Comparaison de prix unitaire",
+        "text": "Jusqu'à six paquets, unités métriques et impériales mélangées, multipacks, meilleur prix en évidence avec le surcoût en pourcentage des autres options."
+      },
+      {
+        "icon": "🏷️",
+        "title": "Remises cumulées",
+        "text": "Pourcentage, pourcentage supplémentaire sur le prix réduit, bon fixe, puis taxe : dans l'ordre du magasin, avec ce que vous payez et ce que vous économisez."
+      },
+      {
+        "icon": "🧾",
+        "title": "TVA et taxes",
+        "text": "Ajoutez la taxe à un prix ou retirez-la d'un prix TTC. Raccourcis pour les taux courants ; épinglez le vôtre par défaut."
+      },
+      {
+        "icon": "🛒",
+        "title": "Total du panier avec budget",
+        "text": "Ajoutez les articles au fil des courses, cochez-les, voyez la taxe et le reste du budget avec une barre de progression."
+      },
+      {
+        "icon": "👥",
+        "title": "Partage et pourboire",
+        "text": "Addition, pourcentage de pourboire, nombre de personnes et arrondi pour que chaque part soit un montant rond."
+      },
+      {
+        "icon": "🌍",
+        "title": "Votre devise et votre langue",
+        "text": "Suit votre symbole monétaire et votre séparateur décimal ; 19 langues ; mémorise vos listes et votre taux de taxe d'une fois sur l'autre."
+      }
+    ],
+    "intentsTitle": "Les questions auxquelles cette app répond",
+    "intents": [
+      {
+        "h": "Comment calculer le prix à l'unité ?",
+        "p": "Divisez le prix par la quantité, dans une unité commune. L'app fait la conversion : 500 g à 4,49 font 8,98 le kg ; 1,2 lb à 4,99 font 9,17 le kg. Le plus petit nombre est la meilleure affaire."
+      },
+      {
+        "h": "Le grand format est-il toujours moins cher ?",
+        "p": "Souvent, mais pas toujours, et les multipacks et promotions cassent la règle assez souvent pour vérifier. Saisissez les deux et l'app affiche l'écart exact en pourcentage."
+      },
+      {
+        "h": "Combien font 30 % de remise plus 10 % supplémentaires ?",
+        "p": "Pas 40 %. Les 10 % supplémentaires s'appliquent au prix déjà réduit : 100 devient 70 puis 63, soit 37 % d'économie. L'onglet Remise montre chaque étape."
+      },
+      {
+        "h": "Comment retirer la TVA d'un prix ?",
+        "p": "Divisez par 1 plus le taux : 119 à 19 % de TVA font 100 HT. Choisissez Retirer la taxe, saisissez le montant et le taux."
+      },
+      {
+        "h": "Faut-il Internet ou un compte ?",
+        "p": "Non. Chaque calcul se fait sur le téléphone et vos listes restent locales. Le seul usage réseau est la petite bannière de la version gratuite, qu'un achat unique supprime."
+      }
+    ],
+    "compare": {
+      "title": "Unit Price Calculator & Tax face à la calculatrice du téléphone et aux apps mono-usage",
+      "intro": "La calculatrice intégrée fonctionne si vous connaissez les conversions et les faites deux fois. La plupart des apps mono-usage font une seule de ces tâches. Cette app réunit les cinq calculs de caisse et mémorise vos réglages.",
+      "columns": [
+        "",
+        "Unit Price Calculator & Tax",
+        "Calculatrice du téléphone",
+        "Apps mono-usage"
+      ],
+      "rows": [
+        [
+          "Convertit g, kg, oz, lb, ml, l automatiquement",
+          "✓",
+          "✗ Manuel",
+          "Certaines"
+        ],
+        [
+          "Multipacks et jusqu'à six options",
+          "✓",
+          "✗",
+          "Rarement"
+        ],
+        [
+          "Remises cumulées avec bon et taxe",
+          "✓",
+          "✗ Étape par étape",
+          "Apps de remise seulement"
+        ],
+        [
+          "Total du panier face à un budget",
+          "✓",
+          "✗",
+          "Apps de listes seulement"
+        ],
+        [
+          "Partage d'addition avec pourboire et arrondi",
+          "✓",
+          "✗",
+          "Apps de pourboire seulement"
+        ],
+        [
+          "Prix",
+          "Gratuit, suppression des pubs en achat unique",
+          "Gratuit",
+          "Gratuit avec pubs ou abonnement"
+        ]
+      ]
+    },
+    "faqs": [
+      {
+        "q": "L'app est-elle gratuite ?",
+        "a": "Oui. La version gratuite affiche une petite bannière en bas. Supprimer les pubs est un achat unique ; il n'y a ni abonnement ni autre achat intégré."
+      },
+      {
+        "q": "Quelles unités sont prises en charge ?",
+        "a": "Poids : mg, g, kg, oz, lb. Volume : ml, l, fl oz, tasse, gal. Pièces : pièce, paquet, douzaine. Longueur : cm, m, in, ft. Vous pouvez mélanger métrique et impérial dans une même comparaison."
+      },
+      {
+        "q": "Puis-je changer l'unité d'affichage du prix ?",
+        "a": "Oui. Prix affiché par permet de choisir au kg, aux 100 g, à la livre, au litre, aux 100 ml, au fl oz, au gallon, etc."
+      },
+      {
+        "q": "Mémorise-t-elle mon taux de taxe ?",
+        "a": "Oui. Épinglez un taux par défaut depuis l'onglet Taxe ou dans les Réglages ; Remise et Panier l'utilisent automatiquement."
+      },
+      {
+        "q": "Quelle devise utilise-t-elle ?",
+        "a": "Celle de votre appareil par défaut. Vous pouvez en choisir une autre dans les Réglages."
+      },
+      {
+        "q": "Fonctionne-t-elle hors ligne ?",
+        "a": "Oui. Les calculs et les listes ne quittent jamais le téléphone. Sans connexion, aucune pub n'est affichée."
+      },
+      {
+        "q": "Quelles langues ?",
+        "a": "Anglais, espagnol, allemand, français, italien, portugais, néerlandais, polonais, russe, ukrainien, turc, arabe, hindi, indonésien, vietnamien, thaï, japonais, coréen et chinois simplifié."
+      },
+      {
+        "q": "Existe-t-il une version Android ?",
+        "a": "Pas encore. L'app iPhone sort en premier ; une version Android est prévue et cette page renverra vers Google Play dès qu'elle sera disponible."
+      }
+    ],
+    "related": [
+      {
+        "name": "Warranty Tracker & Receipt Log",
+        "href": "/apps/warranty-tracker",
+        "blurb": "Photographiez le ticket, fixez la garantie, soyez prévenu avant l'expiration. Hors ligne, achat unique."
+      },
+      {
+        "name": "Electrician Calculator Toolkit",
+        "href": "/apps/electrician-calculator",
+        "blurb": "Chute de tension, section, remplissage de conduit et de boîte selon NEC 2023, hors ligne. Achat unique."
+      },
+      {
+        "name": "Caffeine Tracker: Curfew",
+        "href": "/apps/caffeine-tracker",
+        "blurb": "Combien de caféine il vous reste et jusqu'à quelle heure le dernier café. Gratuit."
+      }
+    ],
+    "disclaimer": "Unit Price Calculator & Tax est une aide aux courses. Les taux de taxe et les règles d'arrondi varient selon le pays et le magasin ; vérifiez le montant final sur le ticket."
+  },
+  "caffeine-tracker": {
+    "head": {
+      "title": "Application de suivi de la caféine pour iPhone : ce qu'il vous en reste et votre heure limite avant le coucher",
+      "description": "Suivi de caféine gratuit pour iPhone : notez café, thé et boissons énergisantes en deux gestes, voyez les milligrammes encore actifs grâce à un modèle de demi-vie et obtenez un couvre-feu pour la dernière tasse. Hors ligne, sans compte, 19 langues.",
+      "keywords": "application caféine, suivi caféine iphone, calculateur caféine, demi-vie caféine calcul, compteur café, journal caféine, combien de temps dure la caféine, quand arrêter le café avant de dormir, caféine sommeil calcul",
+      "ogTitle": "Caffeine Tracker: Curfew : combien de caféine vous reste-t-il ?",
+      "ogDescription": "Notez une boisson en deux gestes, regardez le niveau baisser et obtenez l'heure limite du dernier café pour dormir à l'heure. App iPhone gratuite."
+    },
+    "h1": "Un suivi de caféine qui montre ce qui circule encore dans votre corps et l'heure limite du dernier café",
+    "answer": "Caffeine Tracker: Curfew estime la caféine active dans votre corps à partir de ce que vous notez, avec un modèle de demi-vie (environ 5 heures pour la plupart des adultes, réglable). Notez espresso, café filtre, latte, thé, matcha, boissons énergisantes et plus en deux gestes, suivez une courbe sur 12 heures, restez sous 400 mg aujourd'hui et fixez une heure de coucher avec une cible (25, 50 ou 100 mg) pour obtenir un couvre-feu : l'heure limite de votre dernière boisson. Fonctionne hors ligne, sans compte. Un Pro en achat unique ajoute la synchro Apple Santé, l'historique sur 30 jours et les boissons personnalisées.",
+    "quickFacts": [
+      [
+        "Prix",
+        "Gratuit. Pro en achat unique, sans abonnement"
+      ],
+      [
+        "Modèle",
+        "Décroissance par demi-vie, 2,5 à 8 h, 5 h par défaut"
+      ],
+      [
+        "Boissons",
+        "21 préréglages avec mg typiques, petit / normal / grand, personnalisées avec Pro"
+      ],
+      [
+        "Confidentialité",
+        "Hors ligne, sans compte ; Apple Santé en écriture seulement si vous l'activez"
+      ]
+    ],
+    "screenshotsTitle": "Ce que vous obtenez : le chiffre qui compte maintenant, un couvre-feu pour ce soir et une semaine lisible",
+    "screenshots": [
+      {
+        "alt": "Accueil du suivi de caféine sur iPhone avec 128 mg dans l'organisme, total du jour face à 400 mg, couvre-feu et courbe de décroissance sur 12 heures",
+        "caption": "Combien de caféine il vous reste"
+      },
+      {
+        "alt": "Feuille d'ajout avec cold brew sélectionné, choix de la taille et de l'heure et liste de cafés avec recherche",
+        "caption": "Un café noté en deux gestes"
+      },
+      {
+        "alt": "Écran historique avec graphique en barres des totaux quotidiens sur sept jours et la moyenne",
+        "caption": "Voyez la semaine, repérez l'habitude"
+      },
+      {
+        "alt": "Réglages avec heure du coucher, caféine restante au coucher, demi-vie et limite quotidienne",
+        "caption": "Fixez l'heure du coucher, obtenez un couvre-feu"
+      }
+    ],
+    "howTo": {
+      "title": "Comment trouver votre heure limite de caféine",
+      "intro": "La question n'est pas combien de cafés vous buvez, mais combien il en reste quand vous posez la tête sur l'oreiller. Trois réglages, l'app fait le calcul.",
+      "steps": [
+        {
+          "name": "Fixez l'heure du coucher",
+          "text": "Réglages → Sommeil → Heure du coucher. L'app vise toujours le coucher de ce soir, même si vous notez une boisson tardive après minuit."
+        },
+        {
+          "name": "Choisissez la dose avec laquelle vous dormez",
+          "text": "25 mg pour un sommeil léger, 50 mg pour la plupart des gens, 100 mg si la caféine vous affecte peu. C'est le niveau cible au coucher."
+        },
+        {
+          "name": "Notez ce que vous buvez",
+          "text": "Touchez une boisson sur l'accueil (espresso, filtre, latte, thé, énergisante) ou ouvrez la liste complète avec tailles et heure pour la tasse oubliée."
+        },
+        {
+          "name": "Lisez le couvre-feu",
+          "text": "La carte Couvre-feu dit par exemple : « Dernière boisson de 95 mg avant 15 h 40 pour être sous 50 mg au coucher. » Passé ce moment, elle indique ce qu'une tasse de plus laisserait au coucher."
+        }
+      ]
+    },
+    "featuresTitle": "Conçue autour d'un chiffre : ce qui agit maintenant",
+    "features": [
+      {
+        "icon": "☕",
+        "title": "Niveau en direct",
+        "text": "Chaque dose décroît selon une demi-vie. Voyez les milligrammes actifs, un statut (dégagé, actif, survolté) et le temps avant de passer sous votre cible."
+      },
+      {
+        "icon": "🌙",
+        "title": "Couvre-feu caféine",
+        "text": "Heure limite de votre boisson habituelle pour rester sous la cible au coucher. Demi-vie réglable pour la grossesse, les médicaments ou les métabolismes rapides."
+      },
+      {
+        "icon": "⚡",
+        "title": "Saisie en deux gestes",
+        "text": "Six favoris sur l'accueil ; 21 préréglages avec teneurs typiques ; petit, normal et grand ; boisson antidatée."
+      },
+      {
+        "icon": "📊",
+        "title": "Limite quotidienne et historique",
+        "text": "Progression face à 400, 300 ou 200 mg. Sept jours de totaux avec moyenne et jours de dépassement ; 30 jours avec Pro."
+      },
+      {
+        "icon": "❤️",
+        "title": "Apple Santé (Pro)",
+        "text": "Écrit la caféine dans Santé pour la placer à côté de vos données de sommeil. Supprimer une boisson supprime l'échantillon."
+      },
+      {
+        "icon": "🌍",
+        "title": "19 langues, hors ligne",
+        "text": "Rien ne quitte le téléphone. Ni compte, ni publicité, ni statistiques."
+      }
+    ],
+    "intentsTitle": "Les questions auxquelles cette app répond",
+    "intents": [
+      {
+        "h": "Combien de temps la caféine reste-t-elle dans l'organisme ?",
+        "p": "Sa demi-vie est d'environ 5 heures pour la plupart des adultes : une tasse de 95 mg à 15 h fait environ 48 mg à 20 h et 24 mg à 1 h. L'app trace exactement cette courbe pour tout ce que vous avez noté."
+      },
+      {
+        "h": "Quand arrêter le café pour dormir ?",
+        "p": "Cela dépend de votre coucher, de votre sensibilité et de ce que vous avez déjà bu. Avec une cible de 50 mg et un coucher à 23 h, un seul café de 95 mg doit être bu avant 18 h 20 environ ; après deux tasses plus tôt, bien avant. La carte couvre-feu fait ce calcul en continu."
+      },
+      {
+        "h": "Combien de caféine dans un espresso, un latte ou un cold brew ?",
+        "p": "Valeurs typiques : espresso 63 mg, latte ou cappuccino 75 mg (un shot), café filtre 95 mg, cold brew 200 mg, thé noir 47 mg, thé vert 28 mg, matcha 70 mg, une énergisante de 250 ml 80 mg. Tous les préréglages se modulent par taille et Pro permet des quantités exactes."
+      },
+      {
+        "h": "Combien de caféine par jour est-ce trop ?",
+        "p": "Le repère couramment cité pour un adulte en bonne santé est 400 mg par jour ; 200 mg pendant la grossesse. L'app tient une barre de progression face à la limite choisie."
+      },
+      {
+        "h": "Faut-il Internet ou un compte ?",
+        "p": "Non. Tout fonctionne sur le téléphone. Apple Santé n'est écrit que si vous l'activez dans Pro."
+      }
+    ],
+    "compare": {
+      "title": "Caffeine Tracker: Curfew face à une app de notes et aux suivis par abonnement",
+      "intro": "Compter les tasses ne dit rien de ce soir. La plupart des apps de caféine calculent bien le niveau, mais font payer un abonnement mensuel. Cette app offre le niveau, le couvre-feu et l'historique gratuitement, avec un Pro en achat unique pour la synchro Santé.",
+      "columns": [
+        "",
+        "Caffeine Tracker: Curfew",
+        "Notes / mémoire",
+        "Suivis par abonnement"
+      ],
+      "rows": [
+        [
+          "Caféine active avec courbe de décroissance",
+          "✓",
+          "✗",
+          "✓"
+        ],
+        [
+          "Couvre-feu pour la dernière boisson",
+          "✓",
+          "✗",
+          "Certains"
+        ],
+        [
+          "Saisie en deux gestes avec mg typiques",
+          "✓",
+          "✗",
+          "✓"
+        ],
+        [
+          "Synchro Apple Santé",
+          "✓ Pro (achat unique)",
+          "✗",
+          "✓ Abonnement"
+        ],
+        [
+          "Hors ligne, sans compte",
+          "✓",
+          "✓",
+          "Variable"
+        ],
+        [
+          "Prix",
+          "Gratuit, Pro en achat unique",
+          "Gratuit",
+          "Mensuel ou annuel"
+        ]
+      ]
+    },
+    "faqs": [
+      {
+        "q": "Quelle est la précision de l'estimation ?",
+        "a": "C'est une estimation. La teneur en caféine varie selon la préparation et la marque, et la demi-vie selon les personnes (environ 3 à 7 heures). Ajustez la demi-vie dans les Réglages si vous savez éliminer la caféine lentement ou vite. Ceci n'est pas un avis médical."
+      },
+      {
+        "q": "Que comprend Pro ?",
+        "a": "La synchro Apple Santé (caféine), l'historique sur 30 jours au lieu de 7 et les boissons personnalisées avec quantités exactes. Un seul achat unique ; pas d'abonnement."
+      },
+      {
+        "q": "Lit-elle mes données Santé ?",
+        "a": "Non. Avec Pro et l'option activée, elle écrit des échantillons de caféine dans Santé et les supprime quand vous supprimez une boisson. Elle ne lit jamais rien."
+      },
+      {
+        "q": "Puis-je noter une boisson oubliée ?",
+        "a": "Oui. Ouvrez la liste complète et changez l'heure avant d'ajouter."
+      },
+      {
+        "q": "Et si je me couche après minuit ?",
+        "a": "Réglez-la normalement (par exemple 1 h 00). Une boisson notée à 23 h compte quand même pour ce soir."
+      },
+      {
+        "q": "Quelles langues ?",
+        "a": "Anglais, espagnol, allemand, français, italien, portugais, néerlandais, polonais, russe, ukrainien, turc, arabe, hindi, indonésien, vietnamien, thaï, japonais, coréen et chinois simplifié."
+      },
+      {
+        "q": "Existe-t-il une version Android ?",
+        "a": "Pas encore. L'app iPhone sort en premier ; une version Android est prévue et cette page renverra vers Google Play dès qu'elle sera disponible."
+      }
+    ],
+    "related": [
+      {
+        "name": "Unit Price Calculator & Tax",
+        "href": "/apps/unit-price-calculator",
+        "blurb": "Quel paquet est moins cher au kg ou au litre, remises cumulées, TVA, budget panier et partage d'addition. Gratuit."
+      },
+      {
+        "name": "Warranty Tracker & Receipt Log",
+        "href": "/apps/warranty-tracker",
+        "blurb": "Photographiez le ticket, fixez la garantie, soyez prévenu avant l'expiration. Hors ligne, achat unique."
+      },
+      {
+        "name": "Electrician Calculator Toolkit",
+        "href": "/apps/electrician-calculator",
+        "blurb": "Chute de tension, section, remplissage de conduit et de boîte selon NEC 2023, hors ligne. Achat unique."
+      }
+    ],
+    "disclaimer": "Caffeine Tracker: Curfew utilise un modèle simple de demi-vie et des teneurs moyennes en caféine. Ce n'est ni un dispositif médical ni un avis médical ; parlez de la caféine et de votre santé avec un professionnel."
+  },
 };

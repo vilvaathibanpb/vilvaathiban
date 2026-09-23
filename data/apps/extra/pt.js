@@ -161,4 +161,456 @@ export default {
     ],
     disclaimer: "Garantias e Notas Fiscais é uma ferramenta pessoal de registro. Os termos da garantia são definidos pelo fabricante ou pela loja; confira sempre os termos originais antes de acionar.",
   },
+  "unit-price-calculator": {
+    "head": {
+      "title": "Calculadora de preço por quilo para iPhone: preço por kg, litro ou unidade, descontos, imposto, orçamento",
+      "description": "Calculadora de compras grátis para iPhone: compare o preço por kg, lb, litro ou unidade entre embalagens, acumule descontos e cupons, some ou retire o imposto, mantenha o carrinho no orçamento e divida a conta. Offline, sem conta, 19 idiomas.",
+      "keywords": "calculadora preço por quilo, preço unitário calculadora, comparar preços supermercado app, calculadora de compras, calculadora de desconto, calculadora porcentagem, calculadora imposto, calculadora carrinho, dividir conta app, calculadora gorjeta",
+      "ogTitle": "Unit Price Calculator & Tax: qual embalagem é mais barata de verdade?",
+      "ogDescription": "Compare o preço por kg, lb ou litro, acumule descontos, some o imposto, mantenha o carrinho no orçamento, divida a conta. App grátis para iPhone, offline."
+    },
+    "h1": "Uma calculadora de preço unitário para o corredor do mercado: preço por kg ou litro, descontos acumulados, imposto, orçamento do carrinho e divisão de conta",
+    "answer": "Unit Price Calculator & Tax é uma calculadora de compras gratuita para iPhone. Informe o preço e o tamanho de cada embalagem e o app converte tudo para uma mesma base (por kg, lb, litro, fl oz ou unidade) marcando a mais barata. Também acumula descontos como as lojas aplicam, soma ou retira o imposto, mantém o total do carrinho contra um orçamento e divide a conta com gorjeta. Tudo funciona offline, sem conta. A versão grátis mostra um pequeno banner; uma compra única o remove.",
+    "quickFacts": [
+      [
+        "Preço",
+        "Grátis. Remoção de anúncios em compra única opcional, sem assinatura"
+      ],
+      [
+        "Ferramentas",
+        "Comparação de preço unitário, desconto, imposto, total do carrinho com orçamento, divisão e gorjeta"
+      ],
+      [
+        "Unidades",
+        "g, kg, oz, lb, ml, l, fl oz, gal, unidades, pacotes, multipacks"
+      ],
+      [
+        "Privacidade",
+        "Offline, sem conta; as listas ficam no celular"
+      ]
+    ],
+    "screenshotsTitle": "O que você recebe: a embalagem mais barata, o preço real da promoção e um carrinho que fica no orçamento",
+    "screenshots": [
+      {
+        "alt": "Calculadora de preço unitário no iPhone comparando três embalagens com preço por quilo e a mais barata destacada",
+        "caption": "Qual embalagem é mais barata de verdade"
+      },
+      {
+        "alt": "Calculadora de desconto com 30% de desconto, 10% extra, cupom e imposto mostrando preço final e economia",
+        "caption": "Descontos acumulados, preço final"
+      },
+      {
+        "alt": "Total do carrinho com itens, imposto e o que sobra de um orçamento de 60",
+        "caption": "Fique no orçamento enquanto compra"
+      },
+      {
+        "alt": "Calculadora de imposto retirando 19% de um preço com imposto incluso",
+        "caption": "Some ou retire o imposto"
+      },
+      {
+        "alt": "Divisão de conta com 15% de gorjeta para quatro pessoas, arredondada",
+        "caption": "Divida a conta, arredonde"
+      }
+    ],
+    "howTo": {
+      "title": "Como comparar preços unitários na loja",
+      "intro": "As etiquetas mostram o preço por 100 g num produto e por kg no seguinte, ou nada nos multipacks. Aqui está a versão de 20 segundos.",
+      "steps": [
+        {
+          "name": "Escolha a medida",
+          "text": "Peso, volume, unidades ou comprimento. O menu de unidades mostra só as que fazem sentido (g, kg, oz, lb para peso; ml, l, fl oz, gal para volume)."
+        },
+        {
+          "name": "Informe cada embalagem",
+          "text": "Preço, quantidade e unidade de A e B. Para um multipack, coloque Pacotes em 6 e Quantidade em 330 ml. Até seis opções."
+        },
+        {
+          "name": "Leia o resultado",
+          "text": "A mais barata ganha um selo verde e as outras mostram quanto custam a mais em porcentagem. Troque a base (por kg, por 100 g, por lb) no menu Mostrar preço por."
+        },
+        {
+          "name": "Depois confira a promoção",
+          "text": "Vá para Desconto para acumular o desconto da prateleira, a porcentagem extra no caixa e um cupom, com imposto se o seu país o adiciona no pagamento."
+        }
+      ]
+    },
+    "featuresTitle": "Cinco calculadoras para o caixa",
+    "features": [
+      {
+        "icon": "⚖️",
+        "title": "Comparação de preço unitário",
+        "text": "Até seis embalagens, unidades métricas e imperiais misturadas, multipacks, a mais barata destacada com o ágio percentual das outras."
+      },
+      {
+        "icon": "🏷️",
+        "title": "Descontos acumulados",
+        "text": "Porcentagem, porcentagem extra sobre o preço reduzido, cupom fixo e depois imposto: na ordem da loja, com o que você paga e economiza."
+      },
+      {
+        "icon": "🧾",
+        "title": "Imposto",
+        "text": "Some o imposto a um preço ou retire de um preço com imposto incluso. Atalhos para alíquotas comuns; fixe a sua como padrão."
+      },
+      {
+        "icon": "🛒",
+        "title": "Total do carrinho com orçamento",
+        "text": "Adicione itens enquanto compra, marque-os, veja o imposto e o que resta do orçamento com uma barra de progresso."
+      },
+      {
+        "icon": "👥",
+        "title": "Dividir e gorjeta",
+        "text": "Conta, porcentagem de gorjeta, número de pessoas e arredondamento para que cada parte seja um valor redondo."
+      },
+      {
+        "icon": "🌍",
+        "title": "Sua moeda e seu idioma",
+        "text": "Segue seu símbolo de moeda e separador decimal; 19 idiomas; lembra suas listas e alíquota entre as compras."
+      }
+    ],
+    "intentsTitle": "Perguntas que este app responde",
+    "intents": [
+      {
+        "h": "Como calcular o preço por unidade?",
+        "p": "Divida o preço pela quantidade, numa unidade comum. O app faz a conversão: 500 g a 4,49 são 8,98 por kg; 1,2 lb a 4,99 são 9,17 por kg. O número menor é o melhor negócio."
+      },
+      {
+        "h": "A embalagem maior é sempre mais barata?",
+        "p": "Quase sempre, mas nem sempre, e multipacks e promoções quebram a regra com frequência. Informe as duas e o app mostra a diferença exata em porcentagem."
+      },
+      {
+        "h": "Quanto é 30% de desconto mais 10% extra?",
+        "p": "Não é 40%. Os 10% extras se aplicam ao preço já reduzido: 100 vira 70 e depois 63, uma economia de 37%. A aba Desconto mostra cada passo."
+      },
+      {
+        "h": "Como retiro o imposto de um preço?",
+        "p": "Divida por 1 mais a alíquota: 119 com 19% de imposto são 100 líquidos. Escolha Retirar imposto, informe o valor e a alíquota."
+      },
+      {
+        "h": "Precisa de internet ou conta?",
+        "p": "Não. Todo cálculo acontece no celular e suas listas ficam locais. O único uso de rede é o pequeno banner da versão grátis, que uma compra única remove."
+      }
+    ],
+    "compare": {
+      "title": "Unit Price Calculator & Tax versus a calculadora do celular e apps de uma função só",
+      "intro": "A calculadora do celular funciona se você lembra as conversões e faz duas vezes. A maioria dos apps de uma função faz só uma dessas tarefas. Este app reúne os cinco cálculos do caixa e lembra suas configurações.",
+      "columns": [
+        "",
+        "Unit Price Calculator & Tax",
+        "Calculadora do celular",
+        "Apps de uma função"
+      ],
+      "rows": [
+        [
+          "Converte g, kg, oz, lb, ml, l automaticamente",
+          "✓",
+          "✗ Manual",
+          "Alguns"
+        ],
+        [
+          "Multipacks e até seis opções",
+          "✓",
+          "✗",
+          "Raramente"
+        ],
+        [
+          "Descontos acumulados com cupom e imposto",
+          "✓",
+          "✗ Passo a passo",
+          "Só apps de desconto"
+        ],
+        [
+          "Total do carrinho contra um orçamento",
+          "✓",
+          "✗",
+          "Só apps de lista"
+        ],
+        [
+          "Dividir conta com gorjeta e arredondamento",
+          "✓",
+          "✗",
+          "Só apps de gorjeta"
+        ],
+        [
+          "Preço",
+          "Grátis, remoção de anúncios em compra única",
+          "Grátis",
+          "Grátis com anúncios ou assinatura"
+        ]
+      ]
+    },
+    "faqs": [
+      {
+        "q": "O app é grátis?",
+        "a": "Sim. A versão grátis mostra um pequeno banner embaixo. Remover anúncios é uma única compra; não há assinatura nem outra compra no app."
+      },
+      {
+        "q": "Quais unidades são suportadas?",
+        "a": "Peso: mg, g, kg, oz, lb. Volume: ml, l, fl oz, xícara, gal. Unidades: peça, pacote, dúzia. Comprimento: cm, m, in, ft. Dá para misturar métrico e imperial numa comparação."
+      },
+      {
+        "q": "Posso mudar a unidade em que o preço é mostrado?",
+        "a": "Sim. Mostrar preço por permite escolher por kg, por 100 g, por lb, por litro, por 100 ml, por fl oz, por galão e mais."
+      },
+      {
+        "q": "Ele lembra minha alíquota?",
+        "a": "Sim. Fixe uma alíquota padrão na aba Imposto ou em Ajustes; Desconto e Carrinho usam automaticamente."
+      },
+      {
+        "q": "Qual moeda ele usa?",
+        "a": "A do seu aparelho por padrão. Você pode escolher outra em Ajustes."
+      },
+      {
+        "q": "Funciona offline?",
+        "a": "Sim. Cálculos e listas nunca saem do celular. Sem conexão, nenhum anúncio é mostrado."
+      },
+      {
+        "q": "Quais idiomas?",
+        "a": "Inglês, espanhol, alemão, francês, italiano, português, holandês, polonês, russo, ucraniano, turco, árabe, hindi, indonésio, vietnamita, tailandês, japonês, coreano e chinês simplificado."
+      },
+      {
+        "q": "Existe versão para Android?",
+        "a": "Ainda não. O app para iPhone sai primeiro; uma versão Android está planejada e esta página terá o link do Google Play quando estiver no ar."
+      }
+    ],
+    "related": [
+      {
+        "name": "Warranty Tracker & Receipt Log",
+        "href": "/apps/warranty-tracker",
+        "blurb": "Fotografe a nota, defina a garantia, receba um lembrete antes de vencer. Offline, compra única."
+      },
+      {
+        "name": "Electrician Calculator Toolkit",
+        "href": "/apps/electrician-calculator",
+        "blurb": "Queda de tensão, bitola, ocupação de eletroduto e caixa pelas tabelas NEC 2023, offline. Compra única."
+      },
+      {
+        "name": "Caffeine Tracker: Curfew",
+        "href": "/apps/caffeine-tracker",
+        "blurb": "Quanta cafeína ainda tem em você e até que hora pode tomar o último café. Grátis."
+      }
+    ],
+    "disclaimer": "Unit Price Calculator & Tax é um auxílio para compras. Alíquotas e regras de arredondamento variam por país e loja; confira o valor final na nota."
+  },
+  "caffeine-tracker": {
+    "head": {
+      "title": "App de cafeína para iPhone: quanta cafeína ainda tem em você e sua hora limite antes de dormir",
+      "description": "Rastreador de cafeína grátis para iPhone: registre café, chá e energéticos em dois toques, veja os miligramas ainda ativos com um modelo de meia-vida e receba um toque de recolher para a última xícara. Offline, sem conta, 19 idiomas.",
+      "keywords": "app cafeína, rastreador de cafeína iphone, calculadora de cafeína, meia-vida cafeína calculadora, contador de café, registro de cafeína, quanto tempo dura a cafeína, quando parar de tomar café para dormir, cafeína sono calculadora",
+      "ogTitle": "Caffeine Tracker: Curfew: quanta cafeína ainda tem em você?",
+      "ogDescription": "Registre uma bebida em dois toques, veja o nível cair e saiba a hora limite do último café para dormir no horário. App grátis para iPhone."
+    },
+    "h1": "Um rastreador de cafeína que mostra o que ainda está no seu corpo e até que hora pode tomar o último café",
+    "answer": "Caffeine Tracker: Curfew estima a cafeína ativa no seu corpo a partir do que você registra, com um modelo de meia-vida (cerca de 5 horas para a maioria dos adultos, ajustável). Registre espresso, coado, latte, chá, matcha, energéticos e mais em dois toques, veja uma curva de 12 horas, fique abaixo de 400 mg hoje e defina a hora de dormir com uma meta (25, 50 ou 100 mg) para receber um toque de recolher: a hora limite da sua última bebida. Funciona offline, sem conta. Um Pro de compra única adiciona sincronização com o Saúde, histórico de 30 dias e bebidas personalizadas.",
+    "quickFacts": [
+      [
+        "Preço",
+        "Grátis. Pro de compra única, sem assinatura"
+      ],
+      [
+        "Modelo",
+        "Decaimento por meia-vida, de 2,5 a 8 h, padrão 5 h"
+      ],
+      [
+        "Bebidas",
+        "21 predefinições com mg típicos, pequeno / normal / grande, personalizadas com Pro"
+      ],
+      [
+        "Privacidade",
+        "Offline, sem conta; Saúde só é gravado se você ativar"
+      ]
+    ],
+    "screenshotsTitle": "O que você recebe: o número que importa agora, um toque de recolher para hoje e uma semana que dá para ler",
+    "screenshots": [
+      {
+        "alt": "Tela inicial do rastreador de cafeína no iPhone com 128 mg no corpo, total do dia contra 400 mg, toque de recolher e curva de 12 horas",
+        "caption": "Quanta cafeína ainda tem em você"
+      },
+      {
+        "alt": "Tela de adicionar bebida com cold brew selecionado, tamanho, horário e lista de cafés com busca",
+        "caption": "Registre uma bebida em dois toques"
+      },
+      {
+        "alt": "Tela de histórico com gráfico de barras de sete dias e a média diária",
+        "caption": "Veja sua semana, perceba o hábito"
+      },
+      {
+        "alt": "Ajustes com hora de dormir, cafeína ao deitar, meia-vida e limite diário",
+        "caption": "Defina a hora de dormir, ganhe um toque de recolher"
+      }
+    ],
+    "howTo": {
+      "title": "Como descobrir sua hora limite de cafeína",
+      "intro": "A pergunta não é quanto café você toma, e sim quanto sobra quando a cabeça encosta no travesseiro. Três ajustes e o app faz a conta.",
+      "steps": [
+        {
+          "name": "Defina a hora de dormir",
+          "text": "Ajustes → Sono → Hora de dormir. O app sempre mira a hora de dormir de hoje, mesmo se você registrar uma bebida tarde, depois da meia-noite."
+        },
+        {
+          "name": "Escolha com quanta cafeína você dorme",
+          "text": "25 mg se tem sono leve, 50 mg para a maioria, 100 mg se a cafeína quase não afeta você. É o nível-alvo ao deitar."
+        },
+        {
+          "name": "Registre o que bebe",
+          "text": "Toque em uma bebida na tela inicial (espresso, coado, latte, chá, energético) ou abra a lista completa com tamanhos e horário para a xícara esquecida."
+        },
+        {
+          "name": "Leia o toque de recolher",
+          "text": "O cartão Toque de recolher diz, por exemplo: \"Última bebida de 95 mg até 15:40 para ficar abaixo de 50 mg ao deitar\". Depois desse horário, mostra quanto outra xícara deixaria ao deitar."
+        }
+      ]
+    },
+    "featuresTitle": "Feito em torno de um número: o que está ativo agora",
+    "features": [
+      {
+        "icon": "☕",
+        "title": "Nível ao vivo",
+        "text": "Cada dose decai com meia-vida. Veja os miligramas ativos, um status (livre, ativo, elétrico) e quanto falta para ficar abaixo da meta."
+      },
+      {
+        "icon": "🌙",
+        "title": "Toque de recolher",
+        "text": "Hora limite da sua bebida habitual para ficar abaixo da meta ao deitar. Meia-vida ajustável para gravidez, remédios ou metabolismo rápido."
+      },
+      {
+        "icon": "⚡",
+        "title": "Registro em dois toques",
+        "text": "Seis favoritos na tela inicial; 21 predefinições com teores típicos; pequeno, normal e grande; registro retroativo."
+      },
+      {
+        "icon": "📊",
+        "title": "Limite diário e histórico",
+        "text": "Progresso contra 400, 300 ou 200 mg. Sete dias de totais com média e dias acima; 30 dias com Pro."
+      },
+      {
+        "icon": "❤️",
+        "title": "Apple Saúde (Pro)",
+        "text": "Grava a cafeína no Saúde ao lado dos seus dados de sono. Excluir uma bebida remove a amostra."
+      },
+      {
+        "icon": "🌍",
+        "title": "19 idiomas, offline",
+        "text": "Nada sai do celular. Sem conta, sem anúncios, sem análises."
+      }
+    ],
+    "intentsTitle": "Perguntas que este app responde",
+    "intents": [
+      {
+        "h": "Quanto tempo a cafeína fica no corpo?",
+        "p": "A meia-vida é de cerca de 5 horas para a maioria dos adultos: uma xícara de 95 mg às 15h vira uns 48 mg às 20h e 24 mg à 1h. O app traça exatamente essa curva para tudo que você registrou."
+      },
+      {
+        "h": "Quando devo parar de tomar café para dormir?",
+        "p": "Depende da hora de dormir, da sensibilidade e do que já tomou. Com meta de 50 mg e hora de dormir às 23h, um único café de 95 mg precisa entrar até 18:20; depois de duas xícaras anteriores, bem antes. O cartão calcula isso continuamente."
+      },
+      {
+        "h": "Quanta cafeína tem um espresso, um latte ou um cold brew?",
+        "p": "Valores típicos: espresso 63 mg, latte ou cappuccino 75 mg (uma dose), coado 95 mg, cold brew 200 mg, chá preto 47 mg, chá verde 28 mg, matcha 70 mg, energético de 250 ml 80 mg. Todas as predefinições se ajustam por tamanho e o Pro permite quantidades exatas."
+      },
+      {
+        "h": "Quanta cafeína por dia é demais?",
+        "p": "A referência comum para adultos saudáveis é 400 mg por dia; 200 mg na gravidez. O app mantém uma barra de progresso contra o limite escolhido."
+      },
+      {
+        "h": "Precisa de internet ou conta?",
+        "p": "Não. Tudo roda no celular. O Saúde só é gravado se você ativar no Pro."
+      }
+    ],
+    "compare": {
+      "title": "Caffeine Tracker: Curfew versus um app de notas e rastreadores por assinatura",
+      "intro": "Contar xícaras não diz nada sobre hoje à noite. A maioria dos apps de cafeína calcula o nível, mas cobra assinatura mensal. Este app dá nível, toque de recolher e histórico de graça, com um Pro de compra única para sincronizar com o Saúde.",
+      "columns": [
+        "",
+        "Caffeine Tracker: Curfew",
+        "Notas / memória",
+        "Rastreadores por assinatura"
+      ],
+      "rows": [
+        [
+          "Cafeína ativa com curva de decaimento",
+          "✓",
+          "✗",
+          "✓"
+        ],
+        [
+          "Toque de recolher para a última bebida",
+          "✓",
+          "✗",
+          "Alguns"
+        ],
+        [
+          "Registro em dois toques com mg típicos",
+          "✓",
+          "✗",
+          "✓"
+        ],
+        [
+          "Sincronização com Apple Saúde",
+          "✓ Pro (compra única)",
+          "✗",
+          "✓ Assinatura"
+        ],
+        [
+          "Offline, sem conta",
+          "✓",
+          "✓",
+          "Varia"
+        ],
+        [
+          "Preço",
+          "Grátis, Pro de compra única",
+          "Grátis",
+          "Mensal ou anual"
+        ]
+      ]
+    },
+    "faqs": [
+      {
+        "q": "Qual a precisão da estimativa?",
+        "a": "É uma estimativa. O teor de cafeína varia com o preparo e a marca, e a meia-vida entre pessoas (cerca de 3 a 7 horas). Ajuste a meia-vida em Ajustes se souber que elimina cafeína devagar ou rápido. Não é orientação médica."
+      },
+      {
+        "q": "O que o Pro inclui?",
+        "a": "Sincronização com o Saúde (cafeína), histórico de 30 dias em vez de 7 e bebidas personalizadas com quantidades exatas. Uma única compra; sem assinatura."
+      },
+      {
+        "q": "Ele lê meus dados do Saúde?",
+        "a": "Não. Com o Pro e a opção ativada, grava amostras de cafeína no Saúde e as apaga quando você exclui uma bebida. Nunca lê nada."
+      },
+      {
+        "q": "Posso registrar uma bebida esquecida?",
+        "a": "Sim. Abra a lista completa e mude o horário antes de adicionar."
+      },
+      {
+        "q": "E se eu durmo depois da meia-noite?",
+        "a": "Defina normalmente (por exemplo, 1:00). Uma bebida registrada às 23h continua contando para hoje à noite."
+      },
+      {
+        "q": "Quais idiomas?",
+        "a": "Inglês, espanhol, alemão, francês, italiano, português, holandês, polonês, russo, ucraniano, turco, árabe, hindi, indonésio, vietnamita, tailandês, japonês, coreano e chinês simplificado."
+      },
+      {
+        "q": "Existe versão para Android?",
+        "a": "Ainda não. O app para iPhone sai primeiro; uma versão Android está planejada e esta página terá o link do Google Play quando estiver no ar."
+      }
+    ],
+    "related": [
+      {
+        "name": "Unit Price Calculator & Tax",
+        "href": "/apps/unit-price-calculator",
+        "blurb": "Qual embalagem é mais barata por kg ou litro, descontos acumulados, imposto, orçamento do carrinho e divisão de conta. Grátis."
+      },
+      {
+        "name": "Warranty Tracker & Receipt Log",
+        "href": "/apps/warranty-tracker",
+        "blurb": "Fotografe a nota, defina a garantia, receba um lembrete antes de vencer. Offline, compra única."
+      },
+      {
+        "name": "Electrician Calculator Toolkit",
+        "href": "/apps/electrician-calculator",
+        "blurb": "Queda de tensão, bitola, ocupação de eletroduto e caixa pelas tabelas NEC 2023, offline. Compra única."
+      }
+    ],
+    "disclaimer": "Caffeine Tracker: Curfew usa um modelo simples de meia-vida e teores médios de cafeína. Não é um dispositivo médico nem orientação médica; converse com um profissional sobre cafeína e sua saúde."
+  },
 };
