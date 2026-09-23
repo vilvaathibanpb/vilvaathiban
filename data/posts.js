@@ -5397,6 +5397,160 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  {
+    slug: "import-text-modules-javascript",
+    title: "Import Text: Loading Text Files as Modules in JavaScript",
+    description:
+      "The TC39 import-text proposal reached Stage 3. What it does, how it differs from JSON modules and bundler loaders, and why it is a smaller feature than it looks.",
+    datePublished: "2026-09-23",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Every JavaScript project eventually accumulates a folder of text that is not code. SQL queries. GraphQL documents. Shader source. Prompt templates. Email bodies. License headers. None of it is JavaScript, all of it needs to end up in a JavaScript string, and the ways we currently get it there are all slightly unsatisfying.",
+          },
+          {
+            type: "p",
+            text: "The **import text** proposal, which advanced to Stage 3 in 2026, gives the language a standard answer. It is a small feature with an outsized effect on a very specific kind of daily friction, and it is worth understanding precisely because it is easy to overestimate what it does.",
+          },
+        ],
+      },
+      {
+        heading: "What we do today, and why each option annoys us",
+        blocks: [
+          {
+            type: "p",
+            text: "There are roughly four existing approaches, and each one trades away something you would rather keep.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Inline template literals.** Zero tooling, but you lose syntax highlighting, formatting, and any chance of a linter understanding the embedded language. A 200-line SQL query inside a `.js` file is nobody's idea of maintainable.",
+              "**Bundler loaders.** Webpack's `raw-loader`, Vite's `?raw` suffix, esbuild's `text` loader. They work well, but they are bundler-specific syntax inside your source files, which means the same file cannot be run by Node or a different bundler without changes.",
+              "**Runtime file reads.** `readFileSync` gets you the string, but it is synchronous I/O at module scope, it needs path resolution relative to the module, and it does not work in a browser at all.",
+              "**A build step that generates JS.** Reliable, and the worst developer experience of the four: an extra pipeline stage between editing a file and seeing the change.",
+            ],
+          },
+          {
+            type: "p",
+            text: "What all four have in common is that the language itself has no opinion. Each ecosystem invented its own convention, and the conventions do not travel.",
+          },
+        ],
+      },
+      {
+        heading: "What import text actually does",
+        blocks: [
+          {
+            type: "p",
+            text: "It builds on import attributes, the same mechanism that powers JSON modules. You declare the type of the thing you are importing, and the host gives you back a module whose default export is a string.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: 'import query from "./queries/active-users.sql" with { type: "text" };\n\nconsole.log(typeof query); // "string"',
+          },
+          {
+            type: "p",
+            text: "And the dynamic form, which is the one you are more likely to reach for in practice, since text assets are frequently optional or lazily needed:",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: 'const { default: template } = await import("./templates/welcome.txt", {\n  with: { type: "text" },\n});',
+          },
+          {
+            type: "p",
+            text: "That is essentially the whole feature. The file contents become a string, decoded as UTF-8, exposed as the default export. There are no named exports, no parsing, no interpretation of the content whatsoever.",
+          },
+        ],
+      },
+      {
+        heading: "Why the attribute is mandatory",
+        blocks: [
+          {
+            type: "p",
+            text: "The `with { type: \"text\" }` clause is not optional syntax sugar, and the reason is the same security argument that shaped JSON modules.",
+          },
+          {
+            type: "p",
+            text: "Without it, the interpretation of an imported file would depend on the server's `Content-Type` response header. A server that started returning `text/javascript` for something you expected to be inert text would turn a data import into code execution. Requiring the importer to state the expected type up front means the check runs on your side: if the host cannot honour the declared type, the import fails rather than quietly doing something else.",
+          },
+          {
+            type: "p",
+            text: "This is the same design I covered when writing about [JSON modules and import attributes](/blog/json-modules-import-attributes) — the attribute is a caller-side assertion, not a hint.",
+          },
+        ],
+      },
+      {
+        heading: "The part people get wrong: this is not a replacement for loaders",
+        blocks: [
+          {
+            type: "p",
+            text: "It is tempting to read this as \"bundler text loaders are now obsolete\". They are not, and the gap is worth being precise about.",
+          },
+          {
+            type: "p",
+            text: "A bundler loader is a transformation pipeline. It can minify the text, strip comments, run a preprocessor, inline other files, or emit the content as a separate asset with a hashed URL. Import text does none of that. It hands you bytes decoded as UTF-8 and stops.",
+          },
+          {
+            type: "p",
+            text: "What it genuinely replaces is the *trivial* case — the one where you were reaching for `?raw` purely to get a string, with no transformation. That is a large share of real usage, but not all of it. If your loader configuration does anything beyond reading the file, it stays.",
+          },
+        ],
+      },
+      {
+        heading: "Encoding and the edge cases worth knowing",
+        blocks: [
+          {
+            type: "p",
+            text: "A few practical details that will save you a confusing afternoon.",
+          },
+          {
+            type: "list",
+            items: [
+              "The content is decoded as **UTF-8**. There is no encoding option. A Latin-1 file will import, and it will be wrong.",
+              "Binary files are not a use case. If the bytes are not valid UTF-8 you get replacement characters, not an error you can act on.",
+              "There is exactly one export, the default. You cannot destructure named exports out of a text module, because there is nothing to name.",
+              "Module caching applies as it does everywhere else — importing the same text file from ten modules reads it once.",
+              "Line endings come through as they are in the file. If you check in CRLF and your assertions expect LF, that is now a runtime concern rather than a build-time one.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Where it fits with the rest of the module story",
+        blocks: [
+          {
+            type: "p",
+            text: "Import text is the third piece of a pattern that has been assembling for a few years. Import attributes gave us a way to declare intent. JSON modules used that to make structured data importable. Import text does the same for unstructured data. The same machinery is what makes [deferred module evaluation](/blog/import-defer-lazy-module-evaluation) composable with these — you can defer a module that pulls in a large text asset and pay the cost only when it is first touched.",
+          },
+          {
+            type: "p",
+            text: "The direction is clear enough: the module system is slowly absorbing the jobs that build tooling took on because the language had nothing to say. That does not eliminate build tooling, but it does shrink the surface area where every project has to make its own choices.",
+          },
+        ],
+      },
+      {
+        heading: "Should you use it yet?",
+        blocks: [
+          {
+            type: "p",
+            text: "Stage 3 means the specification is considered complete and implementations are expected, not that it is available everywhere today. Check your target runtimes before adopting it in production, and remember that bundlers may need to understand the syntax even if the runtime does.",
+          },
+          {
+            type: "p",
+            text: "Where it is worth planning for: anywhere you currently have bundler-specific import syntax purely to load a string. Migrating that to `with { type: \"text\" }` makes the file portable across runtimes and bundlers, which is the actual win here — not saving a character, but removing a build-tool dependency from your source code.",
+          },
+          {
+            type: "p",
+            text: "Where it is not worth chasing: if your text loading already works and is confined to one bundler you have no intention of leaving, this changes nothing for you. It is a standardisation win, not a capability win, and there is no shame in waiting for it to become boring.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
 ];
 

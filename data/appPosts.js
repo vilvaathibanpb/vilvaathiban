@@ -1896,4 +1896,165 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "teleprompter-for-online-courses-and-tutorials",
+    title: "Using a Teleprompter for Online Courses and Tutorials",
+    description:
+      "Course modules are long, technical, and unforgiving of rambling. How to use a teleprompter for tutorial video without sounding like you are reading a manual aloud.",
+    datePublished: "2026-09-23",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Course video is a different job from social video, and most teleprompter advice quietly assumes you are filming a 45-second Reel.",
+          },
+          {
+            type: "p",
+            text: "A tutorial module runs eight, twelve, twenty minutes. It has to be technically precise, because a wrong step in a lesson costs every student who follows it. It has to be consistent across forty videos recorded over three weeks. And it has to not sound like someone reading a manual into a webcam, because that is the single most common reason people abandon a course at lesson three.",
+          },
+          {
+            type: "p",
+            text: "Those constraints change how you should use a teleprompter — and, in a few specific places, whether you should use one at all.",
+          },
+        ],
+      },
+      {
+        heading: "Why course creators resist the teleprompter, and why they are half right",
+        blocks: [
+          {
+            type: "p",
+            text: "The objection goes like this: teaching is not reciting. A good instructor responds to where the difficulty is, slows down at the hard part, and sounds like they have thought about this rather than transcribed it. Scripting every word supposedly kills that.",
+          },
+          {
+            type: "p",
+            text: "The half that is right: a fully scripted 15-minute lesson delivered word-for-word does tend to flatten. Pacing becomes uniform. Emphasis lands in the wrong places. Students notice, even if they cannot say why.",
+          },
+          {
+            type: "p",
+            text: "The half that is wrong: the alternative is not spontaneity, it is your fourteenth take. Unscripted technical explanation drifts. You forget step four, re-record, forget the caveat you meant to add, re-record again. What was supposed to be natural becomes an exhausting afternoon, and the final cut is stitched from six attempts that do not quite match in energy.",
+          },
+          {
+            type: "p",
+            text: "The useful version sits in between, and it depends on which part of the lesson you are recording.",
+          },
+        ],
+      },
+      {
+        heading: "Script the parts that must be exact; outline the rest",
+        blocks: [
+          {
+            type: "p",
+            text: "This is the single most useful habit for course video. Not every minute of a lesson has the same requirements.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Script tightly:** definitions, step-by-step instructions, exact commands or settings, safety and accuracy caveats, anything with a number in it, and the first and last 30 seconds of every module.",
+              "**Outline loosely:** analogies, the \"why this matters\" framing, worked examples, and anything where you are reacting to something on screen.",
+            ],
+          },
+          {
+            type: "p",
+            text: "In practice this means your teleprompter script is not a wall of prose. It is dense where precision matters and sparse where it does not — a few bullet prompts you can talk around rather than sentences you read. Because the script scrolls as you speak, a sparse section simply moves slower while you elaborate, and a dense one keeps pace with you.",
+          },
+          {
+            type: "p",
+            text: "This is where [voice-driven scrolling rather than a fixed-speed auto-scroll](/blog/voice-follow-vs-auto-scroll-teleprompter) earns its place in course work specifically. A timed scroll assumes you deliver at a constant rate. Teaching never is: you speed up through the setup and slow right down at the part students get stuck on. A script that follows your voice lets you vary that freely without the text running ahead of you.",
+          },
+        ],
+      },
+      {
+        heading: "The eye-contact problem is worse in long-form",
+        blocks: [
+          {
+            type: "p",
+            text: "In a 30-second clip, glancing off-camera a few times reads as a quirk. In a 12-minute lesson, it reads as evasive, and students feel it accumulate even if they never consciously register it.",
+          },
+          {
+            type: "p",
+            text: "This is the practical case for a phone-based teleprompter over a second monitor or a printed outline taped next to the lens. When the script floats directly over the camera preview, right beside the front lens, your eyeline does not move for the whole take. [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay) is built around exactly that arrangement, and the script never appears in the saved video — so you can run it over a full-length module without any post-production consequence.",
+          },
+          {
+            type: "p",
+            text: "Worth being honest about a limitation, though: this is an iOS app, and it records on the phone. If your course pipeline is built around a mirrorless camera and a capture card, a phone teleprompter is not going to slot into it. The workaround most people use is the phone as prompter beside the real camera, which works but reintroduces a small eyeline offset. There is more on rig arrangements in [mirror mode and DIY teleprompter rigs](/blog/mirror-mode-and-diy-teleprompter-rigs).",
+          },
+        ],
+      },
+      {
+        heading: "Consistency across forty videos",
+        blocks: [
+          {
+            type: "p",
+            text: "A course is not one video, it is a series, and the thing students notice most is when lesson 12 sounds like a different person from lesson 3. This is a real problem when recording spans weeks.",
+          },
+          {
+            type: "p",
+            text: "A few things help more than they should:",
+          },
+          {
+            type: "list",
+            items: [
+              "Keep a reusable opening and closing block in your scripts library, identical across modules apart from the lesson title. Students learn the rhythm and stop having to reorient.",
+              "Write all your scripts before recording any of them. Terminology drifts badly when you write lesson 9 three weeks after lesson 8.",
+              "Keep the same text size and scroll behaviour across sessions. Changing them mid-course changes your delivery pace subtly.",
+              "Record the whole series at the same time of day if you can. Voice energy at 9am and 6pm are not the same instrument.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Having every script stored in one place rather than scattered across notes apps matters more for course work than for anything else, simply because there are so many of them and you will revise them when a student asks a question you did not anticipate.",
+          },
+        ],
+      },
+      {
+        heading: "Screen recording is where this gets awkward",
+        blocks: [
+          {
+            type: "p",
+            text: "Most tutorials are not talking-head throughout. They are a talking-head intro, a long screen recording, and a talking-head wrap-up. A camera teleprompter cannot help you during the screen-capture portion, because you are not on camera and not on the phone.",
+          },
+          {
+            type: "p",
+            text: "The approach that works is to treat them as separate recordings with separate scripts. Record all your on-camera segments in one sitting, with the prompter, then record screen segments separately with the script simply open on a second device beside you — voice for the narration does not need eye contact at all, so the constraint disappears.",
+          },
+          {
+            type: "p",
+            text: "Trying to do both in one continuous take is where people get frustrated with teleprompters generally. The tool is solving an eye-contact problem. Where there is no eye contact to protect, it is not the right tool.",
+          },
+        ],
+      },
+      {
+        heading: "Teaching in a language that is not your first",
+        blocks: [
+          {
+            type: "p",
+            text: "A large share of technical instructors teach in English as a second or third language, and course video is unforgiving of that: long duration, technical vocabulary, no edit-friendly jump cuts if you want the lesson to flow.",
+          },
+          {
+            type: "p",
+            text: "A script removes the two hardest parts at once — searching for the word mid-sentence, and losing the thread of a complex explanation while you do. Because the speech recognition runs on-device and detects the script language automatically, it follows along in whatever language you are actually teaching in rather than expecting English. [Recording confidently in a second language](/blog/recording-video-in-a-second-language) goes into this in more depth.",
+          },
+        ],
+      },
+      {
+        heading: "The trade-off to keep in view",
+        blocks: [
+          {
+            type: "p",
+            text: "A teleprompter makes your course faster to record and more accurate. It does not make it more engaging — that comes from how you write, not how you read.",
+          },
+          {
+            type: "p",
+            text: "If you find your lessons sound flat after adopting one, the fix is almost never to abandon the prompter. It is to write the script for the ear rather than the page: shorter sentences, direct address, the occasional deliberate aside. That is a writing problem, and it is the one worth spending your effort on.",
+          },
+          {
+            type: "p",
+            text: "Next in this series: scripting hooks that hold watch time — specifically what to do in the first fifteen seconds so students actually reach the part you spent all week preparing.",
+          },
+        ],
+      },
+    ],
+  },
 ];
