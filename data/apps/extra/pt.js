@@ -1,2 +1,164 @@
-// pt — translations of the new app pages; keys missing here fall back to English.
-export default {};
+// Português (Brasil) — páginas dos novos apps. Campos ausentes herdam o inglês.
+export default {
+  "electrician-calculator": {
+    head: {
+      title: "Calculadora do eletricista para iPhone: queda de tensão, bitola, eletroduto e caixa (offline)",
+      description:
+        "Oito calculadoras para eletricistas baseadas no NEC em um só app offline para iPhone: queda de tensão, bitola com fatores de correção, ocupação de eletroduto e caixa, carga e disjuntor, lei de Ohm, código de resistores e tabelas. Compra única, sem assinatura, 19 idiomas.",
+      keywords:
+        "calculadora eletricista, calculadora queda de tensão, calculadora bitola de fio, calculadora ampacidade, ocupação de eletroduto, ocupação de caixa, calculadora disjuntor, lei de ohm, calculadora nec, calculadora elétrica iphone, awg",
+      ogTitle: "Electrician Calculator Toolkit: queda de tensão, bitola, eletroduto e caixa no iPhone",
+      ogDescription: "Oito calculadoras de obra baseadas nas tabelas do NEC 2023, totalmente offline. Compra única, sem assinatura.",
+    },
+    h1: "Uma calculadora do eletricista para a obra: queda de tensão, bitola, ocupação de eletroduto e caixa, offline",
+    answer:
+      "O Electrician Calculator Toolkit coloca oito calculadoras baseadas no NEC americano no seu iPhone: queda de tensão (monofásica, trifásica, CC), bitola com a regra dos 125 % e correção por temperatura e número de condutores, ocupação de eletroduto para EMT, PVC, RMC e IMC, ocupação de caixa conforme 314.16, carga e disjuntor a partir de watts, lei de Ohm, código de cores de resistores e as tabelas de referência por trás de cada cálculo. Cada resultado indica a tabela de origem. Funciona sem sinal, sem conta e sem assinatura, em 19 idiomas.",
+    quickFacts: [
+      ["Preço", "Compra única. Sem assinatura"],
+      ["Ferramentas", "Queda de tensão, bitola, eletroduto, caixa, carga e disjuntor, lei de Ohm, resistores, tabelas"],
+      ["Base", "Tabelas do NEC 2023 (NFPA 70)"],
+      ["Privacidade", "Offline, sem conta, sem análises"],
+    ],
+    screenshotsTitle: "O que você recebe: um resultado, a tabela de onde ele vem e a menor bitola que passa",
+    screenshots: [
+      { alt: "Calculadora de queda de tensão no iPhone mostrando a queda em volts e porcentagem e a bitola mínima para 3 %", caption: "Queda de tensão com a bitola mínima para 3 %" },
+      { alt: "Calculadora de bitola aplicando correção por temperatura ambiente e número de condutores", caption: "Bitola com fatores de correção embutidos" },
+      { alt: "Calculadora de ocupação de eletroduto comparando o tamanho mínimo em EMT, PVC, RMC e IMC", caption: "Ocupação de eletroduto em cinco tipos de duto" },
+    ],
+    howTo: {
+      title: "Como dimensionar um circuito em menos de um minuto",
+      intro: "Na obra as perguntas são quase sempre as mesmas três: a queda de tensão passa, que fio puxar e que eletroduto ele precisa. Este é o fluxo.",
+      steps: [
+        { name: "Carga e disjuntor", text: "Informe watts, tensão e fases. Marque a carga como contínua se ela durar três horas ou mais. Você recebe a corrente de carga, a corrente de projeto a 125 %, o próximo disjuntor padrão da 240.6(A) e o condutor mínimo a 75 °C." },
+        { name: "Bitola do fio", text: "Abra Bitola com essa corrente, defina a temperatura dos terminais, a temperatura ambiente e quantos condutores carregados dividem o duto. O app aplica 310.15(B)(1) e 310.15(C)(1) e mostra a ampacidade corrigida de cada bitola próxima." },
+        { name: "Queda de tensão", text: "Informe o comprimento de ida. Se a queda passar de 3 %, o app já mostra o menor condutor que atende. Troque para alumínio ou adicione conjuntos em paralelo para comparar." },
+        { name: "Ocupação do eletroduto", text: "Adicione os condutores (bitola, isolação, quantidade) e leia o tamanho mínimo para EMT, PVC Schedule 40 e 80, RMC e IMC lado a lado." },
+      ],
+    },
+    featuresTitle: "Oito ferramentas, um toque cada",
+    features: [
+      { title: "Queda de tensão", text: "QT = 2·K·I·L ÷ CM para monofásico e CC, 1,732 para trifásico; K = 12,9 cobre / 21,2 alumínio. Pés ou metros, de #14 AWG a 750 kcmil, conjuntos em paralelo e a menor bitola abaixo de 3 %." },
+      { title: "Bitola do fio (ampacidade)", text: "Tabela 310.16 para cobre e alumínio a 60/75/90 °C, regra dos 125 % para carga contínua, correção de ambiente, ajuste por número de condutores e os limites da 240.4(D) para bitolas pequenas." },
+      { title: "Ocupação do eletroduto", text: "Capítulo 9, tabelas 1, 4 e 5: qualquer mistura de THHN/THWN, XHHW e THW, tamanho mínimo por tipo de duto ou o número máximo de um condutor em um eletroduto dado." },
+      { title: "Ocupação da caixa", text: "Volumes da 314.16(B) para condutores, presilhas, suportes, dispositivos e terras, com verificação contra a caixa que você tem." },
+      { title: "Carga e disjuntor, lei de Ohm, resistores", text: "De watts para ampères, disjuntor e fio em uma tela; dois quaisquer de V, I, R e P; decodificação de resistores de quatro e cinco faixas." },
+      { title: "Tabelas do código", text: "Ampacidade, disjuntores padrão, fatores de correção, volumes de caixa e cores de fios dos EUA e IEC, sempre a um toque." },
+    ],
+    intentsTitle: "Perguntas que este app responde",
+    intents: [
+      { h: "Como calculo a queda de tensão de um circuito terminal?", p: "Informe tensão, corrente, bitola, material e comprimento de ida. O app devolve a queda em volts e porcentagem e a tensão na carga, sinalizando o que passa dos limites informativos de 3 % (terminal) e 5 % (total) da 210.19(A)." },
+      { h: "Que bitola preciso para um circuito de 50 ampères?", p: "Para uma carga contínua de 40 A (50 A necessários) em cobre a 75 °C, a tabela 310.16 dá #8 AWG. Se estiver quente ou houver mais de três condutores carregados no duto, o app aplica os fatores e sobe uma bitola quando preciso." },
+      { h: "Quantos #12 THHN cabem em um EMT de 3/4 de polegada?", p: "Dezesseis, pelo capítulo 9: tabela 1 (40 %), tabela 4 (área do EMT) e tabela 5 (área do THHN). O modo Máx. condutores responde isso para qualquer bitola, isolação e duto." },
+      { h: "O app precisa de internet ou conta?", p: "Não. Todas as tabelas estão dentro do app; nada é baixado nem enviado. Sem conta, análises, anúncios ou assinatura." },
+    ],
+    compare: {
+      title: "Electrician Calculator Toolkit versus o livro do código e as calculadoras gratuitas de função única",
+      intro: "O livro é a referência, mas folhear com luvas é lento. As calculadoras gratuitas cobrem um cálculo cada e costumam se pagar com anúncios. Este app reúne os oito cálculos do dia a dia com a referência da tabela em cada resultado.",
+      columns: ["", "Electrician Calculator Toolkit", "Livro do NEC", "Apps gratuitos de função única"],
+      rows: [
+        ["Queda, bitola, eletroduto e caixa em um só lugar", "✓ Oito ferramentas", "✓ Todas as tabelas, conta manual", "✗ Uma ferramenta por app"],
+        ["Fatores de correção automáticos", "✓ Ambiente + número de condutores", "✗ Manual", "Varia"],
+        ["Mostra de que tabela veio o resultado", "✓ Em cada tela", "✓ É a tabela", "✗ Raramente"],
+        ["Funciona offline", "✓ Sim", "✓ Sim", "✗ Geralmente precisa de anúncios"],
+        ["Idiomas", "19", "Inglês", "Geralmente um"],
+        ["Preço", "Compra única", "Preço do livro", "Grátis com anúncios"],
+      ],
+    },
+    faqs: [
+      { q: "De qual edição do código são as tabelas?", a: "Da edição 2023 da NFPA 70, o National Electrical Code. Sua jurisdição pode adotar uma edição anterior ou emendas locais; trate os resultados como auxílio de cálculo e confira com o código adotado e o seu inspetor." },
+      { q: "A bitola inclui os fatores de correção?", a: "Sim: a regra dos 125 % para carga contínua, a correção por temperatura ambiente da 310.15(B)(1), o ajuste para mais de três condutores carregados da 310.15(C)(1) e os limites da 240.4(D) para #14, #12 e #10." },
+      { q: "Quais eletrodutos e isolações são cobertos?", a: "EMT, PVC Schedule 40, PVC Schedule 80, RMC e IMC, com as áreas de THHN/THWN, XHHW e THW da tabela 5 do capítulo 9." },
+      { q: "Posso usar unidades métricas?", a: "O comprimento pode ser informado em metros e a temperatura ambiente em °C ou °F. As bitolas seguem AWG/kcmil, como as tabelas." },
+      { q: "É assinatura?", a: "Não. É uma compra única sem compras dentro do app." },
+      { q: "É afiliado à NFPA?", a: "Não. NEC e National Electrical Code são marcas registradas da National Fire Protection Association, que não patrocina nem endossa este app." },
+      { q: "Existe versão para Android?", a: "Ainda não. O app para iPhone sai primeiro; uma versão Android está planejada e esta página vai linkar o Google Play quando estiver no ar." },
+    ],
+    related: [
+      { blurb: "Fotografe uma nota, defina o prazo da garantia e receba um lembrete antes de vencer. Offline, compra única." },
+      { blurb: "Compare o preço por unidade, some o imposto, aplique um desconto. Grátis." },
+      { blurb: "Registre café e chá, veja quanta cafeína ainda está no corpo e defina um horário-limite antes de dormir. Grátis." },
+    ],
+    disclaimer:
+      "O Electrician Calculator Toolkit é um auxílio de cálculo e não substitui o código, o julgamento profissional nem a autoridade competente. NEC e National Electrical Code são marcas registradas da National Fire Protection Association, que não patrocina nem endossa este app.",
+  },
+  "warranty-tracker": {
+    head: {
+      title: "App de controle de garantias para iPhone: fotos de notas, lembretes de vencimento, offline",
+      description: "Controle todas as suas garantias no iPhone: fotografe a nota, defina o prazo da garantia e receba um lembrete antes de vencer. Offline, sem conta, sem assinatura. Compra única, 19 idiomas.",
+      keywords: "app garantia, app controle de garantias iphone, app guardar notas fiscais, guardar recibos app, lembrete garantia, organizador de garantias, app notas fiscais offline, garantia eletrodomésticos app, vencimento garantia",
+      ogTitle: "Garantias e Notas Fiscais: cada garantia com sua nota, num relance",
+      ogDescription: "Fotografe a nota, defina o prazo da garantia, receba um lembrete antes de vencer. Offline, compra única, sem conta.",
+    },
+    h1: "Um controle de garantias que guarda a nota e avisa antes de a garantia vencer, offline",
+    answer: "Garantias e Notas Fiscais guarda cada produto que você compra com a foto da nota, a data da compra, o preço, o número de série e o prazo da garantia, e lembra você antes de a garantia acabar. Você vê quantos itens estão ativos, vencendo ou vencidos e o valor total ainda coberto. Tudo fica no seu iPhone: sem conta, sem nuvem, sem assinatura e sem anúncios. Compra única, disponível em 19 idiomas.",
+    quickFacts: [
+      ["Preço", "Compra única. Sem assinatura"],
+      ["Guarda", "Fotos da nota e do produto, data da compra, preço, loja, número de série, observações"],
+      ["Lembretes", "Notificações locais 90, 60, 30, 14, 7 ou 1 dia antes do vencimento"],
+      ["Privacidade", "Offline, sem conta, sem análises, exportação CSV"],
+    ],
+    screenshotsTitle: "O que você recebe: todas as garantias num relance, a nota anexada, um lembrete antes que seja tarde",
+    screenshots: [
+      { alt: "Tela inicial do controle de garantias no iPhone com contagem de ativas, vencendo e vencidas e uma lista de produtos com dias restantes", caption: "Todas as garantias, num relance" },
+      { alt: "Detalhe de um item com foto da nota, data da compra, preço, número de série e contagem regressiva da garantia", caption: "A nota fiscal, na hora certa" },
+      { alt: "Formulário de cadastro com nome, loja, preço, data da compra e botões de prazo de garantia", caption: "Cadastre em 20 segundos" },
+      { alt: "Configurações de lembrete com antecedência de 30 e 7 dias e horário", caption: "Lembrado antes de vencer" },
+    ],
+    howTo: {
+      title: "Como registrar uma garantia em menos de um minuto",
+      intro: "O melhor momento para guardar uma nota é o dia em que você a recebe. O fluxo foi feito para isso: celular numa mão, nota na outra.",
+      steps: [
+        { name: "Adicione a compra", text: "Toque em +, digite o nome do produto e a loja, informe o preço e a data da compra. Escolha uma categoria para a lista ficar fácil de ler." },
+        { name: "Defina o prazo da garantia", text: "Toque em 6 meses, 1, 2, 3 ou 5 anos, ou digite qualquer número de meses. Some uma garantia estendida se comprou; o app mostra a cobertura total e a data exata de vencimento." },
+        { name: "Fotografe a nota", text: "Tire uma foto da nota e, se quiser, do produto e da etiqueta com o número de série. As fotos ficam anexadas ao item em tamanho real." },
+        { name: "Deixe os lembretes trabalharem", text: "Por padrão você é avisado 30 e 7 dias antes do vencimento às 9:00. Mude a antecedência e o horário em Ajustes; tudo são notificações locais, nada é enviado." },
+      ],
+    },
+    featuresTitle: "Feito para o dia em que algo quebra",
+    features: [
+      { icon: "🧾", title: "Fotos da nota", text: "Câmera ou biblioteca, várias fotos por item, visualizador em resolução total com zoom. Mostre na assistência em vez de procurar no e-mail." },
+      { icon: "⏳", title: "Contagem regressiva", text: "Dias restantes, barra de progresso e status (ativa, vencendo, vencida) em cada item. Ordene pelo que vence primeiro." },
+      { icon: "🔔", title: "Lembretes", text: "Qualquer combinação de 90, 60, 30, 14, 7 e 1 dia antes, e o horário. Apenas notificações locais." },
+      { icon: "➕", title: "Garantias estendidas", text: "Garantia do fabricante mais a extensão da loja ou do cartão, somadas num único período de cobertura." },
+      { icon: "📊", title: "Visão geral", text: "Contagem de ativas, vencendo e vencidas e valor total ainda na garantia. Filtre por status, busque por nome, loja ou número de série." },
+      { icon: "📤", title: "Exportação CSV", text: "Exporte todos os itens para CSV quando quiser, para uma planilha, um sinistro do seguro ou a troca de app. Seus dados nunca ficam presos." },
+    ],
+    intentsTitle: "Perguntas que este app responde",
+    intents: [
+      { h: "Como acompanho as garantias de tudo o que tenho?", p: "Adicione cada compra uma vez com a foto da nota e o prazo da garantia. A tela inicial lista tudo em ordem de vencimento, com contagens de ativas, vencendo e vencidas e o valor total coberto." },
+      { h: "Onde guardo as notas para acionar a garantia?", p: "Anexadas ao item, no seu celular. Fotografe a nota no dia da compra; quando algo quebrar, abra o item e mostre a nota, a data da compra e o número de série no balcão." },
+      { h: "Como recebo um aviso antes de uma garantia vencer?", p: "Ative os lembretes em Ajustes e escolha a antecedência (90, 60, 30, 14, 7 ou 1 dia) e o horário. O app agenda notificações locais para cada item; nada sai do aparelho." },
+      { h: "Posso registrar uma garantia estendida?", p: "Sim. Cada item tem uma garantia do fabricante e uma extensão opcional; o app soma as duas num único período de cobertura e uma data de vencimento." },
+      { h: "Precisa de conta ou internet?", p: "Não. Funciona offline, sem conta, sem sincronização na nuvem e sem análises. Inclua o app no backup do iPhone e exporte CSV quando quiser uma cópia." },
+    ],
+    compare: {
+      title: "Garantias e Notas Fiscais versus o álbum de fotos e apps de recibos por assinatura",
+      intro: "A maioria guarda notas no rolo da câmera ou numa pasta do e-mail e confia na memória para a data da garantia. Apps de recibos por assinatura enviam tudo para um servidor e cobram todo mês. Este app mantém a nota junto com a data da garantia, no aparelho, por um preço único.",
+      columns: ["", "Garantias e Notas Fiscais", "Álbum de fotos / e-mail", "Apps de recibos por assinatura"],
+      rows: [
+        ["Nota anexada ao produto e à data da garantia", "✓", "✗ Separados", "✓"],
+        ["Lembrete antes do vencimento", "✓ Até seis antecedências", "✗", "Às vezes"],
+        ["Garantia estendida", "✓", "✗", "Varia"],
+        ["Offline, nada é enviado", "✓", "✓", "✗ Nuvem"],
+        ["Exportar seus dados", "✓ CSV", "✗", "Varia"],
+        ["Preço", "Compra única", "Grátis", "Mensal ou anual"],
+      ],
+    },
+    faqs: [
+      { q: "Onde minhas fotos e dados ficam guardados?", a: "No armazenamento do próprio app no seu iPhone. Nada é enviado. Se você incluir o app no backup do iPhone ou do iCloud, ele é restaurado com o resto do celular." },
+      { q: "Preciso permitir acesso à câmera ou às fotos?", a: "Só se quiser adicionar fotos. A permissão da câmera é pedida na primeira vez que você toca em Tirar foto; escolher da biblioteca usa o seletor da Apple e não precisa de permissão." },
+      { q: "Posso mudar os horários dos lembretes?", a: "Sim. Em Ajustes você escolhe qualquer combinação de 90, 60, 30, 14, 7 e 1 dia antes do vencimento e o horário. Os lembretes se atualizam sozinhos quando você edita um item." },
+      { q: "Como mudo para um iPhone novo?", a: "Restaure o celular novo a partir de um backup e o app vem com os dados. Você também pode exportar CSV como cópia extra. A compra fica ligada à sua Conta Apple, então você não paga duas vezes." },
+      { q: "Sincroniza entre aparelhos?", a: "Nesta versão, não. É um app de um único aparelho, totalmente offline por escolha." },
+      { q: "É assinatura?", a: "Não. Compra única, sem compras no app, sem anúncios." },
+      { q: "Quais idiomas ele suporta?", a: "Inglês, espanhol, alemão, francês, italiano, português, holandês, polonês, russo, ucraniano, turco, árabe, hindi, indonésio, vietnamita, tailandês, japonês, coreano e chinês simplificado. Você pode forçar um idioma em Ajustes." },
+      { q: "Existe versão para Android?", a: "Ainda não. O app para iPhone sai primeiro; uma versão Android está planejada e esta página terá o link do Google Play quando estiver no ar." },
+    ],
+    related: [
+      { name: "Electrician Calculator Toolkit", href: "/apps/electrician-calculator", blurb: "Queda de tensão, bitola, ocupação de eletroduto e caixa pelas tabelas NEC 2023, offline. Compra única." },
+      { name: "Unit Price Calculator & Tax", href: "/apps/unit-price-calculator", blurb: "Compare preço por unidade, some impostos, aplique desconto. Grátis." },
+      { name: "Caffeine Tracker: Curfew", href: "/apps/caffeine-tracker", blurb: "Registre café e chá, veja o que ainda está no corpo e receba um horário limite antes de dormir. Grátis." },
+    ],
+    disclaimer: "Garantias e Notas Fiscais é uma ferramenta pessoal de registro. Os termos da garantia são definidos pelo fabricante ou pela loja; confira sempre os termos originais antes de acionar.",
+  },
+};

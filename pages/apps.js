@@ -50,7 +50,17 @@ const APPS = [
     badge: "iOS · $4.99",
   },
   {
-    name: "Electrician Calculator Pro",
+    name: "Warranty Tracker & Receipt Log",
+    tagline: "Photograph the receipt, set the warranty length, get reminded before it expires.",
+    summary:
+      "Every product with its receipt photo, purchase date, serial number and warranty countdown. Local reminders 90 to 1 day before expiry, CSV export, fully offline. One-time $4.99, 19 languages.",
+    image: "/apps/warranty-tracker-logo.png",
+    href: "/apps/warranty-tracker",
+    internal: true,
+    badge: "iOS · $4.99",
+  },
+  {
+    name: "Electrician Calculator Toolkit",
     tagline: "Voltage drop, wire size, conduit and box fill, offline, based on the 2023 NEC tables.",
     summary:
       "Eight job-site calculators with the code table on every result: voltage drop, wire size with derating, conduit fill, box fill, load & breaker, Ohm's law, resistor codes and reference tables. One-time $9.99, 19 languages.",

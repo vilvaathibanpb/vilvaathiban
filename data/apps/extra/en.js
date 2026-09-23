@@ -5,7 +5,7 @@ export default {
   "electrician-calculator": {
     slug: "electrician-calculator",
     iconBase: "electrician-calculator",
-    name: "Electrician Calculator Pro",
+    name: "Electrician Calculator Toolkit",
     alternateNames: ["voltage drop calculator", "wire size calculator", "conduit fill calculator", "box fill calculator", "NEC calculator app"],
     appStoreId: "",
     appStoreUrl: "",
@@ -19,12 +19,12 @@ export default {
         "Eight NEC-based electrician calculators in one offline iPhone app: voltage drop, wire size with derating, conduit fill, box fill, load & breaker, Ohm's law, resistor codes and code tables. One-time purchase, no subscription, 19 languages.",
       keywords:
         "electrician calculator app, voltage drop calculator, wire size calculator, ampacity calculator, conduit fill calculator, box fill calculator, breaker size calculator, ohms law calculator, nec calculator, electrical calculator iphone, derating calculator, awg calculator",
-      ogTitle: "Electrician Calculator Pro: voltage drop, wire size, conduit and box fill on iPhone",
+      ogTitle: "Electrician Calculator Toolkit: voltage drop, wire size, conduit and box fill on iPhone",
       ogDescription: "Eight job-site calculators based on the 2023 NEC tables, fully offline. One-time purchase, no subscription.",
     },
     h1: "An electrician calculator for the job site: voltage drop, wire size, conduit fill and box fill, offline",
     answer:
-      "Electrician Calculator Pro puts eight NEC-based calculators on your iPhone: voltage drop (single-phase, three-phase, DC), wire size with the 125% rule and ambient and conductor-count derating, conduit fill for EMT, PVC, RMC and IMC, box fill per 314.16, load and breaker sizing from watts, Ohm's law, resistor color codes and the reference tables behind them. Every result names the table it came from. It works with no signal, has no account and no subscription, and is available in 19 languages.",
+      "Electrician Calculator Toolkit puts eight NEC-based calculators on your iPhone: voltage drop (single-phase, three-phase, DC), wire size with the 125% rule and ambient and conductor-count derating, conduit fill for EMT, PVC, RMC and IMC, box fill per 314.16, load and breaker sizing from watts, Ohm's law, resistor color codes and the reference tables behind them. Every result names the table it came from. It works with no signal, has no account and no subscription, and is available in 19 languages.",
     quickFacts: [
       ["Price", "One-time purchase. No subscription"],
       ["Tools", "Voltage drop, wire size, conduit fill, box fill, load & breaker, Ohm's law, resistor code, code tables"],
@@ -65,9 +65,9 @@ export default {
       { h: "Does the app need internet or an account?", p: "No. Every table is inside the app; nothing is downloaded or uploaded. There is no account, no analytics, no ads and no subscription." },
     ],
     compare: {
-      title: "Electrician Calculator Pro vs the code book and free single-purpose calculators",
+      title: "Electrician Calculator Toolkit vs the code book and free single-purpose calculators",
       intro: "The code book is authoritative but slow to page through with gloves on. Free calculators cover one job each and usually pay for themselves with ads. This app puts the eight everyday calculations together, with the table reference on every result.",
-      columns: ["", "Electrician Calculator Pro", "NEC code book", "Free single-purpose apps"],
+      columns: ["", "Electrician Calculator Toolkit", "NEC code book", "Free single-purpose apps"],
       rows: [
         ["Voltage drop, wire size, conduit fill, box fill in one place", "✓ Eight tools", "✓ All tables, manual math", "✗ One tool per app"],
         ["Derating applied automatically", "✓ Ambient + conductor count", "✗ Manual", "Varies"],
@@ -89,11 +89,106 @@ export default {
     ],
     guides: [],
     related: [
-      { name: "Warranty Tracker: Receipts", href: "/apps/warranty-tracker", blurb: "Photograph a receipt, set the warranty length, get reminded before it expires. Offline, one-time purchase." },
+      { name: "Warranty Tracker & Receipt Log", href: "/apps/warranty-tracker", blurb: "Photograph a receipt, set the warranty length, get reminded before it expires. Offline, one-time purchase." },
       { name: "Unit Price Calculator & Tax", href: "/apps/unit-price-calculator", blurb: "Compare price per unit, add sales tax, take a percentage off. Free." },
       { name: "Caffeine Tracker: Curfew", href: "/apps/caffeine-tracker", blurb: "Log coffee and tea, see what is still in your system, and get a bedtime cutoff. Free." },
     ],
     disclaimer:
-      "Electrician Calculator Pro is a calculation aid and not a substitute for the code, engineering judgement or the authority having jurisdiction. NEC and National Electrical Code are registered trademarks of the National Fire Protection Association, which does not sponsor or endorse this app.",
+      "Electrician Calculator Toolkit is a calculation aid and not a substitute for the code, engineering judgement or the authority having jurisdiction. NEC and National Electrical Code are registered trademarks of the National Fire Protection Association, which does not sponsor or endorse this app.",
+  },
+  "warranty-tracker": {
+    slug: "warranty-tracker",
+    iconBase: "warranty-tracker",
+    name: "Warranty Tracker & Receipt Log",
+    alternateNames: ["warranty tracker app", "receipt keeper", "warranty reminder app", "warranty organizer", "receipt organizer offline"],
+    appStoreId: "",
+    appStoreUrl: "",
+    live: false,
+    price: { amount: "4.99", label: "One-time purchase" },
+    color: "#0B9A6A",
+    category: "UtilitiesApplication",
+    head: {
+      title: "Warranty Tracker App for iPhone: Receipt Photos, Expiry Reminders, Offline",
+      description:
+        "Track every warranty on your iPhone: photograph the receipt, set the warranty length, get a reminder before it expires. Fully offline, no account, no subscription. One-time purchase, 19 languages.",
+      keywords:
+        "warranty tracker app, warranty tracker iphone, receipt tracker app, warranty reminder, warranty organizer, receipt keeper, warranty expiration tracker, receipt organizer app, appliance warranty tracker, warranty app offline, product warranty log",
+      ogTitle: "Warranty Tracker & Receipt Log: every warranty and its receipt, one glance",
+      ogDescription: "Photograph the receipt, set the warranty length, get reminded before it runs out. Offline, one-time purchase, no account.",
+    },
+    h1: "A warranty tracker that keeps the receipt and reminds you before the warranty expires, offline",
+    answer:
+      "Warranty Tracker & Receipt Log stores every product you buy with its receipt photo, purchase date, price, serial number and warranty length, then reminds you before the warranty ends. You see how many items are active, expiring soon or expired and the total value still covered. Everything stays on your iPhone: there is no account, no cloud, no subscription and no ads. One-time purchase, available in 19 languages.",
+    quickFacts: [
+      ["Price", "One-time purchase. No subscription"],
+      ["Stores", "Receipt and product photos, purchase date, price, store, serial number, notes"],
+      ["Reminders", "Local notifications 90, 60, 30, 14, 7 or 1 day before expiry"],
+      ["Privacy", "Offline, no account, no analytics, CSV export"],
+    ],
+    screenshotsTitle: "What you get: every warranty at a glance, the receipt attached, a reminder before it is too late",
+    screenshots: [
+      { src: "/apps/warranty-tracker/01.webp", alt: "Warranty tracker home screen on iPhone showing active, expiring and expired counts and a list of products with days left", caption: "Every warranty, one glance" },
+      { src: "/apps/warranty-tracker/02.webp", alt: "Item detail with receipt photo, purchase date, price, serial number and warranty countdown", caption: "The receipt, right when you need it" },
+      { src: "/apps/warranty-tracker/03.webp", alt: "Add item form with name, store, price, purchase date and warranty length chips", caption: "Add it in 20 seconds" },
+      { src: "/apps/warranty-tracker/04.webp", alt: "Reminder settings with lead times of 30 and 7 days and time of day", caption: "Reminded before it expires" },
+    ],
+    howTo: {
+      title: "How to track a warranty in under a minute",
+      intro: "The best moment to save a receipt is the day you get it. The flow is built for that: phone in one hand, receipt in the other.",
+      steps: [
+        { name: "Add the purchase", text: "Tap +, type the product name and store, enter the price and purchase date. Pick a category so the list stays scannable." },
+        { name: "Set the warranty length", text: "Tap 6 months, 1, 2, 3 or 5 years, or type any number of months. Add an extended warranty if you bought one; the app shows the total coverage and the exact expiry date." },
+        { name: "Photograph the receipt", text: "Take a photo of the receipt and, if you like, the product and its serial-number sticker. Photos stay attached to the item at full size." },
+        { name: "Let the reminders work", text: "By default you are notified 30 and 7 days before expiry at 9:00. Change the lead times and the hour in Settings; everything is a local notification, nothing is sent anywhere." },
+      ],
+    },
+    featuresTitle: "Built for the day something breaks",
+    features: [
+      { icon: "🧾", title: "Receipt photos", text: "Camera or photo library, several photos per item, full-resolution viewer with pinch to zoom. Show it at the service counter instead of digging through email." },
+      { icon: "⏳", title: "Expiry countdown", text: "Days left, a progress bar and a status pill (active, expiring soon, expired) on every item. Sort by what expires first." },
+      { icon: "🔔", title: "Reminders", text: "Pick any combination of 90, 60, 30, 14, 7 and 1 day before, and the time of day. Local notifications only." },
+      { icon: "➕", title: "Extended warranties", text: "Manufacturer warranty plus store or credit-card extension, added together into one total coverage period." },
+      { icon: "📊", title: "Overview", text: "Active, expiring and expired counts and the total value still under warranty. Filter by status, search by name, store or serial number." },
+      { icon: "📤", title: "CSV export", text: "Export every item to CSV any time for a spreadsheet, an insurance claim or a move to another app. Your data is never locked in." },
+    ],
+    intentsTitle: "Questions this app answers",
+    intents: [
+      { h: "How do I keep track of warranties for everything I own?", p: "Add each purchase once with its receipt photo and warranty length. The home screen lists everything sorted by what expires first, with counts of active, expiring and expired items and the total value still covered." },
+      { h: "Where do I keep receipts for warranty claims?", p: "Attached to the item, on your phone. Photograph the receipt the day you buy the product; when something breaks, open the item and show the receipt, the purchase date and the serial number at the counter." },
+      { h: "How do I get reminded before a warranty expires?", p: "Turn on reminders in Settings and pick the lead times (90, 60, 30, 14, 7 or 1 day) and the hour. The app schedules local notifications for every item; nothing leaves the device." },
+      { h: "Can I track an extended warranty?", p: "Yes. Each item has a manufacturer warranty and an optional extended warranty; the app adds them into one total coverage period and one expiry date." },
+      { h: "Does it need an account or the internet?", p: "No. It works offline, there is no account, no cloud sync and no analytics. Include the app in your iPhone backup and export CSV whenever you want a copy." },
+    ],
+    compare: {
+      title: "Warranty Tracker & Receipt Log vs a photos album and subscription receipt apps",
+      intro: "Most people keep receipts in a camera roll or an email folder and rely on memory for the warranty date. Subscription receipt apps upload everything to a server and charge monthly. This app keeps the receipt with the warranty date, on the device, for a one-time price.",
+      columns: ["", "Warranty Tracker & Receipt Log", "Photos album / email", "Subscription receipt apps"],
+      rows: [
+        ["Receipt attached to the product and its warranty date", "✓", "✗ Separate", "✓"],
+        ["Reminder before expiry", "✓ Up to six lead times", "✗", "Sometimes"],
+        ["Extended warranty support", "✓", "✗", "Varies"],
+        ["Works offline, nothing uploaded", "✓", "✓", "✗ Cloud"],
+        ["Export your data", "✓ CSV", "✗", "Varies"],
+        ["Price", "One-time purchase", "Free", "Monthly or yearly"],
+      ],
+    },
+    faqs: [
+      { q: "Where are my photos and data stored?", a: "In the app's own storage on your iPhone. Nothing is uploaded. If you include the app in your iPhone or iCloud backup, it is restored with the rest of your phone." },
+      { q: "Do I need to allow camera or photo access?", a: "Only if you want to add photos. The camera permission is asked the first time you tap Take photo; picking from the library uses Apple's picker and needs no permission." },
+      { q: "Can I change the reminder times?", a: "Yes. Settings lets you choose any combination of 90, 60, 30, 14, 7 and 1 day before expiry and the time of day. Reminders update automatically when you edit an item." },
+      { q: "How do I move to a new iPhone?", a: "Restore the new phone from a backup and the app comes with its data. You can also export CSV as an extra copy. The purchase is tied to your Apple Account, so you are not charged again." },
+      { q: "Does it sync between devices?", a: "Not in this version. It is a single-device, fully offline app by design." },
+      { q: "Is it a subscription?", a: "No. One-time purchase, no in-app purchases, no ads." },
+      { q: "Which languages does it support?", a: "English, Spanish, German, French, Italian, Portuguese, Dutch, Polish, Russian, Ukrainian, Turkish, Arabic, Hindi, Indonesian, Vietnamese, Thai, Japanese, Korean and Simplified Chinese. You can force a language in Settings." },
+      { q: "Is there an Android version?", a: "Not yet. The iPhone app ships first; an Android build is planned and this page will link to Google Play when it is live." },
+    ],
+    guides: [],
+    related: [
+      { name: "Electrician Calculator Toolkit", href: "/apps/electrician-calculator", blurb: "Voltage drop, wire size, conduit and box fill from the 2023 NEC tables, offline. One-time purchase." },
+      { name: "Unit Price Calculator & Tax", href: "/apps/unit-price-calculator", blurb: "Compare price per unit, add sales tax, take a percentage off. Free." },
+      { name: "Caffeine Tracker: Curfew", href: "/apps/caffeine-tracker", blurb: "Log coffee and tea, see what is still in your system, and get a bedtime cutoff. Free." },
+    ],
+    disclaimer:
+      "Warranty Tracker & Receipt Log is a personal record-keeping tool. Warranty terms are set by the manufacturer or retailer; always check the original terms before making a claim.",
   },
 };

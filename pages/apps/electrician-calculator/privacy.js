@@ -10,10 +10,10 @@ const URL = "https://www.vilvaathiban.com/apps/electrician-calculator/privacy";
 const PrivacyPage = () => (
   <Container>
     <Head>
-      <title>Privacy Policy — Electrician Calculator Pro</title>
+      <title>Privacy Policy — Electrician Calculator Toolkit</title>
       <meta
         name="description"
-        content="Privacy policy for the Electrician Calculator Pro iOS app. Every calculation runs on your device; the app has no accounts, no servers, no analytics and no ads."
+        content="Privacy policy for the Electrician Calculator Toolkit iOS app. Every calculation runs on your device; the app has no accounts, no servers, no analytics and no ads."
       />
       <link rel="canonical" href={URL} />
       <meta name="robots" content="noindex, follow" />
@@ -21,14 +21,14 @@ const PrivacyPage = () => (
     <Header />
     <Wrap>
       <Eyebrow>
-        <Link href="/apps/electrician-calculator">Electrician Calculator Pro</Link>
+        <Link href="/apps/electrician-calculator">Electrician Calculator Toolkit</Link>
       </Eyebrow>
       <Title>Privacy Policy</Title>
       <Lead>Last updated: September 23, 2026</Lead>
 
       <Section>
         <p>
-          This Privacy Policy describes how the iOS application <b>Electrician Calculator Pro</b>{" "}
+          This Privacy Policy describes how the iOS application <b>Electrician Calculator Toolkit</b>{" "}
           (&quot;the App&quot;), developed by Vilva Athiban P B (&quot;we&quot;, &quot;us&quot;), handles
           your information. The App performs electrical calculations (voltage drop, wire size, conduit
           fill, box fill, load and breaker sizing, Ohm&apos;s law, resistor color codes) and shows

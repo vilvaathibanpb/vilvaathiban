@@ -1,2 +1,164 @@
-// de — translations of the new app pages; keys missing here fall back to English.
-export default {};
+// Deutsch — Seiten der neuen Apps. Fehlende Felder erben das Englische.
+export default {
+  "electrician-calculator": {
+    head: {
+      title: "Elektriker-Rechner fürs iPhone: Spannungsabfall, Querschnitt, Rohr- und Dosenfüllung (offline)",
+      description:
+        "Acht Elektriker-Rechner auf Basis des US-NEC in einer Offline-App fürs iPhone: Spannungsabfall, Leiterquerschnitt mit Reduktionsfaktoren, Rohr- und Dosenfüllung, Last & Schutzschalter, Ohmsches Gesetz, Widerstandscode und Normtabellen. Einmalkauf, kein Abo, 19 Sprachen.",
+      keywords:
+        "elektriker rechner app, spannungsabfall rechner, leiterquerschnitt rechner, kabelquerschnitt berechnen, strombelastbarkeit rechner, rohrfüllung, dosenfüllung, sicherung berechnen, ohmsches gesetz rechner, nec rechner, elektro rechner iphone, awg",
+      ogTitle: "Electrician Calculator Toolkit: Spannungsabfall, Querschnitt, Rohr- und Dosenfüllung auf dem iPhone",
+      ogDescription: "Acht Baustellen-Rechner auf Basis der NEC-2023-Tabellen, komplett offline. Einmalkauf, kein Abo.",
+    },
+    h1: "Ein Elektriker-Rechner für die Baustelle: Spannungsabfall, Leiterquerschnitt, Rohr- und Dosenfüllung, offline",
+    answer:
+      "Electrician Calculator Toolkit bringt acht Rechner auf Basis des US-amerikanischen NEC aufs iPhone: Spannungsabfall (ein-, dreiphasig, DC), Leiterquerschnitt mit 125-%-Regel sowie Korrektur für Umgebungstemperatur und Leiterzahl, Rohrfüllung für EMT, PVC, RMC und IMC, Dosenfüllung nach 314.16, Last und Schutzschalter aus Watt, Ohmsches Gesetz, Widerstands-Farbcode und die Referenztabellen dahinter. Jedes Ergebnis nennt die Tabelle, aus der es stammt. Die App funktioniert ohne Netz, ohne Konto und ohne Abo und ist in 19 Sprachen verfügbar.",
+    quickFacts: [
+      ["Preis", "Einmalkauf. Kein Abo"],
+      ["Tools", "Spannungsabfall, Querschnitt, Rohrfüllung, Dosenfüllung, Last & Schutzschalter, Ohmsches Gesetz, Widerstandscode, Tabellen"],
+      ["Grundlage", "Tabellen des NEC 2023 (NFPA 70)"],
+      ["Datenschutz", "Offline, kein Konto, keine Analysen"],
+    ],
+    screenshotsTitle: "Was du bekommst: ein Ergebnis, die Tabelle dahinter und den kleinsten Querschnitt, der besteht",
+    screenshots: [
+      { alt: "Spannungsabfall-Rechner auf dem iPhone mit Abfall in Volt und Prozent und dem Mindestquerschnitt für 3 %", caption: "Spannungsabfall mit Mindestquerschnitt für 3 %" },
+      { alt: "Querschnitt-Rechner mit Korrektur für Umgebungstemperatur und Leiterzahl", caption: "Querschnitt mit eingebauter Reduktion" },
+      { alt: "Rohrfüllungs-Rechner mit Mindest-Nenngröße für EMT, PVC, RMC und IMC im Vergleich", caption: "Rohrfüllung für fünf Rohrtypen" },
+    ],
+    howTo: {
+      title: "So bemisst du einen Stromkreis in unter einer Minute",
+      intro: "Auf der Baustelle sind es fast immer dieselben drei Fragen: Besteht der Spannungsabfall, welche Leitung ziehe ich, und welches Rohr braucht sie. So geht es.",
+      steps: [
+        { name: "Last & Schutzschalter", text: "Watt, Spannung und Phasenzahl eingeben. Dauerlast markieren, wenn sie drei Stunden oder länger läuft. Du bekommst Laststrom, Bemessungsstrom bei 125 %, den nächsten Standard-Schutzschalter nach 240.6(A) und den Mindestquerschnitt bei 75 °C." },
+        { name: "Leiterquerschnitt", text: "Querschnitt mit diesem Strom öffnen, Anschlusstemperatur, Umgebungstemperatur und die Zahl der stromführenden Leiter im Rohr setzen. Die App wendet 310.15(B)(1) und 310.15(C)(1) an und zeigt die korrigierte Belastbarkeit aller Querschnitte rund um das Ergebnis." },
+        { name: "Spannungsabfall", text: "Einfache Länge eingeben. Liegt der Abfall über 3 %, zeigt die App bereits den kleinsten Leiter, der besteht. Auf Aluminium wechseln oder Parallelleiter ergänzen, um zu vergleichen." },
+        { name: "Rohrfüllung", text: "Leiter hinzufügen (Querschnitt, Isolierung, Anzahl) und die Mindest-Nenngröße für EMT, PVC Schedule 40 und 80, RMC und IMC nebeneinander ablesen." },
+      ],
+    },
+    featuresTitle: "Acht Tools, je ein Tipp",
+    features: [
+      { title: "Spannungsabfall", text: "ΔU = 2·K·I·L ÷ CM für einphasig und DC, 1,732 für dreiphasig; K = 12,9 Kupfer / 21,2 Aluminium. Fuß oder Meter, #14 AWG bis 750 kcmil, Parallelleiter und der kleinste Querschnitt unter 3 %." },
+      { title: "Leiterquerschnitt (Belastbarkeit)", text: "Tabelle 310.16 für Kupfer und Aluminium bei 60/75/90 °C, 125-%-Regel für Dauerlast, Umgebungskorrektur, Häufungsfaktor und die Grenzen nach 240.4(D) für kleine Leiter." },
+      { title: "Rohrfüllung", text: "Kapitel 9, Tabellen 1, 4 und 5: beliebige Mischung aus THHN/THWN, XHHW und THW, Mindest-Nenngröße je Rohrtyp oder die maximale Zahl eines Leiters in einem gegebenen Rohr." },
+      { title: "Dosenfüllung", text: "Volumenansätze nach 314.16(B) für Leiter, Klemmen, Halterungen, Geräteeinsätze und Schutzleiter, mit Prüfung gegen die vorhandene Dose." },
+      { title: "Last & Schutzschalter, Ohmsches Gesetz, Widerstandscode", text: "Watt zu Ampere zu Schutzschalter zu Leiter auf einem Bildschirm; zwei beliebige von U, I, R und P; 4- und 5-Ring-Dekodierung." },
+      { title: "Normtabellen", text: "Belastbarkeit, Standard-Schutzschalter, Reduktionsfaktoren, Dosenvolumen und Aderfarben nach US- und IEC-Norm, immer einen Tipp entfernt." },
+    ],
+    intentsTitle: "Fragen, die diese App beantwortet",
+    intents: [
+      { h: "Wie berechne ich den Spannungsabfall eines Endstromkreises?", p: "Spannung, Laststrom, Querschnitt, Material und einfache Länge eingeben. Die App liefert den Abfall in Volt und Prozent sowie die Spannung an der Last und markiert alles über den Richtwerten von 3 % (Endstromkreis) und 5 % (gesamt) aus 210.19(A)." },
+      { h: "Welchen Querschnitt brauche ich für einen 50-A-Stromkreis?", p: "Für 40 A Dauerlast (50 A erforderlich) auf Kupfer bei 75 °C ergibt Tabelle 310.16 #8 AWG. Ist es heiß oder liegen mehr als drei stromführende Leiter im Rohr, wendet die App die Reduktionsfaktoren an und geht bei Bedarf einen Querschnitt höher." },
+      { h: "Wie viele #12 THHN passen in ein 3/4-Zoll-EMT?", p: "Sechzehn, nach Kapitel 9 Tabelle 1 (40 % Füllung), Tabelle 4 (EMT-Fläche) und Tabelle 5 (THHN-Fläche). Der Modus „Max. Leiter“ beantwortet das für jeden Querschnitt, jede Isolierung und jedes Rohr." },
+      { h: "Braucht die App Internet oder ein Konto?", p: "Nein. Alle Tabellen stecken in der App; nichts wird geladen oder hochgeladen. Kein Konto, keine Analysen, keine Werbung, kein Abo." },
+    ],
+    compare: {
+      title: "Electrician Calculator Toolkit gegenüber dem Normbuch und kostenlosen Einzelrechnern",
+      intro: "Das Normbuch ist verbindlich, aber mit Handschuhen langsam zu blättern. Kostenlose Rechner decken je eine Aufgabe ab und finanzieren sich meist über Werbung. Diese App bündelt die acht Alltagsrechnungen mit dem Tabellenverweis bei jedem Ergebnis.",
+      columns: ["", "Electrician Calculator Toolkit", "NEC-Normbuch", "Kostenlose Einzelrechner"],
+      rows: [
+        ["Spannungsabfall, Querschnitt, Rohr- und Dosenfüllung an einem Ort", "✓ Acht Tools", "✓ Alle Tabellen, Handrechnung", "✗ Ein Tool pro App"],
+        ["Reduktionsfaktoren automatisch", "✓ Umgebung + Leiterzahl", "✗ Manuell", "Unterschiedlich"],
+        ["Zeigt die Quelltabelle des Ergebnisses", "✓ Auf jedem Bildschirm", "✓ Ist die Tabelle", "✗ Selten"],
+        ["Funktioniert offline", "✓ Ja", "✓ Ja", "✗ Braucht meist Werbung"],
+        ["Sprachen", "19", "Englisch", "Meist eine"],
+        ["Preis", "Einmalkauf", "Buchpreis", "Kostenlos mit Werbung"],
+      ],
+    },
+    faqs: [
+      { q: "Aus welcher Normausgabe stammen die Tabellen?", a: "Aus der Ausgabe 2023 von NFPA 70, dem National Electrical Code. Dein Zuständigkeitsbereich kann eine ältere Ausgabe oder lokale Änderungen anwenden; betrachte die Ergebnisse als Rechenhilfe und prüfe sie gegen die gültige Norm und mit deinem Prüfer." },
+      { q: "Enthält der Querschnitt die Reduktionsfaktoren?", a: "Ja: die 125-%-Regel für Dauerlast, die Umgebungstemperatur-Korrektur aus 310.15(B)(1), den Häufungsfaktor für mehr als drei stromführende Leiter aus 310.15(C)(1) und die Grenzen aus 240.4(D) für #14, #12 und #10." },
+      { q: "Welche Rohrtypen und Isolierungen sind abgedeckt?", a: "EMT, PVC Schedule 40, PVC Schedule 80, RMC und IMC mit den Leiterflächen für THHN/THWN, XHHW und THW aus Kapitel 9 Tabelle 5." },
+      { q: "Kann ich metrische Einheiten verwenden?", a: "Längen lassen sich in Metern und die Umgebungstemperatur in °C oder °F eingeben. Die Querschnitte folgen AWG/kcmil wie die Tabellen." },
+      { q: "Ist es ein Abo?", a: "Nein. Einmalkauf ohne In-App-Käufe." },
+      { q: "Ist die App mit der NFPA verbunden?", a: "Nein. NEC und National Electrical Code sind eingetragene Marken der National Fire Protection Association, die diese App weder unterstützt noch empfiehlt." },
+      { q: "Gibt es eine Android-Version?", a: "Noch nicht. Die iPhone-App erscheint zuerst; eine Android-Version ist geplant, und diese Seite verlinkt Google Play, sobald sie live ist." },
+    ],
+    related: [
+      { blurb: "Kassenbon fotografieren, Garantiedauer setzen, rechtzeitig vor Ablauf erinnert werden. Offline, Einmalkauf." },
+      { blurb: "Preis pro Einheit vergleichen, Steuer aufschlagen, Prozente abziehen. Kostenlos." },
+      { blurb: "Kaffee und Tee protokollieren, sehen, wie viel Koffein noch wirkt, und eine Schlafenszeit-Grenze setzen. Kostenlos." },
+    ],
+    disclaimer:
+      "Electrician Calculator Toolkit ist eine Rechenhilfe und ersetzt weder die Norm noch fachliches Urteil oder die zuständige Behörde. NEC und National Electrical Code sind eingetragene Marken der National Fire Protection Association, die diese App weder unterstützt noch empfiehlt.",
+  },
+  "warranty-tracker": {
+    head: {
+      title: "Garantie-Tracker fürs iPhone: Kassenbon-Fotos, Ablauf-Erinnerungen, offline",
+      description: "Alle Garantien auf dem iPhone im Blick: Beleg fotografieren, Garantiedauer setzen, rechtzeitig vor Ablauf erinnert werden. Komplett offline, kein Konto, kein Abo. Einmalkauf, 19 Sprachen.",
+      keywords: "garantie tracker app, garantie app iphone, kassenbon app, beleg app, garantie erinnerung, garantie verwalten, kassenbon aufbewahren app, garantieverwaltung, gewährleistung app, belege organisieren offline",
+      ogTitle: "Garantie & Kassenbon Tracker: jede Garantie mit Beleg, auf einen Blick",
+      ogDescription: "Beleg fotografieren, Garantiedauer setzen, vor Ablauf erinnert werden. Offline, Einmalkauf, kein Konto.",
+    },
+    h1: "Ein Garantie-Tracker, der den Kassenbon aufbewahrt und vor Ablauf der Garantie erinnert, offline",
+    answer: "Garantie & Kassenbon Tracker speichert jedes gekaufte Produkt mit Belegfoto, Kaufdatum, Preis, Seriennummer und Garantiedauer und erinnert dich, bevor die Garantie endet. Du siehst, wie viele Einträge aktiv, bald ablaufend oder abgelaufen sind und welcher Gesamtwert noch abgedeckt ist. Alles bleibt auf deinem iPhone: kein Konto, keine Cloud, kein Abo, keine Werbung. Einmalkauf, in 19 Sprachen verfügbar.",
+    quickFacts: [
+      ["Preis", "Einmalkauf. Kein Abo"],
+      ["Speichert", "Beleg- und Produktfotos, Kaufdatum, Preis, Händler, Seriennummer, Notizen"],
+      ["Erinnerungen", "Lokale Mitteilungen 90, 60, 30, 14, 7 oder 1 Tag vor Ablauf"],
+      ["Datenschutz", "Offline, kein Konto, keine Analysen, CSV-Export"],
+    ],
+    screenshotsTitle: "Was du bekommst: alle Garantien auf einen Blick, der Beleg direkt dabei, eine Erinnerung, bevor es zu spät ist",
+    screenshots: [
+      { alt: "Startbildschirm des Garantie-Trackers auf dem iPhone mit Anzahl aktiver, bald ablaufender und abgelaufener Garantien und einer Produktliste mit Resttagen", caption: "Alle Garantien auf einen Blick" },
+      { alt: "Eintragsdetail mit Belegfoto, Kaufdatum, Preis, Seriennummer und Garantie-Countdown", caption: "Der Beleg, genau wenn du ihn brauchst" },
+      { alt: "Formular zum Hinzufügen mit Name, Händler, Preis, Kaufdatum und Garantiedauer-Chips", caption: "In 20 Sekunden erfasst" },
+      { alt: "Erinnerungseinstellungen mit Vorlauf von 30 und 7 Tagen und Uhrzeit", caption: "Erinnert, bevor sie abläuft" },
+    ],
+    howTo: {
+      title: "So erfasst du eine Garantie in unter einer Minute",
+      intro: "Der beste Moment, einen Beleg zu sichern, ist der Kauftag. Genau dafür ist der Ablauf gebaut: Handy in der einen Hand, Kassenbon in der anderen.",
+      steps: [
+        { name: "Kauf hinzufügen", text: "Auf + tippen, Produktname und Händler eingeben, Preis und Kaufdatum setzen. Eine Kategorie wählen, damit die Liste übersichtlich bleibt." },
+        { name: "Garantiedauer setzen", text: "6 Monate, 1, 2, 3 oder 5 Jahre antippen oder eine beliebige Monatszahl eingeben. Garantieverlängerung ergänzen, falls gekauft; die App zeigt die Gesamtdauer und das genaue Ablaufdatum." },
+        { name: "Beleg fotografieren", text: "Kassenbon und bei Bedarf Produkt und Seriennummern-Aufkleber fotografieren. Die Fotos bleiben in voller Größe am Eintrag." },
+        { name: "Erinnerungen arbeiten lassen", text: "Standardmäßig wirst du 30 und 7 Tage vor Ablauf um 9:00 Uhr benachrichtigt. Vorlauf und Uhrzeit änderst du in den Einstellungen; alles sind lokale Mitteilungen, nichts wird verschickt." },
+      ],
+    },
+    featuresTitle: "Gebaut für den Tag, an dem etwas kaputtgeht",
+    features: [
+      { icon: "🧾", title: "Belegfotos", text: "Kamera oder Mediathek, mehrere Fotos pro Eintrag, Vollbild-Viewer mit Zoom. An der Servicetheke vorzeigen statt im E-Mail-Postfach zu wühlen." },
+      { icon: "⏳", title: "Ablauf-Countdown", text: "Resttage, Fortschrittsbalken und Status (aktiv, läuft bald ab, abgelaufen) an jedem Eintrag. Sortieren nach dem, was zuerst abläuft." },
+      { icon: "🔔", title: "Erinnerungen", text: "Beliebige Kombination aus 90, 60, 30, 14, 7 und 1 Tag vorher plus Uhrzeit. Nur lokale Mitteilungen." },
+      { icon: "➕", title: "Garantieverlängerungen", text: "Herstellergarantie plus Händler- oder Kreditkarten-Verlängerung, zusammengerechnet zu einer Gesamtdauer." },
+      { icon: "📊", title: "Überblick", text: "Anzahl aktiv, bald ablaufend und abgelaufen sowie der Gesamtwert unter Garantie. Nach Status filtern, nach Name, Händler oder Seriennummer suchen." },
+      { icon: "📤", title: "CSV-Export", text: "Alle Einträge jederzeit als CSV exportieren, für eine Tabelle, eine Versicherungsmeldung oder den Wechsel zu einer anderen App. Deine Daten sind nie eingesperrt." },
+    ],
+    intentsTitle: "Fragen, die diese App beantwortet",
+    intents: [
+      { h: "Wie behalte ich die Garantien für alles, was ich besitze, im Blick?", p: "Jeden Kauf einmal mit Belegfoto und Garantiedauer anlegen. Der Startbildschirm listet alles sortiert nach Ablauf, mit Zählern für aktiv, bald ablaufend und abgelaufen sowie dem noch abgedeckten Gesamtwert." },
+      { h: "Wo bewahre ich Kassenbons für Garantiefälle auf?", p: "Am Eintrag, auf deinem Handy. Fotografiere den Beleg am Kauftag; wenn etwas kaputtgeht, öffnest du den Eintrag und zeigst Beleg, Kaufdatum und Seriennummer an der Theke." },
+      { h: "Wie werde ich erinnert, bevor eine Garantie abläuft?", p: "Erinnerungen in den Einstellungen aktivieren, Vorlauf (90, 60, 30, 14, 7 oder 1 Tag) und Uhrzeit wählen. Die App plant lokale Mitteilungen für jeden Eintrag; nichts verlässt das Gerät." },
+      { h: "Kann ich eine Garantieverlängerung erfassen?", p: "Ja. Jeder Eintrag hat eine Herstellergarantie und eine optionale Verlängerung; die App addiert beide zu einer Gesamtdauer und einem Ablaufdatum." },
+      { h: "Braucht die App ein Konto oder Internet?", p: "Nein. Sie funktioniert offline, ohne Konto, ohne Cloud-Sync und ohne Analysen. Nimm die App ins iPhone-Backup auf und exportiere jederzeit CSV als Kopie." },
+    ],
+    compare: {
+      title: "Garantie & Kassenbon Tracker vs. Fotoalbum und Abo-Beleg-Apps",
+      intro: "Die meisten heben Belege in der Fotomediathek oder im E-Mail-Ordner auf und verlassen sich beim Garantiedatum aufs Gedächtnis. Abo-Beleg-Apps laden alles auf einen Server und kassieren monatlich. Diese App hält Beleg und Garantiedatum zusammen, auf dem Gerät, zum Einmalpreis.",
+      columns: ["", "Garantie & Kassenbon Tracker", "Fotoalbum / E-Mail", "Abo-Beleg-Apps"],
+      rows: [
+        ["Beleg am Produkt und seinem Garantiedatum", "✓", "✗ Getrennt", "✓"],
+        ["Erinnerung vor Ablauf", "✓ Bis zu sechs Vorläufe", "✗", "Manchmal"],
+        ["Garantieverlängerung", "✓", "✗", "Unterschiedlich"],
+        ["Offline, nichts hochgeladen", "✓", "✓", "✗ Cloud"],
+        ["Daten exportieren", "✓ CSV", "✗", "Unterschiedlich"],
+        ["Preis", "Einmalkauf", "Kostenlos", "Monatlich oder jährlich"],
+      ],
+    },
+    faqs: [
+      { q: "Wo werden Fotos und Daten gespeichert?", a: "Im eigenen Speicher der App auf deinem iPhone. Nichts wird hochgeladen. Ist die App Teil deines iPhone- oder iCloud-Backups, wird sie mit dem Rest des Handys wiederhergestellt." },
+      { q: "Muss ich Kamera- oder Fotozugriff erlauben?", a: "Nur, wenn du Fotos hinzufügen willst. Die Kamera wird beim ersten Tipp auf „Beleg fotografieren“ angefragt; die Auswahl aus der Mediathek nutzt Apples Picker und braucht keine Berechtigung." },
+      { q: "Kann ich die Erinnerungszeiten ändern?", a: "Ja. In den Einstellungen wählst du beliebige Kombinationen aus 90, 60, 30, 14, 7 und 1 Tag vor Ablauf sowie die Uhrzeit. Erinnerungen aktualisieren sich automatisch, wenn du einen Eintrag bearbeitest." },
+      { q: "Wie ziehe ich auf ein neues iPhone um?", a: "Neues Handy aus dem Backup wiederherstellen, die App kommt mit ihren Daten mit. Zusätzlich kannst du CSV exportieren. Der Kauf hängt an deinem Apple-Account, du zahlst nicht noch einmal." },
+      { q: "Synchronisiert sie zwischen Geräten?", a: "In dieser Version nicht. Sie ist bewusst eine Einzelgerät-App, komplett offline." },
+      { q: "Ist es ein Abo?", a: "Nein. Einmalkauf, keine In-App-Käufe, keine Werbung." },
+      { q: "Welche Sprachen werden unterstützt?", a: "Englisch, Spanisch, Deutsch, Französisch, Italienisch, Portugiesisch, Niederländisch, Polnisch, Russisch, Ukrainisch, Türkisch, Arabisch, Hindi, Indonesisch, Vietnamesisch, Thai, Japanisch, Koreanisch und vereinfachtes Chinesisch. In den Einstellungen lässt sich eine Sprache erzwingen." },
+      { q: "Gibt es eine Android-Version?", a: "Noch nicht. Die iPhone-App erscheint zuerst; eine Android-Version ist geplant, und diese Seite verlinkt Google Play, sobald sie live ist." },
+    ],
+    related: [
+      { name: "Electrician Calculator Toolkit", href: "/apps/electrician-calculator", blurb: "Spannungsabfall, Querschnitt, Rohr- und Dosenfüllung nach den NEC-2023-Tabellen, offline. Einmalkauf." },
+      { name: "Unit Price Calculator & Tax", href: "/apps/unit-price-calculator", blurb: "Preis pro Einheit vergleichen, Steuer aufschlagen, Prozent abziehen. Kostenlos." },
+      { name: "Caffeine Tracker: Curfew", href: "/apps/caffeine-tracker", blurb: "Kaffee und Tee protokollieren, sehen, was noch im Körper ist, und eine Schlafenszeit-Grenze bekommen. Kostenlos." },
+    ],
+    disclaimer: "Garantie & Kassenbon Tracker ist ein persönliches Werkzeug zur Aufzeichnung. Garantiebedingungen legt der Hersteller oder Händler fest; prüfe vor einer Reklamation immer die Originalbedingungen.",
+  },
+};

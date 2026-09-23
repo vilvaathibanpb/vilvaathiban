@@ -1,2 +1,164 @@
-// it — translations of the new app pages; keys missing here fall back to English.
-export default {};
+// Italiano — pagine delle nuove app. I campi mancanti ereditano l'inglese.
+export default {
+  "electrician-calculator": {
+    head: {
+      title: "Calcolatrice per elettricisti su iPhone: caduta di tensione, sezione, tubo e scatola (offline)",
+      description:
+        "Otto calcolatrici per elettricisti basate sul NEC in una sola app iPhone offline: caduta di tensione, sezione con declassamento, riempimento di tubo e scatola, carico e interruttore, legge di Ohm, codice resistori e tabelle. Acquisto unico, nessun abbonamento, 19 lingue.",
+      keywords:
+        "calcolatrice elettricista, calcolo caduta di tensione, calcolo sezione cavo, calcolo portata, riempimento tubo, riempimento scatola, calcolo interruttore, legge di ohm, calcolatrice nec, calcolatrice elettrica iphone, awg",
+      ogTitle: "Electrician Calculator Toolkit: caduta di tensione, sezione, tubo e scatola su iPhone",
+      ogDescription: "Otto calcolatrici da cantiere basate sulle tabelle NEC 2023, completamente offline. Acquisto unico, nessun abbonamento.",
+    },
+    h1: "Una calcolatrice per elettricisti in cantiere: caduta di tensione, sezione, riempimento tubo e scatola, offline",
+    answer:
+      "Electrician Calculator Toolkit porta sull'iPhone otto calcolatrici basate sul NEC statunitense: caduta di tensione (monofase, trifase, CC), sezione con la regola del 125 % e la correzione per temperatura e numero di conduttori, riempimento tubo per EMT, PVC, RMC e IMC, riempimento scatola secondo 314.16, carico e interruttore dai watt, legge di Ohm, codice colori dei resistori e le tabelle di riferimento dietro ogni calcolo. Ogni risultato indica la tabella da cui proviene. Funziona senza rete, senza account e senza abbonamento, in 19 lingue.",
+    quickFacts: [
+      ["Prezzo", "Acquisto unico. Nessun abbonamento"],
+      ["Strumenti", "Caduta di tensione, sezione, tubo, scatola, carico e interruttore, legge di Ohm, resistori, tabelle"],
+      ["Base", "Tabelle NEC 2023 (NFPA 70)"],
+      ["Privacy", "Offline, nessun account, nessuna analisi"],
+    ],
+    screenshotsTitle: "Cosa ottieni: un risultato, la tabella da cui viene e la sezione più piccola che passa",
+    screenshots: [
+      { alt: "Calcolatrice di caduta di tensione su iPhone con caduta in volt e percentuale e sezione minima per il 3 %", caption: "Caduta di tensione con la sezione minima per il 3 %" },
+      { alt: "Calcolatrice di sezione con correzione per temperatura ambiente e numero di conduttori", caption: "Sezione con declassamento integrato" },
+      { alt: "Calcolatrice di riempimento tubo che confronta la misura minima in EMT, PVC, RMC e IMC", caption: "Riempimento tubo su cinque tipi di canalizzazione" },
+    ],
+    howTo: {
+      title: "Come dimensionare un circuito in meno di un minuto",
+      intro: "In cantiere le domande sono quasi sempre le stesse tre: la caduta di tensione passa, che cavo tiro e che tubo serve. Ecco il flusso.",
+      steps: [
+        { name: "Carico e interruttore", text: "Inserisci watt, tensione e fasi. Segna il carico come continuo se dura tre ore o più. Ottieni corrente di carico, corrente di progetto al 125 %, il prossimo interruttore standard da 240.6(A) e il conduttore minimo a 75 °C." },
+        { name: "Sezione cavo", text: "Apri Sezione con quella corrente, imposta temperatura dei terminali, temperatura ambiente e quanti conduttori attivi condividono la canalizzazione. L'app applica 310.15(B)(1) e 310.15(C)(1) e mostra la portata corretta di ogni sezione vicina." },
+        { name: "Caduta di tensione", text: "Inserisci la lunghezza di sola andata. Se la caduta supera il 3 %, l'app mostra già il conduttore più piccolo che passa. Passa all'alluminio o aggiungi gruppi in parallelo per confrontare." },
+        { name: "Riempimento tubo", text: "Aggiungi i conduttori (sezione, isolamento, quantità) e leggi la misura minima per EMT, PVC Schedule 40 e 80, RMC e IMC affiancate." },
+      ],
+    },
+    featuresTitle: "Otto strumenti, un tocco ciascuno",
+    features: [
+      { title: "Caduta di tensione", text: "ΔV = 2·K·I·L ÷ CM per monofase e CC, 1,732 per trifase; K = 12,9 rame / 21,2 alluminio. Piedi o metri, da #14 AWG a 750 kcmil, gruppi in parallelo e la sezione più piccola sotto il 3 %." },
+      { title: "Sezione cavo (portata)", text: "Tabella 310.16 per rame e alluminio a 60/75/90 °C, regola del 125 % per carichi continui, correzione ambiente, correzione per numero di conduttori e limiti 240.4(D) per le sezioni piccole." },
+      { title: "Riempimento tubo", text: "Capitolo 9, tabelle 1, 4 e 5: qualsiasi mix di THHN/THWN, XHHW e THW, misura minima per tipo di canalizzazione o numero massimo di un conduttore in un tubo dato." },
+      { title: "Riempimento scatola", text: "Volumi secondo 314.16(B) per conduttori, fermacavi, supporti, dispositivi e terre, con verifica rispetto alla scatola che hai." },
+      { title: "Carico e interruttore, legge di Ohm, resistori", text: "Da watt ad ampere, interruttore e cavo in una schermata; due valori qualsiasi tra V, I, R e P; decodifica resistori a quattro e cinque fasce." },
+      { title: "Tabelle del codice", text: "Portata, interruttori standard, fattori di declassamento, volumi scatole e colori dei cavi USA e IEC, sempre a un tocco." },
+    ],
+    intentsTitle: "Domande a cui risponde questa app",
+    intents: [
+      { h: "Come calcolo la caduta di tensione di un circuito terminale?", p: "Inserisci tensione, corrente, sezione, materiale e lunghezza di andata. L'app restituisce la caduta in volt e percentuale e la tensione al carico, segnalando ciò che supera i limiti indicativi del 3 % (terminale) e 5 % (totale) di 210.19(A)." },
+      { h: "Che sezione serve per un circuito da 50 ampere?", p: "Per un carico continuo di 40 A (50 A richiesti) in rame a 75 °C, la tabella 310.16 dà #8 AWG. Se fa caldo o più di tre conduttori attivi condividono la canalizzazione, l'app applica i fattori e sale di una sezione quando serve." },
+      { h: "Quanti #12 THHN entrano in un EMT da 3/4 di pollice?", p: "Sedici, secondo il capitolo 9: tabella 1 (40 %), tabella 4 (area dell'EMT) e tabella 5 (area del THHN). La modalità Max conduttori risponde per qualsiasi sezione, isolamento e canalizzazione." },
+      { h: "L'app ha bisogno di internet o di un account?", p: "No. Tutte le tabelle sono nell'app; nulla viene scaricato o caricato. Nessun account, analisi, pubblicità o abbonamento." },
+    ],
+    compare: {
+      title: "Electrician Calculator Toolkit rispetto al libro del codice e alle calcolatrici gratuite monofunzione",
+      intro: "Il libro fa testo, ma sfogliarlo con i guanti è lento. Le calcolatrici gratuite coprono un calcolo ciascuna e di solito si pagano con la pubblicità. Questa app riunisce gli otto calcoli quotidiani con il riferimento alla tabella su ogni risultato.",
+      columns: ["", "Electrician Calculator Toolkit", "Libro del NEC", "App gratuite monofunzione"],
+      rows: [
+        ["Caduta, sezione, tubo e scatola in un unico posto", "✓ Otto strumenti", "✓ Tutte le tabelle, calcolo a mano", "✗ Uno strumento per app"],
+        ["Declassamento applicato in automatico", "✓ Ambiente + numero conduttori", "✗ Manuale", "Varia"],
+        ["Indica la tabella di origine del risultato", "✓ In ogni schermata", "✓ È la tabella", "✗ Raramente"],
+        ["Funziona offline", "✓ Sì", "✓ Sì", "✗ Di solito servono le pubblicità"],
+        ["Lingue", "19", "Inglese", "Di solito una"],
+        ["Prezzo", "Acquisto unico", "Prezzo del libro", "Gratis con pubblicità"],
+      ],
+    },
+    faqs: [
+      { q: "Da quale edizione del codice vengono le tabelle?", a: "Dall'edizione 2023 di NFPA 70, il National Electrical Code. La tua giurisdizione può applicare un'edizione precedente o modifiche locali: considera i risultati un ausilio di calcolo e verifica con il codice adottato e il tuo ispettore." },
+      { q: "La sezione include il declassamento?", a: "Sì: la regola del 125 % per carichi continui, la correzione per temperatura ambiente di 310.15(B)(1), la correzione per più di tre conduttori attivi di 310.15(C)(1) e i limiti 240.4(D) per #14, #12 e #10." },
+      { q: "Quali tubi e isolamenti sono coperti?", a: "EMT, PVC Schedule 40, PVC Schedule 80, RMC e IMC, con le aree THHN/THWN, XHHW e THW della tabella 5 del capitolo 9." },
+      { q: "Posso usare unità metriche?", a: "La lunghezza si inserisce in metri e la temperatura ambiente in °C o °F. Le sezioni seguono AWG/kcmil, come le tabelle." },
+      { q: "È un abbonamento?", a: "No. È un acquisto unico senza acquisti in-app." },
+      { q: "È affiliata alla NFPA?", a: "No. NEC e National Electrical Code sono marchi registrati della National Fire Protection Association, che non sponsorizza né approva questa app." },
+      { q: "Esiste una versione Android?", a: "Non ancora. L'app iPhone esce per prima; una versione Android è prevista e questa pagina rimanderà a Google Play quando sarà disponibile." },
+    ],
+    related: [
+      { blurb: "Fotografa uno scontrino, imposta la durata della garanzia, ricevi un promemoria prima della scadenza. Offline, acquisto unico." },
+      { blurb: "Confronta il prezzo per unità, aggiungi l'imposta, applica uno sconto. Gratis." },
+      { blurb: "Registra caffè e tè, vedi quanta caffeina è ancora in circolo e imposta un orario limite prima di dormire. Gratis." },
+    ],
+    disclaimer:
+      "Electrician Calculator Toolkit è un ausilio di calcolo e non sostituisce il codice, il giudizio tecnico o l'autorità competente. NEC e National Electrical Code sono marchi registrati della National Fire Protection Association, che non sponsorizza né approva questa app.",
+  },
+  "warranty-tracker": {
+    head: {
+      title: "App per gestire le garanzie su iPhone: foto degli scontrini, avvisi di scadenza, offline",
+      description: "Tieni sotto controllo tutte le garanzie sull'iPhone: fotografa lo scontrino, imposta la durata della garanzia, ricevi un avviso prima della scadenza. Offline, senza account, senza abbonamento. Acquisto unico, 19 lingue.",
+      keywords: "app garanzie, app gestione garanzie iphone, app scontrini, conservare scontrini app, promemoria garanzia, organizer garanzie, app ricevute offline, garanzia elettrodomestici app, scadenza garanzia",
+      ogTitle: "Garanzie e Scontrini: ogni garanzia con il suo scontrino, a colpo d'occhio",
+      ogDescription: "Fotografa lo scontrino, imposta la durata della garanzia, ricevi un avviso prima della scadenza. Offline, acquisto unico, senza account.",
+    },
+    h1: "Un gestore di garanzie che conserva lo scontrino e ti avvisa prima della scadenza, offline",
+    answer: "Garanzie e Scontrini salva ogni prodotto acquistato con la foto dello scontrino, la data di acquisto, il prezzo, il numero di serie e la durata della garanzia, poi ti avvisa prima che la garanzia finisca. Vedi quanti articoli sono attivi, in scadenza o scaduti e il valore totale ancora coperto. Tutto resta sul tuo iPhone: nessun account, nessun cloud, nessun abbonamento, nessuna pubblicità. Acquisto unico, disponibile in 19 lingue.",
+    quickFacts: [
+      ["Prezzo", "Acquisto unico. Nessun abbonamento"],
+      ["Salva", "Foto dello scontrino e del prodotto, data di acquisto, prezzo, negozio, numero di serie, note"],
+      ["Avvisi", "Notifiche locali 90, 60, 30, 14, 7 o 1 giorno prima della scadenza"],
+      ["Privacy", "Offline, nessun account, nessuna analisi, esportazione CSV"],
+    ],
+    screenshotsTitle: "Cosa ottieni: tutte le garanzie a colpo d'occhio, lo scontrino allegato, un avviso prima che sia tardi",
+    screenshots: [
+      { alt: "Schermata iniziale del gestore garanzie su iPhone con conteggio di attive, in scadenza e scadute e un elenco di prodotti con i giorni rimanenti", caption: "Tutte le garanzie, a colpo d'occhio" },
+      { alt: "Dettaglio di un articolo con foto dello scontrino, data di acquisto, prezzo, numero di serie e conto alla rovescia della garanzia", caption: "Lo scontrino, proprio quando serve" },
+      { alt: "Modulo di aggiunta con nome, negozio, prezzo, data di acquisto e pulsanti per la durata della garanzia", caption: "Aggiungilo in 20 secondi" },
+      { alt: "Impostazioni degli avvisi con anticipo di 30 e 7 giorni e ora del giorno", caption: "Avvisato prima della scadenza" },
+    ],
+    howTo: {
+      title: "Come registrare una garanzia in meno di un minuto",
+      intro: "Il momento migliore per salvare uno scontrino è il giorno in cui te lo danno. Il flusso è pensato per questo: telefono in una mano, scontrino nell'altra.",
+      steps: [
+        { name: "Aggiungi l'acquisto", text: "Tocca +, scrivi il nome del prodotto e il negozio, inserisci prezzo e data di acquisto. Scegli una categoria per tenere l'elenco leggibile." },
+        { name: "Imposta la durata della garanzia", text: "Tocca 6 mesi, 1, 2, 3 o 5 anni, oppure digita qualsiasi numero di mesi. Aggiungi una garanzia estesa se l'hai acquistata; l'app mostra la copertura totale e la data esatta di scadenza." },
+        { name: "Fotografa lo scontrino", text: "Scatta una foto dello scontrino e, se vuoi, del prodotto e dell'etichetta con il numero di serie. Le foto restano allegate all'articolo a grandezza piena." },
+        { name: "Lascia lavorare gli avvisi", text: "Di default ricevi una notifica 30 e 7 giorni prima della scadenza alle 9:00. Cambia anticipo e ora nelle Impostazioni; sono tutte notifiche locali, nulla viene inviato." },
+      ],
+    },
+    featuresTitle: "Pensata per il giorno in cui qualcosa si rompe",
+    features: [
+      { icon: "🧾", title: "Foto degli scontrini", text: "Fotocamera o libreria, più foto per articolo, visore a piena risoluzione con zoom. Mostralo all'assistenza invece di scavare tra le email." },
+      { icon: "⏳", title: "Conto alla rovescia", text: "Giorni rimanenti, barra di avanzamento e stato (attiva, in scadenza, scaduta) su ogni articolo. Ordina per ciò che scade prima." },
+      { icon: "🔔", title: "Avvisi", text: "Qualsiasi combinazione di 90, 60, 30, 14, 7 e 1 giorno prima, più l'ora del giorno. Solo notifiche locali." },
+      { icon: "➕", title: "Garanzie estese", text: "Garanzia del produttore più estensione del negozio o della carta di credito, sommate in un unico periodo di copertura." },
+      { icon: "📊", title: "Panoramica", text: "Conteggio di attive, in scadenza e scadute e valore totale ancora in garanzia. Filtra per stato, cerca per nome, negozio o numero di serie." },
+      { icon: "📤", title: "Esportazione CSV", text: "Esporta tutti gli articoli in CSV quando vuoi, per un foglio di calcolo, una denuncia assicurativa o il passaggio a un'altra app. I tuoi dati non restano mai bloccati." },
+    ],
+    intentsTitle: "Domande a cui risponde questa app",
+    intents: [
+      { h: "Come tengo traccia delle garanzie di tutto ciò che possiedo?", p: "Aggiungi ogni acquisto una volta con la foto dello scontrino e la durata della garanzia. La schermata iniziale elenca tutto in ordine di scadenza, con conteggi di attive, in scadenza e scadute e il valore totale coperto." },
+      { h: "Dove conservo gli scontrini per le richieste in garanzia?", p: "Allegati all'articolo, sul telefono. Fotografa lo scontrino il giorno dell'acquisto; quando qualcosa si rompe, apri l'articolo e mostra scontrino, data di acquisto e numero di serie al banco." },
+      { h: "Come ricevo un avviso prima che una garanzia scada?", p: "Attiva gli avvisi nelle Impostazioni e scegli l'anticipo (90, 60, 30, 14, 7 o 1 giorno) e l'ora. L'app programma notifiche locali per ogni articolo; nulla lascia il dispositivo." },
+      { h: "Posso registrare una garanzia estesa?", p: "Sì. Ogni articolo ha una garanzia del produttore e un'estensione facoltativa; l'app le somma in un unico periodo di copertura e una sola data di scadenza." },
+      { h: "Serve un account o internet?", p: "No. Funziona offline, senza account, senza sincronizzazione cloud e senza analisi. Includi l'app nel backup dell'iPhone ed esporta CSV quando vuoi una copia." },
+    ],
+    compare: {
+      title: "Garanzie e Scontrini rispetto all'album foto e alle app di ricevute in abbonamento",
+      intro: "La maggior parte delle persone tiene gli scontrini nel rullino o in una cartella email e si affida alla memoria per la data della garanzia. Le app di ricevute in abbonamento caricano tutto su un server e fanno pagare ogni mese. Questa app tiene lo scontrino insieme alla data di garanzia, sul dispositivo, a un prezzo unico.",
+      columns: ["", "Garanzie e Scontrini", "Album foto / email", "App di ricevute in abbonamento"],
+      rows: [
+        ["Scontrino allegato al prodotto e alla sua data di garanzia", "✓", "✗ Separati", "✓"],
+        ["Avviso prima della scadenza", "✓ Fino a sei anticipi", "✗", "A volte"],
+        ["Garanzia estesa", "✓", "✗", "Varia"],
+        ["Offline, nulla viene caricato", "✓", "✓", "✗ Cloud"],
+        ["Esporta i tuoi dati", "✓ CSV", "✗", "Varia"],
+        ["Prezzo", "Acquisto unico", "Gratis", "Mensile o annuale"],
+      ],
+    },
+    faqs: [
+      { q: "Dove sono salvati foto e dati?", a: "Nello spazio dell'app sul tuo iPhone. Nulla viene caricato. Se includi l'app nel backup iPhone o iCloud, viene ripristinata con il resto del telefono." },
+      { q: "Devo consentire l'accesso a fotocamera o foto?", a: "Solo se vuoi aggiungere foto. Il permesso della fotocamera viene chiesto la prima volta che tocchi Scatta foto; scegliere dalla libreria usa il selettore di Apple e non richiede permessi." },
+      { q: "Posso cambiare gli orari degli avvisi?", a: "Sì. Nelle Impostazioni scegli qualsiasi combinazione di 90, 60, 30, 14, 7 e 1 giorno prima della scadenza e l'ora del giorno. Gli avvisi si aggiornano da soli quando modifichi un articolo." },
+      { q: "Come passo a un nuovo iPhone?", a: "Ripristina il nuovo telefono da un backup e l'app arriva con i suoi dati. Puoi anche esportare CSV come copia extra. L'acquisto è legato al tuo account Apple, quindi non paghi due volte." },
+      { q: "Sincronizza tra dispositivi?", a: "Non in questa versione. È un'app per singolo dispositivo, completamente offline per scelta." },
+      { q: "È un abbonamento?", a: "No. Acquisto unico, nessun acquisto in-app, nessuna pubblicità." },
+      { q: "Quali lingue supporta?", a: "Inglese, spagnolo, tedesco, francese, italiano, portoghese, olandese, polacco, russo, ucraino, turco, arabo, hindi, indonesiano, vietnamita, thai, giapponese, coreano e cinese semplificato. Puoi forzare una lingua nelle Impostazioni." },
+      { q: "Esiste una versione Android?", a: "Non ancora. L'app per iPhone esce per prima; una versione Android è prevista e questa pagina rimanderà a Google Play quando sarà disponibile." },
+    ],
+    related: [
+      { name: "Electrician Calculator Toolkit", href: "/apps/electrician-calculator", blurb: "Caduta di tensione, sezione, riempimento tubi e scatole dalle tabelle NEC 2023, offline. Acquisto unico." },
+      { name: "Unit Price Calculator & Tax", href: "/apps/unit-price-calculator", blurb: "Confronta il prezzo unitario, aggiungi le tasse, applica uno sconto. Gratis." },
+      { name: "Caffeine Tracker: Curfew", href: "/apps/caffeine-tracker", blurb: "Registra caffè e tè, vedi quanto è ancora in circolo e ricevi un orario limite prima di dormire. Gratis." },
+    ],
+    disclaimer: "Garanzie e Scontrini è uno strumento personale di registrazione. Le condizioni di garanzia sono stabilite dal produttore o dal rivenditore; controlla sempre le condizioni originali prima di un reclamo.",
+  },
+};

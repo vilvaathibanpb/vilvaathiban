@@ -34,15 +34,15 @@ const TROUBLESHOOTING = [
 const SupportPage = () => (
   <Container>
     <Head>
-      <title>Support — Electrician Calculator Pro</title>
-      <meta name="description" content="Support and troubleshooting for the Electrician Calculator Pro iOS app." />
+      <title>Support — Electrician Calculator Toolkit</title>
+      <meta name="description" content="Support and troubleshooting for the Electrician Calculator Toolkit iOS app." />
       <link rel="canonical" href={URL} />
       <meta name="robots" content="noindex, follow" />
     </Head>
     <Header />
     <Wrap>
       <Eyebrow>
-        <Link href="/apps/electrician-calculator">Electrician Calculator Pro</Link>
+        <Link href="/apps/electrician-calculator">Electrician Calculator Toolkit</Link>
       </Eyebrow>
       <Title>Support</Title>
       <Lead>

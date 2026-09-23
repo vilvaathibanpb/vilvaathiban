@@ -1,2 +1,164 @@
-// es — translations of the new app pages; keys missing here fall back to English.
-export default {};
+// Español — páginas de las nuevas apps. Los campos ausentes heredan el inglés.
+export default {
+  "electrician-calculator": {
+    head: {
+      title: "Calculadora para electricistas en iPhone: caída de tensión, calibre, tubería y caja (sin conexión)",
+      description:
+        "Ocho calculadoras eléctricas basadas en el NEC en una sola app para iPhone sin conexión: caída de tensión, calibre con factores de corrección, llenado de tubería y de caja, carga e interruptor, ley de Ohm, código de resistencias y tablas. Pago único, sin suscripción, 19 idiomas.",
+      keywords:
+        "calculadora electricista, calculadora caída de tensión, calculadora calibre de cable, calculadora ampacidad, llenado de tubería, llenado de caja, calculadora interruptor, ley de ohm, calculadora nec, calculadora eléctrica iphone, awg",
+      ogTitle: "Electrician Calculator Toolkit: caída de tensión, calibre, tubería y caja en iPhone",
+      ogDescription: "Ocho calculadoras de obra basadas en las tablas del NEC 2023, sin conexión. Pago único, sin suscripción.",
+    },
+    h1: "Una calculadora para electricistas en la obra: caída de tensión, calibre, llenado de tubería y de caja, sin conexión",
+    answer:
+      "Electrician Calculator Toolkit reúne ocho calculadoras basadas en el NEC en tu iPhone: caída de tensión (monofásica, trifásica y CC), calibre con la regla del 125 % y corrección por temperatura y número de conductores, llenado de tubería para EMT, PVC, RMC e IMC, llenado de caja según 314.16, carga e interruptor a partir de vatios, ley de Ohm, código de colores de resistencias y las tablas de referencia detrás de cada cálculo. Cada resultado indica la tabla de la que procede. Funciona sin señal, sin cuenta y sin suscripción, y está disponible en 19 idiomas.",
+    quickFacts: [
+      ["Precio", "Pago único. Sin suscripción"],
+      ["Herramientas", "Caída de tensión, calibre, tubería, caja, carga e interruptor, ley de Ohm, resistencias, tablas"],
+      ["Base", "Tablas del NEC 2023 (NFPA 70)"],
+      ["Privacidad", "Sin conexión, sin cuenta, sin analíticas"],
+    ],
+    screenshotsTitle: "Lo que obtienes: un resultado, la tabla de la que sale y el calibre más pequeño que cumple",
+    screenshots: [
+      { alt: "Calculadora de caída de tensión en iPhone con la caída en voltios y porcentaje y el calibre mínimo para 3 %", caption: "Caída de tensión con el calibre mínimo para 3 %" },
+      { alt: "Calculadora de calibre aplicando corrección por temperatura ambiente y número de conductores", caption: "Calibre con factores de corrección incluidos" },
+      { alt: "Calculadora de llenado de tubería comparando el tamaño mínimo en EMT, PVC, RMC e IMC", caption: "Llenado de tubería en cinco tipos de canalización" },
+    ],
+    howTo: {
+      title: "Cómo dimensionar un circuito en menos de un minuto",
+      intro: "En la obra casi siempre son las mismas tres preguntas: si la caída de tensión pasa, qué cable tirar y qué tubería necesita. Este es el flujo.",
+      steps: [
+        { name: "Carga e interruptor", text: "Introduce vatios, tensión y fases. Marca la carga como continua si funciona tres horas o más. Obtienes la corriente de carga, la de diseño al 125 %, el siguiente interruptor estándar de 240.6(A) y el conductor mínimo a 75 °C." },
+        { name: "Calibre de cable", text: "Abre Calibre con esa corriente, fija la temperatura de terminales, la temperatura ambiente y cuántos conductores portadores comparten la canalización. La app aplica 310.15(B)(1) y 310.15(C)(1) y muestra la ampacidad ajustada de cada calibre cercano." },
+        { name: "Caída de tensión", text: "Introduce la longitud de ida. Si la caída supera el 3 %, la app ya muestra el conductor más pequeño que cumple. Cambia a aluminio o añade conjuntos en paralelo para comparar." },
+        { name: "Llenado de tubería", text: "Añade los conductores (calibre, aislamiento, cantidad) y lee el tamaño comercial mínimo para EMT, PVC cédula 40 y 80, RMC e IMC, lado a lado." },
+      ],
+    },
+    featuresTitle: "Ocho herramientas, un toque cada una",
+    features: [
+      { title: "Caída de tensión", text: "CT = 2·K·I·L ÷ CM para monofásico y CC, 1,732 para trifásico; K = 12,9 cobre / 21,2 aluminio. Pies o metros, de #14 AWG a 750 kcmil, conjuntos en paralelo y el calibre más pequeño por debajo del 3 %." },
+      { title: "Calibre (ampacidad)", text: "Tabla 310.16 para cobre y aluminio a 60/75/90 °C, regla del 125 % para carga continua, corrección por ambiente, ajuste por número de conductores y los límites de 240.4(D) para calibres pequeños." },
+      { title: "Llenado de tubería", text: "Capítulo 9, tablas 1, 4 y 5: cualquier mezcla de THHN/THWN, XHHW y THW, tamaño comercial mínimo por tipo de canalización, o el número máximo de un conductor en una tubería dada." },
+      { title: "Llenado de caja", text: "Volúmenes de 314.16(B) para conductores, abrazaderas, soportes, dispositivos y tierras, con comprobación de la caja que tienes." },
+      { title: "Carga e interruptor, ley de Ohm, resistencias", text: "De vatios a amperios, interruptor y cable en una pantalla; dos cualesquiera de V, I, R y P; decodificación de resistencias de cuatro y cinco bandas." },
+      { title: "Tablas del código", text: "Ampacidad, interruptores estándar, factores de corrección, volúmenes de caja y colores de cables de EE. UU. e IEC, siempre a un toque." },
+    ],
+    intentsTitle: "Preguntas que responde esta app",
+    intents: [
+      { h: "¿Cómo calculo la caída de tensión de un circuito ramal?", p: "Introduce tensión, corriente, calibre, material y longitud de ida. La app devuelve la caída en voltios y porcentaje y la tensión en la carga, y avisa si supera los límites informativos del 3 % (ramal) y 5 % (total) de 210.19(A)." },
+      { h: "¿Qué calibre necesito para un circuito de 50 amperios?", p: "Para una carga continua de 40 A (50 A requeridos) en cobre a 75 °C, la tabla 310.16 da #8 AWG. Si hace calor o hay más de tres conductores en la canalización, la app aplica los factores y sube de calibre cuando toca." },
+      { h: "¿Cuántos #12 THHN caben en un EMT de 3/4 de pulgada?", p: "Dieciséis, según el capítulo 9: tabla 1 (40 %), tabla 4 (área del EMT) y tabla 5 (área del THHN). El modo Máx. conductores responde esto para cualquier calibre, aislamiento y canalización." },
+      { h: "¿La app necesita internet o una cuenta?", p: "No. Todas las tablas están dentro de la app; no se descarga ni se sube nada. No hay cuenta, analíticas, anuncios ni suscripción." },
+    ],
+    compare: {
+      title: "Electrician Calculator Toolkit frente al libro del código y las calculadoras gratuitas de una sola función",
+      intro: "El libro es la referencia, pero hojearlo con guantes es lento. Las calculadoras gratuitas cubren un solo cálculo y suelen pagarse con anuncios. Esta app junta los ocho cálculos del día a día con la referencia de tabla en cada resultado.",
+      columns: ["", "Electrician Calculator Toolkit", "Libro del NEC", "Apps gratuitas de una función"],
+      rows: [
+        ["Caída, calibre, tubería y caja en un solo sitio", "✓ Ocho herramientas", "✓ Todas las tablas, cálculo manual", "✗ Una por app"],
+        ["Factores de corrección automáticos", "✓ Ambiente + conductores", "✗ Manual", "Depende"],
+        ["Indica de qué tabla sale el resultado", "✓ En cada pantalla", "✓ Es la tabla", "✗ Rara vez"],
+        ["Funciona sin conexión", "✓ Sí", "✓ Sí", "✗ Suele necesitar anuncios"],
+        ["Idiomas", "19", "Inglés", "Normalmente uno"],
+        ["Precio", "Pago único", "Precio del libro", "Gratis con anuncios"],
+      ],
+    },
+    faqs: [
+      { q: "¿De qué edición del código son las tablas?", a: "De la edición 2023 de NFPA 70, el National Electrical Code. Tu jurisdicción puede aplicar una edición anterior o enmiendas locales; trata los resultados como ayuda de cálculo y verifica con el código adoptado y tu inspector." },
+      { q: "¿El calibre incluye los factores de corrección?", a: "Sí: la regla del 125 % para carga continua, la corrección por temperatura ambiente de 310.15(B)(1), el ajuste por más de tres conductores portadores de 310.15(C)(1) y los límites de 240.4(D) para #14, #12 y #10." },
+      { q: "¿Qué tipos de tubería y aislamiento cubre?", a: "EMT, PVC cédula 40, PVC cédula 80, RMC e IMC, con las áreas de THHN/THWN, XHHW y THW de la tabla 5 del capítulo 9." },
+      { q: "¿Puedo usar unidades métricas?", a: "La longitud se puede introducir en metros y la temperatura ambiente en °C o °F. Los calibres siguen AWG/kcmil, como las tablas." },
+      { q: "¿Es una suscripción?", a: "No. Es un pago único sin compras dentro de la app." },
+      { q: "¿Está afiliada a la NFPA?", a: "No. NEC y National Electrical Code son marcas registradas de la National Fire Protection Association, que no patrocina ni respalda esta app." },
+      { q: "¿Hay versión para Android?", a: "Todavía no. La app para iPhone sale primero; una versión para Android está prevista y esta página enlazará a Google Play cuando esté disponible." },
+    ],
+    related: [
+      { blurb: "Fotografía un recibo, indica la duración de la garantía y recibe un aviso antes de que caduque. Sin conexión, pago único." },
+      { blurb: "Compara el precio por unidad, suma el impuesto y aplica un descuento. Gratis." },
+      { blurb: "Registra café y té, mira cuánta cafeína sigue en tu cuerpo y fija una hora límite antes de dormir. Gratis." },
+    ],
+    disclaimer:
+      "Electrician Calculator Toolkit es una ayuda de cálculo y no sustituye al código, al criterio profesional ni a la autoridad competente. NEC y National Electrical Code son marcas registradas de la National Fire Protection Association, que no patrocina ni respalda esta app.",
+  },
+  "warranty-tracker": {
+    head: {
+      title: "App para controlar garantías en iPhone: fotos de tickets, avisos de vencimiento, sin conexión",
+      description: "Controla todas tus garantías en el iPhone: fotografía el ticket, indica la duración de la garantía y recibe un aviso antes de que venza. Sin conexión, sin cuenta, sin suscripción. Pago único, 19 idiomas.",
+      keywords: "app garantías, app para guardar garantías, control de garantías iphone, guardar tickets app, recordatorio garantía, organizador de garantías, app guardar recibos, garantía electrodomésticos app, app tickets de compra sin conexión",
+      ogTitle: "Garantías y Recibos: cada garantía con su ticket, de un vistazo",
+      ogDescription: "Fotografía el ticket, indica la duración de la garantía y recibe un aviso antes de que venza. Sin conexión, pago único, sin cuenta.",
+    },
+    h1: "Un control de garantías que guarda el ticket y te avisa antes de que la garantía venza, sin conexión",
+    answer: "Garantías y Recibos guarda cada producto que compras con la foto del ticket, la fecha de compra, el precio, el número de serie y la duración de la garantía, y te avisa antes de que termine. Ves cuántos artículos están activos, por vencer o vencidos y el valor total todavía cubierto. Todo se queda en tu iPhone: sin cuenta, sin nube, sin suscripción y sin anuncios. Pago único, disponible en 19 idiomas.",
+    quickFacts: [
+      ["Precio", "Pago único. Sin suscripción"],
+      ["Guarda", "Fotos del ticket y del producto, fecha de compra, precio, tienda, número de serie, notas"],
+      ["Avisos", "Notificaciones locales 90, 60, 30, 14, 7 o 1 día antes del vencimiento"],
+      ["Privacidad", "Sin conexión, sin cuenta, sin analíticas, exportación CSV"],
+    ],
+    screenshotsTitle: "Lo que obtienes: todas las garantías de un vistazo, el ticket adjunto y un aviso antes de que sea tarde",
+    screenshots: [
+      { alt: "Pantalla principal del control de garantías en iPhone con recuento de activas, por vencer y vencidas y una lista de productos con días restantes", caption: "Todas tus garantías, de un vistazo" },
+      { alt: "Detalle de un artículo con foto del ticket, fecha de compra, precio, número de serie y cuenta atrás de la garantía", caption: "El ticket, justo cuando lo necesitas" },
+      { alt: "Formulario para añadir un artículo con nombre, tienda, precio, fecha de compra y botones de duración de garantía", caption: "Añádelo en 20 segundos" },
+      { alt: "Ajustes de avisos con antelación de 30 y 7 días y hora del día", caption: "Aviso antes de que venza" },
+    ],
+    howTo: {
+      title: "Cómo registrar una garantía en menos de un minuto",
+      intro: "El mejor momento para guardar un ticket es el día que te lo dan. El flujo está pensado para eso: el móvil en una mano y el ticket en la otra.",
+      steps: [
+        { name: "Añade la compra", text: "Toca +, escribe el nombre del producto y la tienda, introduce el precio y la fecha de compra. Elige una categoría para que la lista sea fácil de recorrer." },
+        { name: "Indica la duración de la garantía", text: "Toca 6 meses, 1, 2, 3 o 5 años, o escribe cualquier número de meses. Añade una garantía ampliada si la compraste; la app muestra la cobertura total y la fecha exacta de vencimiento." },
+        { name: "Fotografía el ticket", text: "Haz una foto del ticket y, si quieres, del producto y de la etiqueta con el número de serie. Las fotos quedan unidas al artículo a tamaño completo." },
+        { name: "Deja que los avisos trabajen", text: "Por defecto recibes un aviso 30 y 7 días antes del vencimiento a las 9:00. Cambia la antelación y la hora en Ajustes; todo son notificaciones locales, nada se envía a ningún sitio." },
+      ],
+    },
+    featuresTitle: "Pensada para el día en que algo se rompe",
+    features: [
+      { icon: "🧾", title: "Fotos del ticket", text: "Cámara o fototeca, varias fotos por artículo, visor a resolución completa con zoom. Enséñalo en el servicio técnico en vez de rebuscar en el correo." },
+      { icon: "⏳", title: "Cuenta atrás", text: "Días restantes, barra de progreso y estado (activa, por vencer, vencida) en cada artículo. Ordena por lo que vence primero." },
+      { icon: "🔔", title: "Avisos", text: "Cualquier combinación de 90, 60, 30, 14, 7 y 1 día antes, y la hora del día. Solo notificaciones locales." },
+      { icon: "➕", title: "Garantías ampliadas", text: "Garantía del fabricante más la ampliación de la tienda o de la tarjeta, sumadas en un único periodo de cobertura." },
+      { icon: "📊", title: "Resumen", text: "Recuento de activas, por vencer y vencidas y el valor total aún en garantía. Filtra por estado, busca por nombre, tienda o número de serie." },
+      { icon: "📤", title: "Exportación CSV", text: "Exporta todos los artículos a CSV cuando quieras para una hoja de cálculo, un parte al seguro o cambiar de app. Tus datos nunca quedan atrapados." },
+    ],
+    intentsTitle: "Preguntas que responde esta app",
+    intents: [
+      { h: "¿Cómo llevo el control de las garantías de todo lo que tengo?", p: "Añade cada compra una vez con la foto del ticket y la duración de la garantía. La pantalla principal lo lista todo ordenado por lo que vence primero, con recuentos de activas, por vencer y vencidas y el valor total cubierto." },
+      { h: "¿Dónde guardo los tickets para reclamar una garantía?", p: "Unidos al artículo, en tu móvil. Fotografía el ticket el día de la compra; cuando algo se rompa, abre el artículo y muestra el ticket, la fecha de compra y el número de serie en el mostrador." },
+      { h: "¿Cómo recibo un aviso antes de que venza una garantía?", p: "Activa los avisos en Ajustes y elige la antelación (90, 60, 30, 14, 7 o 1 día) y la hora. La app programa notificaciones locales para cada artículo; nada sale del dispositivo." },
+      { h: "¿Puedo registrar una garantía ampliada?", p: "Sí. Cada artículo tiene una garantía del fabricante y una ampliación opcional; la app las suma en un único periodo de cobertura y una sola fecha de vencimiento." },
+      { h: "¿Necesita cuenta o internet?", p: "No. Funciona sin conexión, no hay cuenta, ni sincronización en la nube, ni analíticas. Incluye la app en la copia de seguridad del iPhone y exporta CSV cuando quieras una copia." },
+    ],
+    compare: {
+      title: "Garantías y Recibos frente al álbum de fotos y las apps de recibos por suscripción",
+      intro: "La mayoría guarda los tickets en el carrete o en una carpeta del correo y confía en la memoria para la fecha de la garantía. Las apps de recibos por suscripción lo suben todo a un servidor y cobran cada mes. Esta app mantiene el ticket junto a la fecha de garantía, en el dispositivo, por un pago único.",
+      columns: ["", "Garantías y Recibos", "Álbum de fotos / correo", "Apps de recibos por suscripción"],
+      rows: [
+        ["Ticket unido al producto y a su fecha de garantía", "✓", "✗ Separados", "✓"],
+        ["Aviso antes del vencimiento", "✓ Hasta seis antelaciones", "✗", "A veces"],
+        ["Garantía ampliada", "✓", "✗", "Depende"],
+        ["Sin conexión, nada se sube", "✓", "✓", "✗ Nube"],
+        ["Exportar tus datos", "✓ CSV", "✗", "Depende"],
+        ["Precio", "Pago único", "Gratis", "Mensual o anual"],
+      ],
+    },
+    faqs: [
+      { q: "¿Dónde se guardan mis fotos y datos?", a: "En el almacenamiento propio de la app en tu iPhone. Nada se sube. Si incluyes la app en la copia de seguridad de iPhone o iCloud, se restaura con el resto del teléfono." },
+      { q: "¿Tengo que permitir el acceso a la cámara o a las fotos?", a: "Solo si quieres añadir fotos. El permiso de cámara se pide la primera vez que tocas Hacer foto; elegir de la fototeca usa el selector de Apple y no necesita permiso." },
+      { q: "¿Puedo cambiar las horas de los avisos?", a: "Sí. En Ajustes eliges cualquier combinación de 90, 60, 30, 14, 7 y 1 día antes del vencimiento y la hora del día. Los avisos se actualizan solos cuando editas un artículo." },
+      { q: "¿Cómo paso a un iPhone nuevo?", a: "Restaura el teléfono nuevo desde una copia de seguridad y la app llega con sus datos. También puedes exportar CSV como copia extra. La compra va ligada a tu cuenta de Apple, así que no pagas dos veces." },
+      { q: "¿Sincroniza entre dispositivos?", a: "En esta versión no. Es una app de un solo dispositivo y sin conexión por diseño." },
+      { q: "¿Es una suscripción?", a: "No. Pago único, sin compras dentro de la app, sin anuncios." },
+      { q: "¿Qué idiomas admite?", a: "Inglés, español, alemán, francés, italiano, portugués, neerlandés, polaco, ruso, ucraniano, turco, árabe, hindi, indonesio, vietnamita, tailandés, japonés, coreano y chino simplificado. Puedes forzar un idioma en Ajustes." },
+      { q: "¿Hay versión para Android?", a: "Todavía no. La app para iPhone sale primero; la versión Android está prevista y esta página enlazará a Google Play cuando esté disponible." },
+    ],
+    related: [
+      { name: "Electrician Calculator Toolkit", href: "/apps/electrician-calculator", blurb: "Caída de tensión, sección, llenado de tubo y de caja según las tablas NEC 2023, sin conexión. Pago único." },
+      { name: "Unit Price Calculator & Tax", href: "/apps/unit-price-calculator", blurb: "Compara precio por unidad, suma impuestos, aplica descuentos. Gratis." },
+      { name: "Caffeine Tracker: Curfew", href: "/apps/caffeine-tracker", blurb: "Registra café y té, mira cuánto sigue en tu cuerpo y recibe una hora límite antes de dormir. Gratis." },
+    ],
+    disclaimer: "Garantías y Recibos es una herramienta personal de registro. Las condiciones de la garantía las fija el fabricante o el vendedor; comprueba siempre las condiciones originales antes de reclamar.",
+  },
+};
