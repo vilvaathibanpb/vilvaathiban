@@ -91,7 +91,7 @@ export default {
     related: [
       { name: "Warranty Tracker & Receipt Log", href: "/apps/warranty-tracker", blurb: "Photograph a receipt, set the warranty length, get reminded before it expires. Offline, one-time purchase." },
       { name: "Unit Price Calculator & Tax", href: "/apps/unit-price-calculator", blurb: "Which pack is cheaper per kg or litre, stacked discounts, sales tax, cart budget and bill splitting. Free." },
-      { name: "Caffeine Tracker: Curfew", href: "/apps/caffeine-tracker", blurb: "Log coffee and tea, see what is still in your system, and get a bedtime cutoff. Free." },
+      { name: "Caffeine Tracker: Curfew", href: "/apps/caffeine-tracker", blurb: "See how much caffeine is still in you and the latest time for your last coffee. Free, optional one-time Pro." },
     ],
     disclaimer:
       "Electrician Calculator Toolkit is a calculation aid and not a substitute for the code, engineering judgement or the authority having jurisdiction. NEC and National Electrical Code are registered trademarks of the National Fire Protection Association, which does not sponsor or endorse this app.",
@@ -186,7 +186,7 @@ export default {
     related: [
       { name: "Electrician Calculator Toolkit", href: "/apps/electrician-calculator", blurb: "Voltage drop, wire size, conduit and box fill from the 2023 NEC tables, offline. One-time purchase." },
       { name: "Unit Price Calculator & Tax", href: "/apps/unit-price-calculator", blurb: "Which pack is cheaper per kg or litre, stacked discounts, sales tax, cart budget and bill splitting. Free." },
-      { name: "Caffeine Tracker: Curfew", href: "/apps/caffeine-tracker", blurb: "Log coffee and tea, see what is still in your system, and get a bedtime cutoff. Free." },
+      { name: "Caffeine Tracker: Curfew", href: "/apps/caffeine-tracker", blurb: "See how much caffeine is still in you and the latest time for your last coffee. Free, optional one-time Pro." },
     ],
     disclaimer:
       "Warranty Tracker & Receipt Log is a personal record-keeping tool. Warranty terms are set by the manufacturer or retailer; always check the original terms before making a claim.",
@@ -282,9 +282,103 @@ export default {
     related: [
       { name: "Warranty Tracker & Receipt Log", href: "/apps/warranty-tracker", blurb: "Photograph the receipt, set the warranty length, get reminded before it expires. Offline, one-time purchase." },
       { name: "Electrician Calculator Toolkit", href: "/apps/electrician-calculator", blurb: "Voltage drop, wire size, conduit and box fill from the 2023 NEC tables, offline. One-time purchase." },
-      { name: "Caffeine Tracker: Curfew", href: "/apps/caffeine-tracker", blurb: "Log coffee and tea, see what is still in your system, and get a bedtime cutoff. Free." },
+      { name: "Caffeine Tracker: Curfew", href: "/apps/caffeine-tracker", blurb: "See how much caffeine is still in you and the latest time for your last coffee. Free, optional one-time Pro." },
     ],
     disclaimer:
       "Unit Price Calculator & Tax is a shopping aid. Tax rates and rounding rules vary by country and store; check the receipt for the final amount.",
+  },
+  "caffeine-tracker": {
+    slug: "caffeine-tracker",
+    iconBase: "caffeine-tracker",
+    name: "Caffeine Tracker: Curfew",
+    alternateNames: ["caffeine tracker", "caffeine calculator", "coffee tracker app", "caffeine half life calculator", "caffeine intake tracker", "when to stop drinking coffee"],
+    appStoreId: "",
+    appStoreUrl: "",
+    live: false,
+    price: { amount: "0", label: "Free, optional one-time Pro" },
+    color: "#8A4A1F",
+    category: "HealthApplication",
+    head: {
+      title: "Caffeine Tracker App for iPhone: How Much Caffeine Is Still in You, and Your Bedtime Cutoff",
+      description:
+        "Free caffeine tracker for iPhone: log coffee, tea and energy drinks in two taps, see the milligrams still in your system with a half-life model, and get a bedtime curfew for your last cup. Offline, no account, 19 languages.",
+      keywords:
+        "caffeine tracker app, caffeine tracker iphone, caffeine calculator, caffeine half life calculator, coffee tracker, caffeine intake tracker, how long does caffeine last, when to stop drinking coffee before bed, caffeine sleep calculator, caffeine log app, caffeine in body calculator",
+      ogTitle: "Caffeine Tracker: Curfew — how much caffeine is still in you?",
+      ogDescription: "Log a drink in two taps, watch the level fall, and get the latest time for your last coffee if you want to sleep on time. Free iPhone app.",
+    },
+    h1: "A caffeine tracker that shows what is still in your system and when your last coffee has to be",
+    answer:
+      "Caffeine Tracker: Curfew estimates the caffeine active in your body from what you logged, using a half-life model (about 5 hours for most adults, adjustable). Log espresso, drip, latte, tea, matcha, energy drinks and more in two taps, watch a 12-hour curve, keep today under 400 mg, and set a bedtime with a target (25, 50 or 100 mg) to get a curfew: the latest time for your last drink. It works offline with no account. A one-time Pro unlock adds Apple Health sync, 30-day history and custom drinks.",
+    quickFacts: [
+      ["Price", "Free. One-time Pro unlock, no subscription"],
+      ["Model", "Half-life decay, 2.5 to 8 h, default 5 h"],
+      ["Drinks", "21 presets with typical mg, small / regular / large, custom with Pro"],
+      ["Privacy", "Offline, no account; Apple Health write only if you turn it on"],
+    ],
+    screenshotsTitle: "What you get: the number that matters now, a curfew for tonight, and a week you can read",
+    screenshots: [
+      { src: "/apps/caffeine-tracker/01.webp", alt: "Caffeine tracker home on iPhone showing 128 mg in the system, today's total against 400 mg, a bedtime curfew and a 12-hour decay chart", caption: "How much caffeine is still in you" },
+      { src: "/apps/caffeine-tracker/02.webp", alt: "Add drink sheet with cold brew selected, size picker, time picker and a searchable list of coffees", caption: "Log a drink in two taps" },
+      { src: "/apps/caffeine-tracker/03.webp", alt: "History screen with seven-day bar chart of daily caffeine totals and the daily average", caption: "See your week, spot the habit" },
+      { src: "/apps/caffeine-tracker/04.webp", alt: "Settings with bedtime, caffeine left at bedtime, half-life stepper and daily limit", caption: "Set a bedtime, get a curfew" },
+    ],
+    howTo: {
+      title: "How to find your caffeine cutoff time",
+      intro: "The question is not how much coffee you drink, it is how much is left when your head hits the pillow. Three settings and the app does the math.",
+      steps: [
+        { name: "Set your bedtime", text: "Settings → Sleep → Bedtime. The app always aims at tonight's bedtime, even if you log a late drink after midnight." },
+        { name: "Pick how much you can sleep on", text: "25 mg if you are a light sleeper, 50 mg for most people, 100 mg if caffeine barely affects you. This is the target level at bedtime." },
+        { name: "Log what you drink", text: "Tap a drink on the home screen (espresso, drip, latte, tea, energy drink) or open the full list with sizes and a time picker for the cup you forgot." },
+        { name: "Read the curfew", text: "The Bedtime curfew card says, for example, \"Last 95 mg drink by 3:40 PM to be under 50 mg at bedtime.\" After that time it tells you what another cup would leave in you at bedtime." },
+      ],
+    },
+    featuresTitle: "Built around one number: what is active right now",
+    features: [
+      { icon: "☕", title: "Live level", text: "Every dose decays with a half-life model. See the milligrams active now, a status (clear, active, wired) and how long until you are below your bedtime target." },
+      { icon: "🌙", title: "Bedtime curfew", text: "Latest time for your usual drink so you are under your target at bedtime. Adjustable half-life for pregnancy, medication or fast metabolisers." },
+      { icon: "⚡", title: "Two-tap logging", text: "Six favourites on the home screen; 21 presets with typical caffeine contents; small, regular and large; backdate a drink." },
+      { icon: "📊", title: "Daily limit and history", text: "Progress against 400, 300 or 200 mg. Seven days of totals with average and over-limit days; 30 days with Pro." },
+      { icon: "❤️", title: "Apple Health (Pro)", text: "Write dietary caffeine to Health so it sits next to your sleep data. Deleting a drink removes the sample." },
+      { icon: "🌍", title: "19 languages, offline", text: "Nothing leaves the phone. No account, no ads, no analytics." },
+    ],
+    intentsTitle: "Questions this app answers",
+    intents: [
+      { h: "How long does caffeine stay in your system?", p: "Its half-life is about 5 hours for most adults, so a 95 mg cup at 3 PM is roughly 48 mg at 8 PM and 24 mg at 1 AM. The app plots exactly this curve for everything you logged." },
+      { h: "When should I stop drinking coffee to sleep?", p: "It depends on your bedtime, your sensitivity and what you already had. With a 50 mg target and an 11 PM bedtime, a single 95 mg coffee has to be in by about 6:20 PM; if you had two earlier cups, much sooner. The curfew card does this calculation continuously." },
+      { h: "How much caffeine is in an espresso, a latte or a cold brew?", p: "Typical values: espresso 63 mg, latte or cappuccino 75 mg (one shot), drip coffee 95 mg, cold brew 200 mg, black tea 47 mg, green tea 28 mg, matcha 70 mg, a 250 ml energy drink 80 mg. All presets are editable by size, and Pro lets you enter exact amounts." },
+      { h: "How much caffeine per day is too much?", p: "The commonly cited guideline for healthy adults is 400 mg a day; 200 mg during pregnancy. The app keeps a progress bar against the limit you choose." },
+      { h: "Does it need internet or an account?", p: "No. Everything runs on the phone. Apple Health is written to only if you enable it in Pro." },
+    ],
+    compare: {
+      title: "Caffeine Tracker: Curfew vs a notes app and subscription caffeine trackers",
+      intro: "Counting cups tells you nothing about tonight. Most caffeine apps do compute the level, but charge a monthly subscription for it. This app does the level, the curfew and the history for free, with a one-time Pro for Health sync.",
+      columns: ["", "Caffeine Tracker: Curfew", "Notes / memory", "Subscription trackers"],
+      rows: [
+        ["Caffeine still active, with decay curve", "✓", "✗", "✓"],
+        ["Bedtime curfew for the last drink", "✓", "✗", "Some"],
+        ["Two-tap logging with typical mg", "✓", "✗", "✓"],
+        ["Apple Health sync", "✓ Pro (one-time)", "✗", "✓ Subscription"],
+        ["Works offline, no account", "✓", "✓", "Varies"],
+        ["Price", "Free, one-time Pro", "Free", "Monthly or yearly"],
+      ],
+    },
+    faqs: [
+      { q: "How accurate is the estimate?", a: "It is an estimate. Caffeine content varies by brew and brand, and half-life varies between people (roughly 3 to 7 hours). Adjust the half-life in Settings if you know you clear caffeine slowly or quickly. This is not medical advice." },
+      { q: "What does Pro include?", a: "Apple Health sync (dietary caffeine), 30-day history instead of 7, and custom drinks with exact amounts. It is a single one-time purchase; there is no subscription." },
+      { q: "Does it read my Health data?", a: "No. With Pro and the toggle on, it writes caffeine samples to Health and deletes them when you delete a drink. It never reads anything." },
+      { q: "Can I log a drink I forgot?", a: "Yes. Open the full drink list and change the time before adding." },
+      { q: "What if my bedtime is after midnight?", a: "Set it normally (for example 1:00 AM). A drink logged at 11 PM still counts towards tonight." },
+      { q: "Which languages?", a: "English, Spanish, German, French, Italian, Portuguese, Dutch, Polish, Russian, Ukrainian, Turkish, Arabic, Hindi, Indonesian, Vietnamese, Thai, Japanese, Korean and Simplified Chinese." },
+      { q: "Is there an Android version?", a: "Not yet. The iPhone app ships first; an Android build is planned and this page will link to Google Play when it is live." },
+    ],
+    guides: [],
+    related: [
+      { name: "Unit Price Calculator & Tax", href: "/apps/unit-price-calculator", blurb: "Which pack is cheaper per kg or litre, stacked discounts, sales tax, cart budget and bill splitting. Free." },
+      { name: "Warranty Tracker & Receipt Log", href: "/apps/warranty-tracker", blurb: "Photograph the receipt, set the warranty length, get reminded before it expires. Offline, one-time purchase." },
+      { name: "Electrician Calculator Toolkit", href: "/apps/electrician-calculator", blurb: "Voltage drop, wire size, conduit and box fill from the 2023 NEC tables, offline. One-time purchase." },
+    ],
+    disclaimer:
+      "Caffeine Tracker: Curfew uses a simple half-life model and average caffeine contents. It is not a medical device and not medical advice; consult a professional about caffeine and your health.",
   },
 };

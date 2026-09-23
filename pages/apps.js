@@ -50,6 +50,16 @@ const APPS = [
     badge: "iOS · $4.99",
   },
   {
+    name: "Caffeine Tracker: Curfew",
+    tagline: "How much caffeine is still in you, and when your last coffee has to be.",
+    summary:
+      "Log coffee, tea and energy drinks in two taps, watch the level fall with a half-life model, keep today under your limit and get a bedtime curfew. Offline, 19 languages. Free with a one-time Pro for Apple Health sync.",
+    image: "/apps/caffeine-tracker-logo.png",
+    href: "/apps/caffeine-tracker",
+    internal: true,
+    badge: "Free iOS app",
+  },
+  {
     name: "Unit Price Calculator & Tax",
     tagline: "Which pack is really cheaper? Price per kg or litre, stacked discounts, sales tax, cart budget, bill split.",
     summary:
