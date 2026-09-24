@@ -178,7 +178,39 @@ const PrivacyPage = () => (
       </Section>
 
       <Section>
-        <h2>7. Changes</h2>
+        <h2>7. The mobile apps</h2>
+        <p>
+          This page is also the privacy policy for our iPhone and Android apps.
+          Those apps do their work on your device: the voice notes, chats,
+          photos and audio files you open stay on the phone, are not uploaded to
+          us, and we never see them. There is no account and no sign-in.
+        </p>
+        <p>
+          The one exception is advertising. Some of the free Android apps show
+          banner ads through Google AdMob. To serve them, the Google Mobile Ads
+          SDK collects your device&apos;s advertising ID and standard technical
+          information such as device type, coarse location derived from your IP
+          address, and whether an ad was shown, and shares it with Google as the
+          ad provider. We ask for non-personalised ads, and we do not receive,
+          store or sell any of it ourselves.
+        </p>
+        <p>
+          In the EEA, the UK and Switzerland the app asks for your consent
+          before any ad loads, and shows no ads if you decline. You can reopen
+          that choice from inside the app at any time. Anywhere in the world you
+          can reset or delete your advertising ID in Android Settings under
+          Privacy → Ads, and apps that offer a paid unlock remove the ads
+          entirely. Google&apos;s own policy explains what it does with the
+          data: <a href="https://policies.google.com/technologies/partner-sites" rel="noopener noreferrer" target="_blank">policies.google.com/technologies/partner-sites</a>.
+        </p>
+        <p>
+          Our paid iPhone apps contain no advertising SDK at all — not disabled,
+          not present.
+        </p>
+      </Section>
+
+      <Section>
+        <h2>8. Changes</h2>
         <p>
           We update this page when the site changes, and we change the date at
           the top when we do.
