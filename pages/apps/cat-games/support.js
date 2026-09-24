@@ -38,7 +38,7 @@ const TROUBLESHOOTING = [
 const SupportPage = () => (
   <Container>
     <Head>
-      <title>Support — Pounce: Games for Cats</title>
+      <title>Support — Pounce Pad: Games for Cats</title>
       <meta
         name="description"
         content="Help for Pounce, screen games for cats: leaving a game, Guided Access, restoring your purchase and getting a shy cat interested."
@@ -47,7 +47,7 @@ const SupportPage = () => (
     </Head>
     <Header />
     <Wrap>
-      <Eyebrow>Pounce: Games for Cats</Eyebrow>
+      <Eyebrow>Pounce Pad: Games for Cats</Eyebrow>
       <Title>Support</Title>
       <Lead>
         Common questions first. If none of it helps, email{" "}
