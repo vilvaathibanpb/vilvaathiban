@@ -186,26 +186,31 @@ const PrivacyPage = () => (
           us, and we never see them. There is no account and no sign-in.
         </p>
         <p>
-          The one exception is advertising. Some of the free Android apps show
-          banner ads through Google AdMob. To serve them, the Google Mobile Ads
-          SDK collects your device&apos;s advertising ID and standard technical
-          information such as device type, coarse location derived from your IP
-          address, and whether an ad was shown, and shares it with Google as the
-          ad provider. We ask for non-personalised ads, and we do not receive,
-          store or sell any of it ourselves.
+          The one exception is advertising. Our <em>free</em> apps show banner
+          ads through Google AdMob: every free app on Google Play, and the free
+          Opus to MP3 Converter on iPhone. To serve them, the Google Mobile Ads
+          SDK collects your device&apos;s advertising identifier and standard
+          technical information such as device type, coarse location derived
+          from your IP address, and whether an ad was shown, and shares it with
+          Google as the ad provider. We ask for non-personalised ads, and we do
+          not receive, store or sell any of it ourselves.
         </p>
         <p>
           In the EEA, the UK and Switzerland the app asks for your consent
           before any ad loads, and shows no ads if you decline. You can reopen
-          that choice from inside the app at any time. Anywhere in the world you
-          can reset or delete your advertising ID in Android Settings under
-          Privacy → Ads, and apps that offer a paid unlock remove the ads
-          entirely. Google&apos;s own policy explains what it does with the
-          data: <a href="https://policies.google.com/technologies/partner-sites" rel="noopener noreferrer" target="_blank">policies.google.com/technologies/partner-sites</a>.
+          that choice from inside the app at any time. On iPhone you are also
+          asked separately whether the app may track you, and declining changes
+          nothing about what the app can do. Anywhere in the world you can reset
+          or delete your advertising identifier — Android Settings under
+          Privacy → Ads, or iOS Settings under Privacy &amp; Security →
+          Tracking — and apps that offer a paid unlock remove the ads entirely.
+          Google&apos;s own policy explains what it does with the data:{" "}
+          <a href="https://policies.google.com/technologies/partner-sites" rel="noopener noreferrer" target="_blank">policies.google.com/technologies/partner-sites</a>.
         </p>
         <p>
           Our paid iPhone apps contain no advertising SDK at all — not disabled,
-          not present.
+          not present. Paying for an app is the alternative to being advertised
+          to, so it would be wrong to charge and then show ads anyway.
         </p>
       </Section>
 

@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/ilKjV8XgbSem9bLTuliuZ/_buildManifest.js",
-    "static/ilKjV8XgbSem9bLTuliuZ/_ssgManifest.js"
+    "static/r9ff9rzwvBYW7zGmpC5nw/_buildManifest.js",
+    "static/r9ff9rzwvBYW7zGmpC5nw/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
@@ -169,6 +169,24 @@
       "static/chunks/1664-48d5a30feb556041.js",
       "static/chunks/3750-874cf51df6850c77.js",
       "static/chunks/pages/apps/electrician-calculator/support-c1733a559b36bf65.js"
+    ],
+    "/apps/expiry-date-tracker/privacy": [
+      "static/chunks/webpack-ec353d6b949c91d4.js",
+      "static/chunks/framework-67aab5bd520376f9.js",
+      "static/chunks/main-bd564d1f2dd6c12c.js",
+      "static/chunks/1130-6a9099c2299c26e2.js",
+      "static/chunks/1664-48d5a30feb556041.js",
+      "static/chunks/3750-874cf51df6850c77.js",
+      "static/chunks/pages/apps/expiry-date-tracker/privacy-78978520e216ae0a.js"
+    ],
+    "/apps/expiry-date-tracker/support": [
+      "static/chunks/webpack-ec353d6b949c91d4.js",
+      "static/chunks/framework-67aab5bd520376f9.js",
+      "static/chunks/main-bd564d1f2dd6c12c.js",
+      "static/chunks/1130-6a9099c2299c26e2.js",
+      "static/chunks/1664-48d5a30feb556041.js",
+      "static/chunks/3750-874cf51df6850c77.js",
+      "static/chunks/pages/apps/expiry-date-tracker/support-5e2bb9b423a8527e.js"
     ],
     "/apps/teleprompter-camera-overlay": [
       "static/chunks/webpack-ec353d6b949c91d4.js",
@@ -363,7 +381,7 @@
       "static/chunks/1130-6a9099c2299c26e2.js",
       "static/chunks/1664-48d5a30feb556041.js",
       "static/chunks/3750-874cf51df6850c77.js",
-      "static/chunks/pages/privacy-c6881ab8c5b09756.js"
+      "static/chunks/pages/privacy-ea27b1c96828a01e.js"
     ],
     "/projects": [
       "static/chunks/webpack-ec353d6b949c91d4.js",
