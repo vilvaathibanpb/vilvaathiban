@@ -5551,6 +5551,198 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  {
+    slug: "css-scope-practical-guide",
+    title: "CSS @scope Is Baseline: A Practical Guide for React Developers",
+    description:
+      "@scope became Baseline in March 2026. What it actually solves, how scoping roots and limits work, the donut problem, and whether it replaces CSS Modules in a React app.",
+    datePublished: "2026-09-30",
+    readingMinutes: 10,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Scoping CSS to a component has been a solved problem in React for a decade \u2014 just not by CSS. We solved it with build tooling: CSS Modules hashing class names, styled-components generating them at runtime, Tailwind sidestepping the question entirely by never writing component CSS in the first place.",
+          },
+          {
+            type: "p",
+            text: "As of March 2026, CSS can do it natively. `@scope` reached Baseline newly-available status when Firefox 146 shipped support, joining Chrome, Edge and Safari. That makes it worth a serious look rather than a bookmark.",
+          },
+          {
+            type: "p",
+            text: "This is a practical walkthrough: what the syntax does, the one genuinely novel capability it has that no preprocessor could give you, the proximity rule that will surprise you, and an honest answer to whether you should replace CSS Modules with it in a React codebase.",
+          },
+        ],
+      },
+      {
+        heading: "The basic form",
+        blocks: [
+          {
+            type: "p",
+            text: "`@scope` takes a scoping root \u2014 a selector identifying the element where the styles begin to apply \u2014 and everything inside the block matches only within that subtree.",
+          },
+          {
+            type: "code",
+            language: "css",
+            code: "@scope (.card) {\n  img {\n    border-radius: 8px;\n    aspect-ratio: 16 / 9;\n  }\n\n  h2 {\n    font-size: 1.25rem;\n    margin-block: 0 0.5rem;\n  }\n}",
+          },
+          {
+            type: "p",
+            text: "Those bare `img` and `h2` selectors only match inside a `.card`. No prefix, no class on the child, no BEM. If you have ever written `.card__title` purely so the rule would not leak, this is the feature that deletes that naming convention.",
+          },
+          {
+            type: "p",
+            text: "Inside a scope, `:scope` refers to the root element itself, and a leading `&` works the way nesting taught you to expect:",
+          },
+          {
+            type: "code",
+            language: "css",
+            code: "@scope (.card) {\n  :scope {\n    display: grid;\n    gap: 0.75rem;\n    padding: 1rem;\n  }\n\n  & > footer {\n    border-top: 1px solid canvastext;\n  }\n}",
+          },
+        ],
+      },
+      {
+        heading: "The part that is genuinely new: scoping limits",
+        blocks: [
+          {
+            type: "p",
+            text: "The second argument is where `@scope` does something no preprocessor ever could. A scoping limit defines where the scope stops \u2014 creating a shaped region rather than a whole subtree.",
+          },
+          {
+            type: "code",
+            language: "css",
+            code: "@scope (.article) to (.comments) {\n  a {\n    color: rebeccapurple;\n    text-underline-offset: 2px;\n  }\n}",
+          },
+          {
+            type: "p",
+            text: "Links inside `.article` are styled. Links inside `.comments`, which is nested within the article, are not. The scope applies from the root down and switches off at the limit boundary.",
+          },
+          {
+            type: "p",
+            text: "This is the so-called donut scope, and it is worth dwelling on because it solves a problem that was previously genuinely awkward. Think of any component that renders content it does not own \u2014 a layout wrapping a CMS body, a comment thread inside an article, a slot rendering arbitrary children, a third-party embed. The old solution was a defensive cascade of `:not()` selectors or a reset class, both of which were fragile in different ways.",
+          },
+          {
+            type: "code",
+            language: "css",
+            code: "/* Style the shell, leave user content alone */\n@scope (.editor-chrome) to (.user-content) {\n  button {\n    font: inherit;\n    padding: 0.4rem 0.8rem;\n  }\n}",
+          },
+          {
+            type: "p",
+            text: "One caveat that catches people: the limit is exclusive of its own subtree but the limit element is itself outside the scope. You cannot style `.comments` from inside that block \u2014 only its ancestors up to the root.",
+          },
+        ],
+      },
+      {
+        heading: "Proximity: the new tiebreaker in the cascade",
+        blocks: [
+          {
+            type: "p",
+            text: "This is the behaviour most likely to surprise you, because it changes a rule you have relied on for years. When two scoped rules have identical specificity, the winner is the one whose scoping root is *closer* in the DOM to the matched element \u2014 not the one that comes later in the stylesheet.",
+          },
+          {
+            type: "code",
+            language: "css",
+            code: "@scope (.theme-light) {\n  p { color: #111; }\n}\n\n@scope (.theme-dark) {\n  p { color: #eee; }\n}",
+          },
+          {
+            type: "p",
+            text: "With a `.theme-dark` nested inside a `.theme-light`, paragraphs inside the dark region come out light-on-dark, even though `.theme-light` could equally have matched and the source order does not favour it. Proximity is checked after specificity and before source order.",
+          },
+          {
+            type: "p",
+            text: "In practice this is usually what you want \u2014 the nearest enclosing context wins, which is how component authors think anyway. But it is a real addition to the cascade, and if you debug CSS by counting specificity and scanning source order, add a third question to your list.",
+          },
+        ],
+      },
+      {
+        heading: "Using it in React",
+        blocks: [
+          {
+            type: "p",
+            text: "The interesting property for React is that `@scope` works with a plain style element inside your component, which means the scoping root can be the component instance rather than a class you have to invent.",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: "function Card({ title, children }) {\n  return (\n    <div className=\"card\">\n      <style>{cardCss}</style>\n      <h2>{title}</h2>\n      <div className=\"card-body\">{children}</div>\n    </div>\n  );\n}",
+          },
+          {
+            type: "p",
+            text: "There is a neater trick: an implicit scope. Omit the root selector entirely and the scope root becomes the parent of the style element itself.",
+          },
+          {
+            type: "code",
+            language: "css",
+            code: "@scope {\n  :scope {\n    display: grid;\n    gap: 0.5rem;\n  }\n\n  h2 {\n    font-size: 1.25rem;\n  }\n}",
+          },
+          {
+            type: "p",
+            text: "Dropped into a component, that stylesheet scopes itself to wherever it lands \u2014 no class name, no hash, no build step. It is the closest CSS has come to the ergonomics of scoped styles in a single-file component.",
+          },
+          {
+            type: "p",
+            text: "Before you reach for it everywhere, though, note the cost: a style element per rendered instance is a lot of duplicated CSS if you render two hundred cards, and React will not deduplicate it for you. Implicit scope is excellent for one-off layout regions and page shells. It is the wrong tool for a list item.",
+          },
+        ],
+      },
+      {
+        heading: "Should it replace CSS Modules?",
+        blocks: [
+          {
+            type: "p",
+            text: "Mostly no, and it is worth being clear about why rather than joining the it-replaces-your-build-tool enthusiasm.",
+          },
+          {
+            type: "list",
+            items: [
+              "CSS Modules guarantee isolation at build time. `@scope` isolates by DOM position at runtime. If a child component happens to render an `img` inside your `.card`, your scoped `img` rule styles it \u2014 the scope contains descendants, not just your own markup. That is leakage of a different shape, not the absence of leakage.",
+              "CSS Modules give you dead-code elimination and a compile error when you reference a class that does not exist. `@scope` gives you neither.",
+              "Specificity behaviour differs in a way that matters: the scoping root does not add specificity to the inner selectors, so a bare `img` inside a scope still has specificity 0-0-1 and loses to any single class elsewhere. People expect scoping to strengthen a rule. It does not.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Where `@scope` genuinely wins is the set of problems CSS Modules never addressed: styling markup you do not control, carving a hole in your own styles for injected content, and theming by proximity. Those are real and previously painful.",
+          },
+          {
+            type: "p",
+            text: "So the useful framing is additive rather than replacing. Keep CSS Modules or Tailwind for component styling in a build-tooled React app. Reach for `@scope` when you need a donut, when you are styling CMS or third-party output, or when you want a stylesheet that travels with a fragment of markup and cannot rely on a build step at all.",
+          },
+        ],
+      },
+      {
+        heading: "The support caveat that still applies",
+        blocks: [
+          {
+            type: "p",
+            text: "Baseline newly-available means current stable versions of every major browser support it. It does not mean every browser your users have. A meaningful share of real traffic runs on versions that predate March 2026, and there is no polyfill worth using because the cascade behaviour cannot be faithfully reproduced.",
+          },
+          {
+            type: "p",
+            text: "The good news is that `@scope` degrades cleanly in one direction and badly in another. If the scoped rules are enhancements \u2014 spacing, colour, radius \u2014 an unsupporting browser drops the whole block and gets unstyled-but-functional output. If you rely on a scoping *limit* to prevent styles applying somewhere, an unsupporting browser drops the block entirely rather than applying it too widely, which is the safe failure. But if you rely on proximity to resolve a theme conflict, older browsers fall back to source order and you get the wrong theme.",
+          },
+          {
+            type: "p",
+            text: "Feature-detect with `@supports at-rule(@scope)` where the difference is load-bearing, and treat proximity-dependent theming as the one pattern to hold back on for another year.",
+          },
+        ],
+      },
+      {
+        heading: "Worth learning now",
+        blocks: [
+          {
+            type: "p",
+            text: "`@scope` is not the feature that deletes your build step, whatever the headlines said in March. It is something more specific and more durable: the first native answer to the question of where a style stops applying, including the case where the thing you want to exclude is nested inside the thing you want to style.",
+          },
+          {
+            type: "p",
+            text: "That case used to require either a naming convention you enforced by hand or a selector you were slightly afraid of. Now it is two selectors and an at-rule. Like the [Popover API and CSS anchor positioning](/blog/popover-api-css-anchor-positioning), it is a piece of the platform quietly absorbing a job we had been doing in JavaScript and tooling \u2014 and the sooner you know its shape, the sooner you stop reaching for the old workaround out of habit.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
 ];
 

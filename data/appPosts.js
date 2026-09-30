@@ -2057,4 +2057,156 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "scripting-hooks-that-hold-watch-time",
+    title: "Scripting Hooks That Hold Watch Time (Not Just Stop the Scroll)",
+    description:
+      "Most hook advice teaches you to win the first second and lose the next ten. How to write an opening that earns the rest of the video \u2014 and how to read it without sounding like an ad.",
+    datePublished: "2026-09-30",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Every piece of advice about hooks is about stopping the scroll. Very little of it is about what happens next \u2014 which is a problem, because a hook that stops the scroll and then does not pay off is worse than no hook at all. It trains the viewer that your openings are bait.",
+          },
+          {
+            type: "p",
+            text: "The useful question is not how do I get attention in the first second. It is what has to be true at second fifteen for someone to still be watching. That is a writing problem, and it is one you solve at the script stage rather than in the edit.",
+          },
+          {
+            type: "p",
+            text: "This post is about writing that kind of opening, and \u2014 because a written hook has a specific way of going wrong when you read it aloud \u2014 how to deliver it so it does not sound like a script.",
+          },
+        ],
+      },
+      {
+        heading: "The gap between a stop and a hold",
+        blocks: [
+          {
+            type: "p",
+            text: "A stopping hook creates a reason to look. A holding hook creates a reason to stay. They are not the same mechanism and most openings only do the first.",
+          },
+          {
+            type: "p",
+            text: "\u201cI made a huge mistake with my first camera\u201d stops the scroll. But it does not tell me what I am about to get, so the moment the video shifts into explanation I have no idea how long this is going to take or whether it applies to me \u2014 and that is the second where people leave.",
+          },
+          {
+            type: "p",
+            text: "\u201cThe camera setting I had wrong for two years \u2014 it takes about forty seconds to fix\u201d does both. There is a specific thing, an implied payoff, and a stated size. The viewer knows what they are buying with their attention.",
+          },
+          {
+            type: "p",
+            text: "That third element \u2014 the size \u2014 is the one almost nobody writes in, and it does a disproportionate amount of work. Uncertainty about length is one of the quietest reasons people scroll away.",
+          },
+        ],
+      },
+      {
+        heading: "Five openings that earn the next ten seconds",
+        blocks: [
+          {
+            type: "p",
+            text: "These are structures rather than templates. Fill them with something true about your actual topic and they hold up; treat them as fill-in-the-blank phrases and they sound like everyone else.",
+          },
+          {
+            type: "list",
+            items: [
+              "**The specific wrong belief.** Name the thing the viewer probably thinks, then say you are going to contradict it. \u201cYou have been told to script every word. For this kind of video that is the reason it sounds stiff.\u201d The hold comes from wanting to know if you are right.",
+              "**The named cost.** State what the mistake costs in a unit the viewer feels \u2014 hours, takes, money, rejections. \u201cThis one habit was adding about an hour to every video I made.\u201d The hold comes from wanting to avoid the cost.",
+              "**The mid-action open.** Begin inside the thing rather than introducing it. \u201cSo this is take eleven and I have finally worked out what is wrong.\u201d The hold comes from arriving late and wanting to catch up.",
+              "**The bounded list.** \u201cThree settings. The third one is the one nobody changes.\u201d The hold comes from a countable promise, and it is the most reliable structure for a first video on a channel because it is impossible to feel misled.",
+              "**The honest disqualifier.** \u201cIf you already film with a second person holding the camera, skip this one.\u201d It loses some viewers immediately and holds the rest much harder, because they now know the video is aimed at them specifically.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Write the hook last",
+        blocks: [
+          {
+            type: "p",
+            text: "The single most effective change to how you script openings: do not write the opening first. Write the body, find out what the video actually turned out to be about, and then write a hook that promises exactly that.",
+          },
+          {
+            type: "p",
+            text: "Hooks written first are promises made before you know what you have. They are the reason so many videos open with a claim the rest of the video quietly fails to deliver \u2014 not from dishonesty, but because the script drifted and the opening did not get updated.",
+          },
+          {
+            type: "p",
+            text: "A practical test once both exist: read the hook, then read your closing line. If someone who heard only those two sentences would feel the second followed from the first, the hook is doing its job. If they would feel switched on, rewrite the hook, not the ending.",
+          },
+        ],
+      },
+      {
+        heading: "Why hooks are the hardest line to read aloud",
+        blocks: [
+          {
+            type: "p",
+            text: "Here is the trap. A hook is the most heavily written sentence in your script \u2014 you polished it, you counted the syllables, you cut it twice. Which makes it the sentence most likely to sound written when you say it.",
+          },
+          {
+            type: "p",
+            text: "It is also the sentence where you most need eye contact. A first line delivered while glancing down reads as reading, and the viewer decides you are performing before they have heard what you promised.",
+          },
+          {
+            type: "p",
+            text: "This is the specific case a camera-overlay prompter handles well. In [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay) the script floats over the live preview right beside the front lens, so the line you are most worried about is the one you deliver straight down the barrel. Voice-driven scrolling matters here too: opening lines are where people most often pause, restart, or say it slightly differently \u2014 and because the on-device speech recognition follows your actual pace rather than a fixed speed, a restarted first line does not put you out of sync with the text.",
+          },
+          {
+            type: "p",
+            text: "The mechanical tricks that help, prompter or not:",
+          },
+          {
+            type: "list",
+            items: [
+              "Break the hook across two or three short lines in the script rather than one long one. You will phrase it in its natural rhythm instead of racing a sentence.",
+              "Bump the text size up for the opening. Bigger text means shorter eye movements, which reads as steadier presence.",
+              "Say the hook out loud before you record it and change any word you stumble on. A word that trips you in rehearsal will trip you on camera.",
+              "Record the hook two or three times in a row at the start, then continue. It costs thirty seconds and gives the edit a choice on the only line that decides whether anything else is seen.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "When not to use a hook at all",
+        blocks: [
+          {
+            type: "p",
+            text: "The honest trade-off, because hook advice is usually sold as universal and is not.",
+          },
+          {
+            type: "p",
+            text: "If someone is watching because they already chose you \u2014 a tutorial they searched for, a lesson inside a course, an email to a client who booked the call \u2014 a punchy hook actively hurts. They have already decided. Withholding the answer to build tension now reads as wasting their time, and for search-driven video it is measurably worse: people came for the answer, and a twenty-second wind-up sends them back to the results page.",
+          },
+          {
+            type: "p",
+            text: "For those videos the correct opening is the answer, stated immediately, followed by the detail. \u201cThe setting is under Format, and here is why it matters.\u201d That is a hook of a different kind, and it works for the same reason \u2014 it tells the viewer what they are getting.",
+          },
+          {
+            type: "p",
+            text: "The rule underneath both cases: match the opening to how the viewer arrived. Feed viewers need a reason to stop. Search and subscriber viewers need a reason to trust that you will be quick.",
+          },
+        ],
+      },
+      {
+        heading: "The short version",
+        blocks: [
+          {
+            type: "p",
+            text: "A hook that holds names something specific, implies a payoff, and hints at the size of the commitment. It is written after the body, not before it. It survives being read next to your closing line. And it is delivered looking at the camera, because a promise made to the floor is not a promise anyone believes.",
+          },
+          {
+            type: "p",
+            text: "If your openings feel stiff even after all this, the problem has usually moved upstream into the writing itself \u2014 which is what [writing a script that does not sound written](/blog/write-a-script-that-doesnt-sound-written) is about. And if you are unsure whether to let the prompter follow your voice or run at a fixed speed while you find your rhythm on a difficult opening, [voice-follow versus auto-scroll](/blog/voice-follow-vs-auto-scroll-teleprompter) covers the choice.",
+          },
+          {
+            type: "p",
+            text: "Next in this series: how to sound natural while reading \u2014 the delivery habits that separate someone reading a script from someone who simply knows what they want to say.",
+          },
+        ],
+      },
+    ],
+  },
 ];
+
