@@ -381,4 +381,91 @@ export default {
     disclaimer:
       "Caffeine Tracker: Curfew uses a simple half-life model and average caffeine contents. It is not a medical device and not medical advice; consult a professional about caffeine and your health.",
   },
+  // Night Cam (Oct 2026) is English-only for now: no /<lang>/apps/night-cam pages.
+  "night-cam": {
+    slug: "night-cam",
+    iconBase: "night-cam",
+    name: "Night Cam: Aurora Forecast",
+    alternateNames: ["Night Cam", "Stars, Moon & Aurora Camera", "aurora forecast app", "aurora camera iphone", "night sky camera", "star photo app"],
+    appStoreId: "",
+    appStoreUrl: "",
+    live: false,
+    enOnly: true,
+    pills: [],
+    operatingSystem: "iOS 18.0 or later",
+    datePublished: "2026-10-02",
+    price: { amount: "0", label: "Free, optional one-time Pro" },
+    color: "#4338CA",
+    category: "PhotographyApplication",
+    head: {
+      title: "Night Cam: Aurora Forecast and Night Sky Camera for iPhone",
+      description:
+        "Night Cam is an iPhone camera for the Moon, stars, aurora and star trails, with a free Tonight forecast: aurora chance for where you are, cloud cover and moon phase. One-time Pro, no subscription.",
+      keywords:
+        "aurora forecast app, northern lights forecast iphone, aurora camera, how to photograph northern lights with iphone, star photo app, moon camera, star trails iphone, night sky camera, aurora alerts, cloud cover tonight",
+      ogTitle: "Night Cam: will you see the aurora tonight, and how to photograph it",
+      ogDescription: "A night-sky camera with Moon, Stars, Aurora and Trails presets, plus a free forecast for tonight. iPhone, no subscription.",
+    },
+    h1: "A night-sky camera that also tells you whether tonight is worth going out",
+    answer:
+      "Night Cam has camera presets for the night: Moon, Stars (a 16-second stacked exposure), Aurora, star Trails and City for photos, and Night video, Aurora Live and Time-lapse for video. The Tonight tab is a free forecast for your location: aurora chance from NOAA's Kp forecast and OVATION model, cloud cover and the moon phase. Optional alerts send at most one notification a night when the aurora is likely. No account, no subscription.",
+    quickFacts: [
+      ["Price", "Free download, 3 free captures. Pro $4.99 once, or Night Pass $0.99 for 48 hours"],
+      ["Forecast", "Aurora chance, cloud cover, moon phase. Always free"],
+      ["Presets", "Moon, Stars, Aurora, Trails, City, Night video, Aurora Live, Time-lapse"],
+      ["Requires", "iPhone, iOS 18 or later"],
+    ],
+    screenshotsTitle: "Screenshots",
+    screenshots: [],
+    howTo: {
+      title: "How to photograph stars with an iPhone using Night Cam",
+      intro: "The phone has to stay still for the whole exposure. That is most of the trick.",
+      steps: [
+        { name: "Check Tonight", text: "Open the Tonight tab to see cloud cover, moon phase and the aurora chance for where you are. Clear skies and a thin moon are best for stars." },
+        { name: "Steady the phone", text: "Use a tripod, or prop the phone against something solid. Hand-held star shots will blur." },
+        { name: "Pick a preset", text: "Choose Stars for a sharp sky, Trails for star trails, Moon for the Moon, or Aurora when it is out." },
+        { name: "Tap and let go", text: "A 3-second countdown starts so your tap does not shake the phone. Stay still until the capture finishes; the photo is saved to Photos." },
+      ],
+    },
+    featuresTitle: "What it does",
+    features: [
+      { icon: "🌙", title: "Moon, Stars, City", text: "Photo presets tuned for each. Stars stacks 16 seconds of frames into one cleaner image." },
+      { icon: "🌌", title: "Aurora and Aurora Live", text: "An aurora photo preset, and real-time aurora video when the lights are moving." },
+      { icon: "✨", title: "Trails and Time-lapse", text: "Star trails from a long session, or a time-lapse of the sky moving." },
+      { icon: "🔭", title: "Tonight forecast", text: "Aurora chance for your location (NOAA SWPC Kp forecast and OVATION model), cloud cover from Open-Meteo, and moon phase. Free." },
+      { icon: "🔔", title: "Aurora alerts", text: "Optional. At most one notification a night, only when the chance is worth it." },
+      { icon: "🔴", title: "Red night mode", text: "Turns the screen red so your eyes stay adjusted to the dark." },
+    ],
+    intentsTitle: "Questions this app answers",
+    intents: [
+      { h: "Will I see the northern lights tonight?", p: "It depends on geomagnetic activity, where you are, and whether it is cloudy. The Tonight tab combines NOAA's aurora forecast with cloud cover for your location into one chance figure, so you can decide before going out." },
+      { h: "How do I photograph stars with my iPhone?", p: "Keep the phone completely still on a tripod or a solid surface, get away from street lights, and use a long exposure. Night Cam's Stars preset takes a 16-second stacked exposure after a 3-second countdown." },
+      { h: "Can an iPhone film the aurora?", p: "Yes, when it is bright enough. The Aurora Live preset records real-time video of the aurora; for faint displays a still photo with the Aurora preset will show more than your eyes see." },
+    ],
+    compare: {
+      title: "Night Cam vs the built-in Camera and separate forecast apps",
+      intro: "The built-in Camera has Night mode, but no presets for stars or trails and no forecast. Aurora forecast apps usually do not take photos, and many are subscriptions.",
+      columns: ["", "Night Cam", "iPhone Camera", "Forecast-only apps"],
+      rows: [
+        ["Star, Moon, Trails and Aurora presets", "✓", "✗", "✗"],
+        ["Aurora chance for your location", "✓", "✗", "✓"],
+        ["Cloud cover and moon phase", "✓", "✗", "Some"],
+        ["Price", "Free forecast, $4.99 once for Pro", "Free", "Often a subscription"],
+      ],
+    },
+    faqs: [
+      { q: "Is it free?", a: "The download and the Tonight forecast are free. You get 3 free captures with Moon, Stars, City or Night video. After that, Pro is a one-time $4.99 for everything, or Night Pass is $0.99 for everything for 48 hours. Night Pass does not renew. There are no subscriptions." },
+      { q: "Where does the aurora forecast come from?", a: "From NOAA's Space Weather Prediction Center: the Kp forecast and the OVATION aurora model. Cloud cover comes from Open-Meteo." },
+      { q: "Does it need my location?", a: "No. Location makes the forecast match where you are, but you can decline it and still use the camera." },
+      { q: "Is there an Android version?", a: "Not yet. It is iPhone-only for now." },
+    ],
+    guides: [],
+    related: [
+      { name: "Teleprompter: Camera Overlay", href: "/apps/teleprompter-camera-overlay", blurb: "A free teleprompter that floats your script over the camera." },
+      { name: "MileGlass", href: "/apps/mileglass", blurb: "A location alarm that rings before you reach your stop." },
+      { name: "Caffeine Tracker: Curfew", href: "/apps/caffeine-tracker", blurb: "See how much caffeine is still in you and the latest time for your last coffee." },
+    ],
+    disclaimer:
+      "Aurora and cloud forecasts are estimates and can change quickly. Night Cam uses public data from NOAA SWPC and Open-Meteo and is not affiliated with either.",
+  },
 };

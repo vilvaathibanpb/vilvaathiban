@@ -60,6 +60,15 @@ const APPS = [
     badge: "Free iOS app",
   },
   {
+    name: "Night Cam: Aurora Forecast",
+    tagline: "A camera for the Moon, stars and aurora, with a free forecast for tonight.",
+    summary:
+      "Presets for Moon, Stars, Aurora, star Trails, City, Night video, Aurora Live and Time-lapse. The Tonight tab shows aurora chance, cloud cover and moon phase for where you are.",
+    image: "/apps/night-cam-logo.png",
+    href: "/apps/night-cam",
+    badge: "Coming soon",
+  },
+  {
     name: "Unit Price Calculator & Tax",
     tagline: "Which pack is really cheaper? Price per kg or litre, stacked discounts, sales tax, cart budget, bill split.",
     summary:
