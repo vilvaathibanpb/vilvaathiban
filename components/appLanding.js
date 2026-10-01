@@ -392,6 +392,7 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
           ))}
         </Facts>
 
+        {app.screenshots.length > 0 && (
         <Section>
           <h2>{app.screenshotsTitle}</h2>
           <Shots>
@@ -403,6 +404,7 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
             ))}
           </Shots>
         </Section>
+        )}
 
         <Section>
           <h2>{app.howTo.title}</h2>
@@ -475,6 +477,7 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
           </Faq>
         </Section>
 
+        {app.guides.length > 0 && (
         <Section>
           <h2>{ui.guidesTitle}</h2>
           <RelatedList>
@@ -485,6 +488,7 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
             ))}
           </RelatedList>
         </Section>
+        )}
 
         <Section>
           <h2>{ui.moreAppsTitle}</h2>
