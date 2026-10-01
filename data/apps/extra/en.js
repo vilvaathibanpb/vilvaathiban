@@ -385,8 +385,8 @@ export default {
   "night-cam": {
     slug: "night-cam",
     iconBase: "night-cam",
-    name: "Night Cam: Aurora Forecast",
-    alternateNames: ["Night Cam", "Stars, Moon & Aurora Camera", "aurora forecast app", "aurora camera iphone", "night sky camera", "star photo app"],
+    name: "Night Cam: Stars & Aurora",
+    alternateNames: ["Night Cam", "Aurora Forecast & Sky Camera", "aurora forecast app", "aurora camera iphone", "night sky camera", "star photo app"],
     appStoreId: "",
     appStoreUrl: "",
     live: false,
@@ -398,7 +398,7 @@ export default {
     color: "#4338CA",
     category: "PhotographyApplication",
     head: {
-      title: "Night Cam: Aurora Forecast and Night Sky Camera for iPhone",
+      title: "Night Cam: Stars & Aurora — Aurora Forecast and Night Sky Camera for iPhone",
       description:
         "Night Cam is an iPhone camera for the Moon, stars, aurora and star trails, with a free Tonight forecast: aurora chance for where you are, cloud cover and moon phase. One-time Pro, no subscription.",
       keywords:

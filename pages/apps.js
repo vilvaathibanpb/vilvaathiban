@@ -60,7 +60,7 @@ const APPS = [
     badge: "Free iOS app",
   },
   {
-    name: "Night Cam: Aurora Forecast",
+    name: "Night Cam: Stars & Aurora",
     tagline: "A camera for the Moon, stars and aurora, with a free forecast for tonight.",
     summary:
       "Presets for Moon, Stars, Aurora, star Trails, City, Night video, Aurora Live and Time-lapse. The Tonight tab shows aurora chance, cloud cover and moon phase for where you are.",
