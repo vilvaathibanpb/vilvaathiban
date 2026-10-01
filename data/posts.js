@@ -5743,6 +5743,207 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  {
+    slug: "abortsignal-timeout-is-not-a-function-fix",
+    title:
+      "Fixing \"AbortSignal.timeout is not a function\" (and AbortSignal.any): Causes, Checks and Fallbacks",
+    description:
+      "Why AbortSignal.timeout and AbortSignal.any throw \"is not a function\" in old runtimes, Jest/jsdom and TypeScript - and how to diagnose and fix each case.",
+    datePublished: "2026-10-01",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "You copy the modern one-liner for a request timeout, run it, and get this instead of a response:",
+          },
+          {
+            type: "code",
+            language: "text",
+            code: "TypeError: AbortSignal.timeout is not a function\nTypeError: AbortSignal.any is not a function",
+          },
+          {
+            type: "p",
+            text: "The code is not wrong. `AbortSignal.timeout()` and `AbortSignal.any()` are both standard, and both are covered in [AbortSignal.timeout() and AbortSignal.any(): request timeouts without the setTimeout dance](/blog/abortsignal-timeout-any-request-timeouts). The error means the `AbortSignal` your code is actually talking to is older than the one you wrote against. This post is about finding out *which* one that is, and what to do about it.",
+          },
+        ],
+      },
+      {
+        heading: "Where each method shipped",
+        blocks: [
+          {
+            type: "p",
+            text: "The two methods arrived years apart, which is why it is common to have one and not the other. These are the first versions with support, per MDN's compatibility data:",
+          },
+          {
+            type: "list",
+            items: [
+              "**AbortSignal.timeout()** - Chrome and Edge 103, Firefox 100, Safari 16, Node.js 17.3 (backported to 16.14).",
+              "**AbortSignal.any()** - Chrome and Edge 116, Firefox 124, Safari 17.4, Node.js 20.3 (backported to 18.17).",
+            ],
+          },
+          {
+            type: "p",
+            text: "So the classic case for `any is not a function` is Node 18 before 18.17, or an iPhone that has not updated past iOS 17.3. For `timeout is not a function` it is Node 16 before 16.14, or a browser from before mid-2022.",
+          },
+          {
+            type: "p",
+            text: "One subtle extra: Chrome and Edge 103 to 123 do have `AbortSignal.timeout()`, but abort with an `AbortError` instead of a `TimeoutError`. If your code checks `err.name === 'TimeoutError'` and users on those versions never hit that branch, that is why.",
+          },
+        ],
+      },
+      {
+        heading: "The usual suspects",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**An old Node on the server or in CI.** Your laptop runs Node 22, the Docker base image or CI runner pins Node 16 or an early 18. Same code, different `AbortSignal`.",
+              "**Jest's jsdom environment.** With `testEnvironment: 'jsdom'`, tests use jsdom's `AbortSignal`, not Node's - even if Node itself is new. jsdom added `timeout()` in 22.1.0 and `any()` in 26.0.0. Jest 29's `jest-environment-jsdom` depends on jsdom 20, which has neither; Jest 30's depends on jsdom 26, which has both. This is the most common cause of tests failing while the app works.",
+              "**React Native.** Hermes and the React Native globals do not track the browser platform closely. Depending on your version, either method may be missing. Feature-detect rather than assume.",
+              "**Older Electron.** The renderer has the `AbortSignal` of its bundled Chromium, the main process has the one of its bundled Node. Check `process.versions.chrome` and `process.versions.node`, not the Electron version number.",
+              "**Long-tail browsers.** Embedded webviews, kiosks and devices stuck on an old OS version are where the real users with this error live.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Not the same bug: \"Property 'timeout' does not exist on type\"",
+        blocks: [
+          {
+            type: "p",
+            text: "If the error comes from the compiler rather than at runtime, it is a typings problem, not a missing feature:",
+          },
+          {
+            type: "code",
+            language: "text",
+            code: "error TS2339: Property 'timeout' does not exist on type\n  '{ new (): AbortSignal; prototype: AbortSignal; abort(reason?: any): AbortSignal; }'.",
+          },
+          {
+            type: "p",
+            text: "TypeScript is reading an old declaration of `AbortSignal` - from an old TypeScript's `lib.dom.d.ts`, or an old `@types/node`. Upgrade TypeScript and `@types/node`, and make sure the right libs are included. For browser code, `DOM` must be in `lib`:",
+          },
+          {
+            type: "code",
+            language: "json",
+            code: "{\n  \"compilerOptions\": {\n    \"target\": \"ES2022\",\n    \"lib\": [\"ES2022\", \"DOM\", \"DOM.Iterable\"]\n  }\n}",
+          },
+          {
+            type: "p",
+            text: "For Node-only projects, keep `@types/node` matched to the Node major you run. The reverse trap matters too: new typings will happily compile `AbortSignal.any()` for a runtime that does not have it. Types describe the API, not your deployment.",
+          },
+        ],
+      },
+      {
+        heading: "Diagnose in thirty seconds",
+        blocks: [
+          {
+            type: "p",
+            text: "Print what you actually have, in the environment that fails - the test file, the server entry point, the page:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "console.log('timeout:', typeof AbortSignal.timeout)\nconsole.log('any:', typeof AbortSignal.any)\nif (typeof process !== 'undefined' && process.versions) {\n  console.log('node:', process.version, 'chrome:', process.versions.chrome)\n} else {\n  console.log('ua:', navigator.userAgent)\n}",
+          },
+          {
+            type: "p",
+            text: "If Node is new but `timeout` is `undefined`, you are inside a test environment that replaced the global. If the version itself is old, the fix is an upgrade.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 1: upgrade the runtime",
+        blocks: [
+          {
+            type: "p",
+            text: "This is the right fix whenever you control the runtime. Every Node release line that is still supported has both methods, so bump the `node` version in your Dockerfile, CI config, `.nvmrc` and `engines` field together. For Jest, either upgrade to Jest 30 with its matching `jest-environment-jsdom`, or run tests that do not touch the DOM in the Node environment:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "/**\n * @jest-environment node\n */\n\ntest('times out slow requests', async () => {\n  // AbortSignal here is Node's, not jsdom's\n})",
+          },
+          {
+            type: "p",
+            text: "Vitest uses whatever `jsdom` version is installed in your project, so upgrading that package directly is usually enough.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 2: a small feature-detected fallback",
+        blocks: [
+          {
+            type: "p",
+            text: "When you cannot control the runtime - a browser, a phone, a customer's server - wrap the call. Use the native method when it exists and fall back to `AbortController` plus `setTimeout` when it does not. Abort with a `DOMException` named `TimeoutError`, so the rest of your code can tell a timeout from a cancel exactly as it would with the real thing:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "export function timeoutSignal(ms) {\n  if (typeof AbortSignal.timeout === 'function') {\n    return AbortSignal.timeout(ms)\n  }\n  const controller = new AbortController()\n  const timer = setTimeout(() => {\n    controller.abort(new DOMException('The operation timed out.', 'TimeoutError'))\n  }, ms)\n  // Node: do not keep the process alive just for this timer\n  if (timer && typeof timer.unref === 'function') timer.unref()\n  return controller.signal\n}",
+          },
+          {
+            type: "p",
+            text: "In runtimes so old that `abort()` ignores its argument (before Chrome 98, Firefox 97, Safari 15.4, Node 16.14), you will get a plain `AbortError` whatever you pass - handle both names if you support those.",
+          },
+          {
+            type: "p",
+            text: "**Clear the timer when you can.** The native timeout needs no cleanup, but a fallback timer keeps running after the request finishes. If the operation is long-lived or you create many signals, return a cleanup function alongside the signal and call it in a `finally`:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "export function timeoutWithClear(ms) {\n  const controller = new AbortController()\n  const timer = setTimeout(() => {\n    controller.abort(new DOMException('The operation timed out.', 'TimeoutError'))\n  }, ms)\n  return { signal: controller.signal, clear: () => clearTimeout(timer) }\n}\n\nconst t = timeoutWithClear(5000)\ntry {\n  const res = await fetch(url, { signal: t.signal })\n} finally {\n  t.clear()\n}",
+          },
+          {
+            type: "p",
+            text: "The fallback for `any()` follows the same idea: one controller, an `abort` listener on each input, and the winning signal's `reason` passed through.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "export function anySignal(signals) {\n  if (typeof AbortSignal.any === 'function') {\n    return AbortSignal.any(signals)\n  }\n  const list = Array.from(signals)\n  const controller = new AbortController()\n\n  for (const s of list) {\n    if (s.aborted) {\n      controller.abort(s.reason)\n      return controller.signal\n    }\n  }\n\n  function onAbort(event) {\n    cleanup()\n    controller.abort(event.target.reason)\n  }\n  function cleanup() {\n    for (const s of list) s.removeEventListener('abort', onAbort)\n  }\n\n  for (const s of list) s.addEventListener('abort', onAbort)\n  return controller.signal\n}",
+          },
+          {
+            type: "p",
+            text: "The honest limitation: if none of the inputs ever aborts, the listeners stay attached. The native method uses weak references so a combined signal can be collected; this one cannot. That is fine per request, but do not combine a forever-living signal (an app-wide shutdown signal, say) with thousands of short ones through the fallback.",
+          },
+        ],
+      },
+      {
+        heading: "Polyfill or wrapper?",
+        blocks: [
+          {
+            type: "p",
+            text: "You can assign these functions onto `AbortSignal` as a polyfill so existing code just works. In an application you own, that is reasonable - load it once, before anything else, and only define the method when it is missing. In a library, do not patch globals; export a wrapper like the ones above so you never fight the host app's own polyfill.",
+          },
+          {
+            type: "p",
+            text: "And remember a polyfill only fixes the method. It cannot make an old `fetch` implementation honor a signal it never supported, and it will not change what Chrome 103 to 123 throws from its own native timeout.",
+          },
+        ],
+      },
+      {
+        heading: "Checklist",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Compiler error? Fix `lib` and upgrade TypeScript / `@types/node`.",
+              "Runtime error in tests only? It is jsdom - upgrade it, or use the Node test environment for that file.",
+              "Runtime error on a server? Check `process.version` and upgrade Node.",
+              "Runtime error for some users? Ship the feature-detected wrapper, and branch on both `TimeoutError` and `AbortError`.",
+            ],
+          },
+          {
+            type: "p",
+            text: "For how signals, reasons and `throwIfAborted()` fit together beyond timeouts, see the [practical guide to AbortController and AbortSignal](/blog/abortcontroller-abortsignal-practical-guide).",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
 ];
 

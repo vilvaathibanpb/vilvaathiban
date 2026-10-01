@@ -2208,5 +2208,192 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "how-to-sound-natural-reading-a-teleprompter",
+    title: "How to Sound Natural While Reading From a Teleprompter: 9 Drills That Work",
+    description:
+      "Reading from a prompter does not have to sound like reading. Nine drills for pauses, emphasis, pace and eye position — and when to stop reading verbatim.",
+    datePublished: "2026-10-01",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Everyone can hear the difference between someone reading and someone talking, even if they cannot say what it is. The words can be identical. What changes is the rhythm: readers move at an even speed, stress the wrong words, and breathe where the line breaks instead of where the thought ends.",
+          },
+          {
+            type: "p",
+            text: "The good news is that this is a delivery skill, not a talent. It responds to practice the same way handwriting does. Below are nine drills, roughly in the order you would use them — from marking up the script to the last pass before you hit record — plus an honest section on when reading word for word is the wrong goal.",
+          },
+        ],
+      },
+      {
+        heading: "1. Fix the writing before you fix the reading",
+        blocks: [
+          {
+            type: "p",
+            text: "Half of “I sound robotic” is a script problem. If a sentence has three clauses and no contractions, no amount of delivery practice will save it. Read the whole script aloud once, at normal speed, and change every word you trip on. The full version of this is in [how to write a script that does not sound written](/blog/write-a-script-that-doesnt-sound-written); for today, the one rule is: if you would not say it to a friend across a table, rewrite it until you would.",
+          },
+        ],
+      },
+      {
+        heading: "2. Mark up pauses and emphasis in the script itself",
+        blocks: [
+          {
+            type: "p",
+            text: "Actors and newsreaders mark their copy. You should too, because a prompter shows you the next few lines, not the meaning of them. Keep the system simple enough that you can read it at speed:",
+          },
+          {
+            type: "list",
+            items: [
+              "**A line break where you breathe.** Not where the sentence ends — where the thought ends. Short lines are the single best pause marker there is.",
+              "**An ellipsis or a dash for a beat.** “And the result was… nothing.” The punctuation tells your eye to wait.",
+              "**CAPITALS for the one word that matters** in a sentence. Only one. If everything is stressed, nothing is.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Stress is where reading gives itself away most. People reading cold stress the last word of every sentence. People talking stress the new information. Marking it once fixes it for every take.",
+          },
+        ],
+      },
+      {
+        heading: "3. Read ahead, not on the word",
+        blocks: [
+          {
+            type: "p",
+            text: "Fluent readers are always a phrase ahead of their mouth. Your eyes take in “the one setting I always change first” while you are still saying the sentence before it, so by the time you get there you already know where it is going and can shape it.",
+          },
+          {
+            type: "p",
+            text: "The drill: read a paragraph aloud while deliberately keeping your eyes one line above your voice. It feels awkward for about five minutes, then it becomes the way you read. A slightly larger text size helps, because you can take in a whole phrase in one glance rather than scanning word by word.",
+          },
+        ],
+      },
+      {
+        heading: "4. Put your eyes where the viewer is",
+        blocks: [
+          {
+            type: "p",
+            text: "You cannot sound like you are talking to someone while visibly looking past them. On a phone, the fix is mostly about where the text sits. [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay) floats the script over the camera preview right next to the front lens, so reading the line and looking at the viewer are nearly the same thing. Keep the text narrow and near the top of the screen; a wide block of text makes your eyes sweep side to side, which the camera picks up long before the viewer can name it. There is more on this in [how to keep eye contact with the camera](/blog/how-to-keep-eye-contact-with-the-camera).",
+          },
+        ],
+      },
+      {
+        heading: "5. Let your pace drive the scroll, not the other way round",
+        blocks: [
+          {
+            type: "p",
+            text: "A fixed-speed scroll is the quietest cause of robotic delivery. If the text moves at a steady rate, you end up moving at that rate too — no slowing down for the important line, no speeding through the throwaway one. Natural speech is uneven, and that unevenness is a large part of what sounds natural.",
+          },
+          {
+            type: "p",
+            text: "Voice-driven scrolling flips that relationship. The app listens using Apple's on-device speech recognition and moves the script along as you speak, so you can pause for effect and the text waits. If you stumble or repeat a phrase, it finds your place again. It detects the script's language automatically and works in any language iOS on-device recognition supports, and because it runs on the phone, it works in airplane mode and nothing is uploaded.",
+          },
+          {
+            type: "p",
+            text: "Auto-scroll with a speed slider is still there and is the better choice for some scripts — [voice-follow versus auto-scroll](/blog/voice-follow-vs-auto-scroll-teleprompter) covers when. But if your problem is sounding even and flat, voice-follow is the first thing to try.",
+          },
+        ],
+      },
+      {
+        heading: "6. Do three practice passes with different jobs",
+        blocks: [
+          {
+            type: "p",
+            text: "Running the script five times the same way just rehearses the same habits. Give each pass one job:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Pass one: meaning.** Read it to yourself and know what each paragraph is *for*. If you cannot say it in five words, you will not deliver it well.",
+              "**Pass two: out loud, too slow.** Exaggerate the pauses and the stressed words. It will feel theatrical. That is fine; you are calibrating.",
+              "**Pass three: on camera, as a real take.** Then watch it back with the sound on and fix only the one thing that bothers you most.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Unlimited scripts and the takes library mean you can keep the practice takes next to the real ones and compare.",
+          },
+        ],
+      },
+      {
+        heading: "7. Bring the energy up a notch — and smile on the first line",
+        blocks: [
+          {
+            type: "p",
+            text: "Cameras flatten energy. A delivery that feels lively in the room reads as calm on screen, and one that feels calm reads as bored. Aim about ten percent above what feels normal. The easiest place to start is the first line: a small, genuine smile before you speak changes the sound of your voice, and the viewer hears it before they see it.",
+          },
+        ],
+      },
+      {
+        heading: "8. Make the setup disappear",
+        blocks: [
+          {
+            type: "p",
+            text: "A lot of stiffness is low-level worry about the gear. Settle it before you start: text size big enough that you never squint, the phone at eye level, and a quick test take. If you are using a mirrored glass rig, switch on mirror mode so the text reads correctly in the reflection. The script never appears in the saved video, so you do not have to think about hiding it. Recording is in portrait 4K, which leaves room to crop.",
+          },
+        ],
+      },
+      {
+        heading: "9. Give yourself permission to go off-script",
+        blocks: [
+          {
+            type: "p",
+            text: "The most natural moments in scripted videos are often the half-sentence someone adds that is not on the page — a quick aside, a reaction, a “which, honestly, surprised me.” Build in room for it. Leave one line in each section as a prompt rather than a sentence (“story about the first client”) and talk it.",
+          },
+          {
+            type: "p",
+            text: "With voice-follow, the script is not running on a timer while you talk, so a short aside does not leave you chasing the text — come back in on the written line, cleanly, and keep going. With auto-scroll, pause the scroll before you go off-book.",
+          },
+        ],
+      },
+      {
+        heading: "When not to read verbatim",
+        blocks: [
+          {
+            type: "p",
+            text: "The honest trade-off: a teleprompter makes it easy to say exactly what you planned, and that is not always what a video needs.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Stories and opinions** usually sound better from bullet points. You know the story; reading it word for word removes the parts that made it yours.",
+              "**Reactions, unboxings and anything casual** should mostly be unscripted. Use the prompter for the opening and the call to action, and talk the middle.",
+              "**When you have done the same video many times**, a script can make you sound less fluent than memory would.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Script word for word where exact wording matters: the hook, numbers, claims, instructions, legal or medical caveats, and anything in a language you are still learning. Everything else can be a guide, not a contract.",
+          },
+        ],
+      },
+      {
+        heading: "A ten-minute routine",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Read the script aloud once and fix every stumble (two minutes).",
+              "Add line breaks at breaths and CAPITALS on one word per sentence (two minutes).",
+              "Do a too-slow, exaggerated pass out loud (two minutes).",
+              "Record one take with voice-follow and watch it back with sound on (three minutes).",
+              "Fix one thing and record the real take.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The app is free, iOS-only, with occasional ads and a small one-time purchase to remove them — no subscription and no watermark — if you want to try the voice-follow part of this today.",
+          },
+          {
+            type: "p",
+            text: "Next in this series: the ideal script length for a 60-second video — how many words actually fit, and why the answer is fewer than most people write.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
