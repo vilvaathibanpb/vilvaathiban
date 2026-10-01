@@ -38,16 +38,16 @@ const TROUBLESHOOTING = [
 const SupportPage = () => (
   <Container>
     <Head>
-      <title>Support — Night Cam: Aurora Forecast</title>
+      <title>Support — Night Cam: Stars & Aurora</title>
       <meta
         name="description"
-        content="Help for Night Cam: Aurora Forecast: sharp star photos, the aurora chance, restoring purchases, Night Pass and contact."
+        content="Help for Night Cam: Stars & Aurora: sharp star photos, the aurora chance, restoring purchases, Night Pass and contact."
       />
       <link rel="canonical" href={URL} />
     </Head>
     <Header />
     <Wrap>
-      <Eyebrow>Night Cam: Aurora Forecast</Eyebrow>
+      <Eyebrow>Night Cam: Stars & Aurora</Eyebrow>
       <Title>Support</Title>
       <Lead>
         Common questions first. If none of it helps, email{" "}

@@ -10,10 +10,10 @@ const URL = "https://www.vilvaathiban.com/apps/night-cam/privacy";
 const PrivacyPage = () => (
   <Container>
     <Head>
-      <title>Privacy Policy — Night Cam: Aurora Forecast</title>
+      <title>Privacy Policy — Night Cam: Stars & Aurora</title>
       <meta
         name="description"
-        content="Privacy policy for Night Cam: Aurora Forecast on iPhone. No account, no analytics, no ads and no tracking. Photos go only to your Photos library; the forecast sends only rounded coordinates to Open-Meteo."
+        content="Privacy policy for Night Cam: Stars & Aurora on iPhone. No account, no analytics, no ads and no tracking. Photos go only to your Photos library; the forecast sends only rounded coordinates to Open-Meteo."
       />
       <link rel="canonical" href={URL} />
       <meta name="robots" content="noindex, follow" />
@@ -21,14 +21,14 @@ const PrivacyPage = () => (
     <Header />
     <Wrap>
       <Eyebrow>
-        <Link href="/apps/night-cam/support">Night Cam: Aurora Forecast</Link>
+        <Link href="/apps/night-cam/support">Night Cam: Stars & Aurora</Link>
       </Eyebrow>
       <Title>Privacy Policy</Title>
       <Lead>Effective date: October 2, 2026</Lead>
 
       <Section>
         <p>
-          This Privacy Policy describes how the iOS application <b>Night Cam: Aurora Forecast</b> (&quot;the
+          This Privacy Policy describes how the iOS application <b>Night Cam: Stars & Aurora</b> (&quot;the
           App&quot;), developed by Vilva Athiban P B (&quot;we&quot;, &quot;us&quot;), handles your
           information. The short version: <b>we do not collect any data.</b> There is no account, no analytics,
           no ads, no tracking and no third-party SDKs, and the App does not talk to any server of ours.
