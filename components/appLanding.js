@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import { PERSON_REF } from "../lib/person";
 import { Container } from "../pages/about";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -116,6 +118,59 @@ const Shots = styled.div`
   @media (max-width: 560px) { grid-template-columns: 1fr 1fr; }
 `;
 
+const VideoFrame = styled.figure`
+  margin: 22px 0 0;
+  max-width: 320px;
+  video, img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    border-radius: 18px;
+    display: block;
+    background: #f4f4f2;
+  }
+  figcaption { font-family: ${SANS}; font-size: 13px; color: #475569; margin-top: 8px; }
+`;
+
+// 15-second demo slot. Drop the file at public/apps/videos/<slug>.mp4 and it
+// plays; until then the poster image is shown on its own, without controls.
+export function DemoVideo({ slug, poster, name, caption }) {
+  const [missing, setMissing] = useState(false);
+  const ref = useRef(null);
+  const src = `/apps/videos/${slug}.mp4`;
+  // The static HTML can fail to load the file before React hydrates and
+  // attaches onError, so check the element state once on mount as well.
+  useEffect(() => {
+    const v = ref.current;
+    if (v && (v.error || v.networkState === 3)) setMissing(true);
+  }, []);
+  return (
+    <VideoFrame>
+      {missing ? (
+        <img src={poster} alt={`${name} screenshot`} loading="lazy" width="320" height="569" />
+      ) : (
+        <video
+          ref={ref}
+          controls
+          muted
+          playsInline
+          loop
+          preload="metadata"
+          poster={poster}
+          width="320"
+          height="569"
+          aria-label={`${name} 15-second demo`}
+          onError={() => setMissing(true)}
+        >
+          <source src={src} type="video/mp4" onError={() => setMissing(true)} />
+        </video>
+      )}
+      {!missing && caption ? <figcaption>{caption}</figcaption> : null}
+    </VideoFrame>
+  );
+}
+
 const Table = styled.div`
   overflow-x: auto;
   margin-top: 18px;
@@ -198,7 +253,9 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
   const priceLabel = free
     ? ui.free
     : (ui.priceOnce || "${amount} one-time").replace("{amount}", app.price.amount);
-  const alternates = LANGS.map((l) => ({ ...l, href: `${SITE}${l.path}/apps/${app.slug}` }));
+  // English-only apps (no translations) advertise just the English URL.
+  const alternates = LANGS.filter((l) => !app.enOnly || l.code === "en").map((l) => ({ ...l, href: `${SITE}${l.path}/apps/${app.slug}` }));
+  const pills = app.pills || ["onDevice", "offline"];
 
   const software = {
     "@context": "https://schema.org",
@@ -207,7 +264,7 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
     alternateName: app.alternateNames,
     description: app.head.description,
     applicationCategory: app.category || "UtilitiesApplication",
-    operatingSystem: app.playUrl ? "iOS 15.1 or later, Android 7.0 or later" : "iOS 15.1 or later",
+    operatingSystem: app.operatingSystem || (app.playUrl ? "iOS 15.1 or later, Android 7.0 or later" : "iOS 15.1 or later"),
     isAccessibleForFree: free,
     offers: { "@type": "Offer", price: app.price.amount, priceCurrency: "USD", availability: app.live ? "https://schema.org/InStock" : "https://schema.org/PreOrder" },
     ...(storeUrl ? { downloadUrl: storeUrl, installUrl: storeUrl } : {}),
@@ -217,10 +274,10 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
     screenshot: app.screenshots.map((s) => ({ "@type": "ImageObject", contentUrl: `${SITE}${s.src}`, caption: s.alt })),
     image: icon,
     url,
-    author: { "@type": "Person", name: "Vilva Athiban P B", url: SITE },
-    publisher: { "@type": "Person", name: "Vilva Athiban P B", url: SITE },
+    author: PERSON_REF,
+    publisher: PERSON_REF,
     softwareVersion: "1.0",
-    datePublished: "2026-09-10",
+    datePublished: app.datePublished || "2026-09-10",
     keywords: app.head.keywords,
     inLanguage: lang.hreflang,
   };
@@ -287,8 +344,8 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
           <div style={{ flex: 1, minWidth: 260 }}>
             <Pills>
               <Pill>{free ? ui.pillFree : ui.pillPaid.replace("{price}", priceLabel)}</Pill>
-              <Pill fg="#1e40af" bg="#dbeafe">{ui.pillOnDevice}</Pill>
-              <Pill fg="#6b21a8" bg="#f3e8ff">{ui.pillOffline}</Pill>
+              {pills.includes("onDevice") && <Pill fg="#1e40af" bg="#dbeafe">{ui.pillOnDevice}</Pill>}
+              {pills.includes("offline") && <Pill fg="#6b21a8" bg="#f3e8ff">{ui.pillOffline}</Pill>}
             </Pills>
             <H1>{app.h1}</H1>
           </div>
@@ -310,6 +367,13 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
             <PlaySoon>{ui.playSoon}</PlaySoon>
           )}
         </Stores>
+        <DemoVideo
+          slug={app.slug}
+          name={app.name}
+          poster={app.videoPoster || (app.screenshots[0] && app.screenshots[0].src) || `/apps/${app.iconBase}-logo.png`}
+          caption={ui.demoCaption}
+        />
+        {alternates.length > 1 && (
         <LangBar aria-label={ui.language}>
           <span>{ui.language}</span>
           {alternates.map((l) => (
@@ -318,6 +382,7 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
             </Link>
           ))}
         </LangBar>
+        )}
         <Facts>
           {app.quickFacts.map(([k, v]) => (
             <div key={k}>
@@ -434,10 +499,14 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
 
         <Disclaimer>{app.disclaimer}</Disclaimer>
         <LegalLinks>
-          <Link href={`/apps/${app.slug}/privacy`}>{ui.privacy}</Link>
-          {" · "}
-          <Link href={`/apps/${app.slug}/support`}>{ui.support}</Link>
-          {" · "}
+          {!app.noLegalPages && (
+            <>
+              <Link href={`/apps/${app.slug}/privacy`}>{ui.privacy}</Link>
+              {" · "}
+              <Link href={`/apps/${app.slug}/support`}>{ui.support}</Link>
+              {" · "}
+            </>
+          )}
           <Link href="/apps">{ui.allApps}</Link>
         </LegalLinks>
       </Wrap>

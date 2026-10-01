@@ -7,9 +7,9 @@ export default {
     iconBase: "electrician-calculator",
     name: "Electrician Calculator Toolkit",
     alternateNames: ["voltage drop calculator", "wire size calculator", "conduit fill calculator", "box fill calculator", "NEC calculator app"],
-    appStoreId: "",
-    appStoreUrl: "",
-    live: false,
+    appStoreId: "6815115471",
+    appStoreUrl: "https://apps.apple.com/us/app/electrician-calculator-toolkit/id6815115471",
+    live: true,
     price: { amount: "3.99", label: "One-time purchase" },
     color: "#D98A00",
     category: "UtilitiesApplication",
@@ -101,9 +101,9 @@ export default {
     iconBase: "warranty-tracker",
     name: "Warranty Tracker & Receipt Log",
     alternateNames: ["warranty tracker app", "receipt keeper", "warranty reminder app", "warranty organizer", "receipt organizer offline"],
-    appStoreId: "",
-    appStoreUrl: "",
-    live: false,
+    appStoreId: "6815122657",
+    appStoreUrl: "https://apps.apple.com/us/app/warranty-tracker-receipt-log/id6815122657",
+    live: true,
     price: { amount: "0.99", label: "One-time purchase" },
     color: "#0B9A6A",
     category: "UtilitiesApplication",
@@ -380,5 +380,95 @@ export default {
     ],
     disclaimer:
       "Caffeine Tracker: Curfew uses a simple half-life model and average caffeine contents. It is not a medical device and not medical advice; consult a professional about caffeine and your health.",
+  },
+  // MileGlass (2023) is English-only: no /<lang>/apps/mileglass pages.
+  // Copy below is limited to what the App Store listing states.
+  mileglass: {
+    slug: "mileglass",
+    iconBase: "mileglass",
+    name: "MileGlass",
+    alternateNames: ["MileGlass: Location Alarm", "location alarm app", "destination alarm", "wake me up before my stop"],
+    appStoreId: "6450636387",
+    appStoreUrl: "https://apps.apple.com/us/app/mileglass/id6450636387",
+    // Play listing not public yet (USER TODO): add playUrl once it is published.
+    live: true,
+    enOnly: true,
+    noLegalPages: true,
+    pills: [],
+    operatingSystem: "iOS 11.0 or later",
+    datePublished: "2023-06-24",
+    price: { amount: "0", label: "Free" },
+    color: "#2563EB",
+    category: "TravelApplication",
+    head: {
+      title: "MileGlass: Location Alarm for iPhone that Rings Before Your Stop",
+      description:
+        "MileGlass is a free iPhone location alarm: pick your destination on the map, choose how many kilometres or miles before it you want to be alerted, and stop watching for your stop.",
+      keywords:
+        "location alarm, location based alarm, destination alarm, gps alarm iphone, wake me up at my stop, bus stop alarm, train stop alarm, distance alarm",
+      ogTitle: "MileGlass: a location alarm that rings before your stop",
+    },
+    h1: "A location alarm that rings before you reach your stop",
+    answer:
+      "MileGlass sets an alarm by place instead of time. Search your destination on the map, enter how many kilometres or miles before it the alarm should ring, and tap Set Alarm. When you get that close, a notification goes off, so you can stop checking the map on a bus, a train or a drive through a new city. Free on iPhone.",
+    quickFacts: [
+      ["Price", "Free"],
+      ["Alarm", "One active location alarm at a time"],
+      ["Distance", "Kilometres or miles before the destination"],
+      ["Requires", "iPhone, location access (GPS)"],
+    ],
+    screenshotsTitle: "Pick the place, pick the distance, set the alarm",
+    screenshots: [
+      { src: "/apps/mileglass/01.webp", alt: "MileGlass map search for choosing a destination", caption: "Choose your destination" },
+      { src: "/apps/mileglass/02.webp", alt: "MileGlass distance setting in kilometres or miles before the destination", caption: "Choose the distance" },
+      { src: "/apps/mileglass/03.webp", alt: "MileGlass alarm set for the chosen destination", caption: "Set the alarm" },
+    ],
+    howTo: {
+      title: "How to set a location alarm on iPhone with MileGlass",
+      intro: "Four steps, and you can put the phone away.",
+      steps: [
+        { name: "Choose your destination", text: "Search for the place on the map." },
+        { name: "Choose your distance", text: "Enter how many kilometres or miles before the destination you want the alarm to ring." },
+        { name: "Set the alarm", text: "Tap Set Alarm to activate it. One alarm is active at a time." },
+        { name: "Turn it off", text: "When the alarm goes off, touch the notification to turn it off." },
+      ],
+    },
+    featuresTitle: "What it does",
+    features: [
+      { icon: "📍", title: "Alarm by place, not time", text: "Rings when you are a set distance from where you are going, however late the bus is." },
+      { icon: "📏", title: "Kilometres or miles", text: "Choose the distance before the destination in the unit you think in." },
+      { icon: "🛰️", title: "Uses your phone's GPS", text: "Location tracking comes from the device's own location services." },
+      { icon: "🔔", title: "One tap to stop", text: "Touch the notification to turn the alarm off." },
+    ],
+    intentsTitle: "Questions this app answers",
+    intents: [
+      { h: "How do I get an alarm when I am close to my stop?", p: "Set a location alarm instead of a time alarm. In MileGlass you pick the stop on the map and the distance before it, and the alarm rings when you get that close." },
+      { h: "Can I nap on the train without missing my station?", p: "That is the use case MileGlass was built for: set the alarm a comfortable distance before the station so you have time to wake up and get ready. Keep location access enabled for the app and the phone charged." },
+    ],
+    compare: {
+      title: "MileGlass vs a normal time alarm",
+      intro: "A time alarm guesses when you will arrive. A location alarm knows.",
+      columns: ["", "MileGlass", "Time alarm"],
+      rows: [
+        ["Rings based on where you are", "✓", "✗"],
+        ["Works when the bus or train is late", "✓", "✗"],
+        ["Needs location access", "Yes", "No"],
+        ["Price", "Free", "Free"],
+      ],
+    },
+    faqs: [
+      { q: "Is MileGlass free?", a: "Yes, it is free on the App Store." },
+      { q: "Can I set more than one alarm?", a: "One alarm is active at a time, which keeps it simple: set it for the stop you are heading to now." },
+      { q: "Does it need location access?", a: "Yes. A location alarm has to know where you are, so MileGlass uses your iPhone's location services (GPS)." },
+      { q: "Is there an Android version?", a: "Not on Google Play yet. This page will link to it when it is published." },
+    ],
+    guides: [],
+    related: [
+      { name: "Warranty Tracker & Receipt Log", href: "/apps/warranty-tracker", blurb: "Receipt photos, warranty countdowns and reminders before they expire. Offline." },
+      { name: "Unit Price Calculator & Tax", href: "/apps/unit-price-calculator", blurb: "Which pack is cheaper per kg or litre, discounts, tax and bill splitting." },
+      { name: "Teleprompter: Camera Overlay", href: "/apps/teleprompter-camera-overlay", blurb: "A free teleprompter that floats your script over the camera." },
+    ],
+    disclaimer:
+      "MileGlass depends on your device's location services and notifications being enabled. GPS accuracy varies with signal; set the alarm distance with some margin and do not rely on it as your only safeguard.",
   },
 };

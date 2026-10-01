@@ -19,6 +19,8 @@ import {
   HREFLANG_LINKS,
   LanguageSwitcher,
 } from "../../components/teleprompterI18n";
+import { DemoVideo } from "../../components/appLanding";
+import { PERSON_REF } from "../../lib/person";
 
 const URL = "https://www.vilvaathiban.com/apps/teleprompter-camera-overlay";
 const APP_STORE_URL =
@@ -164,7 +166,7 @@ const TeleprompterPage = () => (
     <JsonLd
       data={{
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
+        "@type": ["SoftwareApplication", "MobileApplication"],
         name: "Teleprompter: Camera Overlay",
         operatingSystem: "iOS",
         applicationCategory: "MultimediaApplication",
@@ -175,11 +177,10 @@ const TeleprompterPage = () => (
           price: "0",
           priceCurrency: "EUR",
         },
-        author: {
-          "@type": "Person",
-          name: "Vilva Athiban P B",
-          url: "https://www.vilvaathiban.com",
-        },
+        author: PERSON_REF,
+        downloadUrl: APP_STORE_URL,
+        installUrl: APP_STORE_URL,
+        sameAs: [APP_STORE_URL],
         url: URL,
         image: "https://www.vilvaathiban.com/apps/teleprompter-icon.png",
       }}
@@ -220,6 +221,12 @@ const TeleprompterPage = () => (
       <StoreBadge href={APP_STORE_URL} aria-label="Download on the App Store">
         <img src="/apps/app-store-badge.svg" alt="Download on the App Store" />
       </StoreBadge>
+      <DemoVideo
+        slug="teleprompter-camera-overlay"
+        name="Teleprompter: Camera Overlay"
+        poster="/apps/teleprompter-logo.png"
+        caption="15-second demo"
+      />
 
       <Section>
         <h2>A genuinely free teleprompter — read your script and look into the lens at the same time</h2>

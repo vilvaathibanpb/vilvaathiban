@@ -74,10 +74,47 @@ const Legal = styled.div`
   a:hover { color: #ffffff; }
 `;
 
+// "More from Vilva": identical cross-link block on all 8 domains (this site
+// omits its own /apps entry). Plain links, same tab, UTM-tagged.
+const UTM = "utm_source=vilvaathiban.com&utm_medium=footer&utm_campaign=crosslink";
+const withUtm = (url) => `${url}${url.includes("?") ? "&" : "?"}${UTM}`;
+const MORE = [
+  { name: "AI Done Now", blurb: "Mac notifier for Claude Code, Cursor, Codex & Gemini", url: "https://aidonenow.com" },
+  { name: "NotchFit", blurb: "Notch workouts while Claude codes", url: "https://aidonenow.com/notchfit" },
+  { name: "VibeLock", blurb: "Lock your Mac, keep the terminal visible", url: "https://vibelock.site" },
+  { name: "FinalSaying", blurb: "Messages delivered after you're gone", url: "https://finalsaying.com" },
+  { name: "SafeRoutes", blurb: "Safe flight routes around closed airspace", url: "https://saferoutes.online" },
+  { name: "Hodolist", blurb: "City guides & Germany visa help", url: "https://hodolist.com" },
+  { name: "CountingUS", blurb: "Days-together counter with a QR surprise", url: "https://countingus.com" },
+];
+
+const More = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0 0 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px 24px;
+  width: 100%;
+  text-align: left;
+  font-size: 13px;
+  color: #94a3b8;
+  a { color: #fafaf7; font-weight: 600; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+`;
+
 export default function Footer() {
   return (
     <Box>
       <Inner>
+        <Title>More from Vilva</Title>
+        <More>
+          {MORE.map((m) => (
+            <li key={m.name}>
+              <a href={withUtm(m.url)}>{m.name}</a> — {m.blurb}
+            </li>
+          ))}
+        </More>
         <Title>Get in touch</Title>
         <Links>
           {Object.keys(socials).map((key) => (
