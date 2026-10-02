@@ -1,0 +1,78 @@
+{
+  "lastRefreshed": "2026-10-02",
+  "ios": [
+    {
+      "name": "Good Behavior Police Call",
+      "storeUrl": "https://apps.apple.com/us/app/good-behavior-police-call/id6815485255",
+      "landingPath": null
+    },
+    {
+      "name": "Warranty Tracker & Receipt Log",
+      "storeUrl": "https://apps.apple.com/us/app/warranty-tracker-receipt-log/id6815122657",
+      "landingPath": "/apps/warranty-tracker"
+    },
+    {
+      "name": "Electrician Calculator Toolkit",
+      "storeUrl": "https://apps.apple.com/us/app/electrician-calculator-toolkit/id6815115471",
+      "landingPath": "/apps/electrician-calculator"
+    },
+    {
+      "name": "Chat Export Studio: PDF",
+      "storeUrl": "https://apps.apple.com/us/app/chat-export-studio-pdf/id6810375389",
+      "landingPath": "/apps/chat-export-studio"
+    },
+    {
+      "name": "Chat Link & QR Code Maker",
+      "storeUrl": "https://apps.apple.com/us/app/chat-link-qr-code-maker/id6810372979",
+      "landingPath": "/apps/chat-link-qr-code-maker"
+    },
+    {
+      "name": "Opus to MP3 Converter",
+      "storeUrl": "https://apps.apple.com/us/app/opus-to-mp3-converter/id6810373840",
+      "landingPath": "/apps/voice-note-audio-converter"
+    },
+    {
+      "name": "Voice Note to Text: Offline",
+      "storeUrl": "https://apps.apple.com/us/app/voice-note-to-text-offline/id6810376600",
+      "landingPath": "/apps/voice-note-to-text"
+    },
+    {
+      "name": "Teleprompter: Camera Overlay",
+      "storeUrl": "https://apps.apple.com/us/app/teleprompter-camera-overlay/id6805037497",
+      "landingPath": "/apps/teleprompter-camera-overlay",
+      "excluded": true
+    },
+    {
+      "name": "MileGlass",
+      "storeUrl": "https://apps.apple.com/us/app/mileglass/id6450636387",
+      "landingPath": null
+    }
+  ],
+  "android": [
+    {
+      "name": "Expiry Date Tracker: Scanner",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.vilva.expirytracker",
+      "landingPath": null
+    },
+    {
+      "name": "Opus to MP3 Converter: Voice",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.vilva.waaudioconverter",
+      "landingPath": "/apps/voice-note-audio-converter"
+    },
+    {
+      "name": "Chat Export Studio: PDF",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.vilva.wachatexport",
+      "landingPath": "/apps/chat-export-studio"
+    },
+    {
+      "name": "Voice Note to Text: Offline",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.vilva.wavoicetotext",
+      "landingPath": "/apps/voice-note-to-text"
+    },
+    {
+      "name": "Chat Link & QR Code Maker",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.vilva.watools",
+      "landingPath": "/apps/chat-link-qr-code-maker"
+    }
+  ]
+}

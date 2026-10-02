@@ -2626,4 +2626,395 @@ export const appPosts = [
       },
     ],
   },
+  {
+    "slug": "ideal-script-length-for-a-60-second-video",
+    "title": "The Ideal Script Length for a 60-Second Video: How Many Words Really Fit (With a Worksheet)",
+    "description": "How many words fit in a 60-second video, why most scripts run long, a two-minute way to measure your own pace, and word budgets for 15, 30, 60 and 90-second clips.",
+    "datePublished": "2026-10-02",
+    "readingMinutes": 7,
+    "content": [
+      {
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Ask ten creators how many words fit in a 60-second video and you will hear \"about 150\" from most of them. It is a reasonable number for a newsreader. For a talking-head clip with a hook, a pause, a point you want to land and an ending that does not feel chopped off, it is almost always too many. This post gives you a way to find *your* number in two minutes, the budgets I would start from for each clip length, and the editing moves that get a script down to size without making it sound thin."
+          },
+          {
+            "type": "p",
+            "text": "It follows on from [how to sound natural while reading from a teleprompter](/blog/how-to-sound-natural-reading-a-teleprompter): the drills there assume a script that fits. This is how you make one that does."
+          }
+        ]
+      },
+      {
+        "heading": "Why \"150 words a minute\" is the wrong starting point",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "The figure comes from measuring continuous, fluent speech: audiobook narrators, broadcasters, people reading prepared text with no interruptions. A short video is nothing like that. It has a hook you want to slow down for, at least one pause where the viewer is meant to think, a line you emphasise by stretching it, and a last sentence that needs air after it. Every one of those costs seconds and buys no words."
+          },
+          {
+            "type": "p",
+            "text": "There is a second effect. People reading from a prompter speed up when the text gets dense, because the eye is pulling them forward. That reads as nervous, and it is the usual reason a take \"fits\" in 58 seconds but feels rushed. A script that fits comfortably is one you could deliver at a relaxed pace with room to spare."
+          },
+          {
+            "type": "p",
+            "text": "So instead of a universal number, you need two of your own: your relaxed talking pace in words per minute, and the number of seconds your clip spends *not* talking."
+          }
+        ]
+      },
+      {
+        "heading": "Measure your own pace in two minutes",
+        "blocks": [
+          {
+            "type": "list",
+            "items": [
+              "Paste any paragraph of roughly 100 words into your teleprompter. Use something conversational, not a legal notice.",
+              "Record one take reading it the way you would to a friend across a table, pausing where the full stops are. Do not try to be quick.",
+              "Note the length of the take. Divide 100 by the seconds and multiply by 60. That is your relaxed pace in words per minute.",
+              "Do it once more with voice-driven scrolling on, so the text follows you rather than pushing you. If the second number is lower, that is the honest one."
+            ]
+          },
+          {
+            "type": "p",
+            "text": "In [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay) the voice-follow mode makes this measurement easier because the script never drags you along; it waits when you pause and finds its place again if you stumble, so the take reflects how you actually talk. Most people land somewhere between 120 and 160 words per minute on this test, and the ones who sound best on camera are usually at the lower end."
+          }
+        ]
+      },
+      {
+        "heading": "Now subtract the silence",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Watch three of your own recent videos with a stopwatch and count the seconds you are not speaking: the beat after the hook, the pause before the key line, the half-second before you say the last word, any on-screen text you let people read. Ten to fifteen seconds of a 60-second clip is normal for a good one. If you have never measured, assume twelve."
+          },
+          {
+            "type": "p",
+            "text": "The formula is then simple: **words that fit = (clip seconds minus silent seconds) multiplied by your pace, divided by 60.** For someone at 140 words per minute with twelve seconds of silence in a 60-second clip, that is 48 x 140 / 60 = 112 words. Not 150. For someone at 130 words per minute it is 104."
+          },
+          {
+            "type": "p",
+            "text": "Write the number down and put it at the top of the script document. It is the single most useful thing on the page."
+          }
+        ]
+      },
+      {
+        "heading": "Word budgets by clip length",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "If you do not want to measure yet, these are the budgets I would start from, assuming a relaxed 140 words per minute and the usual proportion of pauses. Treat the upper number as a ceiling, not a target."
+          },
+          {
+            "type": "list",
+            "items": [
+              "**15 seconds:** 25 to 30 words. One claim, one reason, done. There is no room for a greeting.",
+              "**30 seconds:** 55 to 65 words. A hook, one point with one example, a one-line ending.",
+              "**60 seconds:** 100 to 120 words. A hook, two or three points, a short payoff. This is the length most people write 160 words for and then rush.",
+              "**90 seconds:** 160 to 180 words. Enough for a mini-tutorial with a setup, three steps and a result.",
+              "**3 minutes:** 330 to 380 words. Beyond this, structure matters more than word count; read the [online courses and tutorials post](/blog/teleprompter-for-online-courses-and-tutorials) instead."
+            ]
+          },
+          {
+            "type": "p",
+            "text": "Short-form platforms now allow clips far longer than 60 seconds, so nobody is forcing the limit on you. The reason to respect it anyway is retention: the shorter a clip is, the larger the share of viewers who reach the end, and a clip that ends cleanly at 48 seconds beats one that fills 60 with throat-clearing."
+          }
+        ]
+      },
+      {
+        "heading": "Getting a 160-word script down to 110",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Most scripts do not need new ideas removed; they need the padding around the ideas removed. In rough order of how many words each move saves:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "**Delete the greeting and the throat-clearing.** \"Hey everyone, so today I want to talk about\" is nine words that cost you the hook. Start on the claim.",
+              "**Cut the pre-announcement.** \"The first thing you need to know is\" becomes the thing itself.",
+              "**Keep one example per point.** The second example is the one you cut, even if it is funnier. Save it for the next video.",
+              "**Replace a sentence of explanation with a concrete number or name.** \"It is a lot faster\" is vaguer and longer than \"it took four minutes instead of twenty\".",
+              "**Remove hedges.** \"Kind of\", \"basically\", \"I think that\" and \"sort of\" disappear without changing the meaning.",
+              "**End on the point, not on a summary of the point.** If the last sentence restates the previous one, cut the last sentence."
+            ]
+          },
+          {
+            "type": "p",
+            "text": "Read it aloud after each pass. [Writing a script that does not sound written](/blog/write-a-script-that-doesnt-sound-written) covers the sentence-level side of this in more depth, and the two go together: shorter sentences are both easier to say and cheaper in words."
+          }
+        ]
+      },
+      {
+        "heading": "The check before you record",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Put the script in the prompter and record a single relaxed take without watching the clock. If the take is under your target by five seconds or more, you have room to slow the hook down. If it is over by more than five seconds, go back to the list above rather than trying to talk faster; speed is the one fix that makes everything else worse."
+          },
+          {
+            "type": "p",
+            "text": "Keep the takes. The app stores unlimited scripts and a takes library, so the \"too long\" version is still there if you later decide the clip should be a 90-second one. Nothing is uploaded and it works offline, so there is no cost to recording a few variants and picking the best length afterwards."
+          }
+        ]
+      },
+      {
+        "heading": "When to ignore all of this",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Word budgets are for scripted talking-head and tutorial clips. They are the wrong tool for a reaction, a vlog, an interview or anything where the pace is set by what is happening rather than by you. They are also too strict for a story: a well-told 70-second story beats a 60-second one that had its ending trimmed to fit a rule. Use the number to stop yourself over-writing, not as a reason to cut something that works."
+          },
+          {
+            "type": "p",
+            "text": "And if English is not your first language, add ten percent more silence to the calculation. Pauses are where you breathe and plan, and the [second-language recording post](/blog/recording-video-in-a-second-language) explains why slower is better there anyway."
+          },
+          {
+            "type": "p",
+            "text": "Next in this series: using a teleprompter for voiceovers and podcasts, where there is no camera to look at and the whole game changes."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "pretend-police-call-for-kids-bedtime-good-behavior-police-call-iphone",
+    "title": "Good Behavior Police Call: How the Gentle Pretend Police Call for Bedtime, Teeth and Tidy-Up Works on iPhone",
+    "description": "Good Behavior Police Call is a free iPhone app where a gentle, made-up officer rings your child about bedtime, teeth or tidying up. First-call setup, the 13 calls, and when not to use it.",
+    "datePublished": "2026-10-02",
+    "readingMinutes": 7,
+    "content": [
+      {
+        "blocks": [
+          {
+            "type": "p",
+            "text": "There is a well-worn parenting trick that predates smartphones: when the fourth \"pajamas, please\" has failed, a *third party* asking for the same thing often works on the first try. A grandparent on the phone, a favourite teacher, a character from a book. [Good Behavior Police Call](https://apps.apple.com/us/app/good-behavior-police-call/id6815485255) packages that trick into an iPhone app: you pick a moment, hand the phone over, and it rings with a friendly officer from the \"Good Behavior Patrol\" who asks your child for one small thing and promises to check in later."
+          },
+          {
+            "type": "p",
+            "text": "This post is for parents deciding whether it is a fit for their child, and for anyone who installed it and wants to run the first call well. It covers only what the app actually does, including the parts that make it deliberately *not* a scary cop, and ends with the situations where I would not reach for it."
+          }
+        ]
+      },
+      {
+        "heading": "What the call actually looks like",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "The app never places a real phone call. It shows a pretend incoming call inside the app, with ringing, an answer button and a call timer, and an animated officer who talks on screen. You choose between two characters, **Officer Pat** (bright and warm) and **Officer Sam** (calm and steady), and between a video call and a voice call. The officer explains in simple terms why the job matters (sleep helps you grow; \"sugar bugs\" love skipped teeth), asks for one thing, and leaves real pauses so your child can answer out loud."
+          },
+          {
+            "type": "p",
+            "text": "Two design choices do most of the work. First, there are no threats, no sirens and no talk of being in trouble; the officers are explicitly made-up characters with no connection to any police force, and the script is written so the officer is someone the child is pleased to hear from. Second, you get the last word: after the call, you tell your child the officer was proud of them. The app is a nudge, not a replacement for you."
+          }
+        ]
+      },
+      {
+        "heading": "The 13 calls, and which two are free",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "The calls split into gentle nudges and praise. The nudges cover bedtime, brushing teeth, eating dinner, tidying up, being kind to a brother or sister, listening the first time, screens off, getting dressed, buckling up in the car, sharing and taking turns, and calming down (that one includes a breathing exercise). The two praise calls, **Great day** and **Super helper**, ring when things went right, so the officer is not only the voice of chores."
+          },
+          {
+            "type": "p",
+            "text": "**Bedtime** and **Great day** are free forever, which is a sensible pair to start with: one nudge, one high-five. The free version shows a small ad on the menu screens and never during a call. A single one-time purchase unlocks every call, removes the ads and includes any calls added later. There is no subscription and no trial to cancel. The app is iPhone-only and needs iOS 15.1 or later."
+          }
+        ]
+      },
+      {
+        "heading": "Running the first call: a four-step setup",
+        "blocks": [
+          {
+            "type": "list",
+            "items": [
+              "**Read the script first.** Every call's full script is on screen before you ring. Read it once so nothing in it surprises you, and so you can echo the officer's words afterwards (\"the officer said sleep helps you grow, remember?\").",
+              "**Pick the delay, not \"ring now\".** You can ring immediately or in 10 seconds, 30 seconds or a minute. The delay is what makes the hand-over believable: tap Call, pass the phone across, and let it ring in your child's hands. While it waits, the screen dims to a pretend lock screen so there is nothing to poke at.",
+              "**Turn silent mode off and the volume up.** The call plays through the speaker. A silent iPhone is the most common reason \"there is no sound\".",
+              "**Let it be declined once.** If your child taps decline, the officer can try once more. Do not force a third attempt; a child who really does not want the call is telling you something, and the trick only works while it is fun."
+            ]
+          },
+          {
+            "type": "p",
+            "text": "To get out of the call screen, press and hold the clock for about a second and a half. It is deliberately hard to exit by tapping, so a curious child cannot end the call early; grown-ups hold, little fingers tap. If you ever get stuck, that is the gesture."
+          }
+        ]
+      },
+      {
+        "heading": "Video call or voice call?",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Voice is the lower-key option and works well for a child who is already in bed with the lights down. Video is more engaging for a tidy-up or a teeth call, because the animated officer talking on screen holds attention longer. On video calls there is an optional self-view in the corner so the child sees themselves the way a real video call shows you; it is displayed live and is never recorded or saved."
+          },
+          {
+            "type": "p",
+            "text": "Whichever you pick, keep the phone in the child's hands rather than propped up. The call is more convincing when they hold it, and the praise calls especially land better when it is \"their\" phone call."
+          }
+        ]
+      },
+      {
+        "heading": "Nine languages, and the language setting",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Every call is fully voiced in English, Spanish, French, German, Italian, Portuguese, Hindi, Japanese and Chinese. The app follows your iPhone's language by default, and you can pick a different one in Settings, which is useful in bilingual homes where the bedtime language is not the phone language. Because the calls are stored on the phone, switching language does not need a download."
+          }
+        ]
+      },
+      {
+        "heading": "What it does with your data",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "There are no accounts and no sign-up. The calls live on the phone and work offline, nothing is uploaded, and the app never dials a real number. Ads in the free version are non-personalised. If you buy the unlock and the calls still show as locked on another device, open Settings and tap *Restore an earlier purchase* while online and signed in with the Apple Account that bought it. The [support page](/apps/police-call/support) lists the other common fixes."
+          }
+        ]
+      },
+      {
+        "heading": "When not to use it",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "A pretend authority figure is a tool with a short shelf life and a few sharp edges, so some honest limits:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "**Not every night.** Used daily it becomes background noise within a week or two. Keep it for the evenings that have already gone sideways, and lean on the praise calls so the officer is not purely a chore enforcer.",
+              "**Not for a child who is frightened of police.** The script is gentle, but if your child has a fear of police or of \"getting in trouble\", the format itself is the problem. Skip it rather than hoping the warm voice wins.",
+              "**Not as a threat.** \"If you don't, the police will call\" undoes the whole design. The call is a friendly check-in that happens to arrive at a useful moment; present it that way.",
+              "**Not past the age where it works.** Roughly, it fits the years when a child still finds a phone call exciting and takes a character at face value. An eight-year-old who asks how the officer knew about the pajamas is ready for a different approach, and that is a good sign, not a failure."
+            ]
+          },
+          {
+            "type": "p",
+            "text": "Used sparingly and followed by your own \"the officer was proud of you\", it is a small, cheap way to turn a stand-off into a game. If that sounds like your household this week, the free Bedtime and Great day calls are enough to find out."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "expiry-date-tracker-android-setup-barcode-reminders",
+    "title": "Expiry Date Tracker for Android: A 10-Minute Setup So Food, Medicine and Cosmetics Stop Expiring Unnoticed",
+    "description": "Set up Expiry Date Tracker: Scanner on Android in ten minutes: barcode scanning, date chips, reminder timing, the permissions that make reminders arrive, and what to track beyond food.",
+    "datePublished": "2026-10-02",
+    "readingMinutes": 7,
+    "content": [
+      {
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Most expiry-tracking apps on Android lose you at the door: create an account, then discover you can add twelve items before the subscription prompt. [Expiry Date Tracker: Scanner](https://play.google.com/store/apps/details?id=com.vilva.expirytracker) takes the opposite position. No account, no sign-up, no item limit, your list stays on the phone, and it reminds you before the date rather than after. It is free with a single small banner and a one-time purchase to remove it; there is no subscription."
+          },
+          {
+            "type": "p",
+            "text": "This is the setup I would do in the first ten minutes, written for Android specifically, because the step people skip (notification and alarm permissions) is the one that decides whether the reminders ever show up."
+          }
+        ]
+      },
+      {
+        "heading": "Minute 1 to 3: the first scan",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Open the app and point the camera at the barcode on anything in the fridge. The product name fills itself in from the free Open Food Facts database, which receives the barcode number and nothing else. Then pick the expiry date. Instead of a calendar, the app offers quick date chips: one week, two weeks, one month, three months, six months and a year. Tap the chip closest to the printed date, adjust if needed, save."
+          },
+          {
+            "type": "p",
+            "text": "Two things are worth knowing about the lookup. Household and medicine barcodes are often missing from Open Food Facts, and the lookup is skipped entirely when you are offline. When the name does not fill in, just type it; the app remembers your own history, so the second time you scan that barcode the name comes back instantly from your phone, no database needed. That is also why the app gets quicker the longer you use it."
+          },
+          {
+            "type": "p",
+            "text": "No barcode at all, like a bag of flour decanted into a jar, or a loaf from the bakery? Type the name. Entry takes seconds either way."
+          }
+        ]
+      },
+      {
+        "heading": "Minute 4 to 5: decide when you want to be warned",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Open Settings (the gear icon) and set two things: how many days ahead you want warning, and the hour the reminder should arrive. You get a nudge before the date and again on the day itself. Pick the hour you are actually near the kitchen, early evening for most households, rather than first thing in the morning when the notification gets swiped away with the rest."
+          },
+          {
+            "type": "p",
+            "text": "One detail that catches people: changing either setting only affects items you add or edit afterwards. If you tweak the hour a week in, re-save older items (open, save) to move their reminders. Reminders are scheduled on the phone itself, so they fire with no signal and without the app being open."
+          }
+        ]
+      },
+      {
+        "heading": "Minute 6 to 8: the Android permissions that make or break it",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "This is the part specific to Android, and the single most common support question. For a reminder to arrive on time, the app needs two permissions, not one:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "**Notifications:** Settings → Apps → Expiry Tracker → Notifications, switched on.",
+              "**Alarms and reminders (Android 12 and later):** Settings → Apps → Special app access → Alarms and reminders, and allow the app. Without this, Android treats the reminder as low priority and may deliver it late."
+            ]
+          },
+          {
+            "type": "p",
+            "text": "Then there is battery optimisation. Some manufacturers, notably Xiaomi, Oppo, Vivo and Samsung, aggressively stop background apps and will delay or drop scheduled alarms from any app that is not whitelisted. Find the app in your phone's battery settings and allow it to run in the background (the wording varies: \"Unrestricted\", \"No restrictions\", \"Don't optimise\"). If reminders have been arriving hours late, this is almost always why."
+          },
+          {
+            "type": "p",
+            "text": "Test it before trusting it: add a throwaway item with a one-week chip, set the warning to seven days ahead, and check that the notification lands at the chosen hour."
+          }
+        ]
+      },
+      {
+        "heading": "Minute 9 to 10: the rest of the kitchen, then everything else",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Do the fridge door first, then the freezer, then whatever in the pantry has a date you cannot read without glasses. Use the location chips (fridge, freezer, pantry) so the list tells you where to look. The list itself groups everything into **expired**, **expiring today**, **this week** and **later**, so whatever needs attention is at the top. When something is gone, mark it used with one tap."
+          },
+          {
+            "type": "p",
+            "text": "Nothing in the app is food-specific, and the second wave of items is where it starts earning its place:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "**Medicine and first-aid supplies:** children's paracetamol, antihistamines, the plasters in the car. Use the location chips for these too.",
+              "**Cosmetics and sunscreen:** sunscreen in particular loses effectiveness after its date, and the bottle from last summer is the one everyone grabs.",
+              "**Contact lens solution** and anything else that goes in or near your eyes.",
+              "**Documents and renewals:** passport, insurance, a warranty, a domain. Use the note field for the reference number so the reminder is actionable on its own."
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "Where the data lives, and moving to a new phone",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Your items are stored in a database on the device. There is no account, no cloud and no server, and the app works fully offline; the only optional network call is that barcode lookup. The flip side is that there is no sync between phones. When you change phone, the list is included in an Android or Google device backup if backups are enabled, and restores with the rest of your apps. If you share a kitchen, one phone has to be the kitchen phone, or both of you scan what you bring home."
+          },
+          {
+            "type": "p",
+            "text": "The app is available in fifteen languages (Settings → Language; it follows the phone language by default), and if you bought the ad removal and the banner is still there, Settings → Restore purchase while signed in with the same Google account fixes it. The [support page](/apps/expiry-date-tracker/support) has the rest."
+          }
+        ]
+      },
+      {
+        "heading": "Is it worth the ten minutes?",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Honest answer: only if you keep scanning. The app does nothing for items you never add, and the first week is the hard part because everything in the kitchen needs entering at once. The trick that works is to scan at the point of unpacking the shopping, one barcode at a time while things go into the fridge. After that it is thirty seconds a shop. If you are someone who already checks dates and plans meals around them, you will not need it. If you have found a sour yoghurt behind the milk twice this month, you will."
+          },
+          {
+            "type": "p",
+            "text": "Set the two permissions, test one reminder, and let the list do the remembering."
+          }
+        ]
+      }
+    ]
+  },
 ];

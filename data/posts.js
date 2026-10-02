@@ -5944,6 +5944,197 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  {
+    "slug": "react-viewtransition-stable-react-19-3-upgrade-guide",
+    "title": "React ViewTransition Is Stable in 19.3: Dropping unstable_, the Final API, and the Rules That Trip People Up",
+    "description": "React 19.3 makes ViewTransition a stable export. How to drop unstable_, the final props, addTransitionType, Suspense integration and the rules that silently disable animations.",
+    "datePublished": "2026-10-02",
+    "readingMinutes": 9,
+    "content": [
+      {
+        "blocks": [
+          {
+            "type": "p",
+            "text": "React 19.3 shipped on 9 September 2026 and it finally promotes `<ViewTransition>` from the experimental channel to a stable export of `react`. If you followed the earlier [React ViewTransition and Activity guide](/blog/react-viewtransition-activity-guide) on this site, you were importing `unstable_ViewTransition` from a canary build and accepting that details might change. They did change a little, and the surrounding rules got clearer. This post is the upgrade guide: what to rename, what the final API looks like, and the handful of rules that decide whether your animation runs at all."
+          },
+          {
+            "type": "p",
+            "text": "It assumes you know roughly what the browser View Transitions API does (snapshot old state, snapshot new state, animate between the two). If you do not, the earlier guide covers that in its first section."
+          }
+        ]
+      },
+      {
+        "heading": "Step 1: upgrade and drop the unstable_ prefix",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Install `react@19.3` and `react-dom@19.3`. The experimental names were `unstable_ViewTransition` and `unstable_addTransitionType`; the stable ones are simply `ViewTransition` and `addTransitionType`, both exported from `react`. If you aliased the imports the way the React Labs posts suggested, the change is one line per file:"
+          },
+          {
+            "type": "code",
+            "language": "jsx",
+            "code": "// Before (experimental / canary channel)\nimport {\n  unstable_ViewTransition as ViewTransition,\n  unstable_addTransitionType as addTransitionType,\n} from \"react\";\n\n// After (React 19.3)\nimport { ViewTransition, addTransitionType } from \"react\";"
+          },
+          {
+            "type": "p",
+            "text": "You no longer need the `experimental` or `canary` dist tags for this feature. The 19.3 release also fixes two crashes that experimental users ran into, one in Mobile Safari and one when `<ViewTransition>` wrapped a `SuspenseList`, so if you had worked around either of those you can remove the workaround after upgrading."
+          },
+          {
+            "type": "p",
+            "text": "Two things did **not** become stable alongside it: there is still no React Native support (the component is DOM-only for now), and there is no polyfill. In a browser without the View Transitions API the component simply renders its children with no animation, which is the right fallback for most apps."
+          }
+        ]
+      },
+      {
+        "heading": "The final API in one screen",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "The component takes a `name`, five animation props, four event callbacks and `children`. Every animation prop accepts the same four shapes: `\"auto\"` (the browser's default cross-fade), `\"none\"` (no animation for that trigger), a class name string, or an object mapping transition types to class names."
+          },
+          {
+            "type": "code",
+            "language": "jsx",
+            "code": "<ViewTransition\n  name=\"hero\"            // only for shared element transitions\n  enter=\"fade-in\"         // this ViewTransition was added\n  exit=\"fade-out\"         // it was removed\n  update=\"auto\"           // its content or layout changed\n  share=\"auto\"            // same name unmounted here, mounted elsewhere\n  default=\"none\"          // fallback for any trigger not listed\n  onEnter={(instance, types) => {}}\n  onExit={(instance, types) => {}}\n  onUpdate={(instance, types) => {}}\n  onShare={(instance, types) => {}}\n>\n  <Page />\n</ViewTransition>"
+          },
+          {
+            "type": "p",
+            "text": "React decides which trigger applies by diffing the tree inside a transition: a `<ViewTransition>` that appears is an **enter**, one that disappears is an **exit**, one whose children mutate (or whose siblings resize it) is an **update**, and a named one that unmounts in one place while mounting in another is a **share**. You never call the browser API yourself."
+          },
+          {
+            "type": "p",
+            "text": "Under the hood React assigns a `view-transition-name` to the nearest DOM node (an auto-generated one unless you pass `name`) and sets the class names you gave it as `view-transition-class` on that node. That is why the class strings are plain CSS classes you style through the view-transition pseudo-elements, not through the element itself:"
+          },
+          {
+            "type": "code",
+            "language": "css",
+            "code": "::view-transition-old(.fade-out) {\n  animation: 180ms ease-in both vt-fade-out;\n}\n::view-transition-new(.fade-in) {\n  animation: 220ms ease-out both vt-fade-in;\n}\n@keyframes vt-fade-out { to { opacity: 0; } }\n@keyframes vt-fade-in { from { opacity: 0; } }"
+          },
+          {
+            "type": "p",
+            "text": "`::view-transition-group(.cls)` and `::view-transition-image-pair(.cls)` work the same way when you need to animate the container rather than the two snapshots."
+          }
+        ]
+      },
+      {
+        "heading": "Rule 1: nothing animates outside a transition",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "This is the rule that catches almost everyone on first use. `<ViewTransition>` only activates for updates React already treats as transitions: state set inside `startTransition`, a `<Suspense>` boundary revealing content, and updates driven by `useDeferredValue`. A plain `setState` in a click handler re-renders synchronously and the component does nothing, by design, because a synchronous update must not be delayed by an animation."
+          },
+          {
+            "type": "code",
+            "language": "jsx",
+            "code": "function Gallery() {\n  const [open, setOpen] = useState(false);\n\n  function toggle() {\n    // setOpen(o => !o);            <- renders, but never animates\n    startTransition(() => setOpen((o) => !o)); // animates\n  }\n\n  return (\n    <>\n      <button onClick={toggle}>Toggle</button>\n      {open && (\n        <ViewTransition enter=\"fade-in\" exit=\"fade-out\">\n          <Panel />\n        </ViewTransition>\n      )}\n    </>\n  );\n}"
+          },
+          {
+            "type": "p",
+            "text": "If you use a router, check that it starts navigations inside a transition. React Router and Next.js app router both do; a hand-rolled `useState`-based router needs the `startTransition` wrapper added by you."
+          }
+        ]
+      },
+      {
+        "heading": "Rule 2: the ViewTransition has to sit directly on the DOM node",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "The docs state it bluntly: a `<ViewTransition>` only activates enter and exit if it is placed *before* any DOM nodes. When a component mounts inside a transition, the thing being inserted is its outermost DOM node. If that node is a plain `<li>` and the boundary sits inside it, the `<li>` appears instantly and the inner boundary never sees an enter. The same applies in reverse for exit. Put the boundary at the top of the component, with no element of your own above it:"
+          },
+          {
+            "type": "code",
+            "language": "jsx",
+            "code": "// Works: nothing sits above the boundary.\nfunction Card({ item }) {\n  return (\n    <ViewTransition enter=\"auto\" exit=\"auto\" default=\"none\">\n      <article className=\"card\">{item.title}</article>\n    </ViewTransition>\n  );\n}\n\n// Broken for enter/exit: the <li> is above the boundary,\n// so the row pops in and out with no animation.\nfunction Row({ item }) {\n  return (\n    <li>\n      <ViewTransition enter=\"auto\" exit=\"auto\" default=\"none\">\n        <Card item={item} />\n      </ViewTransition>\n    </li>\n  );\n}"
+          },
+          {
+            "type": "p",
+            "text": "React applies `view-transition-name` to the nearest DOM node (or nodes) inside the boundary, and it does so lazily, only when that boundary is about to take part in an animation, so you will not see the inline style in DevTools at rest. Note the `default=\"none\"` in the examples: once `default` is `\"none\"`, every trigger you did not list explicitly is switched off, which is the cleanest way to say \"animate enter and exit, leave updates alone\"."
+          }
+        ]
+      },
+      {
+        "heading": "addTransitionType: one component, different animations per cause",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "The object form of the animation props is what makes a single `<ViewTransition>` slide left for \"next\" and right for \"previous\". You tag the transition at the call site with `addTransitionType`, inside `startTransition`, and the matching key in the object is used. `\"default\"` is the fallback when none of the keys match."
+          },
+          {
+            "type": "code",
+            "language": "jsx",
+            "code": "import { startTransition, addTransitionType, ViewTransition } from \"react\";\n\nfunction Slides({ slides }) {\n  const [index, setIndex] = useState(0);\n\n  function go(direction) {\n    startTransition(() => {\n      addTransitionType(direction); // \"next\" or \"previous\"\n      setIndex((i) => i + (direction === \"next\" ? 1 : -1));\n    });\n  }\n\n  return (\n    <ViewTransition\n      enter={{ next: \"from-right\", previous: \"from-left\", default: \"auto\" }}\n      exit={{ next: \"to-left\", previous: \"to-right\", default: \"auto\" }}\n    >\n      <Slide key={index} slide={slides[index]} />\n    </ViewTransition>\n  );\n}"
+          },
+          {
+            "type": "p",
+            "text": "New in the stable version, and worth knowing: React also forwards every transition type to the browser as a view transition type. That means you can scope CSS with `:active-view-transition-type(next)` on the root when a whole page should behave differently during a forward navigation, instead of threading class names through every boundary."
+          },
+          {
+            "type": "p",
+            "text": "The callbacks receive the same `types` array as their second argument, which is how you branch inside imperative animations:"
+          },
+          {
+            "type": "code",
+            "language": "jsx",
+            "code": "<ViewTransition\n  onEnter={(instance, types) => {\n    const duration = types.includes(\"fast\") ? 120 : 400;\n    const anim = instance.new.animate(\n      [{ transform: \"scale(0.96)\", opacity: 0 }, { transform: \"none\", opacity: 1 }],\n      { duration, easing: \"ease-out\" }\n    );\n    return () => anim.cancel(); // cleanup when the transition ends or is interrupted\n  }}\n>\n  <Dialog />\n</ViewTransition>"
+          },
+          {
+            "type": "p",
+            "text": "`instance` exposes the pseudo-elements (`old`, `new`, `group`, `imagePair`) plus the resolved `name`, so you can hand them straight to the Web Animations API. Only one callback fires per transition for a given boundary, and `onShare` wins over `onEnter`/`onExit` when both would apply."
+          }
+        ]
+      },
+      {
+        "heading": "Suspense integration, and the 500 ms you did not know about",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Wrapping a `<Suspense>` boundary in a `<ViewTransition update=\"auto\" default=\"none\">` gives you an animated reveal from fallback to content without any extra state. When the data resolves, React treats the swap as an **update** of the boundary and runs the update animation."
+          },
+          {
+            "type": "code",
+            "language": "jsx",
+            "code": "<ViewTransition update=\"auto\" default=\"none\">\n  <Suspense fallback={<Skeleton />}>\n    <Profile id={id} />\n  </Suspense>\n</ViewTransition>"
+          },
+          {
+            "type": "p",
+            "text": "There is a detail here that explains some \"why is my transition slow\" reports. Before taking the new snapshot, React waits for images and fonts inside the boundary to load, up to about 500 ms, so the animation does not land on a half-rendered frame and flicker. That is usually what you want. If your content includes a slow hero image, either give it explicit dimensions so layout is final before it loads, or exclude it from the boundary."
+          }
+        ]
+      },
+      {
+        "heading": "Caveats that are still your job",
+        "blocks": [
+          {
+            "type": "list",
+            "items": [
+              "**Reduced motion is not handled for you.** React does not check `prefers-reduced-motion`. Add a global rule such as `@media (prefers-reduced-motion: reduce) { ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; } }` or you will ship motion to people who asked for none.",
+              "**Shared names must be unique at any moment.** Two mounted `<ViewTransition name=\"item\">` boundaries are an error; derive names from stable ids (`\"item-\" + id`).",
+              "**List reorders need keys on the boundary.** Put `key={item.id}` on the `<ViewTransition>` (or the element it wraps) so React can pair old and new positions. Items outside the viewport are not animated.",
+              "**Back-button navigations may skip the animation.** Transitions started from a legacy `popstate` event are not animated. If your router still listens to `popstate`, the [Navigation API guide](/blog/navigation-api-practical-guide) explains the modern replacement that makes back/forward animate too.",
+              "**Browser support is the browser's, not React's.** Same-document view transitions are in Chrome and Edge since 111, Safari since 18, and Firefox since 144 (October 2025). Older browsers get an instant swap, which is fine, but do not design flows that only make sense with the animation."
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "Should you migrate existing animation code?",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "If you use an animation library purely for enter/exit of routes, panels and list items, `<ViewTransition>` can replace it with less code and no JavaScript on the main thread during the animation. If you rely on physics-based gestures, interruptible springs or animations driven by scroll position, keep the library; view transitions are snapshot cross-fades with CSS keyframes on top, and they cannot follow a finger mid-gesture (React's gesture-driven swipe transitions are still experimental and not part of 19.3)."
+          },
+          {
+            "type": "p",
+            "text": "A sensible migration order: routes first (biggest visual win, lowest risk), then modal and drawer enter/exit, then shared-element thumbnails to detail pages, and only then lists. At each step verify the four things above: the update is in a transition, the boundary wraps the DOM node directly, names are unique, and reduced motion is respected."
+          },
+          {
+            "type": "p",
+            "text": "The rest of React 19.3 is worth a look while you are upgrading: Fragment refs are stable (a ref on `<Fragment>` gives you a `FragmentInstance` with `focus`, `addEventListener`, `observeUsing` and `scrollIntoView` across the fragment's children), `use(browser())` from `react-dom` is a first-class way to opt a component out of server rendering, and Server Components can now render a `<Context>` provider directly. None of those change how `<ViewTransition>` works, but the Fragment ref in particular pairs nicely with it when you need to measure a group of animated siblings."
+          }
+        ]
+      }
+    ]
+  },
   ...appPosts,
 ];
 
