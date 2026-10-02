@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
+import { PERSON } from "../lib/person";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -36,7 +37,12 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang={this.props.lang} dir={this.props.dir}>
-        <Head />
+        <Head>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON) }}
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />

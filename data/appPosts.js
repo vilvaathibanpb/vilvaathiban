@@ -2395,5 +2395,94 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "convert-opus-to-mp3-iphone-android",
+    title: "How to Convert .opus to MP3 on iPhone (and Android): Free Methods First",
+    description:
+      "An .opus file will not open in most players, editors or car stereos. Here are the free ways to convert it to MP3 on iPhone, Android and a computer, which one to pick, and the mistakes that waste time.",
+    datePublished: "2026-10-02",
+    dateModified: "2026-10-02",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          { type: "p", text: "You have a file ending in `.opus` (very often a WhatsApp voice note called something like `PTT-20261001-WA0004.opus`) and you need it as an MP3: to play it in the car, attach it to an email, drop it into an editor, or send it to someone whose phone will not open it. This guide lists the free methods first, in the order I would try them, and only mentions an app at the end." },
+          { type: "p", text: "**Short answer:** on an iPhone, open the [free browser converter](/tools/opus-to-mp3) in Safari, add the file, choose MP3, download. On a computer, VLC or one `ffmpeg` command does it for free. On Android, check whether your player already opens .opus before converting anything." },
+        ],
+      },
+      {
+        heading: "What an .opus file is, and why it will not play",
+        blocks: [
+          { type: "p", text: "Opus is an audio codec designed for speech and low bitrates. It sounds better than MP3 at the tiny sizes a voice message uses, which is why chat apps record in it. The file is usually Opus audio inside an Ogg container, and you may see it named `.opus`, `.ogg` or `.oga`." },
+          { type: "p", text: "The catch is support. MP3 has been everywhere for decades; Opus has not. The iPhone Files app treats an .opus file as a generic document, and many editors, car stereos and older players refuse it. Converting to MP3 trades a slightly larger file for something that opens everywhere." },
+          { type: "p", text: "One thing that does **not** work: renaming the file to `.mp3`. That changes the label, not the audio inside, and a player that checks the contents will still refuse it." },
+        ],
+      },
+      {
+        heading: "Step 0 on iPhone: get the file out of WhatsApp",
+        blocks: [
+          { type: "list", items: [
+            "Open the chat and **long-press the voice message**.",
+            "Tap **Forward**, then the **Share** icon at the bottom.",
+            "Choose **Save to Files** and pick a folder you can find again, such as On My iPhone → Downloads.",
+          ] },
+          { type: "p", text: "Need every voice note from one chat? Open the chat, tap the contact or group name, choose **Export Chat → Attach Media**. The .zip contains each voice note as its own .opus file; tap the .zip in Files to unpack it." },
+        ],
+      },
+      {
+        heading: "Free method 1 (iPhone): convert in Safari, nothing uploaded",
+        blocks: [
+          { type: "p", text: "Open the [Opus to MP3 converter](/tools/opus-to-mp3) in Safari. Tap the drop area, choose **Choose File** (or Browse), pick one or more .opus files from Files, select **MP3**, and convert. Download each MP3 back to Files, or use Download all." },
+          { type: "p", text: "The conversion runs inside the page on your phone. The audio is not uploaded, there is no account and no file limit from a server. It needs a reasonably current iOS: very old versions of Safari cannot decode Opus, and on those the tool will tell you it failed rather than produce a broken file." },
+          { type: "p", text: "Pick **WAV** instead of MP3 if the audio is going into an editor or a transcription tool. WAV is uncompressed, so nothing is lost to a second round of compression." },
+        ],
+      },
+      {
+        heading: "Free method 2 (any computer): VLC",
+        blocks: [
+          { type: "p", text: "If you can move the file to a Mac or PC (AirDrop, iCloud Drive, email it to yourself), VLC converts it for free:" },
+          { type: "list", items: [
+            "Open VLC and choose **File → Convert / Stream** (Mac) or **Media → Convert / Save** (Windows).",
+            "Add the .opus file, choose the **Audio - MP3** profile.",
+            "Choose where to save, give the file a `.mp3` name, and start.",
+          ] },
+        ],
+      },
+      {
+        heading: "Free method 3 (computer, many files): ffmpeg",
+        blocks: [
+          { type: "p", text: "If you are comfortable in a terminal, `ffmpeg` is the fastest way to convert one file or a whole folder:" },
+          { type: "code", language: "bash", code: "# one file\nffmpeg -i note.opus -codec:a libmp3lame -q:a 2 note.mp3\n\n# every .opus file in the current folder\nfor f in *.opus; do ffmpeg -i \"$f\" -codec:a libmp3lame -q:a 2 \"${f%.opus}.mp3\"; done" },
+          { type: "p", text: "Install it with `brew install ffmpeg` on a Mac or `winget install ffmpeg` on Windows. Audacity also opens .opus files and exports MP3 if you want to trim or boost the audio first." },
+        ],
+      },
+      {
+        heading: "On Android: check whether you need to convert at all",
+        blocks: [
+          { type: "p", text: "Android itself understands Opus, so on a recent phone many file managers, music players and VLC for Android play a voice note without any conversion. Try opening it first." },
+          { type: "p", text: "WhatsApp keeps voice notes in `Android/media/com.whatsapp/WhatsApp/Media/WhatsApp Voice Notes`, in dated subfolders. Most phones' Files app can reach that folder; you can also long-press the voice note in the chat and use **Share** to send it to another app." },
+          { type: "p", text: "If you do need an MP3 (for a car stereo, an editor, or someone on an older device), the same [browser converter](/tools/opus-to-mp3) works in Chrome on Android, and VLC or ffmpeg on a computer work exactly as above." },
+        ],
+      },
+      {
+        heading: "What about online converter websites?",
+        blocks: [
+          { type: "p", text: "They work, and for a song or a podcast clip they are fine. For a voice note, think about it first: the site receives the recording, and voice messages are often the most personal thing on a phone. WhatsApp's end-to-end encryption protects the message in transit, not a copy you upload somewhere. A converter that runs on your own device avoids the question." },
+        ],
+      },
+      {
+        heading: "If you want the words, not the audio",
+        blocks: [
+          { type: "p", text: "Many people converting a voice note really want to read it, quote it or search it later. Converting to MP3 does not help with that. Transcribe it instead: see [how to turn a voice message into text](/blog/transcribe-whatsapp-voice-message-to-text-iphone)." },
+        ],
+      },
+      {
+        heading: "If you convert voice notes often: the app",
+        blocks: [
+          { type: "p", text: "The browser method is fine for the occasional file. If you do this every week, an app saves the trip through Files: [Opus to MP3 Converter](/apps/voice-note-audio-converter) (I built it) shows up in the share sheet, so you can send a voice note from WhatsApp straight to it, convert a batch to MP3 or WAV offline, and share the results. It is free on the App Store and on Google Play. For all four of my chat and voice-note tools in one place, see [WhatsApp power tools](/apps/whatsapp-tools)." },
+          { type: "p", text: DISCLAIMER },
+        ],
+      },
+    ],
+  },
 ];
-

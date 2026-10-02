@@ -25,6 +25,7 @@ export default {
     allApps: "All apps",
     language: "Language",
     breadcrumbHome: "Home",
+    demoCaption: "15-second demo",
   },
   apps: {
   "chat-link-qr-code-maker": {
@@ -34,6 +35,7 @@ export default {
   alternateNames: ["WhatsApp link generator", "wa.me link generator", "WhatsApp QR code maker", "WhatsApp DP full size"],
   appStoreId: "6810372979",
   appStoreUrl: "https://apps.apple.com/us/app/chat-link-qr-code-maker/id6810372979",
+  playUrl: "https://play.google.com/store/apps/details?id=com.vilva.watools",
   live: true,
   price: { amount: "2.99", label: "One-time purchase" },
   color: "#0891B2",
@@ -109,7 +111,7 @@ export default {
     { q: "How large is the saved QR code, and can I print it?", a: "The QR code is captured at the screen’s full pixel density and saved as a PNG to Photos. It prints cleanly on business cards, A4 posters and counter cards. For very large signage, print at 300 dpi and keep the white margin." },
     { q: "Does the app access my whole photo library?", a: "No. It asks only for add-only access to Photos when saving a QR code or a square picture. Choosing a photo uses the system picker, which shares just the image you select." },
     { q: "Why does my profile photo get cropped in the first place?", a: "Profile pictures are stored as squares and shown as circles. A landscape or portrait photo is forced to fill the square, so the edges are cut. Padding the photo onto a white square keeps the full image inside the circle." },
-    { q: "Is there an Android version?", a: "Not yet. The app is built natively for iPhone first. An Android build is planned and this page will link to Google Play when it is live." },
+    { q: "Is there an Android version?", a: "Yes. Chat Link & QR Code Maker is on Google Play as well as the App Store; use the Google Play badge at the top of this page." },
     { q: "Is this an official WhatsApp app?", a: "No. Chat Link & QR Code Maker is an independent utility and is not affiliated with, endorsed by or connected to WhatsApp LLC or Meta Platforms, Inc. It simply builds standard wa.me links." },
   ],
   guides: [
@@ -131,6 +133,7 @@ export default {
   alternateNames: ["Opus to MP3 Converter", "WhatsApp voice note to MP3", "opus converter iPhone"],
   appStoreId: "6810373840",
   appStoreUrl: "https://apps.apple.com/us/app/opus-to-mp3-converter/id6810373840",
+  playUrl: "https://play.google.com/store/apps/details?id=com.vilva.waaudioconverter",
   live: true,
   price: { amount: "0", label: "Free" },
   color: "#EA580C",
@@ -206,7 +209,7 @@ export default {
     { q: "Why does the file picker show every file type?", a: "iOS has no built-in type identifier for .opus. An audio-only picker would grey out exactly the files this app exists for, so the picker accepts everything and the app checks the extension itself." },
     { q: "Where do the converted files go?", a: "They are created in the app’s cache and offered through the Share sheet. Choose Save to Files to keep them in iCloud Drive or On My iPhone, or send them straight to Mail, AirDrop, Telegram or any other app." },
     { q: "Can it convert Telegram, Signal or voicemail audio too?", a: "Yes. Telegram and Signal voice messages are .ogg or .m4a, iPhone voicemails and Voice Memos are .m4a, and all of those are supported inputs." },
-    { q: "Does it work on Android?", a: "Not yet. The app is iPhone-only for now; an Android version is in progress and this page will link to Google Play when it ships." },
+    { q: "Does it work on Android?", a: "Yes. Opus to MP3 Converter is on Google Play as well as the App Store; use the Google Play badge at the top of this page." },
     { q: "Is this app made by WhatsApp?", a: "No. Voice Note Audio Converter is an independent utility, not affiliated with or endorsed by WhatsApp LLC or Meta Platforms, Inc. It converts the standard audio files that chat apps produce." },
   ],
   guides: [
@@ -306,7 +309,7 @@ export default {
     { q: "Why is the app around 60 MB?", a: "Because the speech model ships inside it. That is what makes the first transcription instant and offline, with nothing to download later." },
     { q: "Can I transcribe Telegram, Signal or iMessage audio messages?", a: "Yes. Save or share the audio file to the app. Telegram and Signal produce .ogg or .m4a files, iMessage audio messages are .caf or .m4a; all are supported." },
     { q: "Can I translate the transcript?", a: "The app transcribes in the spoken language. Copy the text into Apple Translate or any translator to translate it; translation is not built in." },
-    { q: "Is there an Android version?", a: "Not yet. The iPhone version is available now; an Android build is in progress and this page will link to Google Play when it is live." },
+    { q: "Is there an Android version?", a: "Yes. Voice Note to Text is on Google Play as well as the App Store; use the Google Play badge at the top of this page." },
     { q: "Is this an official WhatsApp product?", a: "No. Voice Note to Text is an independent utility and is not affiliated with, endorsed by or connected to WhatsApp LLC or Meta Platforms, Inc." },
   ],
   guides: [
@@ -327,8 +330,9 @@ export default {
   name: "Chat Export Studio: PDF",
   alternateNames: ["WhatsApp chat to PDF", "export WhatsApp chat to PDF iPhone", "WhatsApp chat analyzer"],
   appStoreId: "6810375389",
-  appStoreUrl: "",
-  live: false,
+  appStoreUrl: "https://apps.apple.com/us/app/chat-export-studio-pdf/id6810375389",
+  playUrl: "https://play.google.com/store/apps/details?id=com.vilva.wachatexport",
+  live: true,
   price: { amount: "4.99", label: "One-time purchase" },
   color: "#1D4ED8",
   category: "UtilitiesApplication",
@@ -405,7 +409,7 @@ export default {
     { q: "How long a chat can it handle?", a: "Chats with tens of thousands of messages work; PDF generation takes longer for very long chats. Statistics appear almost instantly." },
     { q: "Can I export more than one chat?", a: "Yes. Tap Close this chat and open the next export. There is no limit." },
     { q: "Is there a subscription?", a: "No. Chat Export Studio: PDF is a one-time purchase." },
-    { q: "Is there an Android version?", a: "Not yet. The iPhone app is available now; an Android build is in progress and this page will link to Google Play when it is live." },
+    { q: "Is there an Android version?", a: "Yes. Chat Export Studio is on Google Play as well as the App Store; use the Google Play badge at the top of this page." },
     { q: "Is this an official WhatsApp app?", a: "No. Chat Export Studio: PDF is an independent utility and is not affiliated with, endorsed by or connected to WhatsApp LLC or Meta Platforms, Inc. It reads the standard export files that the chat app produces." },
   ],
   guides: [

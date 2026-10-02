@@ -29,6 +29,8 @@ export const LANGS = [
 ];
 
 export const SLUGS = Object.keys(en.apps);
+// Slugs that also get /<lang>/apps/<slug> pages (apps marked enOnly have no translations).
+export const LOCALIZED_SLUGS = SLUGS.filter((s) => !en.apps[s].enOnly);
 
 // Translations are loaded statically so `next export` can inline them.
 const LOCALES = {
@@ -69,6 +71,11 @@ export function getApp(code, slug) {
     color: base.color,
     category: base.category,
     name: base.name,
+    enOnly: base.enOnly,
+    noLegalPages: base.noLegalPages,
+    pills: base.pills,
+    operatingSystem: base.operatingSystem,
+    datePublished: base.datePublished,
     screenshots: (t.screenshots || base.screenshots).map((s, i) => ({ ...base.screenshots[i], ...s })),
     features: (t.features || base.features).map((f, i) => ({ ...base.features[i], ...f })),
     guides: (t.guides || base.guides).map((g, i) => ({ ...base.guides[i], ...g })),

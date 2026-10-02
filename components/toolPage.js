@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
+import { PERSON_REF } from "../lib/person";
 import { Container } from "../pages/about";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -245,8 +246,8 @@ export default function ToolPage({ tool, children }) {
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     featureList: tool.features.map((f) => f.title),
     permissions: "No sign-in. No upload. Files stay in the browser.",
-    author: { "@type": "Person", name: "Vilva Athiban P B", url: SITE },
-    publisher: { "@type": "Person", name: "Vilva Athiban P B", url: SITE },
+    author: PERSON_REF,
+    publisher: PERSON_REF,
     inLanguage: "en",
   };
   const howTo = {

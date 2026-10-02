@@ -6,6 +6,8 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { Wrap, Eyebrow, Title, Lead, Section, JsonLd } from "../../components/service";
 import { getAllPosts, getPostBySlug } from "../../data/posts";
+import AuthorBox from "../../components/AuthorBox";
+import { PERSON_REF } from "../../lib/person";
 
 const SITE = "https://www.vilvaathiban.com";
 
@@ -128,20 +130,12 @@ const LD = (post, url) => [
     headline: post.title,
     description: post.description,
     datePublished: post.datePublished,
-    dateModified: post.datePublished,
+    dateModified: post.dateModified || post.datePublished,
     url,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
-    author: {
-      "@type": "Person",
-      name: "Vilva Athiban P B",
-      jobTitle: "Lead AI Engineer",
-      url: `${SITE}/about`,
-    },
-    publisher: {
-      "@type": "Person",
-      name: "Vilva Athiban P B",
-      url: `${SITE}/about`,
-    },
+    image: "https://vilvaathiban.com/vilva.png",
+    author: PERSON_REF,
+    publisher: PERSON_REF,
   },
   {
     "@context": "https://schema.org",
@@ -196,6 +190,7 @@ export default function BlogPost({ post }) {
             </Section>
           ))}
         </Prose>
+        <AuthorBox updated={post.dateModified || post.datePublished} />
         <BackRow>
           ←{" "}
           <Link href="/blog" passHref legacyBehavior>
