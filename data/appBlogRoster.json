@@ -41,11 +41,6 @@
       "storeUrl": "https://apps.apple.com/us/app/teleprompter-camera-overlay/id6805037497",
       "landingPath": "/apps/teleprompter-camera-overlay",
       "excluded": true
-    },
-    {
-      "name": "MileGlass",
-      "storeUrl": "https://apps.apple.com/us/app/mileglass/id6450636387",
-      "landingPath": null
     }
   ],
   "android": [
