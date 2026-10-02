@@ -89,16 +89,6 @@ const APPS = [
     ios: ios("electrician-calculator-toolkit", "6815115471"),
   },
   {
-    name: "MileGlass",
-    tagline: "A location alarm that rings before you reach your stop.",
-    summary:
-      "Pick your destination on the map, choose how many kilometres or miles before it the alarm should ring, and stop watching for your stop.",
-    image: "/apps/mileglass-logo.png",
-    href: "/apps/mileglass",
-    badge: "Free",
-    ios: ios("mileglass", "6450636387"),
-  },
-  {
     name: "Good Behavior Police Call",
     tagline: "A pretend police call for kids, to encourage good behaviour.",
     summary:
@@ -404,7 +394,7 @@ const AppsPage = () => (
       <title>Apps by Vilva Athiban: iPhone, Android & Mac utilities</title>
       <meta
         name="description"
-        content="Small, private apps by Vilva Athiban: WhatsApp link & QR maker, Opus to MP3 converter, offline voice-note transcriber, chat to PDF, teleprompter, warranty tracker, MileGlass location alarm, and the Mac apps AI Done Now, NotchFit and VibeLock."
+        content="Small, private apps by Vilva Athiban: WhatsApp link & QR maker, Opus to MP3 converter, offline voice-note transcriber, chat to PDF, teleprompter, warranty tracker, and the Mac apps AI Done Now, NotchFit and VibeLock."
       />
       <link rel="canonical" href={URL} />
       <meta property="og:title" content="Apps by Vilva Athiban: iPhone, Android & Mac utilities" />
