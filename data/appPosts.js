@@ -2485,4 +2485,145 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "iphone-camera-settings-northern-lights",
+    title: "iPhone Camera Settings for the Northern Lights (and the Mistakes That Blur Aurora Photos)",
+    description:
+      "The best iPhone camera settings for photographing the northern lights: Night mode, exposure time, focus, lens choice and white balance, plus how to know if the aurora is worth going out for tonight.",
+    datePublished: "2026-10-02",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          { type: "p", text: "An iPhone can take a genuinely good photo of the northern lights. Often the camera sees more than you do: a faint grey glow to the eye comes out green on the screen. What ruins most aurora photos is not the phone but four things: a moving phone, the wrong lens, focus hunting in the dark, and going out on a night with no aurora or full cloud." },
+          { type: "p", text: "Short version: **check the aurora forecast, put the phone on something solid, turn the flash off, stay on the 1x lens, and use a 3 to 10 second exposure.** The rest of this guide explains each setting, what to change when the aurora is bright or fast, and how to film it." },
+        ],
+      },
+      {
+        heading: "Before you go out: check the aurora forecast for your area",
+        blocks: [
+          { type: "p", text: "The settings below do not matter if there is nothing to photograph. Three numbers decide the night: the **Kp index** (how strong the geomagnetic activity is), **cloud cover** where you are, and the **moon** (a bright moon washes out faint aurora). For what Kp you need at your latitude, see [the Kp index explained](/blog/aurora-forecast-kp-index-explained)." },
+          { type: "p", text: "The aurora is usually strongest within an hour or two of local midnight, but during storms it can appear as soon as it is dark. Face north in the northern hemisphere (south in the southern), away from street lights." },
+        ],
+      },
+      {
+        heading: "The settings, one by one",
+        blocks: [
+          { type: "list", items: [
+            "**Flash: off.** It lights up the foreground a metre away and does nothing for the sky.",
+            "**Lens: the main 1x camera.** It has the widest aperture and the biggest sensor, so it gathers far more light than the 0.5x ultra-wide or the telephoto. Do not pinch to zoom.",
+            "**Night mode: on, and set the time manually.** When the phone is still (on a tripod or propped up), Night mode offers longer exposures, up to 30 seconds on recent iPhones. Tap the Night mode icon and drag the slider. Start at **3 to 5 seconds** for a bright, moving aurora and **10 seconds** for a faint glow.",
+            "**Focus: lock it far away.** In the dark, autofocus hunts. Tap and hold on the brightest star or a distant light until you see AE/AF Lock.",
+            "**Exposure: pull it down slightly.** Drag the sun icon down by a third of a stop or so. It keeps the bright parts of the aurora green instead of washing them out to white.",
+            "**ProRAW: optional.** On Pro models it keeps more detail for editing later, at the cost of much larger files. The standard format is fine if you just want to share the photo.",
+          ] },
+        ],
+      },
+      {
+        heading: "Why aurora photos come out blurry",
+        blocks: [
+          { type: "p", text: "Almost always, the phone moved. Night mode stacks many frames, and even a few millimetres of movement smears stars into streaks. Use a small tripod, or wedge the phone against a wall, a fence post or a rolled-up jacket. Tapping the shutter shakes the phone too: use the 3-second self-timer or a volume button on wired earphones." },
+          { type: "p", text: "The second cause is the aurora itself. A fast-moving display during a storm changes within a second, so a 10-second exposure turns sharp curtains into a green haze. When it is bright and dancing, go shorter: 1 to 3 seconds." },
+        ],
+      },
+      {
+        heading: "Filming the northern lights on an iPhone",
+        blocks: [
+          { type: "p", text: "Normal video uses short exposures of 1/30 of a second or less, so it only records a strong aurora. For a faint display, a **time-lapse** works better: the Camera app's time-lapse mode on a tripod, or an app that takes long exposures back to back. Real-time video of a moving aurora needs exposures of around a quarter of a second, which the built-in Camera app does not offer." },
+        ],
+      },
+      {
+        heading: "Doing it with Night Cam",
+        blocks: [
+          { type: "p", text: "I built [Night Cam](/apps/night-cam) because doing all of this with cold fingers at 1 a.m. is fiddly. Its **Tonight** screen shows the aurora chance for your area (NOAA's OVATION model and Kp forecast, plus cloud cover and the moon), and optional alerts tell you when it is worth going out. The **Aurora** preset sets everything above for you: focus locked at infinity, white balance tuned for green aurora, exposure metered from your actual sky, and a short stack of 1-second frames so the curtains stay sharp. **Aurora Live** records real-time video with quarter-second frames, and **Time-lapse** does the long version." },
+          { type: "p", text: "The forecast is free, and you get 3 free captures to try the camera. After that, Pro is a one-time purchase and there is a 48-hour Night Pass for a single trip." },
+        ],
+      },
+      {
+        heading: "Quick checklist",
+        blocks: [
+          { type: "list", items: [
+            "Forecast checked: Kp high enough for your latitude, low cloud, moon not too bright.",
+            "Away from street lights, facing north (or south below the equator).",
+            "Phone on a tripod or propped up, flash off, 1x lens.",
+            "Focus locked far away, exposure pulled down slightly.",
+            "Night mode 3 to 5 s for a bright aurora, about 10 s for a faint one. Shorter if it is moving fast.",
+          ] },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "aurora-forecast-kp-index-explained",
+    title: "Aurora Forecast for Your Area: The Kp Index Explained (What Kp Do You Need?)",
+    description:
+      "How to read an aurora forecast: what the Kp index means, which Kp you need to see the northern lights where you live, the OVATION map, the 3-day outlook and why cloud cover matters more than Kp.",
+    datePublished: "2026-10-02",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          { type: "p", text: "Every aurora forecast leads with a number between 0 and 9: the **Kp index**. It is useful, but on its own it does not tell you whether *you* will see the northern lights tonight. That depends on Kp, how far north you are, the time of night, cloud cover and the moon. This guide explains each, so you can read any aurora forecast for your area with confidence." },
+        ],
+      },
+      {
+        heading: "What the Kp index measures",
+        blocks: [
+          { type: "p", text: "Kp is a global measure of how disturbed the Earth's magnetic field is, published by NOAA's Space Weather Prediction Center and updated in three-hour blocks. It runs from 0 (quiet) to 9 (extreme). When the field is disturbed, the auroral oval (the ring of aurora around each magnetic pole) gets brighter and expands toward the equator. That is why a higher Kp means the aurora can be seen further from the Arctic." },
+          { type: "p", text: "Kp 5 and above is officially a **geomagnetic storm**, graded G1 (Kp 5) to G5 (Kp 9). The storms you hear about on the news, when people far south suddenly see red and pink skies, are usually G4 or G5." },
+        ],
+      },
+      {
+        heading: "What Kp do you need to see the aurora?",
+        blocks: [
+          { type: "p", text: "NOAA's own rule of thumb for the northern hemisphere, as the lowest places the aurora may be seen (often low on the northern horizon, and brighter on camera than to the eye):" },
+          { type: "list", items: [
+            "**Kp 3 to 4:** northern Norway, Sweden and Finland, Iceland, Alaska, northern Canada. In these places the aurora is common on most clear, dark nights.",
+            "**Kp 5 (G1):** Scotland, southern Norway and Sweden, the Baltic states, and US border states such as northern Michigan and Maine.",
+            "**Kp 6 (G2):** northern England, Denmark, northern Germany and Poland; New York and Idaho in the US.",
+            "**Kp 7 (G3):** much of central Europe; Illinois and Oregon.",
+            "**Kp 8 to 9 (G4 to G5):** southern Europe, and in the US as far as Alabama, northern California and, in extreme storms, Florida and southern Texas.",
+          ] },
+          { type: "p", text: "What matters is magnetic latitude, not geographic latitude. North America is tilted toward the magnetic pole, so a given Kp reaches further south there than in Europe or Asia." },
+        ],
+      },
+      {
+        heading: "Kp is not the whole story: the OVATION map",
+        blocks: [
+          { type: "p", text: "Kp is one number for the whole planet. NOAA's **OVATION** model is more useful locally: it maps the probability of aurora over a grid around the poles, updated every few minutes from real-time solar wind measurements. If the oval on the map reaches your latitude, or sits just north of you (the aurora can be seen up to several hundred kilometres away, low on the horizon), your chances are real." },
+          { type: "p", text: "The solar wind also matters minute to minute. When the interplanetary magnetic field (Bz) turns strongly south, the aurora can flare up within half an hour even if the three-hour Kp looked modest. That is why forecasts change during the night." },
+        ],
+      },
+      {
+        heading: "The 3-day aurora forecast",
+        blocks: [
+          { type: "p", text: "NOAA also publishes a 3-day Kp forecast. It is based on what has left the Sun: coronal mass ejections take one to three days to arrive, and fast solar wind from coronal holes returns every 27 days as the Sun rotates. Use it to plan which night to drive somewhere dark, then check the live forecast on the evening itself. Arrival times of a CME are uncertain by many hours." },
+        ],
+      },
+      {
+        heading: "Clouds and the moon decide more nights than Kp",
+        blocks: [
+          { type: "p", text: "A Kp 7 storm under full cloud is invisible. Always check cloud cover for the next few hours alongside the aurora forecast, and look for gaps: a partly cloudy night can still work. A full or nearly full moon washes out faint aurora and stars but does not hide a strong display; a new moon is best." },
+        ],
+      },
+      {
+        heading: "One number for your exact location",
+        blocks: [
+          { type: "p", text: "Checking Kp, the OVATION map, cloud cover and the moon phase separately every evening gets old. [Night Cam](/apps/night-cam), the app I built for this, combines them into one aurora chance for where you are: it reads the OVATION grid around your position and toward the pole, discounts it by cloud cover for the next 12 hours, and shows the moon phase and the 3-day Kp outlook. Optional alerts send at most one notification a night when it is worth going out. The forecast is free, and the same app has camera presets for photographing what you see. For the camera side, see [iPhone camera settings for the northern lights](/blog/iphone-camera-settings-northern-lights)." },
+        ],
+      },
+      {
+        heading: "Quick reference",
+        blocks: [
+          { type: "list", items: [
+            "Kp 0 to 2: quiet. Aurora only in the far north, if at all.",
+            "Kp 3 to 4: active. Good nights in the Arctic.",
+            "Kp 5 to 6 (G1 to G2): storm. Scotland, southern Scandinavia, northern US states.",
+            "Kp 7+ (G3 and above): strong storm. Central Europe and mid-latitude US; check the sky even if you rarely see aurora.",
+            "Always check clouds and the moon too. Best hours are usually 10 p.m. to 2 a.m. local time.",
+          ] },
+        ],
+      },
+    ],
+  },
 ];
