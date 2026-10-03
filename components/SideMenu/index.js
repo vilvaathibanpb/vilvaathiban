@@ -83,6 +83,7 @@ const NAV_ITEMS = [
   { href: "/videos", label: "Videos" },
   { href: "/projects", label: "Projects" },
   { href: "/apps", label: "Apps" },
+  { href: "/games", label: "Games" },
   { href: "/reviews", label: "Reviews" },
 ];
 
