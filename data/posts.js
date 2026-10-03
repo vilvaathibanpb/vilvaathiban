@@ -6135,6 +6135,199 @@ navigation.addEventListener("navigateerror", () => {
       }
     ]
   },
+  {
+    slug: "react-useeffect-cleanup-function-guide",
+    title: "React useEffect Cleanup: When It Runs, Why It Runs Twice, and the Patterns That Actually Need It",
+    description:
+      "A practical guide to the React useEffect cleanup function: when cleanup runs, why StrictMode runs effects twice, cancelling fetches with AbortController, timers, subscriptions, and React 19 ref cleanup.",
+    datePublished: "2026-10-03",
+    readingMinutes: 9,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "The cleanup function is the half of `useEffect` most tutorials skip, and it is the half that decides whether your component leaks, double-subscribes, or sets state after it has unmounted. The mental model is small once you see it: an effect is not \"run this on mount\"; it is \"synchronise this external thing with these values, and here is how to undo it\". The cleanup is the undo. Everything else in this post follows from that.",
+          },
+          {
+            type: "p",
+            text: "This guide covers exactly when cleanup runs, why development mode runs your effect twice and what that is testing, and the five cleanup patterns you will write over and over: fetch cancellation, timers, subscriptions, DOM listeners and, new in React 19, cleanup for ref callbacks.",
+          },
+        ],
+      },
+      {
+        heading: "When the cleanup function runs",
+        blocks: [
+          {
+            type: "p",
+            text: "React calls the function you return from an effect in exactly two situations: **before the effect runs again** because one of its dependencies changed, and **when the component unmounts**. That is the whole rule. It does not run on every render, and it does not run \"on unmount only\" unless the dependency array is empty, in which case the re-run case never happens.",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: `function Room({ roomId }) {\n  useEffect(() => {\n    const connection = createConnection(roomId);\n    connection.connect();\n    return () => {\n      connection.disconnect(); // runs before the next connect, and on unmount\n    };\n  }, [roomId]);\n}`,
+          },
+          {
+            type: "p",
+            text: "Change `roomId` from \"general\" to \"travel\" and the order is: cleanup for \"general\" (disconnect), then the effect for \"travel\" (connect). The cleanup closes over the values from *its own* render, which is why it disconnects the right room without you storing anything in a ref. If you find yourself wanting the \"latest\" value inside a cleanup, that is usually a sign the dependency array is lying about what the effect uses.",
+          },
+        ],
+      },
+      {
+        heading: "Why StrictMode runs effects twice",
+        blocks: [
+          {
+            type: "p",
+            text: "In development, with `<StrictMode>` on, React mounts your component, runs its effects, immediately runs the cleanups, then runs the effects again. People experience this as \"my fetch fires twice\" and reach for a `useRef` flag to suppress the second call. That fixes the symptom and hides the bug StrictMode is pointing at.",
+          },
+          {
+            type: "p",
+            text: "The double run is a simulation of something that happens in production all the time: an effect being torn down and set up again, for example when a dependency changes or when React preserves state across a navigation and remounts the tree. If your effect cannot survive cleanup-then-setup without visible side effects, it is not idempotent, and the real fix is a cleanup that fully reverses the setup. The `Room` example above passes this test for free: connect, disconnect, connect leaves one open connection. A version with no `disconnect()` leaves two.",
+          },
+          {
+            type: "list",
+            items: [
+              "StrictMode double-invocation only happens in development builds. Production runs effects once.",
+              "It applies to `useEffect`, `useLayoutEffect` and `useInsertionEffect`, and since React 19 to ref callbacks with cleanup as well.",
+              "If the double run causes a visible problem, fix the cleanup rather than detecting the second call. A `didRun` ref is the wrong tool almost every time.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Pattern 1: cancelling a fetch",
+        blocks: [
+          {
+            type: "p",
+            text: "The classic bug: the user types \"re\", then \"rea\", then \"react\"; three requests go out; the slowest one resolves last and overwrites the right results with the wrong ones. The cleanup is where you cancel the request that is no longer wanted, and `AbortController` is the right tool because it stops the network call rather than just ignoring the result.",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: `function Search({ query }) {\n  const [results, setResults] = useState([]);\n  const [error, setError] = useState(null);\n\n  useEffect(() => {\n    if (!query) return;\n    const controller = new AbortController();\n\n    fetch("/api/search?q=" + encodeURIComponent(query), {\n      signal: controller.signal,\n    })\n      .then((res) => res.json())\n      .then(setResults)\n      .catch((err) => {\n        if (err.name !== "AbortError") setError(err);\n      });\n\n    return () => controller.abort();\n  }, [query]);\n}`,
+          },
+          {
+            type: "p",
+            text: "Two details matter. First, filter out `AbortError` in the catch, or every keystroke will flash an error state. Second, because the aborted promise rejects *before* the next effect's fetch resolves, you never see a stale `setResults`, so you do not need an `ignore` flag on top. If you cannot abort the underlying call (a library that does not accept a signal), the fallback is the flag pattern: `let ignore = false` in the effect, `ignore = true` in the cleanup, and check it before setting state. For a full tour of signals, timeouts and `AbortSignal.any()`, see the [practical guide to AbortController and AbortSignal](/blog/abortcontroller-abortsignal-practical-guide).",
+          },
+        ],
+      },
+      {
+        heading: "Pattern 2: timers and intervals",
+        blocks: [
+          {
+            type: "p",
+            text: "A `setInterval` without a matching `clearInterval` keeps ticking after unmount, holding the component's closure alive and, in the worst case, calling `setState` on a component that is gone. The cleanup is one line, but the subtle part is what the interval callback sees.",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: `function Countdown({ seconds, onDone }) {\n  const [left, setLeft] = useState(seconds);\n\n  useEffect(() => {\n    setLeft(seconds);\n    const id = setInterval(() => {\n      setLeft((n) => {\n        if (n <= 1) {\n          clearInterval(id);\n          onDone();\n          return 0;\n        }\n        return n - 1;\n      });\n    }, 1000);\n    return () => clearInterval(id);\n  }, [seconds, onDone]);\n\n  return <span>{left}</span>;\n}`,
+          },
+          {
+            type: "p",
+            text: "Use the functional `setLeft((n) => ...)` form so the interval does not need `left` as a dependency; otherwise every tick would re-create the interval, which is a cleanup-and-setup churn that works but wastes time and makes timing drift. Note that `onDone` is in the dependency array: if the parent passes a new function every render, the timer restarts every render. Wrap it in `useCallback` at the call site, or accept the restart consciously.",
+          },
+        ],
+      },
+      {
+        heading: "Pattern 3: subscriptions and event listeners",
+        blocks: [
+          {
+            type: "p",
+            text: "Anything with `subscribe`, `on`, or `addEventListener` needs the matching `unsubscribe`, `off`, or `removeEventListener`. The trap is passing a different function reference to the remove call than you passed to the add call, which silently removes nothing.",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: `useEffect(() => {\n  function onResize() {\n    setWidth(window.innerWidth);\n  }\n  window.addEventListener("resize", onResize);\n  return () => window.removeEventListener("resize", onResize);\n}, []);`,
+          },
+          {
+            type: "p",
+            text: "Define the handler inside the effect so add and remove share the same reference. A modern alternative that avoids the whole problem: pass an `AbortSignal` to `addEventListener` and abort it in cleanup, which removes every listener attached with that signal in one call.",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: `useEffect(() => {\n  const controller = new AbortController();\n  const { signal } = controller;\n  window.addEventListener("resize", () => setWidth(window.innerWidth), { signal });\n  window.addEventListener("scroll", () => setY(window.scrollY), { signal });\n  return () => controller.abort();\n}, []);`,
+          },
+          {
+            type: "p",
+            text: "For external stores with a subscribe/getSnapshot shape, `useSyncExternalStore` is a better fit than an effect; it handles the subscription and cleanup for you and avoids tearing during concurrent rendering.",
+          },
+        ],
+      },
+      {
+        heading: "Pattern 4: cleanup that must be async",
+        blocks: [
+          {
+            type: "p",
+            text: "The cleanup function must be synchronous: React does not await it. If tearing down requires an async call, such as telling a server you have left a room, fire it and forget it, and make sure nothing after the `await` touches component state.",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: `useEffect(() => {\n  const session = joinSession(id);\n  return () => {\n    // Fire and forget; do not setState after this point.\n    leaveSession(session).catch(reportError);\n  };\n}, [id]);`,
+          },
+          {
+            type: "p",
+            text: "Equally, the effect function itself cannot be `async`, because an async function returns a promise and React would try to call the promise as a cleanup. Declare an inner async function and call it, or use promise chaining as in the fetch example.",
+          },
+        ],
+      },
+      {
+        heading: "Pattern 5: ref callback cleanup (React 19)",
+        blocks: [
+          {
+            type: "p",
+            text: "Before React 19, a ref callback was called with the node on attach and with `null` on detach, and you had to branch on `null` to undo whatever you set up. React 19 lets a ref callback return a cleanup function, exactly like an effect, which makes DOM-level setup such as observers much cleaner.",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: `function LazyImage({ src }) {\n  const [visible, setVisible] = useState(false);\n\n  const ref = (node) => {\n    if (!node) return;\n    const observer = new IntersectionObserver(([entry]) => {\n      if (entry.isIntersecting) setVisible(true);\n    });\n    observer.observe(node);\n    return () => observer.disconnect();\n  };\n\n  return <img ref={ref} src={visible ? src : undefined} alt="" />;\n}`,
+          },
+          {
+            type: "p",
+            text: "When a ref callback returns a cleanup, React no longer calls it with `null` on detach; it calls the cleanup instead. If you mix the two styles in one codebase, keep the `null` check for the old ones and the returned function for the new ones, and do not rely on both in the same callback.",
+          },
+        ],
+      },
+      {
+        heading: "Mistakes that look like cleanup bugs but are not",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Resetting state in cleanup.** Calling `setState` in a cleanup during unmount does nothing useful and, during a dependency change, causes an extra render. Reset state in the effect body, or key the component so it remounts.",
+              "**Cleanup that depends on a stale closure.** If the cleanup needs a value the effect did not list as a dependency, the effect is already wrong. Fix the dependencies first.",
+              "**Using cleanup as a \"did unmount\" hook for data that lives elsewhere.** Saving a draft on unmount works until the tab closes or the route is replaced without unmounting. For data persistence, write on change, not on unmount.",
+              "**Effects that only exist to call cleanup.** If the setup is a no-op and all the work is in the return, you probably wanted an event handler, not an effect.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "A checklist",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Every `subscribe`, `addEventListener`, `setInterval`, `observe`, `connect` or `fetch` in an effect has an exact inverse in the cleanup.",
+              "The component survives StrictMode's setup-cleanup-setup with no visible difference.",
+              "Fetches are aborted, not just ignored, and `AbortError` is filtered.",
+              "Cleanup is synchronous and never sets state.",
+              "Dependencies list everything the effect reads, so the cleanup closes over the right values.",
+            ],
+          },
+          {
+            type: "p",
+            text: "If you are doing async work in effects mainly to load data, React's `use()` with Suspense is often a better shape than an effect plus cleanup; the [guide to the React use hook](/blog/react-use-hook-promises-context) covers when that applies. For everything that synchronises a component with the outside world, the cleanup function is still the tool, and getting it right is mostly a matter of asking one question of every effect: what is the undo?",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
 ];
 

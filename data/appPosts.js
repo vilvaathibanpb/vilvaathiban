@@ -3017,4 +3017,390 @@ export const appPosts = [
       }
     ]
   },
+  {
+    slug: "teleprompter-for-voiceovers-and-podcasts",
+    title: "Using a Teleprompter for Voiceovers and Podcasts: When the Camera Is Off, the Rules Change",
+    description:
+      "How to use a teleprompter app for voiceovers, podcast intros and audio-only recordings: voice-follow vs auto-scroll, formatting a script for the ear, recording in takes, and when reading is the wrong choice.",
+    datePublished: "2026-10-03",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Most teleprompter advice is about eye contact: keep the text near the lens, do not let your eyes track left to right, look like you are talking rather than reading. Switch the camera off and almost all of that stops mattering. A voiceover, a podcast cold open, an audiobook sample or a narrated screen recording has exactly one job, which is to *sound* right, and a teleprompter used for audio has a different set of rules. This post is about those rules.",
+          },
+          {
+            type: "p",
+            text: "It is written around [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay), which is built for on-camera use, but the ideas apply to any prompter: how to format a script for the ear, which scrolling mode to use when nobody can see your eyes, how to record in takes, and the honest cases where you should put the script down and talk.",
+          },
+        ],
+      },
+      {
+        heading: "What changes when the camera is off",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Eye line is irrelevant.** You can hold the phone wherever your voice sounds best, usually below the mouth and a little to the side so breath does not hit the microphone.",
+              "**Text size can be huge.** With no need to keep the script near a lens, use the largest text the screen allows. Fewer words per line means fewer stumbles.",
+              "**Pauses are free.** On camera, a pause while you find your place looks like a freeze. In audio, a pause is a breath and an edit point. You can stop, re-read, and start again mid-sentence without a visible seam.",
+              "**Pace is the whole performance.** Listeners hear rushing immediately. The script should be marked for speed and emphasis in a way you would never bother with on video.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Voice-follow or auto-scroll for audio work?",
+        blocks: [
+          {
+            type: "p",
+            text: "The [voice-follow vs auto-scroll](/blog/voice-follow-vs-auto-scroll-teleprompter) question has a different answer for audio than for video. On camera, voice-follow wins because it lets you pause and the text waits. For voiceovers the answer depends on the kind of read.",
+          },
+          {
+            type: "p",
+            text: "**Use voice-follow for conversational reads**: podcast intros, explainer narration, anything where you want to ad-lib a sentence, laugh, or restart a line. The app listens on-device, follows what you actually say, and finds your place again if you stumble, so a restarted sentence does not leave you scrolling back by hand.",
+          },
+          {
+            type: "p",
+            text: "**Use auto-scroll for timed reads**: a 30-second ad spot, a narration that has to land on specific visuals, or a meditation track that must not speed up. Set the speed slider so the script finishes exactly at the target length, then make yourself match it. The scroll becomes a metronome, and that discipline is the point.",
+          },
+          {
+            type: "p",
+            text: "One caveat specific to audio: if you record with the phone's own microphone, voice-follow is using the same microphone to listen, which is fine, but a very quiet whisper read may not register well enough to track. Speak at normal volume or switch to auto-scroll for whispered or ASMR-style work.",
+          },
+        ],
+      },
+      {
+        heading: "Format the script for the ear, not the eye",
+        blocks: [
+          {
+            type: "p",
+            text: "A voiceover script should look odd on paper. Short lines. One idea per line. Marks for breath and emphasis. Here is a before-and-after for a podcast cold open.",
+          },
+          {
+            type: "p",
+            text: "*Before:* \"Welcome back to the show. Today we're talking about why most people quit learning a language after three months, and what the ones who don't have in common, which turns out to be surprisingly simple.\"",
+          },
+          {
+            type: "p",
+            text: "*After:* \"Welcome back. / Today: why most people quit a language after three months. / And what the ones who DON'T have in common. / (beat) / It's simpler than you'd think.\"",
+          },
+          {
+            type: "list",
+            items: [
+              "Use a slash or a line break for every breath. Your eyes read ahead; your lungs do not.",
+              "Capitalise the one word per sentence that carries the meaning. Not three. One.",
+              "Write \"(beat)\" where you want silence. On a prompter, silence has to be written down or it does not happen.",
+              "Spell numbers and names the way they are said: \"twenty twenty-six\", \"ess-cue-ell\". The read will be cleaner and the voice-follow tracking will be too.",
+              "Cut anything you would not say to a friend across a table. The [script that doesn't sound written](/blog/write-a-script-that-doesnt-sound-written) rules apply double when there is no face to carry the words.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "A recording setup that takes two minutes",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Record into whatever you normally use for audio. The teleprompter app records portrait video, which is useful if you want a video version too, but for pure audio you can run the prompter on the phone and record on a laptop or a dedicated recorder.",
+              "Put the phone on a stand at mouth height, 30 to 40 centimetres away, slightly off-axis from the microphone. Do not hand-hold it; the small tilts show up as level changes in your voice.",
+              "Turn text size up until there are four or five words per line. Text size matters more here than on camera because you are reading continuously rather than glancing.",
+              "Silence notifications on the phone. A banner mid-read is a retake.",
+              "Record a ten-second test and listen back with headphones before the real take. Room noise and mouth clicks are easier to fix in the setup than in the edit.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Record in takes, not in one pass",
+        blocks: [
+          {
+            type: "p",
+            text: "The single biggest improvement for most people is to stop trying to read the whole script in one perfect take. Break it into sections of 30 to 60 seconds, record each as its own take, and keep the good ones. Teleprompter: Camera Overlay keeps a takes library, so each section's recording stays attached to the script; if you are recording audio separately, name the files by section so the edit is a matter of assembling rather than searching.",
+          },
+          {
+            type: "p",
+            text: "Within a take, if you fluff a line, do not stop. Pause, say the line again from the start of the sentence, and keep going. With voice-follow the text waits for you; with auto-scroll, let it run and pick the sentence up again when the line comes round, or end the take and redo just that section. Your editor (even if that is you, tomorrow) will cut at the pause. A three-second silence is far easier to remove than a restart from the top.",
+          },
+        ],
+      },
+      {
+        heading: "When not to use a teleprompter for audio",
+        blocks: [
+          {
+            type: "p",
+            text: "There are kinds of audio where reading makes things worse, and it is better to know them than to fight them.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Interview podcasts.** Script the intro and the questions you must ask; do not script your reactions. Listeners can hear a read response from a mile away.",
+              "**Anything you know cold.** If you have given the talk fifty times, a prompter will make you sound like it is the first. Use bullet points on the screen instead of sentences.",
+              "**Highly emotional reads.** Narrating something personal from a script tends to flatten it. Record it from memory first, then use the script only for the facts you got wrong.",
+              "**When the script is still changing.** A prompter rewards a finished script. If you are still thinking, talk it through unscripted, transcribe it, and *then* write the script from your own words.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "A note on privacy for voice work",
+        blocks: [
+          {
+            type: "p",
+            text: "Voiceover scripts are often confidential: an unreleased product, a client's ad copy, a course that has not launched. Teleprompter: Camera Overlay's voice-follow uses Apple's on-device speech recognition, works in airplane mode, and uploads nothing, which means the script and your voice never leave the phone. If you are reading something under NDA, that is worth checking in whatever prompter you use, because several cloud-based ones send audio to a server to do the same tracking.",
+          },
+          {
+            type: "p",
+            text: "The app is free with occasional ads and a one-time purchase to remove them, there is no subscription and no watermark, and it is iOS-only, so the audio-first workflow above is an iPhone workflow. If the rest of your audio chain is on a Mac or a PC, the phone simply becomes the script display, which is honestly the cleanest way to use it.",
+          },
+        ],
+      },
+      {
+        heading: "Next in the series",
+        blocks: [
+          {
+            type: "p",
+            text: "Audio was the easy case because the camera was off. Next we put it back on and go through the full talking-head filming setup: where the light goes, where the phone goes, how to frame for the prompter overlay, and the five-minute checklist that makes a batch of videos look like they were shot by the same person on the same day.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "warranty-tracker-iphone-keep-receipts-get-reminded-before-expiry",
+    title: "How to Keep Track of Warranties on iPhone: Receipts, Expiry Reminders and the One-Hour Setup for Everything You Own",
+    description:
+      "A practical system for tracking warranties on iPhone with Warranty Tracker & Receipt Log: what to log, how to photograph receipts, reminder lead times that work, extended warranties, and when a photo album is enough.",
+    datePublished: "2026-10-03",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "The pattern is always the same. The dishwasher starts leaking, you are fairly sure it is less than two years old, and the receipt is either in an email you cannot find, a drawer of thermal paper that has faded to white, or a camera roll somewhere between a holiday and a screenshot of a recipe. By the time you find it, you have either missed the warranty by a month or spent an evening you will not get back.",
+          },
+          {
+            type: "p",
+            text: "This post is a one-hour setup for never doing that again, using [Warranty Tracker & Receipt Log](/apps/warranty-tracker), a small iPhone app built for exactly this job. It also covers, honestly, when you do not need an app at all.",
+          },
+        ],
+      },
+      {
+        heading: "What the app actually does",
+        blocks: [
+          {
+            type: "p",
+            text: "Warranty Tracker & Receipt Log stores each product you buy with its receipt photo, purchase date, price, store, serial number, notes and warranty length, then counts down to the expiry and reminds you before it arrives. The home screen shows how many items are active, expiring soon or expired, and the total value still under warranty. Everything stays on the phone: there is no account, no cloud, no analytics and no ads. It is a one-time purchase of $0.99 on the App Store, requires iOS 17 or later, is iPhone-only, and is available in 19 languages.",
+          },
+          {
+            type: "p",
+            text: "That is the whole feature list, and the smallness is deliberate. There is no sync between devices in this version, no receipt scanning with text recognition, and no cloud backup beyond your normal iPhone backup. If you need those, this is not your app; if you want the receipt and the date in one place and a nudge before it is too late, it is.",
+          },
+        ],
+      },
+      {
+        heading: "The one-hour setup",
+        blocks: [
+          {
+            type: "p",
+            text: "Do this once, on a weekend, with a cup of something. The goal is not to log everything you have ever bought; it is to log the things that would cost real money to replace and are still inside their warranty.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Walk the house with the phone.** Kitchen appliances, laptop, phone, TV, headphones, the bike, power tools, the kids' tablet, the mattress (many carry long guarantees people forget), the washing machine. Make a list on paper first; it goes faster than adding as you go.",
+              "**Find the proof for each.** For online orders, search your email for the store name and screenshot the order confirmation. For shop purchases, the receipt or the card statement line. For gifts, the giver's order email counts. A photo of the product's serial-number sticker is worth adding while you are standing in front of it.",
+              "**Add each item.** Tap +, type the name and store, enter the price and purchase date, pick a category. Tap the warranty length: 6 months, 1, 2, 3 or 5 years, or type any number of months. If you bought an extended warranty, add it; the app combines the manufacturer and extended periods into one total coverage period with one expiry date.",
+              "**Attach the photos.** Take the receipt photo in the app or pick it from your library; several photos per item are allowed and they are stored at full resolution with pinch-to-zoom, so a faded till receipt stays legible as long as the photo was sharp.",
+              "**Set the reminders once.** In Settings, choose any combination of 90, 60, 30, 14, 7 and 1 day before expiry, and the time of day. The defaults are 30 and 7 days at 9:00, which suits most people. These are local notifications; nothing is sent anywhere.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Which reminder lead times to pick",
+        blocks: [
+          {
+            type: "p",
+            text: "The right lead time depends on what you would actually do with the warning. A reminder is only useful if there is an action attached.",
+          },
+          {
+            type: "list",
+            items: [
+              "**30 days** is the one to keep for everything. It is enough time to notice a fault you have been ignoring, book a repair, and get it looked at while a claim is still possible.",
+              "**90 days** is for big-ticket items where you might want to buy an extension, or where a service visit has a long waiting list.",
+              "**7 days** is a last call: if anything is slightly wrong with the item, this is the week to report it.",
+              "**1 day** is mostly noise unless you are tracking a short return window rather than a warranty.",
+            ],
+          },
+          {
+            type: "p",
+            text: "When a reminder arrives, open the item, read your own notes, and give the product a two-minute inspection. Most warranty claims that are missed are missed because the fault was minor and tolerated, not because nobody knew the date.",
+          },
+        ],
+      },
+      {
+        heading: "Three habits that keep it working",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Add it on the day.** The flow is built for phone in one hand, receipt in the other, at the shop door. Twenty seconds then saves twenty minutes later.",
+              "**Use the search.** When something breaks, search by name, store or serial number rather than scrolling. The serial number is one tap to copy, which is what the support chat will ask for first.",
+              "**Export a CSV twice a year.** The app exports every item to a CSV file whenever you like. Keep a copy with your insurance documents; a list of what you own, when you bought it and what it cost is exactly what an insurer asks for after a burglary or a flood, and the app has quietly built it for you.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Moving phones and backups",
+        blocks: [
+          {
+            type: "p",
+            text: "Because the app is single-device by design, the question people ask most is what happens when they get a new iPhone. The answer is the ordinary one: restore the new phone from an iCloud or computer backup and the app comes across with its data, since it is included in your normal iPhone backup. The purchase is tied to your Apple Account, so you are not charged again. If you want belt and braces, export the CSV before the switch. There is no sync between two phones at once, and no way to share the list with a partner's phone other than sending them the CSV.",
+          },
+        ],
+      },
+      {
+        heading: "When a photo album is enough",
+        blocks: [
+          {
+            type: "p",
+            text: "If you own three things with warranties and you are the kind of person who already knows their dates, make a \"Receipts\" album in Photos and stop reading. Add a calendar event a month before each expiry and you have most of what the app does for nothing.",
+          },
+          {
+            type: "p",
+            text: "The app earns its dollar when the list is longer than you can hold in your head, when the receipt and the date and the serial number need to be in one place, and when you want to be told rather than having to remember. It is also the right choice if you do not want receipts, which can show your address and partial card numbers, uploaded to a subscription service's server; this one never leaves the phone.",
+          },
+          {
+            type: "p",
+            text: "Warranty Tracker & Receipt Log is on the App Store for iPhone; the landing page at [/apps/warranty-tracker](/apps/warranty-tracker) has screenshots of the add flow, the countdown and the reminder settings if you want to see it before buying.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "save-whatsapp-chat-as-pdf-android-for-hr-landlord-insurer",
+    title: "How to Save a WhatsApp Chat as a PDF on Android When HR, a Landlord or an Insurer Asks for It",
+    description:
+      "Someone official has asked for a copy of a WhatsApp conversation. How to export the chat on Android, turn the .txt or .zip into a readable, paginated PDF with Chat Export Studio, and what to check before you send it.",
+    datePublished: "2026-10-03",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "At some point a conversation that lived happily in WhatsApp has to leave it. A manager asks for the messages where a colleague agreed to something. A landlord disputes when you reported the boiler. An insurer wants the exchange with the garage. A lawyer, an adviser, a school. In every one of those cases, a screenshot of a scrolling chat is a poor answer: it is hard to read, impossible to search, easy to accuse of being cropped, and a 400-message thread would need forty of them.",
+          },
+          {
+            type: "p",
+            text: "What they actually want is a document: every message in order, with who said it and when, that opens on any computer and prints cleanly. This guide shows how to produce exactly that on an Android phone, using WhatsApp's own export and [Chat Export Studio: PDF](/apps/chat-export-studio), and what to look at before you hit send.",
+          },
+        ],
+      },
+      {
+        heading: "Step 1: export the chat from WhatsApp on Android",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Open the chat in WhatsApp.",
+              "Tap the three-dot menu in the top-right corner, then **More**, then **Export chat**.",
+              "Choose **Without media** unless photos are part of what you are proving. Without media gives you a small .txt file inside a .zip that converts in seconds; with media, WhatsApp bundles the images alongside the transcript and the archive can run to hundreds of megabytes.",
+              "Android's share sheet opens. Pick **Chat Export Studio** directly if it is listed, or choose **Save to Files** / **Drive** to keep a copy you can open from the app later.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The export is a plain-text transcript with one line per message in the form date, time, sender, message. That is also why it is a poor thing to hand to someone as-is: a wall of unformatted text with no bubbles, no sender colours and no page breaks.",
+          },
+        ],
+      },
+      {
+        heading: "Step 2: open it in Chat Export Studio",
+        blocks: [
+          {
+            type: "p",
+            text: "If you shared straight from WhatsApp, the app opens with the chat already loaded. Otherwise open Chat Export Studio, tap to open an exported chat, and pick the .txt or the .zip from your Downloads, Files or Drive; it accepts both, from Android or iPhone exports, in 12-hour or 24-hour time, so a transcript a friend exported from their iPhone works too.",
+          },
+          {
+            type: "p",
+            text: "The first thing you see is the statistics: total messages and words, messages per participant as counts and percentages, the busiest hour of the day, the date range, the media count and the most-used emoji. For the official-document use case the useful number is the date range, because it confirms you are about to export the right period.",
+          },
+          {
+            type: "p",
+            text: "Then tap to export the styled PDF. Each message gets its own bubble with the sender, date and time; one-to-one chats are laid out left and right, group chats get a colour per participant; system notices and \"media omitted\" markers are rendered as small pills rather than clutter; and pages break between messages, never through them. The PDF is generated on the phone and handed to Android's share sheet, so you can save it to Files, attach it to an email, upload it to Drive or send it straight back into another chat.",
+          },
+        ],
+      },
+      {
+        heading: "Step 3: check it before you send it",
+        blocks: [
+          {
+            type: "p",
+            text: "Open the PDF yourself first and look at it the way the recipient will. Four things are worth a minute each.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Is the whole period there?** WhatsApp's export covers the most recent messages only: its help centre puts the limit at 40,000 messages without media and 10,000 with media. For a very long chat, scroll to the top of the PDF and check the first date matches what you expect.",
+              "**Is there more than they asked for?** An export is the entire chat, not a date range. If the request was for \"the messages from March\", say so in your covering note and point them to those pages, or ask whether they need the full thread. You cannot trim inside the app, and that is deliberate: a document that has visibly not been edited is worth more.",
+              "**Are there private things in it?** A thread with a colleague will also contain the lunch plans, the complaint about another manager, the photo caption you would rather forget. Read before you send. If the conversation is mostly unrelated, consider whether a shorter, separate chat exists that covers the same point.",
+              "**Does the media matter?** Without-media exports show \"media omitted\" pills where photos were. If a photo is the evidence, export again with media and attach the relevant images separately, referencing their timestamps.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Why a PDF, and not screenshots or the raw .txt",
+        blocks: [
+          {
+            type: "p",
+            text: "Screenshots are what most people send, and most recipients quietly dislike them. They cannot be searched, they are hard to read on a laptop, they often cut a message in half at the edge, and because each one is a separate image, there is no way for the reader to be confident nothing was skipped between them. The raw .txt is complete but unpleasant: no visual separation between speakers, timestamps that run into the message text, and an attachment type that some corporate email systems strip.",
+          },
+          {
+            type: "p",
+            text: "A paginated PDF solves all three. It is one file, it opens everywhere, it prints, it is searchable, and the bubble layout makes who-said-what obvious at a glance. If the matter becomes formal, a plain, unedited, complete PDF export of the chat is also the form most people on the receiving end are used to seeing.",
+          },
+        ],
+      },
+      {
+        heading: "Privacy: nothing leaves the phone",
+        blocks: [
+          {
+            type: "p",
+            text: "The reason this matters more than usual is that the chats people are asked to produce are precisely the sensitive ones. Chat Export Studio parses the file and builds the PDF entirely on the device; it works in airplane mode, needs no account or sign-up, and has no analytics. The only copy of the conversation that leaves your phone is the PDF you choose to share. Several browser-based \"WhatsApp to PDF\" converters upload the transcript to a server to do the same job, which is an odd thing to do with an HR dispute.",
+          },
+          {
+            type: "p",
+            text: "On Google Play the app is listed as containing ads with a one-time purchase and no subscription. A built-in sample chat lets you try the whole flow before you export a real conversation, which is worth doing once so the first time is not under pressure.",
+          },
+        ],
+      },
+      {
+        heading: "Other times the same flow helps",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Archiving a chat before you delete it or leave a group, so the record outlives the thread.",
+              "Keeping a readable copy of instructions from a tradesperson, a doctor's receptionist or a school group, where the useful part is buried among a hundred emoji replies.",
+              "Settling the question of who really sends the most messages in the family group, which is what the statistics screen was clearly built for.",
+            ],
+          },
+          {
+            type: "p",
+            text: "For the iPhone side of the same job, see the earlier guide to [exporting a WhatsApp chat to PDF on iPhone](/blog/export-whatsapp-chat-to-pdf-iphone); the export and PDF are identical, only the share-sheet and Files steps differ.",
+          },
+          { type: "p", text: DISCLAIMER },
+        ],
+      },
+    ],
+  },
 ];
