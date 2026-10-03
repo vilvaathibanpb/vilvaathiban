@@ -122,7 +122,8 @@ const APPS = [
       "Presets for Moon, Stars, Aurora, star Trails, City, Night video, Aurora Live and Time-lapse. The Tonight tab shows aurora chance, cloud cover and moon phase for where you are.",
     image: "/apps/night-cam-logo.png",
     href: "/apps/night-cam",
-    badge: "Coming soon",
+    badge: "Free",
+    ios: ios("night-cam-stars-aurora", "6818341326"),
   },
   {
     name: "Unit Price Calculator & Tax",

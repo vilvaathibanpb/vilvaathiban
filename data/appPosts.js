@@ -2536,7 +2536,7 @@ export const appPosts = [
         heading: "Doing it with Night Cam",
         blocks: [
           { type: "p", text: "I built [Night Cam](/apps/night-cam) because doing all of this with cold fingers at 1 a.m. is fiddly. Its **Tonight** screen shows the aurora chance for your area (NOAA's OVATION model and Kp forecast, plus cloud cover and the moon), and optional alerts tell you when it is worth going out. The **Aurora** preset sets everything above for you: focus locked at infinity, white balance tuned for green aurora, exposure metered from your actual sky, and a short stack of 1-second frames so the curtains stay sharp. **Aurora Live** records real-time video with quarter-second frames, and **Time-lapse** does the long version." },
-          { type: "p", text: "The forecast is free, and you get 3 free captures to try the camera. After that, Pro is a one-time purchase and there is a 48-hour Night Pass for a single trip." },
+          { type: "p", text: "The forecast is free, and you get 3 free captures to try the camera. After that, Pro is a one-time purchase and there is a 48-hour Night Pass for a single trip. [Get Night Cam on the App Store](https://apps.apple.com/us/app/night-cam-stars-aurora/id6818341326)." },
         ],
       },
       {
@@ -2609,7 +2609,7 @@ export const appPosts = [
       {
         heading: "One number for your exact location",
         blocks: [
-          { type: "p", text: "Checking Kp, the OVATION map, cloud cover and the moon phase separately every evening gets old. [Night Cam](/apps/night-cam), the app I built for this, combines them into one aurora chance for where you are: it reads the OVATION grid around your position and toward the pole, discounts it by cloud cover for the next 12 hours, and shows the moon phase and the 3-day Kp outlook. Optional alerts send at most one notification a night when it is worth going out. The forecast is free, and the same app has camera presets for photographing what you see. For the camera side, see [iPhone camera settings for the northern lights](/blog/iphone-camera-settings-northern-lights)." },
+          { type: "p", text: "Checking Kp, the OVATION map, cloud cover and the moon phase separately every evening gets old. [Night Cam](/apps/night-cam), the app I built for this, combines them into one aurora chance for where you are: it reads the OVATION grid around your position and toward the pole, discounts it by cloud cover for the next 12 hours, and shows the moon phase and the 3-day Kp outlook. Optional alerts send at most one notification a night when it is worth going out. The forecast is free ([Night Cam on the App Store](https://apps.apple.com/us/app/night-cam-stars-aurora/id6818341326)), and the same app has camera presets for photographing what you see. For the camera side, see [iPhone camera settings for the northern lights](/blog/iphone-camera-settings-northern-lights)." },
         ],
       },
       {

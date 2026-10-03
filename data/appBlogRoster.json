@@ -1,6 +1,11 @@
 {
-  "lastRefreshed": "2026-10-02",
+  "lastRefreshed": "2026-10-03",
   "ios": [
+    {
+      "name": "Night Cam: Stars & Aurora",
+      "storeUrl": "https://apps.apple.com/us/app/night-cam-stars-aurora/id6818341326",
+      "landingPath": "/apps/night-cam"
+    },
     {
       "name": "Good Behavior Police Call",
       "storeUrl": "https://apps.apple.com/us/app/good-behavior-police-call/id6815485255",
