@@ -1,12 +1,13 @@
 import baseEn from "./en";
 import extraEn from "./extra/en";
+import newEn from "./new";
 
 // New apps (utility-apps workspace, Sept 2026) live in ./extra/<lang>.js so the
 // original per-language files stay untouched; they are merged here.
 function withExtra(base, extra) {
   return { ...base, apps: { ...(base.apps || {}), ...(extra || {}) } };
 }
-const en = withExtra(baseEn, extraEn);
+const en = withExtra(baseEn, { ...extraEn, ...newEn });
 
 // The 15 most-searched languages on the web. `path` is the URL prefix ("" for
 // English, which stays at /apps/<slug>); `hreflang` is what search engines get.

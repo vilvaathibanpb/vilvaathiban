@@ -23,7 +23,7 @@ const TROUBLESHOOTING = [
   },
   {
     q: "Why is the laser dot yellow, not red?",
-    a: "Cats see blues and yellows far better than reds, which look to them like a dull olive. Every target in Pounce is drawn in colors a cat can pick out on a dark floor.",
+    a: "Cats see blues and yellows far better than reds, which look to them like a dull olive. Every target in Pounce Pad is drawn in colors a cat can pick out on a dark floor.",
   },
   {
     q: "I bought the unlock but the games are still locked",
@@ -41,7 +41,7 @@ const SupportPage = () => (
       <title>Support — Pounce Pad: Games for Cats</title>
       <meta
         name="description"
-        content="Help for Pounce, screen games for cats: leaving a game, Guided Access, restoring your purchase and getting a shy cat interested."
+        content="Help for Pounce Pad, screen games for cats: leaving a game, Guided Access, restoring your purchase and getting a shy cat interested."
       />
       <link rel="canonical" href={URL} />
     </Head>

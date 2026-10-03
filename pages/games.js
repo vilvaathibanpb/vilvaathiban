@@ -6,45 +6,10 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Wrap, Eyebrow, Title, Lead, JsonLd } from "../components/service";
 import { PERSON_REF } from "../lib/person";
+import StoreBadges from "../components/StoreBadges";
+import { GAMES } from "../data/catalog";
 
 const URL = "https://www.vilvaathiban.com/games";
-
-const play = (pkg) => `https://play.google.com/store/apps/details?id=${pkg}`;
-
-// Android games from the games monorepo. `slug` matches the support and privacy
-// pages under /apps, and the icon/screenshot files under /public/games.
-const GAMES = [
-  {
-    name: "Mancala Offline",
-    slug: "mancala-offline",
-    genre: "Board game",
-    category: "BoardGame",
-    tagline: "Classic Mancala on a wooden board, against the computer or a friend.",
-    summary:
-      "Sow the stones, land in your store for another turn, capture from empty pits. Four computer levels, a World Tour against 12 masters from Cairo to New York, a daily puzzle and two-player pass & play. Fully offline.",
-    play: play("com.vilva.mancala"),
-  },
-  {
-    name: "Idle Blacksmith",
-    slug: "idle-blacksmith",
-    genre: "Idle tycoon",
-    category: "SimulationGame",
-    tagline: "Tap the anvil, forge legendary swords and grow your smithy, even offline.",
-    summary:
-      "Hammer 40 weapons across 8 materials from Copper to Starmetal, land masterworks for 10× gold, and hire apprentices who keep forging while you are away.",
-    play: play("com.vilva.idleblacksmith"),
-  },
-  {
-    name: "Pack It Perfect",
-    slug: "pack-it-perfect",
-    genre: "Puzzle",
-    category: "PuzzleGame",
-    tagline: "A cozy packing puzzle: fit every item in the suitcase.",
-    summary:
-      "Drag, turn and fit T-shirts, books, cameras and teddy bears into suitcases, moving boxes and picnic baskets. 60 levels across 4 little story chapters. Relaxing and offline.",
-    play: play("com.vilva.packit"),
-  },
-];
 
 const Grid = styled.div`
   display: grid;
@@ -141,16 +106,20 @@ const Summary = styled.p`
 
 const Footerline = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 12px;
-  flex-wrap: wrap;
   padding: 12px 22px 22px;
   margin-top: auto;
   font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 13px;
-  > a { border: 0; }
-  img { height: 40px; width: auto; display: block; }
+`;
+
+const More = styled.div`
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #111827;
 `;
 
 const Small = styled.div`
@@ -171,55 +140,60 @@ const Callout = styled.div`
   a { color: #111827; font-weight: 700; border-bottom: 1px solid #cbd5e1; }
 `;
 
-const GameCard = ({ game }) => (
-  <Card>
-    <ShotLink href={game.play} rel="noopener" tabIndex={-1} aria-hidden="true">
-      <Shot src={`/games/${game.slug}-shot.jpg`} alt="" width="562" height="1000" loading="lazy" />
-    </ShotLink>
-    <Content>
-      <a href={game.play} rel="noopener" aria-label={`${game.name} on Google Play`}>
-        <Body>
-          <NameRow>
-            <img src={`/games/${game.slug}-icon.png`} alt="" width="48" height="48" loading="lazy" />
-            <div>
-              <Name>{game.name}</Name>
-              <Genre>{game.genre} · Android</Genre>
-            </div>
-          </NameRow>
-          <Tagline>{game.tagline}</Tagline>
-          <Summary>{game.summary}</Summary>
-        </Body>
-      </a>
-      <Footerline>
-        <a href={game.play} rel="noopener" aria-label={`Get ${game.name} on Google Play`}>
-          <img src="/apps/google-play-badge.svg" alt="Get it on Google Play" width="120" height="40" />
-        </a>
-        <Small>
-          <Link href={`/apps/${game.slug}/support`}>Support</Link>
-          <Link href={`/apps/${game.slug}/privacy`}>Privacy</Link>
-        </Small>
-      </Footerline>
-    </Content>
-  </Card>
-);
+const GameCard = ({ game }) => {
+  const href = `/apps/${game.slug}`;
+  return (
+    <Card>
+      <ShotLink href={href} tabIndex={-1} aria-hidden="true">
+        <Shot src={game.shot} alt="" width="562" height="1000" loading="lazy" />
+      </ShotLink>
+      <Content>
+        <Link href={href}>
+          <Body>
+            <NameRow>
+              <img src={game.image} alt="" width="48" height="48" loading="lazy" />
+              <div>
+                <Name>{game.name}</Name>
+                <Genre>
+                  {game.genre} · {game.platform}
+                  {game.iosSoon ? " · In App Review" : ""}
+                </Genre>
+              </div>
+            </NameRow>
+            <Tagline>{game.tagline}</Tagline>
+            <Summary>{game.summary}</Summary>
+            <More>Screenshots, how to play and FAQ →</More>
+          </Body>
+        </Link>
+        <Footerline>
+          <StoreBadges name={game.name} ios={game.ios} play={game.play} iosSoon={game.iosSoon} />
+          <Small>
+            <Link href={`${href}/support`}>Support</Link>
+            <Link href={`${href}/privacy`}>Privacy</Link>
+          </Small>
+        </Footerline>
+      </Content>
+    </Card>
+  );
+};
 
 const GamesPage = () => (
   <Container>
     <Head>
-      <title>Games by Vilva Athiban: Mancala, Idle Blacksmith & Pack It Perfect</title>
+      <title>Games by Vilva Athiban: Mancala, Idle Blacksmith, Pack It & Pounce Pad</title>
       <meta
         name="description"
-        content="Offline Android games by Vilva Athiban: Mancala Offline, the Idle Blacksmith forge tycoon and the Pack It Perfect packing puzzle. No account, play anywhere."
+        content="Offline games by Vilva Athiban: Mancala Offline, the Idle Blacksmith forge tycoon and the Pack It Perfect packing puzzle for Android, plus Pounce Pad, screen games for cats."
       />
       <link rel="canonical" href={URL} />
       <meta property="og:title" content="Games by Vilva Athiban" />
       <meta
         property="og:description"
-        content="Mancala Offline, Idle Blacksmith and Pack It Perfect: offline Android games, no account needed."
+        content="Mancala Offline, Idle Blacksmith and Pack It Perfect: offline Android games, no account needed. Plus Pounce Pad, games for cats."
       />
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content="https://www.vilvaathiban.com/games/mancala-offline-shot.jpg" />
+      <meta property="og:image" content="https://www.vilvaathiban.com/apps/mancala-offline/01.webp" />
     </Head>
     <JsonLd
       data={{
@@ -232,14 +206,13 @@ const GamesPage = () => (
           "@type": ["VideoGame", "MobileApplication"],
           name: game.name,
           description: game.summary,
-          image: `https://www.vilvaathiban.com/games/${game.slug}-icon.png`,
-          url: game.play,
-          sameAs: [game.play],
-          operatingSystem: "Android",
+          image: `https://www.vilvaathiban.com${game.image}`,
+          url: `https://www.vilvaathiban.com/apps/${game.slug}`,
+          ...(game.play || game.ios ? { sameAs: [game.ios, game.play].filter(Boolean) } : {}),
+          operatingSystem: game.play ? "Android" : "iOS",
           applicationCategory: "GameApplication",
           genre: game.genre,
-          gamePlatform: "Android",
-          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          gamePlatform: game.platform,
           author: PERSON_REF,
         })),
       }}
@@ -249,10 +222,11 @@ const GamesPage = () => (
       <Eyebrow>Games</Eyebrow>
       <Title>Small games to play offline</Title>
       <Lead>
-        Three free Android games that work without internet and without an
-        account: a classic board game, an idle forge tycoon and a cozy packing
-        puzzle. Each has optional ads and a one-time purchase to remove them, no
-        subscriptions. Your progress stays on your phone.
+        Free games that work without internet and without an account: a classic
+        board game, an idle forge tycoon and a cozy packing puzzle for Android,
+        and Pounce Pad, a set of screen games for cats on iPhone and iPad. Each
+        has optional ads and a one-time purchase, never a subscription. Progress
+        stays on your device.
       </Lead>
 
       <Grid>
@@ -263,7 +237,7 @@ const GamesPage = () => (
 
       <Callout>
         Looking for utilities instead? See the <Link href="/apps">apps</Link>:
-        WhatsApp tools, a teleprompter, a caffeine tracker and more.
+        WhatsApp tools, a teleprompter, Night Cam, apps for kids and cats, and more.
       </Callout>
     </Wrap>
     <Footer />

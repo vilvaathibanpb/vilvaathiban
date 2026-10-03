@@ -1,0 +1,115 @@
+// Whisker Check: Cat Comfort (Oct 2026). English-only landing page.
+// Facts come from the App Store description (ASC, v1.0.0), the support and
+// privacy pages and the ios-utils handoff notes. Not live on the App Store yet.
+export default {
+  slug: "whisker-check",
+  iconBase: "whisker-check",
+  name: "Whisker Check: Cat Comfort",
+  alternateNames: [
+    "Whisker Check",
+    "Cat pain signs & mood tracker",
+    "cat pain scale app",
+    "feline grimace scale app",
+    "is my cat in pain app",
+    "cat pain checker",
+    "cat recovery tracker",
+  ],
+  appStoreId: "6815485509",
+  appStoreUrl: "https://apps.apple.com/app/id6815485509",
+  live: false,
+  enOnly: true,
+  androidPlanned: false,
+  freePill: "Free iPhone app",
+  pills: [],
+  operatingSystem: "iOS 15.1 or later",
+  datePublished: "2026-10-03",
+  price: { amount: "0", label: "Free, optional one-time unlock" },
+  color: "#2F5145",
+  category: "LifestyleApplication",
+  head: {
+    title: "Is My Cat in Pain? Cat Pain Scale App for iPhone: Whisker Check",
+    description:
+      "Score five facial signs of pain in your cat in about two minutes, using the scale from Evangelista et al. (2019). Track the trend and share a PDF with your vet.",
+    keywords:
+      "is my cat in pain, how to tell if a cat is in pain, cat pain scale, cat pain scale app, feline grimace scale, feline grimace scale app, cat pain signs, cat facial expression pain, cat pain after surgery, cat recovery after spay, cat dental recovery, senior cat arthritis, cat symptom log, cat health journal, cat mood tracker, cat body language, vet report cat",
+    ogTitle: "Is your cat in pain? Check five facial signs in two minutes",
+    ogDescription:
+      "A guided cat face check built on published research: ears, eyes, muzzle, whiskers and head. A score out of 10, a trend chart and a PDF for your vet. Not a diagnosis.",
+  },
+  h1: "Is my cat in pain? A two-minute cat pain scale for iPhone",
+  answer:
+    "Cats hide pain, but their faces change. Whisker Check walks you through five facial features (ears, eyes, muzzle, whiskers and head position) and asks you to pick the closest of three drawings for each. The five features and the 0 to 2 scoring follow the facial pain scale for cats described by Evangelista and colleagues in Scientific Reports (2019). In about two minutes you get a score out of 10 and a plain-language read of what it means, from wait and watch to worth a call to your vet. Every check is saved so you can follow the trend and hand your vet a PDF. A score is a prompt, not a diagnosis: if you are worried, call your vet whatever the number says.",
+  quickFacts: [
+    ["Price", "Free: face checks, mood reads, 7 days of history. Full version $4.99 once"],
+    ["A check takes", "About 2 minutes for a face check, 30 seconds for a mood read"],
+    ["Based on", "Evangelista et al., Scientific Reports (2019)"],
+    ["Requires", "iPhone. No account"],
+  ],
+  screenshotsTitle: "Screenshots",
+  screenshots: [
+    { src: "/apps/whisker-check/01.webp", alt: "Whisker Check home screen for a cat named Pickle: latest score 0 out of 10 (Settled), buttons for Face check and Mood read, a trend chart and shortcuts to the vet report and reminders", caption: "Today's score and the trend at a glance" },
+    { src: "/apps/whisker-check/02.webp", alt: "Step 1 of 5 of a face check: where are the ears pointing, with three cat drawings labelled Up and forward, Drifting apart, and Flat and turned out", caption: "Five facial signs, three drawings each" },
+    { src: "/apps/whisker-check/03.webp", alt: "Check result of 7 out of 10 marked Worth a call to your vet, with the score for ears, eyes, muzzle, whiskers and head and the owner's note", caption: "A plain answer: wait, watch or call the vet" },
+    { src: "/apps/whisker-check/04.webp", alt: "History of Pickle's checks with a chart of scores falling from 7 to 0 over ten days and a list of daily checks and a mood read", caption: "Follow the recovery day by day" },
+    { src: "/apps/whisker-check/05.webp", alt: "Vet report screen with a PDF preview, a period picker (3 days, 2 weeks, 3 months, everything) and switches for notes, photos and mood reads", caption: "A PDF report for the vet appointment" },
+  ],
+  howTo: {
+    title: "How to check if your cat is in pain from its face",
+    intro: "You do the looking; the app keeps the scoring consistent and the record tidy. It takes about two minutes.",
+    steps: [
+      { name: "Watch quietly for 30 seconds", text: "Let your cat settle, then look at its face without picking it up or waking it." },
+      { name: "Compare five features", text: "For ears, eyes, muzzle, whiskers and head position, pick the closest of three drawings. The drawings use your cat's own coat and only one feature changes at a time. If a feature is hidden, mark it and the score is scaled the way the researchers do it." },
+      { name: "Read the result", text: "You get a score out of 10 and a plain-language read of what it means, including when it is worth calling your vet." },
+      { name: "Save, repeat and share", text: "The check is saved with the date, time, each feature's score, your notes and an optional photo. Repeat it to see the trend, and create a PDF report for your vet (full version)." },
+    ],
+  },
+  featuresTitle: "What it does",
+  features: [
+    { icon: "🐱", title: "Guided face check", text: "Five features, three drawings each, scored 0 to 2. A score out of 10 in about two minutes." },
+    { icon: "👀", title: "You look, you decide", text: "No photo scan guessing from pixels. Lighting, a fluffy face, a kitten or a flat-faced breed does not break it." },
+    { icon: "🐾", title: "Mood read", text: "A 30-second body-language check of tail, ears, eyes and posture." },
+    { icon: "📈", title: "History and trend", text: "Every check saved with date, time, scores, notes and an optional photo, on a chart over days." },
+    { icon: "📄", title: "PDF vet report", text: "A chart and a table your vet can read in a minute. Email it, AirDrop it or print it. Part of the full version." },
+    { icon: "🔔", title: "Reminders and more cats", text: "Reminders for twice-a-day checks after surgery, and more than one cat. Part of the full version." },
+  ],
+  intentsTitle: "Questions this app answers",
+  intents: [
+    { h: "How can I tell if my cat is in pain?", p: "Cats are good at hiding pain, and behavior often changes late. Their faces change earlier. Veterinary researchers have shown that five facial features (ears, eyes, muzzle, whiskers and head position) can be scored by owners who know what to look for. Whisker Check walks you through each one with drawings. If your cat is not eating, hiding, breathing fast, or you are simply worried, call your vet without waiting for a score." },
+    { h: "What is the feline grimace scale?", p: "It is a facial pain scale for cats described by Evangelista and colleagues in Scientific Reports (2019). Each of five features is scored 0, 1 or 2, for a total out of 10. Whisker Check follows those five features and that scoring, with its own drawings, and cites the paper in the app. It is independent and not affiliated with the researchers." },
+    { h: "Is there an app to check if my cat is in pain?", p: "Whisker Check is a guided version of the published scale for iPhone. It does not scan a photo: you watch your cat and pick the drawing that matches, so bad light or an unusual face does not throw it off. The result tells you whether it looks fine, worth watching, or worth a call to your vet. It is not a diagnosis." },
+    { h: "How do I track my cat's recovery after surgery, a spay or a dental?", p: "Check twice a day and watch the scores on a chart. Each check is saved with your notes and an optional photo, so you can see whether things are improving. Reminders (full version) help you keep to a schedule, and the PDF report gives your vet the whole record at the follow-up." },
+    { h: "How do I notice slow changes in a senior cat or a cat with arthritis?", p: "A weekly check builds a record over time, so a slow drift in the score shows up on the trend chart instead of relying on memory. Bring the PDF report to the next appointment." },
+    { h: "When should I call the vet?", p: "Whenever you are worried, whatever any score says. Whisker Check marks the range where the researchers behind the scale suggest getting a vet involved, and tells you to call your vet and share the score and what you saw. If your cat is recovering from surgery or already on pain relief, your vet will want to know the same day." },
+  ],
+  compare: {
+    title: "Whisker Check vs a printed scale or a photo-scan app",
+    intro: "You can score the published scale yourself with the paper's reference images and a notebook. Whisker Check adds guided drawings, a saved history and a vet report. Some other apps estimate pain from a photo instead of asking you to look.",
+    columns: ["", "Whisker Check", "Printed scale + notebook", "Photo-scan apps"],
+    rows: [
+      ["Who judges each feature", "You, guided by drawings", "You", "The app, from a photo"],
+      ["Works with poor light, fluffy or flat faces", "✓ You are looking, and hidden features can be skipped", "✓", "Depends on the photo"],
+      ["Saved history and trend chart", "✓", "✗ By hand", "Varies"],
+      ["Report for your vet", "✓ PDF (full version)", "✗", "Varies"],
+      ["Diagnoses pain", "✗ Not a diagnosis", "✗", "Not a diagnosis either"],
+      ["Price", "Free; full version $4.99 once", "Free", "Varies"],
+    ],
+  },
+  faqs: [
+    { q: "Is Whisker Check free?", a: "Yes. Face checks, mood reads and the last 7 days of history are free, forever. A single one-time purchase ($4.99 in the US) unlocks the PDF vet report, full history, multiple cats and reminders, and removes the ads. There is no subscription and nothing to cancel." },
+    { q: "Does it diagnose my cat?", a: "No. Whisker Check does not diagnose or treat any condition. A score is a prompt, not a diagnosis. If you are worried about your cat, or it is not eating, hiding or breathing fast, call your vet whatever the number says." },
+    { q: "What research is it based on?", a: "The five features (ears, eyes, muzzle, whiskers and head position) and the 0 to 2 scoring follow the facial pain scale for cats described by Evangelista and colleagues in Scientific Reports (2019). The full citation is in the app. Whisker Check is independent and not affiliated with the researchers." },
+    { q: "Does it work for kittens, long-haired or flat-faced cats?", a: "Yes. There is no photo scan, so a fluffy face, a kitten or a flat-faced breed does not break it: you are the one looking. If a feature is hidden, mark it and the score is scaled the same way the researchers do it." },
+    { q: "How do I send the report to my vet?", a: "Open Vet report, pick the period, then share the PDF by email or AirDrop, or print it for the appointment. The report has a chart and a table of each check. It is part of the one-time unlock." },
+    { q: "Is my data private?", a: "There is no account and no sign-up. Your cats, checks, notes and photos stay on your iPhone. The free version shows a small, non-personalized banner ad on the home, history and settings screens, never during a check. The unlock removes it." },
+    { q: "Which languages does it support?", a: "15: English, Spanish, Portuguese, French, German, Italian, Russian, Turkish, Indonesian, Vietnamese, Hindi, Arabic, Chinese, Japanese and Korean, including the vet report." },
+    { q: "Is there an Android version?", a: "There is no Android version yet. Whisker Check is iPhone-only." },
+  ],
+  guides: [],
+  related: [
+    { name: "Pounce Pad: Games for Cats", href: "/apps/cat-games", blurb: "Screen games for cats with prey that moves like prey: a mouse, a laser dot, koi and more. Two games free." },
+    { name: "Tooth Fairy Cam: Magic Photo", href: "/apps/tooth-fairy-cam", blurb: "Place a glowing Tooth Fairy into a photo of the bedroom, with a night-camera look." },
+    { name: "Good Behavior Police Call", href: "/apps/police-call", blurb: "A friendly pretend officer calls to help with bedtime, brushing teeth and tidying up." },
+  ],
+  disclaimer:
+    "Whisker Check is not a medical device and does not diagnose, treat or rule out any condition. A score is a prompt, not a diagnosis. If you are worried about your cat, call your vet, whatever the score says; in an emergency, contact your vet or an emergency clinic straight away. The scale follows Evangelista et al., Scientific Reports (2019). Whisker Check is independent and not affiliated with the researchers.",
+};

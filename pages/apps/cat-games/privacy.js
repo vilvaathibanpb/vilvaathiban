@@ -13,7 +13,7 @@ const PrivacyPage = () => (
       <title>Privacy Policy — Pounce Pad: Games for Cats</title>
       <meta
         name="description"
-        content="Privacy policy for Pounce, screen games for cats on iPhone and iPad. No account and no analytics; the free version shows Google AdMob banners. Play stats stay on your device."
+        content="Privacy policy for Pounce Pad, screen games for cats on iPhone and iPad. No account and no analytics; the free version shows Google AdMob banners. Play stats stay on your device."
       />
       <link rel="canonical" href={URL} />
       <meta name="robots" content="noindex, follow" />

@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
+import StoreBadges from "../../components/StoreBadges";
 import { Container } from "../about";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -100,9 +101,7 @@ const Tool = styled.div`
   .job { font-weight: 600; color: #334155; font-size: 15px; margin: 4px 0 8px; }
   p { font-size: 15px; color: #475569; line-height: 1.6; margin: 0 0 10px; }
   .links { font-size: 14px; display: flex; gap: 6px 16px; flex-wrap: wrap; }
-  .badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
-  .badges a { border: 0; }
-  .badges img { height: 40px; width: auto; display: block; }
+  .badges { margin-top: 12px; }
   @media (max-width: 520px) {
     grid-template-columns: 1fr;
   }
@@ -205,14 +204,7 @@ export default function WhatsAppTools() {
                     <Link href={t.href}>App details</Link>
                     <Link href={t.guide.href}>{t.guide.label}</Link>
                   </div>
-                  <div className="badges">
-                    <a href={t.ios} rel="noopener" aria-label={`Download ${t.name} on the App Store`}>
-                      <img src="/apps/app-store-badge.svg" alt="Download on the App Store" width="120" height="40" />
-                    </a>
-                    <a href={t.play} rel="noopener" aria-label={`Get ${t.name} on Google Play`}>
-                      <img src="/apps/google-play-badge.svg" alt="Get it on Google Play" width="103" height="40" />
-                    </a>
-                  </div>
+                  <StoreBadges className="badges" name={t.name} ios={t.ios} play={t.play} />
                 </div>
               </Tool>
             ))}

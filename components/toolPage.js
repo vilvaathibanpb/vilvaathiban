@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
+import StoreBadges from "./StoreBadges";
 import { PERSON_REF } from "../lib/person";
 import { Container } from "../pages/about";
 import Header from "./Header";
@@ -207,14 +208,6 @@ const AppCta = styled.aside`
   }
 `;
 
-// Store badges sit side by side and wrap on a phone.
-const Badges = styled.div`
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  align-items: center;
-`;
-
 const Related = styled.ul`
   font-family: ${SANS};
   font-size: 15.5px;
@@ -367,20 +360,12 @@ export default function ToolPage({ tool, children }) {
           <AppCta key={a.appStoreId} color={a.color || color}>
             <h3>{a.title}</h3>
             <p>{a.text}</p>
-            <Badges>
-              <a
-                href={a.url || `https://apps.apple.com/app/id${a.appStoreId}`}
-                aria-label={`Download ${a.name} on the App Store`}
-                rel="noopener"
-              >
-                <img src="/apps/app-store-badge.svg" alt="Download on the App Store" width="156" height="52" />
-              </a>
-              {a.playUrl && (
-                <a href={a.playUrl} aria-label={`Get ${a.name} on Google Play`} rel="noopener">
-                  <img src="/apps/google-play-badge.svg" alt="Get it on Google Play" width="134" height="52" />
-                </a>
-              )}
-            </Badges>
+            <StoreBadges
+              size="lg"
+              name={a.name}
+              ios={a.url || `https://apps.apple.com/app/id${a.appStoreId}`}
+              play={a.playUrl}
+            />
           </AppCta>
         ))}
 

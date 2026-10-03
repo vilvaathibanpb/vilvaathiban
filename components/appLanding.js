@@ -8,6 +8,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { Wrap, Eyebrow, Section, Steps, Cards, Card, Faq, JsonLd } from "./service";
 import { LANGS } from "../data/apps";
+import StoreBadges from "./StoreBadges";
 
 // Search-intent-first landing page for a single app. Every page built with this
 // component leads with the question people actually type into Google / an LLM,
@@ -87,25 +88,7 @@ const Facts = styled.dl`
 `;
 
 const Stores = styled.div`
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  flex-wrap: wrap;
   margin-top: 22px;
-  font-family: ${SANS};
-  a img { height: 52px; display: block; }
-`;
-
-const PlaySoon = styled.span`
-  display: inline-flex;
-  align-items: center;
-  height: 52px;
-  padding: 0 16px;
-  border: 1px dashed #cbd5e1;
-  border-radius: 8px;
-  color: #64748b;
-  font-size: 13px;
-  font-weight: 600;
 `;
 
 const Shots = styled.div`
@@ -246,8 +229,17 @@ const LangBar = styled.nav`
 export default function AppLanding({ app, lang = LANGS[0], ui }) {
   const url = `${SITE}${lang.path}/apps/${app.slug}`;
   const rtl = lang.dir === "rtl";
+  // Platforms come from the data: an App Store id means iOS, a Play url (only
+  // set once the listing is live) means Android. `live` is the iOS release.
   // Only released apps get a store link. An unreleased id 404s on the App Store.
-  const storeUrl = app.live ? app.appStoreUrl || `https://apps.apple.com/app/id${app.appStoreId}` : null;
+  const onIos = Boolean(app.appStoreId);
+  const storeUrl = onIos && app.live ? app.appStoreUrl || `https://apps.apple.com/app/id${app.appStoreId}` : null;
+  const released = Boolean(storeUrl || app.playUrl);
+  // Older iOS-first pages promise an Android build unless they opt out.
+  const playSoon = !app.playUrl && (app.androidPlanned ?? onIos);
+  const isGame = app.type === "game";
+  const platformLabel = onIos && (app.playUrl || playSoon) ? "iOS & Android" : onIos ? ui.ios : "Android";
+  const hub = isGame ? { href: "/games", name: "Games" } : { href: "/apps", name: ui.apps };
   const icon = `${SITE}/apps/${app.iconBase}-icon.png`;
   const free = app.price.amount === "0";
   const priceLabel = free
@@ -259,14 +251,15 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
 
   const software = {
     "@context": "https://schema.org",
-    "@type": ["SoftwareApplication", "MobileApplication"],
+    "@type": isGame ? ["VideoGame", "MobileApplication"] : ["SoftwareApplication", "MobileApplication"],
     name: app.name,
+    ...(isGame ? { genre: app.genre, gamePlatform: platformLabel.split(" & ") } : {}),
     alternateName: app.alternateNames,
     description: app.head.description,
-    applicationCategory: app.category || "UtilitiesApplication",
-    operatingSystem: app.operatingSystem || (app.playUrl ? "iOS 15.1 or later, Android 7.0 or later" : "iOS 15.1 or later"),
+    applicationCategory: isGame ? "GameApplication" : app.category || "UtilitiesApplication",
+    operatingSystem: app.operatingSystem || (onIos ? (app.playUrl ? "iOS 15.1 or later, Android 7.0 or later" : "iOS 15.1 or later") : "Android 7.0 or later"),
     isAccessibleForFree: free,
-    offers: { "@type": "Offer", price: app.price.amount, priceCurrency: "USD", availability: app.live ? "https://schema.org/InStock" : "https://schema.org/PreOrder" },
+    offers: { "@type": "Offer", price: app.price.amount, priceCurrency: "USD", availability: released ? "https://schema.org/InStock" : "https://schema.org/PreOrder" },
     ...(storeUrl ? { downloadUrl: storeUrl, installUrl: storeUrl } : {}),
     // Both store listings are the same app, so both belong in sameAs.
     ...(storeUrl || app.playUrl ? { sameAs: [storeUrl, app.playUrl].filter(Boolean) } : {}),
@@ -287,7 +280,7 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
     name: app.howTo.title,
     description: app.howTo.intro,
     totalTime: "PT1M",
-    tool: [{ "@type": "HowToTool", name: `${app.name} (iOS app)` }],
+    tool: [{ "@type": "HowToTool", name: `${app.name} (${platformLabel} ${isGame ? "game" : "app"})` }],
     step: app.howTo.steps.map((s, i) => ({ "@type": "HowToStep", position: i + 1, name: s.name, text: s.text })),
   };
   const faq = {
@@ -300,7 +293,7 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: ui.breadcrumbHome, item: SITE },
-      { "@type": "ListItem", position: 2, name: ui.apps, item: `${SITE}/apps` },
+      { "@type": "ListItem", position: 2, name: hub.name, item: `${SITE}${hub.href}` },
       { "@type": "ListItem", position: 3, name: app.name, item: url },
     ],
   };
@@ -328,7 +321,7 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
         <meta name="twitter:title" content={app.head.ogTitle || app.head.title} />
         <meta name="twitter:description" content={app.head.ogDescription || app.head.description} />
         <meta name="twitter:image" content={icon} />
-        {app.live && <meta name="apple-itunes-app" content={`app-id=${app.appStoreId}`} />}
+        {storeUrl && <meta name="apple-itunes-app" content={`app-id=${app.appStoreId}`} />}
       </Head>
       <JsonLd data={software} />
       <JsonLd data={howTo} />
@@ -337,13 +330,13 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
       <Header />
       <Wrap dir={lang.dir} style={rtl ? { textAlign: "right" } : undefined}>
         <Eyebrow>
-          <Link href="/apps">{ui.apps}</Link> · {ui.ios} · {priceLabel}
+          <Link href={hub.href}>{hub.name}</Link> · {platformLabel} · {priceLabel}
         </Eyebrow>
         <HeroRow>
           <Logo src={`/apps/${app.iconBase}-logo.png`} alt={`${app.name} app icon`} width="112" height="112" />
           <div style={{ flex: 1, minWidth: 260 }}>
             <Pills>
-              <Pill>{free ? ui.pillFree : ui.pillPaid.replace("{price}", priceLabel)}</Pill>
+              <Pill>{free ? (app.freePill || ui.pillFree) : ui.pillPaid.replace("{price}", priceLabel)}</Pill>
               {pills.includes("onDevice") && <Pill fg="#1e40af" bg="#dbeafe">{ui.pillOnDevice}</Pill>}
               {pills.includes("offline") && <Pill fg="#6b21a8" bg="#f3e8ff">{ui.pillOffline}</Pill>}
             </Pills>
@@ -352,20 +345,15 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
         </HeroRow>
         <Answer color={app.color}>{app.answer}</Answer>
         <Stores>
-          {storeUrl ? (
-            <a href={storeUrl} aria-label={`${ui.download}: ${app.name}`} rel="noopener">
-              <img src="/apps/app-store-badge.svg" alt={ui.download} width="156" height="52" />
-            </a>
-          ) : (
-            <PlaySoon>{ui.appStoreSoon}</PlaySoon>
-          )}
-          {app.playUrl ? (
-            <a href={app.playUrl} aria-label={`${ui.downloadPlay}: ${app.name}`} rel="noopener">
-              <img src="/apps/google-play-badge.svg" alt={ui.downloadPlay} width="134" height="52" />
-            </a>
-          ) : (
-            <PlaySoon>{ui.playSoon}</PlaySoon>
-          )}
+          <StoreBadges
+            size="lg"
+            name={app.name}
+            ios={storeUrl}
+            iosSoon={onIos && !storeUrl}
+            play={app.playUrl}
+            playSoon={playSoon}
+            labels={{ appStore: ui.download, play: ui.downloadPlay, appStoreSoon: ui.appStoreSoon, playSoon: ui.playSoon }}
+          />
         </Stores>
         <DemoVideo
           slug={app.slug}
@@ -511,7 +499,7 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
               {" · "}
             </>
           )}
-          <Link href="/apps">{ui.allApps}</Link>
+          <Link href={hub.href}>{isGame ? "All games" : ui.allApps}</Link>
         </LegalLinks>
       </Wrap>
       <Footer />
