@@ -6328,6 +6328,181 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  {
+    slug: "react-useeffectevent-practical-guide",
+    title: "React useEffectEvent: The Practical Guide to Effects That Read Fresh Props Without Re-Running",
+    description:
+      "How useEffectEvent (stable since React 19.2) separates event-like logic from Effect dependencies: the stale-closure problem it solves, the three linter rules, real patterns for sockets, timers and listeners, and when useCallback or a ref is still the better tool.",
+    datePublished: "2026-10-04",
+    readingMinutes: 9,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Every React developer has written this Effect: connect to something when a value changes, and inside the connection callback read some *other* prop that should not cause a reconnect. The dependency linter wants both values in the array. Putting both in means a theme toggle tears down a WebSocket. Leaving one out means the callback reads a stale value forever. For years the answers were a ref dance or an eslint-disable comment. `useEffectEvent`, which shipped as a stable Hook in React 19.2 (October 2025) and is current in 19.3, is the official answer. This guide covers what it does, the rules the linter now enforces, the patterns it is designed for, and the cases where it is the wrong tool.",
+          },
+        ],
+      },
+      {
+        heading: "The problem: reactive values versus event logic",
+        blocks: [
+          {
+            type: "p",
+            text: "An Effect synchronises a component with something outside React: a socket, a subscription, a timer, a DOM listener. Its dependency array lists the values that, when changed, should re-run the synchronisation. The trouble is that Effects usually also contain a second kind of code, logic that *responds* to something happening and merely wants to read the latest state when it does. That second kind of code has no business re-running the whole Effect.",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: "function ChatRoom({ roomId, theme }) {\n  useEffect(() => {\n    const connection = createConnection(serverUrl, roomId);\n    connection.on('connected', () => {\n      showNotification('Connected!', theme); // reads theme\n    });\n    connection.connect();\n    return () => connection.disconnect();\n  }, [roomId, theme]); // theme change reconnects the room\n}",
+          },
+          {
+            type: "p",
+            text: "`roomId` is reactive in the true sense: a new room means a new connection. `theme` is only read when the connected event fires. Listing it as a dependency is technically honest and practically wrong; the user flips dark mode and gets disconnected. Removing it from the array makes the linter complain and, worse, means the notification uses whatever theme was current when the Effect last ran. This is the stale closure problem in its purest form.",
+          },
+        ],
+      },
+      {
+        heading: "What useEffectEvent does",
+        blocks: [
+          {
+            type: "p",
+            text: "`useEffectEvent(callback)` returns a function with the same signature as `callback` that always sees the latest committed props and state, exactly like a DOM event handler does, and that is deliberately *not* reactive: you do not put it in a dependency array, and calling it never triggers a re-run.",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: "import { useEffect, useEffectEvent } from 'react';\n\nfunction ChatRoom({ roomId, theme }) {\n  const onConnected = useEffectEvent(() => {\n    showNotification('Connected!', theme); // always the current theme\n  });\n\n  useEffect(() => {\n    const connection = createConnection(serverUrl, roomId);\n    connection.on('connected', () => {\n      onConnected();\n    });\n    connection.connect();\n    return () => connection.disconnect();\n  }, [roomId]); // only the truly reactive value\n}",
+          },
+          {
+            type: "p",
+            text: "The mental model the React team uses is worth adopting: an Effect Event is a piece of event-handler logic that happens to be triggered from inside an Effect rather than from a user interaction. It reads the latest values because events always should, and it is excluded from dependencies because handlers never were dependencies in the first place.",
+          },
+        ],
+      },
+      {
+        heading: "The three rules the linter enforces",
+        blocks: [
+          {
+            type: "p",
+            text: "With `eslint-plugin-react-hooks` v6 or later (the version that moved to flat config alongside 19.2), the rules are mechanical and you will hit all three in the first week.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Do not put an Effect Event in a dependency array.** Its identity intentionally changes on every render, so listing it would re-run the Effect every time. The linter reports it as \"must not be included in the dependency array\".",
+              "**Only call it from Effects** (`useEffect`, `useLayoutEffect`, `useInsertionEffect`) or from other Effect Events in the same component. Calling it during render, or from an `onClick`, is an error (\"can only be called from Effects\" / \"can't be called during rendering\"). If you want a function for a click handler, you want a plain function or `useCallback`, not this.",
+              "**Do not pass it to other components or Hooks.** It is local to the component or custom Hook that declared it. If a child needs the behaviour, declare the Effect Event in the child, or pass the underlying data down and let the child create its own.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Those restrictions are the point. A function that always reads fresh values but has unstable identity would be a footgun if you could pass it around; keeping it inside the Effect that calls it is what makes it safe.",
+          },
+        ],
+      },
+      {
+        heading: "Pattern 1: intervals and timers that read current state",
+        blocks: [
+          {
+            type: "p",
+            text: "The classic `setInterval` counter bug, where the callback captures the initial `count` and increments from zero forever, disappears without clearing and recreating the interval on every tick.",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: "function Counter({ increment }) {\n  const [count, setCount] = useState(0);\n\n  const onTick = useEffectEvent(() => {\n    setCount(count + increment); // latest count and increment\n  });\n\n  useEffect(() => {\n    const id = setInterval(() => onTick(), 1000);\n    return () => clearInterval(id);\n  }, []); // the interval is created once\n\n  return <h1>{count}</h1>;\n}",
+          },
+          {
+            type: "p",
+            text: "Before 19.2 you would either have used the functional updater form (fine for `count`, useless for `increment`) or stored `increment` in a ref and updated the ref in another Effect. The ref pattern still works; it is just three pieces of code expressing one idea.",
+          },
+        ],
+      },
+      {
+        heading: "Pattern 2: a global listener that should attach once",
+        blocks: [
+          {
+            type: "code",
+            language: "jsx",
+            code: "function Canvas({ canMove }) {\n  const [position, setPosition] = useState({ x: 0, y: 0 });\n\n  const onMove = useEffectEvent((e) => {\n    if (canMove) setPosition({ x: e.clientX, y: e.clientY });\n  });\n\n  useEffect(() => {\n    window.addEventListener('pointermove', onMove);\n    return () => window.removeEventListener('pointermove', onMove);\n  }, []);\n\n  // ...\n}",
+          },
+          {
+            type: "p",
+            text: "Toggling `canMove` no longer removes and re-adds the window listener. Note the subtlety: you pass `onMove` itself to `addEventListener`, and because the Effect runs once, the same wrapper is removed on cleanup. This is the one place where the unstable identity could bite you: if the Effect *did* re-run, it would remove the wrapper it added, which is correct, because the new run adds a new one. The pattern is safe; just do not try to remove an Effect Event from a different Effect than the one that added it. The [useEffect cleanup guide](/blog/react-useeffect-cleanup-function-guide) covers the general rule of pairing every subscribe with its own unsubscribe.",
+          },
+        ],
+      },
+      {
+        heading: "Pattern 3: custom Hooks that accept a callback",
+        blocks: [
+          {
+            type: "p",
+            text: "Any `useInterval`, `useEventListener` or `useOnVisibilityChange` style Hook used to force callers to memoise their callback or risk re-subscribing on every render. Wrapping the incoming callback in an Effect Event removes that burden entirely.",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: "function useInterval(callback, delay) {\n  const onTick = useEffectEvent(callback);\n\n  useEffect(() => {\n    if (delay === null) return;\n    const id = setInterval(() => onTick(), delay);\n    return () => clearInterval(id);\n  }, [delay]);\n}\n\n// Caller: no useCallback needed\nuseInterval(() => setSeconds(seconds + 1), running ? 1000 : null);",
+          },
+          {
+            type: "p",
+            text: "This is probably the highest-leverage use in a codebase: a handful of shared Hooks get simpler, and dozens of call sites lose their `useCallback` wrappers.",
+          },
+        ],
+      },
+      {
+        heading: "When NOT to use useEffectEvent",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**To silence the linter about a real dependency.** If the Effect genuinely should re-run when a value changes, wrapping the read in an Effect Event hides a bug. The docs' example is logging a page visit: wrap `pageUrl` in an Effect Event and you log only the first page. Ask \"should a change to this value re-synchronise?\" If yes, it is a dependency, not an event.",
+              "**For click handlers and other user events.** Those already see fresh values. A plain function, or `useCallback` when a memoised child needs a stable prop, is the right tool.",
+              "**When a child component needs the function.** Effect Events cannot cross component boundaries. Pass data, or `useCallback`, or lift the Effect.",
+              "**To read values during render.** It throws conceptually and the linter stops you. Derived values belong in render or `useMemo`.",
+              "**On React below 19.2.** The API was experimental (`experimental_useEffectEvent`) for a long time; if your project is pinned to 18 or 19.0/19.1, the ref-plus-Effect pattern is still the portable answer.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "useEffectEvent vs useCallback vs a ref",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**useCallback**: stable identity, stale values unless you list them. Use it for props to memoised children and for handlers that must not change between renders.",
+              "**A ref updated in an Effect**: fresh values, stable identity, manual bookkeeping. Still the right answer when you must hand a stable function to a third-party library that caches it, or when you need to read the latest value from somewhere that is neither an Effect nor an event.",
+              "**useEffectEvent**: fresh values, unstable identity, local to one component, callable only from Effects. Use it for the response half of an Effect: the \"when this fires, do that with current state\" code.",
+            ],
+          },
+          {
+            type: "p",
+            text: "A good rule from auditing real codebases: if an Effect has a dependency you would be tempted to disable the linter for, that value probably belongs in an Effect Event. If an Effect has a dependency that is a function from the parent, the parent probably wanted `useCallback`, or the function should not be a dependency at all because only its latest version matters, which again points to an Effect Event on the receiving side.",
+          },
+        ],
+      },
+      {
+        heading: "Migration notes",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Upgrade `eslint-plugin-react-hooks` to v6+ at the same time as React 19.2+, otherwise the old `exhaustive-deps` rule will try to add your Effect Events to dependency arrays and fight you.",
+              "Search the codebase for `eslint-disable-next-line react-hooks/exhaustive-deps`. Each one is a candidate; most become an Effect Event, a few turn out to be genuine missing dependencies that were hiding bugs.",
+              "Search for refs named `latestXRef` or `callbackRef` that are assigned in an Effect and read in a timer or listener. Those are hand-rolled Effect Events and can usually be deleted.",
+              "If you were on the experimental build, `experimental_useEffectEvent` is now just `useEffectEvent` from `react`; the semantics did not change.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The Hook is small, and that is its virtue. It does not change how Effects work; it gives the second half of almost every Effect a name, a home, and a linter that keeps it honest. If you are also adopting the other 19.2 and 19.3 additions, the [ViewTransition and Activity guide](/blog/react-viewtransition-activity-guide) covers the rendering side of the same release.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
 ];
 

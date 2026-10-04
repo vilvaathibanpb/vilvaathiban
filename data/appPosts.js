@@ -3403,4 +3403,415 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "talking-head-video-setup-guide-iphone",
+    title: "The Complete Talking-Head Filming Setup: Phone, Light, Sound, Script and Eye Line, With No Studio",
+    description:
+      "A step-by-step talking-head video setup for creators filming on an iPhone: where to put the phone and the light, how to get clean audio, framing that survives every platform, and where the script goes so you can read it without looking like you are reading.",
+    datePublished: "2026-10-04",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Most talking-head videos fail before the first word is spoken. The phone is too low, the window is behind the speaker, the microphone is on the other side of the room, and the script is on a laptop a metre to the left so every sentence ends with a glance away. None of that is fixed by a better phone. It is fixed by a setup you build once, write down, and rebuild the same way every time you record.",
+          },
+          {
+            type: "p",
+            text: "This is that setup, in the order you should build it: position, light, sound, framing, then script. It assumes an iPhone, a desk or table, and a budget of roughly nothing to a small tripod and a light. Earlier posts in this series went deep on single pieces, such as [keeping eye contact with the camera](/blog/how-to-keep-eye-contact-with-the-camera) and [mirror mode and DIY rigs](/blog/mirror-mode-and-diy-teleprompter-rigs); this one is the whole picture, so you can get from nothing to a repeatable recording corner in an afternoon.",
+          },
+        ],
+      },
+      {
+        heading: "Step 1: Pick the spot by the light, not the background",
+        blocks: [
+          {
+            type: "p",
+            text: "Walk around your home in the daytime and find the place where a window would be *in front of you* while you talk, slightly to one side. That is your spot. Everything else, including the background, is secondary and can be fixed; bad light cannot. A window behind you turns you into a silhouette and no setting on the phone rescues it. A window directly beside you gives a half-lit face, which can look dramatic and usually just looks like a mistake.",
+          },
+          {
+            type: "p",
+            text: "If daylight is unreliable or you record at night, one affordable LED panel or ring light placed where the window would be does the same job. Put it slightly above eye level, angled down, and about an arm's length further away than feels natural; closer light is softer but shows every pore and makes you squint. Turn off the overhead room light, which casts shadows under the eyes and fights the colour of your main light.",
+          },
+        ],
+      },
+      {
+        heading: "Step 2: Put the lens at eye level, not where the tripod ends",
+        blocks: [
+          {
+            type: "p",
+            text: "The single most common amateur tell is a camera looking up at the speaker from desk height. Stack books, use a tall tripod, or mount the phone on a shelf; whatever it takes, the lens should be at your eye level or a finger's width above. If you are sitting, that is roughly the height of your eyebrows when you sit up straight, and you will slump, so aim a touch high.",
+          },
+          {
+            type: "p",
+            text: "Distance matters too. Arm's length is the minimum for a phone; closer and the wide lens stretches your features. A little further back, with the phone zoomed slightly or using the 2x lens if your model has one, gives a flatter, more flattering look and makes it easier to keep the script near the lens, which matters in step 5.",
+          },
+        ],
+      },
+      {
+        heading: "Step 3: Sound is half the video",
+        blocks: [
+          {
+            type: "p",
+            text: "Viewers forgive soft focus and odd colours; they do not forgive echo. Three things fix most audio problems in a normal room, in order of cost: record in the smallest, softest room you have (a bedroom with a bed and curtains beats a kitchen every time), get the microphone close (any wired or wireless lavalier clipped at the sternum will outperform the phone's built-in mic from a metre away), and put something soft behind the phone so your voice does not bounce straight back off a wall into the mic.",
+          },
+          {
+            type: "p",
+            text: "Do a ten-second test take and listen on headphones before every session. Fridges, laptop fans and the neighbour's lawnmower are all invisible until you are editing.",
+          },
+        ],
+      },
+      {
+        heading: "Step 4: Frame once for every platform",
+        blocks: [
+          {
+            type: "p",
+            text: "Record in portrait. Vertical video is what Reels, Shorts and TikTok want and a portrait master can be cropped to a square for feeds; a landscape master cannot be turned into a usable vertical without cutting off your shoulders. Place your eyes on the upper third line, leave a hand's width above your head, and keep the bottom quarter of the frame reasonably clear because captions and interface buttons will sit there on every platform.",
+          },
+          {
+            type: "p",
+            text: "Lock exposure and focus before you start (tap and hold on the subject in the camera app) so the image does not pulse when you move your hands. If you want the detail that lets you crop later, [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay) records in portrait 4K, which gives you room to punch in for a tighter shot in the edit without the result turning to mush.",
+          },
+          {
+            type: "list",
+            items: [
+              "Portrait, eyes on the upper third, bottom quarter clear for captions.",
+              "Exposure and focus locked; no auto-adjust pulsing.",
+              "A background with depth (a room behind you) rather than a flat wall right behind your head.",
+              "One or two objects in the background that are yours: a plant, a shelf, a lamp. Not a shrine, not a bare wall.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Step 5: Put the script where your eyes already are",
+        blocks: [
+          {
+            type: "p",
+            text: "This is the step that separates talking-head videos that feel like a conversation from ones that feel like a hostage statement. Any script that lives away from the lens, on a laptop, a second phone or a printout, pulls your eyes off camera every few seconds, and viewers notice even when they cannot say why. The fix is to put the words as close to the lens as physically possible.",
+          },
+          {
+            type: "p",
+            text: "On a phone you have two practical options. The first is a camera-overlay teleprompter: the script floats over the camera preview on the same screen, right next to the front lens, so reading and looking at the camera are the same movement. Teleprompter: Camera Overlay does exactly this, with the text positioned beside the lens and a choice of scroll modes. The second is a physical beam-splitter rig that reflects a second screen in front of the lens; it is better for long, formal pieces and worse for everything else because of the setup time, which is why the [rig post](/blog/mirror-mode-and-diy-teleprompter-rigs) recommends it only for people recording hours of material.",
+          },
+          {
+            type: "p",
+            text: "Whichever you use, set the text large enough that you read in phrases rather than words, and narrow the column so your eyes do not visibly track left to right. Use voice-follow scrolling if your app has it, so the script moves at your speaking pace and waits when you pause to think; the [voice-follow vs auto-scroll](/blog/voice-follow-vs-auto-scroll-teleprompter) post explains when the classic timed scroll is still the better choice. In the overlay app the script is only on the preview, never in the saved video, so there is nothing to crop out afterwards.",
+          },
+        ],
+      },
+      {
+        heading: "Step 6: The two-minute pre-flight checklist",
+        blocks: [
+          {
+            type: "p",
+            text: "Write this on a sticky note and put it on the tripod. It is the difference between a setup and a habit.",
+          },
+          {
+            type: "list",
+            items: [
+              "Light on, overhead off, blinds adjusted if daylight has moved.",
+              "Lens at eye level, phone level (check the horizon of a shelf behind you).",
+              "Mic clipped, headphones test take done, phone on Do Not Disturb and airplane mode so a call does not kill the recording.",
+              "Battery above 40 percent or plugged in; storage checked (4K eats space).",
+              "Exposure and focus locked. Lens wiped with a cloth. This one fixes more soft videos than any setting.",
+              "Script loaded, first line visible, text size and scroll mode set from the last session.",
+              "Water within reach, out of frame.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "When NOT to bother with all this",
+        blocks: [
+          {
+            type: "p",
+            text: "If you are replying to a comment, filming a quick reaction, or recording a behind-the-scenes clip where the point is that it is unpolished, do not build the set. Hold the phone, talk, post. Polish on the wrong content reads as trying too hard. The full setup is for the videos that carry your ideas, your course material, your sales pitch or your explanation of something you know well, where the viewer's attention is the thing you are spending and you want them to spend it on the words rather than on the shadow under your nose. Those videos are also the ones where a script earns its keep, so they are the ones where step 5 pays off most.",
+          },
+          {
+            type: "p",
+            text: "One last honest note: the setup makes a good speaker look professional, it does not make a nervous speaker relaxed. If the camera itself is the problem, the fixes are repetition and script craft, not equipment; the [writing a script that doesn't sound written](/blog/write-a-script-that-doesnt-sound-written) post is the better starting point, and a later post in this series will deal with camera anxiety directly.",
+          },
+        ],
+      },
+      {
+        heading: "Next in the series",
+        blocks: [
+          {
+            type: "p",
+            text: "With the room sorted, the next question people ask is about the app itself, specifically what it does with your voice when voice-follow scrolling is on. The next post looks at why on-device speech recognition matters for privacy, what actually happens to the audio when a teleprompter listens to you, and how to tell whether an app is processing speech on the phone or sending it somewhere else.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "wire-size-voltage-drop-conduit-fill-iphone-electrician-calculator-walkthrough",
+    title: "Sizing a Circuit on Your iPhone: Wire Size, Voltage Drop and Conduit Fill in One Pass With Electrician Calculator Toolkit",
+    description:
+      "A worked example of sizing a branch circuit on an iPhone with Electrician Calculator Toolkit: load and breaker, wire size with derating, voltage drop and conduit fill, with the NEC 2023 table behind each number and the cases where you still open the book.",
+    datePublished: "2026-10-04",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "The three questions that come up on almost every job are the same: what breaker and wire does this load need, will the voltage drop pass over that run, and what conduit does the bundle fit in. Each has a table in the code book, each table has a footnote, and each footnote is annoying to find with gloves on in a crawl space. This post walks one realistic circuit through all three on an iPhone using [Electrician Calculator Toolkit](/apps/electrician-calculator), showing which NEC 2023 table each answer comes from, so you can check it against the book or explain it to the inspector.",
+          },
+          {
+            type: "p",
+            text: "The app is a $3.99 one-time purchase for iPhone (iOS 17 or later), works fully offline, and bundles eight tools: voltage drop, wire size with derating, conduit fill, box fill, load and breaker, Ohm's law, resistor colour codes and the reference tables. There is no Android version yet. It is a calculation aid, not a substitute for the adopted code in your jurisdiction or the authority having jurisdiction, and this post is not electrical advice.",
+          },
+        ],
+      },
+      {
+        heading: "The example circuit",
+        blocks: [
+          {
+            type: "p",
+            text: "A 240 V single-phase continuous load of 9,600 W, so 40 A, feeding equipment about 100 feet from the panel in copper THHN, run in EMT with two other circuits sharing the raceway in a hot attic. Realistic enough to hit every rule that matters: the continuous-load factor, ambient and conductor-count derating, voltage drop over a long run, and conduit fill with more than three conductors.",
+          },
+        ],
+      },
+      {
+        heading: "Step 1: Load and breaker (240.6(A) and the 125 percent rule)",
+        blocks: [
+          {
+            type: "p",
+            text: "Open Load & Breaker, enter 9,600 W, 240 V, single-phase, and mark the load continuous because it runs for three hours or more. The tool returns the load current (40 A), the design current at 125 percent (50 A), the next standard breaker rating from Table 240.6(A), and the minimum 75°C conductor for that current.",
+          },
+          {
+            type: "p",
+            text: "The 125 percent step is the one people skip when they size from the nameplate alone. A 40 A continuous load needs an overcurrent device and conductors rated for 50 A, which is why the breaker and the wire both come out a size larger than the nameplate suggests. The app shows both numbers on the same screen so the reasoning is visible rather than buried.",
+          },
+        ],
+      },
+      {
+        heading: "Step 2: Wire size with derating (Table 310.16, 310.15(B)(1), 310.15(C)(1))",
+        blocks: [
+          {
+            type: "p",
+            text: "Carry the 50 A into Wire Size. In a mild room with three or fewer current-carrying conductors, Table 310.16 at 75°C gives #8 AWG copper for 50 A, and that is the textbook answer to \"what size wire for a 50 amp circuit\". Our example is not a mild room. Set the termination rating (75°C for typical breaker and equipment terminals), enter the attic ambient temperature, and set the number of current-carrying conductors sharing the EMT to six, since three two-wire circuits are in it.",
+          },
+          {
+            type: "p",
+            text: "The tool applies the ambient correction from 310.15(B)(1) and the adjustment factor for more than three conductors from 310.15(C)(1), then shows the adjusted ampacity of every size around the answer rather than a single number. That table view is the useful part: you can see exactly how far #8 falls short once the factors are applied and whether #6 clears it with margin. For the small sizes, it also enforces the 240.4(D) caps so that #14, #12 and #10 are never shown protected above 15, 20 and 30 A no matter what the derated ampacity says.",
+          },
+          {
+            type: "list",
+            items: [
+              "Termination rating caps you at the 60°C or 75°C column even if the insulation is 90°C; the 90°C column is only the starting point for derating.",
+              "Ambient correction and conductor-count adjustment multiply together; a hot attic and a crowded conduit can push a circuit up two sizes.",
+              "Equipment grounding conductors and most neutrals in balanced circuits do not count as current-carrying; the app asks for the count, you decide what counts.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Step 3: Voltage drop over the run (210.19(A) informational note)",
+        blocks: [
+          {
+            type: "p",
+            text: "Now the 100-foot one-way run. Open Voltage Drop, enter 240 V, 40 A (the actual load current, not the design current), copper, the conductor size you landed on, and 100 feet. The tool uses VD = 2 × K × I × L ÷ CM for single-phase and DC (1.732 instead of 2 for three-phase), with K = 12.9 for copper and 21.2 for aluminium, and returns the drop in volts and percent plus the voltage at the load.",
+          },
+          {
+            type: "p",
+            text: "To see why this step matters even after derating, run a smaller case: a 120 V, 20 A load on #12 copper at 100 feet. The formula gives 2 × 12.9 × 20 × 100 ÷ 6,530 circular mils, which is about 7.9 V, or 6.6 percent, more than double the 3 percent branch-circuit figure in the informational note to 210.19(A). #10 brings it to roughly 4.1 percent; #8 gets it under 3 percent. The app does this comparison for you, flagging anything above the 3 percent branch and 5 percent total informational limits and showing the smallest conductor that stays under 3 percent. You can flip to aluminium or add parallel sets to see the alternatives side by side.",
+          },
+          {
+            type: "p",
+            text: "Those 3 and 5 percent figures are informational in the NEC, not mandatory, and energy codes or the equipment manufacturer may impose their own. The tool labels them as such; the decision stays yours.",
+          },
+        ],
+      },
+      {
+        heading: "Step 4: Conduit fill (Chapter 9, Tables 1, 4 and 5)",
+        blocks: [
+          {
+            type: "p",
+            text: "Finally the raceway. In Conduit Fill, add the conductors: the two circuit conductors and grounding conductor for this circuit at the size you chose, plus the conductors of the two other circuits, each with its insulation type. THHN/THWN, XHHW and THW are supported, and you can mix sizes freely. The tool reads the 40 percent fill limit from Table 1, the raceway areas from Table 4, and the conductor areas from Table 5, and shows the minimum trade size for EMT, PVC Schedule 40, PVC Schedule 80, RMC and IMC side by side.",
+          },
+          {
+            type: "p",
+            text: "There is also a reverse mode, Max conductors, for the question that gets asked the other way round: how many of one conductor fit in a given conduit. The classic example is sixteen #12 THHN in a 3/4 inch EMT, which is what Tables 1, 4 and 5 give and what the tool reports.",
+          },
+        ],
+      },
+      {
+        heading: "Step 5: Box fill, if the run ends in a box you have to justify",
+        blocks: [
+          {
+            type: "p",
+            text: "Box Fill applies the 314.16(B) volume allowances: one per conductor originating outside the box, a single allowance for all internal clamps, one per support fitting, two per device yoke, and one for all equipment grounds together, each based on the largest conductor in the box. Enter what enters the box and compare the required cubic inches against the box you have in your hand; the tool gives a pass or fail against standard box volumes from the tables.",
+          },
+        ],
+      },
+      {
+        heading: "Why the table reference on every screen matters",
+        blocks: [
+          {
+            type: "p",
+            text: "Plenty of free single-purpose calculators will give you a wire size. Few tell you which table and which edition they used, and that is the number an inspector will ask about. Every result in Electrician Calculator Toolkit names the NEC 2023 table or section it came from, which does two things: it lets you verify any answer against the book in seconds, and it turns the app into a teaching tool for apprentices who need to learn where the numbers live, not just what they are. The Code Tables tool opens those references directly, including ampacity tables for copper and aluminium, standard breaker ratings, derating factors, box volumes and the US and IEC wire colour conventions.",
+          },
+        ],
+      },
+      {
+        heading: "When you still open the book",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Your jurisdiction is not on the 2023 edition.** Many places adopt a code cycle late or with amendments. The tables rarely move much between editions, but the app is explicit that it follows 2023, so check which edition your inspector enforces.",
+              "**Motor, HVAC, welder and other special loads.** Those articles have their own conductor and overcurrent rules that override the general method. Use the tool for the arithmetic, not for the rule.",
+              "**Feeders and services with demand factors.** Article 220 load calculations are not what the Load & Breaker tool does; it sizes a known load.",
+              "**Anything outside AWG and kcmil.** Lengths can be in metres and temperatures in Celsius, but conductor sizes follow the US tables. European installers working to IEC cross-sections in square millimetres will find the voltage drop and Ohm's law tools useful and the ampacity tables not directly applicable.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "The quick version",
+        blocks: [
+          {
+            type: "p",
+            text: "Load & Breaker for the design current and breaker, Wire Size for the derated conductor, Voltage Drop for the run, Conduit Fill for the raceway, Box Fill for the termination. Five screens, each naming its table, under a minute once you have done it twice, and nothing uploaded or downloaded along the way. If that is the flow you already do on paper, [Electrician Calculator Toolkit](/apps/electrician-calculator) just makes it faster and shows its working.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "read-whatsapp-voice-notes-as-text-android-offline-faq",
+    title: "Read WhatsApp Voice Notes as Text on Android, Offline: The Questions People Actually Ask",
+    description:
+      "An Android FAQ for turning WhatsApp, Telegram and Signal voice notes into text without uploading them: the share-sheet route, what to do when WhatsApp's own transcript is missing for your language, long recordings, accuracy, and what the one-time purchase covers.",
+    datePublished: "2026-10-04",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "A six-minute voice note arrives while you are in a meeting, on a bus with no headphones, or in a library. You cannot listen, you do not want to put it on speaker, and WhatsApp's own \"transcribe\" option is either missing or in the wrong language. This FAQ covers the Android side of that problem, using the free-to-download [Voice Note to Text](/apps/voice-note-to-text) app, which transcribes on the phone itself with no upload. The questions below are the ones that come up in reviews, support emails and search, in roughly the order people hit them. The iPhone version of the workflow is covered in an [earlier post](/blog/transcribe-whatsapp-voice-message-to-text-iphone); this one is Android only.",
+          },
+        ],
+      },
+      {
+        heading: "Why doesn't WhatsApp just transcribe it for me?",
+        blocks: [
+          {
+            type: "p",
+            text: "Sometimes it does. WhatsApp has a built-in transcript feature on Android, but it works only for a short list of languages, needs a language pack downloaded per language, has to be switched on in settings, and only applies to messages inside the chat. A voice note in Tamil, Turkish, Dutch or Punjabi, a note forwarded from a group, or an audio file somebody already saved to your phone typically gets no transcript at all. The gap is not a bug you can fix in settings; it is the shape of the feature. An on-device transcriber that opens any audio file in any language fills that gap.",
+          },
+        ],
+      },
+      {
+        heading: "How do I get a voice note out of WhatsApp and into the app?",
+        blocks: [
+          {
+            type: "p",
+            text: "Two routes, both without leaving WhatsApp for long.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Share sheet (fastest).** Long-press the voice message in the chat, tap the share icon (or the three dots, then Share), and choose Voice Note to Text from the Android share sheet. The app opens with the file loaded and starts transcribing.",
+              "**From Files.** If the audio is already on your phone, open the app and pick the file with the system file picker. WhatsApp voice notes live under the WhatsApp Media or Voice Notes folder as .opus files; Telegram and Signal produce .ogg or .m4a, which also open directly.",
+            ],
+          },
+          {
+            type: "p",
+            text: "No conversion step is needed. The app decodes .opus, .m4a, .mp3 and .wav itself, so you never have to turn a voice note into an MP3 first just to read it.",
+          },
+        ],
+      },
+      {
+        heading: "Does it need internet? What happens to my audio?",
+        blocks: [
+          {
+            type: "p",
+            text: "It does not need internet, and that is the point of it. The speech-recognition model ships inside the app, so transcription runs entirely on the phone, nothing is uploaded, and no account is created. The simplest way to confirm this is to turn on airplane mode and transcribe something: it works exactly the same. For a message from a doctor, a lawyer, a landlord or a partner, that matters more than any other feature, because the usual alternative is an app that sends the recording to a server you know nothing about.",
+          },
+        ],
+      },
+      {
+        heading: "Which languages work, and do I have to pick one?",
+        blocks: [
+          {
+            type: "p",
+            text: "Around 100 languages, and no, you do not pick. The language is detected automatically from the audio, which is useful in exactly the situations where people need it most: a family group that switches between Hindi and English mid-sentence, a colleague who records in Spanish, a voice note from a friend abroad. The transcript comes back in the language that was spoken. Translation is not built in; copy the text into Google Translate or any translator if you need it in another language.",
+          },
+        ],
+      },
+      {
+        heading: "How accurate is it, really?",
+        blocks: [
+          {
+            type: "p",
+            text: "Clear speech in a major language, recorded close to the phone, comes back with very few errors, the kind you would fix in a second if you were pasting it into a reply. Accuracy drops with background noise, several people talking at once, heavy accents in a less common language, and the slightly muffled audio you get when someone records while walking in wind. For those, the transcript is usually still good enough to know what the message is about and whether it needs a call back, which is what you wanted in the meeting anyway. Treat it like a careful first draft rather than a court record.",
+          },
+        ],
+      },
+      {
+        heading: "Can I do long recordings, like a lecture or an interview?",
+        blocks: [
+          {
+            type: "p",
+            text: "Yes. There is no length limit. Longer files take proportionally longer because the work happens on your own processor, so a ten-minute recording takes noticeably longer than a thirty-second voice note, and an older or budget Android phone will be slower than a recent one. For a one-hour interview, start it, put the phone down, and come back. The transcript can then be copied or shared as a .txt file, which is a cleaner way to get an interview into a document than any amount of typing.",
+          },
+        ],
+      },
+      {
+        heading: "What can I do with the text once I have it?",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Copy** it and paste it straight into your reply, so the sender gets a quoted answer to what they said rather than \"what did you mean in the voice note?\"",
+              "**Share .txt** through the Android share sheet to Keep, Drive, email or a notes app, which turns an important voice message into something searchable instead of a blob of audio you can never find again.",
+              "**Keep a record.** Agreements made by voice note, delivery instructions, a landlord's promise, a doctor's dosage advice: text you can search beats audio you have to scrub through.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Is it free? What does the purchase cover?",
+        blocks: [
+          {
+            type: "p",
+            text: "The Android app is free to download and contains ads, and instead of a subscription there is a single one-time purchase. There are no minutes to top up and no credits, which is unusual in this category, where the common model is a monthly fee for cloud transcription. Pay once, transcribe for as long as you keep the app. What the purchase unlocks and its exact price are shown on the Play Store listing for your country.",
+          },
+        ],
+      },
+      {
+        heading: "When NOT to use it",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**You need a translated transcript in one step.** This app transcribes in the spoken language only. Pair it with a translator.",
+              "**You need speaker labels or timestamps for a multi-person meeting.** It produces plain text. Dedicated meeting tools do more, at the cost of uploading the audio.",
+              "**The voice note is already transcribed by WhatsApp in your language and you are inside the chat.** Use the built-in one; it is right there. This app is for everything that feature does not cover.",
+              "**You want to send a text version to someone who cannot see the chat.** You can, by sharing the .txt, but remember the transcript is a draft; read it before you forward it.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "The short answer",
+        blocks: [
+          {
+            type: "p",
+            text: "Long-press the voice note, Share, choose Voice Note to Text, read it, copy it into your reply. Any language, no upload, works in airplane mode, and the audio never leaves your Android phone. If the voice notes in your life are mostly in a language WhatsApp's own transcript ignores, or they arrive at times you cannot listen, that is the whole workflow, and the [app page](/apps/voice-note-to-text) has the Play Store link and the full feature list.",
+          },
+          {
+            type: "p",
+            text: DISCLAIMER,
+          },
+        ],
+      },
+    ],
+  },
 ];
