@@ -3814,4 +3814,421 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "on-device-speech-recognition-teleprompter-privacy",
+    title:
+      "Why On-Device Speech Recognition Matters for a Teleprompter (and for Your Privacy)",
+    description:
+      "Voice-following teleprompters listen to every word you say. Where that audio goes depends on one design choice: on-device or cloud speech recognition. What the difference means for privacy, airplane mode, scripts over a minute long, and when cloud recognition is still the better tool.",
+    datePublished: "2026-10-05",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text:
+              "A voice-following teleprompter has to listen to you. That is the whole trick: it hears the words you are saying, matches them to the script, and scrolls so the next line is always in front of you. Which raises a question most creators never ask until a client does: where does the audio go? The answer depends on a single engineering decision inside the app, whether speech recognition runs **on the device** or **in the cloud**, and that decision affects far more than privacy. It decides whether the prompter works on a plane, whether it dies after sixty seconds, how fast it reacts, and what happens to the unreleased product name you just said out loud. This post explains the difference in plain terms, busts a few myths, and is honest about the cases where cloud recognition is still the better tool.",
+          },
+        ],
+      },
+      {
+        heading: "Two ways to turn speech into text",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Cloud recognition streams your microphone audio to a server, which runs a large model and sends the words back. On-device recognition runs a smaller model on the phone's own chip and never opens a network connection for the audio. Both produce a stream of recognised words; the teleprompter uses that stream the same way either way. The difference is entirely in what leaves the phone, what it needs to work, and what limits apply.",
+          },
+          {
+            type: "p",
+            text:
+              "On iPhone, both paths exist inside the same Apple framework. Apple's own documentation for its speech API is unusually frank about the cloud path: because it is a network service, it enforces a limit of about one minute of audio per recognition task, caps how many recognitions a device and an app can make per day, and advises developers not to send private or sensitive speech through it. The on-device path, which Apple added later and which recent iPhones support for a long and growing list of languages, has none of those constraints because there is no server to protect. An app can choose either, and the choice is invisible to you unless the developer tells you.",
+          },
+        ],
+      },
+      {
+        heading: "Myth 1: it only matters if you say something secret",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "People hear privacy and picture spies. The realistic risk is duller. A teleprompter script is, by definition, the thing you have not published yet: the product launch, the earnings commentary, the medical explainer with a patient's story in it, the course module you are selling. If recognition runs in the cloud, every take of every draft of that script travels as audio to a server you do not control, under terms you did not read, in a jurisdiction you did not choose. Most of the time nothing bad happens. The point is that with on-device recognition there is no **most of the time**; the audio stays in the app, so there is nothing to leak, retain, subpoena or train on.",
+          },
+          {
+            type: "p",
+            text:
+              "This also matters in the opposite direction, for the people in your videos. Teachers recording with students in the room, doctors recording near a clinic, anyone filming in a workplace: a prompter that uploads audio is a prompter that uploads whatever else the microphone catches. On-device recognition keeps that boundary where it should be.",
+          },
+        ],
+      },
+      {
+        heading: "Myth 2: offline just means it works without Wi-Fi",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "True, and that alone is worth having: airplane mode on a flight, a basement studio, a conference centre with saturated Wi-Fi, a field shoot with one bar of signal. A cloud prompter in those places either stalls or falls back to auto-scroll without telling you, which is the worst possible moment to find out.",
+          },
+          {
+            type: "p",
+            text:
+              "But offline has two quieter benefits. The first is latency: there is no round trip to a server, so the scroll responds to your voice within a fraction of a second rather than lagging a beat behind you. With voice-following, that lag is the difference between a prompter that feels like it is reading your mind and one you are forever waiting for. The second is consistency: the model on your phone behaves the same on Tuesday as it did on Monday, because nobody updated it overnight.",
+          },
+          {
+            type: "p",
+            text:
+              "**Teleprompter: Camera Overlay** is built this way. Its voice-driven scrolling uses Apple's on-device speech recognition, it works fully in airplane mode, and nothing you say or write is uploaded. It auto-detects the language of the script and supports every language iOS on-device recognition supports, which is why it holds up for [recording in a second language](/blog/recording-video-in-a-second-language). The [app page](/apps/teleprompter-camera-overlay) lists the rest of the features.",
+          },
+        ],
+      },
+      {
+        heading: "Myth 3: the sixty-second thing is not a real problem",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "It is, and it explains a lot of strange behaviour in cloud-based prompters. Because the cloud path is capped at roughly a minute of audio per task, an app using it has to quietly stop and restart recognition every minute. Done well, you never notice. Done badly, there is a hiccup where the scroll freezes for a second, loses your place, or jumps. If you have used a voice prompter that worked beautifully for short Reels and fell apart on a five-minute tutorial, this is very likely why. On-device recognition runs for as long as you talk.",
+          },
+          {
+            type: "p",
+            text:
+              "The daily caps are the other half. A busy batch-recording day, twenty takes of ten scripts, can bump into per-app or per-device limits on the cloud path. Again, a well-built app will degrade gracefully; a poorly built one will just stop following you with no explanation.",
+          },
+        ],
+      },
+      {
+        heading: "When cloud recognition is still the better tool",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "This is not a one-sided argument, so here is the other side. Cloud models are bigger and, for some languages and accents, still noticeably more accurate at transcribing free speech. If what you need is a **transcript**, a verbatim record of an interview or a meeting for subtitles and search, a cloud service with speaker labels and punctuation will usually beat an on-device model.",
+          },
+          {
+            type: "p",
+            text:
+              "A teleprompter, though, is not transcribing free speech. It already knows exactly what you are going to say, because you wrote it. Its job is to work out **where** in a known text you are, which is a much easier problem than guessing arbitrary words, and it is why on-device accuracy is more than enough for scrolling: the app only needs to recognise enough of your words to keep its place, and a good one finds the place again if you stumble, repeat a line or skip ahead. The trade-off that matters for transcription barely registers for prompting.",
+          },
+          {
+            type: "p",
+            text:
+              "Two more honest caveats. On-device language support depends on the iPhone model and iOS version, so a very old phone may support fewer languages than the cloud path would. And on-device recognition still needs microphone permission, which is a separate decision from where the audio goes; you grant it the same way, the difference is what happens after.",
+          },
+        ],
+      },
+      {
+        heading: "How to check what your prompter does",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Read the App Store privacy label.** An on-device prompter should declare that it collects no data, or only diagnostics. Audio Data or User Content listed under data linked to you is a sign recordings or speech leave the phone.",
+              "**Turn on airplane mode and try voice-following.** If scrolling keeps tracking your voice, recognition is on-device. If it stops or silently switches to timed scrolling, it is not.",
+              "**Record for three minutes straight.** A clean, uninterrupted follow is a good sign; a stall or jump near each minute mark points to the cloud path's limit.",
+              "**Check whether a login is required.** Not proof either way, but a prompter that insists on an account before it will read a script usually has a server in the loop.",
+            ],
+          },
+          {
+            type: "p",
+            text:
+              "If you are deciding between voice-following and plain auto-scroll in the first place, [voice-follow vs auto-scroll](/blog/voice-follow-vs-auto-scroll-teleprompter) covers which to use for which kind of video; the privacy question only arises once you choose voice.",
+          },
+        ],
+      },
+      {
+        heading: "The short version",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "A voice-following teleprompter must listen to you, but it does not have to tell anyone else what it heard. On-device speech recognition keeps your scripts, your voice and your room on your phone, works in airplane mode, reacts faster, and has no one-minute or daily limits. Cloud recognition earns its place for transcription, not for prompting. If your prompter cannot follow you with Wi-Fi off, you now know why, and what to look for instead.",
+          },
+          {
+            type: "p",
+            text:
+              "Next in this series: teleprompters for teachers and educators, from lecture capture to the flipped-classroom explainer, including how to record with students in the room without anyone's voice leaving it.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "whatsapp-qr-code-for-restaurant-menu-shop-counter-iphone",
+    title:
+      "A WhatsApp QR Code for Your Menu, Shop Counter or Market Stall: The Print-Ready Setup on iPhone",
+    description:
+      "How to make a WhatsApp QR code customers can scan from a menu, counter card, shop window or flyer: the pre-filled message that gets you better enquiries, print sizes that scan reliably, where to place it, and how to do it offline on an iPhone in a few minutes.",
+    datePublished: "2026-10-05",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text:
+              "A small café in a tourist town has the same problem as a tailor, a tuition centre and a Saturday market stall: customers want to ask something quick, and the phone number on the sign makes them do three things (type it, save it, find it again) before they can. A WhatsApp QR code collapses that into one: point the camera, tap, and a chat opens with the question already half written. This guide is the practical version for a business that prints things: what the code should contain, how big to print it, where it works and where it does not, and how to make one on an iPhone without sending your number to a website.",
+          },
+          { type: "p", text: DISCLAIMER },
+        ],
+      },
+      {
+        heading: "What a WhatsApp QR code actually contains",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "There is nothing magic inside the square. It encodes a standard click-to-chat link in the form `https://wa.me/<number>?text=<message>`: your number in international format and, optionally, a pre-filled message. When someone scans it, their phone opens that link, WhatsApp recognises it, and a conversation with your number appears with the message ready to send. Neither side needs to save the other as a contact. The [link generator guide](/blog/whatsapp-link-generator-qr-code-full-size-dp) covers the link format itself; here we focus on the printed code.",
+          },
+          {
+            type: "p",
+            text:
+              "Two consequences follow. First, the code is only as good as the number inside it, so build it from the number customers should actually reach, which for most small businesses is the WhatsApp Business number, not the owner's personal one. Second, because the message is part of the link, you can print different codes for different places, each with a message that tells you where the customer was standing.",
+          },
+        ],
+      },
+      {
+        heading: "The pre-filled message is the part most businesses skip",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "A code with no message opens an empty chat, and empty chats produce \"Hi\" followed by silence while the customer works out what to type. A code with a message produces a usable first line and tells you the context. Some that work:",
+          },
+          {
+            type: "list",
+            items: [
+              "On a restaurant menu: **Hi! I'd like to reserve a table for ___ people on ___.** The blanks invite the customer to fill in the two things you need.",
+              "On a counter card at a repair shop: **Hi, I'm at the counter and would like a quote for:** so you can reply with a price while they wait.",
+              "On a market stall: **Hi! I saw your stall at Sunday market and I'm interested in** which both starts the chat and reminds you which stall and which day.",
+              "On a tuition or clinic flyer: **Hello, I'd like to know the available slots this week for** keeps the enquiry specific enough to answer in one message.",
+            ],
+          },
+          {
+            type: "p",
+            text:
+              "Keep it under about fifteen words. Longer messages make a denser QR code, which prints and scans less reliably at small sizes, and customers delete long pre-filled text anyway. Emoji and apostrophes are fine as long as the link is encoded properly, which is one reason to use an app rather than typing the URL by hand.",
+          },
+        ],
+      },
+      {
+        heading: "Making the code on an iPhone, offline",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "**Chat Link & QR Code Maker** is a small iOS app (iOS 15.1 or later) built for exactly this. It is a one-time purchase, currently $2.99 on the App Store with no subscription or in-app purchases, and it runs entirely on the phone: your number, your message and the codes it makes never leave the device, and it works in airplane mode. The steps:",
+          },
+          {
+            type: "list",
+            items: [
+              "Open the app and type the business number with its country code, digits only: 919876543210 for an Indian number, 447700900123 for a UK one. Drop the plus sign, spaces and leading zeros.",
+              "Add the pre-filled message for this particular placement (the menu, the counter, the flyer).",
+              "Tap **Open chat** once to confirm the link lands in the right conversation. This is the test that catches a wrong digit before it goes to the printer.",
+              "Tap **Save QR to Photos**. The code is saved as a full-resolution PNG with no watermark, which is what a printer needs.",
+              "Repeat with a different message for each placement, so each code tells you where it was scanned.",
+            ],
+          },
+          {
+            type: "p",
+            text:
+              "Every feature is included in the one purchase. The [app page](/apps/chat-link-qr-code-maker) has screenshots and the full list, including the profile-picture tool, which is useful once customers start opening chats and seeing a cropped logo.",
+          },
+        ],
+      },
+      {
+        heading: "Print sizes and placement that actually scan",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "QR codes fail in the real world for boring reasons: too small, too far, too shiny, or too close to the edge of a laminated card. Rules that hold up:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Size follows distance.** A code on a table menu is scanned from about 30 cm; 2.5 cm (one inch) square is enough. A counter card scanned from arm's length needs 4 to 5 cm. A shop-window code read from the pavement needs 10 cm or more.",
+              "**Leave a quiet zone.** Keep a clear margin around the code of at least the width of four of its small squares. Do not let a border, a logo or a fold cut into it.",
+              "**Black on white beats branding.** Coloured codes scan, but dark-on-light with strong contrast scans fastest, including on older phones. Put the colour in the frame around it, not in the code.",
+              "**Matte over gloss.** Glossy lamination and glass reflect overhead lights straight into the camera. If a code must go behind glass, place it where the light does not bounce, or use matte film.",
+              "**Add three words of instruction.** \"Scan to chat with us on WhatsApp\" plus the WhatsApp name of the business. People scan codes that tell them what will happen.",
+            ],
+          },
+          {
+            type: "p",
+            text:
+              "Print one copy, scan it yourself from the real distance with the oldest phone in the family, and only then order a hundred.",
+          },
+        ],
+      },
+      {
+        heading: "Where it works, and where a plain number is better",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "A WhatsApp QR code is at its best where the customer is physically present and the question is quick: menus, counters, stalls, waiting rooms, shop windows after hours, delivery packaging, receipts and invoices (a code with **Hi, I have a question about invoice** saves everyone a phone call). It is also handy on a business card, where the chat link lands more often than an email address.",
+          },
+          {
+            type: "p",
+            text:
+              "It is a poor choice in a few places. On a screen, a tappable link beats a code every time, so for an Instagram bio, a website or an email signature, copy the link rather than the image. On a moving vehicle or a billboard, nobody is going to scan it. And if the person answering the number cannot keep up with chats during opening hours, a code that promises a quick reply will produce quick disappointment; in that case print the number and the hours instead, or put the code only where a slower reply is acceptable.",
+          },
+        ],
+      },
+      {
+        heading: "A small checklist before you print",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "The number is the business number, in international format, tested with Open chat.",
+              "Each placement has its own pre-filled message, under fifteen words.",
+              "The code is printed at a size matched to the scanning distance, with a quiet zone and a one-line instruction.",
+              "The chat that opens has a logo that is not cropped and a greeting or quick replies set up, so the first impression is not an empty screen.",
+              "Someone is actually answering the number, and the hours are stated if they are not.",
+            ],
+          },
+          {
+            type: "p",
+            text:
+              "Done properly, the code takes ten minutes to make and keeps working for as long as the number does. If you later change the message or the number, make a new code; the old one will keep pointing where it always did, so collect the old cards.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "send-whatsapp-message-without-saving-number-android",
+    title:
+      "How to Send a WhatsApp Message Without Saving the Number on Android: Four Ways Compared",
+    description:
+      "Four ways to message someone on WhatsApp without adding them to your contacts on Android: the wa.me trick in Chrome, WhatsApp's own new-chat search, a free offline link and QR app, and a home-screen shortcut. Which to use when, and the privacy angle for your own number.",
+    datePublished: "2026-10-05",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text:
+              "You have a number on a flyer, a delivery slip, a classified ad or a screenshot, and you want to ask one question on WhatsApp. Saving a stranger to your contacts for a single message feels wrong, and on Android the contact also syncs to your Google account and shows up in Gmail for years. The good news is that WhatsApp has never required a saved contact to start a chat; it only makes it look that way. Here are four ways to send a WhatsApp message without saving the number on an Android phone, what each is good for, and the flip side: how to let customers message you without ever publishing a number they have to save.",
+          },
+          { type: "p", text: DISCLAIMER },
+        ],
+      },
+      {
+        heading: "Why this works at all: the wa.me link",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "WhatsApp publishes a click-to-chat format: `https://wa.me/<number>` where the number is written in international format with no plus sign, spaces or leading zeros, for example `wa.me/919876543210` for an Indian number or `wa.me/4915112345678` for a German one. Opening that link on a phone with WhatsApp installed opens a chat with that number, saved or not. Add `?text=` and a URL-encoded message, and the chat opens with the message typed and waiting. Every method below is a different way of getting that link in front of Android.",
+          },
+        ],
+      },
+      {
+        heading: "Method 1: type the link into Chrome",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "The zero-install way. Open Chrome (or any browser), type `wa.me/` followed by the number in international format into the address bar, and go. Android shows a prompt to open the link in WhatsApp; tap it and the chat appears. If the number is not on WhatsApp you get a plain message saying so.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Good for:** a one-off message to a number you will never use again.",
+              "**Watch out for:** typing errors. There is no check before the chat opens, and the number has to be converted to international format by hand: drop the leading 0 from a UK or Indian mobile number and put the country code in front.",
+              "**Pre-filled message:** possible, but you have to encode it yourself (`%20` for spaces and so on), which is tedious on a phone keyboard.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Method 2: WhatsApp's own new-chat search",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Recent versions of WhatsApp for Android let you start a chat with an unsaved number from inside the app: tap the new-chat button, type the full number with country code into the search field at the top, and WhatsApp offers to message that number directly. The exact wording of that option has changed across versions, and on some phones it only appears once the number is typed in full with the country code, so if you do not see it, check that WhatsApp is up to date.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Good for:** when you are already in WhatsApp and have the number in front of you.",
+              "**Watch out for:** older versions without the option, and no way to pre-fill a message.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Method 3: a link and QR app that does the formatting for you",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "If you do this more than occasionally, or you want the message pre-written, an app that builds the link is quicker and less error-prone. **Chat Link & QR Code Maker** on Google Play is free with ads, needs no account, and runs completely offline on the phone: you type the number with its country code, optionally add a message, and the app produces the correctly encoded link straight away. Open the chat from it to check it lands on the right person, or copy the link for a note, an email or a message to a colleague. The number and message never leave the phone, which matters when the numbers are customers' rather than your own.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Good for:** regular use, pre-filled messages with spaces, punctuation and emoji that survive encoding, and keeping a link handy without saving anyone.",
+              "**Also does:** turns any link into a QR code saved to your gallery at full resolution with no watermark, and pads a photo onto a square so a profile picture is not cropped.",
+              "**Watch out for:** it is a link maker, not a bulk sender. One link, one chat.",
+            ],
+          },
+          {
+            type: "p",
+            text:
+              "The same app exists on iPhone; the [app page](/apps/chat-link-qr-code-maker) explains the link format in more detail, and the Play Store listing is at https://play.google.com/store/apps/details?id=com.vilva.watools.",
+          },
+        ],
+      },
+      {
+        heading: "Method 4: a home-screen shortcut for a number you message often but will not save",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "There is a category of numbers you contact regularly but do not want in your contacts: the landlord's agent, a supplier's hotline, a tutor, a courier. For those, make the wa.me link once (Method 1 or 3), then in Chrome open it, tap the three-dot menu and choose **Add to Home screen**. Android places an icon that opens the chat directly. Nothing is added to your contacts, and the icon can be deleted when the arrangement ends. With a pre-filled message in the link, the shortcut can even carry a standard opening line such as **Hi, this is flat 4B,** so the other side knows who it is without you being in their contacts either.",
+          },
+        ],
+      },
+      {
+        heading: "The other direction: letting people message you without saving your number",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Everything above also works in reverse, and this is where it gets useful for anyone who sells, teaches or freelances. If you share a wa.me link instead of a phone number, customers tap once and land in a chat, which removes the save-the-number step that loses a surprising share of enquiries. Put the link in an Instagram or Facebook bio, a Google Business profile, an email signature, a classified ad or an invoice footer. For printed places, a QR code of the same link does the job: the app above saves one to your gallery, and you can share it to a print shop straight from the Android share sheet.",
+          },
+          {
+            type: "p",
+            text:
+              "Two practical notes. Use a WhatsApp Business number for this if you have one, so the chat shows a business profile rather than a personal photo, and give the link a pre-filled message such as **Hi, I'm interested in** so the first message you receive is not just \"hello\". And remember a link is public: anyone who finds it can open a chat, which is the point, but it is also why the link should go to a number you are happy to receive strangers on.",
+          },
+        ],
+      },
+      {
+        heading: "Quick comparison",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**One message, right now:** Method 1 (Chrome) or Method 2 (WhatsApp search).",
+              "**A pre-filled message, or you do this often:** Method 3 (the app).",
+              "**A number you contact weekly but will not save:** Method 4 (shortcut).",
+              "**People should message you:** share a wa.me link, or print its QR code.",
+            ],
+          },
+          {
+            type: "p",
+            text:
+              "None of these methods tell the other person anything about you beyond what any WhatsApp message does, and none of them add anyone to your Google contacts. If you also deal with WhatsApp exports and voice notes on Android, the guides on [saving a chat as a PDF](/blog/save-whatsapp-chat-as-pdf-android-for-hr-landlord-insurer) and [reading voice notes as text offline](/blog/read-whatsapp-voice-notes-as-text-android-offline-faq) follow the same keep-it-on-the-phone approach.",
+          },
+        ],
+      },
+    ],
+  },
 ];

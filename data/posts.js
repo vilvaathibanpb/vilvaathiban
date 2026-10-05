@@ -6503,6 +6503,195 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  {
+    slug: "structuredclone-is-not-defined-fix",
+    title:
+      "ReferenceError: structuredClone is not defined — The Fix for Node, Jest (jsdom), TypeScript and Old Browsers",
+    description:
+      "Why structuredClone is not defined in your environment, which Node and browser versions ship it, the Jest + jsdom trap and three ways out of it, the TypeScript lib setting, and a safe feature-detected fallback.",
+    datePublished: "2026-10-05",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text:
+              "`structuredClone()` is the deep-copy function the platform finally gave us: it handles nested objects, `Date`, `Map`, `Set`, typed arrays and circular references, and it does not go through JSON. So it is jarring when a project that works in the browser throws `ReferenceError: structuredClone is not defined` the moment it runs under Node or inside a Jest test. This post is the short diagnosis and the fixes, in the order you should try them. If you want the background on what the function does and when to prefer it over the JSON trick, that is in [structuredClone vs JSON deep copy](/blog/javascript-deep-copy-structuredclone-vs-json).",
+          },
+        ],
+      },
+      {
+        heading: "Where structuredClone exists, and where it does not",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "The function is a global, not an import, so the error means the JavaScript runtime executing your code does not define it. Support is now wide, but the cut-off dates are recent enough that older environments are still common in CI images and test setups.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Node.js:** added in **17.0.0** (October 2021). Node 16 and earlier do not have it. Every Node line that is still supported in 2026 has it.",
+              "**Browsers:** Chrome and Edge **98**, Firefox **94**, Safari **15.4** (March 2022). Anything older, including Safari 15.0–15.3 on iOS 15, throws.",
+              "**Deno and Bun:** both ship it as a global.",
+              "**jsdom** (which Jest's `jsdom` environment uses): does **not** implement it, and because the test environment replaces Node's globals with jsdom's window, Node's own implementation is hidden too. This is the single most common source of the error in 2026.",
+              "**Workers and edge runtimes:** Cloudflare Workers, Vercel Edge and Deno Deploy all have it; very old service-worker builds in Safari may not.",
+            ],
+          },
+          {
+            type: "p",
+            text:
+              "So before changing any code, run `node -v`. If it prints 16 or lower, the fix is an upgrade, not a polyfill. If it prints 18 or higher and the error only appears in tests, skip to the Jest section.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 1: upgrade Node (the real fix)",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Node 16 reached end of life in September 2023 and Node 18 in April 2025, so if either is what your CI runs, `structuredClone` is the least of its problems. Pin the version in `.nvmrc` or `package.json` so the whole team and the pipeline agree:",
+          },
+          {
+            type: "code",
+            language: "json",
+            code: "{\n  \"engines\": { \"node\": \">=20\" }\n}",
+          },
+          {
+            type: "p",
+            text:
+              "With `nvm use 20` locally and `node-version: 20` in your GitHub Actions `setup-node` step, the error disappears without touching application code. Check Docker base images too: `node:16-alpine` is still surprisingly common in old Dockerfiles.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 2: Jest with jsdom — the trap and three ways out",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "This is the case that catches people on current Node. Your app runs fine, `node -v` says 22, and yet `jest` fails with `structuredClone is not defined`. The reason: `testEnvironment: \"jsdom\"` runs each test file inside a jsdom window, and jsdom's global object does not include `structuredClone` (or `fetch`, `TextEncoder` and a few other Node globals). Node has the function; your test just cannot see it. Three fixes, from least to most invasive.",
+          },
+          {
+            type: "p",
+            text:
+              "**Option A: use the Node environment for tests that do not touch the DOM.** Most unit tests of pure logic do not need jsdom at all. Switch them with a docblock at the top of the file, or set the default to `node` and opt DOM tests in:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "/**\n * @jest-environment node\n */\ntest('deep copy keeps Dates', () => {\n  const a = { when: new Date(0) };\n  const b = structuredClone(a);\n  expect(b.when).toBeInstanceOf(Date);\n  expect(b.when).not.toBe(a.when);\n});",
+          },
+          {
+            type: "p",
+            text:
+              "**Option B: expose Node's implementation in a setup file.** Add a file to `setupFiles` (not `setupFilesAfterEach`; it must run before the environment is used) that copies the real function onto the jsdom global when it is missing:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// jest.setup.js\nif (typeof globalThis.structuredClone !== 'function') {\n  // jsdom hides Node's global, but Node's v8 serializer is still reachable\n  // and uses the same structured-clone algorithm (Dates, Maps, Sets, cycles).\n  const v8 = require('node:v8');\n  globalThis.structuredClone = (value) => v8.deserialize(v8.serialize(value));\n}",
+          },
+          {
+            type: "p",
+            text:
+              "In practice the cleanest form of this is a custom environment that extends `jest-environment-jsdom` and assigns `this.global.structuredClone = structuredClone` in its constructor, because inside the environment class you still have access to Node's real global. If you would rather not maintain that, the MSW team publishes **jest-fixed-jsdom**, a drop-in `testEnvironment` that does exactly this for `structuredClone`, `fetch`, `TextEncoder` and friends:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// jest.config.js\nmodule.exports = {\n  testEnvironment: 'jest-fixed-jsdom',\n};",
+          },
+          {
+            type: "p",
+            text:
+              "**Option C: move to Vitest.** Vitest's `jsdom` and `happy-dom` environments keep Node's globals available, so `structuredClone` works out of the box. That is a bigger change than a setup file, but if you are already on Vite it removes a whole category of these errors.",
+          },
+          {
+            type: "p",
+            text:
+              "Which one? A is the right default for logic tests. B (or `jest-fixed-jsdom`) is the right fix for component tests that need the DOM. Do not reach for a JSON-based polyfill in tests unless you are sure the values have no `Date`, `Map` or cycles, because then the tests pass against a copy that does not behave like production.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 3: TypeScript says it does not exist, even though it runs",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "A different symptom with the same name: the code runs, but `tsc` reports `Cannot find name 'structuredClone'`. That is a type-definition problem, not a runtime one. The global is declared in TypeScript's `lib.dom.d.ts` and, for Node, in `@types/node` 17 or later. Check two things:",
+          },
+          {
+            type: "list",
+            items: [
+              "`compilerOptions.lib` includes `\"DOM\"` (for browser code) or `\"ES2022\"` plus an up-to-date `@types/node` (for Node code). If you narrowed `lib` to `[\"ES2020\"]` to keep DOM types out of a server project, add `@types/node` 18+ and the name resolves.",
+              "The TypeScript version is 4.7 or later; earlier `lib.dom` files predate the function.",
+            ],
+          },
+          {
+            type: "code",
+            language: "json",
+            code: "{\n  \"compilerOptions\": {\n    \"target\": \"ES2022\",\n    \"lib\": [\"ES2022\", \"DOM\"],\n    \"types\": [\"node\"]\n  }\n}",
+          },
+        ],
+      },
+      {
+        heading: "Fix 4: a feature-detected fallback for old browsers",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "If you ship to browsers you do not control and your analytics still show Safari 15.0–15.3 or an embedded WebView stuck on an old Chromium, you need a runtime fallback. Two reasonable options: `core-js` (`import 'core-js/actual/structured-clone'`) which gives a spec-faithful implementation, or the small, dependency-free **@ungap/structured-clone**. Either way, only load it when needed, and keep the global name so the rest of the code is untouched:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// polyfills.js — import once, at the top of your entry file\nif (typeof globalThis.structuredClone !== 'function') {\n  const { default: clone } = await import('@ungap/structured-clone');\n  globalThis.structuredClone = clone;\n}",
+          },
+          {
+            type: "p",
+            text:
+              "The trade-off is honest to state: a polyfilled `structuredClone` is slower than the native one and cannot transfer `ArrayBuffer`s, and the JSON-based shortcut that some tutorials recommend silently turns `Date` into strings, drops `undefined` properties and throws on circular references. If a fallback is only there for a sliver of traffic, a correct polyfill is worth the extra kilobytes.",
+          },
+        ],
+      },
+      {
+        heading: "Related errors that look the same",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**`DataCloneError: ... could not be cloned`** — `structuredClone` exists but you passed it something it cannot copy: a function, a DOM node, a class instance with methods you expected to survive, or a `Symbol`. Strip or serialise those fields first.",
+              "**`structuredClone is not a function`** — something in your bundle assigned to the global name (an old polyfill that exported an object, or a variable called `structuredClone` shadowing the global in that scope).",
+              "**Works in `node`, fails in `ts-node`/`tsx`** — usually the TypeScript `lib` issue above, or a tool pinned to an old Node binary via a `.tool-versions` file.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Checklist",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "`node -v` is 18 or higher everywhere: local, CI, Docker.",
+              "Jest: logic tests run in the `node` environment; DOM tests use a setup file, a custom environment or `jest-fixed-jsdom`.",
+              "TypeScript: `lib` includes `DOM` or `@types/node` 18+ is installed.",
+              "Browser targets older than Safari 15.4 / Chrome 98: feature-detect and load a real polyfill, not `JSON.parse(JSON.stringify())`.",
+            ],
+          },
+          {
+            type: "p",
+            text:
+              "The same pattern, a modern global missing from an older runtime or hidden by a test environment, is behind a family of errors, and the diagnosis is always the same: find out which JavaScript engine is actually running the line that failed. If your next one is `AbortSignal.timeout is not a function`, the [AbortSignal fix guide](/blog/abortsignal-timeout-is-not-a-function-fix) follows the same route.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
 ];
 
