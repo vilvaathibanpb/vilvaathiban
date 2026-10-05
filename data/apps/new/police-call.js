@@ -172,9 +172,9 @@ export default {
   ],
   guides: [],
   related: [
-    { name: "Tooth Fairy Cam: Magic Photo", href: "/apps/tooth-fairy-cam", blurb: "Place a glowing Tooth Fairy into a photo of the bedroom, with a night-vision camera look." },
-    { name: "Pounce Pad: Games for Cats", href: "/apps/cat-games", blurb: "Screen toys for cats that move like real prey: a mouse, a laser, koi fish." },
-    { name: "Whisker Check: Cat Comfort", href: "/apps/whisker-check", blurb: "Score five facial pain signs in your cat and track the trend for your vet." },
+    { name: "Night Cam: Stars & Aurora", href: "/apps/night-cam", blurb: "Free aurora forecast for your area and an iPhone camera for the Moon, stars and northern lights." },
+    { name: "Mancala Offline", href: "/apps/mancala-offline", blurb: "The classic stone-sowing board game against the computer or a friend. Free and offline on Android." },
+    { name: "Pack It Perfect", href: "/apps/pack-it-perfect", blurb: "A cozy packing puzzle: fit every item in the suitcase. 60 levels, free and offline on Android." },
   ],
   disclaimer:
     "Good Behavior Police Call plays a pretend call inside the app and never dials a real number. Officer Pat and Officer Sam are made-up characters and are not connected to any police force. The app is meant to be set up and started by a parent.",

@@ -255,7 +255,7 @@ const AppsPage = () => (
       <title>Apps by Vilva Athiban: iPhone, Android & Mac utilities</title>
       <meta
         name="description"
-        content="Every app and game by Vilva Athiban for iPhone, Android and Mac: WhatsApp tools, Opus to MP3, voice notes to text, a teleprompter, Night Cam, kids and cat apps, offline games, and AI Done Now."
+        content="Every app and game by Vilva Athiban for iPhone, Android and Mac: WhatsApp tools, Opus to MP3, voice notes to text, a teleprompter, Night Cam, a kids police call app, offline games, and AI Done Now."
       />
       <link rel="canonical" href={URL} />
       <meta property="og:title" content="Apps by Vilva Athiban: iPhone, Android & Mac utilities" />
@@ -305,7 +305,7 @@ const AppsPage = () => (
         Small, private apps that do one job on the device: WhatsApp chat
         links and QR codes, .opus voice notes to MP3, offline voice-message
         transcription, chat exports to PDF, a free teleprompter, a night-sky
-        camera, apps for kids and cats, a few offline games, and Mac apps for
+        camera, a pretend police call for kids, a few offline games, and Mac apps for
         people who code with AI agents. Nothing is uploaded, no accounts.
       </Lead>
       <Callout>

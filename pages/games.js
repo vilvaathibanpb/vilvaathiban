@@ -180,16 +180,16 @@ const GameCard = ({ game }) => {
 const GamesPage = () => (
   <Container>
     <Head>
-      <title>Games by Vilva Athiban: Mancala, Idle Blacksmith, Pack It & Pounce Pad</title>
+      <title>Games by Vilva Athiban: Mancala, Idle Blacksmith & Pack It Perfect</title>
       <meta
         name="description"
-        content="Offline games by Vilva Athiban: Mancala Offline, the Idle Blacksmith forge tycoon and the Pack It Perfect packing puzzle for Android, plus Pounce Pad, screen games for cats."
+        content="Offline Android games by Vilva Athiban: Mancala Offline, the Idle Blacksmith forge tycoon and the Pack It Perfect packing puzzle. No account, play anywhere."
       />
       <link rel="canonical" href={URL} />
       <meta property="og:title" content="Games by Vilva Athiban" />
       <meta
         property="og:description"
-        content="Mancala Offline, Idle Blacksmith and Pack It Perfect: offline Android games, no account needed. Plus Pounce Pad, games for cats."
+        content="Mancala Offline, Idle Blacksmith and Pack It Perfect: offline Android games, no account needed."
       />
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="website" />
@@ -222,11 +222,10 @@ const GamesPage = () => (
       <Eyebrow>Games</Eyebrow>
       <Title>Small games to play offline</Title>
       <Lead>
-        Free games that work without internet and without an account: a classic
-        board game, an idle forge tycoon and a cozy packing puzzle for Android,
-        and Pounce Pad, a set of screen games for cats on iPhone and iPad. Each
-        has optional ads and a one-time purchase, never a subscription. Progress
-        stays on your device.
+        Three free Android games that work without internet and without an
+        account: a classic board game, an idle forge tycoon and a cozy packing
+        puzzle. Each has optional ads and a one-time purchase, never a
+        subscription. Progress stays on your phone.
       </Lead>
 
       <Grid>
@@ -237,7 +236,7 @@ const GamesPage = () => (
 
       <Callout>
         Looking for utilities instead? See the <Link href="/apps">apps</Link>:
-        WhatsApp tools, a teleprompter, Night Cam, apps for kids and cats, and more.
+        WhatsApp tools, a teleprompter, Night Cam, an expiry date tracker and more.
       </Callout>
     </Wrap>
     <Footer />

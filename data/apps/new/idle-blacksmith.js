@@ -199,7 +199,6 @@ export default {
   related: [
     { name: "Mancala Offline: Board Game", href: "/apps/mancala-offline", blurb: "Classic Kalah against 4 computer levels or a friend, fully offline." },
     { name: "Pack It Perfect: Packing Game", href: "/apps/pack-it-perfect", blurb: "A cozy packing puzzle: fit every item into the suitcase across 60 levels." },
-    { name: "Pounce Pad: Games for Cats", href: "/apps/cat-games", blurb: "Screen games for your cat to chase on iPhone and iPad." },
   ],
   disclaimer:
     "Idle Blacksmith is free to play with optional ads served by Google AdMob. The Royal Charter price is set in Google Play and may vary by country.",

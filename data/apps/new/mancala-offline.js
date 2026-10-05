@@ -204,7 +204,6 @@ export default {
   related: [
     { name: "Idle Blacksmith: Forge Tycoon", href: "/apps/idle-blacksmith", blurb: "Tap the anvil, forge 40 weapons and hire apprentices who keep working while you are away." },
     { name: "Pack It Perfect: Packing Game", href: "/apps/pack-it-perfect", blurb: "A cozy packing puzzle: fit every item into the suitcase across 60 levels." },
-    { name: "Pounce Pad: Games for Cats", href: "/apps/cat-games", blurb: "Screen games for your cat to chase on iPhone and iPad." },
   ],
   disclaimer:
     "Mancala Offline is free to play with optional ads served by Google AdMob. The Mancala Pro price is set in Google Play and may vary by country. Mancala and Kalah are traditional games; this app is an independent version by Vilva Athiban P B.",

@@ -111,46 +111,6 @@ export const APPS = [
     badge: "Android · Free",
     play: play("com.vilva.expirytracker"),
   },
-  {
-    name: "Caffeine Tracker: Curfew",
-    slug: "caffeine-tracker",
-    tagline: "How much caffeine is still in you, and when your last coffee has to be.",
-    summary:
-      "Log coffee, tea and energy drinks in two taps, watch the level fall with a half-life model and get a bedtime curfew. Offline, 19 languages.",
-    image: "/apps/caffeine-tracker-logo.png",
-    badge: "In App Review",
-    iosSoon: true,
-  },
-  {
-    name: "Unit Price Calculator & Tax",
-    slug: "unit-price-calculator",
-    tagline: "Which pack is really cheaper? Price per kg or litre, discounts, sales tax, bill split.",
-    summary:
-      "Five checkout calculators in one iPhone app: unit price comparison, stacked discounts, add or remove tax, a cart total against a budget, and split with tip. Offline, 19 languages.",
-    image: "/apps/unit-price-calculator-logo.png",
-    badge: "In App Review",
-    iosSoon: true,
-  },
-  {
-    name: "Whisker Check: Cat Comfort",
-    slug: "whisker-check",
-    tagline: "Score five facial pain signs in your cat in two minutes and track the trend.",
-    summary:
-      "A guided check based on the published feline facial pain scale, a mood read, a trend chart and a PDF report for your vet. Not a diagnosis; a calmer way to decide when to call.",
-    image: "/apps/whisker-check-logo.png",
-    badge: "In App Review",
-    iosSoon: true,
-  },
-  {
-    name: "Tooth Fairy Cam: Magic Photo",
-    slug: "tooth-fairy-cam",
-    tagline: "Place a glowing Tooth Fairy into tonight's bedroom photo and show it at breakfast.",
-    summary:
-      "Night-vision looks with a REC light and timestamp, a tooth map for every child, and a handwritten letter from the Tooth Fairy. Photos never leave the phone.",
-    image: "/apps/tooth-fairy-cam-logo.png",
-    badge: "In App Review",
-    iosSoon: true,
-  },
 ];
 
 export const GAMES = [
@@ -189,17 +149,5 @@ export const GAMES = [
     shot: "/apps/pack-it-perfect/01.webp",
     platform: "Android",
     play: play("com.vilva.packit"),
-  },
-  {
-    name: "Pounce Pad: Games for Cats",
-    slug: "cat-games",
-    genre: "Games for cats",
-    tagline: "Eight screen toys that move like real prey: mouse, laser dot, koi, feather and more.",
-    summary:
-      "A mouse that peeks, freezes and bolts; a laser dot that hovers and zips; koi that burst away from a paw. Cat-friendly colours, timed sessions and no buttons a paw can hit. iPhone and iPad.",
-    image: "/apps/cat-games-logo.png",
-    shot: "/apps/cat-games/01.webp",
-    platform: "iPhone & iPad",
-    iosSoon: true,
   },
 ];

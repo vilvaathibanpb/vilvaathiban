@@ -194,7 +194,6 @@ export default {
   related: [
     { name: "Mancala Offline: Board Game", href: "/apps/mancala-offline", blurb: "Classic Kalah against 4 computer levels or a friend, fully offline." },
     { name: "Idle Blacksmith: Forge Tycoon", href: "/apps/idle-blacksmith", blurb: "Tap the anvil, forge 40 weapons and hire apprentices who keep working while you are away." },
-    { name: "Pounce Pad: Games for Cats", href: "/apps/cat-games", blurb: "Screen games for your cat to chase on iPhone and iPad." },
   ],
   disclaimer:
     "Pack It Perfect is free to play with optional ads served by Google AdMob. The Pack It Premium price is set in Google Play and may vary by country.",

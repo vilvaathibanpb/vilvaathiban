@@ -8,9 +8,6 @@
 // An entry without appStoreId is Android-only; playUrl is set only once live.
 const ENTRIES = [
   require("./police-call").default,
-  require("./whisker-check").default,
-  require("./cat-games").default,
-  require("./tooth-fairy-cam").default,
   require("./expiry-date-tracker").default,
   require("./mancala-offline").default,
   require("./idle-blacksmith").default,

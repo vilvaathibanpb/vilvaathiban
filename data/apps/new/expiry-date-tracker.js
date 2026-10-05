@@ -116,8 +116,8 @@ export default {
   guides: [],
   related: [
     { name: "Warranty Tracker & Receipt Log", href: "/apps/warranty-tracker", blurb: "Photograph a receipt, set the warranty length, get reminded before it expires. Offline, one-time purchase." },
-    { name: "Unit Price Calculator & Tax", href: "/apps/unit-price-calculator", blurb: "Which pack is cheaper per kg or litre, stacked discounts, sales tax, cart budget and bill splitting. Free." },
-    { name: "Caffeine Tracker: Curfew", href: "/apps/caffeine-tracker", blurb: "See how much caffeine is still in you and the latest time for your last coffee. Free, optional one-time Pro." },
+    { name: "Electrician Calculator Toolkit", href: "/apps/electrician-calculator", blurb: "Voltage drop, wire size, conduit and box fill from the 2023 NEC tables, offline. One-time purchase." },
+    { name: "Night Cam: Stars & Aurora", href: "/apps/night-cam", blurb: "Free aurora forecast for your area and an iPhone camera for the Moon, stars and northern lights." },
   ],
   disclaimer:
     "Expiry Date Tracker reminds you of the dates you enter. Always check the label and the product itself before eating or using it, and follow the advice on medicine packaging. Product names come from Open Food Facts, which is not affiliated with this app.",
