@@ -4231,4 +4231,412 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "teleprompter-for-teachers-and-educators",
+    title: "A Teleprompter for Teachers and Educators: Flipped-Classroom Videos, Lecture Capture and Parent Updates Without the Stumbles",
+    description:
+      "How teachers use an iPhone teleprompter for flipped-classroom explainers, revision videos, lecture intros and parent messages: scripting for students, recording with pupils in the room, voice-following at classroom pace, and when a prompter is the wrong tool.",
+    datePublished: "2026-10-06",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Teachers are the one group of creators who already know how to explain things out loud, and still find recording a video oddly hard. In the classroom you read the room and adjust; in front of a phone there is no room to read, and the fourth attempt at a four-minute explainer eats the free period you had set aside for marking. A teleprompter fixes a specific part of that problem: it lets you say exactly what you planned, in order, while looking at the students who will watch it. This post is for educators at any level, from a primary teacher recording a phonics reminder for parents to a lecturer capturing a module intro, and it is honest about the cases where a script gets in the way.",
+          },
+        ],
+      },
+      {
+        heading: "Four kinds of video teachers actually record",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Not every teaching video wants a script. It helps to be clear about which type you are making before you write anything.",
+          },
+          {
+            type: "list",
+            items: [
+              "**The flipped-classroom explainer.** Five to eight minutes on one concept, watched before the lesson so class time goes on practice. This is the type that benefits most from a prompter, because the explanation has to be tight, correctly sequenced and free of the tangents that are fine live but deadly on replay.",
+              "**The revision or recap video.** A short run through a topic before an exam, often recorded in batches. Scripted, because precision matters and because you will record six of them in an afternoon.",
+              "**The lecture or module intro.** Two minutes on what the unit covers, how it is assessed, and why it matters. Scripted, because it is reused every year and every word is on the record.",
+              "**The parent or carer update.** A ninety-second message about the trip, the reading scheme or the week ahead. Scripted, because it has to be warm, brief and complete, and because you do not want to re-record it after discovering you forgot the date.",
+            ],
+          },
+          {
+            type: "p",
+            text:
+              "A worked example, a live demonstration or a conversation with students is usually better unscripted. Our earlier post on [teleprompters for online courses and tutorials](/blog/teleprompter-for-online-courses-and-tutorials) covers the course-length version of this split in more detail.",
+          },
+        ],
+      },
+      {
+        heading: "Writing a script that sounds like teaching",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "The usual advice about writing for the ear applies, but teaching scripts have two extra demands. The first is sequencing: an explainer has to introduce ideas in the order a learner can absorb them, which is rarely the order a textbook uses. Write the script as if a specific student, one who struggled last term, were watching. The second is signposting. Learners watching alone cannot ask what you meant, so say what is coming (\"there are three steps, and the second one is where people go wrong\"), say when you have finished a step, and say what they should do next.",
+          },
+          {
+            type: "p",
+            text:
+              "Keep sentences short enough to say in one breath, mark the words you want to stress in bold, and write out the questions you would ask the class, with a pause after each so the viewer can think. Then read it aloud once before you record. If a sentence trips you, it will trip you on camera too; rewrite it. The post on [writing a script that doesn't sound written](/blog/write-a-script-that-doesnt-sound-written) has the full method.",
+          },
+        ],
+      },
+      {
+        heading: "Setting up: the phone, the script and the eye line",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "A classroom is a reasonable studio if you control two things: the light and the eye line. Put yourself facing a window or the main light, with the whiteboard behind you if it is relevant and a plain wall if it is not. Prop the phone at eye level; a stack of books under a phone stand on a desk is fine. Then put the script where your eyes already are.",
+          },
+          {
+            type: "p",
+            text:
+              "This is what [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay) does: it floats the script over the camera preview, right next to the front lens, so reading it and looking at the camera are the same act. The alternative, a script on a laptop beside the phone, produces the sideways glance every student notices and nobody can name. The script never appears in the saved video, and the app records in portrait 4K, so the same file works for a learning platform, a school app or a short clip for the school's social channel.",
+          },
+          {
+            type: "p",
+            text:
+              "Set the text size larger than you think you need. Reading glasses, classroom lighting and the arm's-length distance to the phone all argue for big text and fewer words on screen, which also makes the scroll smoother. Our earlier guide to [keeping eye contact with the camera](/blog/how-to-keep-eye-contact-with-the-camera) explains why a narrow text column near the lens matters more than any other setting.",
+          },
+        ],
+      },
+      {
+        heading: "Voice-following at classroom pace",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Teachers speak differently from presenters: they slow down for the hard bit, pause for the imaginary hand going up, and speed through the recap. A prompter that scrolls at a fixed speed fights that rhythm, which is why so many educators give up on them. The app's voice-driven scrolling follows what you actually say, using Apple's on-device speech recognition; the text advances when you do and waits when you pause to let a point land. If you lose your place, start the sentence again and it finds you.",
+          },
+          {
+            type: "p",
+            text:
+              "There is a version of this that matters particularly in schools: because recognition runs on the phone rather than in the cloud, nothing you say leaves the device, and that includes anything the microphone picks up in a room with students in it. The app works in airplane mode, which is also the practical way to stop notifications interrupting a take. The [on-device recognition post](/blog/on-device-speech-recognition-teleprompter-privacy) goes into why that distinction matters for anyone recording near other people's voices.",
+          },
+          {
+            type: "p",
+            text:
+              "If you teach in a language other than the one your phone is set to, the script's language is detected automatically, and any language iOS supports for on-device recognition works. Teachers recording a bilingual explainer, or recording in a second language, should read the [second-language recording guide](/blog/recording-video-in-a-second-language) first; its advice on marking breath points applies doubly to teaching scripts.",
+          },
+        ],
+      },
+      {
+        heading: "Recording with students in the room",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Sometimes the video has to be made during the day, with a class working quietly behind the camera. Three things make that work. Face the phone away from the students so nobody is in shot without consent. Use voice-following rather than auto-scroll, because you will be interrupted and the script needs to wait for you. And keep every take short, a minute or two at most, so an interruption costs a minute rather than a lesson. The takes library in the app keeps every attempt, so you can record the four sections of an explainer across a day and pick the best of each.",
+          },
+          {
+            type: "p",
+            text:
+              "If the room is noisy enough that recognition struggles, which can happen with thirty voices, switch to classic auto-scroll with the speed slider for that take. It is the one setting where a loud classroom beats a quiet one: auto-scroll does not care what it hears.",
+          },
+        ],
+      },
+      {
+        heading: "When a teleprompter is the wrong tool",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "A script makes an explanation precise. It does not make it a good explanation, and it can make a warm teacher sound like a newsreader. If your strength is thinking aloud, improvising examples and reacting to confusion, record the first take without a script, listen back, and script only the parts that rambled. Modelling a problem on a whiteboard, demonstrating an experiment, or giving feedback on a student's work should almost always be unscripted; the value is in watching you think.",
+          },
+          {
+            type: "p",
+            text:
+              "Be careful, too, with anything that students will quote back at you. A scripted statement about assessment criteria or a deadline is a commitment; make sure it matches the written policy before you record it. And remember that an unlimited number of scripts is a feature, not a target. Most teachers end up with a handful of recurring formats and reuse the structures year after year.",
+          },
+        ],
+      },
+      {
+        heading: "A one-afternoon workflow",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Pick one topic and write a script of 400 to 600 words, with the questions and pauses written in.",
+              "Read it aloud once, fix every sentence you stumble on.",
+              "Set up the phone at eye level, face the light, airplane mode on.",
+              "Record in sections of one to two minutes using voice-following; re-record only the section that went wrong.",
+              "Pick the best take of each section from the takes library and export.",
+              "Save the script; next year's version is an edit, not a rewrite.",
+            ],
+          },
+          {
+            type: "p",
+            text:
+              "The app is free on iPhone with occasional ads, and a small one-time purchase removes them; there is no subscription and no watermark on the video, which matters when a school budget is involved. It is iOS-only.",
+          },
+          {
+            type: "p",
+            text:
+              "Next in this series: recording proper 4K video on an iPhone, which settings actually matter, when 4K is a waste of storage, and how to keep a portrait recording sharp on every platform you post to.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "transcribe-voice-memos-voicemail-interviews-iphone-offline",
+    title: "How to Transcribe Voice Memos, Voicemails and Interview Recordings on iPhone, Offline (No Subscription)",
+    description:
+      "Beyond chat apps: how to turn an iPhone Voice Memo, a saved voicemail or a long interview recording into text on the phone itself, with nothing uploaded. Which formats work, what to expect from long files, how to get a cleaner transcript, and what the one-time unlock covers.",
+    datePublished: "2026-10-06",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Most people meet voice transcription through a chat app: a friend sends a three-minute voice note and you want to read it instead. But the recordings that really need transcribing are usually the ones you made yourself. The lecture you recorded in Voice Memos. The voicemail from the clinic with a date in it. The forty-minute interview for a dissertation or an article. The idea you dictated in the car and now cannot remember. This post is about turning those into text on an iPhone without a subscription and without sending the audio to anyone's server.",
+          },
+          {
+            type: "p",
+            text:
+              "The tool is [Voice Note to Text](/apps/voice-note-to-text), a small iPhone app whose speech-recognition model ships inside it. It was built for chat voice notes, but it opens any .m4a, .mp3, .wav or .opus file, which is what makes it useful for everything below. It is iOS-only, free to download with three transcriptions included, and a single one-time purchase of $2.99 unlocks unlimited use.",
+          },
+        ],
+      },
+      {
+        heading: "Voice Memos: the two-tap route",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Apple's Voice Memos app records in .m4a, a format the transcriber opens directly. Open Voice Memos, tap the recording, tap the three-dot menu, choose **Share**, and pick **Copy to Voice to Text** from the share sheet. The app decodes the file, loads its model on first use, and the transcript appears under the file name a few seconds later for a short memo. Tap **Copy** to paste it into Notes or an email, or **Share .txt** to save it as a file.",
+          },
+          {
+            type: "p",
+            text:
+              "If the memo is already in the Files app, or came from a different recorder, open the transcriber directly and use **Pick a voice note & transcribe** to browse to it. Both routes produce the same result; the share sheet is just faster when you are already looking at the recording.",
+          },
+        ],
+      },
+      {
+        heading: "Voicemail: getting the audio out first",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "On carriers that support Visual Voicemail, the Phone app lets you share a voicemail as an audio file: open the voicemail, tap the share button, and the same **Copy to Voice to Text** option appears. The result is a text version of the message with the appointment time, the reference number or the callback number in it, which is far easier to act on than replaying the audio three times with your finger over the pause button.",
+          },
+          {
+            type: "p",
+            text:
+              "One caveat worth knowing: voicemail audio is heavily compressed and often recorded on a poor line, so expect a few more errors than with a clean memo. Numbers and names are the usual casualties. For anything important, check the digits against the audio once; the transcript gets you to the right place in seconds, and the recording confirms it.",
+          },
+        ],
+      },
+      {
+        heading: "Interviews and lectures: long files",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "This is where most phone transcription apps either stop, cap you at a few minutes, or start charging per minute. There is no length limit here. A ten-minute recording is typically transcribed in well under a minute on a recent iPhone, and longer files take proportionally longer, so a one-hour interview is a few minutes of waiting rather than an upload, a queue and an email. Plug the phone in, leave it on the screen, and do something else.",
+          },
+          {
+            type: "p",
+            text:
+              "For interviews there are two practical tips. First, record with the phone closer to the quieter speaker; a transcript is only as good as the audio, and the interviewer is nearly always louder than the interviewee. Second, transcribe the raw file before you trim or edit it, so the text and the audio line up when you go back to check a quote. The transcript does not include timestamps or speaker labels; it is a plain text of what was said, which is what most people want to search, quote from and summarise.",
+          },
+          {
+            type: "p",
+            text:
+              "For students, the same workflow turns a recorded lecture into searchable notes. Ask permission to record, transcribe the .m4a afterwards, and paste the text into whatever you use for revision. The model handles around 100 languages and detects the language automatically, so a lecture in Spanish or Hindi needs no setting changed.",
+          },
+        ],
+      },
+      {
+        heading: "Why offline matters for your own recordings",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "A chat voice note is usually trivial. A recorded interview, a medical voicemail or a dictated draft is not: it may contain someone else's personal details, an unpublished piece of work, or something you were told in confidence. Cloud transcription services process audio on their servers under terms that vary from vendor to vendor. Here the model runs on the iPhone and the app makes no network requests at all. You can verify this yourself by switching on airplane mode before transcribing: it still works. There is no account to create and the App Store privacy label reads **Data Not Collected**.",
+          },
+          {
+            type: "p",
+            text:
+              "The trade-off is the download size. Because the speech model is inside the app, the install is around 96 MB. That is the price of the first transcription being instant and offline, and of never having to wait for a model to download later.",
+          },
+        ],
+      },
+      {
+        heading: "Getting a cleaner transcript",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Reduce background noise at the source.** A recording made in a café transcribes worse than one made in a car with the windows up. Nothing fixes this afterwards.",
+              "**Speak in full sentences when dictating.** The model punctuates from the rhythm of your speech; a list of fragments comes out as a run-on.",
+              "**Keep one language per recording where you can.** Detection is per file, so a memo that switches languages halfway through will be transcribed in whichever one dominates.",
+              "**Convert first only if you must.** The app opens .m4a, .mp3, .wav, .opus, .ogg, .aac, .caf, .aiff, .flac, .amr and .3gp directly, so there is normally no reason to run a file through a converter.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "What the free tier and the unlock cover",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "The first three transcriptions are free, regardless of length, so you can test it on a real interview rather than a ten-second sample. After that, the one-time $2.99 purchase removes the limit. There are no minutes, credits or monthly plans, and no difference in quality between the free and unlocked transcriptions. If your need is a single long recording, the three free runs may be all you ever use.",
+          },
+          {
+            type: "p",
+            text:
+              "The app runs on any iPhone with iOS 15.1 or later. If you would rather listen than read, or you need an audio file in a format another device can play, the companion [Opus to MP3 converter](/apps/voice-note-audio-converter) covers the other direction; and if your interest is chat voice notes specifically, the original guide to [transcribing WhatsApp voice messages on iPhone](/blog/transcribe-whatsapp-voice-message-to-text-iphone) walks through that case step by step.",
+          },
+          {
+            type: "p",
+            text: DISCLAIMER,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "medicine-cabinet-expiry-dates-android-first-aid-kit-audit",
+    title: "Expired Medicine in the Cabinet? A 20-Minute Android Routine for Tracking Medicine and First-Aid Expiry Dates",
+    description:
+      "How to audit a medicine cabinet or first-aid kit once and never let it lapse again on Android: reading the date on the pack, logging each item with the Medicine tag, choosing a 7-day warning, the Android 12+ alarm permission that makes reminders arrive, and what the app does not do.",
+    datePublished: "2026-10-06",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Nobody checks the medicine cabinet until they need something from it, which is exactly the moment to discover the paracetamol expired in 2024 and the antihistamine is older than the dog. First-aid kits are worse: they live in a car boot or a kitchen drawer and get opened once a year. This is a one-time audit routine for Android that takes about twenty minutes for an average household cabinet, plus the setup that makes the phone warn you before anything lapses again. It uses the free [Expiry Date Tracker](/apps/expiry-date-tracker) app, which is Android-only and needs no account.",
+          },
+          {
+            type: "p",
+            text:
+              "One boundary before we start: this is about dates, not dosages. The app tracks when things expire. Whether an expired medicine is still safe, or what to take, is a question for a pharmacist or doctor, and nothing below changes that.",
+          },
+        ],
+      },
+      {
+        heading: "Step 1: empty the cabinet and sort into three piles",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Take everything out and put it on a table. Make three piles: already expired, expires within a year, and later than that. Most people are surprised how large the first pile is. Expired medicines should go back to a pharmacy for disposal where that service exists, rather than in the bin or down the sink; your local pharmacy will tell you what they accept.",
+          },
+          {
+            type: "p",
+            text:
+              "While sorting, look at where the date is printed. On blister packs it is usually embossed on the foil or printed on the box end; on bottles it is on the label near the batch number; on ointment tubes it is often on the crimped end. Note that medicine packaging uses several formats: EXP 03/2027, Use by 2027-03, or just a month and year. A month-only date means the end of that month.",
+          },
+        ],
+      },
+      {
+        heading: "Step 2: log each item with the Medicine tag",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Open the app and add the items from the second and third piles. For each one, tap **Scan barcode** and point the camera at the pack; the name fills in if the product is in the free Open Food Facts database or if you have scanned it before. Medicine barcodes are often missing from that database, so expect to tap **Add by hand** and type the name for a fair share of them. Type it once and the next scan of that barcode fills it in from your own history.",
+          },
+          {
+            type: "p",
+            text:
+              "Then set the date. The quick chips (+1w, +2w, +1m, +3m, +6m, +1y) are built for food; for medicine you will mostly use the minus and plus buttons or type the date as YYYY-MM-DD, because the date on the pack is specific. For a month-only date, enter the last day of that month. Pick **Medicine** as the location, add the quantity if it helps, and tap **Save**. The screen shows how many days are left as you go, which is a small but satisfying way to watch the pile shrink.",
+          },
+          {
+            type: "p",
+            text:
+              "Use the note field for the things you will have forgotten in six months: who the prescription was for, whether it is the children's or the adult strength, and where the kit actually lives if it is not the cabinet. There is no item limit and no sign-up, so log the lot.",
+          },
+        ],
+      },
+      {
+        heading: "Step 3: choose a warning that gives you time to replace things",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "The default reminder is three days before the date and again on the day, at 09:00. For food that is right; for medicine it is too late, because the point is to have a replacement in the house before the old one lapses, and that means a trip to a pharmacy. In **Settings**, switch the reminder to **7 days before** (it still reminds you on the day as well) and pick an hour when you are likely to be near a shop rather than asleep: 12:00 or 18:00 suit most people better than 07:00.",
+          },
+          {
+            type: "p",
+            text:
+              "One detail that catches people out: changing the reminder setting only applies to items you add or edit afterwards. So set the reminder preference before you start logging the cabinet, not at the end. If you have already added twenty items on the default, you can open each one and re-save it to pick up the new setting.",
+          },
+        ],
+      },
+      {
+        heading: "Step 4: make sure the reminders can actually arrive",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Reminders are scheduled on the phone itself, so they fire with no signal and no internet. What can stop them is Android, not the app. Three things to check once.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Notifications must be allowed** for the app. Android asks on first use; if you tapped away, go to Settings, Apps, Expiry Date Tracker, Notifications and turn them on.",
+              "**On Android 12 and later, allow Alarms and reminders.** Exact-time reminders need this separate permission; it lives under the app's settings as \"Alarms and reminders\" on most phones.",
+              "**Exempt the app from battery optimisation** if your phone is aggressive about background apps. Some manufacturers delay or drop scheduled alarms from apps they consider idle. Allowing the app to run in the background fixes it.",
+            ],
+          },
+          {
+            type: "p",
+            text:
+              "Test it: add a dummy item with a date a week from today, confirm the reminder arrives at the chosen hour, then delete the item.",
+          },
+        ],
+      },
+      {
+        heading: "Step 5: the first-aid kit, the car and the travel bag",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "A household usually has more than one stash of medicine. Log the car kit and the travel kit in the same list, using the note field or the quantity to say which kit each item belongs to; the **Other** location works if Medicine feels wrong for a kit that also has plasters and saline. Sunscreen and contact-lens solution have dates too and belong in the same audit. The list groups everything by what expires first, so when the reminder arrives you see the item, where it is, and how many days it has left.",
+          },
+          {
+            type: "p",
+            text:
+              "When you replace something, tap the tick to mark the old item used, which cancels its reminders, and add the new pack with its new date. That two-tap habit is what keeps the audit from needing to be repeated.",
+          },
+        ],
+      },
+      {
+        heading: "What the app does not do, and when a spreadsheet is better",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "The list lives on your phone. There is no account, no cloud and no sharing, so a partner cannot see or edit the same list from their own phone; it is included in your Android device backup, which restores it on a new handset, but it is a personal list. For a household that wants two people to maintain one cabinet, a shared spreadsheet or a shared calendar with recurring events is the honest alternative, at the cost of entering dates by hand and losing the sorted-by-urgency view.",
+          },
+          {
+            type: "p",
+            text:
+              "Scanning a barcode fills in the name, not the date; retail barcodes do not carry expiry information, so every tracker app asks you to enter it. And the app gives no medical guidance of any kind. It is a list with reminders, done well, for people who do not want an account to keep one.",
+          },
+          {
+            type: "p",
+            text:
+              "It is free with a small banner ad; a one-time $1.99 purchase removes the ad and there is no subscription. It runs on Android 7.0 or later and is available in fifteen languages. If you did the [barcode and reminder setup guide](/blog/expiry-date-tracker-android-setup-barcode-reminders) for the kitchen already, the medicine audit is the same app, one more location tag, and a longer warning window. The equivalent for receipts and guarantees is the [Warranty Tracker](/apps/warranty-tracker) app, which follows the same no-account approach on iPhone.",
+          },
+        ],
+      },
+    ],
+  },
 ];

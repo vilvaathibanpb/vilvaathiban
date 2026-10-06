@@ -6692,6 +6692,199 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  {
+    slug: "javascript-tosorted-toreversed-tospliced-with-immutable-array-methods",
+    title:
+      "toSorted, toReversed, toSpliced and with(): JavaScript's Non-Mutating Array Methods, When to Use Them, and the Traps",
+    description:
+      "A practical guide to ES2023's change-array-by-copy methods: toSorted vs sort, toReversed, toSpliced vs splice, Array.prototype.with, browser and Node support, the TypeScript lib setting, typed arrays, and when a copy is the wrong tool.",
+    datePublished: "2026-10-06",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text:
+              "For most of JavaScript's life, sorting an array meant mutating it. `array.sort()` reorders the array in place and returns the same reference, which is why half the React bugs involving lists come down to someone sorting state directly and wondering why nothing re-rendered. ES2023 added four methods that fix this at the language level: `toSorted()`, `toReversed()`, `toSpliced()` and `with()`. Each returns a new array and leaves the original untouched. This post covers what they do, how they differ from their mutating twins, where they are supported, and the handful of cases where reaching for them is a mistake.",
+          },
+        ],
+      },
+      {
+        heading: "The problem these methods solve",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Before 2023, the idiomatic way to sort without mutating was to copy first: `[...items].sort(compare)` or `items.slice().sort(compare)`. It works, but it is easy to forget, it reads as noise, and it hides the intent. The same applied to `reverse()` and `splice()`, both of which mutate. The **change array by copy** proposal, which reached stage 4 and shipped in ES2023, added non-mutating counterparts with a `to` prefix, plus `with()` for the common case of replacing a single element.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "const scores = [42, 7, 19];\n\n// Old habit: sort() mutates and returns the same array\nconst sorted = scores.sort((a, b) => a - b);\nconsole.log(scores === sorted); // true, and scores is now [7, 19, 42]\n\n// New: toSorted() returns a fresh array\nconst original = [42, 7, 19];\nconst copy = original.toSorted((a, b) => a - b);\nconsole.log(original); // [42, 7, 19]\nconsole.log(copy);     // [7, 19, 42]",
+          },
+        ],
+      },
+      {
+        heading: "toSorted(): sort without side effects",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "`toSorted(compareFn)` takes the same optional comparator as `sort()` and uses the same algorithm, so the ordering rules are identical: without a comparator, elements are converted to strings and compared by UTF-16 code units, which is why `[10, 9, 1].toSorted()` gives `[1, 10, 9]`. Always pass a comparator for numbers. The sort is stable, as `sort()` has been since ES2019.",
+          },
+          {
+            type: "p",
+            text:
+              "One subtle difference: `toSorted()` treats holes in sparse arrays as `undefined` and the result is always a dense array. `sort()` preserves holes by moving them to the end. In practice almost nobody relies on holes, but it is the one case where the two methods can produce arrays of different shape.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "const users = [\n  { name: 'Mira', age: 31 },\n  { name: 'Theo', age: 24 },\n  { name: 'Ava', age: 31 },\n];\n\n// Stable: Mira stays before Ava because they tie on age\nconst byAge = users.toSorted((a, b) => a.age - b.age);\n// [Theo, Mira, Ava]\n\n// Locale-aware string sort, still non-mutating\nconst byName = users.toSorted((a, b) => a.name.localeCompare(b.name));",
+          },
+        ],
+      },
+      {
+        heading: "toReversed(): the easy one",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "`toReversed()` takes no arguments and returns a reversed copy. It is exactly `[...arr].reverse()` with a clearer name. The place it shines is in a chain: `messages.toReversed().slice(0, 10)` reads as a pipeline, where the spread version makes you stop and work out which operation mutated what.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "const log = ['boot', 'connect', 'sync', 'idle'];\nconst newestFirst = log.toReversed();\n// ['idle', 'sync', 'connect', 'boot']; log is unchanged",
+          },
+        ],
+      },
+      {
+        heading: "toSpliced(): splice that returns the array you actually want",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "`splice()` has always been awkward: it mutates the array **and** returns the removed elements, so you get the thing you usually do not want back. `toSpliced(start, deleteCount, ...items)` takes the same arguments but returns the new array with the change applied, and never touches the original. It is the right tool for insert, remove and replace in one call.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "const tabs = ['home', 'search', 'profile'];\n\n// Remove one\nconst withoutSearch = tabs.toSpliced(1, 1);\n// ['home', 'profile']\n\n// Insert without deleting\nconst withSettings = tabs.toSpliced(2, 0, 'settings');\n// ['home', 'search', 'settings', 'profile']\n\n// Replace two with one\nconst merged = tabs.toSpliced(0, 2, 'main');\n// ['main', 'profile']\n\nconsole.log(tabs); // ['home', 'search', 'profile']",
+          },
+          {
+            type: "p",
+            text:
+              "Negative `start` values count from the end, as with `splice()`. Omitting `deleteCount` removes everything from `start` onward. Like `toSorted()`, the result is always dense: holes in the source become `undefined`.",
+          },
+        ],
+      },
+      {
+        heading: "with(): replace a single element by index",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "`with(index, value)` returns a copy with the element at `index` replaced. It accepts negative indexes (`-1` is the last element), which the bracket assignment `arr[i] = v` never did. The important behavioural difference is that `with()` **throws a RangeError** if the index is out of bounds, where `arr[99] = v` would silently grow the array and leave holes. That strictness is a feature: an out-of-range write is almost always a bug.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "const row = [1, 2, 3];\n\nconst updated = row.with(1, 20);   // [1, 20, 3]\nconst last = row.with(-1, 30);      // [1, 2, 30]\n\ntry {\n  row.with(3, 4);\n} catch (e) {\n  console.log(e instanceof RangeError); // true\n}",
+          },
+          {
+            type: "p",
+            text:
+              "In a React reducer this replaces the familiar `state.map((item, i) => i === index ? next : item)` with a single expression, and it is faster, because `map()` has to call your callback for every element while `with()` just copies and overwrites one slot.",
+          },
+        ],
+      },
+      {
+        heading: "React state updates, before and after",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "The practical payoff is in state management, where mutation is the bug that bites most often. Here is the same todo reducer written both ways.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "// Before: copy-then-mutate, easy to get subtly wrong\nfunction reducer(state, action) {\n  switch (action.type) {\n    case 'toggle': {\n      const next = [...state];\n      next[action.index] = { ...next[action.index], done: !next[action.index].done };\n      return next;\n    }\n    case 'remove':\n      return state.filter((_, i) => i !== action.index);\n    case 'sortByTitle':\n      return [...state].sort((a, b) => a.title.localeCompare(b.title));\n  }\n}\n\n// After: each case is one expression and nothing can mutate state\nfunction reducer(state, action) {\n  switch (action.type) {\n    case 'toggle':\n      return state.with(action.index, { ...state[action.index], done: !state[action.index].done });\n    case 'remove':\n      return state.toSpliced(action.index, 1);\n    case 'sortByTitle':\n      return state.toSorted((a, b) => a.title.localeCompare(b.title));\n  }\n}",
+          },
+        ],
+      },
+      {
+        heading: "Browser, Node and TypeScript support",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "All four methods shipped together. They are available in Chrome and Edge 110, Firefox 115, Safari 16 and Node.js 20, and in every current runtime since. If you still support older Safari or an LTS Node line before 20, you need a polyfill; core-js includes them. There is no partial support to worry about: a runtime either has all four or none.",
+          },
+          {
+            type: "p",
+            text:
+              "TypeScript knows about them from version 5.2, but only if your `lib` setting includes `ES2023` or later (or `ESNext`). A project pinned to `\"lib\": [\"ES2020\", \"DOM\"]` will report that `toSorted` does not exist on `number[]` even though the runtime supports it. Update the `lib` array or the `target` and the error disappears. This is the same class of problem as the `structuredClone is not defined` errors we covered in [that post](/blog/structuredclone-is-not-defined-fix): the code is fine, the type definitions are behind.",
+          },
+          {
+            type: "code",
+            language: "json",
+            code: "{\n  \"compilerOptions\": {\n    \"target\": \"ES2023\",\n    \"lib\": [\"ES2023\", \"DOM\"]\n  }\n}",
+          },
+          {
+            type: "p",
+            text:
+              "Typed arrays got the same treatment: `Int32Array`, `Float64Array` and friends have `toSorted()`, `toReversed()` and `with()`. They do not have `toSpliced()`, because typed arrays are fixed-length and splicing would change the length.",
+          },
+        ],
+      },
+      {
+        heading: "When a copy is the wrong tool",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Every one of these methods allocates a new array of the full length. That is the point, and for arrays of a few hundred or a few thousand items the cost is irrelevant. It stops being irrelevant in three situations.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Large arrays in a hot loop.** Calling `toSpliced()` to remove one element from a 100,000-item array inside a per-frame update copies 100,000 elements every frame. If you own the array and nobody else holds a reference, `splice()` in place is the right call.",
+              "**Repeated edits.** Building up a result with twenty successive `with()` calls creates twenty intermediate arrays. Copy once, mutate the copy, and return it.",
+              "**You wanted the removed elements.** `toSpliced()` returns the new array, not what was cut out. If the deleted items are what you need, `splice()` on a copy, or `slice()` the range first.",
+            ],
+          },
+          {
+            type: "p",
+            text:
+              "The rule of thumb: use the `to` methods at boundaries, where an array is shared, stored in state, or passed to code you do not control, and use the mutating methods inside functions that own a local array. The same thinking applies to the deep-copy choices in our [structuredClone vs JSON guide](/blog/javascript-deep-copy-structuredclone-vs-json).",
+          },
+        ],
+      },
+      {
+        heading: "Quick reference",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "`arr.toSorted(compareFn?)` - sorted copy; same comparator rules as `sort()`; result is dense.",
+              "`arr.toReversed()` - reversed copy.",
+              "`arr.toSpliced(start, deleteCount?, ...items)` - copy with elements removed and/or inserted; returns the new array, not the removed items.",
+              "`arr.with(index, value)` - copy with one element replaced; negative index allowed; RangeError when out of bounds.",
+              "Support: Chrome/Edge 110, Firefox 115, Safari 16, Node 20; TypeScript 5.2 with lib ES2023.",
+            ],
+          },
+          {
+            type: "p",
+            text:
+              "If you have been writing `[...arr].sort()` out of habit, these four methods are the cleanup you can do today with zero risk, and they pair naturally with the other recent additions we have covered, such as [Object.groupBy](/blog/javascript-object-groupby-map-groupby-guide) and the [iterator helpers](/blog/javascript-iterator-helpers), to make array code read like a description of the result rather than a sequence of mutations.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
 ];
 
