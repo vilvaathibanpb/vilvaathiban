@@ -6885,6 +6885,230 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  {
+    slug: "urlpattern-api-practical-guide",
+    title:
+      "URLPattern: The Built-In Way to Match and Parse URLs in JavaScript (Browsers and Node)",
+    description:
+      "A practical guide to the URLPattern API: pattern syntax (:id, wildcards, regex groups, modifiers), test() vs exec(), baseURL rules, ignoreCase, a client-side router in 30 lines, service-worker routing, Node 24 global support, Baseline status and the gotchas.",
+    datePublished: "2026-10-08",
+    readingMinutes: 9,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Every router, every service worker and most middleware eventually contains the same hand-rolled code: split a pathname on slashes, compare segments, pull out an ID, and hope nobody passes a trailing slash. The URLPattern API is the platform's answer. It gives you a `URLPattern` object that matches URLs the way `RegExp` matches strings, using the `:id` and `*` syntax you already know from Express and Next.js, and it returns the named groups as a plain object. It shipped in Chrome 95 in 2021, reached Firefox 142 and Safari 26 in 2025, became Baseline Newly available in September 2025, and has been a global in Node.js since version 24. This post covers the syntax, the two methods, the base-URL rules that trip people up, and three real uses.",
+          },
+        ],
+      },
+      {
+        heading: "The basics: test() and exec()",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "A pattern is built from either a full URL string or an object with one entry per URL component. The simplest useful case is a pathname with a named group:",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code:
+              "const pattern = new URLPattern({ pathname: '/books/:id' });\n\npattern.test('https://example.com/books/123');  // true\npattern.test('https://example.com/books');      // false\n\nconst match = pattern.exec('https://example.com/books/123');\nmatch.pathname.groups.id;   // '123'\nmatch.pathname.input;       // '/books/123'",
+          },
+          {
+            type: "p",
+            text:
+              "`test()` returns a boolean. `exec()` returns `null` on no match, otherwise an object with one entry per component (`protocol`, `username`, `password`, `hostname`, `port`, `pathname`, `search`, `hash`), each carrying the `input` that was matched and a `groups` object of captures. Components you do not specify in the pattern default to the wildcard `*`, so the pattern above matches that path on any host, any protocol, with any query string.",
+          },
+          {
+            type: "p",
+            text:
+              "You can also pass a URL-like object to `test()` and `exec()` instead of a string, which is handy when you only have a pathname: `pattern.exec({ pathname: '/books/123' })` works and does not require a host at all.",
+          },
+        ],
+      },
+      {
+        heading: "The pattern syntax, in one table's worth of examples",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "The syntax follows the path-to-regexp library, so it will look familiar if you have used Express 4 or earlier. The important forms:",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code:
+              "// Named group: matches one segment\nnew URLPattern({ pathname: '/users/:id' });\n\n// Named group with a regex constraint: digits only\nnew URLPattern({ pathname: '/users/:id(\\\\d+)' });\n\n// Unnamed regex group: available as groups[0]\nnew URLPattern({ pathname: '/(foo|bar)' });\n\n// Wildcard: zero or more of any character, greedy\nnew URLPattern({ pathname: '/assets/*' });\n\n// Modifiers on groups: optional, one-or-more, zero-or-more\nnew URLPattern({ pathname: '/books/:id?' });   // /books or /books/1\nnew URLPattern({ pathname: '/files/:path+' }); // one or more segments\nnew URLPattern({ pathname: '/files/:path*' }); // zero or more segments\n\n// Braces group fixed text so a modifier can apply to it\nnew URLPattern({ pathname: '/book{s}?' });     // /book or /books\nnew URLPattern({ pathname: '/docs{/}?' });     // with or without trailing slash\n\n// Hostname patterns work the same way\nnew URLPattern({ hostname: '{:subdomain.}*example.com' });",
+          },
+          {
+            type: "p",
+            text:
+              "Two details matter in practice. First, in a pathname pattern a group that follows a `/` gets that slash as an automatic prefix, which is why `/books/:id?` matches `/books` rather than `/books/`. If you want the literal behaviour, wrap the group in braces: `/books/{:id}?` requires the slash. Second, trailing slashes are not matched by default; `/books` and `/books/` are different patterns, and the `{/}?` idiom above is the standard way to accept both.",
+          },
+          {
+            type: "p",
+            text:
+              "Regex groups support lookahead and lookbehind, but the pattern string is parsed before the regex is compiled, so parentheses inside character classes must be escaped: write `([\\\\(\\\\)])`, not `[()]`. If a pattern contains any regex group at all, its `hasRegExpGroups` property is `true`; some engines take a slower path for those, so prefer named groups and wildcards unless you need a constraint.",
+          },
+        ],
+      },
+      {
+        heading: "Base URLs and the inheritance rule",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "The constructor accepts a second argument, a base URL, and the object form accepts a `baseURL` property. This is where most confusion comes from. A base URL does not simply fill in missing parts; it fills in the parts that are *less specific* than the most specific part you supplied, in the order protocol, hostname, port, pathname, search, hash.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code:
+              "const p = new URLPattern('/foo/*', 'https://example.com');\np.protocol;  // 'https'   (inherited)\np.hostname;  // 'example.com' (inherited)\np.pathname;  // '/foo/*'\np.search;    // '*'       (not inherited: more specific than pathname)\n\n// Without a base, everything unspecified is a wildcard\nconst q = new URLPattern({ pathname: '/foo/*' });\nq.hostname;  // '*'",
+          },
+          {
+            type: "p",
+            text:
+              "So `new URLPattern('/foo/*', 'https://example.com')` is pinned to that host, while `new URLPattern({ pathname: '/foo/*' })` matches the path anywhere. Pick deliberately: a router inside a single-origin app wants the second form; a service worker that must not intercept third-party requests wants the first. The same base-URL argument can also be passed to `test()` and `exec()`, so `pattern.test('/foo/bar', 'https://example.com/baz')` resolves the relative input before matching.",
+          },
+        ],
+      },
+      {
+        heading: "Case sensitivity",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Matching is case-sensitive by default, which is correct for pathnames on most servers but surprising for people coming from Windows-style routing. The options object as the second argument switches it:",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code:
+              "const p = new URLPattern('https://example.com/2026/oct/*', { ignoreCase: true });\np.test('https://example.com/2026/Oct/notes');  // true",
+          },
+          {
+            type: "p",
+            text:
+              "Note the second argument is either a base-URL string or an options object, not both; if you need a base URL and `ignoreCase`, use the object form with a `baseURL` property and pass the options as the second argument.",
+          },
+        ],
+      },
+      {
+        heading: "Use 1: a client-side router in thirty lines",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "The obvious use is replacing a routing library in small apps. Each route is a pattern plus a handler; on navigation you find the first pattern that matches and hand it the groups. Combined with the Navigation API this is a complete single-page router with no dependencies.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code:
+              "const routes = [\n  { pattern: new URLPattern({ pathname: '/' }),           render: Home },\n  { pattern: new URLPattern({ pathname: '/posts/:slug' }), render: Post },\n  { pattern: new URLPattern({ pathname: '/tags/:tag+' }),  render: Tag },\n];\n\nfunction resolve(url) {\n  for (const route of routes) {\n    const match = route.pattern.exec(url);\n    if (match) return route.render(match.pathname.groups);\n  }\n  return NotFound();\n}\n\n// With the Navigation API (Chromium today; falls back to location in others)\nnavigation?.addEventListener('navigate', (event) => {\n  if (!event.canIntercept || event.hashChange) return;\n  event.intercept({ handler: () => resolve(event.destination.url) });\n});\n\nresolve(location.href);",
+          },
+          {
+            type: "p",
+            text:
+              "Order matters, exactly as it does in Express: put specific routes before wildcards. Because `exec()` returns the groups already split out, the handlers never touch the raw path. If you have not met the Navigation API, the [practical guide to it](/blog/navigation-api-practical-guide) covers the interception model used above.",
+          },
+        ],
+      },
+      {
+        heading: "Use 2: routing inside a service worker",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Service workers were the original motivation for the API. A fetch handler that decides caching strategy by URL is usually a wall of `url.pathname.startsWith(...)`; patterns make the intent readable and let you pin the origin so you never cache someone else's responses by accident.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code:
+              "const images = new URLPattern({ pathname: '/images/*.(png|jpg|webp)', baseURL: self.location.origin });\nconst api    = new URLPattern({ pathname: '/api/:version/*', baseURL: self.location.origin });\n\nself.addEventListener('fetch', (event) => {\n  const url = event.request.url;\n  if (images.test(url)) {\n    event.respondWith(cacheFirst(event.request));\n  } else if (api.test(url)) {\n    const { version } = api.exec(url).pathname.groups;\n    event.respondWith(networkFirst(event.request, version));\n  }\n});",
+          },
+          {
+            type: "p",
+            text:
+              "Alternation is a regex group, `(png|jpg|webp)`, not a brace list; braces only group text so a modifier can apply to it. That is the kind of detail that is easy to get subtly wrong, so keep a small test file of URLs that should and should not match and run it in CI.",
+          },
+        ],
+      },
+      {
+        heading: "Use 3: Node.js servers and edge functions",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Node.js 24 exposes `URLPattern` on the global object with no import, and the same class is available in Deno, Bun and Cloudflare Workers. That makes it a reasonable zero-dependency router for small HTTP services and for edge middleware, where every kilobyte of bundle is paid on each cold start.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code:
+              "import { createServer } from 'node:http';\n\nconst userById = new URLPattern({ pathname: '/users/:id(\\\\d+)' });\n\ncreateServer((req, res) => {\n  const url = new URL(req.url, 'http://localhost');\n  const m = userById.exec(url);\n  if (m && req.method === 'GET') {\n    res.end(JSON.stringify({ id: Number(m.pathname.groups.id) }));\n    return;\n  }\n  res.statusCode = 404;\n  res.end();\n}).listen(3000);",
+          },
+          {
+            type: "p",
+            text:
+              "On Node 22 and earlier the class is not global; the `urlpattern-polyfill` package provides it and is what most frameworks that support older runtimes ship.",
+          },
+        ],
+      },
+      {
+        heading: "Support and polyfill",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Chrome and Edge 95 and later, including inside workers and service workers.",
+              "Firefox 142 and later (August 2025).",
+              "Safari 26 and later (September 2025). The feature is Baseline 2025, Newly available, which means it works in current browsers but not in the two-to-three-year-old ones a cautious team still supports.",
+              "Node.js 24 and later as a global; Deno, Bun and Cloudflare Workers also provide it.",
+              "Elsewhere, the `urlpattern-polyfill` package implements the WHATWG spec and can be loaded conditionally with `if (!('URLPattern' in globalThis))`.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Gotchas worth knowing before you ship",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "A pathname pattern must start with `/`; a pattern of `books/:id` will not match anything, silently.",
+              "Unspecified components are wildcards, not empty. A pattern with only `pathname` matches on every host. Set `hostname` or use a base URL when that matters, especially in service workers.",
+              "`search` and `hash` are matched too. If you leave them out they are `*`, which is what you want; if you set `search: ''` the pattern only matches URLs with no query string.",
+              "Wildcards are greedy. `/a/*/b` on `/a/x/b/y/b` captures `x/b/y`.",
+              "Group values come back URL-encoded as they appeared in the input; decode with `decodeURIComponent` if you are going to display them.",
+              "Constructing patterns is comparatively expensive. Build them once at module load, not inside the request handler.",
+              "TypeScript: recent versions of the DOM lib and of `@types/node` declare `URLPattern`; if your toolchain does not know the type, the polyfill package ships its own declarations and `declare global` is a one-line fix.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "When not to use it",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "URLPattern is a matcher, not a router. It does not do route ranking, nested layouts, data loading, prefetching or history management; if you need those, a framework router is still the right call, and several of them use `URLPattern` internally anyway. It is also not a replacement for the `URL` class: parse with `URL`, match with `URLPattern`. And if your matching is a single `startsWith`, keep the `startsWith`; the API earns its place when there are several routes with parameters, which is exactly when hand-written parsing starts to grow bugs.",
+          },
+          {
+            type: "p",
+            text:
+              "For the other side of the same problem, building a URL rather than reading one, `URL` and `URLSearchParams` remain the tools; and if you are doing this inside an abortable fetch pipeline, the [AbortController guide](/blog/abortcontroller-abortsignal-practical-guide) pairs naturally with pattern-based routing in workers.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
 ];
 

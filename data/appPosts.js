@@ -4639,4 +4639,387 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "recording-proper-4k-video-on-iphone-talking-head",
+    title:
+      "Recording Proper 4K Video on an iPhone: Settings, Storage, the Front Camera Question, and When 4K Is the Wrong Choice",
+    description:
+      "How to record genuinely good 4K talking-head video on an iPhone: the resolution and frame-rate settings, HEVC vs Most Compatible, storage per minute, locking exposure and white balance, why the front camera is fine, and the cases where 1080p is smarter.",
+    datePublished: "2026-10-08",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Every iPhone sold in the last several years can record 4K video, and most creators have it switched on without ever having thought about what it is doing. The result is a lot of footage that is technically 4K and practically no better than 1080p: soft because the phone was focused on the wall, flickering because exposure kept hunting, and taking up four times the space for no visible gain. This post is the setup walkthrough for recording 4K that is actually worth the pixels, written for people who film themselves talking to the camera. It covers the settings, the trade-offs, and the honest cases where you should turn 4K off.",
+          },
+        ],
+      },
+      {
+        heading: "What 4K buys you, and what it does not",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "4K (3840 by 2160 pixels in landscape, the same count rotated in portrait) has four times the pixels of 1080p. For a talking-head video the benefit is rarely that viewers see more detail in your face; most of them watch on a phone, where the difference is invisible. The real benefits are three. You can crop: a 4K frame lets you punch in to a tighter shot in the edit and still deliver 1080p, which is the cheapest way to add a second camera angle you do not own. It survives compression better: platforms re-encode everything, and a sharper source comes out of that process looking cleaner. And it future-proofs the footage for a larger screen.",
+          },
+          {
+            type: "p",
+            text:
+              "What 4K does not do is fix light, focus, stability or sound. A 4K clip of a badly lit face is a very detailed record of bad lighting. If you have not already worked through the basics of position, light and audio, the [talking-head setup guide](/blog/talking-head-video-setup-guide-iphone) comes first; this post assumes that groundwork and adds the resolution layer on top.",
+          },
+        ],
+      },
+      {
+        heading: "The settings, in order",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Open Settings, then Camera. The relevant screens are Record Video and Formats. Here is what to set and why.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Record Video: 4K at 24, 25 or 30 fps.** Choose by region and taste: 24 fps looks filmic, 25 fps matches European broadcast and avoids flicker under 50 Hz lighting, 30 fps matches most social platforms and North American lighting. Pick one and stay on it for every clip in a project; mixing frame rates in one edit causes stutter. Do not use 60 fps for a talking head unless you plan to slow footage down; it doubles the file size and makes the image look like a news broadcast.",
+              "**Formats: High Efficiency.** This records HEVC (H.265), which is roughly half the size of H.264 for the same quality. The Settings screen prints an estimate next to each resolution and frame rate; on recent iPhones 4K at 30 fps in High Efficiency is listed at roughly 170 MB per minute, and 4K at 60 fps well over double that. Switch to Most Compatible only if an old editing application or a client's workflow genuinely cannot open HEVC, and switch back afterwards. Note that some combinations, such as 4K at 60 fps, are only available in High Efficiency on many models.",
+              "**HDR Video: off for talking heads.** HDR looks superb on an iPhone screen and causes grief everywhere else: washed-out colours when uploaded, odd skin tones indoors, and mismatches when you mix it with non-HDR clips or graphics. Turn it on deliberately for scenery, not by default for faces.",
+              "**Lock Camera and Lock White Balance: on.** Lock Camera stops the phone switching between its lenses mid-clip, which is a visible jump. Lock White Balance stops skin tones drifting as a cloud passes the window. Both are under Record Video on models that support them.",
+              "**Grid and Level: on.** Not quality settings, but they are the difference between a straight horizon and a tilted one you only notice when it is too late to reshoot.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "The front camera is fine; the eye line is what matters",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Creators are regularly told to use the rear camera because it is better. It is better, on paper: larger sensor, better lens, more light. In practice the trade is the other way round for a talking-head video. Using the rear camera means you cannot see the framing, cannot see the script, and cannot tell when your head has drifted out of shot until you check the clip afterwards. The front camera on any iPhone from the last few years records 4K at 24, 25 and 30 fps, and in the light you should be using anyway, a window or a soft panel, the quality difference between the two cameras is far smaller than the difference between a clip where you are looking at the lens and one where you are not.",
+          },
+          {
+            type: "p",
+            text:
+              "That eye line is the whole reason a camera-overlay teleprompter exists. [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay) floats the script over the front-camera preview, next to the lens, so reading and looking at the camera are the same movement; it records portrait 4K through that same preview, and the script never appears in the saved video. If you have been avoiding the front camera for quality reasons, try one clip each way at 4K in good light and compare them on a laptop screen. Most people stop worrying about it. The earlier post on [keeping eye contact with the camera](/blog/how-to-keep-eye-contact-with-the-camera) covers the habit side of this.",
+          },
+        ],
+      },
+      {
+        heading: "Focus and exposure: the two things 4K makes more visible",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "At 1080p, slightly soft focus hides. At 4K it does not. Before every recording, tap on your face in the preview to set focus and exposure there, then press and hold until you see the AE/AF Lock label, so the camera stops reconsidering every time you move. If the app you are recording in does not expose that control, keep still and keep the light steady; autofocus on iPhones is good, but it is also keen, and a hand gesture that passes the lens can pull focus to your fingers for half a second.",
+          },
+          {
+            type: "p",
+            text:
+              "Exposure flicker is the other 4K-visible fault. It comes from light that changes, usually a window with moving cloud or a lamp on a slightly flickering dimmer, and from the phone adapting to it. Lock exposure, close the curtain and use a lamp on a stable supply, and the problem disappears. If your face is too dark against a bright window, move so the window is in front of you rather than behind you; no resolution setting fixes backlighting.",
+          },
+        ],
+      },
+      {
+        heading: "Storage: the practical arithmetic",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "At roughly 170 MB per minute for 4K at 30 fps in HEVC, a one-hour batch-recording session of takes and retakes is around 10 GB. That is manageable on a 256 GB phone and painful on a 64 GB one. Three habits help. Review takes immediately and delete the bad ones while you still remember which they were. Offload finished takes to a computer or external drive at the end of each session rather than letting them pile up for a month. And if you are the kind of creator who records a week of content in one sitting, check free space before you start; a multi-take session like the one described in the [voiceover and podcast post](/blog/teleprompter-for-voiceovers-and-podcasts) depends on not running out halfway through take fourteen.",
+          },
+          {
+            type: "p",
+            text:
+              "If space is tight, 4K at 24 fps uses noticeably less than 30 fps, and 1080p at 30 fps uses less than half of either. Dropping to 1080p for throwaway content and keeping 4K for anything you might crop or reuse is a sensible policy.",
+          },
+        ],
+      },
+      {
+        heading: "When 4K is the wrong choice",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Low light.** The phone compensates by raising ISO, and at 4K the noise is clearer, not hidden. A well-lit 1080p clip beats a noisy 4K one every time.",
+              "**Long recordings on an older phone.** Extended 4K sessions warm the phone and can trigger throttling or a recording stop; 1080p is cooler and safer for a forty-minute lecture.",
+              "**Content that is only ever a 60-second vertical clip.** If you will never crop and the platform will downscale anyway, 1080p saves space and upload time with no visible loss. The [60-second script post](/blog/ideal-script-length-for-a-60-second-video) is where this kind of content lives.",
+              "**Editing on a laptop that struggles.** 4K HEVC timelines are heavy. If your editor stutters, either record 1080p or create proxies; do not fight the machine.",
+              "**When the goal is the first take, not the best take.** Resolution is a quality setting, and quality settings invite perfectionism. If you are still finding your voice on camera, lock in the basics, record at 1080p, and come back to 4K when the words are working.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "A pre-flight checklist",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Settings: 4K at 24, 25 or 30 fps; High Efficiency; HDR off; Lock Camera and Lock White Balance on.",
+              "Free space: at least 2 GB per ten minutes you plan to record, plus margin.",
+              "Light in front of you, stable, not flickering.",
+              "Focus and exposure locked on your face.",
+              "Phone on a tripod or a solid prop, in portrait if the content is vertical, lens at eye height.",
+              "Script loaded and positioned next to the lens; one rehearsal read before the first take.",
+            ],
+          },
+          {
+            type: "p",
+            text:
+              "Do all of that once, save it as your default, and the resolution question stops being a question. Next in the series: batch-recording a week of content in one sitting, the workflow that makes all of these settings pay off.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "photograph-orionid-meteor-shower-iphone-october-2026",
+    title:
+      "How to Photograph the Orionid Meteor Shower With an iPhone (21–22 October 2026): Timing, Moon, Settings and Realistic Odds",
+    description:
+      "The Orionids peak on the morning of 21 October 2026 with a bright gibbous moon. When to go out, where to look, why the Moon's setting time decides your odds, which iPhone settings catch a meteor, and what Night Cam's Stars, Trails and Time-lapse presets can and cannot do.",
+    datePublished: "2026-10-08",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text:
+              "The Orionids are the autumn meteor shower, debris from Halley's Comet that the Earth runs into every October. The 2026 peak is predicted for 21 October, with the best viewing in the dark hours before dawn on the mornings of 21 and 22 October. It is not the strongest shower of the year, and this year's bright Moon makes it harder still, but it is reliable, it is visible from both hemispheres, and its meteors are fast and often leave glowing trains. Photographing one with a phone is possible and is mostly a question of planning. This guide covers the timing, the Moon problem, what to point the phone at, the settings that give you a chance, and what a night-sky camera app like Night Cam can realistically do for you.",
+          },
+        ],
+      },
+      {
+        heading: "The 2026 facts you need",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Active period:** late September to late November; the shower is active now and the rate climbs towards the peak.",
+              "**Peak:** 21 October 2026, with the two best mornings being 21 and 22 October. The radiant, the point the meteors appear to come from, rises before midnight and is highest around 2 a.m. local time.",
+              "**Expected rate:** roughly 10 to 20 meteors per hour under a dark sky at the peak, fewer with light pollution or moonlight. In rare years the Orionids have reached 50 to 75 an hour; nobody is predicting that for 2026.",
+              "**Speed:** about 66 kilometres per second, among the fastest of any shower, which is why Orionids are brief streaks rather than slow fireballs.",
+              "**The Moon:** a bright waxing gibbous, around 80 percent lit, with full Moon on 26 October. The Moon sets in the early hours, several hours before dawn on the peak mornings, which is the single most important fact in this article.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Plan around the Moon, not the peak hour",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "A gibbous Moon washes out faint meteors and, more to the point for a phone, floods a long exposure with grey. The good news is that on 21 and 22 October the Moon sets before the best viewing hours. Check the moonset time for your location, then plan to be in position and settled from moonset until the sky starts to brighten; for most of Europe and North America that is roughly 3 a.m. to the start of dawn. Night Cam's Tonight tab shows the moon phase and the next twelve hours of cloud cover for where you are, which answers the two questions that matter the night before: will the Moon be gone, and will the sky be clear.",
+          },
+          {
+            type: "p",
+            text:
+              "Give your eyes twenty minutes to adapt and keep them adapted. A phone screen at normal brightness undoes that in seconds. Night Cam's red night mode turns the whole interface red, which protects your night vision while you adjust settings and check frames; if you are using the built-in Camera app instead, drop the screen brightness as low as it goes before you leave the house.",
+          },
+        ],
+      },
+      {
+        heading: "Where to point the phone",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Do not aim at Orion. The meteors radiate from near the club of Orion but appear all over the sky, and the ones closest to the radiant are short; the longest, most photogenic streaks are 40 to 60 degrees away from it. Aim the phone at a dark patch of sky a good distance from Orion, ideally with something on the horizon for scale, and accept that this is a numbers game. Then use the widest lens you have. The main 1x lens gathers the most light on most iPhones and is the usual recommendation for stars; the ultra-wide covers more sky and therefore catches more meteors, at the cost of a noisier, softer frame. For meteors specifically, the ultra-wide is a defensible choice. Try both.",
+          },
+        ],
+      },
+      {
+        heading: "The honest part: how a phone catches a meteor",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "A dedicated camera for meteors runs continuous 15- to 30-second exposures for hours and keeps the one or two frames that caught something. A phone cannot run an unattended hour of raw long exposures in the Camera app, so you need a different strategy, and no app, including Night Cam, has a magic meteor preset. What you have are three approaches that each give you a real chance:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Repeated stacked stills.** Night Cam's Stars preset takes a 16-second stacked exposure after a 3-second countdown, which is enough time for a bright Orionid to cross the frame. Fire it again as soon as each capture finishes, for as long as you can stand the cold. Each capture is a lottery ticket; thirty tickets an hour is a fair number.",
+              "**A star-trails session.** The Trails preset accumulates light over a long session into one image. Stars draw arcs; a meteor that crosses during the session draws a straight streak that cuts across those arcs, which is a distinctive and rather beautiful result. This is the closest thing a phone has to the dedicated-camera method, and the one most likely to catch something if you can leave the phone running.",
+              "**Time-lapse.** The Time-lapse preset records the sky moving. A meteor appears in one or two frames of the result, which you can freeze and export. You get a lower-quality still than the other two methods, but you also get a clip, and a clip with a meteor in it is worth more on social platforms than a still.",
+            ],
+          },
+          {
+            type: "p",
+            text:
+              "Whichever you use, the phone must not move at all. A tripod with a phone clamp, or the phone wedged against a wall or a fence post, is not optional. The 3-second countdown before Night Cam captures exists so that your tap does not shake the frame; the same logic applies to the built-in Camera, where a volume-button press or a Bluetooth remote is steadier than tapping the screen.",
+          },
+        ],
+      },
+      {
+        heading: "Doing it with the built-in Camera app",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "If you would rather not install anything, the built-in Camera app's Night mode on a tripod gives you exposures of up to around 30 seconds on recent models when the phone detects it is stable. Turn the flash off, tap the darkest part of the sky and drag the exposure slider down slightly so the sky does not turn grey, and shoot repeatedly. Its weaknesses for meteors are that you cannot run it unattended and that each shot needs a tap. For the Moon, incidentally, do the opposite of everything here: it is bright, needs a short exposure, and comes out better with the Moon preset in Night Cam or a tap on the Moon itself in the Camera app to expose for it.",
+          },
+        ],
+      },
+      {
+        heading: "Settings checklist for the night",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Battery full, and a power bank if you plan a trails or time-lapse session; long captures in the cold drain quickly.",
+              "Flash off. Screen as dim as possible, or red night mode.",
+              "Tripod or solid prop. Phone locked in position; do not touch it during a capture.",
+              "Aim 40 to 60 degrees from Orion, with the widest lens you have.",
+              "Focus set to infinity; Night Cam's presets lock it there, in the Camera app tap a bright star and hold to lock.",
+              "Start after moonset, keep going until the sky brightens, and resist checking every frame.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "What Night Cam is, and what it costs",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "[Night Cam: Stars & Aurora](/apps/night-cam) is an iPhone-only app, for iOS 18 or later, built around two things: a free forecast and a night camera. The Tonight forecast shows the aurora chance for your location from NOAA's Kp forecast and OVATION model, the next twelve hours of cloud cover and the moon phase, and it is always free. The camera has presets for the Moon, Stars, Aurora, star Trails and City for photos, and Night video, Aurora Live and Time-lapse for video. The download is free and includes three captures; after that Pro is a one-time $4.99 purchase, or a $0.99 Night Pass unlocks everything for 48 hours, which is a sensible option for a single meteor-shower weekend. There is no subscription and no account.",
+          },
+          {
+            type: "p",
+            text:
+              "If you have read the earlier guide to [iPhone camera settings for the northern lights](/blog/iphone-camera-settings-northern-lights), the stillness and focus advice is the same; the difference with meteors is that you are photographing something that may or may not happen in any given 16 seconds, so the strategy shifts from one careful shot to many repeated ones. The [aurora forecast explainer](/blog/aurora-forecast-kp-index-explained) covers the other thing worth checking on an October night, since a geomagnetic storm would make the same dark sky doubly worth being out in.",
+          },
+        ],
+      },
+      {
+        heading: "Set your expectations, then go anyway",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Be realistic. With a 10-to-20-per-hour shower, a phone, and a Moon that only sets a few hours before dawn, a good night might yield one or two frames with a meteor in them, and a cloudy night yields none. The people who get the photo are the ones who went out on both mornings, set up before moonset, and let the phone run. The ones who do not get the photo still spent a couple of quiet hours under a dark sky watching the fastest meteors of the year, which is not a bad consolation.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "whatsapp-voice-note-wont-play-car-pc-email-convert-opus-to-mp3-android",
+    title:
+      "WhatsApp Voice Note Won't Play in the Car, on a PC or in an Email? Where .opus Files Fail and How to Fix It on Android",
+    description:
+      "Why a forwarded WhatsApp voice note refuses to play on a car stereo, Windows PC, email attachment or transcription tool, and the Android fix: share it to Opus to MP3 Converter, pick MP3 or WAV, and send a file that opens everywhere. Includes the batch and WAV cases.",
+    datePublished: "2026-10-08",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text:
+              "The voice note played perfectly in WhatsApp. Then you saved it, forwarded it, or plugged the phone into the car, and the same file either refused to open or appeared as a grey icon nobody could click. This is one of the most common small frustrations on Android, and the cause is always the same: chat apps save voice messages as .opus files, a format that is excellent for sending speech over a slow connection and poorly supported by almost everything outside the chat app. This guide goes through the places .opus files fail, explains why, and shows the two-minute fix on Android that produces a file that plays everywhere.",
+          },
+        ],
+      },
+      {
+        heading: "Why it plays in WhatsApp and nowhere else",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "A WhatsApp voice note is stored as Opus audio in a file with a name like PTT-20261007-WA0004.opus; PTT stands for push-to-talk. Opus is a modern, efficient codec and WhatsApp decodes it with its own built-in player, so inside the app it always works. The trouble starts when the file leaves the app. Many players, editors and devices either do not include an Opus decoder at all or do not recognise the .opus extension, so they report the file as unsupported, play silence, or simply hide it. The content is fine; the container is the problem.",
+          },
+        ],
+      },
+      {
+        heading: "The five places it usually fails",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Car stereos and USB sticks.** Most car head units play MP3 and WAV from a USB stick and nothing else. Copy a folder of .opus voice notes onto a stick and the car either shows an empty folder or skips every track.",
+              "**Windows PCs and older media players.** Recent Windows builds can play Opus in some apps, but older machines, corporate laptops with locked-down codecs, and classic players often cannot. The file shows with a generic icon and double-clicking does nothing useful.",
+              "**Email and office attachments.** You can attach a .opus file to a Gmail message, but the person receiving it, especially on a work computer, frequently cannot open it. For anything going to a lawyer, HR department, landlord or insurer, an MP3 is the polite format.",
+              "**Transcription and editing tools.** Many transcription services and audio editors accept MP3 and WAV but reject or mangle .opus. If you want the words out of a voice note, converting first removes a whole class of errors.",
+              "**Old phones and tablets.** A relative's older Android tablet or a cheap MP3 player will often play nothing but MP3. Grandparents being sent a grandchild's voice message is a surprisingly common reason people search for this.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "The fix: convert on the phone before you send",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "[Opus to MP3 Converter: Voice](/apps/voice-note-audio-converter) is a free Android app that decodes Opus on the device and writes an MP3 or WAV in seconds. The workflow uses Android's share sheet, so you never need to find the file in a folder:",
+          },
+          {
+            type: "list",
+            items: [
+              "In WhatsApp, long-press the voice note, tap Share (on some versions this is behind the three-dot menu), and choose Opus to MP3 Converter from the share sheet. You can also pick a file from your file manager if you already saved it.",
+              "Choose MP3 or WAV. MP3 at 128 kbps is the right default: it plays on everything and stays small. WAV is lossless 16-bit audio, the better choice if the file is going into an editor or a transcription tool.",
+              "Tap Convert. The result appears with its own Share button; tap it to send the file to Gmail, Drive, Files, Bluetooth, a USB-connected computer, or any other app.",
+            ],
+          },
+          {
+            type: "p",
+            text:
+              "The original voice note is left untouched, so you lose nothing by converting. Conversion runs entirely on the phone with no upload, no account and no sign-up, and the app works in airplane mode, which matters more than it sounds: a voice note from a family member or a doctor is exactly the kind of audio you do not want passing through a random website's server. It is free, with ads, and there are no watermarks and no limits on length or number of files.",
+          },
+        ],
+      },
+      {
+        heading: "The car-stereo case, step by step",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "This is the most asked-about scenario, so here it is in full. Convert the voice notes to MP3 as above. Then either connect the phone to the computer by USB and copy the MP3s to the stick, or, if the car accepts Bluetooth audio, skip the stick entirely and play the MP3 from any music player app on the phone; Bluetooth playback was never the problem, the .opus file was. If you have dozens of voice notes, for example a series of driving directions or a language lesson a friend recorded for you, select them all in the app at once; batch conversion handles a whole folder with one tap and gives each result its own Share button.",
+          },
+        ],
+      },
+      {
+        heading: "The email-to-an-office case",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "When a voice note is evidence, such as a landlord's promise, a verbal agreement with a contractor, or an instruction from a manager, you want it in a format the recipient can open without asking IT for help. Convert to MP3, attach it to the email, and mention in the message that it is a copy of a WhatsApp voice note with the original date. If the recipient also needs the surrounding conversation, the companion app [Chat Export Studio](/apps/chat-export-studio) turns the whole chat into a PDF, and the earlier post on [saving a WhatsApp chat as a PDF for HR, a landlord or an insurer](/blog/save-whatsapp-chat-as-pdf-android-for-hr-landlord-insurer) explains how to present it. For a message that needs to be read rather than heard, the [voice note to text](/apps/voice-note-to-text) app transcribes offline on the phone.",
+          },
+        ],
+      },
+      {
+        heading: "When you do not need to convert",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Sending to another WhatsApp user.** Just forward it. Converting adds nothing.",
+              "**Playing it yourself on a modern Android phone.** Most current Android file managers and music apps play .opus natively; if yours does, leave it alone.",
+              "**Uploading to a service that accepts Opus.** Some transcription and cloud tools now do. Try the original first; convert only if it is rejected.",
+              "**Audio quality purists.** Converting to MP3 is a lossy-to-lossy step, and the MP3 will be very slightly worse than the Opus original. For speech it is inaudible; for a music clip someone sent as a voice note, choose WAV, which decodes without a second round of lossy compression.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Other formats the app handles",
+        blocks: [
+          {
+            type: "p",
+            text:
+              "Although the name says Opus, the converter opens .ogg and .oga, .m4a and .aac from iPhone users, .amr and .3gp from older Android recorders, .caf, .aiff, .flac, .mp3 and .wav, and writes any of them to MP3 or WAV. In practice that makes it a general fix for the question \"why won't this audio file open\" rather than a WhatsApp-only tool, and the share-sheet workflow is the same whatever the source. If you want the fuller comparison of free methods, including doing it on a computer with VLC or ffmpeg, the earlier guide to [converting .opus to MP3 on iPhone and Android](/blog/convert-opus-to-mp3-iphone-android) covers those; this post is the short version for the cases where the file simply has to play somewhere else, today.",
+          },
+          { type: "p", text: DISCLAIMER },
+        ],
+      },
+    ],
+  },
 ];
