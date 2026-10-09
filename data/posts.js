@@ -7109,6 +7109,136 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  {
+    slug: "aborterror-signal-is-aborted-without-reason-fix",
+    title: "\"AbortError: signal is aborted without reason\" — What It Means and How to Fix It (fetch, React, Next.js)",
+    description:
+      "The AbortError 'signal is aborted without reason' comes from calling abort() with no reason. Where it shows up (fetch cleanup, React Strict Mode, Next.js, axios), how to silence it correctly, and how to pass a real reason.",
+    datePublished: "2026-10-09",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "If you have an uncaught `AbortError: signal is aborted without reason` in your console, you are looking at one of the most misread errors in frontend JavaScript. It is not a bug in fetch, it is rarely a network problem, and in most apps it is not even an error in the sense of something going wrong. It is the browser telling you, in slightly clumsy words, that **somebody called `controller.abort()` and did not say why**. This post explains exactly what the message means, the four places it usually comes from, and how to fix each one properly instead of wrapping everything in an empty `catch`.",
+          },
+        ],
+      },
+      {
+        heading: "Where the message comes from",
+        blocks: [
+          {
+            type: "p",
+            text: "Every `AbortController` has a `signal`, and every signal has a `reason` property. When you call `abort()` with no argument, the browser fills `signal.reason` with a default `DOMException` whose name is `AbortError` and whose message is `signal is aborted without reason`. Any promise that was listening to that signal, most commonly a `fetch()`, rejects with that same exception. Chrome and Edge produce the exact text above; Firefox and Safari word it slightly differently (Safari says `Fetch is aborted` for fetch, for example), but the mechanism is identical.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const controller = new AbortController();\n\nfetch('/api/data', { signal: controller.signal })\n  .catch((err) => {\n    console.log(err.name);    // 'AbortError'\n    console.log(err.message); // 'signal is aborted without reason'\n  });\n\ncontroller.abort(); // no argument -> default reason",
+          },
+          {
+            type: "p",
+            text: "So the message is literally descriptive. The signal was aborted, and no reason was supplied. The fix is almost never to prevent the abort. The abort is usually correct: a component unmounted, the user navigated away, a newer request superseded an older one. The fix is to handle the rejection as the expected outcome it is, and, where it helps, to abort with a reason so the message tells you something useful.",
+          },
+        ],
+      },
+      {
+        heading: "Cause 1: a fetch cleanup in useEffect (and React Strict Mode)",
+        blocks: [
+          {
+            type: "p",
+            text: "The classic source is the recommended data-fetching pattern in React: create a controller in `useEffect`, pass its signal to `fetch`, and abort in the cleanup. That is good code. The error appears because in development, React 18 and 19 run every effect twice under Strict Mode: mount, unmount, mount again. The first cleanup aborts the first fetch, which rejects, and if the rejection is not caught it is logged as an uncaught error.",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: "useEffect(() => {\n  const controller = new AbortController();\n\n  fetch('/api/user', { signal: controller.signal })\n    .then((r) => r.json())\n    .then(setUser)\n    .catch((err) => {\n      if (err.name === 'AbortError') return; // expected: effect cleaned up\n      setError(err);\n    });\n\n  return () => controller.abort();\n}, []);",
+          },
+          {
+            type: "p",
+            text: "Two details matter. Check `err.name === 'AbortError'`, not the message text, because the message differs between browsers and can change. And return early rather than swallowing all errors: the empty `catch(() => {})` you will find in many answers hides the real failures (a 500, a JSON parse error) along with the harmless abort. If you have read our guide to the [useEffect cleanup function](/blog/react-useeffect-cleanup-function-guide), this is the fetch-specific version of the same idea: cleanup should cancel work, and cancelled work should be treated as cancelled, not as broken.",
+          },
+        ],
+      },
+      {
+        heading: "Cause 2: aborting a previous request when a new one starts",
+        blocks: [
+          {
+            type: "p",
+            text: "Search boxes and filters often keep one controller in a ref and abort it whenever a new keystroke triggers a fresh request. Every superseded request then rejects with `signal is aborted without reason`. Again the abort is right; the noise is the problem. Give the abort a reason so the log tells you which path produced it, and branch on `signal.aborted` after the await rather than relying on the error alone.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "let current = null;\n\nasync function search(query) {\n  current?.abort(new DOMException('Superseded by a newer query', 'AbortError'));\n  const controller = new AbortController();\n  current = controller;\n\n  try {\n    const res = await fetch('/api/search?q=' + encodeURIComponent(query), {\n      signal: controller.signal,\n    });\n    if (controller.signal.aborted) return; // a newer search started meanwhile\n    render(await res.json());\n  } catch (err) {\n    if (controller.signal.aborted) return; // expected\n    throw err;\n  }\n}",
+          },
+          {
+            type: "p",
+            text: "Passing a `DOMException` with the name `AbortError` keeps the error compatible with any code that checks `err.name`. You can pass anything as the reason, a string or an `Error`, but then `fetch` rejects with that value instead of an `AbortError`, which breaks the usual checks. For a timeout, use the built-in `AbortSignal.timeout(ms)` instead; it rejects with a `TimeoutError`, which is a different name and a different meaning. We cover that in [AbortSignal.timeout and AbortSignal.any](/blog/abortsignal-timeout-any-request-timeouts).",
+          },
+        ],
+      },
+      {
+        heading: "Cause 3: Next.js, routers and frameworks aborting for you",
+        blocks: [
+          {
+            type: "p",
+            text: "Frameworks abort requests on your behalf more often than you would think. In the Next.js App Router, a navigation during a pending Server Action or a `fetch` in a client component can abort the in-flight request; React Router's loaders pass a `request.signal` that is aborted when the user navigates away before the loader finishes; TanStack Query and SWR cancel superseded queries. In each case the library is doing the right thing, and the error surfaces because application code awaited the result without expecting cancellation.",
+          },
+          {
+            type: "p",
+            text: "The fix is the same discipline: treat `AbortError` as a normal control-flow outcome. In a React Router loader, pass `request.signal` down to your own fetch and let the abort propagate; do not catch it, because the router expects the loader to reject. In data-fetching libraries, use the cancellation hooks they provide (TanStack Query hands you a `signal` in the query function) rather than creating your own controller that the library does not know about. If you see the error only in development and never in production builds, it is almost certainly Strict Mode double-invocation from Cause 1, and your production users are not seeing it.",
+          },
+        ],
+      },
+      {
+        heading: "Cause 4: axios and other libraries that wrap fetch",
+        blocks: [
+          {
+            type: "p",
+            text: "axios accepts the same `signal` option and surfaces an abort as a `CanceledError` whose `code` is `ERR_CANCELED`; depending on the adapter the underlying message can still be `signal is aborted without reason`. Check with `axios.isCancel(err)` instead of inspecting names. Libraries that build on fetch, such as `ky` and `ofetch`, generally rethrow the original `AbortError` unchanged, so the `err.name` check works. Node.js 18 and later use the same undici-based fetch and the same default message, so a Node script that aborts a request without a reason prints the identical line; the browser is not special here.",
+          },
+        ],
+      },
+      {
+        heading: "A small helper that makes this disappear",
+        blocks: [
+          {
+            type: "p",
+            text: "Once you accept that aborts are expected, most codebases end up with a two-line predicate and use it everywhere instead of re-deriving the rule in each catch block. Add the `TimeoutError` name if you also use `AbortSignal.timeout` and want timeouts handled separately from user-driven cancellation.",
+          },
+          {
+            type: "code",
+            language: "ts",
+            code: "export function isAbortError(err: unknown): boolean {\n  return (\n    (err instanceof DOMException && err.name === 'AbortError') ||\n    (typeof err === 'object' && err !== null && (err as { name?: string }).name === 'AbortError')\n  );\n}\n\n// usage\ntry {\n  const data = await load(signal);\n  setState(data);\n} catch (err) {\n  if (isAbortError(err)) return; // cancelled on purpose\n  reportError(err);\n}",
+          },
+          {
+            type: "p",
+            text: "If you also want the abort to carry a reason you can read later, `signal.throwIfAborted()` is handy inside long async functions: it throws `signal.reason` immediately if the signal is already aborted, which lets you bail out between steps without waiting for the next fetch to fail. Our broader [AbortController and AbortSignal guide](/blog/abortcontroller-abortsignal-practical-guide) covers that and the other members of the API.",
+          },
+        ],
+      },
+      {
+        heading: "What not to do",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Do not remove the cleanup abort to make the message go away. You will trade a harmless log line for state updates on unmounted components and stale responses overwriting fresh ones.",
+              "Do not disable React Strict Mode to hide it. Strict Mode is showing you a real production scenario (fast navigation) in slow motion.",
+              "Do not match on the message string. It differs between Chrome, Firefox, Safari and Node, and it changes when you start passing reasons.",
+              "Do not swallow every error in the same catch. Filter `AbortError` out, and let everything else reach your error reporting.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Handled this way, `signal is aborted without reason` stops being an error you see at all. The abort still happens, exactly when it should; your code simply knows it asked for it.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
 ];
 

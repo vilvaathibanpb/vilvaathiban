@@ -5022,4 +5022,402 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "batch-recording-a-week-of-content-in-one-sitting-teleprompter",
+    title: "Batch-Recording a Week of Videos in One Sitting: A Teleprompter Workflow That Doesn't Burn You Out",
+    description:
+      "How to batch-record five to seven talking-head videos in one session on an iPhone: script prep, a fixed setup, a running order that protects your energy, and a teleprompter that keeps every take on pace.",
+    datePublished: "2026-10-09",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Posting daily is easy for about nine days. Then a busy week arrives, the lighting is wrong at 10 pm, and the streak dies. The creators who last do not film every day; they film once and post all week. Batch-recording is the single habit that turns a short-form channel from a daily scramble into a scheduled job, and a teleprompter is what makes it possible to get through seven scripts in two hours without your delivery falling apart by number four.",
+          },
+          {
+            type: "p",
+            text: "This is the workflow I use with [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay) on an iPhone: what to prepare the night before, how to set up once so every video matches, the running order that protects your energy, and the trade-offs, because batching is not right for every kind of content.",
+          },
+        ],
+      },
+      {
+        heading: "The night before: scripts in, decisions out",
+        blocks: [
+          {
+            type: "p",
+            text: "A batch session fails when it mixes writing with recording. Writing is slow and self-critical; recording needs momentum. Separate them completely. The evening before, finish every script you intend to film, and load them all into the app. The app keeps unlimited scripts, so make one per video and name them with a number and a hook word, like `03 cold showers`, so you can move down the list without reading each one to remember which it is.",
+          },
+          {
+            type: "list",
+            items: [
+              "Write for the ear, not the page. Short sentences, contractions, one idea per line. Our post on [writing a script that doesn't sound written](/blog/write-a-script-that-doesnt-sound-written) covers the editing pass that matters most.",
+              "Keep lengths similar. Five scripts of 120 to 150 words are far easier to batch than two short ones and a five-minute explainer, because your pacing and energy stay in one gear.",
+              "Mark the hook. Put the first sentence on its own line and read it aloud three times while writing. The hook is the line you will fluff most often; it is also the line that decides whether anyone watches the rest.",
+              "Decide the order now. Hardest or most important video second, not first; easiest video last. More on why below.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Set up once, then do not touch it",
+        blocks: [
+          {
+            type: "p",
+            text: "The whole economic argument for batching is that setup happens once. Put the phone on a tripod at eye level, frame yourself, set the light, check the audio, and then leave every one of those alone for the whole session. If you have not built a repeatable setup yet, the [talking-head filming setup guide](/blog/talking-head-video-setup-guide-iphone) walks through it in detail; for batching, three settings deserve a second look.",
+          },
+          {
+            type: "list",
+            items: [
+              "Text size and scroll. Set the script text large enough to read from arm's length without squinting, and pick your scrolling mode for the whole session. Voice-follow, which scrolls as you speak using on-device speech recognition and finds its place again when you stumble, is the better choice for batching because it needs no speed adjustment between scripts of different lengths. If you prefer the fixed-speed auto-scroll slider, test it on your longest script and leave it there.",
+              "Overlay position. The app floats the script next to the front camera lens so your eyes stay on the lens. Once it reads naturally in one video, it reads naturally in all of them; moving it mid-session is how you end up with three videos where you look slightly down and four where you do not.",
+              "Recording quality. Portrait 4K for everything, so the week's videos match and you can crop or punch in during editing. The script itself is never in the saved video, so there is nothing to hide later.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Do one real take of the first script and watch it back before continuing. Not for performance, for mechanics: is the audio clean, is the framing holding, is the light flickering. Fixing a problem after take one costs two minutes; discovering it after take seven costs the session.",
+          },
+        ],
+      },
+      {
+        heading: "The running order that protects your energy",
+        blocks: [
+          {
+            type: "p",
+            text: "Energy in a batch session is a curve, not a line. You are stiff for the first video, peak around the second and third, plateau, and start to flatten after about five. Plan around the curve instead of fighting it.",
+          },
+          {
+            type: "list",
+            items: [
+              "Video 1: a warm-up you would happily re-record. Something low-stakes and conversational. You are loosening your face and finding the pace, and the app's takes library means you can come back and redo this one at the end if the first attempt is wooden.",
+              "Videos 2 and 3: the ones that matter. Your pinned post, the launch announcement, the video you have been putting off. You are warm, not yet tired, and your reading is at its most natural.",
+              "Videos 4 and 5: the steady middle. Standard content, familiar format. If voice-follow is doing the scrolling, these go quickly because you are not managing a speed slider between scripts.",
+              "Video 6 and beyond: short, easy, or optional. A quick reply, a one-tip video, something you can cut if your delivery is flagging. Stop before the dip shows on camera; a six-video week with energy beats a seven-video week where the last one is flat.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Between videos, stand up, drink water, and read the next script once off camera before you press record. Thirty seconds of silent read-through removes most first-take stumbles, and voice-follow will pick you up if one slips through anyway.",
+          },
+        ],
+      },
+      {
+        heading: "Takes: how many, and when to move on",
+        blocks: [
+          {
+            type: "p",
+            text: "Batching punishes perfectionism. A rule that works: two full takes per script, then a third only if the hook was wrong in both. Record each as a separate take rather than restarting mid-sentence, so the library holds clean, complete files you can choose between later. The best take is usually the second; the fourth is rarely better than the second and costs you the energy you need for the next script.",
+          },
+          {
+            type: "p",
+            text: "If a middle line keeps tripping you, do not fight it on camera. Stop, edit the line in the script to the way you naturally say it, and go again. Because the app is fully offline, there is no sync step; the edited script is live the moment you close the editor.",
+          },
+        ],
+      },
+      {
+        heading: "Keeping a batch from looking like a batch",
+        blocks: [
+          {
+            type: "p",
+            text: "Viewers notice when seven videos were clearly filmed in the same shirt in the same hour, and some creators are fine with that; it reads as a consistent brand. If you would rather hide it, change one thing between videos: a layer on or off, a different mug, a shift of the chair, a tweak to the background light. Keep the framing and the overlay position fixed and change only what the viewer sees, not what you see.",
+          },
+          {
+            type: "p",
+            text: "The bigger tell is energy, not clothing. This is where the running order earns its keep. The flattest video of the week should be a low-stakes one on a quiet day, not the one you spend money promoting.",
+          },
+        ],
+      },
+      {
+        heading: "When not to batch",
+        blocks: [
+          {
+            type: "p",
+            text: "Batching is a tool for evergreen and planned content. It is wrong for anything that depends on the day: reactions to news, replies to comments, anything that opens with \"today\". It also fights against formats where spontaneity is the appeal; a scripted, batched vlog is a contradiction and viewers can feel it. And if you find that your batched videos all sound the same, the problem is usually the scripts, not the batching: the fix is more variation in hooks and structure, which is what [scripting hooks that hold watch time](/blog/scripting-hooks-that-hold-watch-time) is about.",
+          },
+          {
+            type: "p",
+            text: "There is also a storage cost. Seven portrait 4K videos with two takes each is a lot of footage on a phone. Offload the takes you are keeping to a computer or cloud drive after each session, and delete the rest from the library. Keep the scripts; they are the valuable part, and they weigh nothing.",
+          },
+        ],
+      },
+      {
+        heading: "A two-hour batch session, start to finish",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "0:00 Set up the tripod, light and framing. Load the first script. One test take, watched back.",
+              "0:10 Video 1, warm-up. Two takes.",
+              "0:20 Videos 2 and 3, the important ones. Two to three takes each, a stand-up break between.",
+              "0:55 Videos 4 and 5. Two takes each.",
+              "1:25 Video 6, short and easy. One or two takes. Decide honestly whether video 7 is worth filming today.",
+              "1:40 Re-record video 1 if the warm-up was stiff. Offload the keepers, delete the rest.",
+              "2:00 Done. Scheduling the posts is a separate, sitting-down job for another time.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Teleprompter: Camera Overlay is free on the App Store with occasional ads, a small one-time purchase removes them, there is no subscription and no watermark, and everything, including the speech recognition that drives voice-follow, runs on the phone. It is iPhone-only. Next in this series: using a teleprompter for sales and outreach videos, where the script has to sound personal to someone who knows it is not.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "is-a-pretend-police-call-bad-for-kids-fear-vs-encouragement-good-behavior-police-call",
+    title: "Is a Pretend Police Call Bad for Kids? Fear vs Encouragement, and How to Use One Without Scaring Your Child",
+    description:
+      "Pretend police call apps for kids range from threatening to gentle. The difference between fear-based and encouragement-based nudges, what Good Behavior Police Call does differently on iPhone, and the house rules that keep it kind.",
+    datePublished: "2026-10-09",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Search for \"fake police call for kids\" and you will find two very different things wearing the same name. One is a scare: sirens, a stern voice, \"the police are coming if you don't behave\". The other is a bit of theatre: a friendly character rings, asks for one small thing, and rings back later to say well done. Parents asking whether a pretend police call is a bad idea are usually picturing the first and hoping for the second. This post is about the difference, why it matters more than the format, and how to use [Good Behavior Police Call](https://apps.apple.com/us/app/good-behavior-police-call/id6815485255) on iPhone in a way you will not regret.",
+          },
+          {
+            type: "p",
+            text: "I will not pretend to be a child psychologist, and this post does not cite studies it cannot verify. It relies on something most parents already know from experience: children do what fear tells them for about a week, and what encouragement tells them for a lot longer. If you only want the setup, our [earlier walkthrough of the app](/blog/pretend-police-call-for-kids-bedtime-good-behavior-police-call-iphone) covers the first call step by step.",
+          },
+        ],
+      },
+      {
+        heading: "The fear version, and why it backfires",
+        blocks: [
+          {
+            type: "p",
+            text: "The threat version works once because it is a surprise. The second time, the child has learned one of two things. Either the police really might come for not brushing teeth, in which case you have taught a four-year-old that the people they should run towards in an emergency are the people who punish small children. Or, more likely, they work out that nobody came, and the threat becomes background noise along with \"I'm counting to three\". Neither outcome helps at bedtime next week.",
+          },
+          {
+            type: "p",
+            text: "There is a quieter cost too. Fear-based nudges make the parent the person who summoned the scary thing. Encouragement-based nudges make the parent the person who passes on good news. Over hundreds of bedtimes, which of those you want to be is not a close call.",
+          },
+        ],
+      },
+      {
+        heading: "What an encouragement-based call looks like",
+        blocks: [
+          {
+            type: "p",
+            text: "Good Behavior Police Call is built entirely around the second model, and the design choices are specific enough to list. There are no threats, no sirens and no talk of being in trouble. The two characters, Officer Pat (bright and warm) and Officer Sam (calm and steady), are explicitly made-up and not connected to any police force. On a call the officer explains why the job matters in a child's terms, such as sleep helping you grow or sugar bugs loving skipped teeth, asks for one small thing, and promises to check in afterwards. Then you get the last word: you tell your child the officer was proud of them.",
+          },
+          {
+            type: "p",
+            text: "Crucially, nudges are only half the app. Of the 13 calls, two are pure praise, Great day and Super helper, and they ring when things went right. That is the mechanism that keeps the officer someone a child is pleased to hear from. If the character only ever appears when something is wrong, it drifts toward the fear model no matter how gentle the script is; if it also appears to celebrate, it stays on the child's side.",
+          },
+        ],
+      },
+      {
+        heading: "The 13 calls, sorted by how much they lean on authority",
+        blocks: [
+          {
+            type: "p",
+            text: "Not every call carries the same weight, and knowing which is which helps you choose. Roughly from lightest to heaviest:",
+          },
+          {
+            type: "list",
+            items: [
+              "Praise calls, no authority at all: Great day and Super helper. Start here, ideally before you ever use a nudge, so the first time your child meets the officer it is good news.",
+              "Routine nudges, the officer as a friendly reminder: Bedtime, Brushing teeth, Getting dressed, Screens off, Eating dinner, Tidying up. These are the bread and butter and the lowest risk.",
+              "Social nudges, which touch on how the child treats others: Being kind to a brother or sister, Sharing and taking turns, Listening the first time. Use these sparingly; a sibling argument has two sides, and a call aimed at one child can feel like taking sides.",
+              "Safety and regulation: Buckling up in the car, and Calming down, which includes a breathing exercise. Buckling up is a genuinely good fit for a gentle authority figure. Calming down is the one to be most careful with; a child in the middle of a meltdown may not be able to engage with a video call at all, and the breathing exercise works best when offered early, before the peak.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Bedtime and Great day are free forever; a single one-time purchase unlocks the rest, removes the small menu-screen ads (there are never ads during a call), and includes any calls added later. No subscription. The app is iPhone-only and needs iOS 15.1 or later.",
+          },
+        ],
+      },
+      {
+        heading: "House rules that keep it kind",
+        blocks: [
+          {
+            type: "p",
+            text: "The app is designed to be gentle, but how you use it decides whether it stays that way. These are the rules I would set before the first call.",
+          },
+          {
+            type: "list",
+            items: [
+              "Read the whole script first. The app lets you read every call before your child hears it. Do it, so nothing in the call surprises you and you can decide whether the wording fits your child.",
+              "Never use it as a threat. \"Do you want me to call the officer?\" turns an encouragement tool into a fear tool in one sentence. The call should arrive as a pleasant surprise, not as a consequence.",
+              "Follow every nudge with your own praise. The app deliberately leaves you the last word. Use it. The officer is the setup; you are the payoff.",
+              "Use the delay. You can ring now, or in 10 seconds, 30 seconds or a minute, so you can hand the phone over first and not be seen tapping. The call is more convincing, and more fun, when the child answers it themselves.",
+              "Let them decline. If the child declines the call, the officer can try once more. If they decline again, let it go; a child who does not want to talk to the officer tonight is telling you something.",
+              "Retire it before it gets old. A pretend character has a shelf life. Most children see through it eventually, and the graceful end is for the child to say \"it's not a real officer, is it?\" and for you to say \"no, but you really did brush your teeth every night\".",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Video or voice, and why it matters for anxious children",
+        blocks: [
+          {
+            type: "p",
+            text: "The app offers both a video call, with an animated officer talking on screen, and a voice call. For a confident child, video is more engaging and holds attention through a teeth-brushing call. For a shy or anxious child, voice is the gentler first contact: there is no face to feel watched by, and the call feels more like a story being read. On video calls there is an optional self-view in the corner, shown live and never recorded or saved; some children love seeing themselves, some find it distracting, and you can leave it off.",
+          },
+          {
+            type: "p",
+            text: "Every call is fully voiced in nine languages, English, Spanish, French, German, Italian, Portuguese, Hindi, Japanese and Chinese, and the app follows your iPhone's language or lets you pick one in Settings. For a bilingual household this is worth a thought: the language your child associates with comfort at bedtime may not be the phone's language.",
+          },
+        ],
+      },
+      {
+        heading: "Privacy, since it is a child holding the phone",
+        blocks: [
+          {
+            type: "p",
+            text: "There are no accounts and no sign-up. The calls are stored on the phone and work offline, the app never places a real phone call, ads in the free version are non-personalised, and the self-view is never recorded. Those are the things I would check before handing any app to a child, and they are the right answers here.",
+          },
+        ],
+      },
+      {
+        heading: "The honest answer to the question",
+        blocks: [
+          {
+            type: "p",
+            text: "Is a pretend police call bad for kids? A threatening one is: it trades a quiet evening now for a worse relationship with authority, and with you, later. An encouragement-based one, used occasionally, read in advance, never as a threat, and always followed by your own praise, is a piece of bedtime theatre in the same family as the tooth fairy and the elf. Good Behavior Police Call is firmly in that second group by design: friendly made-up characters, no sirens, praise calls built in, and you getting the last word. Whether it is right for your particular child is still your call, which is exactly how it should be.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "what-does-export-chat-mean-in-whatsapp-android-and-how-to-turn-it-into-a-pdf",
+    title: "What Does \"Export Chat\" Mean in WhatsApp on Android? What It Includes, What It Leaves Out, and How to Turn It Into a PDF",
+    description:
+      "\"Export chat\" in WhatsApp on Android saves a copy of a conversation as a text file. What is in the file, what is not, whether the other person is told, the message limits, and how to turn the export into a readable PDF.",
+    datePublished: "2026-10-09",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Open a WhatsApp chat on Android, tap the three dots, tap More, and there it is: **Export chat**. Plenty of people see that option and wonder what it does. Does it send the conversation somewhere? Does the other person find out? Is it the same as a backup? The questions arrive in every language, and the honest answer is that WhatsApp's own wording does not explain much. This post does: what Export chat means, exactly what ends up in the file, what is missing from it, and how to turn the raw export into a PDF you can actually read, using [Chat Export Studio](/apps/chat-export-studio) on Android.",
+          },
+        ],
+      },
+      {
+        heading: "Export chat, in one sentence",
+        blocks: [
+          {
+            type: "p",
+            text: "Export chat makes a copy of one conversation as a plain text file, and hands that file to you through Android's share sheet so you can save it, email it or open it in another app. It does not change the chat, it does not delete anything, and it does not send anything to the other person. Think of it as printing the conversation to a file rather than to paper.",
+          },
+          {
+            type: "p",
+            text: "It is not a backup. A WhatsApp backup saves all your chats to Google Drive in a format only WhatsApp can restore. Export chat saves one conversation in a format anything can open, which is exactly why it is useful for keeping a record, handing a copy to someone, or reading an old conversation without WhatsApp.",
+          },
+        ],
+      },
+      {
+        heading: "What is in the export",
+        blocks: [
+          {
+            type: "p",
+            text: "The export is a text file, usually named along the lines of `WhatsApp Chat with <name>.txt`, delivered on its own or inside a .zip. Each message is one line: the date, the time, the sender's name as saved in your contacts (or their number if not saved), and the message text. System events appear as lines too: when the chat was created, when someone joined or left a group, the encryption notice, and when a message was deleted. Media is where the choice you made matters.",
+          },
+          {
+            type: "list",
+            items: [
+              "Without media: photos, videos, voice notes, stickers and documents appear only as placeholders such as `<Media omitted>`. The file is tiny and the export is quick. This is the option to use for a record of what was said.",
+              "Include media: the attachments are added alongside the text file in a .zip. The export is much larger, can take a while, and WhatsApp includes media only for the most recent part of a long chat.",
+            ],
+          },
+          {
+            type: "p",
+            text: "On the limits, the commonly cited figures are up to 40,000 messages without media and up to 10,000 with media; older messages beyond those limits are simply not included, and WhatsApp does not warn you when a chat is longer than that. If you need a very long group history, export without media. Timestamps follow your phone's clock setting, 12-hour or 24-hour, which matters later when another app has to parse the file.",
+          },
+        ],
+      },
+      {
+        heading: "What is not in the export",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Calls. Voice and video call history is not part of a chat export.",
+              "Disappearing messages that have already disappeared, and view-once photos or videos. If it is gone from the chat, it is gone from the export.",
+              "Messages deleted for everyone appear only as a \"This message was deleted\" line, not with their original text.",
+              "Reactions and some formatting may be lost or appear as plain characters, depending on the WhatsApp version.",
+              "Anything from a phone you no longer have. Export works on the chat as it exists on this device.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Does the other person know?",
+        blocks: [
+          {
+            type: "p",
+            text: "No. Exporting a chat is a local action on your phone. The other participant, or the group, gets no notification and sees no change. The flip side is also true: anyone you share a chat with can export it, which is worth remembering before you write anything in a group you would not want on paper.",
+          },
+          {
+            type: "p",
+            text: "One regional note. In Germany, WhatsApp removed the Export chat option from the app some years ago, and users there still do not see it in the menu. If you are in Germany and cannot find the option, that is why, not a setting you have missed.",
+          },
+        ],
+      },
+      {
+        heading: "Step by step on Android",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Open the chat or group you want to export.",
+              "Tap the three-dot menu in the top-right corner, then tap More, then Export chat. On some Samsung and Xiaomi phones the menu wording differs slightly, but the option is in the same place.",
+              "Choose Without media or Include media. For a readable record, choose Without media.",
+              "Android's share sheet opens. Pick where the file should go: Save to Drive, Files, Gmail, or directly into an app that can open it. If Chat Export Studio is installed, it appears in the share sheet and you can send the export straight to it.",
+            ],
+          },
+          {
+            type: "p",
+            text: "If you saved the file instead of sharing it directly, open the Files app, find the .txt or .zip, tap it and choose Chat Export Studio, or open the app and use its own file picker to load the export.",
+          },
+        ],
+      },
+      {
+        heading: "Turning the export into a PDF you can read",
+        blocks: [
+          {
+            type: "p",
+            text: "The raw export is one long wall of text, and a 2,000-message group chat is almost impossible to follow in it. Chat Export Studio opens the .txt or the .zip, from an Android or an iPhone export and in 12-hour or 24-hour time, and lays it out the way the chat looked on screen: one bubble per message with sender, date and time, one-to-one chats left and right, group chats with a colour per participant. System notices and media placeholders are shown as small pills instead of clutter, and pages break between messages rather than through them, so a printout stays readable.",
+          },
+          {
+            type: "p",
+            text: "The moment the file opens you also get statistics: total messages and words, messages per participant as counts and percentages, the busiest hour of the day, the date range, the media count and the most-used emoji. Tap Export styled PDF, and the PDF is generated on the phone and handed to Android's share sheet, ready to save to Drive or Files, email, or print. There is a built-in sample chat if you want to try the flow before exporting one of your own.",
+          },
+          {
+            type: "p",
+            text: "Everything happens on the device. There is no account and no sign-up, nothing is uploaded, it works in airplane mode, and the Play listing describes it as free to install with ads and a one-time purchase, with no subscription. For a conversation you are exporting precisely because it is sensitive, that matters more than any feature; our earlier post on [saving a WhatsApp chat as a PDF for HR, a landlord or an insurer](/blog/save-whatsapp-chat-as-pdf-android-for-hr-landlord-insurer) goes into when a PDF record is useful and what it can and cannot prove.",
+          },
+        ],
+      },
+      {
+        heading: "Quick answers",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Export chat meaning: save a copy of one WhatsApp conversation as a text file you can keep or share.",
+              "Is it safe? Yes for the chat itself; nothing is changed or deleted. Be careful where you send the file afterwards, because it contains the whole conversation.",
+              "Does it include photos? Only if you choose Include media, and then only for the more recent part of a long chat.",
+              "Can I export a group chat? Yes, the same way; the file lists every participant's messages.",
+              "Can I undo it? There is nothing to undo on the chat side. Delete the exported file if you no longer want the copy.",
+              "Why can I not find Export chat? Check under the three dots, then More. If you are in Germany, the option is not available in WhatsApp.",
+            ],
+          },
+          {
+            type: "p",
+            text: DISCLAIMER,
+          },
+        ],
+      },
+    ],
+  },
 ];
