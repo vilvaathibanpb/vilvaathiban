@@ -5420,4 +5420,370 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "teleprompter-for-sales-and-outreach-videos",
+    title: "Teleprompter for Sales and Outreach Videos: How to Read a Script That Still Sounds Personal",
+    description:
+      "How to record personalised sales, prospecting and outreach videos on an iPhone with a teleprompter: the one-paragraph script structure, the parts you must say unscripted, eye contact, length, and the mistakes that make a video feel mass-produced.",
+    datePublished: "2026-10-10",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "A sales video has one job that a tutorial or a Reel does not: the person watching has to believe it was made for them. That is also exactly what a teleprompter threatens. Read a prospecting script word for word and the viewer can tell within three seconds that they are number forty-one on a list. Skip the script and you ramble, forget the one number that mattered, and record it four times. The craft is in the middle: a script that holds the structure and the facts, and a delivery that leaves room to be a person.",
+          },
+          {
+            type: "p",
+            text: "This post is the practical version of that balance for founders, account executives, recruiters, freelancers and anyone who sends short videos to specific people. It assumes you are recording on an iPhone, probably in a hurry, probably more than one in a sitting. Where a teleprompter app helps, we say how; where it hurts, we say that too.",
+          },
+        ],
+      },
+      {
+        heading: "Why outreach videos fail (it is not the camera)",
+        blocks: [
+          {
+            type: "p",
+            text: "Most bad outreach videos share three faults. They open with the sender instead of the recipient (\"Hi, I'm Priya from...\"). They are too long, because without a script people pad. And they look away from the lens at the key moment, because that is when the sender glances at notes. A teleprompter that sits beside the front camera fixes the third problem outright, and a good script fixes the first two. What it cannot fix is a video that says nothing specific to the recipient; no amount of eye contact rescues a generic pitch.",
+          },
+        ],
+      },
+      {
+        heading: "The four-part script that stays personal",
+        blocks: [
+          {
+            type: "p",
+            text: "Write the script as four short blocks and mark which ones are fixed and which ones change per person. The fixed parts go on the prompter verbatim. The variable parts go on the prompter as a prompt in brackets, which you fill in live.",
+          },
+          {
+            type: "list",
+            items: [
+              "**The hook, variable (5 to 8 seconds).** One sentence about them, not you: something you noticed on their site, their hiring page, their last post, their product. On the prompter it reads as [Their thing: what I noticed]. You say it in your own words, looking at the lens, because you just read it a moment ago and it is fresh.",
+              "**The bridge, fixed (5 seconds).** One sentence connecting their thing to what you do. This can be word-for-word; it is the same for everyone and it needs to be tight.",
+              "**The value, fixed (15 to 25 seconds).** The one claim, the one number, the one example. This is the part people get wrong unscripted, so script it fully and read it. It is also where a prompter earns its keep: numbers and names are exactly what you forget under mild pressure.",
+              "**The ask, variable (5 to 8 seconds).** A specific next step with a specific time. On the prompter: [Ask: 15 min Thursday?]. Say it to them, not to the script.",
+            ],
+          },
+          {
+            type: "p",
+            text: "That structure lands at roughly 40 to 50 seconds spoken, which is the right length for a first touch. If you want the arithmetic on words per second, our post on [the ideal script length for a 60-second video](/blog/ideal-script-length-for-a-60-second-video) has it; the short version is about 110 to 130 words.",
+          },
+        ],
+      },
+      {
+        heading: "Setting up the prompter so it reads as a conversation",
+        blocks: [
+          {
+            type: "p",
+            text: "In [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay) the script floats over the camera preview next to the front lens, so your eyes stay close enough to the camera that the viewer reads it as eye contact. Three settings matter for outreach specifically:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Use voice-follow, not auto-scroll.** Voice-follow scrolls as you speak, using on-device speech recognition, and finds your place again if you stumble. That is what lets you leave the script for the variable parts: when you ad-lib the hook, the text waits; when you return to the fixed bridge, it picks you up. Auto-scroll at a fixed speed will run away from you during the personal bits. We compared the two modes in [voice-follow vs auto-scroll](/blog/voice-follow-vs-auto-scroll-teleprompter).",
+              "**Large text, short lines.** Set the text size up so a line holds five or six words. Your eyes move less, which keeps the gaze steady, and the brackets for variable parts are easier to spot.",
+              "**Put the bracketed prompts in capitals.** [THEIR THING] stands out in a wall of text and tells your brain: stop reading, start talking.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The script never appears in the saved video, and recording is portrait 4K, which matters when the video is going to be watched on a phone inside an email or a LinkedIn message.",
+          },
+        ],
+      },
+      {
+        heading: "Recording ten personalised videos in a row without sounding tired",
+        blocks: [
+          {
+            type: "p",
+            text: "Outreach is a volume game, so you will batch. Do the research first, not between takes: for each person write the hook line and the ask line into a copy of the script before you sit down. Teleprompter: Camera Overlay keeps unlimited scripts, so one script per prospect, named after them, is the easiest way to avoid saying the wrong company name on camera, which is the single most embarrassing outreach mistake and more common than you would think.",
+          },
+          {
+            type: "list",
+            items: [
+              "Record in one setting, one outfit, one light. Consistency reads as reliability.",
+              "Do the fixed value block exactly the same every time; vary only what is meant to vary. Trying to improvise the core claim ten times produces nine worse versions.",
+              "Two takes per person maximum. The second is usually the better one; the fifth never is.",
+              "Stand up between every three videos and re-read the next hook out loud once off camera. Thirty seconds of silent read-through removes most first-take stumbles.",
+              "Stop when your energy drops. A flat delivery in the hook is worse than sending the video tomorrow.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The longer version of this workflow is in [batch-recording a week of content in one sitting](/blog/batch-recording-a-week-of-content-in-one-sitting-teleprompter); the same rules apply, with the added twist that every video here has a different name in it.",
+          },
+        ],
+      },
+      {
+        heading: "When not to use a teleprompter for outreach",
+        blocks: [
+          {
+            type: "p",
+            text: "Two honest exceptions. First, replies. If someone has written back and you are answering a specific question, do not script it; your reply should sound like a person thinking, and a prompter makes it sound like a person reading. Jot three words on a sticky note and talk. Second, very senior or very small audiences. If you are sending one video to one CEO, the 45-second structure still applies, but write it as bullet prompts only, not sentences, so nothing about it feels produced. The prompter is for the twentieth video of the day, when your structure would otherwise collapse; it is not for the one video that only ever needed to be good once.",
+          },
+          {
+            type: "p",
+            text: "A related trade-off: voice-follow needs to hear you clearly. In an open office or a car it may lag on the ad-libbed parts. In that case switch to auto-scroll for the fixed blocks and pause it manually, or record somewhere quieter.",
+          },
+        ],
+      },
+      {
+        heading: "Compliance, claims and the words you cannot improvise",
+        blocks: [
+          {
+            type: "p",
+            text: "If you sell anything regulated (financial products, health services, anything with legally required wording), the fixed value block is where the approved language lives, and the prompter is how you guarantee you say it the same way every time. Keep the compliance sentence as its own paragraph on the script, read it exactly, and do not bracket it. This is one of the few situations where reading verbatim is the point rather than the problem.",
+          },
+        ],
+      },
+      {
+        heading: "A one-minute checklist before you hit record",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Correct prospect's script loaded, their name and company checked.",
+              "Hook and ask lines rewritten for them, in brackets, in capitals.",
+              "Voice-follow on, text size large, phone at eye level, front lens next to the first line of text.",
+              "Value block is word-for-word and under 25 seconds when read aloud.",
+              "One specific time proposed in the ask.",
+              "Quiet enough for speech recognition to keep up.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Teleprompter: Camera Overlay is free on the App Store with occasional ads, a small one-time purchase removes them, there is no subscription and no watermark, and everything, including the speech recognition behind voice-follow, runs on the phone and works offline. It is iPhone-only. Next in this series: overcoming camera anxiety, for the people who have the script, the setup and the plan, and still freeze when the red light comes on.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "convert-whatsapp-voice-note-to-wav-iphone-lossless-for-editing-transcription-evidence",
+    title: "WhatsApp Voice Note to WAV on iPhone: When You Need Lossless Audio for Editing, Transcription or Evidence",
+    description:
+      "MP3 is fine for listening; WAV is what editors, transcription services and formal records usually want. How to convert a WhatsApp .opus voice note to WAV on an iPhone, offline, and when MP3 is actually the better choice.",
+    datePublished: "2026-10-10",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Most people who convert a WhatsApp voice note want an MP3 so it plays in the car or attaches to an email. But there is a second group with a different problem: the audio has to go into GarageBand or Audacity, be uploaded to a transcription or captioning service, be handed to a lawyer, an HR department or an insurer, or be archived for years. Those situations tend to ask for WAV, and the reasons are worth understanding before you pick a format.",
+          },
+          {
+            type: "p",
+            text: "This guide explains what WAV gets you that MP3 does not, how to turn a .opus voice note into a WAV file on an iPhone without uploading it anywhere, and the cases where WAV is the wrong answer and you should stick with MP3. It is written for people who have never thought about audio formats and would like to keep it that way.",
+          },
+        ],
+      },
+      {
+        heading: "What a WhatsApp voice note actually is",
+        blocks: [
+          {
+            type: "p",
+            text: "WhatsApp records voice messages with the Opus codec, which is excellent at sounding clear at very low bitrates, and saves them as files named like PTT-20261010-WA0007.opus. Opus is great for chat and poor for almost everything else: many editors, players, older devices and upload forms do not accept .opus at all. Converting is not about improving the sound (the original quality is fixed the moment the message was recorded); it is about putting that sound into a container the next tool understands.",
+          },
+        ],
+      },
+      {
+        heading: "WAV vs MP3: the honest difference",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**WAV is lossless.** It stores the decoded audio as plain 16-bit PCM samples. Nothing is thrown away in the conversion, so what the editor or transcription engine receives is exactly what the voice note contained.",
+              "**MP3 is lossy, but good enough.** At 128 kbps MP3 is far above the bitrate of the original voice note, so for listening there is no audible loss. Decoding Opus and re-encoding to MP3 does add a second generation of compression, which is harmless for ears and mostly harmless for software.",
+              "**WAV files are big.** Roughly ten times the size of the MP3 for the same clip. A two-minute voice note becomes about 20 MB as WAV versus about 2 MB as MP3.",
+              "**WAV is the universal input.** Virtually every audio editor, DAW, captioning service, court transcription provider and archive system accepts WAV. The same is true of MP3 in practice, but WAV is the format nobody ever rejects.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "When WAV is the right choice",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Editing.** If you are going to cut, clean up, normalise or mix the voice note (a podcast clip, a voiceover, a video), start from WAV so you do not stack a third round of compression on export.",
+              "**Transcription and captioning services.** Many services accept both, but their guidance usually prefers uncompressed audio, and on a quiet or mumbled voice note the difference between WAV and MP3 can be the difference between a clean transcript and a guessed one. If you only need the words and nothing else, an on-device transcriber such as [Voice Note to Text](/apps/voice-note-to-text) skips the upload entirely.",
+              "**Evidence and formal records.** When a voice message is going to HR, a landlord dispute, an insurer or a solicitor, provide the original .opus file *and* a WAV copy. WAV is the version the recipient can open without asking questions; the original is the version that shows nothing was altered.",
+              "**Long-term archiving.** Formats come and go; uncompressed PCM in a WAV container is the one most likely to still open in twenty years.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "How to convert a voice note to WAV on iPhone (offline)",
+        blocks: [
+          {
+            type: "p",
+            text: "[Voice Note Audio Converter](/apps/voice-note-audio-converter), listed on the App Store as Opus to MP3 Converter, converts .opus voice notes to MP3 (128 kbps) or WAV (16-bit PCM) entirely on the phone. Nothing is uploaded, there is no account, and it works in airplane mode, which matters precisely in the situations above, where the recording may be private or sensitive.",
+          },
+          {
+            type: "list",
+            items: [
+              "In WhatsApp, long-press the voice note, tap Share (or Forward, then the share icon), and choose the converter from the share sheet, or save the file to Files first and pick it from there.",
+              "Choose WAV as the output format instead of MP3. You can convert one file or a whole batch in one go.",
+              "Tap Convert. A typical voice note takes a few seconds.",
+              "Use Share on the result to send it straight to Mail, AirDrop, a transcription app or Save to Files. The converted file lives in the app's cache, so save it somewhere permanent if you need to keep it.",
+            ],
+          },
+          {
+            type: "p",
+            text: "If the file picker shows every file type rather than only audio, that is deliberate: iOS has no built-in type identifier for .opus, so an audio-only picker would grey out exactly the files you want. The app checks the extension itself. The same steps work for Telegram and Signal voice messages (.ogg, .m4a), iPhone voicemails and Voice Memos (.m4a), and anything else in the supported list: .opus .ogg .oga .m4a .aac .mp3 .wav .caf .aiff .flac .amr .3gp .mp4. The earlier post on [converting a WhatsApp voice note to MP3 on iPhone](/blog/convert-whatsapp-voice-note-to-mp3-iphone) covers getting the file out of WhatsApp in more detail if that step is the sticking point.",
+          },
+        ],
+      },
+      {
+        heading: "When WAV is the wrong choice",
+        blocks: [
+          {
+            type: "p",
+            text: "Do not use WAV for sending to people. A 20 MB attachment for a two-minute message is rude, fails many email size limits, and gains nothing because the recipient is only going to listen. Do not use WAV for your own archive of ordinary chat audio either; MP3 at 128 kbps is more than the voice note deserves and a tenth of the storage. And WAV does not make a bad recording good: if the original voice note was recorded in a windy street, the WAV is a lossless copy of the wind. Choose WAV when something will *process* the audio, and MP3 when someone will *hear* it.",
+          },
+        ],
+      },
+      {
+        heading: "Two tips for the evidence case",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Keep the original .opus file untouched, with its original filename, and note the chat, sender and date it was received. The converter never modifies the source file, so the original stays exactly as WhatsApp saved it.",
+              "If you also need the conversation around the message in writing, export the chat as a PDF with [Chat Export Studio](/apps/chat-export-studio) so the audio has context. A voice note alone rarely tells the whole story.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Voice Note Audio Converter is free with no watermark and no file limit; a small ad banner can be removed with a one-time purchase, and there is no subscription. It is iPhone-only on the App Store (the Android version is on Google Play) and requires iOS 15.1 or later.",
+          },
+          {
+            type: "p",
+            text: DISCLAIMER,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "whatsapp-voice-transcript-not-available-for-your-language-android-fix",
+    title: "WhatsApp Voice Transcripts Not Available in Your Language on Android? How to Read Any Voice Note as Text, Offline",
+    description:
+      "WhatsApp's built-in voice message transcripts only cover a handful of languages on Android. What the feature can and cannot do, why your language is missing, and how to transcribe any voice note in around 100 languages on your phone without uploading it.",
+    datePublished: "2026-10-10",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "WhatsApp added voice message transcripts to Android in late 2024, and for a lot of people it quietly solved the problem of the three-minute voice note that arrives during a meeting. For a lot of other people it solved nothing, because the transcript option either does not appear, says the language is not supported, or produces text that is obviously the wrong language. If you speak Tamil, Turkish, Bengali, Polish, Vietnamese or any of the dozens of languages WhatsApp does not transcribe, this post is for you.",
+          },
+          {
+            type: "p",
+            text: "It covers what the built-in feature actually supports, the reasons it fails, and a way to read any voice note as text on Android that works in about 100 languages, needs no internet, and does not send the recording anywhere.",
+          },
+        ],
+      },
+      {
+        heading: "What WhatsApp's own transcripts can do on Android",
+        blocks: [
+          {
+            type: "p",
+            text: "WhatsApp's transcription runs on your phone using downloadable language packs, so the audio is not sent to a server, which is good. The limitation is the list of packs. When the feature reached Android it supported English, Spanish, Portuguese (Brazil), Russian and Hindi. WhatsApp has been adding languages since (reports in September 2026 described packs for German, French, Italian, Japanese and Arabic appearing for Android beta users), but the list is still a short one of major languages, it rolls out gradually, and it is not the same on every phone or in every region.",
+          },
+          {
+            type: "p",
+            text: "Two further constraints are easy to miss. The feature transcribes the languages it has packs for, not the language of the voice note, so a Tamil voice note with the English pack installed either refuses or guesses. And it works on messages inside WhatsApp only; a voice note someone forwarded you from Telegram, a voicemail, or an .opus file you saved to your phone cannot be fed back in.",
+          },
+        ],
+      },
+      {
+        heading: "Why the transcript option is missing or wrong",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Your language has no pack.** The most common reason. WhatsApp's list is a fraction of the languages people actually send voice notes in.",
+              "**The feature has not reached your account yet.** New languages and the feature itself arrive in waves; two people on the same version can see different options.",
+              "**The pack is not downloaded.** Transcripts have to be turned on in WhatsApp's settings and the language pack downloaded before the option works offline.",
+              "**Mixed-language audio.** A voice note that switches between, say, Hindi and English mid-sentence is hard for a single-language pack; expect gaps or nonsense in the switched parts.",
+              "**It is not a WhatsApp voice note.** Audio from other apps, forwarded files and recordings in your Files app are outside the feature entirely.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Read any voice note as text on Android, in any language, offline",
+        blocks: [
+          {
+            type: "p",
+            text: "[Voice Note to Text: Offline](/apps/voice-note-to-text) is an Android app that transcribes voice notes on the phone itself. The speech-recognition model ships inside the app, the language is detected automatically, and around 100 languages are supported. Because nothing is uploaded, it works with no internet connection at all, and the audio and the transcript never leave your phone. It is a one-time purchase with no subscription.",
+          },
+          {
+            type: "p",
+            text: "The steps on Android:",
+          },
+          {
+            type: "list",
+            items: [
+              "In WhatsApp (or Telegram, Signal, or any chat app), long-press the voice note and tap Share. Choose Voice Note to Text from the Android share sheet.",
+              "Alternatively, open your Files app, find the .opus, .m4a, .mp3 or .wav file, and share it to the app from there. This is how you handle forwarded files and voicemails.",
+              "Wait a few seconds. The language is detected automatically; there is nothing to pick.",
+              "Read the transcript on screen. Tap Copy to paste it into a reply, or Share .txt to send the text on or save it.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The earlier post on [reading WhatsApp voice notes as text on Android](/blog/read-whatsapp-voice-notes-as-text-android-offline-faq) answers the general questions (accuracy, long files, privacy); this one is specifically about the language gap.",
+          },
+        ],
+      },
+      {
+        heading: "What automatic language detection means in practice",
+        blocks: [
+          {
+            type: "p",
+            text: "Detection works on the audio itself, so you do not have to know or declare what language a message is in before transcribing it. That matters more than it sounds. Family groups in India routinely mix two or three languages across a single day of messages; a model that picks the language per file rather than per installed pack handles a Tamil note, then a Hindi note, then an English one without any settings changes. It is not magic: a note that flips between languages within one sentence will still be transcribed primarily in whichever language dominates, and heavy slang, very poor audio or a speaker far from the microphone reduce accuracy in any language, including English.",
+          },
+          {
+            type: "p",
+            text: "A practical tip: if a transcript looks wrong, play the first five seconds of the note. Almost always the problem is the recording (background noise, a phone held at arm's length) rather than the language, and no transcriber fixes audio that a human would also struggle with.",
+          },
+        ],
+      },
+      {
+        heading: "When you do not need this",
+        blocks: [
+          {
+            type: "p",
+            text: "If you and everyone who sends you voice notes speak one of the languages WhatsApp already covers, and the transcript option works on your phone, use it; it is built in and free. The case for a separate transcriber is specifically: a language WhatsApp does not support, audio from outside WhatsApp, a voicemail or interview recording, or wanting a text file you can keep and search rather than a transcript that lives inside the chat. For a one-off English voice note from a friend, WhatsApp's own feature is the right tool.",
+          },
+        ],
+      },
+      {
+        heading: "Frequently asked questions",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Does it need internet?** No. The model is inside the app; it works in airplane mode.",
+              "**Is the audio uploaded anywhere?** No. Transcription runs on the phone and there is no account, no sign-up and no analytics.",
+              "**Which file types work?** .opus (WhatsApp), .m4a, .mp3 and .wav, shared from a chat app or picked from your file manager.",
+              "**Does it translate?** No. It transcribes the spoken language into text in that language. Paste the text into a translator if you need another language.",
+              "**Is it a subscription?** No. It is a one-time purchase.",
+            ],
+          },
+          {
+            type: "p",
+            text: DISCLAIMER,
+          },
+        ],
+      },
+    ],
+  },
 ];

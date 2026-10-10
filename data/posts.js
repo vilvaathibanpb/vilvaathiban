@@ -7239,6 +7239,233 @@ navigation.addEventListener("navigateerror", () => {
       },
     ],
   },
+  {
+    slug: "run-typescript-in-nodejs-natively-type-stripping-guide",
+    title: "Run TypeScript in Node.js Without a Build Step: Type Stripping Explained (Node 22, 24 and 26)",
+    description:
+      "Node.js now runs .ts files directly by stripping types. Which versions support it, what syntax is not allowed, the tsconfig to pair with it, the gotchas with imports and enums, and when you still need tsx or a bundler.",
+    datePublished: "2026-10-10",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "For years, running a TypeScript file in Node meant choosing a loader: ts-node, tsx, a bundler, or a watch task that compiled to JavaScript first. That is no longer the default experience. Node.js can now execute a .ts file directly by *stripping* the types and running what is left, with no configuration and no dependency. It is fast because it does almost nothing: inline type annotations are replaced with whitespace, so even line and column numbers stay correct without source maps.",
+          },
+          {
+            type: "p",
+            text: "The catch is in that word *almost*. Type stripping handles the TypeScript that can be erased and refuses the TypeScript that would need to be compiled. This guide covers which Node versions support it, what is and is not allowed, the tsconfig settings that keep you inside the lines, and the cases where you still want a real tool. Everything here is taken from the current Node.js documentation on the TypeScript module.",
+          },
+        ],
+      },
+      {
+        heading: "Which Node.js versions run TypeScript natively",
+        blocks: [
+          {
+            type: "p",
+            text: "The feature arrived in stages, and the version you have decides whether you need a flag:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Node 22.6.0**: type stripping added behind a flag.",
+              "**Node 22.7.0**: an `--experimental-transform-types` flag added for the non-erasable syntax (enums, namespaces with code).",
+              "**Node 23.6.0 and 22.18.0**: type stripping enabled by default. You can run `node app.ts` with no flag.",
+              "**Node 24.3.0 and 22.18.0**: the experimental warning is no longer printed.",
+              "**Node 25.2.0 and 24.12.0**: type stripping is marked stable.",
+              "**Node 26.0.0**: `--experimental-transform-types` is removed. Only erasable syntax is supported by Node itself.",
+            ],
+          },
+          {
+            type: "p",
+            text: "So on any current LTS line (22.18+, 24.x) and on 26, the following just works, and the flag to turn the behaviour *off* is `--no-strip-types`:",
+          },
+          {
+            type: "code",
+            language: "bash",
+            code: `# no flag, no dependency
+node src/server.ts
+
+# disable type stripping (for example to prove a file is plain JS)
+node --no-strip-types src/server.ts`,
+          },
+        ],
+      },
+      {
+        heading: "What \"erasable\" means in practice",
+        blocks: [
+          {
+            type: "p",
+            text: "Node only removes type syntax; it never generates new JavaScript. Anything that exists at runtime in TypeScript but not in JavaScript cannot be stripped and raises `ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX`. The documented list:",
+          },
+          {
+            type: "list",
+            items: [
+              "`enum` declarations (both regular and `const enum`). Use a plain object with `as const` instead.",
+              "`namespace` blocks that contain runtime code. A namespace that only exports types is fine.",
+              "Parameter properties in constructors (`constructor(private x: number)`). Declare the field and assign it explicitly.",
+              "`import x = require(...)` style import aliases.",
+              "Decorators. They are a TC39 Stage 3 proposal that Node does not transform, so they are a parser error, not a stripped type.",
+              "`paths` from tsconfig. Node does not read tsconfig at all; use package.json subpath imports starting with `#` instead.",
+              "`.tsx` files. JSX is not supported by the stripper.",
+            ],
+          },
+          {
+            type: "code",
+            language: "ts",
+            code: `// fine: type-only namespace is erased
+namespace Shapes {
+  export type Point = { x: number; y: number };
+}
+
+// error: ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX
+namespace Counter {
+  export let count = 1;
+}
+
+// error: enums need a transform
+enum Color { Red, Green }
+
+// fine: same idea, plain JavaScript
+const Color = { Red: 0, Green: 1 } as const;
+type Color = (typeof Color)[keyof typeof Color];`,
+          },
+          {
+            type: "p",
+            text: "TypeScript 5.8 added a compiler option that enforces exactly this rule at type-check time: `erasableSyntaxOnly`. Turn it on and `tsc` will flag an enum or a parameter property before Node ever sees it.",
+          },
+        ],
+      },
+      {
+        heading: "The tsconfig that matches Node's behaviour",
+        blocks: [
+          {
+            type: "p",
+            text: "Node ignores tsconfig.json entirely, but your editor and `tsc` do not, so the goal is a config that reports the same things Node will reject. The Node documentation recommends TypeScript 5.8 or newer with this set:",
+          },
+          {
+            type: "code",
+            language: "json",
+            code: `{
+  "compilerOptions": {
+    "noEmit": true,
+    "target": "esnext",
+    "module": "nodenext",
+    "rewriteRelativeImportExtensions": true,
+    "erasableSyntaxOnly": true,
+    "verbatimModuleSyntax": true
+  }
+}`,
+          },
+          {
+            type: "list",
+            items: [
+              "`noEmit` is optional. Keep it if Node is the only thing that runs the files (scripts, servers). Drop it if you also publish compiled JavaScript.",
+              "`module: nodenext` makes `tsc` apply the same ESM and CommonJS rules Node applies, including mandatory file extensions.",
+              "`verbatimModuleSyntax` forces you to write `import type` for types, which Node needs (see below).",
+              "`rewriteRelativeImportExtensions` lets `tsc` rewrite `./file.ts` to `./file.js` when you *do* emit, so one import style serves both worlds.",
+              "`erasableSyntaxOnly` is the guard rail for everything in the previous section.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Imports: extensions are mandatory and types must say so",
+        blocks: [
+          {
+            type: "p",
+            text: "Two rules trip up almost everyone moving from a bundler. First, Node resolves TypeScript files the same way it resolves JavaScript: no extension guessing. `import './file'` is not supported; you must write `import './file.ts'`, and the same applies to `require('./file.ts')` in CommonJS files.",
+          },
+          {
+            type: "p",
+            text: "Second, Node cannot tell whether an imported name is a type or a value, because it does not type-check. If you import a type without the `type` keyword, Node treats it as a value import, looks for an export that does not exist at runtime, and fails. Always mark types:",
+          },
+          {
+            type: "code",
+            language: "ts",
+            code: `// wrong at runtime: Node looks for a value export called User
+import { User, loadUser } from "./users.ts";
+
+// right
+import { loadUser, type User } from "./users.ts";
+// or
+import type { User } from "./users.ts";
+import { loadUser } from "./users.ts";`,
+          },
+          {
+            type: "p",
+            text: "Module system detection follows the usual rules: a `.ts` file is ESM when the nearest package.json has `\"type\": \"module\"`, `.mts` is always ESM, `.cts` is always CommonJS, and Node does not convert between them. If you have never thought about this before, our guide to [importing JSON in Node.js](/blog/import-json-in-nodejs) walks through the same ESM versus CommonJS split from a different angle.",
+          },
+        ],
+      },
+      {
+        heading: "What you do not get",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**No type checking.** Node strips types; it never validates them. Run `tsc --noEmit` in CI or your editor, or the first wrong type reaches production silently.",
+              "**No tsconfig.** Path aliases, `target` downlevelling, `experimentalDecorators`: none of it applies. If your code depends on those, it depends on a compiler.",
+              "**No source maps,** and no need for them: because types become whitespace, stack traces already point at the right lines.",
+              "**No TypeScript inside node_modules.** Node refuses to strip types from dependencies; packages must ship JavaScript (and ideally `.d.ts` files).",
+              "**No REPL support.** `--eval` and stdin work (set the module system with `--input-type`), but the interactive REPL, `--check` and `inspect` do not accept TypeScript syntax.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "When to reach for tsx or a bundler anyway",
+        blocks: [
+          {
+            type: "p",
+            text: "Native stripping is the right default for scripts, CLIs, small servers and anything you control end to end. It is not a drop-in replacement for every setup. Reach for a tool when:",
+          },
+          {
+            type: "list",
+            items: [
+              "Your codebase uses enums, parameter properties or decorators (NestJS and TypeORM projects, for example) and migrating them is not on the table.",
+              "You rely on tsconfig `paths` and cannot switch to `#` subpath imports.",
+              "You need `.tsx`, or you ship to browsers and need bundling, minification or tree-shaking.",
+              "You want the REPL or `node inspect` to understand TypeScript.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The Node docs themselves point to `tsx` as the escape hatch, and it composes with Node's own loader API rather than replacing it:",
+          },
+          {
+            type: "code",
+            language: "bash",
+            code: `npm install --save-dev tsx
+npx tsx your-file.ts
+# or keep node as the entry point and register tsx as a loader
+node --import=tsx your-file.ts`,
+          },
+        ],
+      },
+      {
+        heading: "A migration checklist for an existing project",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Upgrade to Node 22.18+, 24 or 26 and TypeScript 5.8+.",
+              "Add `erasableSyntaxOnly` and `verbatimModuleSyntax` to tsconfig and run `tsc --noEmit`. Every error it reports is something Node would also reject or misread.",
+              "Replace enums with `as const` objects, parameter properties with explicit fields, and `paths` with `#` subpath imports in package.json.",
+              "Add `.ts` extensions to every relative import. A codemod or a careful search-and-replace handles most of it.",
+              "Change your start script to `node src/index.ts` and delete the loader from `devDependencies` if nothing else needs it.",
+              "Keep `tsc --noEmit` in CI. Type stripping made the build step optional; it did not make the type checker optional.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Done this way, the project keeps full TypeScript tooling in the editor while the runtime path becomes `node file.ts`: no compile step, no loader, nothing to configure, and stack traces that point at the file you actually wrote. Pair it with the newer language features we have covered, such as [import defer](/blog/import-defer-lazy-module-evaluation) and [import attributes for JSON modules](/blog/json-modules-import-attributes), and a modern Node project needs remarkably little build machinery at all.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
 ];
 
