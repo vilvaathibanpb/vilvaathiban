@@ -5786,4 +5786,327 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "overcoming-camera-anxiety-recording-yourself-on-iphone",
+    title: "Overcoming Camera Anxiety: Why Talking to a Lens Feels Awful and 9 Things That Actually Help",
+    description:
+      "Freezing, rambling and twenty deleted takes are normal when you record yourself. Why camera anxiety happens, what does not help, and nine practical changes to your setup, script and process that make recording feel like talking to a person.",
+    datePublished: "2026-10-13",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "You can explain your subject to a colleague for twenty minutes without a note. Then you prop up the phone, tap record, and the sentence you said a hundred times leaves through the back of your head. Your voice goes up half an octave. You start again. By take eleven you have decided that other people are simply built for this and you are not. Camera anxiety is one of the most common reasons people quietly give up on video, and it has very little to do with talent. It has to do with a lens being a terrible conversation partner. This post is about why that is, and about the small, specific changes that make recording yourself feel less like a performance and more like a chat.",
+          },
+        ],
+      },
+      {
+        heading: "Why a camera is harder than a room full of people",
+        blocks: [
+          {
+            type: "p",
+            text: "When you talk to a person, you get feedback every second: a nod, a frown, a flicker of boredom that tells you to speed up. Your brain uses that stream to steer. A lens gives you nothing back, so the steering system spins its wheels and fills the silence with self-monitoring: how do I look, was that word right, am I blinking too much. That inward attention is exactly what makes delivery stiff. Add the fact that a recording is permanent and replayable, and the stakes feel higher than a conversation even when the content is lighter.",
+          },
+          {
+            type: "p",
+            text: "The good news hidden in that explanation is that most of the anxiety is situational, not personal. Change what the camera gives you, what you have to hold in your head and what a mistake costs, and the feeling changes with it. The nine things below each attack one of those three levers.",
+          },
+        ],
+      },
+      {
+        heading: "What does not help (so you can stop doing it)",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Trying to memorise.** Memorising shifts your attention from meaning to recall, which is where the blank-out comes from. It is also the slowest way to get a video done.",
+              "**Watching yourself in the preview while you talk.** The live preview is a mirror, and nobody talks naturally into a mirror. It feeds the self-monitoring loop you are trying to break.",
+              "**\"Just be confident.\"** Confidence is the output of a process that works, not an input you can decide on. Fix the process.",
+              "**Recording the whole thing in one perfect take.** A single long take turns every stumble into a reason to restart from the top, so one mistake costs minutes and the pressure climbs with each attempt.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Nine things that help",
+        blocks: [
+          {
+            type: "p",
+            text: "**1. Put the words where your eyes already are.** The single biggest change for most people is not having to hold the script in their head. A teleprompter that floats the text over the camera preview, right next to the front lens, lets you read while looking almost exactly at the camera. [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay) does this on iPhone: the script sits beside the lens, the recording is 4K portrait, and the script never appears in the saved video. Once you are not afraid of forgetting, half the anxiety goes with it. The earlier post on [keeping eye contact with the camera](/blog/how-to-keep-eye-contact-with-the-camera) covers where exactly to look.",
+          },
+          {
+            type: "p",
+            text: "**2. Let the script follow you, not the other way round.** Classic auto-scroll adds a second source of stress: the text keeps moving whether you are ready or not, so you end up chasing it. Voice-driven scrolling flips that. The app listens with Apple's on-device speech recognition and advances the text at the pace you actually speak; if you stumble or pause, it waits and finds your place again. You can breathe, restart a sentence, and the words are still there. The trade-offs between the two modes are in [voice-follow vs auto-scroll](/blog/voice-follow-vs-auto-scroll-teleprompter); for anxious recording, voice-follow is the kinder option.",
+          },
+          {
+            type: "p",
+            text: "**3. Write for one person.** Camera anxiety is partly audience anxiety: a lens stands in for everyone who might ever watch. Shrink that. Write the script as if to one specific person you like explaining things to, use their name in your head, and say \"you\" rather than \"everyone\". The delivery softens on its own because you are no longer addressing a crowd.",
+          },
+          {
+            type: "p",
+            text: "**4. Make the first line physical.** The first five seconds are where most people freeze. Give yourself a physical action to start on: a nod, a small hand gesture, picking up a prop. The movement breaks the stare-down with the lens and your voice tends to follow your body. Many creators also say a throwaway sentence first (\"okay, here we go\") and trim it in the edit.",
+          },
+          {
+            type: "p",
+            text: "**5. Record in short takes you can keep.** Instead of one long take, record each section as its own clip. A mistake now costs fifteen seconds, not four minutes, and you stop bracing for failure. The app keeps unlimited scripts and a takes library, so you can shoot a section three times and pick the best without leaving the screen. This is also the technique behind [batch-recording a week of content](/blog/batch-recording-a-week-of-content-in-one-sitting-teleprompter), which is the point at which most people notice the anxiety has quietly gone.",
+          },
+          {
+            type: "p",
+            text: "**6. Hide the mirror.** If the live preview makes you self-conscious, turn the phone slightly so you see the text but not much of your own face, or cover the preview area with a sticky note that leaves the lens and the script visible. You can check framing on the first take and then stop looking at yourself.",
+          },
+          {
+            type: "p",
+            text: "**7. Lower the cost of a bad take to zero.** Decide in advance that the first three takes are warm-ups you will delete unwatched. That sounds like a trick, and it is, but it works because it removes the \"this one has to count\" weight from the exact takes where you are stiffest. Everything is on your phone, nothing is uploaded, so there is no cost to wasting a few.",
+          },
+          {
+            type: "p",
+            text: "**8. Fix the voice before the face.** The pitched-up, slightly breathless voice is the audible symptom of anxiety, and it is easier to fix directly than the feeling behind it. Stand up if you can, exhale fully before you start, and deliberately speak a touch slower and lower than feels natural; on playback it will sound normal. The post on [sounding natural while reading](/blog/how-to-sound-natural-reading-a-teleprompter) goes deeper on pacing and emphasis.",
+          },
+          {
+            type: "p",
+            text: "**9. Watch it back once, as a viewer.** The worst part of camera anxiety is the imagined audience. Replace it with evidence. Watch one finished take all the way through as if it were someone else's video. Almost everyone finds that the pauses they thought were endless are a second long and the stumble they remember is barely visible. Do this once per session and the gap between how recording feels and how it looks closes a little each time.",
+          },
+        ],
+      },
+      {
+        heading: "When the anxiety is telling you something real",
+        blocks: [
+          {
+            type: "p",
+            text: "Not all nerves are noise. If you freeze on the same section every take, the problem is usually the script, not you: the sentence is too long to say in one breath, or it is written in a register you would never use out loud. Cut it or rewrite it the way you would say it to a friend; [writing a script that does not sound written](/blog/write-a-script-that-doesnt-sound-written) has the method. And if you dread the camera because you genuinely do not want to be on screen, a voiceover over screen recording or slides is a legitimate format, not a cop-out; the teleprompter works just as well with the camera pointed at the wall.",
+          },
+          {
+            type: "p",
+            text: "One honest caveat about tools: a teleprompter removes the fear of forgetting, which is the biggest single source of camera anxiety, but it cannot remove the self-consciousness of being watched. That part fades with repetition and with watching your own footage back, and there is no app for it. What the app does is make the repetitions cheap enough that you actually do them.",
+          },
+        ],
+      },
+      {
+        heading: "A ten-minute routine to try today",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Write 120 words for one person you know, in the words you would use to them.",
+              "Paste it into the app, choose voice-follow, and make the text big enough to read without squinting.",
+              "Record three warm-up takes you have promised to delete.",
+              "Record the real one in two short clips, starting each with a small physical action.",
+              "Watch the better clip once as a viewer, then stop.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Do that three days running and the fourth day will feel different. Next in this series: the most common teleprompter mistakes, the habits that make even a confident speaker look like they are reading, and how to spot each one in your own footage.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "home-inventory-for-insurance-claims-iphone-warranty-tracker-receipts-serial-numbers-csv",
+    title: "A Home Inventory for Insurance Claims on iPhone: Receipts, Serial Numbers and a CSV in One App (Warranty Tracker)",
+    description:
+      "After a burglary, fire or flood, an insurer asks for proof you owned what you are claiming. How to build a home inventory on your iPhone with Warranty Tracker & Receipt Log: receipt photos, serial numbers, prices and a CSV export, all offline.",
+    datePublished: "2026-10-13",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "The moment people discover they need a home inventory is the worst possible moment to build one: standing in a flat that has been burgled, or on the phone to an insurer who has just asked, politely, for proof of purchase for a laptop that no longer exists. Insurers are not being difficult. A claim is a list of items with values, and they need some evidence that you owned each item and roughly what it was worth. Most people have that evidence scattered across email receipts, a drawer of paper and photos from three phones ago, which is why so many claims end up smaller than they should be. This post is about keeping that evidence in one place on your iPhone, using [Warranty Tracker & Receipt Log](/apps/warranty-tracker), an app that was built to track warranties but happens to record exactly what a home inventory needs.",
+          },
+        ],
+      },
+      {
+        heading: "What an insurer actually wants to see",
+        blocks: [
+          {
+            type: "p",
+            text: "Policies and claim handlers vary, so treat this as the common pattern rather than a rule: for each item of any real value, they want to know what it was (make and model), when you bought it, what you paid, and ideally some proof of ownership. A receipt is the gold standard. A photo of the item in your home, a serial number, a bank statement line or a product registration email are all accepted forms of supporting evidence in many cases. Small items are usually claimed as a lump; it is the laptop, the camera, the bike, the television and the engagement ring that need paperwork.",
+          },
+          {
+            type: "p",
+            text: "The practical problem is not knowing this; it is that the proof needs to exist before the loss, and it needs to survive the loss. A paper receipt in the drawer of a burgled flat is still there. A paper receipt in a flooded flat is not. An inventory that lives on your phone and in your phone backup survives both.",
+          },
+        ],
+      },
+      {
+        heading: "Why a warranty tracker is a good home inventory",
+        blocks: [
+          {
+            type: "p",
+            text: "The two jobs overlap almost completely. Warranty Tracker stores, for every item, the product name, the store, the price, the purchase date, a serial number, notes, and as many photos as you like: the receipt, the product itself, the sticker with the serial number. That is the insurer's list, item by item. The app adds a warranty length and an expiry countdown on top, with reminders before the warranty runs out, which is a useful side effect for the same expensive items you would be claiming for.",
+          },
+          {
+            type: "p",
+            text: "Two details make it fit the insurance use case specifically. The home screen shows the total value of everything still under warranty, which is a rough but immediate answer to \"are we insured for enough?\". And there is a CSV export: every item, every field, to a spreadsheet you can attach to a claim, hand to a broker, or keep in cloud storage as a second copy. The app is a one-time purchase of 0.99 US dollars, needs iOS 17 or later, works entirely offline, and has no account, no cloud and no analytics; your inventory never leaves the phone unless you export it. It is iPhone-only.",
+          },
+        ],
+      },
+      {
+        heading: "Building the inventory: a one-evening method",
+        blocks: [
+          {
+            type: "p",
+            text: "Do not try to catalogue the whole home. Walk through each room and add only the things you would actually claim for. For most households that is twenty to forty items, which is one evening with a cup of tea.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Start with the expensive and the portable.** Laptops, phones, tablets, cameras, headphones, watches, jewellery, bikes, instruments. These are what get stolen and what need proof.",
+              "**Add each item with its real name.** \"MacBook Air 13 M4 256 GB\" rather than \"laptop\". Model names are what the insurer prices against.",
+              "**Photograph the serial number sticker, not just the receipt.** Tap the item, add a photo, and get the serial or IMEI sticker in frame. A serial number is strong evidence of ownership and is what the police ask for too.",
+              "**Find the receipt wherever it is.** Paper: photograph it. Email: take a screenshot of the order confirmation and add it as a photo. No receipt at all: add a photo of the item in your home and note the purchase date and price as best you remember; partial evidence beats none.",
+              "**Enter the price you paid and the date.** The purchase date doubles as the warranty start, so set the warranty length while you are there and let the app remind you 30 and 7 days before it ends.",
+              "**Use the notes field for context.** \"Gift from parents, bought at John Lewis Oxford Street\", \"second-hand from eBay, seller receipt attached\". Claims handlers read notes.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Keeping it alive without thinking about it",
+        blocks: [
+          {
+            type: "p",
+            text: "Inventories die of neglect, so attach the habit to the one moment you are already holding a receipt: the day you buy something. The add flow is built for that; name, store, price, date and a warranty chip take about twenty seconds, and you photograph the receipt before it goes in the bin. That single habit keeps the inventory current for free, and it is the habit the earlier post on [keeping receipts and getting reminded before a warranty expires](/blog/warranty-tracker-iphone-keep-receipts-get-reminded-before-expiry) is about.",
+          },
+          {
+            type: "p",
+            text: "Twice a year, export the CSV. Share it to your cloud drive or email it to yourself. Now there is a copy of the inventory that does not depend on the phone, which matters because the phone is itself one of the things that gets stolen. The app's data is included in your normal iPhone backup as well, so a replacement phone restored from backup has the inventory and the photos.",
+          },
+        ],
+      },
+      {
+        heading: "When you have to make a claim",
+        blocks: [
+          {
+            type: "p",
+            text: "Open the app, filter or search for the items that were lost or damaged, and you have the claim list: names, dates, prices and serial numbers in one scrollable screen, with the receipt a tap away. Export the CSV, delete the rows that are not part of the claim, and attach it. For each item the handler queries, you can send the receipt photo and the serial-number photo at full resolution. For a police report after a theft, the serial numbers are the part they can actually use.",
+          },
+          {
+            type: "p",
+            text: "If something was still under warranty when it broke rather than when it was stolen, the same record serves a different purpose: the countdown tells you whether a repair is free before you ring the insurer at all, which is often the cheaper route and keeps your no-claims record intact.",
+          },
+        ],
+      },
+      {
+        heading: "What this app is not",
+        blocks: [
+          {
+            type: "p",
+            text: "Honesty about limits: Warranty Tracker is not an insurance app and it does not talk to your insurer. It will not value your items for you, estimate replacement costs or tell you whether you are under-insured in any precise way; the total it shows is what you paid, not what replacement would cost today. It also has no cloud sync, which is a privacy feature until you want the same inventory on two phones; the CSV export is the bridge. If you run a business and need depreciation schedules, you need accounting software. For a household that wants proof of ownership in one place, it is a very small, very cheap tool that does the job.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Does the insurer accept a photo of a receipt?** Commonly, yes; a legible photo or scan is generally treated like the paper. Check your own policy wording if you have a very high-value item.",
+              "**What if I have no receipts for older items?** Photograph the item and its serial number now, and note the approximate date and price. Evidence that you own it today is still evidence.",
+              "**Can I store the inventory somewhere other than the phone?** Export the CSV to your cloud drive or email. The receipt photos stay in the app and in your iPhone backup.",
+              "**Is there a subscription?** No. One-time purchase, no account, no ads.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "whatsapp-profile-picture-cropped-android-set-full-size-dp-without-cutting",
+    title: "WhatsApp Profile Picture Keeps Getting Cropped on Android? How to Set a Full-Size DP Without Cutting Anything Off",
+    description:
+      "WhatsApp forces every profile photo into a square and shows it as a circle, so wide photos and logos lose their edges. Why it happens, the manual workaround, and a free Android app that pads any photo to a square so the whole picture fits, offline.",
+    datePublished: "2026-10-13",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "You pick the one good photo of the whole family, or the shop logo the designer sent, set it as your WhatsApp profile picture, and the result has Grandma's head sliced off at the top and the right third of the logo missing. Zooming out in the crop tool does nothing, because the tool will not let you zoom out past the edges. This is one of the most-asked questions about WhatsApp on Android, and the fix is simple once you understand what the app is doing with your picture. Here is the why, the manual fix, and the two-tap version.",
+          },
+        ],
+      },
+      {
+        heading: "Why WhatsApp crops your profile picture",
+        blocks: [
+          {
+            type: "p",
+            text: "WhatsApp stores every profile picture as a square and displays it as a circle. When you choose a photo, the crop tool shows you a square window and asks you to position the photo inside it; the window can move and the photo can be enlarged, but the square always has to be completely filled. A landscape photo (wider than it is tall) is therefore trimmed on the left and right, a portrait photo on the top and bottom, and a wide logo loses its ends. Then the circle mask takes the corners off the square as well, so anything near the corners disappears too.",
+          },
+          {
+            type: "p",
+            text: "The crop tool cannot add empty space around a photo; it can only remove. That is the whole problem. The fix is to give WhatsApp a photo that is already square, with the real picture sitting in the middle and blank space filling the rest. The crop window then matches the image exactly, nothing is cut, and the circle only clips the empty padding.",
+          },
+        ],
+      },
+      {
+        heading: "The manual way: pad the photo to a square yourself",
+        blocks: [
+          {
+            type: "p",
+            text: "Any photo editor that can change the canvas size, as opposed to cropping, will do this. On Android the built-in Google Photos editor cannot add canvas, but most free editors can: look for a tool called \"canvas\", \"square\", \"no crop\", \"fit\" or \"1:1 with background\". Set the canvas to square, keep the photo at its original size centred inside it, choose a background colour (white is safest; it disappears against WhatsApp's light theme and looks deliberate against dark), and save a copy. Then set that copy as your profile picture and simply accept the crop window as it is.",
+          },
+          {
+            type: "p",
+            text: "Two things to watch. Leave a little margin all round, because the circle mask still cuts the corners of the square: anything right at the edge of your padded image will be clipped at the four corners. And export at a decent size; a tiny image padded to a square and then enlarged by WhatsApp looks soft. Aim for at least 640 pixels on each side; 1024 is plenty.",
+          },
+        ],
+      },
+      {
+        heading: "The two-tap way: Chat Link & QR Code Maker",
+        blocks: [
+          {
+            type: "p",
+            text: "If you change your DP more than once a year, or you manage a business account where the logo matters, the padding step is worth automating. [Chat Link & QR Code Maker](/apps/chat-link-qr-code-maker) is a small Android app from an independent developer that does three things: builds WhatsApp click-to-chat links, turns them into printable QR codes, and pads any photo onto a perfect square so the whole image fits inside the profile circle. It is free on Google Play with ads, and everything happens on the phone; the Play listing is explicit that photos and phone numbers never leave the device and that nothing you make carries a watermark.",
+          },
+          {
+            type: "list",
+            items: [
+              "Open the app and go to the profile picture tool.",
+              "Pick the photo from your gallery using Android's system picker, which shares only the image you choose.",
+              "The app centres it on a white square at full resolution. Save the result to your gallery.",
+              "In WhatsApp, open Settings, tap your profile photo, choose Gallery, pick the square version and confirm. The crop window matches the image, so nothing is cut.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The same square trick works for a WhatsApp group icon, a WhatsApp Business profile, and for any other app that insists on a square avatar, which is most of them.",
+          },
+        ],
+      },
+      {
+        heading: "Which photos benefit, and which do not",
+        blocks: [
+          {
+            type: "p",
+            text: "Padding helps when the subject is wide or when the edges matter: group photos, couple photos, landscapes, wordmark logos, anything with text. It is pointless for a close-up headshot that was already square-ish; cropping that slightly looks better than adding a border. And a padded photo is smaller inside the circle than a cropped one, because the circle now contains the whole picture plus the margins. For a logo that reads fine at small sizes that is no problem; for a face, a plain crop will usually look stronger in the chat list, where the picture is tiny. Try both and look at the result in a chat, not in the settings screen.",
+          },
+        ],
+      },
+      {
+        heading: "While you are there: the chat link and QR code",
+        blocks: [
+          {
+            type: "p",
+            text: "Most people who fix a business logo also want a way for customers to message them without saving the number. That is the other half of the app: type the number with its country code, add a pre-written opening message, and it produces a standard wa.me link and a full-resolution QR code you can save to the gallery and print. If you want the details, the earlier Android guide on [sending a WhatsApp message without saving the number](/blog/send-whatsapp-message-without-saving-number-android) covers the link side, and the [restaurant menu and shop counter QR code guide](/blog/whatsapp-qr-code-for-restaurant-menu-shop-counter-iphone) covers printing (the printing advice applies on Android just the same).",
+          },
+          {
+            type: "list",
+            items: [
+              "**Does the app need internet?** No. The square image, the link and the QR code are all generated on the phone and it works in airplane mode.",
+              "**Will WhatsApp still show a crop screen?** Yes, but the crop window will exactly match the square image, so nothing is removed. Just confirm.",
+              "**Why white padding and not transparent?** Profile pictures are stored as flat JPEG-style images, so transparent areas get flattened to whatever the app decides, often black. A solid white or brand-colour background is predictable.",
+              "**Does it work for WhatsApp Business?** Yes. The profile photo rules are the same, and the wa.me links work for any number registered on WhatsApp or WhatsApp Business.",
+            ],
+          },
+          {
+            type: "p",
+            text: DISCLAIMER,
+          },
+        ],
+      },
+    ],
+  },
 ];

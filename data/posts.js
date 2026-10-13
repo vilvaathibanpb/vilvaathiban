@@ -7466,6 +7466,128 @@ node --import=tsx your-file.ts`,
       },
     ],
   },
+  {
+    slug: "crypto-randomuuid-is-not-a-function-fix",
+    title: "crypto.randomUUID is not a function: Why It Happens (HTTP, Old Node, Safari) and How to Fix It",
+    description:
+      "crypto.randomUUID() only exists in secure contexts and newer runtimes. The four causes of 'crypto.randomUUID is not a function', how to tell which one you have, and a safe fallback that does not silently produce weak IDs.",
+    datePublished: "2026-10-13",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "`crypto.randomUUID()` is the nicest way to get a UUID in JavaScript: one call, no dependency, cryptographically random, built into every modern browser and into Node. Which makes it all the more annoying when the console says `TypeError: crypto.randomUUID is not a function` on a machine where it worked yesterday. The function has not gone anywhere. You are calling it in a place where it is not exposed, and there are exactly four such places. This post walks through them in the order you should check, then gives a fallback that is safe rather than merely quiet.",
+          },
+        ],
+      },
+      {
+        heading: "What crypto.randomUUID actually is",
+        blocks: [
+          {
+            type: "p",
+            text: "`randomUUID()` is a method on the Web Crypto `Crypto` interface, reachable in browsers as `crypto.randomUUID()` (or `self.crypto.randomUUID()` in a worker). It returns a 36-character string containing a version 4 UUID, for example `36b8f84d-df4e-4d49-b662-bcde71a8764f`, generated from a cryptographically strong random source. It has been available across all major browsers since March 2022 and is marked Baseline widely available on MDN. Node.js has had `randomUUID()` on its `crypto` module since v14.17, and since Node 19 the Web Crypto `crypto` object is also a global, so the browser-style call works unchanged.",
+          },
+          {
+            type: "p",
+            text: "Two properties explain almost every error report. First, in browsers the method is only exposed in a **secure context**: MDN's wording is that the feature \"is available only in secure contexts (HTTPS), in some or all supporting browsers\". Second, the global object it hangs off is not the same thing everywhere: in older Node versions `crypto` is a module you import, not a global, and in some environments a local variable named `crypto` shadows the real one.",
+          },
+        ],
+      },
+      {
+        heading: "Cause 1: the page is not a secure context (plain HTTP)",
+        blocks: [
+          {
+            type: "p",
+            text: "This is the one that bites in the wild. Your app works on `https://app.example.com` and on `http://localhost:3000`, then somebody opens it on `http://192.168.1.20:3000` from their phone, or on `http://staging.internal`, and `crypto.randomUUID is not a function` appears. `localhost` and `127.0.0.1` count as secure contexts; any other plain-HTTP origin does not, and in a non-secure context the method is simply absent from the `crypto` object. `crypto.getRandomValues()` is still there, which is the clue: if `typeof crypto.getRandomValues === 'function'` but `typeof crypto.randomUUID === 'undefined'`, you are almost certainly on HTTP.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "console.log(window.isSecureContext);          // false on http://192.168.1.20:3000\nconsole.log(typeof crypto.getRandomValues);   // 'function' everywhere\nconsole.log(typeof crypto.randomUUID);        // 'undefined' here, 'function' on https",
+          },
+          {
+            type: "p",
+            text: "The real fix is to serve the page over HTTPS, which you want for a dozen other reasons (service workers, clipboard, geolocation and most new APIs are gated the same way). For a LAN dev server, tools such as mkcert give you a locally trusted certificate in a minute, and Vite and Next both accept it. If you cannot change the origin, use the fallback at the end of this post.",
+          },
+        ],
+      },
+      {
+        heading: "Cause 2: an old browser or WebView",
+        blocks: [
+          {
+            type: "p",
+            text: "Support arrived in Chrome and Edge 92, Firefox 95 and Safari 15.4. That last one matters: Safari 15.4 shipped in March 2022, so an iPhone or iPad stuck on iOS 15.3 or earlier, or an older macOS Safari, throws this error on an HTTPS page too. The same goes for embedded WebViews in older apps, smart TVs, kiosks and some corporate browser builds. Check `navigator.userAgent` in your error reporting; if every occurrence comes from one old engine, this is your cause, and a feature-detected fallback is the only option.",
+          },
+        ],
+      },
+      {
+        heading: "Cause 3: Node.js without the global crypto",
+        blocks: [
+          {
+            type: "p",
+            text: "In Node the function exists from v14.17.0 onwards, but only on the `crypto` module. The global `crypto` object that mirrors the browser's Web Crypto arrived in Node 19 (it was behind the `--experimental-global-webcrypto` flag in 17.6 to 18). So on Node 16 or 18, browser-style code throws, while an explicit import works fine:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// Fails on Node 16/18: `crypto` here is the module, or not defined at all\ncrypto.randomUUID();\n\n// Works on Node >= 14.17 and in every later version\nimport { randomUUID } from 'node:crypto';\nconst id = randomUUID();\n\n// Also works, and is the same object the browser exposes, on Node >= 19\nglobalThis.crypto.randomUUID();",
+          },
+          {
+            type: "p",
+            text: "A common variant is `ReferenceError: crypto is not defined` rather than `is not a function`: that is Node 16 or earlier with no import. Either way, `node --version` tells you where you stand, and if you still ship to Node 18 the explicit `node:crypto` import is the portable choice. If this sounds like a cousin of the `structuredClone is not defined` error, it is: same family of \"browser globals that Node adopted one version at a time\", and the same remedy; see [structuredClone is not defined: fix](/blog/structuredclone-is-not-defined-fix).",
+          },
+        ],
+      },
+      {
+        heading: "Cause 4: something is shadowing crypto",
+        blocks: [
+          {
+            type: "p",
+            text: "The last cause is self-inflicted. A file does `import crypto from 'crypto-js'`, or declares `const crypto = require('./lib/crypto')`, or a bundler polyfills `crypto` with an old browserify shim that predates `randomUUID`. Now `crypto` refers to something that has `AES` and `SHA256` but no `randomUUID`, and the error message is identical to the other three. Search the failing module for `crypto` declarations and imports, and in a browser check `crypto === window.crypto` in the scope that fails. Webpack 4 projects and older React Native setups are the usual suspects for the polyfill version.",
+          },
+        ],
+      },
+      {
+        heading: "A fallback that fails safe",
+        blocks: [
+          {
+            type: "p",
+            text: "Most snippets that circulate for this error fall back to `Math.random()`. That gives you a string that looks like a UUID but is not cryptographically random, which is fine for a React key and dangerous for a session token, a password-reset link or anything an attacker benefits from predicting. A better fallback uses `crypto.getRandomValues()`, which is exposed in non-secure contexts and in every browser that matters, and only reaches for `Math.random()` when you explicitly allow it:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "export function uuid({ allowWeak = false } = {}) {\n  const c = globalThis.crypto;\n  if (c && typeof c.randomUUID === 'function') return c.randomUUID();\n\n  if (c && typeof c.getRandomValues === 'function') {\n    const b = c.getRandomValues(new Uint8Array(16));\n    b[6] = (b[6] & 0x0f) | 0x40; // version 4\n    b[8] = (b[8] & 0x3f) | 0x80; // RFC 4122 variant\n    const h = [...b].map((x) => x.toString(16).padStart(2, '0')).join('');\n    return h.slice(0, 8) + '-' + h.slice(8, 12) + '-' + h.slice(12, 16) + '-' + h.slice(16, 20) + '-' + h.slice(20);\n  }\n\n  if (!allowWeak) {\n    throw new Error('No cryptographically secure random source available');\n  }\n  // Only for non-security IDs (list keys, log correlation) on ancient engines\n  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (ch) => {\n    const r = (Math.random() * 16) | 0;\n    return (ch === 'x' ? r : (r & 0x3) | 0x8).toString(16);\n  });\n}",
+          },
+          {
+            type: "p",
+            text: "The two bit-twiddling lines set the version nibble to 4 and the variant bits to `10`, which is what makes the result a valid v4 UUID rather than 32 random hex digits with dashes. In Node, replace the first line with an import from `node:crypto` if you need to support versions before 19. The uuid package on npm does the same detection for you and is the right answer if you already depend on it; the point of the snippet is that you do not need a dependency to get this right.",
+          },
+        ],
+      },
+      {
+        heading: "Which cause do I have? A 30-second checklist",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Open the console on the failing page and run `window.isSecureContext`. `false` means cause 1: serve over HTTPS or use the fallback.",
+              "Still `true`? Check the browser version. Safari below 15.4, Chrome below 92, Firefox below 95 or an old WebView means cause 2.",
+              "Running in Node? `node --version` below 19 and browser-style `crypto.randomUUID()` means cause 3: import from `node:crypto`.",
+              "Everything looks modern? `grep -rn \"crypto\" src/` for imports and variables that shadow the global: cause 4.",
+              "In all four cases, feature-detect with `typeof crypto?.randomUUID === 'function'` rather than catching the TypeError after the fact.",
+            ],
+          },
+          {
+            type: "p",
+            text: "If you are hitting this in the middle of a fetch timeout or cancellation flow, where request IDs are usually minted, the related guides on [AbortSignal.timeout and AbortSignal.any](/blog/abortsignal-timeout-any-request-timeouts) and the matching [AbortSignal.timeout is not a function fix](/blog/abortsignal-timeout-is-not-a-function-fix) cover the same \"modern API, old runtime\" pattern from the other side.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
 ];
 
