@@ -38,6 +38,24 @@ const CodeBlock = styled.pre`
   }
 `;
 
+const Figure = styled.figure`
+  margin: 6px 0 26px;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+  }
+  figcaption {
+    font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 13px;
+    color: #475569;
+    margin-top: 8px;
+  }
+`;
+
 const Prose = styled.div`
   code {
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -111,6 +129,21 @@ const Block = ({ block }) => {
       </CodeBlock>
     );
   }
+  if (block.type === "image") {
+    return (
+      <Figure>
+        <img
+          src={block.src}
+          alt={block.alt}
+          width={block.width}
+          height={block.height}
+          loading="lazy"
+          decoding="async"
+        />
+        {block.caption && <figcaption>{renderInline(block.caption)}</figcaption>}
+      </Figure>
+    );
+  }
   if (block.type === "list") {
     return (
       <ul>
@@ -133,7 +166,7 @@ const LD = (post, url) => [
     dateModified: post.dateModified || post.datePublished,
     url,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
-    image: "https://vilvaathiban.com/vilva.png",
+    image: post.image ? `${SITE}${post.image}` : "https://vilvaathiban.com/vilva.png",
     author: PERSON_REF,
     publisher: PERSON_REF,
   },
@@ -146,6 +179,20 @@ const LD = (post, url) => [
       { "@type": "ListItem", position: 3, name: post.title, item: url },
     ],
   },
+  // Optional `faq: [{ q, a }]` on a post → FAQPage rich result + a visible FAQ section.
+  ...(post.faq?.length
+    ? [
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: post.faq.map(({ q, a }) => ({
+            "@type": "Question",
+            name: q,
+            acceptedAnswer: { "@type": "Answer", text: a.replace(/[`*]|\[([^\]]+)\]\([^)]+\)/g, (m, t) => t || "") },
+          })),
+        },
+      ]
+    : []),
 ];
 
 export default function BlogPost({ post }) {
@@ -165,7 +212,8 @@ export default function BlogPost({ post }) {
         <meta property="og:description" content={post.description} />
         <meta property="article:published_time" content={post.datePublished} />
         <meta property="article:author" content="Vilva Athiban P B" />
-        <meta name="twitter:card" content="summary" />
+        {post.image && <meta property="og:image" content={`${SITE}${post.image}`} />}
+        <meta name="twitter:card" content={post.image ? "summary_large_image" : "summary"} />
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.description} />
         <meta name="description" content={post.description} />
@@ -189,6 +237,17 @@ export default function BlogPost({ post }) {
               ))}
             </Section>
           ))}
+          {post.faq?.length > 0 && (
+            <Section>
+              <h2>Frequently asked questions</h2>
+              {post.faq.map(({ q, a }, i) => (
+                <div key={i}>
+                  <h3>{q}</h3>
+                  <p>{renderInline(a)}</p>
+                </div>
+              ))}
+            </Section>
+          )}
         </Prose>
         <AuthorBox updated={post.dateModified || post.datePublished} />
         <BackRow>

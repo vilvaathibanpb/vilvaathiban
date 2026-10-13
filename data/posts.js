@@ -23,6 +23,7 @@
 // No other changes are needed — /blog and /blog/[slug] pick posts up statically.
 
 import { appPosts } from "./appPosts";
+import { mcpGuides } from "./mcpGuides";
 
 export const posts = [
   {
@@ -7589,6 +7590,7 @@ node --import=tsx your-file.ts`,
     ],
   },
   ...appPosts,
+  ...mcpGuides,
 ];
 
 export const getAllPosts = () =>
