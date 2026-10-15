@@ -7589,6 +7589,141 @@ node --import=tsx your-file.ts`,
       },
     ],
   },
+  {
+    slug: "nodejs-26-lts-october-2026-which-node-version-to-use-new-release-schedule",
+    title: "Node.js 26 Becomes LTS on 28 October 2026: Which Node Version to Use Now, and How the New Yearly Release Schedule Works",
+    description:
+      "Node.js 26 enters Active LTS on 28 October 2026, Node 24 moves to maintenance, Node 22 is on its way out, and Node 27 starts a new one-release-a-year cycle with alpha builds. What to run in production, what to upgrade, and when.",
+    datePublished: "2026-10-16",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "If you ask a search engine for the current Node.js LTS version you get a different answer depending on which cached page it found, and in late October 2026 the answer changes again. Node.js 26 is scheduled to become the Active LTS line on **28 October 2026**, Node 24 moves to Maintenance LTS at the same time, Node 22 is already in maintenance with six months left, and Node 27 will be the first release under a new annual schedule that drops the odd/even distinction entirely. This post lays out what each line is, what you should be running, and what the schedule change means for your upgrade cadence.",
+          },
+        ],
+      },
+      {
+        heading: "The state of the release lines in October 2026",
+        blocks: [
+          {
+            type: "p",
+            text: "Node.js has three kinds of release line. **Current** is the newest major, where new features land first. **Active LTS** gets new features that are stable enough to backport, plus bug and security fixes, and is what the project recommends for production. **Maintenance LTS** gets critical bug fixes and security patches only. Each even-numbered major historically spends about six months as Current, then roughly a year as Active LTS and a further 18 months in maintenance, for 30 months of LTS and three years of total life.",
+          },
+          {
+            type: "p",
+            text: "Here is where the lines stand, per the Node.js release schedule as of mid-October 2026 (dates are the project's planned ones and can shift by a few days):",
+          },
+          {
+            type: "list",
+            items: [
+              "**Node 22 (Jod):** released April 2024, Active LTS since October 2024, Maintenance since 21 October 2025, **end of life 30 April 2027**. Six months of security patches left.",
+              "**Node 24 (Krypton):** released May 2025, Active LTS since 28 October 2025, **moves to Maintenance on 20 October 2026**, end of life 30 April 2028. The latest 24.x at the time of writing is 24.22.0.",
+              "**Node 26:** released 5 May 2026, Current today (26.12.0 at the time of writing), **Active LTS from 28 October 2026**, Maintenance from 20 October 2027, end of life 30 April 2029.",
+              "**Node 25:** the last odd-numbered release. It reached end of life on 31 March 2026 and should not be in use anywhere.",
+              "**Node 27:** not released yet. Under the new schedule it starts as an alpha in October 2026 and ships as 27.0.0 in April 2027.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Which Node version should you use?",
+        blocks: [
+          {
+            type: "p",
+            text: "The rule the project itself gives is simple: production applications should run an Active LTS or Maintenance LTS release, never Current. Applying that in late October 2026:",
+          },
+          {
+            type: "list",
+            items: [
+              "**New projects and anything you deploy regularly:** Node 26. From 28 October it is the Active LTS line, it has the longest runway (security fixes to April 2029), and it is what the ecosystem's CI matrices will target first from now on.",
+              "**Existing services on Node 24:** no rush, but plan. Node 24 keeps getting critical fixes until April 2028, so it is safe to stay on for a while. Treat the 20 October maintenance switch as the trigger to schedule the 24 to 26 upgrade in the next quarter or two, before the library ecosystem starts dropping 24 from its support ranges.",
+              "**Anything still on Node 22:** upgrade now. You have until 30 April 2027, and the path from 22 straight to 26 skips a line, which is normal and supported; test it, because two majors of native-addon ABI and V8 changes are involved.",
+              "**Node 25 or anything older than 22:** these receive no security fixes. Move them.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Pin the major, not the patch. In `package.json` an `engines` field like `\"node\": \">=24 <27\"` documents what you support; in CI, test against 24 and 26 for the next six months and drop 24 when your dependencies do. If you use a version manager, `fnm use 26`, `nvm install 26 --default` or `volta pin node@26` makes the switch local to the project. Docker images should use the `node:26` tag (or `node:26-slim` / `node:26-alpine`) rather than `node:latest`, which will jump to 27 next April whether you are ready or not.",
+          },
+        ],
+      },
+      {
+        heading: "What you get by moving to 26",
+        blocks: [
+          {
+            type: "p",
+            text: "Each LTS brings a V8 that is at most about six months old at release, so moving from 24 to 26 picks up roughly a year of JavaScript engine changes, plus whatever landed in Node itself over the Current phase. Rather than list release notes that will be stale by the time you read this, check two things before upgrading: the `CHANGELOG` for the 26.x line on GitHub, and your native dependencies. Anything that compiles a C++ addon (sharp, bcrypt, better-sqlite3, node-canvas and friends) needs a prebuilt binary or a rebuild for the new ABI, and that is where upgrades actually fail. Pure-JavaScript dependencies almost never care.",
+          },
+          {
+            type: "p",
+            text: "Two features from recent lines are worth knowing about if you have been on 22 for a while, because they change how you write scripts: Node runs TypeScript files directly by stripping the types (covered in our [guide to native TypeScript in Node](/blog/run-typescript-in-nodejs-natively-type-stripping-guide)), and `import` attributes let you [import JSON modules](/blog/import-json-in-nodejs) without a loader. Both are stable in 24 and 26.",
+          },
+        ],
+      },
+      {
+        heading: "The schedule change: one release a year from Node 27",
+        blocks: [
+          {
+            type: "p",
+            text: "For ten years, since the io.js merger, Node has shipped two majors a year: an even one in April that becomes LTS in October, and an odd one in October that never does. The odd releases existed as a testing ground for breaking changes. The project's data showed what most of us suspected: odd-numbered releases saw minimal adoption, the odd/even split confused newcomers, and many organisations only ever upgrade LTS to LTS. Maintaining security releases across four or five active lines at once, mostly with volunteer time, had become hard to sustain.",
+          },
+          {
+            type: "p",
+            text: "So, as of October 2026, the schedule becomes: **one major release per year, in April, promoted to LTS in October, and every release becomes LTS.** The odd-numbered test release is replaced by a six-month **alpha** phase. Version numbers now line up with the year of first Current release: 27.0.0 in 2027, 28.0.0 in 2028, and so on. The phases for each major are:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Alpha, 6 months (October to March):** early testing, semver-major changes allowed, versions like `27.0.0-alpha.1`. Signed, tagged and run through CITGM, but explicitly not for production.",
+              "**Current, 6 months (April to October):** stabilisation, as today.",
+              "**LTS, 30 months:** long-term support with security fixes, as today.",
+              "**Total: 36 months** from first Current release to end of life, the same as the current LTS lifetime.",
+            ],
+          },
+          {
+            type: "p",
+            text: "What does not change: the April/October rhythm, the 30-month LTS window, the overlap between consecutive LTS lines that lets you migrate, the testing and security process, and the promise that the newest release carries a V8 no more than about six months old. Node 26 is the last release under the old model; Node 27's alpha begins in October 2026, 27.0.0 ships in April 2027, becomes LTS in October 2027 and reaches end of life in April 2030.",
+          },
+        ],
+      },
+      {
+        heading: "What the change means in practice",
+        blocks: [
+          {
+            type: "p",
+            text: "For application teams, the upgrade cadence becomes genuinely predictable: one new LTS every October, each supported for 30 months, so you can skip at most one and still be on a supported line. The 'should we try the odd release' conversation disappears, because there is no odd release. If you upgrade every October you are always on the newest LTS; if you upgrade every other October you are always on a maintenance line with a year of life left, which is the minimum you should accept.",
+          },
+          {
+            type: "p",
+            text: "For library authors the change is bigger. The alpha phase is where breaking changes now surface, and the project is asking maintainers to add alpha builds to CI as early as possible, because a bug that only shows up when 27.0.0 ships is a bug that reaches users. A matrix like `[24, 26, 27-alpha]` with the alpha job marked `continue-on-error` is the pragmatic version: you see breakage early without blocking releases on a prerelease. The authoritative schedule lives in `schedule.json` in the nodejs/Release repository, and the project says the forward dates may still be amended.",
+          },
+        ],
+      },
+      {
+        heading: "A checklist for the 24-to-26 upgrade",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Run your test suite on 26 in CI before changing anything else. Most apps pass unchanged.",
+              "Rebuild or update native addons; check each one's release notes for Node 26 support.",
+              "Update the `engines` field and the Docker base image tag together, in one PR, so nothing drifts.",
+              "Search your code for `process.version` checks and anything that parses the Node version string; those are the usual silent breakages.",
+              "Deploy to one instance or one region first and watch memory and startup time for a day; V8 changes occasionally shift both.",
+              "Put a calendar note on 20 October 2027 (26 to maintenance) and 28 October 2027 (27 becomes LTS). The new schedule makes those dates stable enough to plan around a year out.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The short version: Node 26 is the version to be on from 28 October 2026, Node 24 is fine for a while but now on the clock, Node 22 has six months, and from next year there is exactly one new Node per year, every one of them LTS.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
   ...mcpGuides,
 ];

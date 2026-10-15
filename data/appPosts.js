@@ -6109,4 +6109,361 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "most-common-teleprompter-mistakes-and-how-to-fix-them",
+    title: "The 11 Most Common Teleprompter Mistakes (and the Fix for Each)",
+    description:
+      "Reading eyes, robot voice, a script that runs away from you, text so small you squint: the teleprompter mistakes that make a video look read, ranked by how often creators make them, with the fix for each one on an iPhone.",
+    datePublished: "2026-10-16",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "A teleprompter is supposed to be invisible. When it works, the viewer sees someone who knows what they are talking about and happens to be looking at them. When it does not, the viewer sees someone reading, and they can rarely say why; they just click away. Having watched a lot of talking-head footage, including my own early takes, the failures cluster into a short list, and most of them are not about the app at all. Here are the eleven most common teleprompter mistakes, roughly in order of how often they show up, with a concrete fix for each.",
+          },
+        ],
+      },
+      {
+        heading: "1. Reading from the wrong place on the screen",
+        blocks: [
+          {
+            type: "p",
+            text: "The number one tell is eyes that sit a few centimetres below the lens. On a phone, the front camera is at the top edge; a script in the middle of the screen pulls your gaze down and the viewer sees you looking at their chin. **Fix:** put the text as close to the lens as the app allows. [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay) floats the script over the camera preview right next to the front lens for exactly this reason, and the smaller the gap between text and lens, the less your eyes travel. We covered the geometry in detail in [how to keep eye contact with the camera](/blog/how-to-keep-eye-contact-with-the-camera).",
+          },
+        ],
+      },
+      {
+        heading: "2. Text so small your eyes scan left to right",
+        blocks: [
+          {
+            type: "p",
+            text: "Big text with few words per line keeps your eyes still; small text with long lines makes them sweep, and the sweep is visible on camera. **Fix:** raise the text size until a line holds roughly three to six words, and accept that you will see fewer lines at once. A narrower column also helps. Readability settings deserve more attention than most people give them.",
+          },
+        ],
+      },
+      {
+        heading: "3. A script written like an essay",
+        blocks: [
+          {
+            type: "p",
+            text: "If the script has sub-clauses, semicolons and words you would never say aloud, no delivery technique will save it; you will sound like a newsreader with a cold. **Fix:** write the way you talk, read it aloud once before recording, and cut anything that made you stumble. The earlier post on [writing a script that doesn't sound written](/blog/write-a-script-that-doesnt-sound-written) is the long version. Short sentences. Contractions. One idea per line.",
+          },
+        ],
+      },
+      {
+        heading: "4. Letting the scroll set your pace",
+        blocks: [
+          {
+            type: "p",
+            text: "Classic auto-scroll runs at a fixed speed, so you either race to keep up or pad to slow down, and both are audible. **Fix:** either rehearse until the speed slider matches your natural delivery for that script, or switch to voice-following. The app's voice-driven mode listens with on-device speech recognition and scrolls at the pace you actually speak, which means you can pause for emphasis, take a breath or react, and the text waits. If you stumble, it finds your place again. Auto-scroll with the slider is still there when you want it, and the trade-offs are laid out in [voice-follow vs auto-scroll](/blog/voice-follow-vs-auto-scroll-teleprompter).",
+          },
+        ],
+      },
+      {
+        heading: "5. Starting the recording and the script at the same instant",
+        blocks: [
+          {
+            type: "p",
+            text: "The first line is where you look most like you are reading, because you have not settled yet and the text is moving before you are. **Fix:** record two seconds of looking at the lens before you speak, and begin the script from memory. You know the first sentence; say it, then let the prompter carry the rest. The same applies at the end: finish the last line from memory and hold the look for a beat.",
+          },
+        ],
+      },
+      {
+        heading: "6. No pauses, no emphasis, one speed throughout",
+        blocks: [
+          {
+            type: "p",
+            text: "Reading flattens delivery. People who speak naturally vary pace and volume constantly; people who read drift into a steady hum. **Fix:** mark the script. Put a line break where you want a pause, and write the one word per sentence that carries the meaning in CAPITALS so your eye catches it. With voice-following the pauses cost nothing; with auto-scroll you will need the slider a touch slower than feels right. The [how to sound natural reading a teleprompter](/blog/how-to-sound-natural-reading-a-teleprompter) post has the exercises.",
+          },
+        ],
+      },
+      {
+        heading: "7. Mirror mode on when it should be off (or the reverse)",
+        blocks: [
+          {
+            type: "p",
+            text: "Mirror mode exists for beam-splitter rigs, where the phone lies flat and its screen reflects off angled glass in front of the lens; the text has to be flipped so the reflection reads correctly. Turn it on without a rig and the script is backwards; forget it with a rig and the same. **Fix:** mirror mode is a rig setting, not a style setting. On a phone used directly, leave it off. If you are building a rig, the [mirror mode and DIY rigs post](/blog/mirror-mode-and-diy-teleprompter-rigs) covers when it matters.",
+          },
+        ],
+      },
+      {
+        heading: "8. Recording in a format you did not choose",
+        blocks: [
+          {
+            type: "p",
+            text: "Many people discover after a week of filming that the app recorded in 1080p, or landscape, or with the script burned into the video. **Fix:** check the recording settings before the first take of any session. Teleprompter: Camera Overlay records portrait 4K and the script never appears in the saved video, so the clip is usable as-is for Reels, Shorts and TikTok, but every app differs and the time to find out is before the batch, not after. Storage is the other side of this: 4K files are large, so clear space first.",
+          },
+        ],
+      },
+      {
+        heading: "9. One take, the whole script, no breaks",
+        blocks: [
+          {
+            type: "p",
+            text: "Long scripts in one pass compound every small error: by minute four you are tired, the energy drops, and a flub at 4:10 means re-recording 4:10 of video. **Fix:** record in sections. Break the script at natural points, record each as its own take, and cut them together. Each take starts fresh, you can re-do only the bad one, and the takes library keeps them organised. Unlimited scripts and takes means there is no reason to be precious about a single file.",
+          },
+        ],
+      },
+      {
+        heading: "10. Trusting the app with a script you cannot afford to lose, without checking where it lives",
+        blocks: [
+          {
+            type: "p",
+            text: "Some teleprompter apps sync scripts to a server, which is convenient until a login fails on set or a confidential script is suddenly in someone's cloud. **Fix:** know where your scripts are. This app is fully offline, works in airplane mode and uploads nothing, including the speech recognition, which runs on the device. That is a feature for privacy, but it also means the scripts are only on that phone, so back them up like any other file. The [on-device speech recognition and privacy post](/blog/on-device-speech-recognition-teleprompter-privacy) explains what that trade-off buys you.",
+          },
+        ],
+      },
+      {
+        heading: "11. Using a teleprompter when you should not",
+        blocks: [
+          {
+            type: "p",
+            text: "Not every video wants a script. A reaction, a vlog walk-and-talk, a conversation with a guest, a demo where you are showing rather than telling: a prompter makes these worse, because your eyes keep returning to text that does not match what is happening. **Fix:** use a prompter for anything where the exact wording matters (explanations, tutorials, compliance-sensitive topics, second-language delivery) and bullet points or nothing for the rest. Knowing when to put it down is the most underrated teleprompter skill.",
+          },
+        ],
+      },
+      {
+        heading: "The quick checklist",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Text right next to the lens, large, three to six words a line.",
+              "Script written in spoken language and read aloud once before recording.",
+              "Voice-following for natural pace, or a rehearsed slider speed.",
+              "First and last lines from memory, with a held look at the lens.",
+              "Pauses and emphasis marked in the script.",
+              "Mirror mode only with a rig; recording format and storage checked before the session.",
+              "Record in sections, keep the takes, back up the scripts.",
+              "Skip the prompter when the video is about doing, not saying.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Most of these cost nothing to fix and take one session to make habitual. Next in this series: teleprompter for webinars and live streams, where the script has to survive a live audience and a chat window, and the rules change again.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "box-fill-calculator-nec-314-16-worked-example-iphone-electrician-calculator",
+    title: "Box Fill Calculator on iPhone: How NEC 314.16 Counting Works, a Worked Example, and the Mistakes That Fail Inspection",
+    description:
+      "How to calculate box fill under NEC 314.16(B): which conductors count, the allowances for clamps, fittings, devices and grounds, a full worked example for a two-gang switch box, and how an offline iPhone calculator does the counting for you.",
+    datePublished: "2026-10-16",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Box fill is the calculation that trips up more apprentices on exams, and more finished jobs on inspection, than any other everyday one. Not because the arithmetic is hard, but because the counting rules are specific and easy to half-remember: a conductor that passes through counts once, a device yoke counts twice, all the grounds together count once, and the size that matters for a fitting is the largest conductor in the box, not the one next to it. This post walks through the rules in NEC 314.16(B), does a complete worked example, lists the mistakes that get boxes failed, and shows how the box fill tool in [Electrician Calculator Toolkit](/apps/electrician-calculator) for iPhone does the counting so you only have to do the looking.",
+          },
+        ],
+      },
+      {
+        heading: "What box fill is and why inspectors care",
+        blocks: [
+          {
+            type: "p",
+            text: "Every outlet, switch and junction box has a volume in cubic inches, and the NEC limits how much you may put in it. The reason is heat and damage: conductors crammed into a box run hotter, insulation gets nicked when the device is pushed in, and splices get stressed. Article 314.16 turns that into a number. You add up the **volume allowances** for everything in the box, compare the total with the box's volume, and the box passes if the volume is at least the total. Too small and you need a bigger box, an extension ring or a mud ring that adds volume.",
+          },
+          {
+            type: "p",
+            text: "The box volume comes from Table 314.16(A) for standard metal boxes, or from the volume stamped or marked on the box (required on nonmetallic boxes and anything not in the table). A plaster ring or extension adds its marked volume. The allowance side is where the rules live.",
+          },
+        ],
+      },
+      {
+        heading: "The counting rules in 314.16(B), in plain language",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Conductors, 314.16(B)(1).** Each insulated conductor that originates outside the box and ends inside it (spliced or landed on a device) counts as one allowance at its own size. A conductor that passes through unbroken counts as one. A conductor that loops through with an unbroken length of at least twice the minimum free-conductor length in 300.14 counts as two. Pigtails that never leave the box do not count. Equipment grounding conductors are handled separately, below.",
+              "**Clamps, 314.16(B)(2).** If the box has one or more internal cable clamps, add one allowance total, based on the largest conductor present. External clamps and connectors that sit outside the box add nothing.",
+              "**Support fittings, 314.16(B)(3).** Each luminaire stud or hickey inside the box adds one allowance, at the size of the largest conductor present.",
+              "**Devices, 314.16(B)(4).** Each yoke or strap carrying a device (switch, receptacle, dimmer) adds two allowances, at the size of the largest conductor connected to that device. A yoke wider than a single gang adds two allowances per gang of width.",
+              "**Equipment grounding conductors, 314.16(B)(5).** All the equipment grounds in the box together add one allowance, based on the largest equipment grounding conductor present. If there is also an isolated (insulated) equipment ground for a separate circuit, that group adds one more.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The volume per allowance comes from Table 314.16(B)(1): 2.00 cubic inches for #14 AWG, 2.25 for #12, 2.50 for #10, 3.00 for #8 and 5.00 for #6. Those five numbers, and the five rules above, are the whole calculation.",
+          },
+        ],
+      },
+      {
+        heading: "A worked example: a two-gang switch box",
+        blocks: [
+          {
+            type: "p",
+            text: "A 4-inch square metal box with a two-gang ring and internal clamps, two switches (one single-pole, one three-way), fed by 14/2 NM cable, with a 14/2 out to a light and a 14/3 out to the other three-way. Count it.",
+          },
+          {
+            type: "list",
+            items: [
+              "Conductors: the 14/2 feed brings 2 insulated conductors; the 14/2 to the light brings 2; the 14/3 brings 3. That is 7 conductors at #14, 7 × 2.00 = **14.00 in³**. The bare grounds in each cable are not in this line.",
+              "Clamps: internal, so one allowance at the largest conductor (#14): **2.00 in³**.",
+              "Support fittings: none in a switch box: 0.",
+              "Devices: two single-gang yokes, two allowances each at #14: 4 × 2.00 = **8.00 in³**.",
+              "Equipment grounds: three bare #14 grounds, one allowance together: **2.00 in³**.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Total: 14.00 + 2.00 + 8.00 + 2.00 = **26.00 cubic inches**. A 4-inch square box 2⅛ inches deep is listed in Table 314.16(A) at 30.3 in³, so with a flat two-gang ring it passes with a little margin. The same 4-inch square box at 1½ inches deep is 21.0 in³ and fails, and that is exactly the box that gets installed when nobody counted (a raised ring with a marked volume might rescue it; see below). Swap the feed for 12/2 and the picture changes: the #12 conductors count at 2.25 each, and because the largest conductor in the box is now #12, the clamp, device and ground allowances all move up to 2.25 as well. That knock-on effect is the one people forget.",
+          },
+        ],
+      },
+      {
+        heading: "The mistakes that fail inspection",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Counting devices once.** A yoke is two allowances. Two receptacles in a two-gang box are four, not two.",
+              "**Counting each ground.** All equipment grounds together are one allowance (plus one more for an isolated ground), no matter how many cables enter.",
+              "**Using the wrong size for the allowance.** Clamps, fittings and grounds are sized by the largest conductor in the box; devices by the largest conductor connected to them. Mixed #12 and #14 boxes are where this bites.",
+              "**Forgetting internal clamps.** One allowance if the box has them, zero if the cable is held by an external connector in a knockout.",
+              "**Counting pigtails and short jumpers.** Conductors that start and end inside the box are free.",
+              "**Trusting the box's nominal size.** A 'four-inch square' box can be 1¼, 1½ or 2⅛ inches deep, with volumes from 18.0 to 30.3 in³. The depth is the number that matters, and it is the one not printed on the invoice.",
+              "**Ignoring the mud ring.** A raised plaster ring adds its marked volume and is often what turns a fail into a pass. Count it, and make sure it is actually marked.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Doing it on the phone",
+        blocks: [
+          {
+            type: "p",
+            text: "The box fill tool in Electrician Calculator Toolkit follows 314.16(B) line by line. You enter the conductors, clamps, support fittings, device yokes and equipment grounds in the box; it applies the volume allowance for each, based on the largest conductor where the code says so, totals the cubic inches and gives a pass or fail against the box you have. Every result names the table it came from, which is useful when the inspector asks and you want to point at 314.16(B)(4) rather than at an app.",
+          },
+          {
+            type: "p",
+            text: "It is one of eight tools in the app (voltage drop, wire size with derating, conduit fill, load and breaker, Ohm's law, resistor colour codes and the code tables are the others), all based on the 2023 NEC tables, all fully offline with no account, no ads and no subscription. It is a $3.99 one-time purchase on the App Store, iPhone only, 2.3 MB, available in 19 languages. The earlier post in this series walks through the [wire size, voltage drop and conduit fill flow](/blog/wire-size-voltage-drop-conduit-fill-iphone-electrician-calculator-walkthrough) for sizing a whole circuit; box fill is the last check before the cover goes on.",
+          },
+        ],
+      },
+      {
+        heading: "When the calculator is not enough",
+        blocks: [
+          {
+            type: "p",
+            text: "Box fill is a minimum, not a target. A box that passes at 26.0 of 30.3 cubic inches with a dimmer and a smart switch in it will still be miserable to close, because those devices are deeper than the two allowances assume. Experienced electricians size up a depth when there is a bulky device, regardless of the maths. The calculation also assumes you are using listed boxes and rings with marked volumes; a box with no marking and no table entry has no legal volume at all. And local amendments exist: some jurisdictions still enforce an earlier code edition, so check which year applies before quoting 2023 tables to an inspector who is working from 2020. The app does the counting; the judgement is still yours.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "does-sunscreen-expire-period-after-opening-cosmetics-tracker-android",
+    title: "Does Sunscreen Expire? Period-After-Opening Dates for Sunscreen, Skincare and Makeup, and How to Track Them on Android",
+    description:
+      "Sunscreen, mascara and moisturiser all have two clocks: the printed expiry and the period after opening (the little open-jar symbol). What the dates mean, how long common products last once opened, and a free Android app that reminds you before they go off.",
+    datePublished: "2026-10-16",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "The bottle of sunscreen from last summer is still half full, so you use it, and get burnt. The mascara has been open since a wedding you barely remember, and your eye is itchy. The expensive serum says nothing about a date at all. Cosmetics and sunscreen are the one category of things with an expiry where almost nobody tracks the date, partly because the labelling is confusing and partly because the products sit around for years. This post explains the two kinds of dates on a cosmetic label, how long the common products actually last once opened, and how to set up reminders for them on an Android phone in a few minutes.",
+          },
+        ],
+      },
+      {
+        heading: "The two dates on a cosmetic: expiry and period after opening",
+        blocks: [
+          {
+            type: "p",
+            text: "A packaged cosmetic can carry two different clocks. The first is a **printed expiry or best-before date**, the kind you are used to from food: a day, month and year (often as an hourglass symbol with a date beside it) after which the maker no longer guarantees the product. The second is the **period after opening**, or PAO: a small open-jar symbol with a number and the letter M inside or beside it, such as 6M, 12M or 24M. That number is how many months the product is good for **once you open it**, regardless of the printed date.",
+          },
+          {
+            type: "p",
+            text: "The two interact in a way that catches people out. A moisturiser with a best-before of 2028 and a 12M jar symbol, opened today, is done next October, not in 2028. In the European Union, products with a shelf life over 30 months are not required to carry an expiry date and show the PAO symbol instead; products with a shorter shelf life must show the date. That is why so many creams and lotions have only the open jar and no date at all: the date is whatever day you opened it, and you are the only person who knows it.",
+          },
+        ],
+      },
+      {
+        heading: "Does sunscreen expire?",
+        blocks: [
+          {
+            type: "p",
+            text: "Yes, and it matters more than for most cosmetics, because the failure is invisible. The UV filters in sunscreen degrade over time and faster with heat, so an old bottle looks and smells fine while protecting you less than the SPF on the label. In the United States the FDA regulates sunscreen as an over-the-counter drug and requires an expiration date on the package unless the manufacturer's stability testing shows it stays effective for at least three years; a sunscreen with no printed date can be treated as good for three years from purchase. Many sunscreens also carry a PAO of 6M or 12M for the opened bottle.",
+          },
+          {
+            type: "p",
+            text: "Three practical rules follow. First, write the date you opened it on the bottle, or log it, because the PAO clock starts then. Second, a bottle that spent the summer in a hot car or a beach bag has aged faster than its date suggests; if it has separated, changed colour or smells off, bin it. Third, if you are not getting through a bottle in a season, buy smaller bottles. Sunscreen is the product where 'probably still fine' is a bad bet.",
+          },
+        ],
+      },
+      {
+        heading: "How long common products last once opened",
+        blocks: [
+          {
+            type: "p",
+            text: "The PAO on your own product beats any general table, so check the jar symbol first. Where there is no symbol, these are the typical ranges manufacturers and dermatologists quote, and they are driven mostly by how often the product touches your skin or eyes and whether it contains water (which bacteria need) or is a dry powder (which they do not):",
+          },
+          {
+            type: "list",
+            items: [
+              "**Mascara and liquid eyeliner:** 3 to 6 months. Shortest of all, because the wand goes from your eye back into the tube every day. Replace sooner after any eye infection.",
+              "**Liquid foundation, concealer, BB and CC creams:** 6 to 12 months.",
+              "**Sunscreen (opened):** 6 to 12 months by PAO, within the printed expiry if there is one.",
+              "**Moisturisers, serums, eye creams:** 6 to 12 months for jars you dip fingers into, often longer for pumps and airless packaging; vitamin C and retinol products degrade faster and usually say so.",
+              "**Lipstick and lip balm:** 12 to 24 months.",
+              "**Powders (eyeshadow, blush, setting powder):** 24 months or more, unless they develop a hard film or a smell.",
+              "**Nail polish:** 1 to 2 years; it is unusable long before it is unsafe.",
+              "**Perfume:** 3 to 5 years if kept out of light and heat; it changes rather than spoils.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Whatever the number, the universal signs to stop using something are a change in smell, colour, texture or separation that does not shake back in, and any product that goes near the eyes after an infection. Clean hands and closed lids extend every range above; a jar on a steamy bathroom shelf shortens it.",
+          },
+        ],
+      },
+      {
+        heading: "Tracking cosmetic expiry on Android",
+        blocks: [
+          {
+            type: "p",
+            text: "The problem with PAO is that it needs a date you have to record yourself, on the day you open the product, for an item you will not think about again for six months. That is exactly what a reminder app is for. [Expiry Date Tracker](/apps/expiry-date-tracker) is a free Android app (Android 7.0 or later) built for food, medicine and cosmetics; here is how to use it for a bathroom cabinet.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Add the item the day you open it.** Tap Scan barcode and point the camera at the box or tube: if you have scanned it before, the name fills in from your history, and new barcodes are looked up in the free Open Food Facts database. That database is food-focused, so expect many cosmetics to come back without a match. No barcode, or no match? Tap Add by hand and type a name like 'Mascara (black, opened Oct)'.",
+              "**Set the date from the PAO, not the printed expiry.** The quick chips are +1w, +2w, +1m, +3m, +6m and +1y. For a 6M mascara tap +6m; for a 12M sunscreen tap +1y and nudge it back with the minus button, or type the date as YYYY-MM-DD. If the product has both a printed expiry and a PAO, enter whichever comes first.",
+              "**Pick a location.** The chips are Fridge, Freezer, Pantry, Medicine and Other; Other is the one for the bathroom. You can add a note like 'bathroom cabinet, top shelf' and a quantity if you keep spares.",
+              "**Choose the warning.** In Settings, reminders can fire 7, 3 or 1 day before (each also reminds you on the day), or on the day only, at 07:00, 08:00, 09:00, 12:00, 18:00 or 20:00. For cosmetics, 7 days before is the useful one: enough time to buy a replacement before the old one runs out.",
+              "**Tick it off when it is gone.** Marking an item used cancels its reminders. If you replace it with the same product, scan the barcode again and the name is instant.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The list is grouped into expired, expiring today, this week and later, so the mascara that is due surfaces at the top even if you have forty food items in the same list. Reminders are scheduled on the phone itself, so they work with no signal, and there is no account, no sign-up and no cap on the number of items. It is free with a small banner ad, with a one-time $1.99 purchase to remove the ad; there is no subscription. The app is available in 15 languages. If you already use it for the fridge, the setup is covered in the earlier [barcode and reminders walkthrough](/blog/expiry-date-tracker-android-setup-barcode-reminders), and the [medicine cabinet audit](/blog/medicine-cabinet-expiry-dates-android-first-aid-kit-audit) post applies the same method to first-aid kits.",
+          },
+        ],
+      },
+      {
+        heading: "A ten-minute bathroom audit",
+        blocks: [
+          {
+            type: "p",
+            text: "Take everything out of the cabinet and the makeup bag. For each product: look for a printed date and a jar symbol. If it has a date that has passed, or you are sure it was opened longer ago than its PAO, bin it (and note that empty sunscreen bottles usually recycle; half-full ones usually do not). For everything you keep, add it to the app with your best guess of the opening date; a rough date beats no date, and you will be exact from now on. Finally, buy a fine marker and write the opening month on new products as you open them, as a backup to the phone.",
+          },
+          {
+            type: "p",
+            text: "Where this is overkill: a lip balm you finish in a month, a powder you have had for years without issue, a bar of soap. Save the tracking for the products that matter: anything for the eyes, anything with SPF, anything expensive, and anything you only use a few times a year. Those are the ones where the date is the difference between a product that works and one that looks like it does.",
+          },
+        ],
+      },
+    ],
+  },
 ];
