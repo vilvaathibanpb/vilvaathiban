@@ -232,7 +232,7 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
   // Platforms come from the data: an App Store id means iOS, a Play url (only
   // set once the listing is live) means Android. `live` is the iOS release.
   // Only released apps get a store link. An unreleased id 404s on the App Store.
-  const onIos = Boolean(app.appStoreId);
+  const onIos = Boolean(app.appStoreId || app.iosPlanned);
   const storeUrl = onIos && app.live ? app.appStoreUrl || `https://apps.apple.com/app/id${app.appStoreId}` : null;
   const released = Boolean(storeUrl || app.playUrl);
   // Older iOS-first pages promise an Android build unless they opt out.
@@ -244,7 +244,7 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
   const free = app.price.amount === "0";
   const priceLabel = free
     ? ui.free
-    : (ui.priceOnce || "${amount} one-time").replace("{amount}", app.price.amount);
+    : app.price.display || (ui.priceOnce || "${amount} one-time").replace("{amount}", app.price.amount);
   // English-only apps (no translations) advertise just the English URL.
   const alternates = LANGS.filter((l) => !app.enOnly || l.code === "en").map((l) => ({ ...l, href: `${SITE}${l.path}/apps/${app.slug}` }));
   const pills = app.pills || ["onDevice", "offline"];
@@ -259,7 +259,7 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
     applicationCategory: isGame ? "GameApplication" : app.category || "UtilitiesApplication",
     operatingSystem: app.operatingSystem || (onIos ? (app.playUrl ? "iOS 15.1 or later, Android 7.0 or later" : "iOS 15.1 or later") : "Android 7.0 or later"),
     isAccessibleForFree: free,
-    offers: { "@type": "Offer", price: app.price.amount, priceCurrency: "USD", availability: released ? "https://schema.org/InStock" : "https://schema.org/PreOrder" },
+    offers: { "@type": "Offer", price: app.price.amount, priceCurrency: app.price.currency || "USD", availability: released ? "https://schema.org/InStock" : "https://schema.org/PreOrder" },
     ...(storeUrl ? { downloadUrl: storeUrl, installUrl: storeUrl } : {}),
     // Both store listings are the same app, so both belong in sameAs.
     ...(storeUrl || app.playUrl ? { sameAs: [storeUrl, app.playUrl].filter(Boolean) } : {}),
@@ -336,7 +336,7 @@ export default function AppLanding({ app, lang = LANGS[0], ui }) {
           <Logo src={`/apps/${app.iconBase}-logo.png`} alt={`${app.name} app icon`} width="112" height="112" />
           <div style={{ flex: 1, minWidth: 260 }}>
             <Pills>
-              <Pill>{free ? (app.freePill || ui.pillFree) : ui.pillPaid.replace("{price}", priceLabel)}</Pill>
+              <Pill>{free ? (app.freePill || ui.pillFree) : (app.paidPill || ui.pillPaid.replace("{price}", priceLabel))}</Pill>
               {pills.includes("onDevice") && <Pill fg="#1e40af" bg="#dbeafe">{ui.pillOnDevice}</Pill>}
               {pills.includes("offline") && <Pill fg="#6b21a8" bg="#f3e8ff">{ui.pillOffline}</Pill>}
             </Pills>

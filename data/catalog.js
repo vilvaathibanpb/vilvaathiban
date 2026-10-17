@@ -102,6 +102,16 @@ export const APPS = [
     ios: ios("electrician-calculator-toolkit", "6815115471"),
   },
   {
+    name: "Marutto: Homework Checker",
+    slug: "homework-marking",
+    tagline: "Photograph your child's worksheet and get it marked, with a redo sheet of the wrong ones.",
+    summary:
+      "Red circles for right answers, a mark for mistakes, and a \"please check\" flag when it isn't sure. One tap prints an A4 redo sheet of only the wrong questions. Math, plus Japanese kanji drills in beta.",
+    image: "/apps/homework-marking-logo.png",
+    badge: "iOS · ¥600/mo",
+    iosSoon: true,
+  },
+  {
     name: "Expiry Date Tracker: Scanner",
     slug: "expiry-date-tracker",
     tagline: "Scan a barcode, set the expiry date, get a reminder before it passes.",

@@ -2635,6 +2635,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.vilvaathiban.com/apps/homework-marking</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.vilvaathiban.com/apps/homework-marking/support</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://www.vilvaathiban.com/blog/react-useeffectevent-practical-guide</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>

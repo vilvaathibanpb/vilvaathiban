@@ -5,9 +5,14 @@
 //   genre                 -> schema.org genre for games
 //   androidPlanned: false -> no "Android coming" placeholder for iOS-only apps
 //   freePill              -> overrides the "Free iOS app" pill text
+//   paidPill              -> overrides the "One-time purchase" pill text (subscriptions)
+//   iosPlanned: true      -> iPhone app with no App Store id yet ("Coming soon" badge)
+//   price.display         -> overrides the "One-time purchase" price label
+//   price.currency        -> schema.org priceCurrency (default USD)
 // An entry without appStoreId is Android-only; playUrl is set only once live.
 const ENTRIES = [
   require("./police-call").default,
+  require("./homework-marking").default,
   require("./expiry-date-tracker").default,
   require("./mancala-offline").default,
   require("./idle-blacksmith").default,
