@@ -6466,4 +6466,358 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "teleprompter-for-webinars-and-live-streams",
+    title: "Teleprompter for Webinars and Live Streams: Script the Parts That Should Be Scripted, Wing the Rest",
+    description:
+      "A webinar is three scripted minutes wrapped around forty unscripted ones. How to use an iPhone teleprompter for the open, the transitions and the close without reading the whole hour, where to put the phone next to a webcam, and why a live stream needs a different setup from a recording.",
+    datePublished: "2026-10-17",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Nobody wants to watch a webinar that is read aloud. Everybody has sat through one that opened with ninety seconds of \"um, so, welcome, can everyone see my screen\", lost its thread at the handover to the demo, and ended with \"so yeah, that's it, I guess, thanks\". The fix for both problems is the same: script the small number of moments that are the same every time, and leave the rest alone. This post is about doing that with an iPhone teleprompter, for webinars you present from a laptop and for live streams where the camera is the phone itself.",
+          },
+        ],
+      },
+      {
+        heading: "The three minutes worth scripting",
+        blocks: [
+          {
+            type: "p",
+            text: "In a typical forty-five minute webinar, roughly three minutes are identical every time you run it, and those three minutes carry a disproportionate share of the impression you leave. They are:",
+          },
+          {
+            type: "list",
+            items: [
+              "**The open (60 to 90 seconds).** Who you are, what the session covers, what the viewer will be able to do afterwards, and the housekeeping: recording, questions, slides. This is where people decide whether to stay. It should be tight, confident and the same every time.",
+              "**The transitions (15 to 30 seconds each).** The handover from slides to demo, from demo to case study, from content to Q&A. These are where presenters ramble, because the brain is busy with the screen share rather than the words.",
+              "**The close (45 to 60 seconds).** The summary of the three things you want remembered, the one action you want taken, and where to find the recording and the follow-up. The close is the part most people improvise, and it is the part that decides whether anyone clicks the link.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Everything in between, the explanation, the demo, the answers, should not be on a prompter. You know the material, and the audience can tell the difference between someone explaining and someone reading. Write the open, the transitions and the close as separate short scripts, and treat the rest as notes.",
+          },
+        ],
+      },
+      {
+        heading: "Setup A: webinar from a laptop, phone as prompter",
+        blocks: [
+          {
+            type: "p",
+            text: "Most webinars are presented from a laptop with its built-in camera, through Zoom, Teams, StreamYard, Riverside or whatever the platform demands. The phone is not the camera here; it is the prompter. The way to use [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay) in this setup is to prop the phone directly beneath the laptop's webcam (or just below the external webcam on top of the monitor) and run the script with voice-follow scrolling on. You do not press record, because the laptop is doing the recording or the streaming. The script floats over the phone's own camera preview, and because the phone sits right under the lens you are looking at, your eyes stay within a few degrees of the webcam.",
+          },
+          {
+            type: "p",
+            text: "Voice-follow matters more here than in a recording. In a webinar you will stop to answer a question, go off script for a sentence, then come back. Classic auto-scroll keeps rolling while you are talking to the chat and you return to find the text three paragraphs ahead. Voice-follow listens for where you are and advances only when you say the words, so when you come back to the open or the close, the script is still waiting at the line you left. The [voice-follow vs auto-scroll comparison](/blog/voice-follow-vs-auto-scroll-teleprompter) goes through when each is the right choice; for anything live, it is voice-follow.",
+          },
+          {
+            type: "p",
+            text: "Two practical details. Turn the text size up: the phone is further from your eyes than it would be if you were filming on it, and the script should be readable without squinting. And mute the laptop microphone's view of the phone: the app's speech recognition runs on the phone, listening to you, and it does not need to be anywhere near the laptop's mic. Nothing is uploaded, because the recognition is Apple's on-device speech recognition, so it works just as well on a venue Wi-Fi that is being hammered by two hundred attendees.",
+          },
+        ],
+      },
+      {
+        heading: "Setup B: live stream where the phone is the camera",
+        blocks: [
+          {
+            type: "p",
+            text: "For an Instagram Live, a TikTok Live or a YouTube live stream from the phone, the situation is different, and it is worth being honest about it. iOS gives one app the camera at a time. If you are streaming from the Instagram app, Instagram owns the camera, and no other app can draw a script over its preview. A camera-overlay teleprompter cannot overlay a script on a live stream run by a different app; that is a platform limitation, not something an app can work around.",
+          },
+          {
+            type: "p",
+            text: "What you can do is use a second device. The phone that streams sits on the tripod; a second iPhone with the teleprompter runs the script beneath the lens, and you treat it exactly as in Setup A. If you only have one iPhone, the practical approach is to pre-record the scripted segments (the intro you play at the top, the sponsor read, the outro) using the app's own 4K recording, and go live unscripted for the conversation. Several streamers do exactly this: a polished recorded open, then the live part, then a recorded close.",
+          },
+          {
+            type: "p",
+            text: "If you are streaming through a desktop tool such as OBS with the phone as a camera source, the same rule applies: the phone's camera is being used by the capture app, so the script needs to be on a different screen. A laptop below the lens with the script in a text editor works, or a second iPhone with the app.",
+          },
+        ],
+      },
+      {
+        heading: "Writing webinar scripts that survive contact with an audience",
+        blocks: [
+          {
+            type: "p",
+            text: "A webinar script is a different animal from a 60-second video script. The audience is live, the chat is scrolling, and your attention is split. Three adjustments help.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Write in short lines with deliberate full stops.** Long sentences are fine when you can retake. Live, you need places to breathe, glance at the chat and come back. One idea per line.",
+              "**Put the housekeeping in square brackets, not prose.** \"[Check: recording on. Questions in the Q&A panel.]\" reads as a checklist, and you will say it in your own words rather than reciting a paragraph.",
+              "**Script the question-handling phrases.** \"Good question, I'll come back to that in the Q&A\" and \"Let me finish this section and then take that\" are worth having on the prompter, because the moment you need them is the moment you are least able to think of them.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Keep each script short enough to be a single screen or two in the app. The unlimited scripts library is there precisely so you can keep an \"open\", a \"demo handover\", a \"Q&A transition\" and a \"close\" as separate entries, and switch between them with a tap while the audience watches a slide.",
+          },
+        ],
+      },
+      {
+        heading: "The rehearsal that actually matters",
+        blocks: [
+          {
+            type: "p",
+            text: "Record the open and the close once, in the app, as if they were standalone videos. Watch them back. The point is not to produce a video; it is that a recording is the fastest way to hear whether a script sounds like you. If the open sounds like a press release, cut it by a third, which usually means deleting the sentence that explains why the topic is important. The audience signed up; they know. The post on [the most common teleprompter mistakes](/blog/most-common-teleprompter-mistakes-and-how-to-fix-them) covers the reading-voice problem in detail; the short version is that the fix is almost always a shorter script, not a better reader.",
+          },
+          {
+            type: "p",
+            text: "Then run the whole session once with the prompter in position but without reading from it. You will discover whether the phone is in your eyeline or whether you have to look down, whether the text size is right, and whether voice-follow picks you back up after you talk to the chat for a minute. Fix those in rehearsal, not at 10:02 with eighty people watching.",
+          },
+        ],
+      },
+      {
+        heading: "When not to bother",
+        blocks: [
+          {
+            type: "p",
+            text: "A small internal session, a working meeting, a weekly stand-up on camera: a prompter adds friction and takes away the conversational tone that makes those work. If the session is genuinely a conversation, a sticky note with three bullet points beats any script. The teleprompter is for the moments that are a performance, and the honest test is whether you would be embarrassed by a recording of how you currently open and close. If the answer is no, you do not need this post.",
+          },
+          {
+            type: "p",
+            text: "The other case is a webinar you are running for the twentieth time. By then the open is in your bones, and the prompter is a safety net you no longer look at. That is fine; leave it running under the webcam anyway. The day the Wi-Fi drops mid-sentence and you have to restart, it will be the thing that lets you pick up without a stumble.",
+          },
+        ],
+      },
+      {
+        heading: "What this costs",
+        blocks: [
+          {
+            type: "p",
+            text: "Teleprompter: Camera Overlay is free with occasional ads and a small one-time purchase to remove them; there is no subscription and no watermark on recordings. It runs entirely on the iPhone, works in airplane mode, and never uploads your script or your takes. It is iOS-only, so the second device in Setup B needs to be an iPhone.",
+          },
+          {
+            type: "p",
+            text: "Webinar scripts are short by design. The next post in this series deals with the opposite problem: reading long scripts, the ten-minute explainer or the full keynote, without losing your place when the words run to several screens.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "how-to-photograph-fireworks-on-iphone-diwali-bonfire-night-night-cam-fireworks-mode",
+    title: "How to Photograph Fireworks on iPhone This Diwali and Bonfire Night: Night Cam's New Fireworks Mode, Step by Step",
+    description:
+      "Diwali falls on 8 November 2026 and Bonfire Night three days earlier. Why fireworks come out as white blobs on a phone, how Night Cam's new Fireworks mode gathers three seconds of light trails and keeps video from blowing out, where to stand, and the settings to leave alone.",
+    datePublished: "2026-10-17",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Diwali is on Sunday 8 November 2026, and in the UK Bonfire Night lands on the Thursday before it. Between the two, more fireworks go up in one week than in the rest of the year, and more disappointing photos get taken. The pattern is always the same: a burst that filled the sky in real life becomes a smeared white blob on a black background, or a video where every rocket turns into a flashing rectangle. This guide explains why that happens, and walks through the new Fireworks mode in [Night Cam: Stars & Aurora](/apps/night-cam), which arrived in version 1.0.1 this month, along with the few things the app cannot fix for you.",
+          },
+        ],
+      },
+      {
+        heading: "Why fireworks defeat the default Camera app",
+        blocks: [
+          {
+            type: "p",
+            text: "A firework is two things the standard camera handles badly at once. It is very bright against a very dark sky, so the automatic exposure either clips the burst to pure white or buries the sky in noise trying to brighten it. And it is a moving light source: the trails you see with your eyes are your retina holding on to the light for a fraction of a second, which a photo with a short exposure cannot reproduce. A fast shutter freezes a handful of dots. A long, bright exposure turns the burst into a white splodge.",
+          },
+          {
+            type: "p",
+            text: "What you actually want is a long exposure that keeps the sky dark: enough time for the sparks to draw their lines, with the brightness held down so the lines stay coloured instead of burning out. That is a specific combination that the default Camera's Night mode does not aim for, because Night mode is built to brighten dark scenes, which is the opposite of the job.",
+          },
+        ],
+      },
+      {
+        heading: "What Night Cam's Fireworks mode does",
+        blocks: [
+          {
+            type: "p",
+            text: "Night Cam is a night-sky camera with presets for the kinds of scene the standard app struggles with: stacked long exposures for stars, a moon preset that exposes for moonlight, aurora stills and live aurora video, star trails, and a city preset for skylines. Version 1.0.1 added a Fireworks mode for both photo and video. The App Store release notes describe it precisely: photos gather three seconds of light trails, and video runs at a smooth 30 frames per second with the exposure kept dark so bursts do not blow out.",
+          },
+          {
+            type: "p",
+            text: "Three seconds is the key number. It is long enough for a rocket to climb, burst and let its sparks fall through most of their arc, so each shot captures a complete shape rather than a slice of one, and it is short enough that you can take a shot per burst during a display. The dark exposure on video is the other half: instead of letting the phone's automatic exposure chase each flash, the mode holds the brightness down so the colour in the burst survives.",
+          },
+          {
+            type: "p",
+            text: "The rest of the app's habits apply too. Every preset tells you how to hold the phone (tripod, wall or hand-held), there is a three-second countdown and a steadiness check before long shots, a red night-vision mode so you can see the screen without wrecking your night vision, and exposure is metered from the actual sky in front of you, so a fireworks display over a lit street and one over a dark field both come out right.",
+          },
+        ],
+      },
+      {
+        heading: "Step by step: photographing a display",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Get there early and pick a spot with the launch point in view.** Fireworks are launched from a fixed place; if you can see where the first rocket goes up, you can keep the camera pointed at the right patch of sky for the whole show. Upwind is better than downwind, because smoke drifts and after ten minutes a downwind crowd is photographing a glowing cloud.",
+              "**Put something in the frame that is not sky.** A silhouette of the crowd, a temple outline, the top of a building or a tree line gives the bursts a sense of scale. Pure black sky with a burst in the middle is the photo everyone already has.",
+              "**Steady the phone.** A three-second exposure hand-held will blur the trails into fat lines. A small tripod is ideal; failing that, brace the phone against a wall, a railing or the top of a fence post. The steadiness check will tell you if you are moving too much before the shot starts.",
+              "**Open Night Cam, choose Fireworks, photo.** Frame the patch of sky above the launch point with your foreground at the bottom. Switch on the red night-vision mode if the screen is dazzling you.",
+              "**Time the shot so the burst happens inside the three seconds.** Watch for the launch trail, tap, and let the shell burst while the exposure is gathering. If the app runs its countdown before the shot, tap earlier, as the rocket leaves the ground. It takes two or three attempts to get the timing; after that it is rhythm.",
+              "**Shoot more than you think you need.** Big bursts overlap, finales pile up, and some shots will be smoke. Twenty shots over a ten-minute display is a reasonable number; you will keep four.",
+              "**For video, use the Fireworks video preset and leave it running.** Thirty frames a second with the exposure held dark means the finale, the part that normally becomes a white flicker, stays coloured. Record the whole display rather than stopping and starting; it is easier to trim later than to miss the best burst.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Diwali versus a public display",
+        blocks: [
+          {
+            type: "p",
+            text: "The two nights are different photographic problems. A Bonfire Night or municipal Diwali display is a single launch point, a predictable rhythm and a fixed distance, which is what the steps above assume. Diwali at home or in a neighbourhood is dozens of small fireworks going off from the street, the terrace and the courtyard, close to you, at random, with sparklers and diyas in the foreground. For that, the long exposure is doing a different job: it turns a sparkler being waved into a drawn shape, and lets the diyas and string lights register as warm points rather than disappearing.",
+          },
+          {
+            type: "p",
+            text: "Two adjustments. Stand further back than feels natural, because a fountain firework at four metres will overwhelm any exposure, and because it is safer. And use the foreground deliberately: a row of diyas along a wall with fireworks going up behind them is the Diwali photo, and the three-second gather is exactly long enough to capture both. If you have children with sparklers, have them write a word or draw a circle during the exposure; the trail stays on the photo.",
+          },
+        ],
+      },
+      {
+        heading: "What the app cannot do",
+        blocks: [
+          {
+            type: "p",
+            text: "Honesty about the limits saves disappointment on the night. Night Cam cannot steady a phone you are holding in a cold hand at a crowded display; the tripod or the wall is not optional for the three-second photo. It cannot photograph through a window at night, because the reflection of the room will be brighter than the sky. It cannot make a smoky display look clear, which is why the upwind advice above is in bold in your head now. And it cannot do anything about the person in front of you holding their own phone above their head; that is why you get there early.",
+          },
+          {
+            type: "p",
+            text: "It also does not replace the built-in Camera for the daylight parts of the evening, the food, the rangoli, the family on the terrace before the dark. Use the standard app for those and switch to Night Cam when the first rocket goes up.",
+          },
+        ],
+      },
+      {
+        heading: "Price, privacy and requirements",
+        blocks: [
+          {
+            type: "p",
+            text: "Night Cam is free to download, with the first three captures free. After that, Night Cam Pro is a $4.99 one-time purchase for everything forever, or a Night Pass at $0.99 unlocks everything for 48 hours and does not renew, which is a sensible option if you only want it for the fireworks week. The forecast features (aurora chance, cloud cover, moon phase) are always free. There are no subscriptions, no ads, no account, no analytics and no tracking; photos go only to your Photos library, and the App Store privacy label is Data Not Collected. It is iPhone-only, needs iOS 18 or later, and is a 1.8 MB download, so it is worth installing on the evening even over a crowded network.",
+          },
+          {
+            type: "p",
+            text: "If you are travelling for Diwali and the skies are dark where you are going, the same app's star and aurora presets, covered in the [northern lights camera settings](/blog/iphone-camera-settings-northern-lights) and [Orionid meteor shower](/blog/photograph-orionid-meteor-shower-iphone-october-2026) guides, use the same tripod and the same patience. Fireworks are simply the one night sky subject that comes to you.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "how-to-play-mancala-kalah-rules-beginner-strategy-android-offline",
+    title: "How to Play Mancala (Kalah Rules) and Five Beginner Strategies That Beat the Computer, With a Free Offline Android Game to Practise On",
+    description:
+      "Mancala rules in plain English: the 6-pit, 4-stone Kalah setup, sowing, the extra turn, captures and how the game ends. Then five strategies that work against the computer, and how Mancala Offline on Android lets you practise with four difficulty levels, a daily puzzle and pass-and-play.",
+    datePublished: "2026-10-17",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Mancala is one of the oldest board games still played, and one of the quickest to learn: two rows of pits, a handful of stones in each, and a store at either end. The version almost everyone plays today is called Kalah, and its rules fit on an index card. The strategy does not, which is why a game that takes two minutes to teach can still be lost to a patient opponent twenty years later. This guide covers the rules as they are actually played, the five ideas that separate a beginner from someone who wins, and how to practise them on an Android phone with [Mancala Offline: Board Game](/apps/mancala-offline), a free game that works without an internet connection.",
+          },
+        ],
+      },
+      {
+        heading: "The board and the setup",
+        blocks: [
+          {
+            type: "p",
+            text: "A Kalah board has two rows of six small pits, one row per player, and a large pit at each end called a store. Your store is the one on your right. At the start, every small pit holds four stones, so there are 48 stones on the board and both stores are empty. The aim is simple: when the game ends, have more stones in your store than your opponent has in theirs.",
+          },
+        ],
+      },
+      {
+        heading: "The rules of Kalah, in four moves",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Sow.** On your turn, pick up all the stones from one of your own six pits. Drop them one at a time into the following pits, moving counter-clockwise: along your row towards your store, into your store, then along your opponent's row. You skip your opponent's store; your stones never go in there.",
+              "**Extra turn.** If the last stone you drop lands in your own store, you move again immediately. There is no limit to how many extra turns you can chain.",
+              "**Capture.** If the last stone lands in an empty pit on your own side, and the pit directly opposite on your opponent's side has stones in it, you capture: those opposite stones and your last stone all go into your store. If the opposite pit is empty, nothing happens and your turn ends.",
+              "**End and count.** The game ends the moment all six pits on either side are empty. Each player then sweeps any stones left on their own side into their own store. The bigger store wins; equal stores is a draw.",
+            ],
+          },
+          {
+            type: "p",
+            text: "That is the complete rule set. Two things trip up newcomers. First, when a pit has twelve or more stones, sowing goes all the way round the board, skipping the opponent's store, and the last stone can land back on your side, so a capture or an extra turn is still possible from a big pit. Second, the sweep at the end means stones left on your side at the finish are yours, which changes how you play the last few turns.",
+          },
+        ],
+      },
+      {
+        heading: "Five strategies that actually win games",
+        blocks: [
+          {
+            type: "p",
+            text: "The rules are symmetrical and there is no luck in Kalah, so the difference between players is entirely in these ideas.",
+          },
+          {
+            type: "list",
+            items: [
+              "**1. Count to your store.** The pit nearest your store needs exactly one stone to land in the store and earn an extra turn; the next pit needs two, the next three, and so on. Before every move, glance along your row for any pit whose stone count equals its distance from the store. Those are free moves: take them first, then make your real move.",
+              "**2. Chain the extra turns in the right order.** If two pits can both reach the store, play the one closer to the store first. Playing the far one first drops a stone into the near pit and breaks its count. Experienced players routinely take two or three extra turns in a row at the start of a game by sequencing this correctly.",
+              "**3. Hunt empty pits opposite full ones.** A capture is worth the whole opposite pit plus one. Look for an empty pit on your side that faces a loaded pit on theirs, and work out which of your pits can drop its last stone there. Big captures of six, eight or ten stones decide games.",
+              "**4. Do not leave your own full pits opposite their empties.** The same logic in reverse. If your opponent has an empty pit facing a pit of yours with eight stones, assume they can see it. Either move that pit, or fill their empty pit by sowing past it so the capture is no longer available.",
+              "**5. Play the ending by the sweep.** When one side is nearly empty, remember that stones left on your side go to you. Sometimes the strongest move is to hoard: keep stones on your row and let your opponent run out, because everything left on your side counts for you. The computer at higher levels does this to you; do it first.",
+            ],
+          },
+          {
+            type: "p",
+            text: "A sixth, which is really the first strategy applied to move one: in the starting position every pit holds four stones, so the fourth pit from your store is exactly four away from it. Play it and the last stone drops into your store, giving you a second move before your opponent has touched the board. Start there, then look along the row for the next pit whose count matches its distance.",
+          },
+        ],
+      },
+      {
+        heading: "Practising on Android with Mancala Offline",
+        blocks: [
+          {
+            type: "p",
+            text: "Reading about captures is one thing; seeing a Hard opponent take eight of your stones because you ignored rule four is what makes it stick. Mancala Offline is a free Android version of Kalah, built around practising against the computer. It uses the standard setup, six pits and four stones a side, and everything in it runs on the phone, so it works on a flight or a train with no signal.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Four computer levels.** Easy plays shallow and sometimes picks a random move, which is the right opponent while you are still learning to count to the store. Medium looks three moves ahead, Hard six, and Master searches up to nine moves ahead. Move up a level when you win two games in a row.",
+              "**World Tour.** Twelve opponents in order, from Amira in Cairo through Accra, Lagos, Nairobi, Istanbul, Manila, Havana and New York to a final Grand Master, with difficulty ramping between the four levels. You earn one star for a win, two for winning by six or more stones, three for winning by twelve or more; there are 36 stars to collect, and they unlock new boards and stone sets.",
+              "**Daily Puzzle.** A new position every day at midnight on the phone's clock, generated from the date. Each puzzle is either a capture puzzle (take a set number of stones in one turn) or a win puzzle (beat the Hard computer from a given position). Solving on consecutive days builds a streak, and capture puzzles are the fastest way to train strategy three.",
+              "**2 Players, one phone.** Pass-and-play on the same device, with each side lighting up when it is that player's move. No second phone and no connection needed, which makes it the version to teach a child or a grandparent on.",
+              "**Hints and undo.** A hint highlights a strong move and undo takes a move back. In the free version each costs a short optional ad; with Mancala Pro they are free.",
+            ],
+          },
+          {
+            type: "p",
+            text: "A useful way to use the hint button: play your move in your head, then tap Hint and compare. If the game suggests a different pit, work out why before you move. It is the closest thing to a coach that fits on a phone.",
+          },
+        ],
+      },
+      {
+        heading: "Getting it set up",
+        blocks: [
+          {
+            type: "p",
+            text: "Install [Mancala Offline from Google Play](https://play.google.com/store/apps/details?id=com.vilva.mancala). It needs Android 7.0 or later, no account and no sign-up; your progress, stars and streak are stored on the phone. The home screen offers Play vs Computer, World Tour, Daily Puzzle and 2 Players; start with Play vs Computer on Easy and the Walnut board, win a few, then try the first World Tour opponent.",
+          },
+          {
+            type: "p",
+            text: "The game is free with optional ads: rewarded videos you choose to watch for a hint or an undo, and an occasional full-screen ad between matches, never during one. There are no banner ads. Mancala Pro is a one-time purchase, with the price set in Google Play, that removes all ads, makes hints and undos free and unlocks every board and stone set at once; there is no subscription. In the EEA, UK and Switzerland, Google's consent form appears before any ad loads, and the Settings screen has an Ad privacy option to change your choice later.",
+          },
+        ],
+      },
+      {
+        heading: "Mancala Offline versus a wooden board",
+        blocks: [
+          {
+            type: "p",
+            text: "A real board is a lovely thing and this guide works for one just as well. What it cannot do is play you when nobody else is home, count the stones for you, or tell you that the move you were about to make hands over a seven-stone capture. The app does all three, and the pass-and-play mode means the wooden board and the phone are not really competitors: learn on the phone, play the family on the board. What the app does not offer, by design, is online play against strangers; it is a solo and same-room game, and that is the trade-off for working entirely offline.",
+          },
+          {
+            type: "p",
+            text: "Mancala Offline is on Google Play for Android first. There is no iPhone version yet; the [landing page](/apps/mancala-offline) will link to the App Store if one is released.",
+          },
+        ],
+      },
+    ],
+  },
 ];

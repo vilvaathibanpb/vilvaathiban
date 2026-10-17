@@ -1,5 +1,5 @@
 {
-  "lastRefreshed": "2026-10-03",
+  "lastRefreshed": "2026-10-17",
   "ios": [
     {
       "name": "Night Cam: Stars & Aurora",
@@ -9,7 +9,7 @@
     {
       "name": "Good Behavior Police Call",
       "storeUrl": "https://apps.apple.com/us/app/good-behavior-police-call/id6815485255",
-      "landingPath": null
+      "landingPath": "/apps/police-call"
     },
     {
       "name": "Warranty Tracker & Receipt Log",
@@ -73,6 +73,21 @@
       "name": "Chat Link & QR Code Maker",
       "storeUrl": "https://play.google.com/store/apps/details?id=com.vilva.watools",
       "landingPath": "/apps/chat-link-qr-code-maker"
+    },
+    {
+      "name": "Mancala Offline: Board Game",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.vilva.mancala",
+      "landingPath": "/apps/mancala-offline"
+    },
+    {
+      "name": "Idle Blacksmith: Forge Tycoon",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.vilva.idleblacksmith",
+      "landingPath": "/apps/idle-blacksmith"
+    },
+    {
+      "name": "Pack It Perfect: Packing Game",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.vilva.packit",
+      "landingPath": "/apps/pack-it-perfect"
     }
   ]
 }

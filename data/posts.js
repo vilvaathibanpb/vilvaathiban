@@ -7724,6 +7724,174 @@ node --import=tsx your-file.ts`,
       },
     ],
   },
+  {
+    slug: "scheduler-yield-break-up-long-tasks-inp-guide",
+    title: "scheduler.yield(): How to Break Up Long Tasks Without Losing Your Place, and What to Do in Safari",
+    description:
+      "scheduler.yield() lets a long JavaScript task hand control back to the browser and resume ahead of other queued work. How it differs from setTimeout(0), how priority and abort signals are inherited from postTask, a chunking pattern for loops, the feature-detect fallback for Safari, and where it helps INP.",
+    datePublished: "2026-10-17",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "A long task is any piece of main-thread work that runs for more than 50 milliseconds. While it runs, the browser cannot paint, cannot handle a click, and cannot scroll. Interaction to Next Paint (INP), the Core Web Vital that replaced First Input Delay, is largely a measurement of how often users hit one of those windows. The classic fix is to break the work into chunks and yield between them, and for years the only way to yield was `setTimeout(fn, 0)`, which has a nasty property: everything else that was already queued runs before your continuation does. `scheduler.yield()` is the browser API designed to fix that. This post covers what it does, how to use it in loops and event handlers, how it interacts with `scheduler.postTask()`, and how to write code that still works in Safari, which has not shipped it.",
+          },
+        ],
+      },
+      {
+        heading: "What scheduler.yield() does",
+        blocks: [
+          {
+            type: "p",
+            text: "`scheduler.yield()` returns a promise. Awaiting it pauses the current task, lets the browser run anything pending (input handlers, rendering, other tasks), and then resumes your code in a new task. The promise resolves with `undefined`, or rejects with the abort reason if the surrounding `postTask()` task was aborted. The feature is exposed on `globalThis.scheduler`, in window and worker contexts.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "async function processAll(items) {\n  for (const item of items) {\n    process(item);          // a few ms of work\n    await scheduler.yield(); // let input and rendering run\n  }\n}",
+          },
+          {
+            type: "p",
+            text: "The important difference from `setTimeout` is where the continuation lands in the queue. A `setTimeout(0)` callback goes to the back of the task queue, behind any tasks that were queued while you were working, so a page with a busy event loop can leave your half-finished job waiting for a long time. A `scheduler.yield()` continuation goes into a boosted queue for its priority level: it runs before ordinary tasks of the same priority, after anything of higher priority. In practice the browser prefers to finish the task that yielded over starting new ones, which is exactly what you want when you are in the middle of something.",
+          },
+        ],
+      },
+      {
+        heading: "Why setTimeout(0) is the wrong tool",
+        blocks: [
+          {
+            type: "p",
+            text: "Consider a click handler that updates the UI immediately and then does a heavier computation. With `setTimeout`, the pattern is: paint the spinner, schedule the computation, and hope nothing else gets in between. On a quiet page that works. On a page with analytics beacons, third-party scripts and a framework's own scheduling, the computation can land behind a pile of unrelated callbacks and the spinner spins for longer than the computation would have taken.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "button.addEventListener('click', async () => {\n  showSpinner();             // paints on the next frame\n  await scheduler.yield();   // continuation is prioritised\n  const result = heavyWork();\n  render(result);\n});",
+          },
+          {
+            type: "p",
+            text: "With `scheduler.yield()` the spinner still paints, input still gets handled, but `heavyWork()` runs as the next thing at user-visible priority rather than after whatever else happened to be waiting. Chrome's own description of the behaviour is that the continuation of a task is prioritised over starting new tasks.",
+          },
+        ],
+      },
+      {
+        heading: "Priority and abort signals are inherited from postTask",
+        blocks: [
+          {
+            type: "p",
+            text: "On its own, `scheduler.yield()` continues at `user-visible` priority, the default. Inside a `scheduler.postTask()` callback it inherits that task's priority, including a priority that was changed dynamically with a `TaskController`. That makes it the natural partner for background work: post a task at `background` priority, yield inside it whenever you like, and every continuation stays in the background queue, behind user-visible work.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "async function indexDocuments(docs) {\n  for (const doc of docs) {\n    addToIndex(doc);\n    await scheduler.yield(); // inherits 'background'\n  }\n}\n\nscheduler.postTask(() => indexDocuments(allDocs), {\n  priority: 'background',\n});",
+          },
+          {
+            type: "p",
+            text: "Abort works the same way. A `yield()` cannot be aborted directly, but when it runs inside a `postTask()` task that has a signal, aborting the task also rejects any pending yield inside it, with the abort reason. That gives you a clean way to cancel a chunked job halfway through: the loop is suspended at an `await`, the signal fires, the `await` throws, and your `try/finally` cleans up.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "const controller = new TaskController({ priority: 'background' });\n\nscheduler.postTask(async () => {\n  try {\n    for (const chunk of chunks) {\n      work(chunk);\n      await scheduler.yield(); // throws if controller.abort() ran\n    }\n  } finally {\n    cleanup();\n  }\n}, { signal: controller.signal });\n\n// later, e.g. when the user navigates away\ncontroller.abort('navigation');",
+          },
+          {
+            type: "p",
+            text: "If you have used `AbortSignal.timeout()` or `AbortSignal.any()` for fetch cancellation, this is the same mental model applied to CPU work; the [AbortController guide](/blog/abortcontroller-abortsignal-practical-guide) covers the signal side in more depth.",
+          },
+        ],
+      },
+      {
+        heading: "A chunking helper that does not yield too often",
+        blocks: [
+          {
+            type: "p",
+            text: "Yielding after every item is the simplest pattern and usually fine, but each yield costs a task boundary, so for very cheap per-item work a time budget is better: do work until you have used, say, 30 ms, then yield once. That keeps the number of tasks small while guaranteeing none of them crosses the long-task threshold.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "async function forEachYielding(items, fn, budgetMs = 30) {\n  let deadline = performance.now() + budgetMs;\n  for (const item of items) {\n    fn(item);\n    if (performance.now() >= deadline) {\n      await yieldToMain();\n      deadline = performance.now() + budgetMs;\n    }\n  }\n}",
+          },
+          {
+            type: "p",
+            text: "`yieldToMain()` here is a small wrapper rather than a direct call to `scheduler.yield()`, and the next section explains why.",
+          },
+        ],
+      },
+      {
+        heading: "Browser support and the Safari fallback",
+        blocks: [
+          {
+            type: "p",
+            text: "As of October 2026, `scheduler.yield()` is in Chrome and Edge from version 129, Firefox from 142, Opera from 115 and Samsung Internet from 28. Safari has not shipped it in any release up to 27.2, so the feature is not Baseline and sits at roughly three quarters of global page views. That means every call needs a feature check and a fallback, and the fallback should be `setTimeout`, accepting that you lose the prioritised continuation in Safari. The alternative is a `MessageChannel` trick, which yields faster than `setTimeout` (no clamping) but, like `setTimeout`, has no priority semantics.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "function yieldToMain() {\n  if (globalThis.scheduler && typeof scheduler.yield === 'function') {\n    return scheduler.yield();\n  }\n  return new Promise((resolve) => setTimeout(resolve, 0));\n}",
+          },
+          {
+            type: "p",
+            text: "Two things to keep in mind with the fallback. First, `setTimeout(0)` inside a `postTask()` background task does not inherit the background priority; the continuation becomes an ordinary macrotask. Second, if you are using TypeScript, the `scheduler` global is not in the default DOM lib; the `wicg-task-scheduling` type definitions package adds it, or you can declare it yourself. There is also a `scheduler-polyfill` package on npm which gives you `postTask()` and `yield()` in older browsers, with the caveat from Chrome's documentation that the polyfilled `yield()` does not support priority inheritance.",
+          },
+        ],
+      },
+      {
+        heading: "Where yielding helps INP, and where it does not",
+        blocks: [
+          {
+            type: "p",
+            text: "INP measures the time from an interaction to the next paint after it. Yielding helps when the slow part is work that does not need to happen before that paint: filtering a large list after a keystroke, re-indexing, serialising state, analytics, anything the user is not literally waiting to see. Update the DOM with whatever the user needs to see first, yield, and do the rest.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Do yield** between independent chunks of a loop, after giving immediate visual feedback, and before non-urgent follow-up work such as logging or prefetching.",
+              "**Do not yield** in the middle of a DOM mutation sequence the user will see half-finished, or inside code that must complete before the browser paints (for example a measurement followed by a layout change that depends on it).",
+              "**Measure first.** The Long Animation Frames API and the Performance panel in DevTools show which handler is long; yielding in the wrong place adds task boundaries without moving the metric.",
+              "**Prefer a worker for pure computation.** Yielding keeps the main thread responsive but the work still happens on it. If the job does not touch the DOM, a Web Worker removes it from the main thread entirely; `scheduler.yield()` is also available inside workers if the worker itself needs to stay responsive to messages.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Putting it together in React",
+        blocks: [
+          {
+            type: "p",
+            text: "React has its own scheduler and its own notion of priority (`startTransition`, `useDeferredValue`), and inside render you should use those rather than yielding manually. Where `scheduler.yield()` earns its keep is in the imperative work around React: a large JSON parse in an effect, a client-side search index build, an export routine that walks thousands of records. Run those with the chunking helper above, feed results back into state in batches, and the UI stays interactive while the job finishes.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "useEffect(() => {\n  let cancelled = false;\n  (async () => {\n    const index = createIndex();\n    await forEachYielding(records, (r) => index.add(r));\n    if (!cancelled) setIndex(index);\n  })();\n  return () => { cancelled = true; };\n}, [records]);",
+          },
+          {
+            type: "p",
+            text: "If the effect above looks familiar, the cancelled flag is the same pattern described in the [useEffect cleanup guide](/blog/react-useeffect-cleanup-function-guide); the only new part is that the loop now hands control back to the browser every 30 ms instead of blocking until it is done.",
+          },
+        ],
+      },
+      {
+        heading: "Summary",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "`await scheduler.yield()` pauses a task and resumes it ahead of other queued work at the same priority; `setTimeout(0)` resumes it behind them.",
+              "Inside `scheduler.postTask()`, yield inherits the task's priority and abort signal, so background jobs stay in the background and can be cancelled cleanly.",
+              "Yield on a time budget (around 30 ms) rather than after every item when per-item work is cheap.",
+              "Feature-detect and fall back to `setTimeout`: Chrome, Edge, Firefox, Opera and Samsung Internet support it; Safari does not as of 27.2.",
+              "Yield after the paint the user is waiting for, not before it, and move pure computation to a worker where you can.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
   ...mcpGuides,
 ];
