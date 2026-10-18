@@ -7892,6 +7892,171 @@ node --import=tsx your-file.ts`,
       },
     ],
   },
+  {
+    slug: "promise-withresolvers-is-not-a-function-fix",
+    title: "Promise.withResolvers is not a function: Why It Happens in Node 20, Older Safari and Jest, and Four Ways to Fix It",
+    description:
+      "TypeError: Promise.withResolvers is not a function means the runtime predates ES2024: Node 20 and below, Safari before 17.4, Chrome before 119, Firefox before 121, or a Jest/jsdom environment. The exact versions that support it, a two-line fallback, the core-js and es-shims polyfills, and how to make TypeScript stop complaining.",
+    datePublished: "2026-10-18",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "You copied the modern deferred pattern, it worked in Chrome and in Node 22 on your laptop, and then CI or a user's browser threw `TypeError: Promise.withResolvers is not a function`. Nothing is wrong with your code. `Promise.withResolvers()` is an ES2024 addition, and the runtime that threw simply does not have it. This post lists exactly which versions do, shows the one-line check that tells you whether you are on one, and gives four fixes ranked from least to most invasive. If you want the full tour of what the method is for, the [Promise.withResolvers practical guide](/blog/promise-withresolvers-practical-guide) has it; this post is only about the error.",
+          },
+        ],
+      },
+      {
+        heading: "What Promise.withResolvers does, in one paragraph",
+        blocks: [
+          {
+            type: "p",
+            text: "It returns an object with three properties: a new `promise`, and the `resolve` and `reject` functions that settle it. That is the deferred pattern, the thing every codebase used to hand-roll with a constructor callback and two outer variables, and it is useful whenever the code that creates a promise is not the code that will settle it: event bridges, request queues, a worker message you are waiting for, a test waiting for a callback.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "const { promise, resolve, reject } = Promise.withResolvers();\n\nsocket.once('open', resolve);\nsocket.once('error', reject);\n\nawait promise;",
+          },
+        ],
+      },
+      {
+        heading: "Which runtimes have it",
+        blocks: [
+          {
+            type: "p",
+            text: "Support arrived in a tight window around the turn of 2024, which is why the error is so common on anything pinned a year or two back. MDN marks the feature Baseline widely available, with cross-browser support dating from March 2024.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Chrome and Edge 119** (November 2023) and Opera 105.",
+              "**Firefox 121** (December 2023).",
+              "**Safari 17.4** on macOS and iOS (March 2024). Safari 16 and 17.0 to 17.3 throw.",
+              "**Node.js 22** (April 2024). Node 20, which reached end of life in April 2026 but is still widely deployed, does not have it; neither does Node 18.",
+              "**Deno 1.38** and later.",
+              "**Samsung Internet 23**.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The two cases that catch most teams are Node 20 in CI or in a serverless runtime that has not been bumped, and Safari on an iPhone or iPad that has not updated past 17.3. A third, less obvious one is Jest: if your tests run under `jest-environment-jsdom`, the `Promise` global inside the test environment can be the one from an older jsdom bundle rather than Node's, and `withResolvers` is missing even though your Node version has it.",
+          },
+        ],
+      },
+      {
+        heading: "Confirm the diagnosis",
+        blocks: [
+          {
+            type: "p",
+            text: "Before changing anything, prove that it is a missing method and not a shadowed `Promise`. In the environment that fails, run:",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "console.log(typeof Promise.withResolvers); // 'function' or 'undefined'\nconsole.log(process?.versions?.node ?? navigator.userAgent);",
+          },
+          {
+            type: "p",
+            text: "If the first line prints `undefined` and the version is older than the list above, you have the plain case. If the version is new enough and it still prints `undefined`, something in the environment has replaced the global `Promise`: a promise library, a polyfill bundle, or a test environment. The fix for that is to find the replacement, not to add another one on top.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 1: upgrade the runtime",
+        blocks: [
+          {
+            type: "p",
+            text: "If the failing environment is one you control, the cleanest fix is to stop running old engines. Node 20 reached end of life in April 2026 and no longer receives security fixes; moving CI and your serverless runtime to Node 22 or [Node 26](/blog/nodejs-26-lts-october-2026-which-node-version-to-use-new-release-schedule) removes this error and a dozen others. Check `.nvmrc`, `engines` in `package.json`, the `node` image tag in your Dockerfile and the runtime setting of your hosting provider; they are often out of step with each other.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 2: a two-line local fallback",
+        blocks: [
+          {
+            type: "p",
+            text: "If the failing environment is a user's browser, you cannot upgrade it. For a single call site, the quickest fix is a tiny helper that uses the native method when it exists and the classic constructor pattern when it does not. It has no dependencies and is easy to delete once your support matrix moves on.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "function withResolvers() {\n  if (typeof Promise.withResolvers === 'function') {\n    return Promise.withResolvers();\n  }\n  let resolve, reject;\n  const promise = new Promise((res, rej) => {\n    resolve = res;\n    reject = rej;\n  });\n  return { promise, resolve, reject };\n}\n\nconst { promise, resolve } = withResolvers();",
+          },
+          {
+            type: "p",
+            text: "This is the right answer for libraries, too. A library should never patch globals in its consumers' environment; a private helper keeps the behaviour identical everywhere and keeps the library honest about its own support range.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 3: polyfill the global once",
+        blocks: [
+          {
+            type: "p",
+            text: "If `Promise.withResolvers` is called in many places, or by a dependency you do not control, polyfill the global at the entry point of the application. Two maintained options exist. `core-js` ships it as `core-js/actual/promise/with-resolvers`, and the es-shims project publishes a standalone `promise.withresolvers` package with a `shim()` function that installs it only when missing.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "// Option A: core-js, at the very top of your entry file\nimport 'core-js/actual/promise/with-resolvers';\n\n// Option B: es-shims\nimport shim from 'promise.withresolvers/shim';\nshim();",
+          },
+          {
+            type: "p",
+            text: "Both must run before any module that uses the method, which in an ES module graph means putting the import first in the entry file, because imports are hoisted and evaluated in order. If you use Babel with `@babel/preset-env` and `useBuiltIns: 'usage'` plus a `browserslist` that includes Safari 17.3 or Node 20, the core-js injection happens automatically.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 4: the Jest case",
+        blocks: [
+          {
+            type: "p",
+            text: "When the error appears only in tests, check which environment the failing test file uses. With `testEnvironment: 'node'` you get Node's own `Promise`, which has the method on Node 22+. With `jsdom`, the simplest fix is a setup file that copies the native implementation across, or installs the fallback from Fix 2, before tests run:",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "// jest.setup.js (listed in setupFiles)\nif (typeof Promise.withResolvers !== 'function') {\n  Promise.withResolvers = function () {\n    let resolve, reject;\n    const promise = new this((res, rej) => {\n      resolve = res;\n      reject = rej;\n    });\n    return { promise, resolve, reject };\n  };\n}",
+          },
+          {
+            type: "p",
+            text: "Upgrading `jest-environment-jsdom` and `jsdom` to current versions also resolves it in most setups, because newer jsdom no longer replaces the `Promise` global.",
+          },
+        ],
+      },
+      {
+        heading: "Making TypeScript stop complaining",
+        blocks: [
+          {
+            type: "p",
+            text: "A related symptom is a compile error rather than a runtime one: `Property 'withResolvers' does not exist on type 'PromiseConstructor'`. That means your `lib` setting predates the feature. The declaration lives in `lib.es2024.promise.d.ts`, so set `\"lib\": [\"ES2024\", \"DOM\"]` (or `\"target\": \"ES2024\"` or newer, which pulls in the matching lib) in `tsconfig.json`. If you have to keep an older `target` for output reasons, keep the newer `lib` and let the polyfill or fallback handle the runtime; the type definition and the runtime support are independent settings.",
+          },
+        ],
+      },
+      {
+        heading: "Which fix to pick",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Your own CI, server or serverless runtime: upgrade Node (Fix 1).",
+              "A library or a single call site in app code: the local fallback (Fix 2).",
+              "Many call sites or a dependency that calls it: polyfill the global once at the entry point (Fix 3).",
+              "Only failing under Jest: the setup-file shim, or upgrade jsdom (Fix 4).",
+              "Red squiggles but it runs fine: bump `lib` in tsconfig.",
+            ],
+          },
+          {
+            type: "p",
+            text: "This error belongs to the same family as [AbortSignal.timeout is not a function](/blog/abortsignal-timeout-is-not-a-function-fix), [structuredClone is not defined](/blog/structuredclone-is-not-defined-fix) and [crypto.randomUUID is not a function](/blog/crypto-randomuuid-is-not-a-function-fix): a modern built-in, an engine that is one release too old, and a fix that is almost always either an upgrade or a five-line fallback. The method itself is worth keeping; the deferred pattern is clearer with it, and every current engine has it.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
   ...mcpGuides,
 ];

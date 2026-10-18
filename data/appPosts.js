@@ -6820,4 +6820,381 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "reading-long-scripts-without-losing-your-place-teleprompter",
+    title: "How to Read a Long Script on a Teleprompter Without Losing Your Place: Formatting, Pacing and Recovery",
+    description:
+      "Long scripts fail on teleprompters for predictable reasons: walls of text, a scroll speed that drifts, and no way back when you stumble. How to format a 10-minute script so your eye never hunts for the line, when voice-follow beats auto-scroll for length, and a recovery routine for the moment you lose your place on camera.",
+    datePublished: "2026-10-18",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "A sixty-second script is forgiving. You can half-memorise it, the text fits on two screens, and if you lose your place you start again and nobody minds. A ten-minute script is a different animal. Somewhere around minute four your eyes are tired, the scroll has drifted a sentence ahead of your mouth, you glance away to gesture, and when you look back every line looks like every other line. The take is dead, and so is the next one, because now you are afraid of it happening again. This post is about keeping your place in long scripts: how to format them so your eye lands where it should, how to choose a scrolling mode that holds pace for ten minutes instead of one, and what to do in the two seconds after you lose the line so the take survives. It follows on from the [webinars and live streams post](/blog/teleprompter-for-webinars-and-live-streams), where long reads are the norm.",
+          },
+        ],
+      },
+      {
+        heading: "Why long scripts go wrong",
+        blocks: [
+          {
+            type: "p",
+            text: "Three things conspire. The first is visual: a long script is usually pasted in as prose, and prose on a scrolling screen has no landmarks. Every line is the same width and the same colour, so when your eye leaves the screen it has nothing to come back to. The second is pace. Any scroll speed you set at the start is wrong by minute three, because you naturally speed up through familiar material and slow down for the parts you are less sure of. The third is fatigue. Reading, speaking and looking at a lens at the same time is work, and after a few minutes your attention starts to skip, which is exactly when you need the screen to be most forgiving.",
+          },
+          {
+            type: "p",
+            text: "None of these is a confidence problem. They are formatting, tooling and stamina problems, and each one has a mechanical fix.",
+          },
+        ],
+      },
+      {
+        heading: "Format the script like a map, not a page",
+        blocks: [
+          {
+            type: "p",
+            text: "Everything that follows applies to any teleprompter app; the examples use [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay) because it is free and the text sits next to the lens, which already removes one cause of lost places.",
+          },
+          {
+            type: "list",
+            items: [
+              "**One sentence per line.** Press return after every full stop. A line that ends where the thought ends gives your eye a natural resting point and makes the pause land in the right place.",
+              "**A blank line between beats.** Every time the subject changes, leave an empty line. On a scrolling screen those gaps become landmarks: you know you are in the section after the second gap.",
+              "**A short heading in capitals at every section.** INTRO, WHY IT MATTERS, THE THREE STEPS, WRAP. You will not read them aloud; they are signposts for your eye when you glance back.",
+              "**Short lines.** Turn the text size up until a line holds eight to twelve words. Long lines make your eyes travel sideways and that is where the drift starts.",
+              "**Mark the breaths.** A row of dots or a slash where you plan to breathe stops you running out of air in a long sentence, and makes the pause look deliberate on camera.",
+            ],
+          },
+          {
+            type: "p",
+            text: "A ten-minute script formatted this way is roughly twice as many lines as the prose version, and that is the point. The more structure the screen has, the less you depend on memory to know where you are.",
+          },
+        ],
+      },
+      {
+        heading: "Choose the scrolling mode for the length",
+        blocks: [
+          {
+            type: "p",
+            text: "For a minute of text, auto-scroll with a speed slider is fine, and the [voice-follow versus auto-scroll comparison](/blog/voice-follow-vs-auto-scroll-teleprompter) explains when each one wins. For a long script, the balance tips hard towards voice-driven scrolling, for one reason: drift accumulates. A speed that is five percent fast is invisible in a sixty-second read and is a full sentence ahead of you by minute four. Voice-follow has no drift, because the script moves when you speak and stops when you stop.",
+          },
+          {
+            type: "p",
+            text: "In Teleprompter: Camera Overlay the voice-follow mode uses Apple's on-device speech recognition, so nothing is uploaded and it works in airplane mode; it detects the script's language automatically and supports every language iOS can recognise on the device. The behaviour that matters most for long reads is that it finds your place again if you stumble: say the wrong word, backtrack half a sentence, and the highlight catches up with you rather than running on without you. If you have to pause to think, the text waits.",
+          },
+          {
+            type: "p",
+            text: "There are two cases where auto-scroll is still the right call for a long script. One is a read where you will deliberately depart from the text, improvising around bullet points, because voice-follow cannot follow words that are not on the screen. The other is a very noisy room. In both, set the speed slightly slower than you think you need and use the structure above so you can read ahead of the scroll and let it catch up.",
+          },
+        ],
+      },
+      {
+        heading: "Text size, contrast and where to look",
+        blocks: [
+          {
+            type: "p",
+            text: "Fatigue is mostly an eyes problem. Push the text size up further than feels natural; you want the current line readable without focusing hard. Keep the script directly beside the front lens so the distance between reading and eye contact is as small as possible; that is the whole reason the overlay sits where it does, and the [eye contact post](/blog/how-to-keep-eye-contact-with-the-camera) covers the angle. If you are using mirror mode with a glass rig, the same applies: large text, short lines, the current line near the lens.",
+          },
+          {
+            type: "p",
+            text: "One trade-off is honest to state. Bigger text means fewer lines on screen, which means less context around the current line. For a long script that is worth it; you need the current line and the next one, not the paragraph. For a script you know well and skim rather than read, a smaller size with more context can feel more natural. Try both on the same section before committing.",
+          },
+        ],
+      },
+      {
+        heading: "The recovery routine",
+        blocks: [
+          {
+            type: "p",
+            text: "You will still lose your place sometimes, and what happens in the next two seconds decides whether the take survives. Practise this until it is automatic.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Stop talking, keep your face still.** Do not say um, do not look down, do not laugh at yourself. A silent, thoughtful pause of two seconds reads as composure in the edit.",
+              "**Find the landmark, not the word.** Look for the nearest capitalised heading or blank line, then read down from it. Hunting for the exact word you were on is what makes people flounder.",
+              "**Restart at the start of a sentence.** Even if you lost the thread mid-sentence, go back to the sentence's first word. A clean sentence boundary is an easy edit point; a half-sentence is not.",
+              "**Carry on.** Do not restart the whole take. With one sentence per line, your editor can cut between any two lines; a ten-minute take with three clean restarts in it is a usable take.",
+            ],
+          },
+          {
+            type: "p",
+            text: "With voice-follow, step two mostly happens for you: pause, find the sentence, start it again, and the highlight meets you there. With auto-scroll you also have to bring the text back to the sentence you are restarting, which is one more reason voice-follow suits long reads. Either way the app records the whole thing to the takes library, the script never appears in the saved video, and the restart costs you nothing but a cut.",
+          },
+        ],
+      },
+      {
+        heading: "Rehearse the long way once",
+        blocks: [
+          {
+            type: "p",
+            text: "Record one full pass of a long script as a rehearsal, with no intention of using it, and watch it back at double speed. You are looking for the places where your eyes visibly search. Those are the sections to reformat: add a heading, split a sentence, put in a blank line. One rehearsal pass usually halves the number of lost places in the real recording. If you are producing a lot of long-form material, the [batch-recording post](/blog/batch-recording-a-week-of-content-in-one-sitting-teleprompter) describes how to fold that rehearsal into the session.",
+          },
+        ],
+      },
+      {
+        heading: "When not to read a long script at all",
+        blocks: [
+          {
+            type: "p",
+            text: "Some long videos should not be read. A conversational explainer where your personality is the point is often better from a bullet list and a few memorised lines than from a verbatim script, because the small imperfections are what make it feel live. A teleprompter earns its place when the wording has to be exact: a compliance script, a course module that will be transcribed, a product walkthrough with specific claims, a speech. If you are unsure, record two minutes both ways and ask which one you would rather watch.",
+          },
+          {
+            type: "p",
+            text: "Next in the series: font size, contrast and readability settings, a closer look at the small choices that decide whether a script is comfortable to read for ten minutes or only for one.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "toddler-wont-brush-teeth-six-things-that-work-pretend-police-call-iphone",
+    title: "My Toddler Won't Brush Their Teeth: Six Things That Actually Work, Including a Pretend Call From a Friendly Officer",
+    description:
+      "When a two- or four-year-old refuses to brush, the fix is rarely more insistence. Six approaches parents use, from letting them brush you to a two-minute song, plus how the Brushing teeth call in Good Behavior Police Call (free iPhone app) turns the job into a request from someone new, what the officer says, and when not to use it.",
+    datePublished: "2026-10-18",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "It is 7:40 in the evening. The bath is done, the pyjamas are on, and a small person with a closed mouth is shaking their head at a toothbrush as if it were a dentist's drill. You have asked nicely. You have asked less nicely. You have explained about sugar bugs, counted to three, and considered whether one skipped night really matters. (It does, a bit, and the dentist will ask.) If your toddler won't brush their teeth, you are in the single most common bedtime standoff there is, and the good news is that it usually responds to a change of approach rather than more of the same one.",
+          },
+          {
+            type: "p",
+            text: "Here are six approaches that parents report working, in rough order of how little effort they take. The fifth is a pretend phone call from a cartoon police officer, which sounds absurd until you watch a three-year-old open their mouth for a stranger they would never open it for you. It uses [Good Behavior Police Call](/apps/police-call), a free iPhone app, and this post explains exactly what the call says so you can decide whether it suits your child.",
+          },
+        ],
+      },
+      {
+        heading: "1. Let them brush you first",
+        blocks: [
+          {
+            type: "p",
+            text: "Toddlers refuse brushing partly because it is something done to them. Hand over a second brush and let them do your teeth, badly, for thirty seconds, then take your turn. The job becomes a game with turns rather than a procedure, and a child who has just had control is much more willing to give it up for a minute.",
+          },
+        ],
+      },
+      {
+        heading: "2. Two minutes of the same song",
+        blocks: [
+          {
+            type: "p",
+            text: "Pick one song that is about two minutes long and play it every single time. The predictability does two things: the child knows exactly when brushing ends, and the song becomes the cue. Within a couple of weeks many children start walking to the bathroom when they hear the opening bars. Dentists generally recommend two minutes twice a day for children once the first teeth are through, which is why two minutes is the length to aim for.",
+          },
+        ],
+      },
+      {
+        heading: "3. Brush the toy's teeth",
+        blocks: [
+          {
+            type: "p",
+            text: "A bear with an opened mouth, a doll, a dinosaur: brush its teeth first with great seriousness and ask your child to check you did it properly. Then it is the child's turn, and the toy watches. This works especially well with two-year-olds, for whom imitation is the main way anything gets learned.",
+          },
+        ],
+      },
+      {
+        heading: "4. A mirror and a count",
+        blocks: [
+          {
+            type: "p",
+            text: "Stand them on a step in front of the mirror so they can see their own teeth, and count aloud as you brush each section: top left, top right, bottom left, bottom right, front, tongue. Counting makes the end visible, and watching themselves takes the edge off the strangeness of having a brush in their mouth. Older toddlers like being told which number comes next.",
+          },
+        ],
+      },
+      {
+        heading: "5. A pretend call from Officer Pat",
+        blocks: [
+          {
+            type: "p",
+            text: "Sometimes the fourth \"teeth, please\" simply does not land, and a request from someone new does. That is the whole idea behind the Brushing teeth call in Good Behavior Police Call. You pick an officer, Officer Pat (bright and warm) or Officer Sam (calm and steady), choose the Brushing teeth call, and the iPhone rings like a real incoming video or voice call. Your child answers, and a friendly animated officer from the Good Behavior Patrol talks to them with real pauses for answers, asks for one small thing (tonight, the teeth), explains why the job matters in toddler terms (the app's own phrase is that sugar bugs love skipped teeth), and promises to check in afterwards.",
+          },
+          {
+            type: "p",
+            text: "The details matter for a cautious parent, so here they are. There are no sirens, no threats and no talk of trouble; the officer asks for one small thing and is pleased when it happens. Every word of every call is shown on screen before you ring, so you read it first and there are no surprises. The app never places a real phone call; it shows a pretend one inside the app, and it works offline. Officer Pat and Officer Sam are made-up characters, not connected to any police force. And you can delay the ring by 10, 30 or 60 seconds so you have time to hand the phone over, with the screen waiting on a pretend lock screen until the call arrives.",
+          },
+          {
+            type: "p",
+            text: "The part that makes it a routine tool rather than a one-off trick is the praise call. Once the teeth are done, a Great day or Super helper call can ring the next evening with good news, so the officer is someone your child is happy to hear from, not only someone who asks things of them. Bedtime and Great day are free forever; a one-time purchase of US $4.99 unlocks the other eleven calls, including Brushing teeth, and removes the small ads from the menu screens (there are never ads during a call). Every call is fully voiced in English, Spanish, French, German, Italian, Portuguese, Hindi, Japanese and Chinese, following your iPhone's language. The app is iPhone-only, rated 4+, and the developer collects no data.",
+          },
+          {
+            type: "p",
+            text: "If you are wondering whether a pretend police call is a good idea at all, we wrote about that honestly in [is a pretend police call bad for kids?](/blog/is-a-pretend-police-call-bad-for-kids-fear-vs-encouragement-good-behavior-police-call), and the [bedtime post](/blog/pretend-police-call-for-kids-bedtime-good-behavior-police-call-iphone) walks through the first call step by step.",
+          },
+        ],
+      },
+      {
+        heading: "6. Change what the brush is",
+        blocks: [
+          {
+            type: "p",
+            text: "A surprising number of refusals are about the brush, not the brushing: bristles that are too firm, a head that is too big, a toothpaste flavour the child dislikes. Try a soft small-headed brush, a mild or fruit-flavoured paste with the fluoride level your dentist recommends for their age, and let the child choose the brush colour. If your child gags or seems genuinely distressed rather than defiant, mention it to your dentist or health visitor; sensory sensitivity is common and there are gentler techniques for it.",
+          },
+        ],
+      },
+      {
+        heading: "When not to use the call",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Every night.** The call works because it is novel. Use it on the hard nights and lean on the song and the turns on the easy ones, or it becomes background noise.",
+              "**As a threat.** The call is written as a friendly request. If it is introduced as \"the police will call if you don't\", the gentle script cannot undo that framing. Introduce it as a fun call from a helper.",
+              "**With a child who is frightened of uniforms or phones ringing.** Some children are. Read the script on screen first, watch their reaction to the praise call before the nudge calls, and stop if it is not landing.",
+              "**Instead of the brushing.** The call gets the mouth open. You still do the two minutes, ideally with you brushing or finishing, since most children cannot brush effectively on their own until around seven or eight.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "A routine that holds",
+        blocks: [
+          {
+            type: "p",
+            text: "Put the pieces together and a bedtime that used to stall at the toothbrush looks like this: bath, pyjamas, the child brushes your teeth for thirty seconds, the song starts, you brush theirs to the count of six sections, and on a bad night Officer Pat rings two minutes earlier to ask if they are ready. The next evening, Officer Sam calls with good news about yesterday. None of it is magic. All of it is the same job, made into something a toddler wants to say yes to.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "idle-blacksmith-forge-tycoon-beginner-guide-when-to-pass-the-forge-android",
+    title: "Idle Blacksmith: Forge Tycoon Beginner's Guide: How Offline Earnings Work, What Every Upgrade Does, and When to Pass the Forge",
+    description:
+      "A beginner's guide to Idle Blacksmith: Forge Tycoon on Android: the forge-sell-reinvest loop, how apprentices and their x2 milestones work, what Hammer Weight, Bellows, Merchant Guild, Quench Barrel and Fame actually do, how offline earnings are calculated, and a simple rule for when to Pass the Forge for Legacy Embers.",
+    datePublished: "2026-10-18",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Idle games look simple from the outside: tap, wait, numbers go up. The interesting part is underneath, in the handful of decisions that separate a forge earning gold per second from one earning gold per millisecond. This guide is for anyone who has installed [Idle Blacksmith: Forge Tycoon](/apps/idle-blacksmith) on Android, tapped the anvil for a few minutes, and now wants to know what the tabs actually do and when to use the big red button in Legacy. Everything here is taken from the game itself; there are no secret mechanics, only ones that are easy to miss.",
+          },
+        ],
+      },
+      {
+        heading: "The loop in one paragraph",
+        blocks: [
+          {
+            type: "p",
+            text: "You tap the anvil. Each tap is a hammer strike on the weapon currently being forged; when the weapon is finished it sells automatically and the next one starts. Gold from sales buys three things: the next weapon in the Forge tab, apprentices in the Smiths tab who produce gold every second without you, and workshop upgrades. Apprentices keep earning while the game is closed. Once a run has earned a billion gold, the Legacy tab lets you Pass the Forge: everything resets except Legacy Embers, which permanently boost all future income. That is the whole game; the rest is knowing which of those to buy first.",
+          },
+        ],
+      },
+      {
+        heading: "The first ten minutes",
+        blocks: [
+          {
+            type: "p",
+            text: "Tap. Honestly, for the first few minutes tapping is your only income, and the game throws sparks on every strike so it is not dull. Some strikes land a Masterwork, which sells for ten times the normal price; early on a single Masterwork can pay for your next unlock. As soon as you can afford it, hire Pip the Copper Tinker, the first apprentice, because even a trickle of automatic gold compounds while you tap.",
+          },
+          {
+            type: "p",
+            text: "After that, alternate: unlock the next weapon in the Forge tab when it is affordable, because newer weapons pay more per strike, and level Pip between unlocks. The weapon order is dagger, sword, axe, mace and spear in each material, and the materials run Copper, Bronze, Iron, Steel, Silver, Mithril, Dragonbone and Starmetal, forty weapons in all. You will not see Starmetal in your first run. Do not worry about it.",
+          },
+        ],
+      },
+      {
+        heading: "Apprentices and the milestone doublings",
+        blocks: [
+          {
+            type: "p",
+            text: "There are eight apprentices, one per material, from Pip the Copper Tinker up to Astra the Star Smith. Each one produces gold per second from their own material line, and each one's output doubles at levels 10, 25, 50 and 100. Those milestones are the most important numbers in the game. Ten levels of an apprentice who is at level 9 is worth far more than ten levels of one at level 12, because the first set crosses a doubling. The Smiths tab offers x1, x10 and MAX buy buttons; a good habit is to use x10 to push an apprentice to the next milestone and MAX only when you are flush and nothing is close to a doubling.",
+          },
+          {
+            type: "p",
+            text: "A rough priority: level the cheapest apprentice to 10 first, then the next, and so on, before taking anyone to 25. Early doublings are cheap and the effect compounds through everything else you buy.",
+          },
+        ],
+      },
+      {
+        heading: "What each upgrade does",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Hammer Weight** doubles your strike power per level. It only affects your own taps, so it matters most early, when tapping is most of your income, and matters least late, when apprentices do the work.",
+              "**Bellows** makes apprentices work 1.5 times faster. This scales with every apprentice you own, so it gets better the more of them you have.",
+              "**Merchant Guild** raises all sale prices by 1.5 times. It applies to both your taps and your apprentices, which makes it the most consistently valuable upgrade from the mid-game on.",
+              "**Quench Barrel** adds 3 percent Masterwork chance per level. Masterworks sell for ten times, so each level is a steady increase in average income per strike; it is a tapper's upgrade more than an idler's.",
+              "**Fame** doubles all income. When you can afford it, buy it.",
+            ],
+          },
+          {
+            type: "p",
+            text: "If you only remember one thing: Merchant Guild and Fame multiply everything, Bellows multiplies the apprentices, Hammer Weight and Quench Barrel multiply you. Buy the ones that multiply whatever is currently earning most.",
+          },
+        ],
+      },
+      {
+        heading: "How offline earnings are worked out",
+        blocks: [
+          {
+            type: "p",
+            text: "When you come back, the game looks at your income per second at the moment you left and pays it out for the time you were away, up to a cap: two hours on the free version, eight hours with the Royal Charter. Absences under a minute are ignored. A Welcome back sheet shows the total, and you can collect it as is or double it by watching a short ad. Two practical consequences follow. First, the cap means a twelve-hour overnight absence pays the same as a two-hour one unless you have the Charter, so a quick check-in before bed and another in the morning beats one long gap. Second, because the rate is the one you left with, spend your gold on apprentices and multipliers right before you close the app rather than after you reopen it.",
+          },
+          {
+            type: "p",
+            text: "The Forge Chest is the other timer worth knowing: a free chest every four hours worth about ten minutes of income, with the option to open it a second time by watching an ad. The Royal Commission boost gives x2 income for four hours and stacks up to twelve, which is the thing to activate before a long tapping session rather than before putting the phone down.",
+          },
+        ],
+      },
+      {
+        heading: "When to Pass the Forge",
+        blocks: [
+          {
+            type: "p",
+            text: "The Legacy tab unlocks the Pass the Forge button once your current run has earned one billion gold in total. Pressing it resets gold, apprentices and upgrades, and gives you Legacy Embers: ten at one billion, and more for bigger runs, with the count growing with the square root of the gold earned. Each Ember adds 5 percent to all income permanently, so the twelve Embers shown on the game's own Legacy screenshot mean a flat 60 percent bonus on everything in every future run.",
+          },
+          {
+            type: "p",
+            text: "The square-root rule is the key to the timing question. Because Embers grow with the square root of gold, earning four times as much in a run gives you only twice as many Embers. That means the first Pass should happen fairly soon after you hit a billion, not after grinding to ten billion: a quick reset with ten Embers makes the next run to a billion dramatically faster, and the Embers from two short runs usually beat the Embers from one long one. A simple rule that works: Pass the Forge the first time you can, then on later runs Pass when the next billion is taking noticeably longer than the last one did, which is the sign that your multipliers have run out of cheap upgrades.",
+          },
+          {
+            type: "p",
+            text: "After a Pass, the game can show a full-screen ad, at most once every ten minutes and not in your first sessions. That is the only non-optional ad in the game; everything else is a rewarded video you choose to watch, and there are no banners.",
+          },
+        ],
+      },
+      {
+        heading: "Reading the big numbers",
+        blocks: [
+          {
+            type: "p",
+            text: "Gold is shown as K, M, B and T for thousand, million, billion and trillion, then Qa, Qi, Sx, Sp, Oc, No and Dc for quadrillion through decillion, and after that as letter pairs: aa, ab and onwards. If a price reads 3.2Qa and your balance reads 450T, you are about seven times short. The x1, x10 and MAX buttons exist so that once the numbers get silly you are not tapping a buy button four hundred times.",
+          },
+        ],
+      },
+      {
+        heading: "What the Royal Charter changes, and whether you need it",
+        blocks: [
+          {
+            type: "p",
+            text: "The Royal Charter is the game's single purchase, a one-time payment with no subscription, priced in Google Play. It removes ads, gives a permanent x2 income, lets you use boosts and the second chest opening without watching an ad, and raises the offline cap from two hours to eight. Whether it is worth it depends on how you play. If you check in a few times a day, the free version loses almost nothing. If you tend to leave the game overnight and over a working day, the eight-hour cap is the feature you would actually feel, and the x2 is a bonus on top. The game is complete without it; the Charter buys convenience, not content.",
+          },
+        ],
+      },
+      {
+        heading: "Practical notes for Android",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "The game runs entirely on the phone and needs no account; progress is saved locally every few seconds and when you leave the app. If you uninstall, the save goes with it, so do not uninstall to free space mid-run.",
+              "It works in flight mode. Internet is only used for optional ads and Google Play purchases, so if an ad will not load, the double-offline-earnings option simply is not available until you are back online.",
+              "It needs Android 7.0 or later and is listed on Google Play as containing ads and in-app purchases. The developer collects no data; Google AdMob processes some data to serve ads, as the privacy policy explains.",
+              "There is no iPhone version yet. Mancala Offline, from the same developer, is also Android-only for now, and the [Mancala rules and strategy guide](/blog/how-to-play-mancala-kalah-rules-beginner-strategy-android-offline) is the companion piece if you want a game that rewards thinking rather than patience.",
+            ],
+          },
+          {
+            type: "p",
+            text: "That is the whole system. Tap until Pip can take over, level apprentices to their doublings, buy the multiplier that matches where your income is coming from, spend before you close the app, and Pass the Forge early and often. The forge will be glowing when you get back.",
+          },
+        ],
+      },
+    ],
+  },
 ];
