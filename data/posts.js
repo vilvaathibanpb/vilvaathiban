@@ -8057,6 +8057,178 @@ node --import=tsx your-file.ts`,
       },
     ],
   },
+  {
+    slug: "tosorted-is-not-a-function-fix",
+    title: "toSorted is not a function: Why It Fails in Node 18, Older Safari, Jest and Some Build Targets, and Five Ways to Fix It",
+    description:
+      "TypeError: arr.toSorted is not a function means the runtime predates the ES2023 copying array methods: Node 18 and below, Safari before 16, Chrome before 110, Firefox before 115, or a jsdom-based Jest. How to tell which one you hit, the one-line fallback, core-js and TypeScript lib fixes, and when to just use slice().sort().",
+    datePublished: "2026-10-20",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "You reached for the immutable sort that every modern tutorial recommends, `items.toSorted((a, b) => a.price - b.price)`, it worked in your browser and on your laptop, and then CI, a serverless function or a customer on an older iPhone threw `TypeError: items.toSorted is not a function`. The method is real, it is standard, and the error is still correct: the JavaScript engine running that code does not have it.",
+          },
+          {
+            type: "p",
+            text: "This post is the companion to our guide to [toSorted, toReversed, toSpliced and with](/blog/javascript-tosorted-toreversed-tospliced-with-immutable-array-methods). That one explains what the methods do. This one is only about the error: where it comes from, how to find out which runtime produced it, and the fixes in order of how little they change.",
+          },
+        ],
+      },
+      {
+        heading: "What the error means",
+        blocks: [
+          {
+            type: "p",
+            text: "`Array.prototype.toSorted` was added to the language by the ES2023 change-array-by-copy proposal, together with `toReversed`, `toSpliced` and `with`. Any engine that predates its implementation has no such property on array prototypes, so `items.toSorted` evaluates to `undefined`, and calling `undefined` throws the familiar *is not a function* TypeError. It is the same failure shape as [`Promise.withResolvers is not a function`](/blog/promise-withresolvers-is-not-a-function-fix) and [`AbortSignal.timeout is not a function`](/blog/abortsignal-timeout-is-not-a-function-fix): new built-in, old runtime.",
+          },
+          {
+            type: "p",
+            text: "The minimum versions that ship it are Chrome and Edge 110, Firefox 115, Safari 16 (and iOS 16), Node.js 20 and Deno 1.31 or later. MDN marks the method as Baseline widely available since July 2023. That sounds old enough to be safe, and for the majority of users it is, but the long tail is exactly where this error lives.",
+          },
+        ],
+      },
+      {
+        heading: "Which runtime you are actually hitting",
+        blocks: [
+          {
+            type: "p",
+            text: "Before changing code, find out what threw. The usual suspects, roughly in order of how often they turn up in bug reports:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Node.js 18 or earlier** on a server, a CI runner, a Lambda or Cloud Function, or a Docker base image that pins an old LTS. Node 18 reached end of life in April 2025 but is still everywhere. Run `node -p process.version` in the failing environment, not on your laptop.",
+              "**Safari 15 and iPadOS or iOS 15**, which Apple still supports on older devices. Your crash reporter's user-agent breakdown will show it.",
+              "**Jest with jsdom**. Older `jest-environment-jsdom` versions run your tests in a jsdom window whose `Array` comes from a separate realm, and some combinations lack the ES2023 methods even when the underlying Node has them. The error then appears only under `npm test`.",
+              "**A JavaScript engine embedded in something else**: an older Hermes build in React Native, a webview on an old Android TV, a scripting engine inside a desktop app, or an edge runtime that lags V8.",
+              "**A bundler or TypeScript target that is fine, but a polyfill set that is not.** Transpiling syntax does not add built-ins; `target: es2015` does not make `toSorted` exist on an engine that lacks it.",
+            ],
+          },
+          {
+            type: "p",
+            text: "If you cannot get at the environment directly, a one-line probe in the code path tells you: log `typeof [].toSorted` next to `navigator.userAgent` or `process.version` once, ship it, and read the logs.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 1: use slice().sort() in that spot",
+        blocks: [
+          {
+            type: "p",
+            text: "The smallest change is to not use the new method where it fails. `toSorted` is, for arrays, exactly equivalent to copying and then sorting in place, so the pre-2023 idiom still does the job and runs everywhere:",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "// Before\nconst byPrice = items.toSorted((a, b) => a.price - b.price);\n\n// After: same result, works on every runtime\nconst byPrice = items.slice().sort((a, b) => a.price - b.price);\n// or\nconst byPrice = [...items].sort((a, b) => a.price - b.price);",
+          },
+          {
+            type: "p",
+            text: "The two differences worth knowing: `slice()` on a sparse array preserves the holes and `sort` then moves them to the end, whereas `toSorted` turns holes into `undefined` first; and `toSorted` always returns a plain `Array` even when called on a subclass, while `slice` returns an instance of the subclass. Neither matters for ordinary data, but if you had a reason to care about them, that is the reason to prefer the next fix.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 2: a polyfill, guarded",
+        blocks: [
+          {
+            type: "p",
+            text: "If `toSorted` appears in many places, or in a dependency you do not control, add the method to the prototype once, at the start of your entry point, only when it is missing. This keeps the native implementation where it exists.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "// polyfills.js, imported first\nif (typeof Array.prototype.toSorted !== 'function') {\n  Object.defineProperty(Array.prototype, 'toSorted', {\n    value: function toSorted(compareFn) {\n      if (compareFn !== undefined && typeof compareFn !== 'function') {\n        throw new TypeError('The comparison function must be either a function or undefined');\n      }\n      return Array.from(this).sort(compareFn);\n    },\n    writable: true,\n    configurable: true,\n  });\n}",
+          },
+          {
+            type: "p",
+            text: "`Array.from(this)` rather than `this.slice()` matters: it converts holes to `undefined` and always produces a plain array, which matches the spec. Define it with `Object.defineProperty` so the property is non-enumerable and does not show up in `for...in` loops over arrays in old code. If you also use `toReversed`, `toSpliced` and `with`, polyfill the whole set in the same file so you do not rediscover this bug one method at a time.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 3: core-js, if you already ship it",
+        blocks: [
+          {
+            type: "p",
+            text: "Projects that use Babel's `preset-env` with `useBuiltIns: 'usage'` and `corejs: 3`, or that import core-js directly, can get the standards-tracked polyfill instead of a hand-written one. The change-array-by-copy methods have been in core-js 3 since the proposal reached stage 3 in 2022, so any current 3.x release covers them; check the installed version before assuming an old lockfile does:",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "// Explicit import, once, in the entry file\nimport 'core-js/actual/array/to-sorted';\nimport 'core-js/actual/array/to-reversed';\nimport 'core-js/actual/array/to-spliced';\nimport 'core-js/actual/array/with';",
+          },
+          {
+            type: "p",
+            text: "Do not add core-js just for this; a four-line guarded polyfill is lighter than a new dependency. But if the polyfill pipeline is already there, letting it handle the method keeps your fix consistent with everything else it covers.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 4: upgrade the runtime",
+        blocks: [
+          {
+            type: "p",
+            text: "On the server this is the right fix rather than a workaround. Node 18 and Node 20 are both out of support (Node 20 reached end of life in April 2026), Node 22 and 24 are the current LTS lines, with [Node 26 becoming Active LTS in late October 2026](/blog/nodejs-26-lts-october-2026-which-node-version-to-use-new-release-schedule). Bump the `engines` field, the `.nvmrc` or `.node-version` file, the Dockerfile base image and the CI matrix together, because the error usually comes from the one place you forgot. For serverless, check the provider's runtime list: a function pinned to `nodejs18.x` will keep throwing no matter what your `package.json` says.",
+          },
+          {
+            type: "p",
+            text: "In the browser you cannot upgrade the user, so this fix only applies to the environments you own. Check your analytics for the actual share of Safari 15 and below before deciding whether a polyfill is worth it; for many consumer sites in 2026 it is well under one percent, but for an app used on older hospital iPads or school devices it may not be.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 5: Jest and jsdom",
+        blocks: [
+          {
+            type: "p",
+            text: "If the method is only missing under `npm test`, the problem is the test environment, not production. Upgrade `jest-environment-jsdom` and `jsdom` to current versions, which pick up the host Node's built-ins, and make sure Jest itself runs on Node 20 or later. If upgrading is not an option right now, load the guarded polyfill from Fix 2 through `setupFiles` in the Jest config so it runs inside the test realm before any test module is imported:",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "// jest.config.js\nmodule.exports = {\n  testEnvironment: 'jsdom',\n  setupFiles: ['<rootDir>/test/polyfills.js'],\n};",
+          },
+          {
+            type: "p",
+            text: "Putting it in `setupFilesAfterEach` or inside a test file is too late for modules that call `toSorted` at import time.",
+          },
+        ],
+      },
+      {
+        heading: "TypeScript says it does not exist, but it runs fine",
+        blocks: [
+          {
+            type: "p",
+            text: "The mirror-image problem is a compile error, `Property 'toSorted' does not exist on type 'number[]'`, with no runtime error at all. That is the TypeScript `lib` setting, not the engine. The copying methods are declared in `lib.es2023.array.d.ts`, so set `\"lib\": [\"es2023\", \"dom\"]` or `\"target\": \"es2023\"` (or newer) in `tsconfig.json`. If you must keep an older target for output reasons, add the newer lib explicitly; `target` and `lib` are independent. Remember that fixing the types does not add the method at runtime, so pair this with one of the fixes above if any of your runtimes is old.",
+          },
+        ],
+      },
+      {
+        heading: "Which fix to pick",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "One or two call sites, no polyfill pipeline: Fix 1, `slice().sort()`.",
+              "Many call sites or a dependency uses it: Fix 2, the guarded polyfill, loaded first.",
+              "Already on Babel plus core-js 3.26 or later: Fix 3.",
+              "The failing runtime is one you control (server, CI, Docker, serverless): Fix 4, and do it anyway.",
+              "Only fails in tests: Fix 5.",
+              "Compile error, not a runtime error: the `lib` setting.",
+            ],
+          },
+          {
+            type: "p",
+            text: "And whichever you choose, add the probe. One log line recording `typeof [].toSorted` alongside the runtime version turns the next report of this error from a mystery into a two-minute fix.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
   ...mcpGuides,
 ];

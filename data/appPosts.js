@@ -7197,4 +7197,400 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "teleprompter-font-size-contrast-and-readability-settings",
+    title: "Teleprompter Font Size, Contrast and Readability: The Settings That Decide Whether You Look Like You Are Reading",
+    description:
+      "How to set teleprompter text size, line length, contrast and scroll position on an iPhone so you can read at a glance without your eyes visibly tracking. A settings walkthrough for Teleprompter: Camera Overlay, with the trade-offs for distance, lighting and long scripts.",
+    datePublished: "2026-10-20",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Most people who look like they are reading on camera are not reading badly. They are reading text that is too small, too wide or too far from the lens, so their eyes have to travel to follow it, and the travel is what the viewer sees. The fix is rarely more practice. It is three or four settings that take a minute to get right and then stay right for every video after that.",
+          },
+          {
+            type: "p",
+            text: "This post is a settings walkthrough for [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay), the free iPhone app that floats your script over the camera preview next to the front lens. The principles apply to any prompter, but the specific controls, text size, mirror mode and the two scroll modes, are the ones in the app. If you have not sorted out your framing yet, read the [talking-head setup guide](/blog/talking-head-video-setup-guide-iphone) first; readability settings only work once the phone is where it should be.",
+          },
+        ],
+      },
+      {
+        heading: "The goal: read without moving your eyes",
+        blocks: [
+          {
+            type: "p",
+            text: "The whole problem of teleprompter readability comes down to one geometric fact. Your eyes can take in roughly a few words at a glance without moving, and the viewer cannot see a glance. What the viewer can see is a saccade, the small jump the eyes make to the next chunk of text, and especially the big jump back to the start of the next line. The more of those jumps per sentence, the more obviously you are reading.",
+          },
+          {
+            type: "p",
+            text: "So every setting below serves the same purpose: make each line short enough to take in with one look, make the text big enough that the look is effortless, keep the text as close to the lens as the layout allows, and keep the line you are reading in the same spot on the screen so your eyes never have to hunt for it. Do that and the remaining eye movement is small enough to disappear at normal viewing size.",
+          },
+        ],
+      },
+      {
+        heading: "Text size: bigger than feels natural",
+        blocks: [
+          {
+            type: "p",
+            text: "Almost everyone sets the text too small, because the phone is in their hand when they set it up and the text looks enormous at arm's length. Then they put the phone on a tripod a metre away and squint. The rule is to set the size from the recording position, not from the setup position. Put the phone where it will be, step back to where you will stand or sit, and adjust until you can read the current line comfortably without leaning in.",
+          },
+          {
+            type: "p",
+            text: "Text size is adjustable in both scroll modes, and for a phone at about a metre the useful setting is a lot larger than the one you would pick with the phone in your hand. At arm's length on a desk you can come down a few steps. Beyond about a metre and a half a phone screen is simply too small for comfortable reading at any size, which is one of the reasons the app records in portrait: it lets you keep the phone close and still frame yourself from the chest up. If you need more distance, for a full-body shot say, use larger text and shorter lines rather than fighting it, or move the script onto a bigger screen with a rig, which the [mirror mode and DIY rigs post](/blog/mirror-mode-and-diy-teleprompter-rigs) covers.",
+          },
+        ],
+      },
+      {
+        heading: "Line length: four to six words",
+        blocks: [
+          {
+            type: "p",
+            text: "Line length follows from text size, because bigger text means fewer words per line, and that is the point. Four to six words on a line is the sweet spot for a phone-width prompter: short enough to read in one or two glances, long enough that the scrolling does not feel frantic. Two-word lines make the script scroll like a slot machine; ten-word lines bring back the sideways eye travel you are trying to remove.",
+          },
+          {
+            type: "p",
+            text: "You get there with text size, not by typing line breaks, so the script wraps naturally at the width of the screen. The trick that helps most is to write the script in short sentences in the first place. A twenty-five-word sentence is three or four screen lines, and the long return journey at the end of each one is where eyes visibly jump. Our post on [writing a script that does not sound written](/blog/write-a-script-that-doesnt-sound-written) is really a readability post in disguise.",
+          },
+        ],
+      },
+      {
+        heading: "Overlay position: the lens, not the screen, is where you look",
+        blocks: [
+          {
+            type: "p",
+            text: "The app floats the script over the camera preview next to the front lens, which is the single biggest readability advantage a camera-overlay prompter has over a prompter that sits in a separate window or below the camera. The distance between the text you are reading and the lens is what sets the angle of your gaze, and that angle is what the viewer reads as eye contact or the lack of it. At a metre, a couple of centimetres of offset is invisible; a few more and you are visibly looking down.",
+          },
+          {
+            type: "p",
+            text: "What you control is the geometry around the phone: put the front lens at eye level, keep the phone in portrait so the lens sits at the top centre, and read the top of the scrolling text rather than the middle of the screen, since the top is closest to the lens. If the script covers your face in the preview, that is fine: the script never appears in the saved video, so what you see during the take is a guide, not the result. The [eye contact post](/blog/how-to-keep-eye-contact-with-the-camera) goes deeper on where to look.",
+          },
+        ],
+      },
+      {
+        heading: "Contrast and lighting: the setting you set with the lamp",
+        blocks: [
+          {
+            type: "p",
+            text: "The text sits over a live camera preview, so contrast is not a colour setting you pick in a menu, it is a question of what the camera is pointed at. A bright window behind you, a white wall, a pale shirt filling the middle of the frame: all of these put bright preview pixels behind the script and make it harder to read. The fix is to light yourself from the front rather than behind, and to frame so that the area behind the text is not the brightest thing in the shot. A darker, plainer background behind you reads better on camera anyway, so the two goals pull in the same direction.",
+          },
+          {
+            type: "p",
+            text: "Screen brightness matters more than people expect. Turn the phone's brightness up for the take and turn off auto-brightness, because a dimming screen mid-script is both hard to read and hard to notice while you are speaking. Outdoors in daylight, no prompter on a phone screen is comfortable; shoot in open shade and accept larger text and shorter takes.",
+          },
+        ],
+      },
+      {
+        heading: "Scroll settings: where the reading line sits",
+        blocks: [
+          {
+            type: "p",
+            text: "Readability is not only about the text you are on; it is about never having to look for it. In voice-follow mode the app scrolls to keep up with you, using on-device speech recognition, so the line you are speaking stays in the reading zone and you can pause, breathe or ad-lib without the text drifting away. In classic auto-scroll the speed slider is the setting to tune: too slow and your eyes drop lower and lower down the screen, further from the lens; too fast and you start racing it. Set it on a practice read of one paragraph, then leave it; a tap pauses the scroll and a drag jumps anywhere in the script if you do lose the line.",
+          },
+          {
+            type: "p",
+            text: "Either way the aim is for the line you are reading to sit in the same place on the screen for the whole take, as high and as close to the lens as the layout allows. The [voice-follow versus auto-scroll post](/blog/voice-follow-vs-auto-scroll-teleprompter) explains which mode suits which kind of video; for readability the difference is that voice-follow keeps the reading line stable automatically and auto-scroll asks you to pace yourself to keep it there.",
+          },
+        ],
+      },
+      {
+        heading: "Mirror mode: only with glass in the way",
+        blocks: [
+          {
+            type: "p",
+            text: "Mirror mode flips the text horizontally. It exists for beam-splitter rigs, where you read the script reflected in a piece of glass in front of the lens, and the reflection un-flips it. If you are reading straight off the phone screen, leave it off; mirrored text on a direct screen is unreadable, and it is the first thing to check if the script suddenly looks wrong. With a rig, mirror mode plus larger text is the standard combination, because the glass sits further from your eyes than the phone would.",
+          },
+        ],
+      },
+      {
+        heading: "A one-minute setup checklist",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Put the phone where it will record, then step back to where you will be.",
+              "Raise text size until the current line reads without effort from there.",
+              "Check the wrap: four to six words a line. If lines are longer, go bigger or shorten sentences.",
+              "Front lens at eye level, phone in portrait, and read the top of the text, nearest the lens.",
+              "Look at what is behind the text in the preview; light from the front and keep the brightest part of the frame out from behind the script.",
+              "Brightness up, auto-brightness off.",
+              "Do a ten-second practice read and watch where the reading line settles; adjust scroll speed or trust voice-follow.",
+              "Mirror mode off unless there is glass between you and the screen.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "When these settings will not save you",
+        blocks: [
+          {
+            type: "p",
+            text: "Readability settings fix a reading problem. They do not fix a script problem or a distance problem. If the script is dense with numbers, names and clauses, no font size will stop your eyes working hard; cut the script instead, and our post on [reading long scripts without losing your place](/blog/reading-long-scripts-without-losing-your-place-teleprompter) is the one to read. If the phone is two metres away for a wide shot, the honest answer is a bigger screen or a shorter script you can half-remember. And if your eyes are tired at the end of a long batch session, the small text that was fine at nine in the morning will not be fine at four; bump it a step before the last few takes rather than pushing through.",
+          },
+          {
+            type: "p",
+            text: "Get these right once and they become the defaults you never think about again. Next in this series: writing scripts for compliance-heavy topics, where medical, legal and financial wording has to be read exactly as approved and the prompter stops being a convenience and becomes the point.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "whatsapp-chat-statistics-who-talks-the-most-iphone-chat-export-studio",
+    title: "Who Talks the Most in Your WhatsApp Chat? How to Get Chat Statistics on iPhone Without Uploading the Conversation",
+    description:
+      "How to see who sends the most messages in a WhatsApp chat, the busiest hour, the most-used emoji and the total word count on iPhone, using the export file and Chat Export Studio: PDF, which parses everything on the phone and uploads nothing.",
+    datePublished: "2026-10-20",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Every group chat has one person who is sure they do not talk that much, and everyone else knows better. WhatsApp will not settle the argument for you. It shows message counts for storage, not per person, and there is no built-in way to see who sends the most, when the chat is busiest, or which emoji has quietly taken over. The data is all there, though, in the export file that WhatsApp itself produces, and reading it does not require handing the conversation to a website.",
+          },
+          {
+            type: "p",
+            text: "This post shows how to get WhatsApp chat statistics on an iPhone: messages per participant as counts and percentages, total messages and words, the busiest hour of the day, the date range, the media count and the most-used emoji. It uses [Chat Export Studio: PDF](/apps/chat-export-studio), which parses the export entirely on the phone. It is iPhone-only, a one-time purchase, and the same app that turns the export into a readable PDF, which our [export to PDF guide](/blog/export-whatsapp-chat-to-pdf-iphone) covers. This time the PDF is the side dish and the numbers are the point.",
+          },
+        ],
+      },
+      {
+        heading: "Why not one of the online chat analysers",
+        blocks: [
+          {
+            type: "p",
+            text: "Search for WhatsApp chat statistics and the first page is full of websites that ask you to upload your export. Some are fine. The problem is that you cannot tell which, and the thing you are uploading is a complete transcript of a private conversation between people who did not agree to it being uploaded anywhere. A group chat of eight friends is eight people's words, phone numbers in some exports, and every link and address that was ever shared. For a bit of fun about who talks most, that is a poor trade.",
+          },
+          {
+            type: "p",
+            text: "The on-phone approach removes the question. The export never leaves the iPhone, nothing is sent, no account is needed, and the app works in airplane mode if you want to prove it to yourself. The numbers come out the same either way; only the privacy differs.",
+          },
+        ],
+      },
+      {
+        heading: "Step 1: export the chat from WhatsApp",
+        blocks: [
+          {
+            type: "p",
+            text: "WhatsApp's export is the raw material. Open the chat, tap the contact or group name at the top, scroll down and tap Export Chat, then choose Without Media. For statistics you do not need the photos and videos, and leaving them out keeps the export small and fast; the media count still appears in the statistics because the export marks where each attachment was. WhatsApp then shows the share sheet with a .txt or .zip file. Choose Copy to Chat Export and the file opens in the app straight away. If the app is not in the first row of the share sheet, scroll the icons to the right or tap More.",
+          },
+          {
+            type: "p",
+            text: "Both the .txt and the .zip are accepted, and both 12-hour and 24-hour time formats, which matters because the busiest-hour statistic depends on the app understanding your phone's time format. If you want to try the whole thing before exporting anything real, the app includes a sample chat.",
+          },
+        ],
+      },
+      {
+        heading: "Step 2: read the statistics",
+        blocks: [
+          {
+            type: "p",
+            text: "Once the export is open, the statistics are immediate. What you get, and what each number is actually telling you:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Total messages and words.** Two different leaderboards hide in here. The person with the most messages is often not the person with the most words; one sends forty 'ok's a day, the other sends three paragraphs on a Sunday night.",
+              "**Messages per participant, as counts and percentages.** This is the number that settles the argument. In a group, the percentage is the fairer figure, because it says what share of the conversation each person carried.",
+              "**Busiest hour of the day.** The hour in which most messages were sent across the whole history. Family groups peak in the evening; work groups peak late morning; a chat that peaks after midnight tells its own story.",
+              "**Date range.** The first and last message in the export, which also tells you how far back your export reaches. WhatsApp's export covers the most recent messages only, commonly cited as up to 40,000 without media, so a very old group may not go back to its first day.",
+              "**Media count.** How many photos, videos, voice notes and documents were shared, counted from the placeholders in a without-media export.",
+              "**Most-used emoji.** Exactly what it sounds like, and usually the funniest line in the whole report.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Step 3: share the result, or keep it",
+        blocks: [
+          {
+            type: "p",
+            text: "If the point was to settle a group argument, a screenshot of the statistics is all you need to post back into the chat. If the point was something more serious, the same export becomes a clean, paginated PDF with every message in its own bubble, each sender in a colour, and page breaks that do not split a message. That is the version people send to HR, an insurer or a landlord when a conversation needs to be read by someone outside it; our [what export chat means post](/blog/what-does-export-chat-mean-in-whatsapp-android-and-how-to-turn-it-into-a-pdf) explains what is and is not inside an export before you share one.",
+          },
+        ],
+      },
+      {
+        heading: "Five things the statistics are surprisingly useful for",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**The anniversary post.** A couple's chat statistics on their anniversary, total messages and the most-used emoji, is a better card than most cards.",
+              "**Admin of a busy group.** Seeing that ninety percent of a community group's messages come from four people is the data you need before deciding whether to split it.",
+              "**Checking your own habits.** Exporting a chat you suspect you spend too long in, and seeing your own share and your busiest hour, is uncomfortably clarifying.",
+              "**Before archiving.** The statistics plus the PDF are a compact record of a chat you are about to delete, for a project that ended or a group that moved on.",
+              "**Language learners and writers.** Total words over a date range is a rough measure of how much you actually write in a language, from real conversation rather than exercises.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "What the statistics cannot tell you",
+        blocks: [
+          {
+            type: "p",
+            text: "Be honest with the numbers. They describe the export, not the relationship. A without-media export counts a voice note as one media item, so the person who sends ten-minute voice notes looks quiet on the message leaderboard. Deleted messages are gone, so a chat where someone deletes a lot will undercount them. The busiest hour is in the phone's time zone at export time, which can shift a result for a group spread across countries. And the date range is bounded by how far back WhatsApp's export reaches, so the lifetime total of a very old chat is a lifetime-of-the-export total.",
+          },
+          {
+            type: "p",
+            text: "None of that stops the statistics being useful; it just means they are a snapshot of what was exported. If a number is going to be used for anything that matters, read the PDF alongside it rather than quoting the figure alone.",
+          },
+        ],
+      },
+      {
+        heading: "Quick answers",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Can WhatsApp show who talks the most?** Not directly. Export the chat and read the statistics from the export file.",
+              "**Does the other person know I exported the chat?** No. Export is local to your phone and WhatsApp does not notify participants.",
+              "**Do I need to include media?** No. Export without media; the statistics still count attachments from the placeholders.",
+              "**Is anything uploaded?** With Chat Export Studio, nothing. Parsing and PDF generation happen on the iPhone, with no account and no analytics, and the app works offline.",
+              "**Is it free?** It is a one-time purchase on the App Store, with no subscription, and it is for iPhone only. Android users have a separate version; the [Android export guide](/blog/save-whatsapp-chat-as-pdf-android-for-hr-landlord-insurer) covers it.",
+              "**Which chats work?** Any export in WhatsApp's standard .txt or .zip format, one-to-one or group, 12-hour or 24-hour time.",
+            ],
+          },
+          {
+            type: "p",
+            text: DISCLAIMER,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "pack-it-perfect-packing-puzzle-tips-how-to-solve-every-level-three-stars-android",
+    title: "Pack It Perfect Tips: How to Solve Every Packing Puzzle Level With Three Stars, From the First Suitcase to the Road Trip Car Boot",
+    description:
+      "A strategy guide to Pack It Perfect: Packing Game on Android: how the grid, rotation and blocked cells work, a corners-first method that solves most levels without hints, how stars are scored, what the four chapters change, and when a hint or a skip is the right call.",
+    datePublished: "2026-10-20",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Packing puzzles look like they should be easy, which is exactly why the eighth level of a chapter can stop you dead. You have a suitcase, a tray of a dozen items, and a growing suspicion that the teddy bear does not fit anywhere. It always does. Every level in [Pack It Perfect](/apps/pack-it-perfect) is built so that the items you are given fill the container exactly, with nothing left over, so the puzzle is never whether it fits but where and which way round.",
+          },
+          {
+            type: "p",
+            text: "This is a strategy guide for the Android game: how the mechanics actually work, a method for placing items that solves most levels without a hint, how the three-star scoring treats hints and fiddling, what changes across the four chapters, and the honest answer to when you should just use a hint. If you have not installed it yet, it is free on Google Play with optional ads, works fully offline, and needs no account.",
+          },
+        ],
+      },
+      {
+        heading: "How the puzzle actually works",
+        blocks: [
+          {
+            type: "p",
+            text: "Each level gives you a container and a tray. The container is a grid: a suitcase, a moving box, a picnic basket or a car boot, each with its own shape. Every item in the tray covers a fixed set of cells in a fixed shape, so a long item covers a row of cells and a boxy one covers a square. You drag an item from the tray onto the grid; a preview shows where it will land and it snaps into place, or springs back to the tray if it does not fit. Tap an item, in the tray or once placed, and it turns ninety degrees. Drag a placed item out again to rearrange. When every item is in and every free cell is filled, the lid closes and zips shut.",
+          },
+          {
+            type: "p",
+            text: "The two rules that matter for strategy are these. First, there is always a solution that uses every item and fills every cell, so if you have a gap that matches nothing in your tray, something already placed is in the wrong spot or facing the wrong way. Second, some containers have blocked cells you cannot use, the handle of a picnic basket or the wheel wells of a car boot, and those blocked cells are the whole difficulty of the later chapters.",
+          },
+        ],
+      },
+      {
+        heading: "The corners-first method",
+        blocks: [
+          {
+            type: "p",
+            text: "Most people place items in the order they appear in the tray, which is the order most likely to paint you into a corner. Try this instead:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Count the awkward shapes first.** Before placing anything, look for the items that only fit in a few places: the long ones, the L-shapes, anything three or more cells in one direction. On a small suitcase grid a long item has very few legal positions, so decide those first.",
+              "**Walls and corners before the middle.** Put the biggest and most awkward items against the edges and into the corners. The middle of the grid is flexible; the edges are not, and an awkward shape stranded in the middle leaves gaps around it that nothing small can fill.",
+              "**Pack around the blocked cells next.** In a basket or a boot, treat the blocked cells as walls and fill the pockets beside them with the items that match their width. A one-cell-wide channel beside a wheel well needs a one-cell-wide item, so reserve one.",
+              "**Read the gaps, not the tray.** After each placement, look at the empty shape left over. If what remains is two separate regions, count the cells in each and check whether your remaining items can split that way. If they cannot, drag the last item back out rather than pushing on.",
+              "**Thin items last.** Single-row items are the only things that can fill a narrow slot, so keep them in the tray until the slots exist.",
+              "**Turn before you doubt.** When an item will not go anywhere, tap it to turn it before concluding the level is wrong. A surprising number of stuck moments are an item that needed one rotation.",
+            ],
+          },
+          {
+            type: "p",
+            text: "On the first chapter this is overkill, because the suitcase levels have only two to seven items. By the Road Trip chapter, with nine to twelve items on grids up to eight by seven, it is the difference between a two-minute solve and a ten-minute shuffle.",
+          },
+        ],
+      },
+      {
+        heading: "How stars are scored, and how to keep all three",
+        blocks: [
+          {
+            type: "p",
+            text: "Finishing a level without hints earns three stars. Each hint used takes one star away, and moving pieces around a lot more than a level needs also costs a star. You always get at least one star for finishing, and you can replay any level from the chapter map to improve your score. Skipped levels count as finished for the purpose of unlocking the next chapter, so a skip never locks you out.",
+          },
+          {
+            type: "p",
+            text: "The fiddling penalty is the one that catches people who are otherwise solving cleanly. It is not a punishment for thinking; it is a nudge against the strategy of dragging every item to every cell until something sticks. The corners-first method above is also the low-move method: deciding the awkward pieces before touching the screen is what keeps the move count down. If a level is going badly, pulling a couple of items back to the tray costs far fewer moves than reshuffling everything, and the reset button, which starts the level fresh, is often the cheapest route to three stars once you have a plan.",
+          },
+        ],
+      },
+      {
+        heading: "What changes across the four chapters",
+        blocks: [
+          {
+            type: "p",
+            text: "The game has sixty levels in four chapters of fifteen, each a tiny story with its own container:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Weekend Getaway**, Mia's first trip to the sea, is suitcases: regular rectangles, few items, and the place to learn that rotation exists.",
+              "**Moving Day**, Leo and Sam's first flat, is moving boxes: bigger grids and furniture-sized items such as a dresser, a bed and a monitor, where the long shapes start to dictate the layout.",
+              "**Picnic in the Park**, Grandma's Sunday picnic, introduces the basket, and with it the first blocked cells around the handle. This is where the method above starts paying for itself.",
+              "**Road Trip**, the family's drive to the mountains, is the car boot: the largest grids, the most items, and wheel wells that break the space into pockets. Count the pockets before you place anything.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Chapters unlock in order once all fifteen levels of the current one are finished, skips included. There is no timer, no lives and no account, so the only pressure is the one you bring.",
+          },
+        ],
+      },
+      {
+        heading: "When to use a hint, and when to skip",
+        blocks: [
+          {
+            type: "p",
+            text: "You start with three free hints. After those, a hint or a skip costs a short optional ad, or is free with Pack It Premium, the one-time purchase that also removes the occasional full-screen ad between levels. A hint places one item in its correct spot, which is more informative than it sounds: the item it chooses tells you which part of your layout was wrong, and you can often finish the level yourself from there.",
+          },
+          {
+            type: "p",
+            text: "The honest advice is to use a hint when you have been stuck for longer than the level is fun, not before. Packing puzzles reward sitting with the gap for thirty seconds, and the satisfying zip at the end is worth noticeably less after a hint. Save the three free hints for the Road Trip chapter, where a nudge is most valuable; burning them on a suitcase level in chapter one is the most common beginner regret. Skip when a level is blocking a chapter you want to see and come back later; a skipped level is always replayable, and the star it would have given you is still there to earn.",
+          },
+        ],
+      },
+      {
+        heading: "Android details worth knowing",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "The game needs Android 7.0 or later and plays fully offline; all sixty levels are built in. A connection is only used for optional ads and Google Play purchases.",
+              "Progress and stars are stored only on the phone. There is no account and no cloud save, so progress does not follow you to a new phone.",
+              "The sounds, soft pops, felt thunks, swishes, a zip and a stamp, come with gentle haptics; turn the phone's volume down for a silent commute.",
+              "Rewarded ads for hints and skips are only shown when you choose to watch one. In the EEA, UK and Switzerland the Google consent dialog appears first, as on any app that uses AdMob.",
+              "There is no iPhone version yet; the game is on Google Play for Android first.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "The one habit that solves most levels",
+        blocks: [
+          {
+            type: "p",
+            text: "If you take one thing from this guide: before you drag anything, find the item that has the fewest places it could go, and put it there. Then find the next one. Packing puzzles are not about speed or luck, they are about committing the hard shapes first and letting the easy ones fall into the gaps. Do that from the first suitcase and the car boot will not scare you.",
+          },
+        ],
+      },
+    ],
+  },
 ];
