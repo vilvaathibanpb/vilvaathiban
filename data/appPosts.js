@@ -7593,4 +7593,443 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "teleprompter-scripts-for-compliance-heavy-topics-medical-legal-financial",
+    title: "Teleprompter Scripts for Compliance-Heavy Topics: How to Record Medical, Legal and Financial Videos Word-for-Word Without Sounding Like a Disclaimer",
+    description:
+      "When the wording has been approved by legal, you cannot improvise. How to write and record compliance-heavy scripts on an iPhone teleprompter: separating approved sentences from your own, voice-follow for exact wording, keeping disclaimers readable, a reviewable take, and when a teleprompter is the wrong tool.",
+    datePublished: "2026-10-21",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Most of this series has been about sounding natural: writing like you talk, reading like you are not reading, keeping eye contact. Compliance-heavy video turns that advice on its head. If you are a doctor explaining a treatment, a financial adviser describing a product, a lawyer answering a common question, or a pharmacist recording a short for the clinic's account, there are sentences you must say exactly as approved, in the order approved, and the cost of a paraphrase is not a weaker video but a complaint, a takedown or a regulator's letter.",
+          },
+          {
+            type: "p",
+            text: "That is the one situation where a teleprompter stops being a convenience and becomes a control. This post is about using [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay) and a bit of script discipline to record regulated content word-for-word, while keeping the parts that are allowed to sound like you sounding like you. It is written for creators and professionals, not for compliance officers, and it is not legal advice about what your sector requires; your firm's or clinic's rules come first.",
+          },
+        ],
+      },
+      {
+        heading: "The problem with regulated scripts on camera",
+        blocks: [
+          {
+            type: "p",
+            text: "Approved wording is written to be precise, which usually means it is long, formal and full of qualifiers. Read it aloud without help and three things happen: you rush the disclaimer because it feels embarrassing, you unconsciously simplify a clause that was precise for a reason, or you freeze because you cannot hold a sixty-word sentence in your head. None of those are acting problems. They are memory problems, and a teleprompter is a memory tool.",
+          },
+          {
+            type: "p",
+            text: "The second problem is tone. If the whole video is delivered at disclaimer speed, nobody watches to the end, and the mandatory sentences protect nobody if the viewer has gone. The goal is a video with two registers: your own sentences, delivered naturally, and the approved sentences, delivered clearly and exactly. The script has to make the boundary between them obvious to you while you are recording.",
+          },
+        ],
+      },
+      {
+        heading: "Step 1: mark what is fixed and what is yours",
+        blocks: [
+          {
+            type: "p",
+            text: "Before anything else, go through the approved copy and separate it into two kinds of text. Fixed text is anything legal, compliance or the clinical lead signed off: risk statements, regulatory disclaimers, required balancing language, product names and the exact phrasing of any claim. Yours is everything else: the hook, the transitions, the example, the sign-off.",
+          },
+          {
+            type: "p",
+            text: "In the script itself, mark fixed text so you can see it at a glance. The app shows your script as plain text over the camera preview, so use a convention that survives that: put fixed sentences on their own lines, and start each with a short marker such as `[EXACT]`. You will read the marker silently, the same way you read a stage direction, and it tells you to switch registers. Keep your own sentences short and in your voice, as in [writing a script that doesn't sound written](/blog/write-a-script-that-doesnt-sound-written); the fixed sentences stay exactly as approved, even when they are clumsy.",
+          },
+          {
+            type: "p",
+            text: "One rule worth adopting: never edit an approved sentence for flow. If it is genuinely unsayable, send it back to whoever approved it and ask for a spoken version. A sentence that was approved in writing has not necessarily been approved in your mouth, and a tiny rewrite on your own initiative is exactly the kind of change that causes trouble later.",
+          },
+        ],
+      },
+      {
+        heading: "Step 2: use voice-follow for the fixed sentences",
+        blocks: [
+          {
+            type: "p",
+            text: "This is where the app earns its place. In voice-follow mode the script scrolls as you speak, matching your spoken words to the text using Apple's on-device speech recognition, and if you stumble or go back it finds your place again. For your own sentences that just means a natural pace. For fixed sentences it means something more useful: the text stays in front of you until you have actually said it, so you cannot skip a clause by accident, and if you fluff a word you can back up and say the sentence again without the script running away from you.",
+          },
+          {
+            type: "p",
+            text: "Classic auto-scroll is the wrong mode for this material. A constant speed is set for your average pace, and approved wording is where your pace is least average: you slow down, you restart, you breathe. With auto-scroll the disclaimer is the part most likely to scroll past half-read. If you have never compared the two, the trade-offs are in [voice-follow vs auto-scroll](/blog/voice-follow-vs-auto-scroll-teleprompter). For regulated content the answer is voice-follow, with one exception covered below.",
+          },
+          {
+            type: "p",
+            text: "Because recognition runs on the phone and nothing is uploaded, you can also use the app for drafts that are themselves confidential, a video about an unannounced product or a patient-facing script under review, without a cloud service seeing the text. The script is never in the saved video either; the recording is a clean clip.",
+          },
+        ],
+      },
+      {
+        heading: "Step 3: make disclaimers readable at speaking size",
+        blocks: [
+          {
+            type: "p",
+            text: "Fixed sentences tend to be the longest in the script, and long sentences are where reading errors happen. Three small changes help. Break each fixed sentence onto several short lines at the natural pauses, so a sixty-word clause becomes four or five lines you can take one breath at a time. Increase the text size for the recording of regulated segments if you find yourself squinting; the app lets you adjust it in both modes, and a size that is comfortable for chatty sentences can be too small for a dense one. And put a blank line before and after each fixed block, so the register change is visible before you reach it. We covered the readability side in more depth in [font size, contrast and readability settings](/blog/teleprompter-font-size-contrast-and-readability-settings).",
+          },
+          {
+            type: "p",
+            text: "Numbers, drug names and percentages deserve their own line each. They are the words most likely to be misread, and in regulated content they are the words that matter most. Writing `0.5 mg, twice daily` on its own line is slower to scroll past and much harder to say wrong.",
+          },
+        ],
+      },
+      {
+        heading: "Step 4: record the fixed segments as separate takes",
+        blocks: [
+          {
+            type: "p",
+            text: "You do not have to deliver a regulated video in one continuous take, and for anything with more than one mandatory block you probably should not. Record your own sections in the natural way, then record each fixed block as its own take, and cut them together. The app keeps every take in its library and never adds a watermark, so there is no cost to recording a disclaimer five times until it is exact.",
+          },
+          {
+            type: "p",
+            text: "Separate takes also solve the review problem. Whoever has to sign off on the final video can check the fixed segments against the approved text without watching the whole thing, and if one sentence changes next quarter you re-record one take rather than the entire video. This is the same batching logic as [recording a week of content in one sitting](/blog/batch-recording-a-week-of-content-in-one-sitting-teleprompter), applied to a single video.",
+          },
+          {
+            type: "p",
+            text: "Keep the original script file alongside the video, with the approval date in its name. In a year, when someone asks which version of the wording you recorded, that file is the answer, and the script library in the app is a reasonable place to keep it since scripts are unlimited and stay on the phone.",
+          },
+        ],
+      },
+      {
+        heading: "Step 5: deliver fixed text clearly, not slowly",
+        blocks: [
+          {
+            type: "p",
+            text: "The instinct with a disclaimer is to speed up and drop your voice, which is the delivery most likely to be flagged as not clear and prominent. The opposite instinct, reading it like a terms-and-conditions robot, loses the viewer. The delivery that works is the one you would use to explain an important detail to a friend across a table: slightly slower than your normal pace, every word audible, eye contact held. Because the script floats next to the front lens, you can keep your eyes on the camera through the whole block, and that steadiness reads as honesty, which is the whole point of the sentence.",
+          },
+          {
+            type: "p",
+            text: "If a sentence is approved but written in a way that sounds odd aloud, say it anyway and let the oddness be. Viewers understand a required statement when they hear one. A paraphrase that sounds smoother and is not approved helps nobody.",
+          },
+        ],
+      },
+      {
+        heading: "When a teleprompter is the wrong tool",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**When the wording is not actually fixed yet.** If you are still negotiating with compliance, recording is premature. A teleprompter makes you fluent in whatever text you give it, including the wrong draft.",
+              "**When the video must show you reading.** Some formats, such as a recorded statement or a signed disclosure read on camera, are expected to look read, and a visible sheet of paper is the honest prop. The teleprompter's strength, hiding the fact that you are reading, works against you there.",
+              "**When the fixed text is longer than your own.** If ninety percent of the script is approved copy, the video is really a narrated document. Record a voiceover over slides instead; the [voiceovers and podcasts](/blog/teleprompter-for-voiceovers-and-podcasts) post covers that workflow.",
+              "**When you need a transcript as the record.** A teleprompter is not a transcription tool; your script file and the recording are the records. If your rules require a verbatim transcript of the final cut, plan for a separate transcription step after editing.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "A short checklist",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Split the script into fixed and yours; mark fixed lines with `[EXACT]`.",
+              "Never edit approved wording for flow; send it back instead.",
+              "Voice-follow mode for every fixed block; the script waits until you say it.",
+              "One idea per line in fixed blocks; numbers and names on their own lines; larger text if needed.",
+              "Record fixed blocks as separate takes, and keep the dated script file with the video.",
+              "Deliver fixed text clearly at a slightly slower pace, eyes on the lens.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Done this way, a regulated video can still open with a hook and end with you, and the mandatory sentences in the middle will be exact, audible and reviewable. That is a better outcome for the viewer and for whoever signs it off than either a mumbled disclaimer or a wooden read.",
+          },
+          {
+            type: "p",
+            text: "Next in the series: once you have one carefully approved script, how to repurpose it across Reels, Shorts, TikTok and a longer YouTube version without re-approving every word.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "convert-voice-memos-voicemail-telegram-signal-audio-to-mp3-iphone-offline",
+    title: "How to Convert Voice Memos, Voicemails, Telegram and Signal Voice Messages to MP3 on iPhone (Offline, No Upload)",
+    description:
+      "Voice Memos, visual voicemail, Telegram and Signal all hand you .m4a or .ogg files that some players, car stereos and transcription tools refuse. How to get each one out, convert it to MP3 or lossless WAV on the iPhone itself with a free app, when you do not need to convert at all, and the limits.",
+    datePublished: "2026-10-21",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Most of what we have written about audio conversion on iPhone has been about WhatsApp, because its .opus voice notes are the file nobody can open. But the same conversion problem turns up in four other places that have nothing to do with WhatsApp: a Voice Memo you need to send to someone's old car stereo, a voicemail you want to keep as evidence or attach to an email, a Telegram voice message, and a Signal voice message. Each of those hands you a file that is perfectly standard and still gets refused somewhere.",
+          },
+          {
+            type: "p",
+            text: "This is a guide to getting each of those four out of its app and into MP3 or WAV on the phone itself, using [Voice Note Audio Converter](/apps/voice-note-audio-converter) (listed on the App Store as Opus to MP3 Converter), with an honest section on when you should not bother converting at all. It is iPhone-only in the steps below; the Android version works similarly but the share sheet and file paths differ.",
+          },
+        ],
+      },
+      {
+        heading: "First, do you actually need to convert?",
+        blocks: [
+          {
+            type: "p",
+            text: "Voice Memos and iPhone voicemail record in .m4a, which is AAC audio in an MPEG-4 container. Almost every modern phone, computer, email client and browser plays .m4a without complaint. If your only goal is to send a Voice Memo to another iPhone user or to someone on a laptop made in the last decade, share the .m4a and stop reading. Converting it to MP3 gains nothing and loses a little quality.",
+          },
+          {
+            type: "p",
+            text: "The cases where conversion is genuinely needed are narrower and very real:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Older hardware.** Car stereos with a USB port, cheap MP3 players, some conference phones and older Android devices often play MP3 and nothing else.",
+              "**Attachment and upload rules.** Some web forms, learning platforms and HR or legal portals accept .mp3 or .wav only and reject .m4a and .ogg outright.",
+              "**Editing and transcription.** Audio editors and speech-to-text tools are happiest with uncompressed WAV. Feeding them a compressed .m4a works but adds a decode step, and some refuse .ogg entirely.",
+              "**Telegram and Signal voice messages.** These are .ogg (Opus) or .m4a depending on the app and platform, and .ogg is the one that iOS cannot play in Files or Music at all.",
+              "**Keeping a copy that will still open in ten years.** MP3 and WAV are the two formats you can be reasonably sure will open anywhere, which matters for a voicemail you are keeping for a dispute.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "What the converter does with these files",
+        blocks: [
+          {
+            type: "p",
+            text: "The app's input list covers all four sources: .m4a and .aac for Voice Memos and voicemail, .ogg and .oga for Telegram and Signal, plus .opus, .mp3, .wav, .caf, .aiff, .flac, .amr and .3gp. Output is MP3 at 128 kbps or 16-bit WAV. Conversion happens on the phone: the file is decoded and re-encoded locally, nothing is uploaded, no account is needed, and it works with the network off. You can pick a batch of files in one go and each result gets its own Share button. It is free with a small banner ad and a one-time Remove Ads purchase for $0.99; there is no watermark, file limit or subscription.",
+          },
+          {
+            type: "p",
+            text: "Two things it is not: it is not a recorder, and it is not a transcriber. If you want the words rather than the audio, the sister app [Voice Note to Text](/apps/voice-note-to-text) does that on-device instead.",
+          },
+        ],
+      },
+      {
+        heading: "1. Voice Memos to MP3",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Open Voice Memos, tap the recording, then tap the three-dot (More) button and choose Share.",
+              "In the share sheet, pick the converter if it is listed, or choose Save to Files and put the .m4a somewhere you will find it, such as On My iPhone.",
+              "In the converter, tap Pick voice notes or audio files, select the memo (or several), choose MP3 or WAV and tap Convert.",
+              "Tap Share next to the result and send it to Files, Mail, AirDrop or the app that needs it.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Choose WAV if the memo is going into an editor or a transcription tool; choose MP3 if it is going to a car, an email or a website. A ten-minute memo becomes roughly 9 MB as MP3 and somewhere between 50 and 100 MB as WAV depending on the sample rate and channels, which is the main practical difference.",
+          },
+        ],
+      },
+      {
+        heading: "2. Voicemail to MP3",
+        blocks: [
+          {
+            type: "p",
+            text: "If your carrier supports Visual Voicemail, each message appears in the Phone app's Voicemail tab and can be shared as an audio file. Tap the voicemail, tap the Share button, and choose Save to Files or hand it straight to the converter. The file is .m4a. From there the steps are identical to a Voice Memo.",
+          },
+          {
+            type: "p",
+            text: "Two caveats. Not every carrier offers Visual Voicemail, and without it there is no file to share; you would have to play the message on speaker and record it, which is a last resort. And if the voicemail matters for a dispute, convert to WAV, keep the original .m4a as well, and note the date and number before you delete anything from the Phone app, because the file name the app gives you does not preserve the caller.",
+          },
+        ],
+      },
+      {
+        heading: "3. Telegram voice messages to MP3",
+        blocks: [
+          {
+            type: "p",
+            text: "Telegram voice messages are Opus audio in an .ogg container. iOS can play them inside Telegram and nowhere else: Files shows the file but will not play it, and the Music app will not import it. To convert one, long-press the voice message in Telegram, choose Share or Save to Files, then pick it in the converter the same way as a memo. Because the source is already compressed Opus, MP3 at 128 kbps keeps everything that was there; WAV is only worth it if you are going to edit the file.",
+          },
+          {
+            type: "p",
+            text: "If you receive many voice messages from the same person, save a batch to a folder in Files and convert the whole folder in one pass, then share each MP3 as needed.",
+          },
+        ],
+      },
+      {
+        heading: "4. Signal voice messages to MP3",
+        blocks: [
+          {
+            type: "p",
+            text: "Signal voice messages are .m4a or .ogg depending on the platform and version that recorded them, so a message from an Android contact can arrive in a different format than one recorded on iOS. The converter accepts both. In Signal, long-press the message, tap Save or Share, send it to Files, and convert from there.",
+          },
+          {
+            type: "p",
+            text: "Signal users tend to care about where their audio goes, so it is worth repeating the relevant fact: the conversion runs entirely on the phone. You can turn on airplane mode before you convert if you want to see that for yourself.",
+          },
+        ],
+      },
+      {
+        heading: "Choosing MP3 or WAV in one sentence",
+        blocks: [
+          {
+            type: "p",
+            text: "MP3 if the file is going somewhere to be played or stored; WAV if it is going somewhere to be edited or transcribed. For voice, 128 kbps MP3 is higher than the bitrate of any of the four sources, so you are not losing anything audible; WAV is lossless but ten times the size. If you are unsure, convert to both; it takes a few seconds and you can delete the one you do not use.",
+          },
+        ],
+      },
+      {
+        heading: "The limits, honestly",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "The converter cannot get a file out of an app that does not let you share it. Voice Memos, Phone (with Visual Voicemail), Telegram and Signal all do; some corporate voicemail apps do not.",
+              "It does not merge files, trim them or change the volume. For that, convert to WAV and open the result in GarageBand or a desktop editor.",
+              "Converted files are created in the app's cache and handed to the share sheet; save them to Files if you want to keep them, because the cache is not a library.",
+              "The picker shows every file type, not just audio, because iOS has no built-in type for some of these files. That is deliberate, but it means you have to know which file you are looking for.",
+            ],
+          },
+          {
+            type: "p",
+            text: "For the WhatsApp-specific version of this workflow, including where the .opus files hide, see our original guide to [converting a WhatsApp voice note to MP3 on iPhone](/blog/convert-whatsapp-voice-note-to-mp3-iphone); for the lossless route see [converting to WAV for editing and transcription](/blog/convert-whatsapp-voice-note-to-wav-iphone-lossless-for-editing-transcription-evidence).",
+          },
+          { type: "p", text: DISCLAIMER },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "what-is-a-ptt-opus-file-whatsapp-voice-note-android-open-convert-mp3",
+    title: "What Is a PTT .opus File? Where WhatsApp Hides Voice Notes on Android, Why They Will Not Play, and How to Open or Convert Them to MP3",
+    description:
+      "PTT-20261021-WA0007.opus is a WhatsApp voice note: PTT stands for push-to-talk, the date is when it was recorded, and .opus is the codec most Android players and PCs refuse. Where the files live on Android, how to read the name, three ways to open them, and how to convert a PTT .opus file to MP3 on the phone without uploading it.",
+    datePublished: "2026-10-21",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "You plugged the phone into a computer, opened the WhatsApp media folders, and found a pile of files named like `PTT-20261021-WA0007.opus`. Or someone forwarded you a voice note and your email client, car or laptop shrugged at it. Searching for the file name gets you forum threads from 2019 that say to install a desktop program. This is the short, current explanation: what the name means, where the files are on Android, why so many things refuse to play them, and the simplest way to turn one into an MP3 on the phone itself.",
+          },
+        ],
+      },
+      {
+        heading: "Decoding the name: PTT-20261021-WA0007.opus",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**PTT** stands for push-to-talk. WhatsApp uses it as the prefix for voice notes recorded by holding the microphone button in a chat, as opposed to audio files that were attached from storage, which get an **AUD-** prefix instead.",
+              "**20261021** is the recording date in year-month-day form: 21 October 2026. It is the date the note was recorded on the sender's phone, not the date you received it, which is why forwarded notes can carry old dates.",
+              "**WA0007** is a sequence number WhatsApp assigns to media on that day. It restarts and does not mean the seventh message in your chat.",
+              "**.opus** is the audio format. Opus is an open codec designed for speech at low bitrates, which is exactly why WhatsApp uses it: voice notes stay tiny and still sound clear.",
+            ],
+          },
+          {
+            type: "p",
+            text: "So a PTT .opus file is simply a WhatsApp voice note, with the date baked into the name. The name tells you nothing about who sent it; WhatsApp keeps that in its database, not in the file.",
+          },
+        ],
+      },
+      {
+        heading: "Where the files are on Android",
+        blocks: [
+          {
+            type: "p",
+            text: "On current versions of Android and WhatsApp, voice notes are stored under the app's media directory in internal storage. In a file manager such as Files by Google or Samsung My Files, browse to Internal storage, then `Android/media/com.whatsapp/WhatsApp/Media/WhatsApp Voice Notes`. Inside you will find folders named by year and week number, such as `202643`, and the PTT files inside those.",
+          },
+          {
+            type: "p",
+            text: "On older installs, or phones upgraded from a WhatsApp version before the 2021 storage change, the folder may still be at the top level of internal storage under `WhatsApp/Media/WhatsApp Voice Notes`. If you cannot see the `Android/media` folder at all, your file manager is hiding it; Files by Google shows it after you enable the option to show hidden files, and connecting the phone to a computer over USB in file-transfer mode shows it directly.",
+          },
+          {
+            type: "p",
+            text: "You do not need to go digging for ordinary use. For a single voice note, long-pressing the message inside WhatsApp and using Share is faster and avoids the folder entirely. The folder matters when you want many notes at once, when you are moving a backup, or when you are trying to recover a note from a chat you already deleted.",
+          },
+        ],
+      },
+      {
+        heading: "Why a PTT .opus file will not play",
+        blocks: [
+          {
+            type: "p",
+            text: "Android itself can decode Opus, and most Android music players will open an .opus file if you point them at it. The refusals come from everywhere else: Windows Media Player and older versions of Windows without the codec, car stereos and USB players that only know MP3 and WAV, email previews, many web upload forms, and a lot of transcription tools. On a PC the usual advice is to install VLC, which does play them, but that does not help when the destination is a car or a form.",
+          },
+          {
+            type: "p",
+            text: "There is a second, sneakier reason. Some WhatsApp voice notes are not Opus at all. Depending on the phone that recorded them and the WhatsApp version, a PTT file may be AAC audio inside an .m4a or .aac container, with the same PTT naming. A player that tries to decode the file by its extension can fail on these even when it supports Opus. A converter that reads the actual contents rather than trusting the name handles both.",
+          },
+        ],
+      },
+      {
+        heading: "Three ways to open a PTT .opus file on Android",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Play it where it is.** Tap the file in your file manager and choose a player that supports Opus, such as VLC for Android or most third-party music apps. This is enough if you only want to listen.",
+              "**Send it to a computer and use VLC.** Fine for a one-off on a PC you control. Not fine for a car, a website or a colleague who will not install software to hear a voice note.",
+              "**Convert it to MP3 on the phone.** The only option that makes the file play everywhere, and the one the rest of this post covers.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "How to convert a PTT .opus file to MP3 on Android",
+        blocks: [
+          {
+            type: "p",
+            text: "[Opus to MP3 Converter: Voice](/apps/voice-note-audio-converter) is a free Android app that converts .opus, .ogg, .m4a, .aac, .mp3 and .wav files, and more, to MP3 or WAV on the phone. The conversion runs locally: nothing is uploaded, there is no account or sign-up, and it works in airplane mode. It is free with a small ad banner, with no watermark and no file limit.",
+          },
+          {
+            type: "p",
+            text: "From inside WhatsApp, for one note:",
+          },
+          {
+            type: "list",
+            items: [
+              "Long-press the voice message, tap the three-dot menu or the Share icon, and choose Share.",
+              "Pick the converter in the Android share sheet. The note opens in the app ready to convert.",
+              "Choose MP3 for playing and sending, or WAV if you plan to edit or transcribe the audio, and tap Convert.",
+              "Tap Share next to the result to send the MP3 to Gmail, Drive, Files, Bluetooth or any app, or save it to your Downloads folder.",
+            ],
+          },
+          {
+            type: "p",
+            text: "From the folder, for many notes at once:",
+          },
+          {
+            type: "list",
+            items: [
+              "Open the converter and tap the button to pick audio files. The Android file picker opens.",
+              "Navigate to Internal storage, Android, media, com.whatsapp, WhatsApp, Media, WhatsApp Voice Notes, then into the week folder you want.",
+              "Select every PTT file you need. The app converts them one after another and lists each with its own Share button.",
+              "Share or save them individually, or save them all to a folder and copy that folder to your computer over USB.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Converting does not touch the originals in the WhatsApp folder, so the voice notes still play in the chat afterwards.",
+          },
+        ],
+      },
+      {
+        heading: "MP3 or WAV for a voice note?",
+        blocks: [
+          {
+            type: "p",
+            text: "A WhatsApp voice note is recorded at a low bitrate, so MP3 at 128 kbps keeps all of the quality that was there; the file ends up a few times larger than the .opus but still small enough to email. WAV is uncompressed 16-bit audio, about ten times larger again, and the right choice only when the next step is an editor or a speech-to-text tool that prefers raw audio. If you are converting to keep a voice note as a record, converting to both is a reasonable habit: the MP3 to play, the WAV as the clean master.",
+          },
+        ],
+      },
+      {
+        heading: "Where it does not help",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "A PTT file from a deleted chat only exists if the media folder still has it. If the note was deleted for everyone, or you cleared WhatsApp's storage, there is nothing to convert.",
+              "A voice note that was never downloaded (the message still shows a download arrow in the chat) is not in the folder yet. Download it in WhatsApp first.",
+              "Converting does not add who sent it or when you received it. If that matters, note it down or export the chat; our guide to [what Export Chat means on Android](/blog/what-does-export-chat-mean-in-whatsapp-android-and-how-to-turn-it-into-a-pdf) covers getting the whole conversation with its media.",
+              "If what you want is the words, not the audio, converting is a detour; [Voice Note to Text](/apps/voice-note-to-text) transcribes voice notes on the phone instead.",
+            ],
+          },
+          {
+            type: "p",
+            text: "For the related problem of a voice note that plays on the phone but not in the car or on a PC, see [why WhatsApp voice notes will not play elsewhere and how to fix it](/blog/whatsapp-voice-note-wont-play-car-pc-email-convert-opus-to-mp3-android).",
+          },
+          { type: "p", text: DISCLAIMER },
+        ],
+      },
+    ],
+  },
 ];

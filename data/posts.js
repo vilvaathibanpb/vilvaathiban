@@ -8229,6 +8229,168 @@ node --import=tsx your-file.ts`,
       },
     ],
   },
+  {
+    slug: "object-groupby-is-not-a-function-fix",
+    title: "Object.groupBy is not a function: Why It Fails in Node 20, Safari 17.3, Older Chrome and Some TypeScript Setups, and Five Ways to Fix It",
+    description:
+      "TypeError: Object.groupBy is not a function means the runtime predates ES2024 grouping: Node 20 and below, Safari before 17.4, Chrome before 117, Firefox before 119. How to tell which one you hit, the reduce fallback, core-js and es-shims polyfills, the TypeScript lib fix, and when Map.groupBy is the better call.",
+    datePublished: "2026-10-21",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "You wrote the grouping the way every recent article recommends, `Object.groupBy(orders, (o) => o.status)`, it worked in Chrome and on your laptop, and then a Lambda on Node 20, a Jest run on an older CI image, or a customer on an iPhone that has not been updated threw `TypeError: Object.groupBy is not a function`. The method is real and standard. The error is also correct: the JavaScript engine running that code does not have it.",
+          },
+          {
+            type: "p",
+            text: "This is the companion to our [guide to Object.groupBy and Map.groupBy](/blog/javascript-object-groupby-map-groupby-guide), in the same spirit as the fix posts for [toSorted](/blog/tosorted-is-not-a-function-fix) and [AbortSignal.timeout](/blog/abortsignal-timeout-is-not-a-function-fix): first work out which environment is missing it, then pick the smallest fix that matches how long you need to support that environment.",
+          },
+        ],
+      },
+      {
+        heading: "What the error actually means",
+        blocks: [
+          {
+            type: "p",
+            text: "`Object.groupBy` and `Map.groupBy` are the ES2024 grouping functions. They were originally proposed as `Array.prototype.group` and `groupToMap`, but that shape broke existing websites that had added their own `group` method to arrays, so the proposal was reshaped into two static functions. Engines shipped the static versions in late 2023 and early 2024: Chrome and Edge 117, Firefox 119, Safari 17.4, and Node.js 21. Anything older evaluates `Object.groupBy` to `undefined`, and calling `undefined` is the TypeError you are looking at.",
+          },
+          {
+            type: "p",
+            text: "The important detail for debugging is that the error is about the engine, not about your bundler. Babel and TypeScript lower syntax, not built-ins: a `tsc` target of `es2020` will happily emit `Object.groupBy(...)` unchanged, and the lower-target output still fails on an old engine. If you need the function on an old engine, something has to add it at runtime.",
+          },
+        ],
+      },
+      {
+        heading: "Step 1: find out which environment is missing it",
+        blocks: [
+          {
+            type: "p",
+            text: "The usual suspects, in rough order of how often they show up in bug reports:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Node.js 20 or older.** Node 20 ships V8 11.3, which predates grouping. Node 21 was the first release with it, and Node 22 and 24 are the LTS lines where it is safe to rely on. Serverless runtimes, Docker base images and `.nvmrc` files pinned to 18 or 20 are the most common cause. Run `node -e \"console.log(typeof Object.groupBy)\"` in the environment that fails, not on your laptop.",
+              "**Safari 17.3 and older, including iOS 17.3.** Safari added grouping in 17.4 (March 2024). Users on older iPhones who have not updated, and embedded WKWebView contexts in older apps, still hit this.",
+              "**Chrome 116 and older, Firefox 118 and older.** Rare for consumer browsers now, but common in kiosk devices, smart TVs and corporate machines on an extended-support channel.",
+              "**An old Jest or Vitest environment.** The test runner uses the Node version it runs on; a jsdom environment does not remove `Object.groupBy` (it is an engine built-in, not a browser API), so if tests fail it is almost always the Node version of the CI image.",
+              "**TypeScript saying `Property 'groupBy' does not exist on type 'ObjectConstructor'`.** This is a type error, not a runtime one, and it means your `lib` setting predates the typings. The fix is in step 4.",
+            ],
+          },
+          {
+            type: "p",
+            text: "If you are not sure which, add a one-line guard at startup that logs the result of `typeof Object.groupBy` alongside the user agent or Node version. Ten minutes of logging usually beats an afternoon of guessing.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 1: upgrade the runtime (the right fix for servers)",
+        blocks: [
+          {
+            type: "p",
+            text: "For anything you control, this is the fix. Node 20 reached end of life in April 2026, so a server or function still on it has a bigger problem than a missing method. Move to Node 22 or Node 24, both of which have `Object.groupBy`, and the error disappears with no code change. If you are mid-upgrade, our post on [which Node version to use in October 2026](/blog/nodejs-26-lts-october-2026-which-node-version-to-use-new-release-schedule) covers the release lines.",
+          },
+          {
+            type: "code",
+            language: "bash",
+            code: "# .nvmrc / .node-version\n24\n\n# Dockerfile\nFROM node:24-alpine\n\n# package.json\n\"engines\": { \"node\": \">=22\" }",
+          },
+        ],
+      },
+      {
+        heading: "Fix 2: a one-function fallback (the smallest change)",
+        blocks: [
+          {
+            type: "p",
+            text: "If you only group in a couple of places and need to support an old engine for a while, write the grouping once with `reduce` and use that helper everywhere. This is the zero-dependency option, and it is what `Object.groupBy` does under the hood anyway.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "export function groupBy(items, keyFn) {\n  const out = Object.create(null);\n  let i = 0;\n  for (const item of items) {\n    const key = keyFn(item, i++);\n    (out[key] ??= []).push(item);\n  }\n  return out;\n}\n\nconst byStatus = groupBy(orders, (o) => o.status);",
+          },
+          {
+            type: "p",
+            text: "Two details are worth copying from the spec. The result uses `Object.create(null)` so that a group called `constructor` or `toString` does not collide with inherited properties; the real `Object.groupBy` returns a null-prototype object for the same reason. And the callback receives the index as a second argument, which the standard version also does. If you later remove the helper and switch to the built-in, nothing else has to change.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 3: a polyfill that adds the real method",
+        blocks: [
+          {
+            type: "p",
+            text: "When the call sites are spread across a codebase, or a dependency is calling `Object.groupBy` and you cannot edit it, add the method itself. Two maintained options exist. core-js has it in its stable set, and the es-shims package `object.groupby` is a spec-compliant standalone shim.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "// Option A: core-js, once, at the top of your entry file\nimport \"core-js/actual/object/group-by\";\nimport \"core-js/actual/map/group-by\";\n\n// Option B: es-shims\nimport shimObjectGroupBy from \"object.groupby/shim\";\nshimObjectGroupBy();",
+          },
+          {
+            type: "p",
+            text: "If you already use Babel with `@babel/preset-env` and `useBuiltIns: \"usage\"` plus a `browserslist`, the core-js import is added for you wherever `Object.groupBy` appears, and dropped again when your browserslist no longer includes an engine that needs it. That is the most maintainable setup for a front-end bundle, because the polyfill retires itself.",
+          },
+          {
+            type: "p",
+            text: "The trade-off: a polyfill patches the global `Object`, and a bare import that runs before every other module is easy to forget in a second entry point, a worker, or a test setup file. If the error only appears in a Web Worker or a service worker, that is almost always the reason.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 4: the TypeScript lib setting",
+        blocks: [
+          {
+            type: "p",
+            text: "If the runtime is fine but `tsc` complains, the typings are the problem. TypeScript added `Object.groupBy` and `Map.groupBy` in 5.4; depending on your version they live under the `esnext` lib or the `es2024` lib. Set `lib` explicitly rather than relying on the default that `target` implies:",
+          },
+          {
+            type: "code",
+            language: "json",
+            code: "{\n  \"compilerOptions\": {\n    \"target\": \"es2022\",\n    \"lib\": [\"es2024\", \"dom\"]\n  }\n}",
+          },
+          {
+            type: "p",
+            text: "On TypeScript 5.4 or 5.5, use `\"esnext\"` instead of `\"es2024\"` if the compiler does not recognise the newer lib name. Note that changing `lib` tells the type checker the method exists; it does not make it exist at runtime, so pair this with one of the fixes above if any supported engine still lacks it.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 5: use Map.groupBy, or neither",
+        blocks: [
+          {
+            type: "p",
+            text: "`Map.groupBy` arrived in the same engines at the same time, so it is not a workaround for availability. It is the better choice when your keys are not strings: grouping by a date object, by a user record, or by a boolean without it being coerced to the string `\"true\"`. If you are rewriting call sites anyway, it is worth asking which one you wanted.",
+          },
+          {
+            type: "p",
+            text: "And sometimes the honest answer is that you did not need grouping at all. A single pass that counts, sums or picks the first item per key is often clearer as a plain loop with a `Map`, and it does not allocate an array per group. Grouping is a great fit when you will iterate the groups afterwards; it is overkill when you only wanted a count.",
+          },
+        ],
+      },
+      {
+        heading: "Which fix to pick",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Your own server, function or CLI:** upgrade Node. Nothing else is worth the maintenance.",
+              "**A library you publish:** do not polyfill globals on behalf of your users. Use the `reduce` helper internally, or declare the engine requirement in `engines` and your docs.",
+              "**A front-end app with a browserslist:** core-js via Babel's `usage` mode, so the polyfill disappears when your support matrix moves on.",
+              "**One or two call sites and an old engine you cannot change this quarter:** the helper function, with a comment pointing at this post so someone deletes it later.",
+              "**Only the type checker complains:** fix `lib` and move on.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The pattern behind every `X is not a function` error on a standard method is the same: the code is fine, the engine is old, and the fix is to either move the engine forward or carry the method with you until you can. `Object.groupBy` is a particularly easy one to carry, because the whole function fits in eight lines.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
   ...mcpGuides,
 ];
