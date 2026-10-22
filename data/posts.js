@@ -8391,6 +8391,160 @@ node --import=tsx your-file.ts`,
       },
     ],
   },
+  {
+    slug: "set-union-is-not-a-function-fix",
+    title: "set.union is not a function: Why the New JavaScript Set Methods Fail in Node 20, Older Browsers and Some TypeScript Setups, and How to Fix It",
+    description:
+      "TypeError: set.union is not a function (or intersection, difference, isSubsetOf) means the engine predates the ES2025 Set methods: Node 20 and below, Chrome before 122, Firefox before 127, Safari before 17. How to check, the one-line fallbacks, the core-js polyfill, and the TypeScript lib fix.",
+    datePublished: "2026-10-22",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "You replaced a clumsy spread-and-filter with `a.union(b)` or `allowed.isSubsetOf(granted)`, the tests passed on your laptop, and then a CI job on Node 20, an older Safari, or a Jest run with a jsdom environment threw `TypeError: a.union is not a function`. The code is correct; the engine is old. This post explains exactly which engines are missing the methods, how to tell which one you hit, and the four ways to fix it, from a one-line fallback to a proper polyfill.",
+          },
+          {
+            type: "p",
+            text: "It is the companion to our [guide to the Set methods](/blog/javascript-set-methods-union-intersection-difference) and to [comparing sets for equality and subsets](/blog/javascript-compare-sets-equality-subset-superset), and it follows the same shape as the fix posts for [Object.groupBy](/blog/object-groupby-is-not-a-function-fix), [toSorted](/blog/tosorted-is-not-a-function-fix) and [Promise.withResolvers](/blog/promise-withresolvers-is-not-a-function-fix).",
+          },
+        ],
+      },
+      {
+        heading: "What the error actually means",
+        blocks: [
+          {
+            type: "p",
+            text: "ES2025 added seven methods to `Set.prototype`: `union`, `intersection`, `difference`, `symmetricDifference`, `isSubsetOf`, `isSupersetOf` and `isDisjointFrom`. They shipped in Chrome and Edge 122, Safari 17, Firefox 127 and Node.js 22, and became Baseline newly available in June 2024 when Firefox caught up. Any engine older than that has a perfectly good `Set` with no `union` on it, so the property lookup returns `undefined` and calling `undefined` produces `TypeError: a.union is not a function`.",
+          },
+          {
+            type: "p",
+            text: "Two details matter for debugging. First, the error names whichever method you called first, so you may see `intersection is not a function` or `isSubsetOf is not a function` for the same root cause. Second, bundlers do not help here. Babel, esbuild, SWC and TypeScript transform syntax, not built-in methods: a `target` of `es2020` happily emits `a.union(b)` unchanged and leaves the runtime to fail. Only a polyfill or a newer engine fixes it.",
+          },
+        ],
+      },
+      {
+        heading: "Step 1: find out which environment is missing it",
+        blocks: [
+          {
+            type: "p",
+            text: "The usual suspects, roughly in the order they show up in bug reports:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Node.js 20 or earlier.** Lambda, Cloud Functions, Docker images pinned to `node:20`, and Jest workers all run whatever Node the host has. Node 20 is still common in 2026 even though it has left active support. Run `node -e \"console.log(process.version, typeof new Set().union)\"` on the failing machine.",
+              "**Safari 16 and earlier, Chrome before 122, Firefox before 127.** The browsers are mostly updated by now, but corporate fleets and older iPads are not. Check your error-reporting tool for the user agent on the failing event.",
+              "**Jest with the jsdom environment on an old Node.** jsdom does not add built-ins; the Node version underneath decides. The fix is the same as for Node.",
+              "**React Native and Hermes.** Hermes gained the Set methods relatively late; check the release notes of the Hermes version your React Native pins rather than assuming.",
+              "**Only the type checker complains.** If the code runs but `tsc` says `Property 'union' does not exist on type 'Set<string>'`, that is a `lib` setting, covered below, not a runtime problem.",
+            ],
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "// Feature test you can run anywhere\nconst hasSetMethods = typeof Set.prototype.union === 'function';\nconsole.log(hasSetMethods ? 'native Set methods' : 'missing: polyfill or fallback needed');",
+          },
+        ],
+      },
+      {
+        heading: "Fix 1: move the engine forward",
+        blocks: [
+          {
+            type: "p",
+            text: "If you control the runtime, this is the right fix and the only one that removes code instead of adding it. Node 22 and Node 24 both have the methods, and [Node 26 is the current LTS line](/blog/nodejs-26-lts-october-2026-which-node-version-to-use-new-release-schedule). Bump the `engines` field in `package.json`, the base image, the `.nvmrc` and the CI matrix together, so the next person who hits the error gets a clear message instead of a stack trace.",
+          },
+          {
+            type: "code",
+            language: "json",
+            code: "{\n  \"engines\": { \"node\": \">=22\" }\n}",
+          },
+          {
+            type: "p",
+            text: "For browsers, check what your analytics say about Safari 16 and Chrome 121 traffic. If it rounds to zero, update your browserslist and move on; if it does not, you need one of the next three fixes.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 2: the one-line fallbacks",
+        blocks: [
+          {
+            type: "p",
+            text: "Every Set method has a short equivalent using spread and filter. They are slower on large sets because they create intermediate arrays, but for a few hundred elements nobody will notice, and they work in every engine that has `Set` at all.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "const union = (a, b) => new Set([...a, ...b]);\nconst intersection = (a, b) => new Set([...a].filter((x) => b.has(x)));\nconst difference = (a, b) => new Set([...a].filter((x) => !b.has(x)));\nconst symmetricDifference = (a, b) =>\n  new Set([...[...a].filter((x) => !b.has(x)), ...[...b].filter((x) => !a.has(x))]);\nconst isSubsetOf = (a, b) => [...a].every((x) => b.has(x));\nconst isSupersetOf = (a, b) => isSubsetOf(b, a);\nconst isDisjointFrom = (a, b) => ![...a].some((x) => b.has(x));",
+          },
+          {
+            type: "p",
+            text: "Use these when the engine is old and you cannot change it this quarter, or when you only have one or two call sites. Put them in a small `sets.js` helper, export them, and leave a comment pointing at the engine version that makes them deletable.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 3: a real polyfill with core-js",
+        blocks: [
+          {
+            type: "p",
+            text: "If the methods are used across a codebase, or you want the native call sites to stay as they are, install core-js and import the Set polyfills once at the entry point. core-js installs the methods on `Set.prototype` only when they are missing, so modern engines keep their native, faster implementation.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "// npm install core-js\n// At the very top of your entry file:\nimport 'core-js/actual/set';\n\n// Or only the methods you use:\nimport 'core-js/actual/set/union';\nimport 'core-js/actual/set/is-subset-of';",
+          },
+          {
+            type: "p",
+            text: "In a Babel-based front-end build, `@babel/preset-env` with `useBuiltIns: 'usage'` and `corejs: 3` will inject exactly these imports where the methods are called, based on your browserslist, and will stop injecting them automatically once your support matrix moves past Firefox 127. That is the most maintainable option for a browser app with a real support policy.",
+          },
+          {
+            type: "p",
+            text: "One caveat: the native methods are strict about what they accept. The argument must be set-like, meaning it has a numeric `size`, a `has` method and a `keys` method; a plain array is rejected with its own `TypeError`. The spread fallbacks above silently accept arrays. If you polyfill, keep passing real Sets so behaviour does not change when the polyfill is removed.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 4: the TypeScript lib setting",
+        blocks: [
+          {
+            type: "p",
+            text: "If the runtime is fine but the compiler reports `Property 'union' does not exist on type 'Set<number>'`, the types for the Set methods are not in your `lib`. TypeScript 5.5 added them under `esnext.collection`, which the `esnext` lib includes. Either move `lib` to `esnext`, or add the collection lib explicitly without changing what you emit:",
+          },
+          {
+            type: "code",
+            language: "json",
+            code: "{\n  \"compilerOptions\": {\n    \"target\": \"es2022\",\n    \"lib\": [\"es2022\", \"dom\", \"esnext.collection\"]\n  }\n}",
+          },
+          {
+            type: "p",
+            text: "Remember that fixing the types does nothing for an old runtime; if both are old, you need Fix 1 or Fix 3 as well. The reverse mistake is also common: adding `esnext.collection` makes the compiler happy on a project that still deploys to Node 20, and the error moves from your editor to production.",
+          },
+        ],
+      },
+      {
+        heading: "Which fix to choose",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**A service you deploy yourself:** upgrade Node and pin `engines`. Nothing else to maintain.",
+              "**A library published to npm:** avoid the methods in your own source, or use the spread helpers internally, and declare the engine requirement in `engines` and the README. Do not ship core-js inside a library.",
+              "**A front-end app with a browserslist:** core-js through Babel's `usage` mode, so the polyfill disappears on its own.",
+              "**One or two call sites, old engine, no time:** the helper functions, with a comment that says when to delete them.",
+              "**Only the type checker complains:** add `esnext.collection` to `lib` and move on.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The Set methods are among the nicest additions to the language in years, and they are safe to use in any environment from mid-2024 onwards. When `set.union is not a function` appears, it is almost always a single old runtime in the chain, and the right response is to find it, name it in your docs, and either move it forward or carry the method with you until you can.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
   ...mcpGuides,
 ];

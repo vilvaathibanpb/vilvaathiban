@@ -8032,4 +8032,373 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "repurposing-one-script-across-platforms-reels-shorts-tiktok-linkedin-teleprompter",
+    title: "Repurposing One Script Across Platforms: How to Record Once for Reels, Shorts, TikTok, LinkedIn and YouTube Without It Looking Recycled",
+    description:
+      "One script, five platforms: how to write a modular talking-head script, record the swappable parts as separate takes with a teleprompter, and cut platform-specific versions for Reels, Shorts, TikTok, LinkedIn and long-form YouTube without re-filming.",
+    datePublished: "2026-10-22",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "The creators who post everywhere are not writing five scripts. They are writing one script with seams in it, recording the pieces that change as separate takes, and assembling a slightly different video for each platform. Done well, the Reel, the Short, the TikTok and the LinkedIn post all feel native to where they appear, and the whole set costs about one extra recording session a week. Done badly, you get the thing everyone can spot from the first frame: a TikTok with a TikTok caption reposted to LinkedIn with the watermark still on.",
+          },
+          {
+            type: "p",
+            text: "This post is the workflow. It assumes you already record with a prompter, because repurposing depends on being able to say the same sentence the same way twice, a week apart, and that is exactly what a script on screen gives you. If you are new to that, start with [writing a script that does not sound written](/blog/write-a-script-that-doesnt-sound-written) and come back.",
+          },
+        ],
+      },
+      {
+        heading: "Why reposting the same file fails",
+        blocks: [
+          {
+            type: "p",
+            text: "Every platform has a different first second, a different ideal length and a different audience expectation. A video that opens with \"hey TikTok\" is dead on LinkedIn. A 90-second explainer that works as a YouTube Short gets abandoned at second eight on Reels, where the viewer expected a payoff by then. The platform-specific details, the greeting, the call to action, the pacing of the hook, the reference to \"this app\" or \"the link in bio\", are a small fraction of the script, maybe ten percent. The other ninety percent, the actual point you are making, is identical everywhere.",
+          },
+          {
+            type: "p",
+            text: "So the goal is not to record five videos. It is to record the ninety percent once and the ten percent five times, and to write the script so the two are cleanly separable.",
+          },
+        ],
+      },
+      {
+        heading: "Step 1: write a modular script",
+        blocks: [
+          {
+            type: "p",
+            text: "Lay the script out in labelled blocks rather than one flowing paragraph. A typical talking-head script repurposes into these parts:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Hook (platform-specific, 1-2 sentences).** The opening line changes per platform: a blunt question for TikTok and Reels, a result-first statement for Shorts, a professional framing for LinkedIn (\"Here is what we learned shipping X\"). Write three or four hooks and label each with its platform.",
+              "**Core (shared, 60-120 seconds spoken).** The explanation, the steps, the story. Written once, recorded once, used everywhere.",
+              "**Bridge lines (shared, optional).** One-sentence transitions you can drop between core segments when you need to cut the core shorter for a 30-second version: \"The second thing matters more.\"",
+              "**Call to action (platform-specific).** \"Follow for part two\" for short-form, \"the full write-up is linked below\" for YouTube, \"happy to answer questions in the comments\" for LinkedIn. Never say \"link in bio\" in the shared part.",
+              "**Platform-specific asides.** Any sentence that names the platform, the format or a feature only one platform has (Shorts, Reels, the TikTok sound) lives here, never in the core.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The discipline that makes this work: the core must never refer to anything outside itself. No \"as I said at the start\", no \"swipe up\", no \"in this Reel\". Write it as if it will be heard by someone who joined ten seconds late on an unknown platform, because on some platform, it will be.",
+          },
+        ],
+      },
+      {
+        heading: "Step 2: record the core once, the variants as separate takes",
+        blocks: [
+          {
+            type: "p",
+            text: "Load the whole modular script into [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay), with the blocks separated by a blank line and a short label in brackets you will not read aloud. Record the core as one continuous take, or two if it is long. Then, without moving the camera or changing anything in the frame, record each hook as its own short take, and each call to action as its own short take. The takes library keeps them together, and because the script floats next to the front lens, your eye line is identical in every take, which is what makes a hook recorded at 10:05 cut seamlessly onto a core recorded at 10:02.",
+          },
+          {
+            type: "p",
+            text: "Two practical rules. Leave two seconds of silence at the start and end of every take, so the edit has room. And keep your energy at the level of the hook, not the core: hooks are delivered a notch brighter, and if you record them last, after you have relaxed into the explanation, they come out flat. Record hooks first, then the core, then the calls to action.",
+          },
+          {
+            type: "p",
+            text: "Voice-follow scrolling is the better mode for this, because the pace of a 15-second hook and a two-minute core are very different and auto-scroll needs a different speed for each. Voice-follow just listens and keeps up. If you stumble in the middle of the core, pause, let it find your place, and start the sentence again; the edit will remove the stumble.",
+          },
+        ],
+      },
+      {
+        heading: "Step 3: cut the versions",
+        blocks: [
+          {
+            type: "p",
+            text: "With the pieces recorded, each platform's video is an assembly job, not an edit from scratch. Here is a practical set of targets; the platform limits shift from time to time, so treat the numbers as the shape rather than a rule.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Reels:** platform hook + trimmed core (the single most useful 30-45 seconds) + short-form CTA. Instagram allows much longer Reels now, but the ones that spread to new viewers are still the short ones.",
+              "**YouTube Shorts:** result-first hook + the same trimmed core + \"part two is on the channel\" CTA. Shorts run up to three minutes, so a fuller 60-90 second cut is also fine here.",
+              "**TikTok:** question hook + fuller core + follow CTA. TikTok tolerates length better than Reels when the core is actually useful; it punishes slow starts more than long middles.",
+              "**LinkedIn:** professional hook + the fuller core + the comments CTA. Add captions; a large share of LinkedIn video is watched muted at a desk.",
+              "**YouTube long-form:** the core becomes one chapter of a longer video, bookended by the long-form hook and the \"full write-up\" CTA, with the bridge lines stitching chapters together.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Captions are the one thing worth doing per platform rather than once. Each platform burns in or auto-generates its own, and a baked-in caption from one app looks wrong on another. Export the cuts clean, add captions in each platform's own tool or in your editor with a neutral style, and never upload a file with another platform's watermark; several platforms reduce the reach of videos that carry one.",
+          },
+        ],
+      },
+      {
+        heading: "Step 4: keep a repurposing sheet",
+        blocks: [
+          {
+            type: "p",
+            text: "A single table, one row per script, columns for each platform, with the date each version went out. It stops you posting the same core to the same platform twice, lets you space the versions over a week or two rather than blasting them all out on one afternoon, and shows you which hook performed on which platform so you can write the next hooks better. Most creators who do this well post the versions days apart, often leading with the platform where their audience is smallest, so the strongest audience gets the most polished cut.",
+          },
+        ],
+      },
+      {
+        heading: "When not to repurpose",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**When the platform is the point.** A video about a TikTok trend, a LinkedIn-specific career topic or a YouTube community moment does not travel. Write it once for one place and move on.",
+              "**When the core is reactive.** Commentary on a news item is stale by the time the third version goes out. Post once, where your audience is, same day.",
+              "**When your audiences overlap heavily.** If the same five hundred people follow you everywhere, they will see the same core five times and notice. Space the versions further apart, or vary the core examples, not just the hooks.",
+              "**When the format changes the message.** A detailed tutorial that needs screen recording is a YouTube video; the 30-second version is a trailer for it, not a substitute, and should be written as one.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "A one-session checklist",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Script in labelled blocks: hooks per platform, one shared core, CTAs per platform, no platform references in the core.",
+              "Hooks recorded first, two seconds of air on each take, energy up.",
+              "Core recorded as one or two takes with voice-follow, stumbles repeated in place.",
+              "CTAs recorded last, one per platform.",
+              "Cuts exported clean, captions added per platform, no watermarks.",
+              "Repurposing sheet updated with dates and the hook used.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The whole thing costs one recording session of perhaps forty minutes for a week of posts on four or five platforms, which is the reason it is worth setting up even if your audience today lives in one place. The next post in this series takes the modular idea somewhere unexpected: using a teleprompter for a wedding speech or a toast, where the goal is not reach but getting through four minutes without losing your place or your composure.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "translate-whatsapp-voice-message-iphone-transcribe-then-translate-offline",
+    title: "How to Translate a WhatsApp Voice Message on iPhone: Transcribe It First, Then Translate (Works Offline, Any Language)",
+    description:
+      "There is no WhatsApp voice message translator built into iPhone. The reliable route is two steps: get the voice note as text on the phone, then translate the text with Apple Translate. How to do it with WhatsApp's own transcripts, what to do when they are not available, and how to keep the audio private.",
+    datePublished: "2026-10-22",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "A voice note arrives in a language you only half understand: a relative's Tamil, a client's Portuguese, a landlord's German. You can play it three times and still miss the one sentence that matters. People search for a \"WhatsApp voice message translator\" expecting a button, and there is no such button on iPhone. What there is, is a two-step route that works for any language and never sends the audio off your phone: turn the voice message into text, then translate the text.",
+          },
+          {
+            type: "p",
+            text: "This guide walks through both steps, with WhatsApp's built-in transcripts where they work and [Voice Note to Text](/apps/voice-note-to-text) where they do not, and ends with the honest limits: what a transcript-then-translate workflow gets right, and where a human still has to listen.",
+          },
+        ],
+      },
+      {
+        heading: "Why there is no one-tap voice translator",
+        blocks: [
+          {
+            type: "p",
+            text: "Translating speech is really two jobs: speech recognition (turning sound into words in the original language) and translation (turning those words into another language). iPhone has good on-device tools for each, but they live in different places. WhatsApp can transcribe a voice note on the phone in a set of supported languages, and Apple's Translate app can translate text between a couple of dozen languages, offline if you download them. Nobody has wired the two together inside WhatsApp for voice notes, so you do the wiring yourself. It takes about twenty seconds once you know the route.",
+          },
+        ],
+      },
+      {
+        heading: "Step 1: get the voice message as text",
+        blocks: [
+          {
+            type: "p",
+            text: "**Option A: WhatsApp's built-in transcript.** WhatsApp introduced on-device voice message transcripts in late 2024. On iPhone, open Settings in WhatsApp, go to Chats, tap Voice message transcripts, switch it on and choose the transcript language. Then long-press the voice message in the chat and tap Transcribe. The text appears under the message. WhatsApp says the transcripts are generated on your device and that nobody else can read them.",
+          },
+          {
+            type: "p",
+            text: "The catch is the language list. At launch, iOS 16 and later covered English, Spanish, French, German, Italian, Japanese, Korean, Portuguese, Russian, Turkish, Chinese and Arabic, with iOS 17 adding Danish, Finnish, Malay, Norwegian, Dutch, Swedish, Hebrew and Thai; WhatsApp has said more would follow, and availability also depends on your region. If the sender's language is not in your transcript language setting, or not supported at all, you get the familiar \"transcript not available\" message instead of text. You can only pick one transcript language at a time, so a mixed household with voice notes in three languages spends a lot of time in Settings.",
+          },
+          {
+            type: "p",
+            text: "**Option B: transcribe any voice note, in any language, with automatic detection.** When the built-in option is missing or the language is unsupported, long-press the voice message, tap Share (or Forward, then the share icon), and choose Copy to Voice to Text. [Voice Note to Text](/apps/voice-note-to-text) decodes the .opus file directly, detects the language on its own from around a hundred supported ones, including Tamil, Hindi, Bengali, Indonesian and Arabic, and shows the transcript a few seconds later. The speech model ships inside the app, so it works in airplane mode and the audio is never uploaded. The first three transcriptions are free; after that a single one-time purchase unlocks unlimited use. It is iOS-only on the App Store (there is a separate Android version), and it runs on iPhones with iOS 15.1 or later, which is older than the built-in transcripts require.",
+          },
+          {
+            type: "p",
+            text: "Either way, you now have text. Tap Copy.",
+          },
+        ],
+      },
+      {
+        heading: "Step 2: translate the text on the phone",
+        blocks: [
+          {
+            type: "p",
+            text: "The quickest route on a current iPhone is selection translation: paste the transcript anywhere you can select text (Notes is the obvious place), select it, and tap Translate in the pop-up menu. The translation appears in a panel with the option to copy it, play it aloud or replace the original. The same Translate command is available in most apps that use the standard text menu.",
+          },
+          {
+            type: "p",
+            text: "For longer transcripts, or for a language pair you use every week, open Apple's Translate app instead. Paste the text, pick the languages, and read the result. In Translate's settings you can download languages, which lets the translation run entirely on the phone with no connection and no text leaving the device, the same privacy the on-device transcript gave you in step one. The language list is shorter than the transcription list: Apple's app covers a couple of dozen languages, so a transcript in a less common language may need a third-party translator, at which point you are choosing between convenience and sending the text to someone's server.",
+          },
+          {
+            type: "p",
+            text: "Voice Note to Text itself does not translate; its FAQ says so plainly, and that is the right call for a tool whose whole point is that nothing leaves the phone. Transcribe, copy, translate is the workflow, and it is the same three taps every time.",
+          },
+        ],
+      },
+      {
+        heading: "Replying in their language",
+        blocks: [
+          {
+            type: "p",
+            text: "The reverse direction is simpler because you control the input. Type your reply in English in the Translate app, translate it into the recipient's language, copy the result and paste it into the chat as a text message. If they prefer voice, iPhone's Translate app can speak the translated sentence aloud; many people simply record a voice note of themselves reading the translated text, slowly, which is clumsy but surprisingly well received. Keep replies short and literal, and avoid idioms; machine translation handles \"the delivery is delayed until Thursday\" far better than \"it's going to be a bit of a squeeze\".",
+          },
+        ],
+      },
+      {
+        heading: "Getting a better translation",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Fix the transcript before translating.** Names, addresses and numbers are where speech recognition slips. Correct them in Notes first; one wrong digit in a translated address wastes everyone's afternoon.",
+              "**Translate whole sentences, not fragments.** Voice notes are full of half-sentences and restarts. Tidy the transcript into complete sentences and the translation improves noticeably.",
+              "**Add punctuation.** Transcripts often come out with little of it. A full stop in the right place changes the meaning of the next clause.",
+              "**Translate twice if it matters.** Translate into English, then translate your understanding back into the original language and compare. If the round trip drifts, ask the sender to confirm the key point in a text message.",
+              "**Keep the original.** Save the transcript as a .txt file next to the translation so you can go back to the exact words if a dispute comes up later.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "What this workflow cannot do",
+        blocks: [
+          {
+            type: "p",
+            text: "Tone, sarcasm and dialect survive translation badly. A voice note that is clearly a joke to a native speaker can read as a complaint once flattened to text and translated. Heavy background noise, two people talking over each other, or a strong regional accent will produce a rough transcript, and a rough transcript produces a confident but wrong translation. For anything with consequences, a lease, a medical instruction, a payment, use the translated text to understand the gist and then confirm the specifics with the sender in writing, or ask a bilingual friend to listen to the original.",
+          },
+          {
+            type: "p",
+            text: "For everything else, the daily traffic of family and work voice notes in a language you are still learning, transcribe-then-translate turns a message you would have skipped into one you can actually answer. The companion guide on [transcribing WhatsApp voice messages to text on iPhone](/blog/transcribe-whatsapp-voice-message-to-text-iphone) covers the transcription step in more depth, including how to check that nothing is uploaded.",
+          },
+          { type: "p", text: DISCLAIMER },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "print-whatsapp-chat-android-export-to-paginated-pdf-with-dates",
+    title: "How to Print a WhatsApp Chat on Android: Export It, Turn It Into a Paginated PDF With Dates and Times, and Print From Your Phone or a Computer",
+    description:
+      "You cannot print a WhatsApp chat directly on Android. The clean route: Export chat (without media) to a .txt, open it in Chat Export Studio to get a paginated PDF with sender, date and time on every message, then print from the share sheet, a printer app or a computer. Limits, tips and what to check before you print.",
+    datePublished: "2026-10-22",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Sooner or later someone asks for a WhatsApp conversation on paper: a lawyer, an accountant, a landlord, a school, or a relative who simply wants the family chat from the year of the wedding in a binder. On Android there is no Print option anywhere in WhatsApp, and the obvious workaround, screenshots, falls apart after the third page: no dates, no page numbers, half a message cut off at every edge. This guide is the clean route: export the chat, turn the export into a proper paginated PDF, and print that.",
+          },
+          {
+            type: "p",
+            text: "Short version: in the chat tap the three dots, More, Export chat, Without media, and send the .txt to [Chat Export Studio: PDF](/apps/chat-export-studio). Tap Export styled PDF, then print the PDF from the Android share sheet or from a computer. The rest of the post is the detail, including the export limits, how to make the printout useful, and the privacy angle.",
+          },
+        ],
+      },
+      {
+        heading: "Why screenshots are the wrong tool for printing",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "A screenshot shows the time of each message but not the date; the date header scrolls away and you lose it on every page after the first.",
+              "Messages get cut at the top and bottom of every capture, so long conversations become a jigsaw.",
+              "Fifty screenshots are fifty images; printing them is slow, the text is small, and nobody can search them.",
+              "A screenshot is easy to fake and easy to accuse of being faked. A conversation printed from the chat's own export file, kept next to that file, is a more straightforward record.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The export file, by contrast, contains every message with its full date and time stamp, in order, as plain text. It is just unreadable as it is, and that is what the PDF step fixes.",
+          },
+        ],
+      },
+      {
+        heading: "Step 1: export the chat from WhatsApp on Android",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Open the chat you want to print. It can be a one-to-one chat or a group.",
+              "Tap the three-dot menu in the top-right corner, then More, then Export chat. On some Samsung phones the entry sits under a Settings item instead of More.",
+              "Choose Without media. Media is not needed for a printout, and a without-media export covers far more of the conversation: WhatsApp limits an export to the most recent messages, roughly 40,000 without media and only about 10,000 if media is included.",
+              "The Android share sheet opens. Pick Chat Export Studio directly, or save the file to Files or Google Drive first if you prefer to keep a copy of the raw export, which for anything official you should.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The result is a .txt file, sometimes inside a .zip, named after the chat. Open it in any text app and you will see why nobody prints it as-is: one dense line per message, bracketed timestamps, no spacing, and system notices mixed in with the conversation.",
+          },
+        ],
+      },
+      {
+        heading: "Step 2: turn the export into a paginated PDF",
+        blocks: [
+          {
+            type: "p",
+            text: "[Chat Export Studio: PDF](/apps/chat-export-studio) reads the .txt or .zip export from either Android or iPhone, in 12-hour or 24-hour time, and lays it out the way the chat looked on screen. Every message becomes its own bubble with the sender, date and time; one-to-one chats are set out left and right, and group chats get a colour per participant. Encryption notices, joins, leaves and the \"media omitted\" markers from a without-media export are rendered as small pills rather than clutter. Pages break between messages, never through one, which is the single most important thing for a printout.",
+          },
+          {
+            type: "p",
+            text: "Open the export in the app (share it from WhatsApp, or tap Open exported chat and pick it from Files), glance at the statistics screen that appears first, then tap Export styled PDF. The PDF is generated on the phone and the share sheet opens. Everything happens on the device; the app parses the chat locally, needs no account and works offline, so a confidential conversation is not uploaded to anyone's server on the way to the printer. It is a one-time purchase with no subscription.",
+          },
+          {
+            type: "p",
+            text: "If you want to check the file before printing, save the PDF to Files and open it in your PDF viewer. Scroll to the first and last page and confirm the date range matches what you expected; an export only contains messages from the point you joined a group, and a chat you once cleared starts from the clearing, not from the beginning of the relationship.",
+          },
+        ],
+      },
+      {
+        heading: "Step 3: print the PDF",
+        blocks: [
+          {
+            type: "p",
+            text: "**From the phone.** In the share sheet, choose Print, or open the PDF in Files or Google Drive and use the Print option in its menu. Android's print framework finds Wi-Fi printers and printers shared through a manufacturer's print service; if your printer does not appear, install its print service plug-in from the Play Store and try again. Choose double-sided if the printer supports it; a long chat is a lot of paper.",
+          },
+          {
+            type: "p",
+            text: "**From a computer.** For anything long or anything that needs to look tidy, move the PDF to a computer: email it to yourself, put it in Google Drive, or use Nearby Share or a USB cable. Print from a desktop PDF viewer, where you can set page ranges, scale, margins and a page-number stamp if your viewer offers one. Printing a 300-page group chat is also where you discover that selecting a date range matters, which is why step 2's check is worth the minute.",
+          },
+          {
+            type: "p",
+            text: "**At a print shop.** Take the PDF on a USB stick, or email it to the shop. Hand over the PDF rather than the .txt; the PDF prints the same everywhere, while a text file prints differently on every machine.",
+          },
+        ],
+      },
+      {
+        heading: "Making the printout useful",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Print the statistics page too, or note them on the cover.** The app shows the date range, total messages, messages per participant and media count; a cover sheet with that summary helps whoever reads the binder.",
+              "**Keep the original export.** Store the .txt or .zip next to the PDF, unmodified. If anyone later questions the printout, the raw export is the thing to show them.",
+              "**Name the file properly.** \"Chat with Landlord 2025-03 to 2026-10.pdf\" beats \"WhatsApp Chat with John.pdf\" once there are three of them.",
+              "**Mind other people's privacy.** A group export contains everyone's messages and, for people not in your contacts, their phone numbers. Print only what the situation needs, and do not leave the printout on a shared printer.",
+              "**Check what the requester actually wants.** Some organisations want a PDF by email, not paper; some want the raw export as well. Ask before you print 200 pages.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Limits and honest caveats",
+        blocks: [
+          {
+            type: "p",
+            text: "The export is a text record: photos, voice notes and videos appear as \"media omitted\" markers in the PDF, matching a without-media export, so if a particular image matters, save it separately and reference it by date and time. Very long chats take longer to turn into a PDF, although the statistics appear almost instantly. And whether a printed chat is accepted as a record is a question for the organisation or jurisdiction involved, not for an app: the app makes the document, you keep the original export, and the person asking tells you what format they need.",
+          },
+          {
+            type: "p",
+            text: "If you are not sure what the Export chat option does before you tap it, the earlier post on [what export chat means in WhatsApp on Android](/blog/what-does-export-chat-mean-in-whatsapp-android-and-how-to-turn-it-into-a-pdf) explains what is and is not included and whether the other person is told; and for records headed to an HR department, landlord or insurer, see [saving a WhatsApp chat as a PDF on Android](/blog/save-whatsapp-chat-as-pdf-android-for-hr-landlord-insurer). Chat Export Studio is also available for iPhone; the Android version is the one described here.",
+          },
+          { type: "p", text: DISCLAIMER },
+        ],
+      },
+    ],
+  },
 ];
