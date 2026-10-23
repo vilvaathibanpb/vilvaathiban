@@ -8401,4 +8401,396 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "teleprompter-for-wedding-speeches-and-toasts",
+    title: "Teleprompter for Wedding Speeches and Toasts: How to Rehearse, Record and Deliver a Speech Without Reading Off Your Phone",
+    description:
+      "Using a teleprompter for a wedding speech or toast: why rehearsing on camera beats reading from notes, how to write a speech that survives nerves, the three ways to use a teleprompter app on the day (rehearsal only, recorded video message, and live with a discreet phone), and when not to use one at all.",
+    datePublished: "2026-10-23",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Nobody wants to be the best man who read three pages off his phone, eyes down, while the room waited for him to look up. Nobody wants to be the maid of honour who memorised the whole thing and lost it at the second paragraph either. A teleprompter sits between those two failures, and it is a far more useful tool for wedding speeches than most people realise, as long as you use it the right way and, mostly, before the day rather than on it.",
+          },
+          {
+            type: "p",
+            text: "This post covers the three ways a teleprompter app earns its place in a wedding speech: as a rehearsal tool that fixes the speech, as the way to record a video message for people who cannot be there (or for a couple you cannot be there for), and, used sparingly, as a live aid at the reception. It is written around [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay), a free iPhone app, but the method applies to any prompter. It builds on our earlier post on [overcoming camera anxiety](/blog/overcoming-camera-anxiety-recording-yourself-on-iphone), because a wedding speech is camera anxiety with two hundred faces instead of a lens.",
+          },
+        ],
+      },
+      {
+        heading: "First, the speech has to survive being said out loud",
+        blocks: [
+          {
+            type: "p",
+            text: "Most wedding speeches are written in a word processor and never spoken until the moment that matters. That is why they contain sentences nobody can say in one breath, jokes that read well and land flat, and transitions that only make sense on the page. The single most valuable thing a teleprompter does for a wedding speech has nothing to do with delivery: it makes you say the speech out loud, repeatedly, early, and it shows you exactly where it breaks.",
+          },
+          {
+            type: "p",
+            text: "Put the draft into the app, stand up, and record a take in voice-follow mode, where the text scrolls as you speak and waits when you stop. You will discover within a minute which sentences are too long, where you naturally pause, and which lines you keep stumbling over. Fix those in the script immediately; our post on [writing a script that doesn't sound written](/blog/write-a-script-that-doesnt-sound-written) has the editing rules. Three rehearsal takes over three evenings will do more for a speech than ten silent read-throughs.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Aim for three to five minutes.** Record a take and look at the length. Most people are surprised to find their 'short' speech runs seven minutes once the laughs and pauses are in.",
+              "**One story, one point, one toast.** If the recording shows you reaching for a fourth anecdote, cut it. The room remembers one story told well.",
+              "**Write the toast line last and learn it by heart.** It is the only part you should deliver with the phone in your pocket, because it is the only part you will be filmed saying.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Use 1: rehearsal, with the prompter as a mirror",
+        blocks: [
+          {
+            type: "p",
+            text: "The app floats the script over the camera preview, next to the front lens, so while you rehearse you are looking roughly where the audience will be and you can watch yourself at the same time. Record each rehearsal in the takes library and watch it back once, with one question only: where did I look down, and why? Every place you looked down is a line you do not know yet. After a few rounds you will have a speech you mostly know, a page of notes with the three lines you still need, and the confidence that comes from having heard the whole thing come out of your mouth without disaster.",
+          },
+          {
+            type: "p",
+            text: "The adjustable text size matters here: set it large so that you can glance rather than read, which is the habit you want on the day. And because the app runs entirely offline with on-device speech recognition, you can rehearse an embarrassing first draft on a train or in a hotel room without the script going anywhere.",
+          },
+        ],
+      },
+      {
+        heading: "Use 2: the recorded video message",
+        blocks: [
+          {
+            type: "p",
+            text: "This is where a teleprompter is simply the right tool. A grandparent who cannot travel, a friend on the other side of the world, a parent recording a message for a wedding video, a couple sending thanks to guests afterwards: all of these are short, emotional speeches to camera, and all of them are ruined by reading from a sheet below the lens. With the script next to the front camera and voice-follow scrolling, you can deliver two minutes straight to the couple with real eye contact, in one or two takes.",
+          },
+          {
+            type: "list",
+            items: [
+              "Record in portrait if the video will be shown on a phone or shared in a group chat; most wedding videographers can also place a portrait clip on a landscape screen. The app records in 4K, so the clip will hold up on a large screen at the reception.",
+              "Put the couple's names in the first sentence and look at the lens as you say them. The script is never visible in the saved video, so nobody will know it was there.",
+              "If English is not your first language, or the speech is in the couple's language rather than yours, the on-device recognition auto-detects the script's language and follows you in it; our post on [recording confidently in a second language](/blog/recording-video-in-a-second-language) covers the tricks.",
+              "Keep it under two minutes. A video message is shown to a room; a long one is skipped.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The same setup works for a couple recording their own vows to keep, or a toast to be played at a reception they cannot attend. One take per evening for three evenings, then pick the best from the takes library.",
+          },
+        ],
+      },
+      {
+        heading: "Use 3: live at the reception, carefully",
+        blocks: [
+          {
+            type: "p",
+            text: "Here is the honest part. A phone held at chest height with scrolling text is not invisible, and a speaker whose eyes track a moving line looks like a speaker reading. Voice-follow scrolling in a loud room with a sound system and two hundred people is also asking the microphone to hear you over everyone else; it is designed for a quiet recording space, not a reception, and it may lose its place. So for live delivery, the app's role changes from prompter to safety net.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Switch to auto-scroll or no scroll at all.** Classic auto-scroll with the speed slider set slow, or simply a large-text script you swipe by hand, is more predictable than voice-follow in a noisy room.",
+              "**Set the text as large as it will go.** You want two or three lines visible, so a glance gives you the next beat, not the next paragraph.",
+              "**Hold the phone like a card, not a screen.** Chest height, slightly angled, in one hand with the other free. Look up for every sentence you know, which, after the rehearsals, should be most of them.",
+              "**Have the three lines you cannot afford to lose on paper too.** Opening, the pivot into the serious part, the toast. Phones lock, batteries die, and a folded card does not.",
+              "**Airplane mode.** The app works fully offline, and a notification banner in the middle of your toast is the one thing worse than reading.",
+            ],
+          },
+          {
+            type: "p",
+            text: "If you have rehearsed properly, you will barely use it. That is the point. The teleprompter did its work in the weeks before; on the night it is there so that you can look at the couple instead of worrying about what comes next.",
+          },
+        ],
+      },
+      {
+        heading: "When not to use a teleprompter for a wedding speech",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**For the toast line itself.** Learn it. Put the phone down. Raise the glass.",
+              "**If you have never rehearsed with it.** Learning a new tool during the speech is worse than reading from notes. Three rehearsals minimum, or leave it at home.",
+              "**For a very short speech.** Under a minute, index cards are better: fewer things to go wrong and no screen between you and the room.",
+              "**If the venue or the couple have asked for no phones.** Some ceremonies and receptions are phone-free; a paper card respects that and reads as more personal anyway.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "A two-week plan",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Day 1:** write the draft. Put it in the app. Record one take in voice-follow mode without stopping. Note the length and everywhere you stumbled.",
+              "**Days 2 to 4:** cut by a fifth, rewrite the stumbles, record one take each evening. Learn the opening and the toast by heart.",
+              "**Days 5 to 9:** rehearse with the text size large and the scroll off, glancing only. Record a take and count how many times you looked down.",
+              "**Days 10 to 12:** rehearse standing, holding a glass, in the shoes you will wear. Record the final version to the takes library so you have a clean copy of the speech, which the couple may like to have.",
+              "**The day:** large text, auto-scroll off or slow, airplane mode, paper backup for three lines, and the phone in your pocket for the toast.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Teleprompter: Camera Overlay is free on iPhone, with occasional ads and a small one-time purchase to remove them, no subscription and no watermark, and it works entirely offline. It is iOS-only. Next in this series: how to edit a script down by 30 percent without losing the point, which is the cut most wedding speeches need.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "holiday-gift-shopping-receipts-warranties-iphone-warranty-tracker-black-friday",
+    title: "Black Friday and Holiday Gift Shopping: How to Keep the Receipts and Warranties for Everything You Buy (iPhone Warranty Tracker)",
+    description:
+      "Gifts bought in November come with warranties that start at purchase, not at Christmas, and receipts that vanish by January. A practical system for logging holiday purchases on iPhone with Warranty Tracker & Receipt Log: what to photograph, how to record gift receipts, extended warranties and credit-card cover, and when a paper folder is enough.",
+    datePublished: "2026-10-23",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "The weeks from Black Friday to the new year are when most households buy more electronics, appliances and toys than in the rest of the year combined, and they are also when receipts are least likely to survive. Gifts are bought weeks early, wrapped without their paperwork, handed to someone else, and unboxed in a pile of ribbon. By the time the headphones stop charging in March, nobody knows which shop they came from, what was paid, or when the warranty actually ends, because it started on the day of purchase in November, not on the day they were opened.",
+          },
+          {
+            type: "p",
+            text: "This is a short system for fixing that with your phone and about twenty seconds per purchase, using [Warranty Tracker & Receipt Log](/apps/warranty-tracker), a one-time-purchase iPhone app that stores the receipt photo, purchase date, price, serial number and warranty length for each item and reminds you before the warranty runs out. The earlier post on [keeping receipts and getting reminded before expiry](/blog/warranty-tracker-iphone-keep-receipts-get-reminded-before-expiry) covers the app itself; this one is about the specific mess that holiday shopping creates and how to log it so the records are still there in spring.",
+          },
+        ],
+      },
+      {
+        heading: "Why holiday purchases are the ones that get lost",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**The gap between buying and using.** A gift bought on 28 November and opened on 25 December has already used four weeks of a one-year warranty before it is switched on. If it fails in late November next year, the claim is out of time and nobody remembers why.",
+              "**The receipt and the product separate immediately.** The receipt is in your bag; the product is wrapped and under someone else's tree.",
+              "**Gift receipts hide the price and sometimes the date.** They are designed for returns, not for warranty claims, which usually need the full receipt with the purchase date.",
+              "**Online orders are spread across many accounts.** A marketplace order, a shop's own site, a deal site, a card statement: four places to look, none of them obvious a year later.",
+              "**Volume.** Ten purchases in a week is more than most people can hold in their heads, which is the whole point of writing them down.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "The twenty-second log, at the till or at the door",
+        blocks: [
+          {
+            type: "p",
+            text: "The habit that works is to log the purchase at the moment it arrives, before it is wrapped: at the till with the receipt in your hand, or at the front door with the delivery box open. In the app, tap +, type the product name and the shop, enter the price and the purchase date, and pick a category so the list stays scannable when it has thirty items in it. Then tap the warranty length: 6 months, 1, 2, 3 or 5 years, or type a custom number of months if the box says something unusual. The app calculates the exact expiry date and shows the countdown.",
+          },
+          {
+            type: "p",
+            text: "Then the photos. Take one of the receipt, flat, with the shop name, date and total legible. For an online order, screenshot the order confirmation or the invoice PDF and add it from your photo library. If the product has a serial-number sticker, photograph that too, before the box is wrapped; serial numbers are what manufacturers ask for first, and the app lets you copy a stored serial number with one tap. Photos stay attached to the item at full size, so the receipt is readable at a service counter a year later.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Name it so you will recognise it.** \"Kids' tablet (for Maya)\" beats the model number, which you can put in the notes.",
+              "**Record the real purchase date, not the gift date.** The warranty clock started at the till.",
+              "**Use the notes field for the order number** and the account you ordered from. That is the detail you will need to find the online invoice.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Gift receipts: record what the gift receipt leaves out",
+        blocks: [
+          {
+            type: "p",
+            text: "A gift receipt is for the recipient; the full receipt is for the warranty. When a shop offers both, keep the full receipt in the app and put the gift receipt in the box. If you only have a gift receipt, which happens with items bought by someone else, log what it does show, usually the shop, the date and an item code, and ask the giver for the order confirmation if the item is expensive. Where the price is missing, enter an estimate and note that it is one; the overview's total value under warranty will be approximate, but the reminder will still fire on time.",
+          },
+          {
+            type: "p",
+            text: "If you are the giver and you want the recipient to have the warranty record, the simplest way is to export the list: the app exports every item to CSV any time, and you can photograph the receipt with the Camera app first and send that copy, then add the same photo to the item from your library. For a big-ticket gift, a laptop or a bike, hand over the paperwork on the day rather than keeping it; the person who owns the thing is the one who will need to claim.",
+          },
+        ],
+      },
+      {
+        heading: "Extended warranties and credit-card cover",
+        blocks: [
+          {
+            type: "p",
+            text: "Holiday electronics are where extended warranties are sold hardest, and where credit-card purchase protection quietly applies. Each item in the app has a manufacturer warranty and an optional extended warranty, and the app adds them into one total coverage period with one expiry date, so a one-year manufacturer warranty plus a two-year shop extension shows as three years with a single reminder schedule.",
+          },
+          {
+            type: "p",
+            text: "Credit-card extended warranty is the one most people forget. Many cards extend the manufacturer's warranty by a fixed period on eligible purchases, with conditions that vary by card and country, and the claim always needs the original receipt and proof that the card was used. Check your own card's terms rather than assuming, and if it applies, enter the extra period as the extended warranty and note the card in the item's notes. The reminder will then arrive while the cover still exists, which is the only time it is worth anything.",
+          },
+        ],
+      },
+      {
+        heading: "Set the reminders for how the holidays actually go",
+        blocks: [
+          {
+            type: "p",
+            text: "By default the app notifies you 30 and 7 days before expiry at 9:00. For holiday purchases, consider adding the 90-day reminder in Settings as well. A one-year warranty on something bought in late November expires in late November next year, which is exactly when you will be too busy buying the next round of gifts to notice; a reminder in late August gives you time to test the item and start a claim calmly. Reminders are local notifications, scheduled on the phone, with nothing sent anywhere, and they update automatically when you edit an item.",
+          },
+          {
+            type: "p",
+            text: "Use the overview to do one January check: filter by \"expiring soon\" and by category, and spend ten minutes confirming that the gifts that are already in use are working. The best moment to discover a faulty product is while the shop's return window is still open, not on the last day of the warranty.",
+          },
+        ],
+      },
+      {
+        heading: "What the app does not do, and when paper is enough",
+        blocks: [
+          {
+            type: "p",
+            text: "Honest limits first. The app is single-device and fully offline by design: there is no account, no cloud sync and no family sharing of the data, so a household with two phones keeps two lists (the app itself can be shared through Apple's Family Sharing, but each phone's records stay on that phone). It is iPhone-only, requiring iOS 17 or later, and it does not read receipts automatically; you type the name, price and date and photograph the rest, which is the twenty seconds. It also does not track return windows as a separate field; if a return deadline matters, put it in the notes or set a short custom warranty of one month and rename it.",
+          },
+          {
+            type: "p",
+            text: "For a household that buys two or three guaranteed items a year, an envelope in a drawer works fine. The app earns its one-time price when the count is higher than that, when items are spread across people and shops, and when you want the reminder to come to you rather than relying on remembering a date a year away. Holiday shopping is the week that pushes most households over that line.",
+          },
+        ],
+      },
+      {
+        heading: "A short checklist for the season",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Log every guaranteed purchase the day it arrives, before wrapping: name, shop, price, real purchase date, warranty length.",
+              "Photograph the full receipt and the serial-number sticker; screenshot online invoices.",
+              "Keep gift receipts in the box and full receipts in the app.",
+              "Add extended and credit-card warranty periods as the extended warranty, and note which card was used.",
+              "Turn on the 90-day reminder for holiday purchases.",
+              "Do a ten-minute January check on everything marked expiring soon or newly in use.",
+              "Export a CSV in January and keep it with your other household records; it doubles as a [home inventory for insurance](/blog/home-inventory-for-insurance-claims-iphone-warranty-tracker-receipts-serial-numbers-csv).",
+            ],
+          },
+          {
+            type: "p",
+            text: "Warranty Tracker & Receipt Log is a one-time purchase on the App Store with no subscription, no ads and no analytics, available in 19 languages, and everything you enter stays on your iPhone. Twenty seconds per gift in December is cheap insurance against a March afternoon spent searching for a receipt that no longer exists.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "transcribe-long-whatsapp-voice-note-android-turn-into-searchable-notes",
+    title: "How to Transcribe a Long WhatsApp Voice Note on Android and Turn It Into Notes You Can Search (Offline)",
+    description:
+      "A ten-minute WhatsApp voice note from a client, a doctor or a relative is a record you cannot search or skim. How to transcribe long voice notes on Android entirely offline with Voice Note to Text, clean the transcript into usable notes, file it in Google Keep, Docs or Obsidian, and what the limits are.",
+    datePublished: "2026-10-23",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Short voice notes are a convenience. Long ones are a filing problem. The eight-minute message from a client walking through what they want changed, the relative explaining a family arrangement, the landlord's reply about the deposit, the tutor's feedback on an essay: these are records, and audio is the worst possible format for a record. You cannot search it, skim it, quote it or paste it into a to-do list, and six months later you cannot find the right one among forty.",
+          },
+          {
+            type: "p",
+            text: "This guide is the Android workflow for turning a long voice note into text you can actually use, with [Voice Note to Text: Offline](/apps/voice-note-to-text) doing the transcription on the phone, nothing uploaded, and a few minutes of cleanup turning the raw transcript into notes. If you only want the one-paragraph answer to \"can I read a voice note instead of listening?\", the earlier [Android FAQ on reading WhatsApp voice notes as text](/blog/read-whatsapp-voice-notes-as-text-android-offline-faq) has it; this post is for the long ones.",
+          },
+        ],
+      },
+      {
+        heading: "Why WhatsApp's own transcript is not enough for long notes",
+        blocks: [
+          {
+            type: "p",
+            text: "WhatsApp added built-in voice message transcripts, generated on the device, and for a thirty-second note in a supported language they are the quickest option: long-press the message and tap Transcribe once the feature is enabled in Settings under Chats. The limits show up on long notes. The feature is only offered for a set of languages, which was small at the Android launch, and if your note is in another language or mixes two, you get the \"transcript not available\" message our earlier post on [the transcript-not-available fix](/blog/whatsapp-voice-transcript-not-available-for-your-language-android-fix) deals with. More importantly for this post, the transcript lives inside the chat bubble. You can read it there, but getting ten minutes of text out of a bubble and into a document is not what it was built for.",
+          },
+          {
+            type: "p",
+            text: "A standalone transcription app gives you the transcript as a block of text you can copy or save as a .txt file, which is the starting point for notes.",
+          },
+        ],
+      },
+      {
+        heading: "Step 1: get the voice note into the app",
+        blocks: [
+          {
+            type: "p",
+            text: "On Android there are two routes. The quick one is the share sheet: long-press the voice message in WhatsApp, tap Share, and choose Voice Note to Text from the list of apps. The other is to pick the file from storage: WhatsApp voice notes are .opus files stored in the WhatsApp media folders, and the app opens .opus, .m4a, .mp3 and .wav files from a file manager. Voice recordings from Android's own recorder app (usually .m4a) work the same way, which matters if the long message was recorded locally rather than received.",
+          },
+          {
+            type: "p",
+            text: "The language is detected automatically, around 100 languages are supported, and everything runs on the phone with a model bundled in the app: it works in airplane mode, and the audio and the transcript never leave the device. That is the reason to prefer it for the kind of long message this post is about; a client's brief or a medical explanation is not something to send to a transcription server to save a minute.",
+          },
+        ],
+      },
+      {
+        heading: "Step 2: let it run, and know what to expect",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Time scales with length.** A one-minute note takes a few seconds on a recent phone; a ten-minute note takes correspondingly longer. Start it, put the phone down, and let it finish rather than switching apps repeatedly.",
+              "**Punctuation and paragraphs are approximate.** On-device models produce readable sentences but will not know where the speaker's topics change. That is what step 3 is for.",
+              "**Names and jargon are the weak spot.** Expect a product name, a street or a surname to come out phonetically. Fix them once in the cleanup and they are searchable forever.",
+              "**Background noise and speakerphone recordings transcribe worse.** If a note is unusable, ask the sender to re-record the key part; most people will.",
+              "**One language per note transcribes best.** Code-switching mid-sentence, common in many families, is where auto-detection and the model both struggle.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Step 3: clean the transcript into notes in five minutes",
+        blocks: [
+          {
+            type: "p",
+            text: "Tap Copy, or Share as .txt, and open the text where you keep notes. The goal is not a perfect transcript; it is a note you will find and understand in six months. A five-minute pass does it.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Add a header line:** who, date, and the chat it came from. \"Client A, 23 Oct, WhatsApp, 8 min\" is enough. Searching for the person's name later will find it.",
+              "**Break it into paragraphs at topic changes.** Read once, press Enter wherever the speaker moves on. Long notes usually have three to six topics.",
+              "**Pull out actions and dates at the top.** Anything that sounds like \"can you\", \"by Friday\", \"the number is\" goes into a short list above the transcript. This is the part you will actually reread.",
+              "**Fix names and numbers.** Listen to the five seconds around each one if needed; the rest of the audio you never have to play again.",
+              "**Keep the raw transcript below the notes.** Do not delete it. It is your evidence of what was actually said, and it is what makes the whole file searchable.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Step 4: file it where you will search for it",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Google Keep:** best for short actions. Paste the summary list into a note, label it by person or project, and tick items off. Keep's search covers note text, so the header line is what finds it.",
+              "**Google Docs:** best for a running log per person or client. One document, newest entry at the top with its header line; the whole history becomes searchable and shareable.",
+              "**Obsidian, Notion or any markdown notes app:** save the .txt from the share sheet straight into your vault or workspace folder, rename it with the date and person, and link it from the project page.",
+              "**Email to yourself:** the lowest-tech option and still effective, because your mailbox search is excellent. Subject line = header line.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Whichever you choose, the one rule is to always include the person and the date in the first line, because that is how you will look for it. The transcript itself supplies the rest of the keywords.",
+          },
+        ],
+      },
+      {
+        heading: "Three situations where this pays off",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Work briefs by voice.** Clients and colleagues who think out loud send long notes; a transcript turns a monologue into a checklist you can confirm back in writing, which also protects you when the brief changes.",
+              "**Appointments and advice.** A doctor's, lawyer's or accountant's voice reply is far easier to act on as text, and the transcript is a record of the exact wording. This is transcription, not advice; if something in it matters, confirm it with the person who said it.",
+              "**Family logistics and languages.** A relative's ten-minute note in Tamil, Turkish or Portuguese can be transcribed in that language, read at your pace, and kept; you no longer have to replay it to catch the one date in the middle.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Limits and honest caveats",
+        blocks: [
+          {
+            type: "p",
+            text: "The app transcribes; it does not summarise, translate or separate speakers, so the cleanup in step 3 is yours to do. It is a one-time purchase with no subscription and no account, and the Android listing notes that it contains ads. The listed inputs on Android are .opus, .m4a, .mp3 and .wav; a voice message from another app in a different container should be converted or re-recorded first. Accuracy depends on audio quality and on how well the bundled model knows the language and the speaker's accent; treat the transcript as a very good draft, and keep the original voice note until the notes are confirmed. And for anything that may be needed as a formal record, the audio file remains the primary evidence; the transcript is your working copy.",
+          },
+          {
+            type: "p",
+            text: "If you also receive long notes on iPhone, the same app exists there with the same on-device approach, and the earlier post on [transcribing voice memos, voicemail and interviews on iPhone](/blog/transcribe-voice-memos-voicemail-interviews-iphone-offline) covers that side. The Android version is the one described here.",
+          },
+          { type: "p", text: DISCLAIMER },
+        ],
+      },
+    ],
+  },
 ];

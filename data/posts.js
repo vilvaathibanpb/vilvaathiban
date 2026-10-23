@@ -8545,6 +8545,174 @@ node --import=tsx your-file.ts`,
       },
     ],
   },
+  {
+    slug: "react-19-3-whats-new-viewtransition-fragment-refs-browser-trusted-types",
+    title: "React 19.3: What's New and What to Change — Stable ViewTransition, Fragment Refs, browser(), Trusted Types and Independent Transitions",
+    description:
+      "React 19.3 shipped on 9 September 2026. A practical tour of the release: <ViewTransition> and Fragment refs now stable, addTransitionType, the new browser() opt-out from server rendering, Trusted Types support, rendering Context directly from Server Components, independent transitions, and an upgrade checklist.",
+    datePublished: "2026-10-23",
+    readingMinutes: 9,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "React 19.3 was published on 9 September 2026, eleven months after 19.2. It is a minor release in the semver sense, with no breaking changes listed, but it is the release in which two of the longest-running experimental APIs, `<ViewTransition>` and Fragment refs, became stable, and it adds a handful of smaller things that change how you write real components: a `browser()` function for opting a component out of server rendering, Trusted Types support for strict CSP sites, the ability to render a Context directly from a Server Component, and a scheduler change that stops one slow transition from blocking unrelated ones.",
+          },
+          {
+            type: "p",
+            text: "This post walks through each of them with the code you would actually write, then ends with a short upgrade checklist. If you used `<ViewTransition>` while it was experimental, our earlier [guide to ViewTransition and Activity](/blog/react-viewtransition-activity-guide) still applies; the section below focuses on what changed when it went stable and how it pairs with the new transition types.",
+          },
+        ],
+      },
+      {
+        heading: "ViewTransition is stable",
+        blocks: [
+          {
+            type: "p",
+            text: "`<ViewTransition>` wraps part of your tree and animates it, using the browser's View Transition API, when the wrapped content enters, exits, moves or resizes. The important rule has not changed from the experimental version: **only updates marked as transitions animate**. A state update inside `startTransition`, a `<Suspense>` boundary revealing content, or a `useDeferredValue` update will trigger the animation; an ordinary urgent update will not.",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: "import { ViewTransition, startTransition, useState } from 'react';\n\nfunction Panel() {\n  const [open, setOpen] = useState(false);\n  return (\n    <>\n      <button onClick={() => startTransition(() => setOpen((o) => !o))}>\n        Toggle\n      </button>\n      {open && (\n        <ViewTransition>\n          <Details />\n        </ViewTransition>\n      )}\n    </>\n  );\n}",
+          },
+          {
+            type: "p",
+            text: "React chooses the animation from the change it sees in the tree: **enter** when the `<ViewTransition>` is added, **exit** when it is removed, **update** when its children change, and **share** when a named `<ViewTransition>` is removed in one place and added in another, which gives you the shared-element effect between two screens. The default is a cross-fade. You customise it with a View Transition class and plain CSS, or imperatively through the `onEnter`, `onExit`, `onShare` and `onUpdate` event props, which hand you the Web Animations API.",
+          },
+          {
+            type: "p",
+            text: "Two Suspense details are worth knowing. Wrapping a `<Suspense>` boundary in `<ViewTransition>` animates the fallback-to-content swap. For cached content that resolves instantly, the React team recommends `<ViewTransition update=\"auto\" default=\"none\">`, so the fallback appears immediately and only the real update animates. And wrapping an `<img>` or a font `<style>` inside a `<ViewTransition>` makes Suspense wait for those resources, which removes the flicker of a transition finishing before its image loads. ViewTransition currently works in the DOM only; React Native support is in progress.",
+          },
+        ],
+      },
+      {
+        heading: "addTransitionType: the same state change, different animations",
+        blocks: [
+          {
+            type: "p",
+            text: "A carousel goes forward and backward with the same `setIndex` call, but you want it to slide from the right in one case and from the left in the other. `addTransitionType` records the cause of a transition so the `<ViewTransition>` can pick the animation by name.",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: "import { ViewTransition, addTransitionType, startTransition } from 'react';\n\nfunction next() {\n  startTransition(() => {\n    addTransitionType('next');\n    setCurrentSlide((c) => c + 1);\n  });\n}\n\nfunction previous() {\n  startTransition(() => {\n    addTransitionType('previous');\n    setCurrentSlide((c) => c - 1);\n  });\n}\n\n<ViewTransition\n  enter={{ next: 'from-right', previous: 'from-left' }}\n  exit={{ next: 'to-left', previous: 'to-right' }}\n>\n  <Slide key={currentSlide} />\n</ViewTransition>",
+          },
+          {
+            type: "p",
+            text: "The `enter` and `exit` props take an object keyed by transition type and map each to a class name you define in CSS. React also adds each transition type to the browser's view transition as a type, so you can scope styles with the `:active-view-transition-type(next)` pseudo-class if you prefer to keep the logic in the stylesheet.",
+          },
+        ],
+      },
+      {
+        heading: "Fragment refs are stable",
+        blocks: [
+          {
+            type: "p",
+            text: "Until now, doing anything DOM-level with a group of siblings meant wrapping them in a `<div>` you did not want. In 19.3 a ref on `<Fragment>` gives you a `FragmentInstance`, an object that acts on the fragment's DOM children without adding an element.",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: "import { Fragment, useEffect, useRef } from 'react';\n\nfunction Headings({ posts }) {\n  const ref = useRef(null);\n  useEffect(() => {\n    const instance = ref.current;\n    const onClick = (e) => console.log('clicked', e.target);\n    instance.addEventListener('click', onClick);\n    return () => instance.removeEventListener('click', onClick);\n  }, []);\n  return (\n    <Fragment ref={ref}>\n      {posts.map((post) => (\n        <h2 key={post.id}>{post.title}</h2>\n      ))}\n    </Fragment>\n  );\n}",
+          },
+          {
+            type: "p",
+            text: "The instance exposes `addEventListener`, `removeEventListener` and `dispatchEvent`, which apply to the first-level children; `focus`, `focusLast` and `blur`, which search nested children depth-first; `observeUsing` and `unobserveUsing` for an `IntersectionObserver` or `ResizeObserver`; and `getClientRects`, `getRootNode`, `compareDocumentPosition` and `scrollIntoView` for measuring and scrolling. The practical wins are focus management in lists, lazy-loading groups of items with one observer, and attaching listeners in a component library without dictating a wrapper element.",
+          },
+        ],
+      },
+      {
+        heading: "browser(): opt a component out of server rendering",
+        blocks: [
+          {
+            type: "p",
+            text: "The new `browser()` export from `react-dom` is a tidy replacement for the `useEffect`-plus-`mounted` flag that every SSR app grows for components that only make sense in a browser: anything reading `window`, `localStorage`, media queries or a third-party widget.",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: "import { use } from 'react';\nimport { browser } from 'react-dom';\n\nfunction LocalClock() {\n  use(browser());\n  // From here on, this code only ever runs in the browser.\n  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;\n  return <span>{new Date().toLocaleTimeString()} ({tz})</span>;\n}",
+          },
+          {
+            type: "p",
+            text: "On the server, `use(browser())` suspends, so the nearest `<Suspense>` fallback is what ends up in the HTML; on the client it does not suspend at all. Because `use` may be called conditionally, you can make the opt-out depend on a prop, and it composes into custom hooks: a data hook can call `use(browser())` only when `initialData` is missing, so pages with server-provided data render fully on the server and pages without it defer to the client. This is a cleaner pattern than the hydration-mismatch workarounds most codebases carry today.",
+          },
+        ],
+      },
+      {
+        heading: "Trusted Types support",
+        blocks: [
+          {
+            type: "p",
+            text: "If your site enforces `Content-Security-Policy: require-trusted-types-for 'script'`, React previously got in the way: it coerced values to strings (`'' + value`) before injecting them into the DOM, which turned a `TrustedHTML` object back into an untrusted string and tripped the policy. In 19.3 React no longer does that coercion, so `TrustedHTML`, `TrustedScript` and `TrustedScriptURL` objects pass through to the DOM and the browser validates them against your policies. If you have been maintaining a patched `dangerouslySetInnerHTML` wrapper for this reason, you can retire it.",
+          },
+        ],
+      },
+      {
+        heading: "Rendering Context directly from a Server Component",
+        blocks: [
+          {
+            type: "p",
+            text: "A Server Component can now render a Context imported from a `'use client'` module without going through a wrapper Provider component, using the React 19 style of rendering the Context itself as the provider.",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: "// user-context.js\n'use client';\nimport { createContext } from 'react';\nexport const UserContext = createContext(null);\n\n// layout.js (a Server Component)\nimport { UserContext } from './user-context';\n\nexport async function Layout({ children }) {\n  const currentUser = await getCurrentUser();\n  return <UserContext value={currentUser}>{children}</UserContext>;\n}",
+          },
+          {
+            type: "p",
+            text: "This removes a small but ubiquitous file from Next.js and other RSC apps: the `Providers.jsx` client component whose only job was to wrap children in a Provider. If you want the mental model behind the server/client split, our [practical guide to React Server Components](/blog/react-server-components-practical-mental-model) covers it.",
+          },
+        ],
+      },
+      {
+        heading: "Independent transitions and other notable changes",
+        blocks: [
+          {
+            type: "p",
+            text: "The most consequential line in the changelog is also the quietest: transitions now render independently, so a slow transition no longer blocks unrelated ones. Before 19.3, several pending transitions were merged into one render, which meant a heavy filter update could delay an unrelated tab switch that had also been marked as a transition. Now each gets its own render. You do not change any code to benefit, but if you had been avoiding `startTransition` for small interactions because of this, you can stop avoiding it.",
+          },
+          {
+            type: "list",
+            items: [
+              "Strict Mode now double-invokes Effects during hydration, matching its behaviour on the client, so hydration-only effect bugs show up in development.",
+              "A development warning fires when `use` is called incorrectly inside a condition.",
+              "`useActionState` error messages say \"action state\" instead of \"form state\".",
+              "New DOM events `onFullscreenChange` and `onFullscreenError`; the SVG `maskType` property; `fetchPriority` on module resources; `credentialless` recognised as a boolean attribute on iframes.",
+              "`onReset` now fires after React resets a form following a Server Action, and the `submitter` is included in `submit` events.",
+              "Resize-event updates are batched until the next frame.",
+              "React Server Components transport `Error.cause` and `AggregateError.errors` to the client, and `<Activity>` is supported in Flight.",
+              "Bug fixes include `useDeferredValue` getting stuck on an old value, `useSyncExternalStore` missing mutations while an `<Activity>` was hidden, `useEffectEvent` reading stale values inside `forwardRef` and `memo`, and several `<ViewTransition>` crashes (Mobile Safari, `SuspenseList`).",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Upgrade checklist",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Update `react` and `react-dom` together to `^19.3.0`; there are no listed breaking changes from 19.2.",
+              "If you imported `unstable_ViewTransition` or `unstable_addTransitionType`, switch to the stable `ViewTransition` and `addTransitionType` exports from `react`.",
+              "Replace `mounted` flags and `typeof window` guards with `use(browser())` where the component truly cannot render on the server, and keep a `<Suspense>` boundary above it so the HTML has a fallback.",
+              "Delete Provider-only client wrapper components and render the Context directly from your Server Component.",
+              "If you enforce Trusted Types, remove string-coercion workarounds and test that your policies are now consulted.",
+              "Run your test suite under Strict Mode: the new double-invocation of Effects during hydration may surface effects that assumed a single run.",
+              "If you deliberately avoided `startTransition` for small updates because of head-of-line blocking, reconsider now that transitions render independently.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Read with the rest of the React 19 line, 19.3 completes the picture that 19.0 started: Actions and `use` for data, Server Components for the server/client split, and now first-class animation and group-level DOM access without wrapper elements. The upgrade is small; the number of workarounds you can delete afterwards is not.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
   ...mcpGuides,
 ];
