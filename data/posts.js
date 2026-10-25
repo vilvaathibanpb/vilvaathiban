@@ -8713,6 +8713,182 @@ node --import=tsx your-file.ts`,
       },
     ],
   },
+  {
+    slug: "fetch-is-aborted-meaning-fix",
+    title: "'Fetch Is Aborted': What the Error Means, Every Place It Comes From, and How to Fix Each One",
+    description:
+      "'Fetch is aborted', 'The user aborted a request', 'The operation was aborted' and Node's 'This operation was aborted' are the same thing: an AbortSignal passed to fetch fired. What each runtime calls it, the seven places the abort comes from (effect cleanup, AbortController timeout, AbortSignal.any, search-as-you-type, navigation, reused controllers, body reads), and the fix for each.",
+    datePublished: "2026-10-25",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "If you are searching for **fetch is aborted meaning**, you have probably seen one of these in a console or an error tracker: `DOMException: The user aborted a request.`, `The operation was aborted.`, `Fetch is aborted`, `AbortError: This operation was aborted`, or `TypeError: fetch failed` with an `AbortError` buried in its `cause`. They look like five different problems. They are one problem, reported in five dialects: a `fetch()` call was given an `AbortSignal`, and that signal was aborted before the response finished.",
+          },
+          {
+            type: "p",
+            text: "This post lists the exact messages per runtime so you can match yours, explains the single mechanism behind them, walks through the seven places an abort usually comes from, and gives the fix for each. Most of the time the abort is correct behaviour that you merely need to stop reporting; occasionally it is a real bug, and the two cases need different code.",
+          },
+        ],
+      },
+      {
+        heading: "The same error in five runtimes",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Chrome and Edge:** `DOMException: The user aborted a request.` when you call `abort()` with no argument. Newer Chromium versions phrase it as `signal is aborted without reason`; our [separate post on that wording](/blog/aborterror-signal-is-aborted-without-reason-fix) covers it.",
+              "**Firefox:** `DOMException: The operation was aborted.`",
+              "**Safari:** `AbortError: Fetch is aborted`, which is where the phrase in the search query comes from.",
+              "**Node.js (undici, the built-in fetch):** `AbortError: This operation was aborted` when the signal fires before headers arrive; if it fires while the body is streaming you can instead see `TypeError: fetch failed` or `terminated`, with the abort error as `err.cause`.",
+              "**Any runtime, when the signal came from `AbortSignal.timeout()`:** `DOMException: The operation was aborted due to timeout` (or `signal timed out`), with `err.name === 'TimeoutError'` rather than `AbortError`.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The message text is not stable across versions and you should never branch on it. Branch on `err.name`, and when you need more detail, on `signal.reason`.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "try {\n  const res = await fetch(url, { signal });\n  return await res.json();\n} catch (err) {\n  if (err.name === 'AbortError') {\n    // someone called controller.abort(): user navigated, typed again, unmounted...\n    return null;\n  }\n  if (err.name === 'TimeoutError') {\n    // AbortSignal.timeout(ms) fired: the server was slow\n    throw new Error('Request timed out', { cause: err });\n  }\n  throw err; // network failure, CORS, JSON parse error\n}",
+          },
+        ],
+      },
+      {
+        heading: "The one mechanism behind every version",
+        blocks: [
+          {
+            type: "p",
+            text: "`fetch()` accepts a `signal` option. An `AbortSignal` is a tiny object with an `aborted` boolean, a `reason`, and an `abort` event. When whatever owns the signal aborts it, fetch stops the request, closes the connection, and rejects the pending promise (and any pending body read) with the error above. There are only four things that can abort a signal: a call to `controller.abort()` on the `AbortController` that created it, a timer from `AbortSignal.timeout(ms)`, any member of an `AbortSignal.any([...])` combination firing, or the environment itself tearing down the page or worker. Every 'fetch is aborted' you will ever debug reduces to finding which of those four happened and whether it should have.",
+          },
+          {
+            type: "p",
+            text: "If you want the full API with all its options, the [AbortController and AbortSignal guide](/blog/abortcontroller-abortsignal-practical-guide) is the reference; the rest of this post is the diagnostic.",
+          },
+        ],
+      },
+      {
+        heading: "Cause 1: a React effect cleanup aborted it",
+        blocks: [
+          {
+            type: "p",
+            text: "The most common source in a React app. You start a fetch in `useEffect`, return a cleanup that calls `abort()`, and the component unmounts, or its dependencies change, before the response lands. In development, React Strict Mode mounts, unmounts and remounts every component once, so the first fetch is *always* aborted and the console fills with AbortErrors on every page load.",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: "useEffect(() => {\n  const controller = new AbortController();\n  fetch('/api/user/' + id, { signal: controller.signal })\n    .then((r) => r.json())\n    .then(setUser)\n    .catch((err) => {\n      if (err.name !== 'AbortError') setError(err);\n    });\n  return () => controller.abort();\n}, [id]);",
+          },
+          {
+            type: "p",
+            text: "This is working as designed. The cleanup is the whole point of the pattern, because it stops a stale response for the previous `id` from overwriting the state for the new one; the [useEffect cleanup guide](/blog/react-useeffect-cleanup-function-guide) goes through why. The fix is the `catch` above: swallow `AbortError`, surface everything else. If your fetch result is cached and shared (React Query, SWR, a custom cache), do not abort in cleanup at all, because the next subscriber wants that response.",
+          },
+        ],
+      },
+      {
+        heading: "Cause 2: a timeout fired",
+        blocks: [
+          {
+            type: "p",
+            text: "Either you wrote `setTimeout(() => controller.abort(), 8000)` or you used `AbortSignal.timeout(8000)`. The first produces a plain `AbortError`, indistinguishable from a user cancel; the second produces a `TimeoutError`, which is the reason to prefer it. A timeout is the one abort you usually *do* want to show the user and perhaps retry.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "async function getJson(url, { timeoutMs = 8000, retries = 2 } = {}) {\n  for (let attempt = 0; ; attempt++) {\n    try {\n      const res = await fetch(url, { signal: AbortSignal.timeout(timeoutMs) });\n      if (!res.ok) throw new Error('HTTP ' + res.status);\n      return await res.json();\n    } catch (err) {\n      const retryable = err.name === 'TimeoutError' && attempt < retries;\n      if (!retryable) throw err;\n    }\n  }\n}",
+          },
+          {
+            type: "p",
+            text: "Retry on `TimeoutError`, never on `AbortError`: a user who cancelled did not ask you to try again. If `AbortSignal.timeout` is undefined in your environment, see [the fix for that](/blog/abortsignal-timeout-is-not-a-function-fix); the [request-timeouts post](/blog/abortsignal-timeout-any-request-timeouts) has the patterns for combining a timeout with other signals.",
+          },
+        ],
+      },
+      {
+        heading: "Cause 3: one of several combined signals fired",
+        blocks: [
+          {
+            type: "p",
+            text: "`AbortSignal.any([userSignal, AbortSignal.timeout(5000)])` returns a signal that aborts when *either* input does, and its `reason` is copied from whichever fired first. That is how you tell them apart after the fact.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const signal = AbortSignal.any([controller.signal, AbortSignal.timeout(5000)]);\nfetch(url, { signal }).catch((err) => {\n  console.log(err.name, signal.reason?.name);\n  // 'AbortError'  'AbortError'   -> the user cancelled\n  // 'TimeoutError' 'TimeoutError' -> the 5 s timer fired\n});",
+          },
+        ],
+      },
+      {
+        heading: "Cause 4: search-as-you-type cancelled the previous request",
+        blocks: [
+          {
+            type: "p",
+            text: "Autocomplete code aborts the in-flight request every time the user types another character, so only the latest query's response is used. Each keystroke therefore produces one aborted fetch. That is correct and desirable; the only bug is reporting it. Keep the controller in a ref or a closure, abort the old one, create a **new** controller for each request, and ignore `AbortError` in the handler.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "let current = null;\n\nasync function search(q) {\n  current?.abort('superseded');\n  current = new AbortController();\n  try {\n    const res = await fetch('/api/search?q=' + encodeURIComponent(q), {\n      signal: current.signal,\n    });\n    render(await res.json());\n  } catch (err) {\n    if (err.name !== 'AbortError') showError(err);\n  }\n}",
+          },
+        ],
+      },
+      {
+        heading: "Cause 5: the page navigated away",
+        blocks: [
+          {
+            type: "p",
+            text: "When a tab navigates, reloads or closes, the browser cancels in-flight requests; a worker being terminated does the same. Error trackers that hook `unhandledrejection` then record a burst of AbortErrors that no user ever saw. Filter them out in the tracker. If the request that matters is the *last* one, an analytics ping or a 'save draft' on unload, use `fetch(url, { keepalive: true })` or `navigator.sendBeacon()`, both of which are allowed to outlive the page; an ordinary fetch in `beforeunload` is exactly the request that gets aborted.",
+          },
+        ],
+      },
+      {
+        heading: "Cause 6: a controller was reused after aborting",
+        blocks: [
+          {
+            type: "p",
+            text: "An `AbortController` is single-use. Once `abort()` has been called, `signal.aborted` stays `true` forever, and any new `fetch` given that signal rejects **immediately**, before a single byte is sent. The symptom is 'the first request works, every later one fails instantly with AbortError', typically because the controller lives in module scope or in a class field instead of being created per request. Calling `abort()` twice is harmless; starting a new request on an already-aborted signal is the bug. Create the controller where you start the request, not where you define the function.",
+          },
+        ],
+      },
+      {
+        heading: "Cause 7: the body was read after the abort",
+        blocks: [
+          {
+            type: "p",
+            text: "`fetch()` resolves as soon as headers arrive. If the signal aborts while you are still consuming the body, the rejection comes from `res.json()`, `res.text()` or `reader.read()` rather than from `fetch` itself, which is why the stack trace points at a line that 'cannot' fail. In Node the wrapper is often `TypeError: fetch failed` or `terminated`; look at `err.cause`. The fix is the same `try/catch` around the body read, and for streamed responses, treating a rejected `read()` as end-of-stream when the abort was intentional.",
+          },
+          {
+            type: "code",
+            language: "ts",
+            code: "function isAbort(err: unknown): boolean {\n  const e = err as { name?: string; cause?: { name?: string } };\n  return e?.name === 'AbortError' || e?.cause?.name === 'AbortError';\n}",
+          },
+        ],
+      },
+      {
+        heading: "A checklist for the fix",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Branch on `err.name` (`AbortError` vs `TimeoutError`), never on the message text.",
+              "Decide per call site whether the abort is expected. Cleanup, typeahead and navigation aborts are expected: catch and drop them. Timeouts are not: show them, and retry only those.",
+              "Create a fresh `AbortController` for every request; never keep one in module scope.",
+              "Do not abort in effect cleanup when the result goes into a shared cache.",
+              "Pass a reason: `controller.abort(new Error('user cancelled'))` or `abort('superseded')`. It shows up as `signal.reason` and in the rejection, and it makes logs readable.",
+              "In Node, check `err.cause` as well, because undici wraps body-phase aborts.",
+              "In error trackers, drop AbortErrors raised during `pagehide` or `unhandledrejection` on navigation; they are noise.",
+            ],
+          },
+          {
+            type: "p",
+            text: "'Fetch is aborted' is not a network error and not a server error. It is your own code, or the browser on your behalf, saying 'stop'. Once each call site knows whether that stop was intended, the error either disappears from your logs or turns into the timeout handling you should have had anyway.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
   ...mcpGuides,
 ];

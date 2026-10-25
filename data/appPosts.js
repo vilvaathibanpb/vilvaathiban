@@ -8793,4 +8793,452 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "how-to-edit-a-script-down-by-30-percent-teleprompter",
+    title: "How to Edit a Script Down by 30% Without Losing the Point (With a Worked Example)",
+    description:
+      "Most first-draft scripts are a third too long. A cutting method for creators: a 120-word draft edited to 85 words line by line, the seven rules that do the cutting, how to check length against your speaking rate, when not to cut, and how to record both versions back to back with a teleprompter.",
+    datePublished: "2026-10-25",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Almost every script is too long on the first pass, and almost always by the same amount: somewhere around a third. The draft that reads at 85 seconds needed to be 60; the two-minute explainer should have been 80 seconds. That is not a talent problem, it is how writing works. You put the thinking on the page first, then you have to take the thinking back out and leave the point.",
+          },
+          {
+            type: "p",
+            text: "This post is the method. It is deliberately mechanical, because 'make it tighter' is useless advice at 11 pm with a recording to finish. There is a worked example, a 120-word paragraph cut to 85, followed by the seven rules that did the cutting, a way to check length against how fast you actually talk, the cases where you should *not* cut, and how to use the app to record the long and the short version back to back so the camera, not your ego, decides.",
+          },
+        ],
+      },
+      {
+        heading: "The worked example: 120 words to 85",
+        blocks: [
+          {
+            type: "p",
+            text: "Here is a first draft for a short productivity video. It is fine. It is also 120 words, which at a normal speaking pace is about 50 seconds for what should be a 35-second point.",
+          },
+          {
+            type: "p",
+            text: "*So today I want to talk about something that I think a lot of people struggle with, which is actually getting started on big tasks. What I personally do, and this has honestly changed the way I work, is I set a timer for just ten minutes. The idea is basically that you only have to work for ten minutes, and after that you are totally allowed to stop if you want to. But the interesting thing is that most of the time you don't actually stop, because once you have started, continuing is a lot easier than starting was. So in order to beat procrastination, try the ten-minute timer. That is really all it takes to get going.*",
+          },
+          {
+            type: "p",
+            text: "The same point, 85 words:",
+          },
+          {
+            type: "p",
+            text: "*Big tasks are hard to start, so stop trying to start them. Set a timer for ten minutes. For ten minutes you work; when it rings, you are allowed to stop. Most of the time you won't, because continuing is easier than starting, and the hard part is already behind you. I have used this for two years and it is the only productivity trick that survived. Ten minutes. Set the timer, then decide.*",
+          },
+          {
+            type: "p",
+            text: "Nothing was lost. The hook is now in the first sentence instead of the fifth. The number is said once, hard, at the end. And the version with the sentence 'that is really all it takes to get going' is gone, because the sentence before it had already said that.",
+          },
+        ],
+      },
+      {
+        heading: "The seven rules that did the cutting",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Cut the throat-clearing.** 'So today I want to talk about', 'something I think a lot of people struggle with', 'what I personally do': none of it is the video. Your first sentence should be the first thing you would say if the viewer were about to swipe away, because they are.",
+              "**One idea per sentence.** The draft's second sentence carried three: what I do, that it changed my work, and the timer. Split them and two of the three turn out to be optional.",
+              "**Delete adjectives and adverbs that do not change the picture.** 'Actually', 'honestly', 'basically', 'totally', 'really', 'a lot'. Read the sentence without each one. If the meaning is identical, the word was padding you added to sound conversational, and it is cheaper to *be* conversational by talking to the lens.",
+              "**Replace the long form of short words.** 'In order to' is 'to'. 'The idea is basically that' is nothing. 'At this point in time' is 'now'. 'Due to the fact that' is 'because'. These phrases are where a third of most scripts hides.",
+              "**Kill the recap.** The last sentence of a draft is usually a restatement of the one before it, written because endings feel abrupt. On video, abrupt is good. End on the instruction or the image, not on a summary of it.",
+              "**Say the number, not the sentence about the number.** 'Set a timer for just ten minutes' became 'Set a timer for ten minutes', and the close became 'Ten minutes.' Numbers are the stickiest words in a script; do not wrap them in cushioning.",
+              "**Move the point to the first line.** If the draft's real claim is in the middle, cut everything before it and see whether the beginning is even needed. In the example, the point was 'stop trying to start, set a timer'; everything before that was warm-up.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "How to check the length against the way you talk",
+        blocks: [
+          {
+            type: "p",
+            text: "Word counts only mean something next to your speaking rate. Most people land somewhere between about 130 and 160 words a minute when they are talking naturally to a camera, slower for emotional or instructional content, faster for energetic hooks. So a 60-second video is roughly 130 to 150 words, and a 30-second one is 65 to 75. These are typical ranges, not rules; the only number that matters is yours.",
+          },
+          {
+            type: "p",
+            text: "To find yours, read a paragraph you know the word count of into the phone at your normal pace and time it. Do it twice. Then every future script has a target: words divided by your rate equals seconds. Our earlier post on the [ideal script length for a 60-second video](/blog/ideal-script-length-for-a-60-second-video) goes deeper on platform-specific targets; the short version is that 'a third too long' is almost always what the stopwatch says about a first draft, which is why 30% is the number in this title.",
+          },
+          {
+            type: "p",
+            text: "One trap: cutting words and then speaking faster to 'fit' the rest. If the cut version still runs long, you have not cut enough. Pace should stay the same; the script gets shorter.",
+          },
+        ],
+      },
+      {
+        heading: "When not to cut",
+        blocks: [
+          {
+            type: "p",
+            text: "The 30% rule is for the explainer, the opinion, the tip, the hook-driven short. There are three kinds of script where it does damage.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Compliance-heavy wording.** If you work in medicine, law or finance, some sentences are there because they have to be, and 'tightening' them changes what they promise. Cut around them, not through them. We covered this in the post on [scripts for compliance-heavy topics](/blog/teleprompter-scripts-for-compliance-heavy-topics-medical-legal-financial).",
+              "**Step-by-step tutorials.** When the viewer is following along with their own hands, every step needs its words, including the boring ones like 'now wait for it to finish'. What you cut in a tutorial is the commentary between steps, never the steps.",
+              "**Emotional or story-driven pieces.** Rhythm carries these, and rhythm sometimes needs a 'slow' sentence. Read the story aloud before cutting it; if a line earns a pause, it stays even if it is technically redundant.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Record both versions, then decide",
+        blocks: [
+          {
+            type: "p",
+            text: "The honest test is not the word count. It is watching the two takes. [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay) makes that cheap: paste the long draft as one script and the cut as another, record the first, swap to the second, record again, and both land in the takes library where you can play them back to back. Because the script floats over the camera preview right next to the front lens, you are looking at the viewer in both takes, so the comparison is about the words and not about where your eyes went.",
+          },
+          {
+            type: "p",
+            text: "Two settings matter for an edit session. Voice-follow scrolling, which uses the iPhone's on-device speech recognition to move the script at the pace you actually speak and finds your place again if you stumble, is the one to use here: it tells you immediately when a sentence is awkward in the mouth, because you will trip on it and feel the script wait for you. Classic auto-scroll with the speed slider is better once the script is final and you want a consistent pace across takes. In either mode the text size is adjustable, which helps when a cut version suddenly has more white space.",
+          },
+          {
+            type: "p",
+            text: "The app is free, iOS-only, and works entirely offline, so nothing you write or record leaves the phone; recordings are portrait 4K and the script never appears in the saved video. Free users see an occasional ad and a small one-time purchase removes them, with no subscription and no watermark either way. If you are still at the drafting stage, the post on [writing a script that doesn't sound written](/blog/write-a-script-that-doesnt-sound-written) is the step before this one.",
+          },
+        ],
+      },
+      {
+        heading: "A ten-minute cutting routine",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Count the words and write the target next to it (words divided by your rate).",
+              "Delete the first sentence. Read it. Delete the second if the piece still makes sense.",
+              "Go through once removing only padding words and long forms of short words.",
+              "Go through once splitting double sentences and deleting the weaker half.",
+              "Delete the last sentence if it restates the one before it.",
+              "Record it. If the stopwatch still says long, go again; do not speed up.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Next in this series: using a teleprompter for product demos, where the script has to follow what is on the screen rather than the other way round, and the cutting rules change accordingly.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "wa-me-link-not-working-wame-format-checked-line-by-line-iphone",
+    title: "wa.me Link Not Working? The wa.me Format Checked Line by Line (iPhone Troubleshooting)",
+    description:
+      "A wa.me link that says the number is not on WhatsApp, opens a chat with no message, or lands in Safari instead of the app is almost always a format problem. The exact wa.me format, the number rules, each symptom with its cause and fix, why a QR code won't scan, and how Chat Link & QR Code Maker builds the link correctly on iPhone.",
+    datePublished: "2026-10-25",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "You put a WhatsApp link on a flyer, in an Instagram bio or at the bottom of an invoice, a customer tapped it, and something went wrong: 'this phone number is not on WhatsApp', a chat that opened with no message in it, or a web page instead of the app. The **wa.me format** is short enough that it is easy to assume you got it right, and strict enough that one character breaks it. This post checks the format line by line, matches each symptom to its cause, and ends with the way to make a link on an iPhone that cannot be mistyped.",
+          },
+          {
+            type: "p",
+            text: "If you want the general how-to first, the earlier [wa.me link generator and QR guide](/blog/whatsapp-link-generator-qr-code-full-size-dp) covers the basics; this one is for when the link already exists and does not work.",
+          },
+        ],
+      },
+      {
+        heading: "The wa.me format, exactly",
+        blocks: [
+          {
+            type: "p",
+            text: "A click-to-chat link has two parts, and only the first is required:",
+          },
+          {
+            type: "code",
+            language: "text",
+            code: "https://wa.me/<number>?text=<URL-encoded message>\n\nhttps://wa.me/4915112345678\nhttps://wa.me/4915112345678?text=Hi%2C%20I%20would%20like%20to%20book%20a%20table",
+          },
+          {
+            type: "p",
+            text: "The number is the phone number in international format with **digits only**. The optional `?text=` carries a pre-filled message, URL-encoded so that spaces, punctuation and emoji survive inside a URL. The older form `https://api.whatsapp.com/send?phone=<number>&text=<message>` still works and means the same thing; wa.me is just the short version.",
+          },
+          {
+            type: "p",
+            text: "**The number rules:**",
+          },
+          {
+            type: "list",
+            items: [
+              "Country code first, then the number: `14155550142` (US), `4915112345678` (Germany), `447700900123` (UK), `919876543210` (India).",
+              "No plus sign. `+49...` is how you *dial*; in the link it is just `49...`.",
+              "No spaces, dashes, dots or brackets. `+44 (0)7700 900123` becomes `447700900123`.",
+              "Drop the leading zero of the local part. The UK number above is written 07700 900123 locally; the 0 goes away once the 44 is in front. The same applies to Germany's 0151, India's 0 before a landline code, and most other countries.",
+              "Nothing else: no `tel:`, no `whatsapp://`, no trailing slash before the `?`.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Symptom: 'This phone number is not on WhatsApp' or 'invalid number'",
+        blocks: [
+          {
+            type: "p",
+            text: "The link opened WhatsApp, WhatsApp looked the number up, and nothing matched. Nine times out of ten the number is right and the format is wrong.",
+          },
+          {
+            type: "list",
+            items: [
+              "**The country code is missing.** `7700900123` is not a UK number to WhatsApp; it is a number in whatever country the reader's phone thinks it is in. Add the code.",
+              "**The leading zero was kept.** `4407700900123` fails. Remove the 0 after the country code.",
+              "**A plus sign got encoded.** You typed `+44...`, something turned the plus into `%2B`, and the number is now `%2B447700900123`. Delete the plus entirely.",
+              "**A space or dash survived.** Copying a number out of Contacts often brings formatting with it. Retype it as a single run of digits.",
+              "**The number really is not on WhatsApp.** A landline, a number that was never registered, or a line that moved to WhatsApp Business under a different number. Test it from a second phone before blaming the link.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Symptom: the chat opens but the message is missing or cut short",
+        blocks: [
+          {
+            type: "p",
+            text: "The number part is fine; the `text=` part is not. A URL cannot contain a raw space, and several ordinary characters have special meaning inside a URL, so the message has to be encoded.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Spaces were left as spaces.** Some apps stop the link at the first space, so `?text=Hi there` becomes just `?text=Hi`. Spaces must be `%20`.",
+              "**An ampersand or a hash in the message.** `&` starts a new parameter and `#` starts a fragment, so `Table for 2 & a highchair #birthday` loses everything after the `&`. Encode them as `%26` and `%23`.",
+              "**Emoji and accented letters.** These need multi-byte encoding (a thumbs-up is `%F0%9F%91%8D`). Hand-typed, they often come through as question marks.",
+              "**Line breaks.** A two-line message needs `%0A` between the lines; pasting a real line break ends the link.",
+              "**Two question marks.** `wa.me/number?text=Hi?` is fine, but `wa.me/number?phone=...?text=...` is not; only the first `?` starts the query, and the parts are joined with `&`.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The fix in every case is proper URL encoding of the whole message, which is tedious by hand and is exactly what a generator is for.",
+          },
+        ],
+      },
+      {
+        heading: "Symptom: the link opens Safari instead of WhatsApp",
+        blocks: [
+          {
+            type: "p",
+            text: "A wa.me link is a normal https address, so on an iPhone it may first open a small WhatsApp web page with a **Continue to Chat** button, and only that button hands over to the app. That is normal, not a broken link. It can also happen when the person does not have WhatsApp installed (the page then offers the App Store), or when the link was tapped inside an app whose built-in browser does not hand off to other apps. If your own tests always go straight to the chat and a customer reports a web page, ask which app they tapped it from; the link itself is probably fine.",
+          },
+        ],
+      },
+      {
+        heading: "Symptom: it works for me but not for other people",
+        blocks: [
+          {
+            type: "p",
+            text: "Whether your number is saved in the other person's Contacts makes no difference; click-to-chat exists precisely so that it does not have to be. So the usual explanation is a typo you cannot see: you tested an earlier, correct version of the link and the one on the flyer is a different copy with a digit missing, or the link was retyped by a designer, or it was shortened by a link service that mangled the `?text=` part. Open the exact link from the printed material on a phone that has never messaged you.",
+          },
+        ],
+      },
+      {
+        heading: "Symptom: the QR code will not scan",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Too small.** A QR with a long pre-filled message has many more modules than a bare number and needs more physical size to stay readable. Shorten the message or print it larger.",
+              "**Low contrast.** Dark code on a dark brand colour, or a pale grey code, defeats the camera. Black on white is still the safest.",
+              "**Printed from a screenshot.** A screenshot is a blurry, low-resolution copy of the code; the printer enlarges the blur. Save the code as an image file at full resolution instead.",
+              "**No quiet zone.** The white margin around the code is part of the code. Cropping it off, or printing it flush against text or a border, stops many scanners.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "The way to make a wa.me link that cannot be wrong",
+        blocks: [
+          {
+            type: "p",
+            text: "Every error above is a formatting error, and the point of [Chat Link & QR Code Maker](/apps/chat-link-qr-code-maker) is to make those impossible. You type the number with its country code in whatever shape you have it, and the app strips the plus sign, spaces, dashes and leading zeros for you. You type the message as normal text, with apostrophes, emoji and line breaks, and the app URL-encodes it so the finished link survives being pasted into a bio, an email signature or an invoice footer.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Copy link** puts the finished `https://wa.me/...?text=...` on the clipboard.",
+              "**Open chat** hands the link to iOS so you can confirm it opens the right conversation before anyone else sees it; this is the test from the 'works for me' section, done in one tap.",
+              "**Save QR to Photos** stores the code as a full-resolution PNG with no watermark, which is what fixes the screenshot and quiet-zone problems at the printing stage. The earlier post on [printing a WhatsApp QR for a menu or counter](/blog/whatsapp-qr-code-for-restaurant-menu-shop-counter-iphone) covers placement and sizes.",
+              "**Profile Pic** pads any photo onto a square so the whole picture fits inside the round profile circle without being cropped.",
+            ],
+          },
+          {
+            type: "p",
+            text: "It is a $2.99 one-time purchase, runs on iOS 15.1 or later, works offline, and uploads nothing: the number and the message are built into a link on the phone and never sent to a server. There is no account and no watermark. A version for Android is on Google Play as well.",
+          },
+        ],
+      },
+      {
+        heading: "A thirty-second checklist",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Does the number start with the country code and contain only digits?",
+              "Is the leading zero of the local number gone?",
+              "Is there no plus sign anywhere, including an encoded `%2B`?",
+              "Is every space in the message `%20`, every `&` `%26`, every line break `%0A`?",
+              "Is there exactly one `?` and does `text=` come straight after it?",
+              "Did you test the exact printed link from a second phone?",
+            ],
+          },
+          {
+            type: "p",
+            text: "If all six pass and the chat still does not open, the number is not on WhatsApp, and no link format will change that.",
+          },
+          { type: "p", text: DISCLAIMER },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "whatsapp-qr-code-generator-android-convert-link-to-qr-print-share",
+    title: "WhatsApp QR Code Generator on Android: Turn a Chat Link Into a QR Code You Can Print, Post and Share",
+    description:
+      "What a WhatsApp QR code actually contains, how it differs from the QR inside WhatsApp Business, how to convert a wa.me link into a QR on Android with Chat Link & QR Code Maker, the print sizes and margins that keep it scannable, where to put it, and how to test it before it goes on a flyer.",
+    datePublished: "2026-10-25",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "A **WhatsApp QR code generator** sounds like it should do something special, and the first thing to understand is that it does not. A WhatsApp QR code is an ordinary QR code that contains an ordinary web address, the click-to-chat link for your number. Point any camera at it and the phone opens that link; the link opens the chat. Everything that matters about the code, from whether it scans on a counter card to whether the customer's message arrives pre-written, follows from that one fact.",
+          },
+          {
+            type: "p",
+            text: "This guide is the Android version of the process: what the code encodes, the difference from the QR that WhatsApp Business makes for you, how to generate one on the phone with [Chat Link & QR Code Maker](/apps/chat-link-qr-code-maker), how big to print it, where people actually put them, and how to test it with a second phone before a print run. The earlier Android post on [messaging a number without saving it](/blog/send-whatsapp-message-without-saving-number-android) explains the link itself; this one is about the square.",
+          },
+        ],
+      },
+      {
+        heading: "What a WhatsApp QR code contains",
+        blocks: [
+          {
+            type: "p",
+            text: "Decode one and you will find a line of text like `https://wa.me/919876543210?text=Hi%2C%20I%20saw%20your%20flyer`. That is all. The number is in international format with digits only, and the optional `text=` part is a pre-filled message, URL-encoded so spaces and punctuation survive. Because the code is just a URL, it works on any phone with a camera app, needs no special scanner, and keeps working for as long as the number is on WhatsApp. It also means the code is only as good as the link inside it: a wrong country code or a missing digit prints just as crisply as a right one.",
+          },
+          {
+            type: "p",
+            text: "Two consequences people miss. First, a longer message means a denser code with more tiny squares, which needs more physical size to scan reliably, so keep flyer messages short. Second, the message is baked in: change your opening line later and you need a new code, which is why the next section matters.",
+          },
+        ],
+      },
+      {
+        heading: "How it differs from the QR inside WhatsApp Business",
+        blocks: [
+          {
+            type: "p",
+            text: "WhatsApp Business can show a QR code for your business account from its own settings, and for a 'scan to open a chat with us' sign that is perfectly good. The difference is control. The built-in code carries no pre-filled message you compose per placement, it is displayed on the screen rather than handed to you as a print-ready image file, and it is tied to the account on that phone. A generated code is a file you own: you can make one per flyer with a different opening line, size it for a poster, drop it into a design tool, and keep it after you change phones. If you only ever need one generic code, use the built-in one; if you want to know which flyer the customer scanned, generate one per flyer.",
+          },
+        ],
+      },
+      {
+        heading: "Choose the pre-filled message per placement",
+        blocks: [
+          {
+            type: "p",
+            text: "The pre-filled message is the part that turns a scan into a conversation, because the customer only has to press send. Write a different one for each place the code lives, and keep each under about ten words.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Flyer or poster:** 'Hi, I saw your flyer. Can I get a quote?' The word 'flyer' tells you where the lead came from.",
+              "**Instagram story or highlight:** 'Hi! Coming from Instagram, is this still available?'",
+              "**Invoice or packaging slip:** 'Hi, this is about invoice' with a space for the customer to add the number; keep it short so the dense-code problem does not bite on a small slip.",
+              "**Van, shop window or counter card:** 'Hi, I would like to book an appointment.' Generic on purpose, because the code lives there for years.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Making the code on Android, step by step",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Install Chat Link & QR Code Maker from Google Play and open it.",
+              "Type the phone number with its country code, digits only. The app accepts the number as you have it and cleans out the plus sign, spaces and the leading zero of the local part.",
+              "Type the pre-filled message in plain words, emoji included. The app URL-encodes it into the link; you never see `%20`.",
+              "Tap to generate. The wa.me link appears with its QR code underneath. Copy the link if you also want it in a bio or an email.",
+              "Save the QR code. It is written as a full-resolution PNG with no watermark into the phone's gallery, where Files and Google Photos can see it.",
+              "Share it from the Android share sheet straight to a printer app, a design app, Google Drive or a WhatsApp message to your designer.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The whole thing happens on the phone: the app works offline and needs no account or sign-up, so the number and the message are not sent to a website to be turned into a code. The Play listing shows that the app contains ads and was last updated in September 2026.",
+          },
+        ],
+      },
+      {
+        heading: "Print sizes, margins and contrast",
+        blocks: [
+          {
+            type: "p",
+            text: "Most 'the QR does not scan' complaints are printing problems, and the rules are simple.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Size.** For a counter card or business card that is scanned from a hand's length away, make the code at least 2 cm wide, more if the message is long. For a window or a poster scanned from across a room, scale up roughly with distance: a code meant to be scanned from two metres wants to be around 20 cm.",
+              "**Quiet zone.** The white border around the code is part of the code. Do not crop it, do not run text or a logo into it, and do not place the code flush against a dark background.",
+              "**Contrast.** Dark modules on a light background. A code in your brand's mid-blue on a cream card may look elegant and fail on half the phones that try it.",
+              "**Source file.** Print from the saved PNG at its full resolution. A screenshot of the code, or a code pasted into a chat and re-downloaded, has been recompressed and resized and will blur when enlarged.",
+              "**Test before the print run.** Open the file on a tablet or a second phone at the intended size and scan it with the phone camera from the intended distance. If it needs a second try, go bigger.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Where people put WhatsApp QR codes",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "A counter card next to the till, with 'order ahead' or 'ask a question' as the message.",
+              "The back of a menu, which our [restaurant and shop counter guide](/blog/whatsapp-qr-code-for-restaurant-menu-shop-counter-iphone) covers in detail.",
+              "A van door or a shop window, generic message, large size.",
+              "The back of a business card, so the link survives even when the card is photographed.",
+              "A packaging slip or invoice, with the order or invoice reference in the message.",
+              "An Instagram story or a pinned highlight, where the viewer screenshots the code and scans it from their gallery.",
+              "An email signature, inserted as an image for people reading on a desktop who can scan it with their phone.",
+              "Your own WhatsApp status, for customers who already have your number and want to forward you to a friend.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Testing with a second phone",
+        blocks: [
+          {
+            type: "p",
+            text: "Scanning your own code on your own phone proves almost nothing, because it opens a chat with yourself and WhatsApp handles that differently. Borrow a phone that has never messaged your number, scan the printed code, confirm that the chat opens with the right name or number at the top and that the message is sitting in the box ready to send, and send it. If the message is missing, the encoding was wrong; if the number is 'not on WhatsApp', the country code or a leading zero is. Regenerating in the app fixes both, because it does the cleaning for you.",
+          },
+        ],
+      },
+      {
+        heading: "Changing the message means a new code",
+        blocks: [
+          {
+            type: "p",
+            text: "Because the message is inside the link and the link is inside the code, there is no way to edit a printed code. Plan for it: use generic wording on anything expensive to reprint, keep the dated or campaign-specific wording for things that are cheap to replace, and keep the saved PNGs named by placement so you know which is which. The app also pads a profile picture onto a square so the whole image fits inside the round WhatsApp profile circle, which is worth doing before a campaign, since the profile picture is the first thing a new customer sees after they scan.",
+          },
+          {
+            type: "p",
+            text: "The short version: a WhatsApp QR code is a wa.me link in a square. Get the link right, print the square big enough with its white margin intact, and test it on a phone that is not yours.",
+          },
+          { type: "p", text: DISCLAIMER },
+        ],
+      },
+    ],
+  },
 ];
