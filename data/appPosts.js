@@ -9241,4 +9241,451 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "teleprompter-for-product-demos-script-and-record-a-demo-video",
+    title: "Using a Teleprompter for Product Demos: How to Script and Record a Demo Video That Matches What's on Screen",
+    description:
+      "A product demo mixes talking-head segments with screen recordings or product shots, and that is where scripts fall apart. A five-part demo structure, how to write lines that match the screen, which teleprompter mode to use for each segment, batching takes, and when a teleprompter gets in the way.",
+    datePublished: "2026-10-28",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "A product demo is the hardest kind of video to read from a script, and the kind that most needs one. A talking-head intro has to be tight and confident, because it decides whether anyone watches the next ninety seconds. The middle is screen recordings or shots of the product, where the words have to land at the exact moment the cursor moves or the lid opens. And the ending has to say, precisely, what to do next. Wing any of those and the demo gets re-cut three times; script all of them and the talking-head parts sound like a hostage video.",
+          },
+          {
+            type: "p",
+            text: "This post is a walkthrough for recording a product demo on an iPhone with [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay): a structure that works for a SaaS walkthrough, an app demo and a physical product, how to write the script so it matches the screen, which scrolling mode to use for which segment, and the parts of a demo where you should put the teleprompter down. It builds on the [sales and outreach videos](/blog/teleprompter-for-sales-and-outreach-videos) post, which covers the one-to-one version, and the [online courses and tutorials](/blog/teleprompter-for-online-courses-and-tutorials) post, which covers longer instructional recordings.",
+          },
+        ],
+      },
+      {
+        heading: "The two kinds of footage in every demo",
+        blocks: [
+          {
+            type: "p",
+            text: "Before writing anything, split the demo into its two kinds of footage, because they are recorded differently and scripted differently.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Face segments.** You, on camera, talking to the viewer: the hook, the problem, the transitions and the call to action. These are recorded with the teleprompter overlay next to the front lens, so you read while keeping eye contact.",
+              "**Show segments.** The screen recording, the app on a second phone, the product on a table. Your voice is a voiceover here, recorded either live while you demonstrate or separately afterwards, and the teleprompter is a voiceover prompter rather than an eye-contact tool.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Most bad demos fail because they treat the whole thing as one segment. The face segments get recorded in one long take that includes a lot of 'and then you click here', which the viewer cannot see, and the show segments get narrated from memory, so they ramble. Mark each line of the script with F or S before you record and the problem mostly disappears.",
+          },
+        ],
+      },
+      {
+        heading: "A five-part structure that fits two minutes",
+        blocks: [
+          {
+            type: "p",
+            text: "The structure below is the one that survives contact with a real product. Each part has a job, a kind of footage and a rough word budget at a conversational 140 words a minute.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Hook (F, 10 to 15 seconds, about 30 words).** One sentence about the outcome, not the product. 'This is how I close the books in twelve minutes instead of a day' beats 'Today I'm going to show you our accounting dashboard.' The [hooks post](/blog/scripting-hooks-that-hold-watch-time) has a dozen patterns.",
+              "**Problem (F, 15 seconds, about 35 words).** The annoying thing the viewer does today. Name it specifically enough that they nod.",
+              "**Three features (S, 60 to 75 seconds, about 150 words).** Three, not seven. Each one is: what you do, what happens, why it matters. The words must match the screen, which the next section covers.",
+              "**Proof (F or S, 10 to 15 seconds).** A number, a before-and-after, or a short line about who already uses it. Only claims you can back up.",
+              "**Call to action (F, 10 seconds, about 25 words).** One action. Free trial, link below, book a call. Not all three.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Written out, that is 250 to 300 words, which is a two-minute demo. If your draft is 500 words, the [editing down by 30%](/blog/how-to-edit-a-script-down-by-30-percent-teleprompter) post has the cutting method; demos nearly always lose their fourth and fifth feature first.",
+          },
+        ],
+      },
+      {
+        heading: "Writing lines that match what is on screen",
+        blocks: [
+          {
+            type: "p",
+            text: "The show segments are where product demos are won. The rule: every sentence describes something the viewer can see at that moment, in the order they see it. Write the script in two columns, action on the left, words on the right, and do not let a sentence outrun its action.",
+          },
+          {
+            type: "list",
+            items: [
+              "Lead with the verb the viewer would use. 'Drag the invoice onto the month' rather than 'The system supports drag-and-drop invoice allocation.'",
+              "Say what happened immediately after it happens. 'It picked up the supplier and the amount' as the fields fill in, not three sentences later.",
+              "One idea per screen state. If you have to say two things about one screen, show it twice, or cut one.",
+              "Avoid 'as you can see.' If they can see it, describe what it means; if they cannot, you need a closer shot, not a narration.",
+              "Write the UI words exactly as they appear. If the button says Reconcile, say reconcile, not 'match them up.'",
+            ],
+          },
+          {
+            type: "p",
+            text: "Keep the face segments in the voice you used in the [write a script that doesn't sound written](/blog/write-a-script-that-doesnt-sound-written) post: short sentences, contractions, one breath per line. The show segments can be slightly more clipped, because the picture is doing half the work.",
+          },
+        ],
+      },
+      {
+        heading: "Which scrolling mode for which segment",
+        blocks: [
+          {
+            type: "p",
+            text: "Teleprompter: Camera Overlay has two ways to move the script, and a demo uses both. The [voice-follow vs auto-scroll](/blog/voice-follow-vs-auto-scroll-teleprompter) post explains the mechanics; this is how they map onto a demo.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Face segments: voice-follow.** The script floats over the camera preview next to the front lens and scrolls as you speak, using the iPhone's on-device speech recognition. You can pause to think, restart a sentence, or jump back to the top, and it finds your place again. Eye contact stays on the lens because the words are next to it.",
+              "**Show segments recorded live: voice-follow.** When you are clicking through the product on a laptop while the iPhone records your voiceover, you will pause constantly to wait for a page to load or a modal to open. Voice-follow waits with you. Auto-scroll does not, and you end up chasing the text.",
+              "**Show segments recorded as a fixed-length voiceover: auto-scroll.** If the screen recording is already cut to exactly 48 seconds and you are laying a voice track over it, set the speed slider so the script takes 48 seconds, tap to pause if needed, and read it like a radio spot. The constant pace is what you want here.",
+              "**Either mode:** adjust the text size up for show segments, where you are not looking at the lens and can afford bigger lines, and down for face segments, where a narrow column keeps your eyes close to the camera.",
+            ],
+          },
+          {
+            type: "p",
+            text: "In both modes the script never appears in the saved video; you get a clean 4K portrait clip to drop into the edit next to the screen recording. Everything runs offline, so a demo recorded in a meeting room with no Wi-Fi works the same.",
+          },
+        ],
+      },
+      {
+        heading: "Recording order: all the faces, then all the screens",
+        blocks: [
+          {
+            type: "p",
+            text: "Do not record the demo in viewer order. Record every face segment back to back in one sitting with the same light and framing, then every show segment. The [batch-recording](/blog/batch-recording-a-week-of-content-in-one-sitting-teleprompter) post explains why this halves the time; for a demo there is an extra reason: the face segments have to cut together as if they were one take, and they will only match if they were.",
+          },
+          {
+            type: "list",
+            items: [
+              "Save each segment as its own script in the app (hook, problem, proof, CTA), so each take starts at the top of the right text instead of scrolling to the middle of a long one.",
+              "Record two or three takes of each and use the takes library to pick later; do not judge takes while recording.",
+              "Say the first word of the next segment at the end of each face take, then cut it off in the edit. It makes the transitions sound continuous.",
+              "For show segments, record the screen first, then narrate to it. Narrating while clicking is only worth it when the pauses are part of the point.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "When not to use a teleprompter in a demo",
+        blocks: [
+          {
+            type: "p",
+            text: "There are three parts of a demo where reading hurts more than it helps, and it is worth being honest about them.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Live-click walkthroughs where the product is unpredictable.** If the thing you are demonstrating does not always respond the same way, a script will be wrong half the time. Use a bullet list of the three points per screen and talk, then tighten in the edit.",
+              "**Q&A and objection handling.** A viewer can hear the difference between an answer and a recited answer. Script the question, improvise the reply.",
+              "**Very short feature teasers under 20 seconds.** By the time you have set up the overlay, you could have said it. Memorise the two lines.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The teleprompter earns its place in the hook, the problem, the proof and the CTA, which are also the four parts that decide whether the demo works. Script those tightly, read them with the overlay next to the lens, and let the product speak for itself in the middle.",
+          },
+        ],
+      },
+      {
+        heading: "Where the series goes next",
+        blocks: [
+          {
+            type: "p",
+            text: "Product demos were the last topic on the list this series started with: from writing a script that doesn't sound written, through platform guides for Reels, Shorts and TikTok, to setup, mistakes, readability, compliance wording, speeches and editing. With the bank complete, the next posts come from what readers actually search for. The first of those is a troubleshooting post, because 'why is the teleprompter not visible' is a question people keep asking: the overlay not showing, text hidden behind the camera controls, mirror mode flipping it, and the other display problems with their fixes.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "how-to-read-resistor-color-codes-4-band-5-band-iphone-electrician-calculator",
+    title: "How to Read Resistor Color Codes (4-Band and 5-Band): The Chart, Two Worked Examples, Tolerance, and the Ohm's Law Check on iPhone",
+    description:
+      "The resistor color code explained without the mnemonic: the digit chart, the multiplier band, tolerance (gold, silver, brown, red), 5-band resistors, which end to read from, two worked examples and common mistakes, plus how the resistor code and Ohm's law tools in Electrician Calculator Toolkit check the result on the bench.",
+    datePublished: "2026-10-28",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "A resistor the size of a grain of rice carries its value as three, four or five painted stripes, and every electrician, apprentice and electronics hobbyist eventually stands at a bench squinting at one, unsure whether that band is red or brown and which end is the start. The **resistor color code** is a fixed table, it has not changed in decades, and it takes about ten minutes to learn properly. This post is that ten minutes: the chart, how four- and five-band resistors differ, how to work out which way round to read, two worked examples, the mistakes that produce a value ten times out, and then how to check the answer with the resistor code and Ohm's law tools in [Electrician Calculator Toolkit](/apps/electrician-calculator) on an iPhone.",
+          },
+        ],
+      },
+      {
+        heading: "The color chart",
+        blocks: [
+          {
+            type: "p",
+            text: "Ten colors stand for the digits zero to nine. The same colors double as the multiplier (the number of zeros to add, or the power of ten), and a shorter list stands for the tolerance. Here is the whole table in one place.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Black** 0, multiplier ×1",
+              "**Brown** 1, multiplier ×10, tolerance ±1%",
+              "**Red** 2, multiplier ×100, tolerance ±2%",
+              "**Orange** 3, multiplier ×1,000",
+              "**Yellow** 4, multiplier ×10,000",
+              "**Green** 5, multiplier ×100,000, tolerance ±0.5%",
+              "**Blue** 6, multiplier ×1,000,000, tolerance ±0.25%",
+              "**Violet** 7, multiplier ×10,000,000, tolerance ±0.1%",
+              "**Grey** 8, tolerance ±0.05%",
+              "**White** 9",
+              "**Gold** multiplier ×0.1, tolerance ±5%",
+              "**Silver** multiplier ×0.01, tolerance ±10%",
+              "**No band** tolerance ±20%",
+            ],
+          },
+          {
+            type: "p",
+            text: "The digit order is the one most people learn with a mnemonic. Any mnemonic works; what matters is that black is zero and white is nine, and that gold and silver never appear as digits, only as a multiplier or a tolerance. That last fact is the key to reading direction.",
+          },
+        ],
+      },
+      {
+        heading: "Four bands: two digits, a multiplier, a tolerance",
+        blocks: [
+          {
+            type: "p",
+            text: "On a standard four-band resistor the first two bands are significant digits, the third is the multiplier and the fourth is the tolerance. Read the two digits as a two-digit number, then multiply by the third band.",
+          },
+          {
+            type: "p",
+            text: "**Worked example 1: brown, black, red, gold.** Brown is 1, black is 0, so the digits are 10. Red as a multiplier is ×100, so 10 × 100 = 1,000 Ω, which is 1 kΩ. Gold is ±5%, so the real value sits between 950 Ω and 1,050 Ω. This is one of the most common resistors in existence, which makes it a good one to memorise as a sanity check for the method.",
+          },
+          {
+            type: "p",
+            text: "The multiplier is the band that trips people up. Red as a digit is 2, but red as the third band is 'add two zeros'. Orange adds three zeros (so yellow-violet-orange is 47,000 Ω, or 47 kΩ), and black as a multiplier adds none (red-red-black is 22 Ω). Gold and silver as multipliers divide: red-red-gold is 2.2 Ω.",
+          },
+        ],
+      },
+      {
+        heading: "Five bands: three digits, a multiplier, a tolerance",
+        blocks: [
+          {
+            type: "p",
+            text: "Precision resistors, typically ±1% and tighter, need three significant digits, so they carry five bands: three digits, a multiplier, a tolerance. The chart is the same; only the position of the multiplier moves.",
+          },
+          {
+            type: "p",
+            text: "**Worked example 2: red, red, black, black, brown.** Red 2, red 2, black 0 give the digits 220. Black as the fourth band is ×1, so the value is 220 Ω. Brown as the fifth band is ±1%, so the resistor is between 217.8 Ω and 222.2 Ω. Compare that with the four-band version of the same value, red-red-brown-gold (22 × 10 = 220 Ω, ±5%): same nominal value, different precision, different number of stripes.",
+          },
+          {
+            type: "p",
+            text: "Six-band resistors exist too; the sixth band is a temperature coefficient (brown 100 ppm/K, red 50, orange 15, yellow 25). You can read the value exactly as for five bands and ignore the sixth unless the design depends on drift with temperature.",
+          },
+        ],
+      },
+      {
+        heading: "Which end do you read from?",
+        blocks: [
+          {
+            type: "p",
+            text: "The code has no arrow, so three clues decide the direction.",
+          },
+          {
+            type: "list",
+            items: [
+              "**The tolerance band is usually spaced further from the others.** Hold the resistor so the lonely band is on the right and read left to right.",
+              "**Gold and silver are never first.** If one end has a gold or silver band, that is the tolerance end. On a four-band resistor this settles it instantly.",
+              "**The first band is often closer to the lead.** Manufacturers put the first digit band nearer the end of the body; the tolerance band sits further in.",
+            ],
+          },
+          {
+            type: "p",
+            text: "When none of the clues help, which happens with five-band brown-tolerance resistors that look symmetrical, read it both ways and ask which value is a standard one. 'Brown, red, black, black, brown' read backwards is 'brown, black, black, red, brown', which would be 100 × 100 = 10 kΩ, a real value, so in that case the ambiguity is genuine and the only reliable answer is a multimeter.",
+          },
+        ],
+      },
+      {
+        heading: "The mistakes that produce a value ten times out",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Reading from the wrong end**, which usually turns the multiplier into a digit. A value with an odd leading digit and a strange multiplier is the symptom.",
+              "**Red versus orange, and brown versus red**, under warm light or on a faded body. Move to daylight or a white LED, or tilt the resistor so the band catches the light; the colour differences are much clearer at an angle.",
+              "**Counting a reflection as a band**, on glossy blue precision resistors in particular.",
+              "**Forgetting that black as a multiplier means ×1**, so red-red-black is 22 Ω, not 220 Ω.",
+              "**Trusting the code on a resistor that has been hot.** A scorched body shifts colours; measure it.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Checking the result with the resistor code and Ohm's law tools",
+        blocks: [
+          {
+            type: "p",
+            text: "Reading the code tells you what the resistor is supposed to be. Whether it is right for the job is a separate question, and that is where a calculator on the phone earns its place. Electrician Calculator Toolkit is a $3.99 one-time purchase for iPhone (iOS 17 or later, Data Not Collected on its privacy label, English plus 18 other languages) with eight NEC-based tools, two of which are for the bench rather than the panel.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Resistor color code.** Pick the bands and the tool decodes four- and five-band resistors with the tolerance, so a doubtful brown-or-red reading can be tried both ways in a second and compared with a standard value.",
+              "**Ohm's law.** Enter any two of voltage, current, resistance and power and the other two appear. The question that actually matters at the bench is usually not 'is this 1 kΩ' but 'will 1 kΩ across 24 V dissipate more than the resistor's rating'. 24 V across 1,000 Ω is 24 mA and 0.576 W, which is too much for a quarter-watt part, and that is the kind of check the tool is for.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The app works entirely offline, which matters in a plant room with no signal, and it keeps every table it uses inside the app. The earlier posts in this series cover the other six tools: the [wire size, voltage drop and conduit fill walkthrough](/blog/wire-size-voltage-drop-conduit-fill-iphone-electrician-calculator-walkthrough) and the [box fill worked example](/blog/box-fill-calculator-nec-314-16-worked-example-iphone-electrician-calculator). There is no Android version at the time of writing.",
+          },
+        ],
+      },
+      {
+        heading: "Quick reference",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Four bands: digit, digit, multiplier, tolerance.",
+              "Five bands: digit, digit, digit, multiplier, tolerance.",
+              "Black 0, brown 1, red 2, orange 3, yellow 4, green 5, blue 6, violet 7, grey 8, white 9.",
+              "Gold ×0.1 or ±5%, silver ×0.01 or ±10%, brown ±1%, red ±2%, no band ±20%.",
+              "Gold or silver on one end means that end is the tolerance; read from the other end.",
+              "When in doubt, measure.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "expiry-date-tracker-app-what-to-look-for-free-expiry-date-check-app-android",
+    title: "Expiry Date Tracker App: What to Look For, What a Free Expiry Date Check App Can and Cannot Do, and Why No App Can 'Detect' the Date From a Barcode",
+    description:
+      "A buyer's guide to expiry date tracker apps on Android: why a barcode scan fills in the product but never the date, what to look for (entry speed, reminders with lead times, locations, offline, no account, free vs ads), notes and calendar apps compared, and how Expiry Date Tracker: Scanner handles each point.",
+    datePublished: "2026-10-28",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Search for an **expiry date tracker app** and you get a wall of near-identical listings, half of them promising to detect the expiry date when you scan the pack. Before comparing features, it helps to know what is technically possible, because the most common disappointment with these apps comes from expecting the barcode to do something it cannot. This guide is written for Android users deciding between a notes app, a calendar and a dedicated tracker: what matters, what is marketing, and how the free [Expiry Date Tracker: Scanner](/apps/expiry-date-tracker) app handles each point, limits included.",
+          },
+        ],
+      },
+      {
+        heading: "First, the thing no app can do: read the date from the barcode",
+        blocks: [
+          {
+            type: "p",
+            text: "The barcode on a retail pack is an EAN or UPC code. It encodes a product number, the same number on every unit of that product, printed when the packaging was designed. The use-by date is stamped on later, by a different machine, on a different part of the box, and it is not in the barcode at all. So when an app is described as an **expiry date detection app**, one of two things is true: it uses the barcode to look up the product name and leaves the date to you, or it tries to read the printed date with the camera using OCR, which is a separate feature with its own failure rate (inkjet dates on curved bottles, dot-matrix dates on cans, dates in DD/MM versus MM/DD).",
+          },
+          {
+            type: "p",
+            text: "Expiry Date Tracker: Scanner does the first. A scan reads EAN, UPC, Code 128, Code 39 and ITF-14 barcodes and fills in the product name from your own earlier scans or from the free Open Food Facts database; the date is then set by you with one tap on a quick chip. It does not attempt OCR of the printed date, and its own FAQ says so plainly. Any app that claims to read the date automatically should be tested on a dented can and a frozen bag before you trust it with the medicine cabinet.",
+          },
+        ],
+      },
+      {
+        heading: "What to look for in an expiry date app",
+        blocks: [
+          {
+            type: "p",
+            text: "Once the barcode question is settled, the rest is about how fast you can add an item and how reliably the phone tells you about it later. These are the points that separate an app you still use in March from one you delete in week two.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Entry speed.** You will add dozens of items after a shop. Count the taps: scan or type the name, set the date, save. If setting the date means opening a calendar picker and scrolling months, you will stop after ten items.",
+              "**Reminders with a lead time.** A reminder on the day is too late for a chicken breast and fine for a jar of mustard. Look for a choice of days before, and a choice of hour, because a 09:00 notification gets acted on and a 23:00 one does not.",
+              "**Grouping by urgency.** The list should show what expires first at the top, not alphabetically.",
+              "**Locations and quantity.** Fridge, freezer, pantry and medicine tags, so the list doubles as an inventory.",
+              "**Works offline, and reminders fire offline.** Reminders scheduled on the phone keep working with no signal; reminders sent from a server do not.",
+              "**No account, no item cap.** Some free tiers cap the list at a handful of items or require a sign-in to use the app at all. Read the Play listing for 'in-app purchases' and check what the paid tier unlocks.",
+              "**Clear pricing.** Free with ads, a one-time purchase, or a subscription. For a list of yoghurts, a subscription is hard to justify.",
+              "**A way to tick things off.** Marking an item used should cancel its reminders, or the notifications become noise.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Notes app vs calendar vs spreadsheet vs dedicated tracker",
+        blocks: [
+          {
+            type: "p",
+            text: "Plenty of people track expiry dates without an app, and for a short list that is fine. Here is where each approach gives up.",
+          },
+          {
+            type: "list",
+            items: [
+              "**A notes app** is fastest to start and worst at reminding. Nothing sorts by date and nothing notifies you; you have to remember to look.",
+              "**The calendar** reminds you, but every item is a separate event, there is no product lookup, no grouping, and no way to see the whole fridge at once. It works for three or four long-dated items such as a passport or a fire extinguisher.",
+              "**A spreadsheet** sorts and filters beautifully and never tells you anything. Good for a stock room with a weekly review habit, bad for a kitchen.",
+              "**A dedicated tracker** combines the product lookup, the quick date entry, the sorted list and the reminders. The cost is one more app, and for most people that is the right trade once the list passes a dozen items.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "How Expiry Date Tracker: Scanner handles each point",
+        blocks: [
+          {
+            type: "p",
+            text: "Measured against the list above, here is what the app does and does not do, taken from its landing page and its Google Play listing (10+ downloads, updated 24 September 2026, rated for 3+, 'Contains ads' and 'In-app purchases' labels).",
+          },
+          {
+            type: "list",
+            items: [
+              "**Entry:** scan the barcode or tap Add by hand and type. The date is set with quick chips for +1 week, +2 weeks, +1 month, +3 months, +6 months and +1 year, nudged with minus and plus buttons, or typed as YYYY-MM-DD. The screen shows how many days are left before you save.",
+              "**Reminders:** 7, 3 or 1 day before (each also reminds on the day) or on the day only, at 07:00, 08:00, 09:00, 12:00, 18:00 or 20:00. The default is 3 days before at 09:00. They are scheduled on the phone, so they work with no signal.",
+              "**Grouping:** expired, expiring today, this week and later, with Fridge, Freezer, Pantry, Medicine or Other tags, plus quantity, brand and a note.",
+              "**Offline and privacy:** no account, no sign-up, no item limit; the list lives in a database on the phone. The only network call for your items is the barcode lookup, which sends Open Food Facts the barcode number. The free version shows a banner ad through Google AdMob, and the Play data safety section lists location and app activity among the data that may be collected or shared, which is the ad SDK; the $1.99 one-time ad removal is the only in-app purchase.",
+              "**Ticking off:** tap the tick next to an item to mark it used and its reminders are cancelled.",
+              "**Languages:** 15, including Hindi, Spanish, Portuguese, Arabic and Indonesian.",
+            ],
+          },
+          {
+            type: "p",
+            text: "What it does not do, so you are not surprised: no sync or sharing between phones, because there is no account (the list is included in your Android device backup); no OCR of the printed date; no iPhone version at the time of writing. If you need a shared household list that two phones edit, this is not the app, and an account-based tracker with a subscription is the honest alternative.",
+          },
+        ],
+      },
+      {
+        heading: "Android settings that make or break the reminders",
+        blocks: [
+          {
+            type: "p",
+            text: "Most 'the app did not remind me' complaints on any expiry app are Android settings, not the app. Three to check on the day you install it.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Notifications.** On Android 13 and later the app asks for notification permission the first time; if you tapped Don't allow, go to Settings, Apps, Expiry Date Tracker, Notifications and turn them on.",
+              "**Alarms and reminders.** On Android 12 and later, exact reminders need the Alarms and reminders permission in the same app settings screen.",
+              "**Battery optimisation.** Some manufacturers' battery managers delay or drop scheduled alarms from apps you have not opened recently. Allow the app to run in the background, or set battery usage to Unrestricted.",
+            ],
+          },
+          {
+            type: "p",
+            text: "One more detail from the app's FAQ: changing the reminder setting affects items you add or edit afterwards, not the ones already saved, so decide on 3 days or 7 days before you add the first batch.",
+          },
+        ],
+      },
+      {
+        heading: "A quick way to decide",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Fewer than five long-dated items: the calendar is enough.",
+              "A kitchen, a medicine cabinet or a small stock room on one phone: a free tracker with on-device reminders and no item cap. Expiry Date Tracker: Scanner is one; install it from [Google Play](https://play.google.com/store/apps/details?id=com.vilva.expirytracker), add this week's shop, and see whether the reminders change what you throw away.",
+              "A shared household list across several phones: an account-based app, and budget for the subscription.",
+              "An app that promises to read the date automatically: try it on your worst-printed label before trusting it.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Earlier posts cover the [initial setup and barcode scanning](/blog/expiry-date-tracker-android-setup-barcode-reminders), a [medicine cabinet audit](/blog/medicine-cabinet-expiry-dates-android-first-aid-kit-audit) and [sunscreen and cosmetics period-after-opening dates](/blog/does-sunscreen-expire-period-after-opening-cosmetics-tracker-android). The app reminds you of the dates you enter; always check the label and the product itself before eating or using it.",
+          },
+        ],
+      },
+    ],
+  },
 ];

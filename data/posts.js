@@ -8889,6 +8889,205 @@ node --import=tsx your-file.ts`,
       },
     ],
   },
+  {
+    slug: "urlpattern-is-not-defined-fix",
+    title: "'URLPattern Is Not Defined': Why It Happens in Node, Jest, Safari and Firefox, and How to Fix It (Polyfill, Globals, TypeScript)",
+    description:
+      "ReferenceError: URLPattern is not defined means the runtime has no URLPattern global: Node below 24 (node:url export in 23.8), Jest/jsdom, Safari before 26, Firefox before 142. The exact messages, where URLPattern exists in October 2026, the urlpattern-polyfill, feature detection, and the TypeScript 'Cannot find name' fix.",
+    datePublished: "2026-10-28",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "If you copied a routing snippet from MDN and got `ReferenceError: URLPattern is not defined`, the code is fine. The runtime simply does not have a `URLPattern` global yet, or has it only behind an import. This is the same family of error as `structuredClone is not defined` and `AbortSignal.timeout is not a function`: a web API that reached browsers and server runtimes at different times, hit by code that assumed it was everywhere.",
+          },
+          {
+            type: "p",
+            text: "This post is the error-and-fix companion to the [URLPattern practical guide](/blog/urlpattern-api-practical-guide), which covers the matching syntax itself. Here you get the exact messages per runtime, a support table that is accurate as of October 2026, the `urlpattern-polyfill` package and when to load it, feature detection that does not break TypeScript, and the Node, Jest and TypeScript cases one by one.",
+          },
+        ],
+      },
+      {
+        heading: "The same error, four spellings",
+        blocks: [
+          {
+            type: "p",
+            text: "The message depends on who is complaining. Match yours to the row and jump to the fix.",
+          },
+          {
+            type: "list",
+            items: [
+              "`ReferenceError: URLPattern is not defined` — Node.js 22 or earlier, Node 23 before 23.8, and Jest or Vitest running in a `node` or `jsdom` environment. The global does not exist.",
+              "`ReferenceError: Can't find variable: URLPattern` — Safari before version 26 (macOS and iOS), including WKWebView-based browsers on older iOS.",
+              "`ReferenceError: URLPattern is not defined` in Firefox before 142. Same wording as Node, different cause.",
+              "`error TS2304: Cannot find name 'URLPattern'` — not a runtime error at all. TypeScript has no declaration for the global in the `lib` you selected, even if the code would run.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Where URLPattern exists in October 2026",
+        blocks: [
+          {
+            type: "p",
+            text: "Browsers first. Chrome and Edge have shipped `URLPattern` since version 95 (October 2021), Opera since 81, Samsung Internet since 17. Firefox added it in 142 (August 2025), and Safari in 26 on macOS and iOS (September 2025). MDN marks the API **Baseline 2025, newly available**, with the note that it works across the latest browsers since September 2025 and might not work in older devices or browsers. Can I Use puts global support at about 92% of page views, which means the missing 8% is almost entirely iPhones and Macs that have not updated to Safari 26 and Firefox ESR installs.",
+          },
+          {
+            type: "p",
+            text: "Server runtimes are where most of the confusion comes from, because the change happened in two steps. Node.js 23.8.0 added an implementation (backed by the Ada URL library) that is **exported from `node:url`**, not global: `import { URLPattern } from 'node:url'`. Node.js 24.0.0 then exposed it on the global object (PR #56950, a semver-major change), so from Node 24 onwards the browser code works unchanged. Node 22, which many teams still run, has neither. Note that even in Node 24 the class is still marked Stability 1, experimental, in the `node:url` docs. Deno and Cloudflare Workers have had `URLPattern` as a global for years. Bun added it in 1.3.4 (December 2025), sharing WebKit's implementation.",
+          },
+          {
+            type: "list",
+            items: [
+              "Chrome/Edge 95+, Opera 81+, Samsung Internet 17+: global.",
+              "Firefox 142+ (August 2025): global.",
+              "Safari 26+ on macOS and iOS (September 2025): global. Safari 18.x and earlier: missing.",
+              "Node 24+: global. Node 23.8 to 23.x: `import { URLPattern } from 'node:url'`. Node 22 and earlier: missing.",
+              "Deno and Cloudflare Workers: global. Bun 1.3.4+: global.",
+              "Jest/Vitest: whatever the Node version provides; jsdom does not add it.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Fix 1: upgrade Node to 24 (or import it from node:url on 23.8)",
+        blocks: [
+          {
+            type: "p",
+            text: "If the error is in a server, a script or a test runner, check the version first with `node --version`. On Node 24 and later `URLPattern` is already global and the error means something else is going on (usually a test environment, see Fix 3). Node 24 entered Maintenance LTS on 20 October 2026 and Node 26 became Active LTS on 28 October, so either is a supported target and moving off 22 is the boring, correct fix (our [Node 26 LTS post](/blog/nodejs-26-lts-october-2026-which-node-version-to-use-new-release-schedule) has the schedule).",
+          },
+          {
+            type: "p",
+            text: "On Node 23.8 to 23.x you can import the class instead of waiting for a global, and that import also works on 24 and later, which makes it a safe way to write code that must run on both:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "import { URLPattern } from 'node:url';\n\nconst pattern = new URLPattern({ pathname: '/users/:id' });\nconst match = pattern.exec('https://example.com/users/42');\nconsole.log(match?.pathname.groups.id); // '42'",
+          },
+          {
+            type: "p",
+            text: "The import fails with `SyntaxError: The requested module 'node:url' does not provide an export named 'URLPattern'` on Node 22, which is at least an explicit failure at startup rather than a surprise on the first request.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 2: install urlpattern-polyfill and load it conditionally",
+        blocks: [
+          {
+            type: "p",
+            text: "For Node 22, older Safari and Firefox, or any bundle that has to run where you cannot control the browser, use the `urlpattern-polyfill` package (version 6.x as of this writing, with built-in TypeScript declarations). It only installs a global when none exists, so loading it on a modern runtime costs an import and nothing else. The package README recommends the conditional form:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "if (!globalThis.URLPattern) {\n  await import('urlpattern-polyfill');\n}\n\nconst pattern = new URLPattern({ pathname: '/docs/:page' });",
+          },
+          {
+            type: "p",
+            text: "The dynamic import keeps the polyfill out of the critical path on browsers that do not need it, which is most of them. If you prefer a plain side-effect import at the top of the entry file, `import 'urlpattern-polyfill'` does the same thing unconditionally; it still checks for an existing implementation before installing. In CommonJS it is `const { URLPattern } = require('urlpattern-polyfill')`, and you can assign to `globalThis.URLPattern` yourself if other modules expect the global.",
+          },
+          {
+            type: "p",
+            text: "Two things to know. First, the polyfill is a JavaScript implementation of the pattern parser; it is correct but not as fast as the native Ada-based one in Node 24, so a hot routing path on an old Node is a reason to upgrade rather than polyfill. Second, the conditional `if (!globalThis.URLPattern)` can trip TypeScript (`Property 'URLPattern' does not exist on type 'typeof globalThis'`) when your `lib` lacks the declaration; the README suggests a `// @ts-ignore` on that line, or you can cast with `(globalThis as any).URLPattern`.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 3: Jest and Vitest",
+        blocks: [
+          {
+            type: "p",
+            text: "Tests fail with `URLPattern is not defined` for one of two reasons. Either the CI runner uses an older Node than your laptop (check the `node-version` in the workflow and `engines` in package.json), or the test environment is `jsdom`, which implements the DOM but does not add newer web globals like `URLPattern`, `structuredClone` or `AbortSignal.timeout`. In both cases the cleanest fix is a setup file that loads the polyfill before the tests:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// jest.setup.js or vitest.setup.ts\nimport 'urlpattern-polyfill';\n\n// jest.config.js\nmodule.exports = {\n  testEnvironment: 'node',\n  setupFiles: ['<rootDir>/jest.setup.js'],\n};",
+          },
+          {
+            type: "p",
+            text: "If you run Node 24 locally but jsdom in Jest, you can alternatively copy the real global into the jsdom window in a custom environment, but the polyfill in a setup file is one line and works on every Node version your contributors have.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 4: TypeScript says it does not exist, even though it runs",
+        blocks: [
+          {
+            type: "p",
+            text: "`TS2304: Cannot find name 'URLPattern'` is a declarations problem. TypeScript generates its DOM library from browser compatibility data and gates new APIs on their support status, so whether `URLPattern` is in `lib.dom.d.ts` depends on your TypeScript version; check with a one-line `const p: URLPattern = new URLPattern()` in a scratch file. Three ways to get the types, in order of preference:",
+          },
+          {
+            type: "list",
+            items: [
+              "Upgrade TypeScript and keep `\"lib\": [\"dom\", \"esnext\"]` (or `\"dom.iterable\"` as needed). If the type is there, you are done.",
+              "On Node 24 projects, make sure `@types/node` matches your Node major (`npm i -D @types/node@24`); the Node types declare the global and the `node:url` export.",
+              "If you installed `urlpattern-polyfill`, its own declarations cover the class; import the types from the package (`import type { URLPattern } from 'urlpattern-polyfill'`) or add it to `types` in tsconfig.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Do not paper over it with `declare const URLPattern: any`. You lose the typed `exec()` result, which is the whole point of the API, and the declaration silently hides the runtime problem on platforms where the global really is missing.",
+          },
+        ],
+      },
+      {
+        heading: "Feature detection that stays honest",
+        blocks: [
+          {
+            type: "p",
+            text: "Code that ships to browsers you do not control should check before constructing, and fall back to something that works everywhere. For a single route pattern a `RegExp` is a perfectly good fallback; for a whole router it is the polyfill.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "function matchUserId(url) {\n  if (typeof URLPattern === 'function') {\n    const p = new URLPattern({ pathname: '/users/:id' });\n    return p.exec(url)?.pathname.groups.id ?? null;\n  }\n  const m = new URL(url).pathname.match(/^\\/users\\/([^/]+)$/);\n  return m ? decodeURIComponent(m[1]) : null;\n}",
+          },
+          {
+            type: "p",
+            text: "`typeof URLPattern === 'function'` is the safe test because reading an undeclared global throws a ReferenceError, while `typeof` on an undeclared identifier returns `'undefined'` without throwing. `'URLPattern' in globalThis` also works, and is the form that reads best inside a conditional import.",
+          },
+        ],
+      },
+      {
+        heading: "When not to polyfill",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "A Node-only service: upgrade to Node 24 instead. The native implementation is faster and the polyfill is one more dependency to audit.",
+              "A Chrome-extension, Electron or Capacitor app where you control the engine version: the global is there; the error points at a build or test configuration problem.",
+              "Cloudflare Workers, Deno, Bun 1.3.4+: already global, polyfilling only adds bytes.",
+              "A one-off pattern: a RegExp on `new URL(url).pathname` is smaller than the polyfill and has no compatibility story at all.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Checklist",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Read the message: `is not defined` or `Can't find variable` is runtime; `TS2304` is types.",
+              "Node: `node --version`. 24+ has the global, 23.8+ has the `node:url` export, 22 has nothing.",
+              "Browsers: Chrome/Edge 95+, Firefox 142+, Safari 26+. Older Safari is the usual culprit in production error logs.",
+              "Jest/Vitest: load `urlpattern-polyfill` in a setup file, or match the CI Node version.",
+              "Shipping to the web: conditional `await import('urlpattern-polyfill')`, or a RegExp fallback for a single route.",
+              "TypeScript: newer TS or matching `@types/node`; the polyfill ships its own declarations.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Once the global is there, the interesting part begins; the [practical guide](/blog/urlpattern-api-practical-guide) walks through the pattern syntax, named groups, wildcards and the `ignoreCase` option.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
   ...mcpGuides,
 ];
