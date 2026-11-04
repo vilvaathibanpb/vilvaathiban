@@ -9688,4 +9688,455 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "why-is-my-teleprompter-not-visible-iphone-overlay-display-problems-fixes",
+    title: "Why Is My Teleprompter Not Visible? Overlay, Text and Display Problems on iPhone, and the Fix for Each",
+    description:
+      "Teleprompter not visible on your iPhone? The nine usual causes: camera permission, text size, contrast against a bright room, mirror mode left on, expecting the script in the saved video, voice-follow that will not scroll, screen warp on beam-splitter glass, timing, and the cases where the app is not the problem.",
+    datePublished: "2026-11-03",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "You open the teleprompter, tap record, and either the script is not on the screen at all, it is there but unreadable, or it reads backwards. Every one of those has a boring cause and a thirty-second fix. This is the troubleshooting post the series has been promising since the [teleprompter mistakes](/blog/most-common-teleprompter-mistakes-and-how-to-fix-them) round-up: nine 'teleprompter not visible' situations, in the order they actually happen, written around the free iPhone app [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay) but mostly true of any overlay-style prompter.",
+          },
+          {
+            type: "p",
+            text: "One framing note before the list. A camera-overlay teleprompter puts the script *over the live camera preview*, next to the front lens, so your eyes stay on the lens while you read. That is a different animal from a mirrored rig in front of a DSLR, and several 'not visible' complaints come from expecting one to behave like the other.",
+          },
+        ],
+      },
+      {
+        heading: "1. There is no camera preview, so there is nothing for the script to float over",
+        blocks: [
+          {
+            type: "p",
+            text: "Symptom: a black or blank screen with controls but no picture of you, and the script either missing or sitting on a black background. Cause: the app has not been allowed to use the camera. iOS asks once, on first launch; tap 'Don't Allow' by mistake and the preview never appears again until you change it.",
+          },
+          {
+            type: "list",
+            items: [
+              "Open **Settings** on the iPhone, scroll to the app's name, and switch **Camera** on. Do the same for **Microphone** if you plan to use voice-driven scrolling.",
+              "If the app is not listed under Settings yet, it has never asked. Delete it and reinstall, then say yes to the prompt.",
+              "Screen Time content restrictions can block camera access for every app at once. Check Settings, then Screen Time, then Content & Privacy Restrictions, then Camera.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "2. The script is there, but the text is too small to read at arm's length",
+        blocks: [
+          {
+            type: "p",
+            text: "Symptom: a grey smear of text over the preview that you can only read by bringing the phone to your face, which defeats the point. Cause: the text size is set for editing, not for reading from a tripod a metre away. The app has an adjustable text size; turn it up until you can read a line comfortably from where you will actually stand, then go one step larger, because you will be looking at the lens, not focusing hard on the words.",
+          },
+          {
+            type: "p",
+            text: "The [font size and readability post](/blog/teleprompter-font-size-contrast-and-readability-settings) has the full method, including the rule that fewer words per line beats a bigger screen. Short version: if you are squinting, the size is wrong, not your eyesight.",
+          },
+        ],
+      },
+      {
+        heading: "3. The text is 'invisible' against a bright background",
+        blocks: [
+          {
+            type: "p",
+            text: "Symptom: the script is readable indoors but vanishes when you film by a window, outside, or in front of a white wall. Cause: light text over a bright live preview has no contrast. The overlay is drawn on top of whatever the camera sees, and a sunlit room is a lot of white.",
+          },
+          {
+            type: "list",
+            items: [
+              "Turn the phone's screen brightness up before you record; auto-brightness often sits lower than you think indoors.",
+              "Move so that the part of the preview under the script is darker: a plain wall or a bookshelf rather than sky or a lamp.",
+              "Make the text bigger. Large letters survive low contrast far better than small ones.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "4. The script reads backwards or upside down",
+        blocks: [
+          {
+            type: "p",
+            text: "Symptom: perfectly visible text, every letter reversed. Cause: **mirror mode** is on. Mirror mode exists for beam-splitter rigs, where the phone lies flat under a piece of angled glass and the reflection flips the text back to normal. Used with the phone upright on a tripod, it flips text that was already the right way round. Switch mirror mode off for hand-held and tripod recording and on only when the phone goes into a rig. If you built your own rig, the [mirror mode and DIY rigs post](/blog/mirror-mode-and-diy-teleprompter-rigs) covers which way the glass should face.",
+          },
+        ],
+      },
+      {
+        heading: "5. 'The teleprompter is not visible in my recorded video'",
+        blocks: [
+          {
+            type: "p",
+            text: "This one is not a fault. Symptom: you record, open the clip in Photos, and the script is gone; only you are in the frame. That is by design. The script is an overlay on the screen you look at while recording; the saved video is a clean portrait 4K clip with no text on it, which is exactly what you want for Reels, Shorts and TikTok. There is no setting to burn the script into the footage, and no watermark either.",
+          },
+          {
+            type: "p",
+            text: "If you wanted on-screen captions, that is a separate job for your editor or the platform's caption tool; the teleprompter's text is for you, not the viewer. If your deliverable must show exact wording on screen (a legal disclaimer, say), plan the caption step up front.",
+          },
+        ],
+      },
+      {
+        heading: "6. The text is visible but will not scroll when you speak",
+        blocks: [
+          {
+            type: "p",
+            text: "Symptom: voice-follow mode is selected, you start talking, and the script sits still. The app scrolls by listening to you with Apple's on-device speech recognition and matching the words it hears against the script, so if it hears nothing or hears the wrong language, nothing moves.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Microphone permission.** Same Settings page as the camera. Without it the recogniser is deaf and the scroll never starts.",
+              "**Language.** The app detects the script's language automatically and uses whichever languages iOS supports for on-device recognition. A script typed in one language and read aloud in another, or a mixed-language script, confuses the match. Keep one language per script.",
+              "**Distance and noise.** The phone's microphone is three metres away at the far end of a tripod shot, next to a fan. Move closer, or switch to classic auto-scroll with the speed slider for that take.",
+              "**Reading too far off-script.** Ad-libbing a whole paragraph gives the recogniser nothing to match. It does find your place again when you return to the written words, but it cannot follow text that is not there.",
+            ],
+          },
+          {
+            type: "p",
+            text: "If voice-follow stays unreliable in a particular room, that is a legitimate reason to use auto-scroll for the session rather than fight it. Both modes are there precisely because neither suits every situation.",
+          },
+        ],
+      },
+      {
+        heading: "7. Teleprompter screen warp: the text looks bent or doubled",
+        blocks: [
+          {
+            type: "p",
+            text: "Symptom: on a rig, the reflected text curves, ghosts or doubles, especially at the edges. This is a glass problem, not a software one. Cheap beam-splitter 'glass' is often acrylic, which bows slightly and reflects a warped image; thin uncoated glass gives a faint second reflection from its back surface, which reads as doubled text. Fixes, in rising order of cost: seat the glass flat in its frame; keep the script in the centre of the screen so the warped edges carry no words; replace the sheet with proper beam-splitter glass. With the phone upright and no glass at all, there is no warp to fix, which is one argument for the overlay approach when you do not need a big camera.",
+          },
+        ],
+      },
+      {
+        heading: "8. 'I cannot see how long the script is' and other timing questions",
+        blocks: [
+          {
+            type: "p",
+            text: "People searching for a *video script timer* usually want to know whether the script fits the slot before they press record. A commonly cited range for conversational on-camera delivery is roughly 130 to 160 words a minute, so a 60-second video is about 140 words and a 90-second one about 200. Count the words in your notes app, divide by 140, and you have the running time within ten seconds either way. The [ideal script length post](/blog/ideal-script-length-for-a-60-second-video) does the arithmetic for each platform.",
+          },
+          {
+            type: "p",
+            text: "With voice-driven scrolling the question partly disappears, because the script moves at the speed you actually talk. With auto-scroll, set the slider by reading the first paragraph aloud and adjusting until the line you are saying stays in the middle of the box.",
+          },
+        ],
+      },
+      {
+        heading: "9. The whole app is dim, laggy or gone",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Low Power Mode** dims the screen and can make the preview feel sluggish. Turn it off for the recording session, then back on.",
+              "**Thermal throttling.** Recording 4K in direct sun heats the phone; iOS reduces screen brightness first. Shade the phone or record shorter takes.",
+              "**An ad closed the view.** The free version shows occasional ads; your script is still in the scripts list and the take is in the takes library. The one-time purchase removes ads if that keeps happening mid-session.",
+              "**You are on Android.** Teleprompter: Camera Overlay is iOS-only, so it is not in the Play Store. That is not a bug.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "When the app is not the problem",
+        blocks: [
+          {
+            type: "p",
+            text: "Some 'cannot see the teleprompter' complaints are really about the setup. A phone mounted too high means the script sits above your natural eyeline and you tilt your head to find it; mount the lens at eye level. A tripod two and a half metres away makes any phone-sized text hard to read, and the honest fix is a shorter distance, not a bigger font. Glasses sometimes reflect the bright script box as a glow the camera sees; angle the key light. And if you can see the words perfectly but still sound like you are reading, that is a delivery issue, which the [how to sound natural](/blog/how-to-sound-natural-reading-a-teleprompter) drills cover. One class of problem you can rule out entirely: the app runs offline, with speech recognition, scripts and takes all on the phone, so there is no account, login or network to troubleshoot.",
+          },
+        ],
+      },
+      {
+        heading: "Where the series goes next",
+        blocks: [
+          {
+            type: "p",
+            text: "Three of the nine problems above (contrast, brightness, thermal dimming) are really lighting problems in disguise, so the next post covers the best teleprompter settings for different lighting conditions, from a daylight window to a single ring light in a dark room, and why the settings that work at noon fail at night.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "northern-lights-photos-iphone-blurry-noisy-washed-out-fixes-night-cam",
+    title: "Northern Lights Photos on iPhone Come Out Blurry, Noisy, Washed Out or Just Green Blobs? The Cause and Fix for Each Problem",
+    description:
+      "Photographing the northern lights with an iPhone and getting blur, grain, washed-out skies or shapeless green blobs? Ten problems, each with the real cause and the fix: tripod, exposure length, focus, Night mode in a bright city, white balance, the Moon, clouds, Kp expectations, lens fog and screen brightness. Any iPhone camera app, with notes on Night Cam.",
+    datePublished: "2026-11-03",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "The forecast said the aurora was out, you stood in a cold field for an hour, and the photos on the phone this morning are green smudges, grainy grey rectangles or a bright beige sky with nothing in it. Almost every bad northern lights photo from an iPhone fails for one of about ten reasons, and most of them are fixable on the next clear night without buying anything.",
+          },
+          {
+            type: "p",
+            text: "This is the diagnosis post. The [iPhone camera settings for the northern lights](/blog/iphone-camera-settings-northern-lights) post covers the settings to start from, and the [Kp index explainer](/blog/aurora-forecast-kp-index-explained) covers whether tonight is worth going out. Here, start from what the photo looks like and work back to the cause. Everything applies to the built-in Camera app's Night mode as much as to a dedicated app such as [Night Cam: Stars & Aurora](/apps/night-cam) (free, iPhone only, iOS 18 or later), which is mentioned where one of its presets changes the fix.",
+          },
+        ],
+      },
+      {
+        heading: "1. Everything is smeared: stars are streaks, the aurora is a blur",
+        blocks: [
+          {
+            type: "p",
+            text: "**Cause:** the phone moved during a multi-second exposure. Hand-held is hopeless for anything over about a second, and 'holding it against my chest' counts as hand-held. Even the tap on the shutter button shakes a phone on a mini tripod.",
+          },
+          {
+            type: "p",
+            text: "**Fix:** tripod, wall, car roof, fence post, anything solid, and then do not touch the phone during the capture. Use the Camera app's timer, or the volume button on wired earphones, so your finger is off the phone when the exposure starts. Night Cam runs a 3-second countdown and a steadiness check before every long shot and tells you per preset whether it expects a tripod, a wall or a hand, which is the same discipline built into the app.",
+          },
+        ],
+      },
+      {
+        heading: "2. The aurora is a shapeless green blob with no curtains or rays",
+        blocks: [
+          {
+            type: "p",
+            text: "**Cause:** the exposure was too long for how fast the aurora was moving. Curtains and rays sweep across the sky in a few seconds; a 20- or 30-second exposure averages all that movement into one even glow. The photo is sharp and still looks wrong.",
+          },
+          {
+            type: "p",
+            text: "**Fix:** when the lights are active and moving, shorten the exposure. In the Camera app, tap the Night mode icon and drag the slider down to a few seconds. Night Cam's Aurora preset uses a short stack of frames for exactly this reason, so that moving curtains stay crisp, and its Aurora Live video preset records quarter-second frames when the display is fast enough to be worth a clip rather than a still. Save the long exposures for a faint, slow glow on the horizon.",
+          },
+        ],
+      },
+      {
+        heading: "3. Soft focus everywhere, even on a tripod",
+        blocks: [
+          {
+            type: "p",
+            text: "**Cause:** autofocus hunting in the dark. With nothing bright to lock on, the lens settles somewhere between near and far and the stars turn into soft discs. Tapping on the black sky does not help; there is nothing there to focus on.",
+          },
+          {
+            type: "p",
+            text: "**Fix:** tap on the brightest distant thing in the frame, a far streetlight, the Moon, a lit building, then long-press to lock focus (AE/AF Lock in the Camera app) and recompose. Keep the main 1x lens; the ultra-wide is softer and gathers less light, and the telephoto is for the Moon, not the sky.",
+          },
+        ],
+      },
+      {
+        heading: "4. Grainy, noisy, muddy shadows",
+        blocks: [
+          {
+            type: "p",
+            text: "**Cause:** a single short exposure pushed to a high ISO, then sharpened. The sensor in a phone is small; one frame in near darkness is mostly noise, and the processing that tries to clean it up smears detail into mush.",
+          },
+          {
+            type: "p",
+            text: "**Fix:** give the sensor more light per picture, either with a longer exposure when the aurora is slow, or by stacking several frames, which averages the random noise away. The Camera app's Night mode does a version of this automatically once the phone is still; Night Cam's Stars preset stacks 16 seconds of light into one frame specifically to cut grain for star fields. Do not add noise reduction afterwards in an editor; it only removes the stars along with the grain.",
+          },
+        ],
+      },
+      {
+        heading: "5. The sky is beige or orange and the aurora is barely there",
+        blocks: [
+          {
+            type: "p",
+            text: "**Cause:** light pollution plus auto white balance. Street lighting lights up thin haze, the camera balances for the sodium or LED glow, and a faint aurora loses to the city. On a bright terrace, Night mode may also choose a *short* exposure because the scene looks bright enough, which captures the lamps and not the sky.",
+          },
+          {
+            type: "p",
+            text: "**Fix:** get the lamps out of the frame and, if you can, out of the area; ten minutes' drive from town is worth more than any setting. In the Camera app, push the Night mode slider to a longer time manually rather than accepting the automatic choice. Night Cam meters the exposure from the actual sky in the frame rather than the whole scene, which is why its City and Aurora presets behave differently on the same balcony.",
+          },
+        ],
+      },
+      {
+        heading: "6. Colours look fake: neon green, purple everywhere, a halo around the horizon",
+        blocks: [
+          {
+            type: "p",
+            text: "**Cause:** over-processing. Phone cameras boost saturation and local contrast on night scenes, and the aurora, which is already a saturated green, gets pushed into cartoon territory. Purple and pink fringes are sometimes real (high-altitude red and nitrogen blue mix on the camera's sensor) and sometimes a processing artefact.",
+          },
+          {
+            type: "p",
+            text: "**Fix:** set Photographic Styles or any 'vivid' setting back to standard before shooting, resist the saturation slider afterwards, and judge the colour on a laptop the next day rather than on the phone at midnight, when dark-adapted eyes make everything look brighter than it is.",
+          },
+        ],
+      },
+      {
+        heading: "7. A bright white blob where the Moon is, and a washed-out sky",
+        blocks: [
+          {
+            type: "p",
+            text: "**Cause:** the Moon. A gibbous or full Moon is bright enough to light the landscape and turn the sky blue-grey in a long exposure, and in the frame it burns out to a white disc. A faint aurora disappears into moonlight.",
+          },
+          {
+            type: "p",
+            text: "**Fix:** check the Moon phase before you go; Night Cam shows it in the free Tonight forecast next to the cloud cover. Keep the Moon out of the frame, or behind you so it lights the foreground. If the Moon *is* the subject, that is a different exposure altogether: a short one, on the telephoto lens, which is what the Moon preset does so you get craters instead of a white circle.",
+          },
+        ],
+      },
+      {
+        heading: "8. Nothing came out at all, or a grey wash",
+        blocks: [
+          {
+            type: "p",
+            text: "**Cause:** cloud, or an aurora that was never strong enough for your latitude. The apps that show a Kp number are forecasting geomagnetic activity, not what you will see from your garden. A Kp 4 night that excites northern Norway is invisible from central Europe, and a thin high cloud layer reflects the town's light back at you.",
+          },
+          {
+            type: "p",
+            text: "**Fix:** there is no camera setting for this one. Check both numbers before leaving: the aurora chance for *your location* (Night Cam derives one from NOAA's live aurora model and Kp forecast and the 12-hour cloud forecast, and will send at most one alert a night if you turn alerts on) and the actual sky when you get there. If you can see stars but no aurora with your eyes after ten minutes of dark adaptation, a 10-second exposure facing north is still worth one try; cameras see faint aurora that eyes miss. If you cannot see stars, go home.",
+          },
+        ],
+      },
+      {
+        heading: "9. The second half of the night's photos are foggy",
+        blocks: [
+          {
+            type: "p",
+            text: "**Cause:** lens fog. A phone that was warm in a pocket, or one that you breathed on while checking the screen, condenses moisture on the lens glass in cold air. Every photo after that has a soft glow around every light and a milky sky.",
+          },
+          {
+            type: "p",
+            text: "**Fix:** wipe the lens with a microfibre cloth before each sequence (not a sleeve, which adds grease), keep the phone out of your pocket between shots once it has cooled to the air temperature, and check the first photo of each batch at full zoom for the tell-tale halo.",
+          },
+        ],
+      },
+      {
+        heading: "10. You could not see the aurora, but the photos show it (or the reverse)",
+        blocks: [
+          {
+            type: "p",
+            text: "**Cause:** your screen. Staring at a bright phone display between shots resets your night vision for several minutes, so a faint aurora that the camera records is invisible to you, and you give up. (The reverse, seeing a glow but photographing nothing, is usually problem 8 or a too-short exposure.)",
+          },
+          {
+            type: "p",
+            text: "**Fix:** screen brightness to the minimum, and a red screen mode if the app has one; Night Cam's red night-vision mode turns the interface red so your eyes stay adapted while you frame and shoot. Then give it ten minutes without looking at any screen before deciding there is nothing to see.",
+          },
+        ],
+      },
+      {
+        heading: "Which of these an app can fix, honestly",
+        blocks: [
+          {
+            type: "p",
+            text: "Problems 1, 3, 6, 9 and 10 are technique and will not be solved by any download. Problems 2, 4 and 5 are exposure decisions, and this is where a dedicated night app earns its place: the built-in Camera app makes those choices for an average night scene, whereas Night Cam's presets make them for the specific subject, with Aurora, Aurora Live, Stars, Trails, Moon and City each exposed and stacked differently, and the phone-holding advice printed on screen. Problems 7 and 8 are forecasting, which is the free half of Night Cam: aurora chance for your area, cloud cover and Moon phase, with no account, no ads and no data collected.",
+          },
+          {
+            type: "p",
+            text: "The paid part is small and optional: the first three captures are free, then Night Cam Pro is $4.99 once, or a Night Pass is $0.99 for 48 hours and does not renew; no subscription. If you chase the aurora once a year, the pass is the sensible choice. And if the sky is clouded over, nothing in this post or any app will help, which is the one truth every aurora photographer eventually makes peace with.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "best-first-move-in-mancala-kalah-opening-strategy-android",
+    title: "The Best First Move in Mancala (Kalah): Why Pit 3 Is the Right Opening, the Free-Move Chain That Follows, and Why Going First Is an Edge",
+    description:
+      "The best first move in Mancala (Kalah) is the third pit from your left: the last stone lands in your store and you move again. What computer analysis says about the 3-6 opening, how to chain free moves, how to respond when you go second, and how to drill openings against the Master AI and the Daily Puzzle in Mancala Offline on Android.",
+    datePublished: "2026-11-03",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Ask anyone who has lost a few games of Mancala to a phone what went wrong and the answer is usually 'the computer got two moves in a row and I never caught up'. That is the opening. In the standard 6-pit, 4-stone game of Kalah, the first player has a proven advantage, a specific best first move, and a short chain of free moves that most beginners either miss or spend too early.",
+          },
+          {
+            type: "p",
+            text: "This post assumes you already know the rules; the [how to play Mancala](/blog/how-to-play-mancala-kalah-rules-beginner-strategy-android-offline) post covers those. Here it is only about the first three or four moves: what the best opening is, what the analysis behind it says, and how to practise it on Android with [Mancala Offline](/apps/mancala-offline), a free Kalah game with a Master-level computer and a daily puzzle that happens to be a very good opening trainer.",
+          },
+        ],
+      },
+      {
+        heading: "The board, numbered the way the analysis numbers it",
+        blocks: [
+          {
+            type: "p",
+            text: "Sit with the board in front of you: your six pits run left to right along the near row, your store is on your right, and stones are sown counter-clockwise, so from your pits they travel right, drop one into your store, and continue along the opponent's row. Number your pits **1 to 6 from your left**. Pit 6 is the one next to your store; pit 1 is the one next to the opponent's store. Every pit starts with 4 stones.",
+          },
+          {
+            type: "p",
+            text: "Count the steps from each pit to your store: pit 6 is one step away, pit 5 is two, pit 4 is three, and **pit 3 is four steps away**. With four stones in it, the last stone from pit 3 lands exactly in your store. That is the whole secret of the opening.",
+          },
+        ],
+      },
+      {
+        heading: "The best first move: pit 3, then pit 6",
+        blocks: [
+          {
+            type: "p",
+            text: "Play pit 3 first. Its four stones go into pits 4, 5, 6 and your store; the last stone landed in your store, so by the free-move rule you move again before your opponent has touched the board. The position now has 5 stones in pits 4, 5 and 6, 1 in your store, pit 3 empty.",
+          },
+          {
+            type: "p",
+            text: "The strongest follow-up, according to the computer analysis described below, is **pit 6**. Its five stones go one into your store and four along the opponent's row (their pits 1 to 4, counting from their left as they see it). That ends your turn with 2 stones banked, but it leaves pit 3 empty on your side with a loaded opponent pit opposite it, which sets up capture threats on the following turns. Together the pair is written as the **3-6 opening**.",
+          },
+          {
+            type: "p",
+            text: "Why not keep collecting free moves? After pit 3, pit 6 holds five stones, not one, so it no longer ends in the store; nothing else on the board does either. The only free move available at the start is pit 3, and the opening spends it immediately. Chaining several free moves in one turn is a mid-game weapon, when pits hold the right counts; the longest possible chain on a standard board is 17 moves, but you will never see that from the starting position.",
+          },
+        ],
+      },
+      {
+        heading: "What the analysis actually says, and what it does not",
+        blocks: [
+          {
+            type: "p",
+            text: "Kalah is a solved game for the standard sizes. The 4-stone and 5-stone games were first solved in 2000 by Geoffrey Irving, Jeroen Donkers and Jos Uiterwijk at Maastricht University, under the *empty-capture* rule variant (where the last stone is captured even if the opposite pit is empty); in that variant the first player wins Kalah(6,4) by 10 with perfect play. Mark Rawlings quantified the standard-rule games in 2015, the rule set Mancala Offline uses (no capture when the opposite pit is empty): under standard rules Kalah(6,4) is a first-player win by 8, and the best opening is 3-6. For the 6-stone game the margin shrinks dramatically, to a proven win of at least 4 under standard rules, which is why serious players consider the 6-seed game far deeper. The Wikipedia Kalah article collects these results with the original citations.",
+          },
+          {
+            type: "p",
+            text: "Two honest caveats. 'Win by 8 with perfect play' assumes both sides play perfectly for the rest of the game; against a human, or against the Easy and Medium computers, the opening is an advantage, not a guarantee, and a sloppy fifth move gives it all back. And the analysis is for the exact 6-pit, 4-stone layout. If a house rule changes the stone count or the capture rule, the best opening changes with it: with 5 stones per pit the free-move pit is pit 2, with 6 it is pit 1, because the pit that reaches the store exactly is always 'stone count' steps away.",
+          },
+        ],
+      },
+      {
+        heading: "Playing it on Android, move by move",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Open **Play vs Computer**, choose a level, and make sure you are moving first; your six pits are the near row and your store is on the right.",
+              "Tap your **third pit from the left**. Watch the four stones sow into pits 4, 5, 6 and the store, and the turn stays yours; the board shows it is still your move.",
+              "Tap your **sixth pit** (next to the store). One stone drops in the store, four cross to the opponent's side. Your turn ends with 2 in the store.",
+              "If you tapped the wrong pit, **Undo** takes it back (it costs a short optional ad in the free version, free with Mancala Pro). Use it in practice games, not as a habit.",
+              "Stuck on move three? Tap **Hint** once and see which pit the engine prefers, then try to work out why before you tap it.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "What to do with the position after 3-6",
+        blocks: [
+          {
+            type: "p",
+            text: "Your empty pit 3 is now a capture square. Any move of yours whose last stone lands in pit 3 while the opponent's opposite pit holds stones captures them plus your landing stone. Count the opponent's likely replies: they will often play to empty the pit opposite your hole, or to drop stones into your pit 3 so it is no longer empty. If they do neither, look for a pit of yours that is exactly the right distance from pit 3 (pit 1 with two stones, pit 2 with one) and take the capture.",
+          },
+          {
+            type: "p",
+            text: "Three principles cover the next few turns. Keep pit 6 low, because a loaded pit next to the store is a gift of stones to the other side when it overflows. Prefer moves that leave an exact free move for *next* turn over moves that bank one stone now. And when the opponent has a free move set up, play the move that disturbs it; one extra turn for them is worth more than one stone for you.",
+          },
+        ],
+      },
+      {
+        heading: "When you go second",
+        blocks: [
+          {
+            type: "p",
+            text: "The analysis says the second player is losing from move one against perfect play, which sounds bleak and is not, because perfect play does not exist in a kitchen. The practical job of the second player is to stop the first player cashing in the advantage: deny captures by keeping stones in the pits opposite their empty pits, and deny free moves by changing the counts in their pits 4 to 6 whenever your sowing passes through them. Many clubs play the pie rule for balance (the second player may swap sides after the first move); Mancala Offline does not offer that, so in 2 Players mode simply alternate who starts each game.",
+          },
+        ],
+      },
+      {
+        heading: "Drilling openings against the Master AI and the Daily Puzzle",
+        blocks: [
+          {
+            type: "p",
+            text: "The four computer levels are a ladder for this. Medium looks three moves ahead, Hard six and Master nine, per the app's description, so Master punishes a wasted free move and Hard usually lets one slide. Play the 3-6 opening ten times against Hard and note how often you convert the capture on pit 3; then move to Master and watch it dismantle the same plan unless your third and fourth moves are accurate. The World Tour does the same more gently: twelve opponents from Cairo to New York ramp up between the levels, with two stars for winning by six or more and three for winning by twelve, a useful scoreboard for whether the opening edge is turning into margin.",
+          },
+          {
+            type: "p",
+            text: "The Daily Puzzle is the best opening trainer in the app, almost by accident. Each day's position is built from the date and is either a capture puzzle (take a set number of stones in one turn) or a win puzzle (beat the Hard computer from a given position). The capture puzzles train exactly the counting skill the opening needs: which pit is how many steps from the store or from an empty pit. Solving one takes a couple of minutes, keeps the streak alive, and is the kind of repetition that makes 'pit 3 is four steps from the store' automatic rather than something you work out each game.",
+          },
+          {
+            type: "p",
+            text: "Practical notes for Android users: everything above works offline, the listing says progress stays on the phone, and no account is needed. The free version shows optional ads, and the Play Store data-safety section notes the app may collect and share some data such as location and app activity, which is typical of ad-supported games; Mancala Pro is a one-time purchase that removes the ads and makes hints and undos free, with no subscription. The 2 Players mode is pass-and-play on one phone, not online. In short: go first, play pit 3, take the free move, play pit 6, then spend two turns protecting the capture square rather than grabbing single stones. Against a human that is usually enough to win; against Master it is enough to make the game interesting.",
+          },
+        ],
+      },
+    ],
+  },
 ];

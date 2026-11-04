@@ -9088,6 +9088,172 @@ node --import=tsx your-file.ts`,
       },
     ],
   },
+  {
+    slug: "useeffectevent-react-18-not-available-alternatives-polyfill",
+    title: "useEffectEvent in React 18: It Is Not There. What to Use Instead (Latest-Ref Pattern, the use-effect-event Ponyfill, or Upgrading to 19.2)",
+    description:
+      "useEffectEvent does not exist in React 18: it shipped as stable in React 19.2 (October 2025). What the error looks like, the latest-ref pattern that stands in for it, the use-effect-event ponyfill, why useCallback is not the same thing, and a decision table for which to pick.",
+    datePublished: "2026-11-03",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "You read about `useEffectEvent`, typed `import { useEffectEvent } from 'react'` into a React 18 project, and got `undefined is not a function` or a TypeScript error saying the module has no exported member. Nothing is wrong with your bundler. React 18 simply does not ship the hook. It spent two years as an experimental API and became a stable export only in **React 19.2**, released on 1 October 2025.",
+          },
+          {
+            type: "p",
+            text: "This post is for the React 18 codebase that still wants the pattern today: what `useEffectEvent` actually guarantees, the hand-written stand-in that most teams already use without naming it, the `use-effect-event` ponyfill, why `useCallback` is the wrong substitute, and when it is cheaper to just upgrade. If you are already on 19.2 or later, the [useEffectEvent practical guide](/blog/react-useeffectevent-practical-guide) covers the built-in hook in depth.",
+          },
+        ],
+      },
+      {
+        heading: "What the error looks like in React 18",
+        blocks: [
+          {
+            type: "p",
+            text: "The symptom depends on the toolchain, and all four spellings mean the same thing: the `react` package you installed has no `useEffectEvent` export.",
+          },
+          {
+            type: "list",
+            items: [
+              "`TypeError: (0 , react__WEBPACK_IMPORTED_MODULE_0__.useEffectEvent) is not a function` from webpack, or `TypeError: useEffectEvent is not a function` from Vite, at the first render of the component.",
+              "`Module '\"react\"' has no exported member 'useEffectEvent'. ts(2305)` from TypeScript, because `@types/react` for 18 does not declare it.",
+              "`React.useEffectEvent is undefined` when you access it through the default import.",
+              "No error at all, but the lint rule `react-hooks/exhaustive-deps` insists your hand-rolled event function must be a dependency. That is the older plugin not knowing what an Effect Event is, covered below.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Check the installed version rather than the one you remember installing: `npm ls react` or `node -p \"require('react/package.json').version\"`. Anything below 19.2.0 does not have the stable hook. The `experimental` channel of 18 and 19.0/19.1 had `experimental_useEffectEvent`, which is not something to depend on in production.",
+          },
+        ],
+      },
+      {
+        heading: "What useEffectEvent promises, so the stand-in can match it",
+        blocks: [
+          {
+            type: "p",
+            text: "The React docs describe an Effect Event as a function you declare next to an Effect that always sees the latest props and state, is not a dependency of the Effect, and may only be called from inside Effects or other Effect Events, never during render and never passed to other components or hooks. Its identity deliberately changes on every render, which is why it must not go into a dependency array. The canonical example is a chat room that should reconnect when `roomId` changes but not when the notification `theme` changes:",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: "// React 19.2+\nimport { useEffect, useEffectEvent } from 'react';\n\nfunction ChatRoom({ roomId, theme }) {\n  const onConnected = useEffectEvent(() => {\n    showNotification('Connected!', theme);\n  });\n\n  useEffect(() => {\n    const connection = createConnection(serverUrl, roomId);\n    connection.on('connected', () => onConnected());\n    connection.connect();\n    return () => connection.disconnect();\n  }, [roomId]); // theme is read inside the event, so it is not a dependency\n}",
+          },
+          {
+            type: "p",
+            text: "Two guarantees matter for any replacement. First, the function reads the values from the **most recent committed render**, not from the render the Effect was created in. Second, calling it does not retrigger the Effect. Anything that satisfies both is a faithful stand-in; anything that satisfies only one is a bug waiting for a slow network.",
+          },
+        ],
+      },
+      {
+        heading: "Option 1: the latest-ref pattern (no dependency, works in React 16.8+)",
+        blocks: [
+          {
+            type: "p",
+            text: "Store the newest callback in a ref during commit, and return a stable wrapper that calls whatever is in the ref. The commit step uses `useLayoutEffect` (or `useInsertionEffect` on 18+) so the ref is updated before any other Effect in the same commit can fire the event.",
+          },
+          {
+            type: "code",
+            language: "tsx",
+            code: "import { useRef, useInsertionEffect, useCallback } from 'react';\n\nexport function useEvent<A extends unknown[], R>(fn: (...args: A) => R) {\n  const ref = useRef(fn);\n\n  // Runs before useLayoutEffect and useEffect in the same commit.\n  useInsertionEffect(() => {\n    ref.current = fn;\n  });\n\n  // Stable identity for the life of the component.\n  return useCallback((...args: A): R => ref.current(...args), []);\n}",
+          },
+          {
+            type: "p",
+            text: "Usage is identical to the real hook, and the dependency array stays honest:",
+          },
+          {
+            type: "code",
+            language: "jsx",
+            code: "function ChatRoom({ roomId, theme }) {\n  const onConnected = useEvent(() => {\n    showNotification('Connected!', theme);\n  });\n\n  useEffect(() => {\n    const connection = createConnection(serverUrl, roomId);\n    connection.on('connected', () => onConnected());\n    connection.connect();\n    return () => connection.disconnect();\n  }, [roomId]);\n}",
+          },
+          {
+            type: "p",
+            text: "The pattern has sharp edges that the real hook enforces with a linter and you have to enforce by discipline. Never call the returned function **during render**: the ref still holds the previous render's closure at that point, so you would read stale state. Do not pass it as a prop to a memoised child and expect that child to re-render when the captured values change, because its identity never changes by design. And be careful inside an Effect **cleanup**: cleanup runs with the ref already pointing at the next render's function, which is usually what you want for a 'latest' event but is not what the closure in the cleanup saw when it was created. If the cleanup must use the value from its own render, capture it in a local variable inside the Effect instead. The [useEffect cleanup guide](/blog/react-useeffect-cleanup-function-guide) walks through that ordering.",
+          },
+          {
+            type: "p",
+            text: "Why `useInsertionEffect` rather than a plain assignment during render? Assigning `ref.current = fn` in the render body breaks under concurrent rendering: a render that is later thrown away would still have overwritten the ref. Committing it in an effect phase keeps the ref in step with what is actually on screen. On React 16.8 and 17, where `useInsertionEffect` does not exist, use `useLayoutEffect` for the same job.",
+          },
+        ],
+      },
+      {
+        heading: "Option 2: the use-effect-event ponyfill",
+        blocks: [
+          {
+            type: "p",
+            text: "If you would rather not maintain the hook yourself, the `use-effect-event` package on npm (maintained in the sanity-io GitHub organisation, version 2.x at the time of writing) describes itself as a ponyfill of the experimental `React.useEffectEvent` hook, with the same API: `useEffectEvent(fn)` returns a function you call from inside `useEffect` and leave out of the dependency array. Its README says the implementation is based on Bluesky's `useNonReactiveCallback` hook and warns, in its own words, that the hook is 'not a silver bullet'. It links to React's documented limits of Effect Events, which apply unchanged.",
+          },
+          {
+            type: "p",
+            text: "A ponyfill, unlike a polyfill, does not patch `React.useEffectEvent` onto the global `react` module. You import it from the package, which means the day you upgrade to 19.2 you can swap the import line for the real one and delete the dependency. Pick a package over a hand-rolled hook when several teams share the codebase and you want one audited implementation rather than six slightly different `useEvent` files.",
+          },
+        ],
+      },
+      {
+        heading: "Why useCallback is not the answer (useEffectEvent vs useCallback)",
+        blocks: [
+          {
+            type: "p",
+            text: "The most common wrong fix is `const onConnected = useCallback(() => showNotification('Connected!', theme), [theme])`. It gives you a memoised function, but its identity changes whenever `theme` changes, and the lint rule will correctly demand it in the Effect's dependency array. The moment you add it, changing the theme reconnects the chat room again, which is exactly the behaviour you were trying to avoid. Leave it out of the array and you are back to a stale closure: the Effect keeps calling the version of `onConnected` from the render in which it was created, with the old theme baked in.",
+          },
+          {
+            type: "p",
+            text: "The two hooks solve different problems. `useCallback` is for **identity stability** so that children and dependency arrays do not churn. An Effect Event is for **reading fresh values from inside a long-lived Effect** without making those values reasons to re-run it. If the function is passed to a child component or used as a dependency anywhere, `useCallback` is the right tool and `useEffectEvent` is forbidden by the lint rule. If it is only ever called from inside an Effect, you want the event.",
+          },
+        ],
+      },
+      {
+        heading: "Keeping the lint rule honest",
+        blocks: [
+          {
+            type: "p",
+            text: "`eslint-plugin-react-hooks` only understands the real `useEffectEvent`. The React 19.2 release notes say to upgrade to `eslint-plugin-react-hooks@latest` so the linter stops trying to insert Effect Events into dependency arrays; version 6 of the plugin also switched its `recommended` preset to flat config, with `recommended-legacy` kept for the old `.eslintrc` format. The `use-effect-event` README points at the `experimental` tag of the plugin for the same reason. With a hand-written `useEvent`, the stable plugin sees an ordinary function and will ask for it as a dependency. Adding it is harmless, because its identity never changes, so the Effect will not re-run; some teams prefer that over an `eslint-disable` comment. Whichever you choose, write it down in the hook's JSDoc so the next person does not 'fix' it.",
+          },
+        ],
+      },
+      {
+        heading: "Decision table",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**React 19.2 or later:** use the built-in `useEffectEvent` and the current `eslint-plugin-react-hooks`. Nothing else to install.",
+              "**React 19.0 or 19.1:** the stable export is not there either. Treat it like React 18, or move to 19.2, which is a minor bump within the same major.",
+              "**React 18, one or two call sites:** the latest-ref `useEvent` above, with `useInsertionEffect`, plus a comment explaining the render and cleanup rules.",
+              "**React 18, shared across a large codebase:** the `use-effect-event` ponyfill, so that there is one implementation to review and one import to replace on upgrade.",
+              "**React 16.8 or 17:** the same latest-ref pattern with `useLayoutEffect` in place of `useInsertionEffect`.",
+              "**The function is passed to a child or used in a dependency array:** none of the above. That is a `useCallback` problem.",
+            ],
+          },
+          {
+            type: "p",
+            text: "If you are weighing the upgrade, the migration from 18 to 19 is the expensive part (the removal of legacy root APIs, `ref` as a prop, the new JSX transform requirement), and 19.2 adds nothing to that cost on top of 19.0. Teams that are already on 19.x and only lack this hook have no reason to keep a ponyfill around.",
+          },
+        ],
+      },
+      {
+        heading: "A test that catches the stale-closure bug",
+        blocks: [
+          {
+            type: "p",
+            text: "Whichever stand-in you adopt, one test protects it: render the component, change a prop that the event reads but the Effect does not depend on, fire the event, and assert that the handler saw the new value while the Effect's setup ran exactly once.",
+          },
+          {
+            type: "code",
+            language: "tsx",
+            code: "import { render } from '@testing-library/react';\n\ntest('event sees latest prop without re-running the effect', () => {\n  const setup = jest.fn();\n  const seen: string[] = [];\n  let fire = () => {};\n\n  function Demo({ label }: { label: string }) {\n    const onTick = useEvent(() => { seen.push(label); });\n    useEffect(() => {\n      setup();\n      fire = onTick;\n    }, []);\n    return null;\n  }\n\n  const { rerender } = render(<Demo label=\"a\" />);\n  rerender(<Demo label=\"b\" />);\n  fire();\n\n  expect(seen).toEqual(['b']);\n  expect(setup).toHaveBeenCalledTimes(1);\n});",
+          },
+          {
+            type: "p",
+            text: "If that test passes against your hook today, it will pass unchanged against `useEffectEvent` after the upgrade, which is the whole point of matching the semantics now rather than inventing a looser version.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
   ...mcpGuides,
 ];
