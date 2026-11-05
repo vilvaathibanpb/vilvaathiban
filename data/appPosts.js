@@ -10139,4 +10139,392 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "explainer-video-words-per-minute-pacing-longer-scripts-tutorials-script-timer-teleprompter",
+    title: "Explainer Video Words per Minute: Word Budgets for 2 to 10 Minute Scripts, Why Longer Scripts Drift, and How to Time One Properly",
+    description:
+      "Explainer video words per minute: budgets for 2 to 10 minute scripts at 130, 150 and 170 wpm, why a script timer gets long videos wrong, and a section-budget fix.",
+    datePublished: "2026-11-05",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Searches for 'explainer video words per minute' and 'how long is a 3 minute script' usually come from someone with a half-written tutorial and a deadline. This is the reference post for that moment: speaking-rate bands, word budgets for 2 to 10 minutes at three paces, why longer scripts drift from any single rate, and a budgeting method that survives a screen recording. It is written around the free iPhone app [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay), but the arithmetic works anywhere.",
+          },
+          {
+            type: "p",
+            text: "Scope: 2 to 10 minute explainers, tutorials and course lessons. Short clips follow different rules; the [ideal script length for a 60-second video](/blog/ideal-script-length-for-a-60-second-video) post covers 15 to 90-second budgets and is not repeated here.",
+          },
+        ],
+      },
+      {
+        heading: "Speaking-rate bands: which words per minute to budget for",
+        blocks: [
+          {
+            type: "p",
+            text: "There is no correct speaking rate, only a correct one for the job. These are rules of thumb, not measurements from a study.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Slow, roughly 110 to 130 wpm.** Tutorials where the viewer follows along on their own screen: software walkthroughs, coding lessons, recipe steps. The viewer is doing something while listening, so every sentence needs air after it.",
+              "**Conversational, roughly 140 to 160 wpm.** Explainers, course lessons and commentary where the viewer is only watching. What most people mean by 'normal talking speed'.",
+              "**Brisk, roughly 170 wpm and up.** Ads, trailers, anything cut hard to music. Tiring past a minute or two, so rare in a 10-minute explainer.",
+            ],
+          },
+          {
+            type: "p",
+            text: "If you have never measured yourself, assume 150 wpm for a straight explainer and 130 wpm for a tutorial with on-screen steps.",
+          },
+        ],
+      },
+      {
+        heading: "Word budgets for 2, 3, 5, 8 and 10 minute scripts",
+        blocks: [
+          {
+            type: "p",
+            text: "Minutes multiplied by words per minute, at the three paces above.",
+          },
+          {
+            type: "list",
+            items: [
+              "**2 minutes:** 260 words at 130 wpm, 300 at 150 wpm, 340 at 170 wpm.",
+              "**3 minutes:** 390 words at 130 wpm, 450 at 150 wpm, 510 at 170 wpm. So a 3 minute script is about 400 to 450 words for most people, nearer 390 if viewers are following along.",
+              "**5 minutes:** 650 words at 130 wpm, 750 at 150 wpm, 850 at 170 wpm.",
+              "**8 minutes:** 1,040 words at 130 wpm, 1,200 at 150 wpm, 1,360 at 170 wpm.",
+              "**10 minutes:** 1,300 words at 130 wpm, 1,500 at 150 wpm, 1,700 at 170 wpm.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Treat these as ceilings, not targets. The table assumes constant talking for the whole running time, and nobody does that; a 1,300-word script almost always *runs* past 10 minutes once the demos slow it down.",
+          },
+        ],
+      },
+      {
+        heading: "Why longer scripts drift away from the number",
+        blocks: [
+          {
+            type: "p",
+            text: "A 60-second clip is one pace from start to finish. A 7-minute tutorial is four or five paces stitched together, and a single figure averages them away.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Demo and screen-recording sections run slow.** You say 'click Export', then actually click Export, wait for the dialog and point at the thing. Thirty words can take thirty seconds.",
+              "**Lists run fast.** 'Three reasons: cost, speed, and support' is six words in three seconds. Recaps race ahead of the average, which is why the ending of a long video often feels rushed even when the count was right.",
+              "**Explanations sit in the middle.** Narrated parts land near your measured pace and are the only parts the figure predicts well.",
+              "**Pauses add up.** More section breaks and transitions than a short clip, each buying no words.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Net effect: a script that is 40 percent demo runs long, one that is 40 percent bullet points runs short. Same word count, different videos.",
+          },
+        ],
+      },
+      {
+        heading: "The section-budget method",
+        blocks: [
+          {
+            type: "p",
+            text: "Budget per section, not per script. Five minutes before you write saves an afternoon of re-recording.",
+          },
+          {
+            type: "list",
+            items: [
+              "Outline the video as sections with a target time each: intro 30 seconds, concept 90 seconds, demo 3 minutes, pitfalls 90 seconds, recap 30 seconds.",
+              "Give each section its own pace: narration at your measured rate, demos at roughly half of it (half the time is showing, not saying), lists and recaps at the brisk rate.",
+              "Multiply, and write the budget into the heading: 'Demo (3 min, about 220 words)'. When the demo section hits 300 words, that is the signal to cut, not to talk faster.",
+              "Add the sections back up. If the sum is over the whole-video ceiling, cut from the section furthest over its own budget, usually the concept explanation.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The [teleprompter for online courses and tutorials](/blog/teleprompter-for-online-courses-and-tutorials) post covers laying out a lesson so each section can be re-recorded on its own; a section 20 percent over is then a two-minute retake, not a new afternoon.",
+          },
+        ],
+      },
+      {
+        heading: "How to time a script (and why a script timer is usually wrong)",
+        blocks: [
+          {
+            type: "p",
+            text: "Online 'video script timer' tools divide the word count by a single rate, so they reproduce the drift above: accurate for a narrated explainer, optimistic for a tutorial with demos, pessimistic for a list-heavy recap. Fine for a first sanity check, poor for a final one.",
+          },
+          {
+            type: "p",
+            text: "The reliable method is older. Read the script aloud with a stopwatch, section by section, at the pace you will use on camera, including the moments where you would be clicking or pointing. Write the real time next to each heading; anything more than 15 percent over gets cut before you record. Reading aloud also catches sentences that do not fit in a breath.",
+          },
+          {
+            type: "p",
+            text: "A total 25 to 30 percent over is a normal first draft. The [how to edit a script down by 30 percent](/blog/how-to-edit-a-script-down-by-30-percent-teleprompter) post is the cutting routine for exactly that.",
+          },
+        ],
+      },
+      {
+        heading: "What a voice-following teleprompter does and does not fix",
+        blocks: [
+          {
+            type: "p",
+            text: "Classic auto-scroll makes long scripts harder: a speed set for the narration is too fast for the demo and too slow for the recap. Teleprompter: Camera Overlay has that mode with a speed slider, and it suits a steady read. For a tutorial, voice-driven scrolling fits better: the script floats over the camera preview next to the front lens and moves at the speed you speak, using Apple's on-device speech recognition. It detects the script's language automatically, works in any language iOS supports for on-device recognition, and finds your place again if you stumble or stop to click something. The script never appears in the saved 4K portrait video, and it all runs offline.",
+          },
+          {
+            type: "p",
+            text: "That removes the *timing* problem during recording: pause for the demo, speed through the recap, and the text follows. It does not remove the *budgeting* problem. If the script is 1,700 words for a 10-minute slot, voice-follow will cheerfully let you read all 1,700 in 13 minutes. A prompter cannot shorten a script; cutting still happens on the page. The takes library helps: record the long version, watch it back with the stopwatch, cut, record again. Scripts and takes are unlimited; the app is free with occasional ads, a small one-time purchase to remove them, no subscription, no watermark, iOS-only.",
+          },
+        ],
+      },
+      {
+        heading: "When not to budget at all",
+        blocks: [
+          {
+            type: "p",
+            text: "Live tutorials with real-time typing are the exception. If the lesson is you writing code or building a spreadsheet as the viewer watches, the pace is set by your hands, not your script, and a word budget fights the format. Do not script those; outline the steps, narrate as you go, and cut the dead air in the edit. Budget the planned sections and leave the live ones alone.",
+          },
+        ],
+      },
+      {
+        heading: "Next in the series",
+        blocks: [
+          {
+            type: "p",
+            text: "Once the script fits, the next thing that goes wrong on a long recording is the light changing halfway through. The next post covers the best teleprompter settings for different lighting conditions, from a bright window to a single ring light in a dark room.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "turning-off-screens-without-a-meltdown-toddler-screen-time-transitions-pretend-police-call-iphone",
+    title: "Turning Off Screens Without a Meltdown: A Step-by-Step Transition Routine for Toddlers, With a Pretend Call From a Friendly Officer",
+    description:
+      "A six-step routine for ending toddler screen time without tears: a visible timer, letting the child press the off button, an appealing next thing, the Screens off call in Good Behavior Police Call (free iPhone app), and a praise call later. Plus when the call is the wrong tool.",
+    datePublished: "2026-11-05",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "The cartoon ends, you say \"okay, screens off\", and a child who was perfectly calm thirty seconds ago is face down on the rug. Ending screen time is one of the hardest transitions a toddler faces: it asks them to stop the most stimulating thing in their day and move to something slower, on your schedule, with no say in the matter. Most meltdowns at the off button are about that loss of control, not the cartoon.",
+          },
+          {
+            type: "p",
+            text: "This post is a transition routine: six steps, in order, that turn \"screens off\" from an ambush into a process your child can see coming. Step four uses the Screens off call in [Good Behavior Police Call](/apps/police-call), a free iPhone app in which a friendly made-up officer rings your child inside the app and asks for one small thing. We have covered [running the first call at bedtime](/blog/pretend-police-call-for-kids-bedtime-good-behavior-police-call-iphone) and [whether a pretend police call is a good idea at all](/blog/is-a-pretend-police-call-bad-for-kids-fear-vs-encouragement-good-behavior-police-call); this one is only about the TV, the iPad and the handover.",
+          },
+        ],
+      },
+      {
+        heading: "Step 1: Warn early, with something they can see",
+        blocks: [
+          {
+            type: "p",
+            text: "\"Five more minutes\" means nothing to a three-year-old, who cannot feel five minutes passing. Give them a warning they can watch. Put a kitchen timer or a sand timer next to the screen and say \"when the sand runs out, the TV goes to sleep\", or name a natural end point: \"this is the last episode\". Say it once at the start and again with a minute left, so the ending is announced by the timer, not by you appearing out of nowhere.",
+          },
+        ],
+      },
+      {
+        heading: "Step 2: Let them press the button",
+        blocks: [
+          {
+            type: "p",
+            text: "A child who turns the screen off has done something; a child who has it turned off on them has had something done to them. Hand over the remote, or hold the iPad so they can press the side button, and make it their job: \"you are in charge of putting the TV to sleep\". Some families add a goodnight wave to the characters. It sounds silly and it works, because the ending becomes an action the child owns.",
+          },
+        ],
+      },
+      {
+        heading: "Step 3: Have the next thing ready, and make it appealing",
+        blocks: [
+          {
+            type: "p",
+            text: "The hardest version of screens off is \"screens off, now go and do nothing\". The easiest is \"screens off, because the bath is already running\". Decide the next activity before you start the ending, make it something the child enjoys or feels important doing, and name it in the warning. The screen is not being taken away; it is being swapped.",
+          },
+        ],
+      },
+      {
+        heading: "Step 4: The Screens off call, for the days that need a third voice",
+        blocks: [
+          {
+            type: "p",
+            text: "Some afternoons steps one to three are enough. On the others, the same ask from someone new lands differently. You pick an officer, Officer Pat (bright and warm) or Officer Sam (calm and steady), and the iPhone rings like a real incoming call: ringing, an answer button, a call timer, and an animated officer from the Good Behavior Patrol who talks with real pauses for your child to answer. The officer asks for one small thing, today putting the screen to sleep. No sirens, no threats, no talk of trouble; Pat and Sam are made-up characters not connected to any police force, and the app never places a real phone call.",
+          },
+          {
+            type: "p",
+            text: "Two settings matter for this call. First, the delay: ring now or in 10 seconds, 30 seconds or a minute. For screens off, pick 30 seconds: long enough to tap Call, walk over and hand the phone across so it rings in your child's hands, short enough that the cartoon has not pulled them back in. Second, voice or video. If the child is on the sofa watching the TV, choose video; a second screen with a talking officer is the one thing that can pull their eyes off the first. If they are holding the iPad and you want them to put it down, choose voice, so the officer is a voice asking for the tablet rather than another screen competing with it.",
+          },
+          {
+            type: "p",
+            text: "Read the whole script on screen before you ring. If your child taps decline, the officer can try once more; leave it there after that. When the screen goes dark, you get the last word: tell your child the officer was proud of them. To leave the call screen yourself, press and hold the clock; grown-ups hold, little fingers tap.",
+          },
+        ],
+      },
+      {
+        heading: "Step 5: Move straight into the next thing",
+        blocks: [
+          {
+            type: "p",
+            text: "The minute after the screen goes off is when the routine succeeds or fails. Do not pause to check your own phone. Go directly to the activity you named in step three, hands busy within thirty seconds, and narrate it (\"you turned the TV off, and now we are feeding the cat\") so the ending is already in the past tense.",
+          },
+        ],
+      },
+      {
+        heading: "Step 6: The payoff call later",
+        blocks: [
+          {
+            type: "p",
+            text: "This is the step most families skip, and the one that makes the officer someone your child wants to hear from. Later that day, or at bedtime, ring the Great day call: the officer has heard that screens went off nicely and is pleased. Great day is one of the two calls that are free forever (Bedtime is the other), so this loop costs nothing. A happy call after a good transition makes the off button the start of something, not the end of everything.",
+          },
+        ],
+      },
+      {
+        heading: "When the call is the wrong tool",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**A child who is frightened of police.** The script is gentle, but if uniforms or \"the police\" already worry your child, the format is the problem. Use the other five steps and skip the call.",
+              "**As a threat.** \"Turn it off or the officer will call\" turns a friendly check-in into a punishment and undoes the design. Present it as good-natured help or not at all.",
+              "**Every day.** The call works because it is new. Reserve it for the afternoons that have gone wrong and let the timer and the handover do the daily work.",
+              "**Older children who have worked it out.** A child who asks how the officer knew the TV was on is ready for a plain conversation about screen limits. That is progress.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Quick FAQ",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Is the Screens off call free?** No. Bedtime and Great day are free forever; one purchase unlocks all 13 calls, removes the small ads from the menu screens (never during a call) and includes future calls. No subscription.",
+              "**Does it work on an iPad or Android?** No. The app is iPhone-only, needs iOS 15.1 or later, is rated 4+ and supports Family Sharing.",
+              "**Does it need Wi-Fi?** No. It works offline, there are no accounts and nothing is uploaded. The optional self-view on video calls is live and never recorded.",
+              "**What if we do not speak English at home?** Every call is fully voiced in nine languages (English, Spanish, French, German, Italian, Portuguese, Hindi, Japanese and Chinese), following the iPhone's language or one you pick in Settings.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Put together: a timer the child can see, a button the child presses, a next thing worth moving to, a friendly voice on the hard days, and a happy call afterwards. Stopping is still hard for small people. This gives them a way to stop that feels like their own idea.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "idle-blacksmith-five-minute-daily-routine-chests-royal-commission-boosts-offline-cap-android",
+    title: "Idle Blacksmith: Forge Tycoon in Five Minutes a Day: A Check-In Routine Built Around Forge Chests, Royal Commission Boosts and the Offline Cap",
+    description:
+      "A five-minute-a-day routine for Idle Blacksmith: Forge Tycoon on Android: what to do each session, when to open the Forge Chest, stacking a Royal Commission boost before you log off, spacing check-ins around the 2-hour free offline cap (8 h with the Charter), and what not to do.",
+    datePublished: "2026-11-05",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Idle games are built for people who do not have time to play games, but most of them quietly reward checking in at the right moments. [Idle Blacksmith: Forge Tycoon](/apps/idle-blacksmith) on Android has three timers worth knowing, a cap on offline earnings and a handful of buy buttons. Line those up with the gaps in your day and you get most of a heavy player's progress in about five minutes of attention.",
+          },
+          {
+            type: "p",
+            text: "This is that routine, as a checklist. If you do not yet know what an apprentice or a Legacy Ember is, start with the [beginner's guide](/blog/idle-blacksmith-forge-tycoon-beginner-guide-when-to-pass-the-forge-android), which explains the loop, every upgrade and when to Pass the Forge. This post only covers what to do when you open the app.",
+          },
+        ],
+      },
+      {
+        heading: "The three timers that set your schedule",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Offline earnings.** A Welcome back sheet pays out income for the time you were away, up to 2 hours on the free version or 8 hours with the Royal Charter. Absences under a minute are ignored. Collect it, or double it with a short rewarded ad.",
+              "**The Forge Chest.** A free chest every 4 hours, worth roughly 10 minutes of income. Open it a second time by watching an ad.",
+              "**Royal Commission.** A ×2 income boost lasting 4 hours, started with a rewarded ad (or without one if you own the Charter), stacking up to 12 times.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "The five-minute session, step by step",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Minute 1: collect Welcome back.** On the free version, the rewarded ad doubles it, and on a full two-hour payout that is the best-paying ad in the game. In a hurry, just collect.",
+              "**Minute 2: open the Forge Chest if its timer is up.** It runs on a 4-hour cycle, so it will not be ready every time. The second opening via ad is worth more late in a run.",
+              "**Minute 3: spend gold with ×Max.** In the Smiths tab, check whether any apprentice is within reach of a milestone (10, 25, 50 or 100), since each one doubles that apprentice's output. If so, use ×10 or ×Max to push it over. If not, put the gold into the upgrade that multiplies whatever is earning most.",
+              "**Minute 4: pick your upgrade by how you play.** If you actually tap during sessions, Quench Barrel (+3% Masterwork chance per level; a Masterwork sells for 10× gold) and Hammer Weight pay you back directly. If you mostly idle, Bellows (apprentices 1.5× faster) and Merchant Guild (sales ×1.5) keep working while the phone is in your pocket.",
+              "**Minute 5: start or stack a Royal Commission boost, then close the app.** Offline earnings use the income rate at the moment you leave, so start the boost last, after spending your gold; the ×2 is then applied to the higher rate and runs for four hours while you are away.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Spacing the sessions around the offline cap",
+        blocks: [
+          {
+            type: "p",
+            text: "The 2-hour cap should shape your day on the free version. Time away beyond two hours earns nothing extra, so three or four check-ins spaced roughly two hours apart beat one long session or breakfast plus dinner. A realistic free-player day: a minute on waking, mid-morning, lunch, mid-afternoon and early evening. If you can only manage three, pick the ones with the biggest gaps either side.",
+          },
+          {
+            type: "p",
+            text: "The bedtime check-in is the one to be honest about. On the free version, eight hours of sleep pays the same as two, so a session before bed adds little beyond the boost's first four hours. With the Royal Charter the cap rises to 8 hours, roughly a night's sleep or a working day, and the same bedtime session pays four times as long. Charter owners can get by on morning, after work and bedtime.",
+          },
+          {
+            type: "p",
+            text: "Boosts stack up to 12, each lasting 4 hours, so before a long absence stacking several keeps the ×2 running throughout. On the free version that means several rewarded ads in a row, a trade-off rather than a free lunch; with the Charter it is a few taps.",
+          },
+        ],
+      },
+      {
+        heading: "What not to do",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Do not Pass the Forge mid-boost.** Passing resets gold, apprentices and upgrades for Legacy Embers (10 at 1 billion gold earned, growing with the square root of the total, each +5% income permanently). General idle-game sense says a ×2 is worth most on a mature run with high income and least on a fresh run selling copper daggers. Let the boost expire, then Pass.",
+              "**Do not buy Fame before the cheaper multipliers.** Fame doubles all income, but if Merchant Guild or a milestone doubling costs a fraction of the price for a similar jump, buy that first and let the extra income pay for Fame sooner. This is the usual cheapest-doubling-first rule of thumb, not a tested price table.",
+              "**Do not leave the app open on the table.** Apprentices earn while the game is closed, and only the Welcome back payout comes with a doubling ad. An open session burns battery for nothing extra.",
+              "**Do not chase weapon unlocks as an idler.** New weapons pay more per strike, which matters if you tap. For an idler, apprentice levels and multipliers come first.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Ads, the Charter and the honest trade-off",
+        blocks: [
+          {
+            type: "p",
+            text: "On the free version this routine means a few rewarded videos a day, all optional and started by you. The only ad you do not choose is a full-screen one that may appear after Pass the Forge, at most every 10 minutes and not in your first sessions; there are no banners. In the EEA, UK or Switzerland you will see a consent form first. The Play Store data-safety section lists Location, App activity and two other categories the app may collect or share, which comes from the ads SDK, so it is not a zero-data app; progress itself is saved on the phone and there is no account.",
+          },
+          {
+            type: "p",
+            text: "The Royal Charter is a one-time purchase priced in Google Play (it varies by country), with no subscription. It removes ads, gives a permanent ×2 income, lets you start boosts and reopen chests without ads, and raises the offline cap to 8 hours. For this routine it changes two things: the bedtime check-in becomes worth doing, and the session shrinks to about two minutes. A player who can reach for the phone every two hours loses almost nothing by staying free.",
+          },
+        ],
+      },
+      {
+        heading: "The routine on a card",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Open the app. Collect Welcome back; double it with an ad if you have the minute.",
+              "Forge Chest ready? Open it. (Every 4 hours.)",
+              "Smiths tab: any apprentice near 10, 25, 50 or 100? Push it over with ×10 or ×Max.",
+              "Otherwise: Bellows or Merchant Guild if you idle; Quench Barrel or Hammer Weight if you tap.",
+              "Start or stack a Royal Commission boost last. Close the app.",
+              "Free version: come back in about 2 hours. Charter: come back within 8.",
+            ],
+          },
+          {
+            type: "p",
+            text: "If the game's notifications nag you, turn them off in Android's app settings; the point is to fit the forge into gaps you already have. It is a relaxing game, not a job. Five attentive minutes spread across the day keeps the anvil ringing and the numbers climbing through K, M and B toward the first Pass. An iPhone version is not yet available; this is Android only.",
+          },
+        ],
+      },
+    ],
+  },
 ];

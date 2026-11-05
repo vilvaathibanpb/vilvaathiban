@@ -9254,6 +9254,180 @@ node --import=tsx your-file.ts`,
       },
     ],
   },
+  {
+    slug: "nextjs-november-2026-security-release-cve-advisories-upgrade-16-4-5-15-5-29",
+    title: "Next.js November 2026 Security Release: Seven Advisories, Who Is Affected, and How to Upgrade to 16.4.5 or 15.5.29",
+    description:
+      "Next.js 16.4.5 and 15.5.29 fix seven advisories, led by a high-severity cross-tenant use cache leak. What each one says, a five-minute audit and the upgrade commands.",
+    datePublished: "2026-11-05",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "On 3 November 2026 the Next.js team published its [November 2026 security release](https://nextjs.org/blog/november-2026-security-release), written by Jamiboy Mohammad and Sebastian Silbermann, a week after an [upcoming security release](https://nextjs.org/blog/upcoming-nextjs-security-release-november-2026) notice. The patched versions are **16.4.5** (Active LTS) and **15.5.29** (Maintenance LTS). Seven advisories are fixed: one high, six medium.",
+          },
+          {
+            type: "p",
+            text: "The short version: if you run Next.js 15.x or 16.x, upgrade. If you have **Cache Components** enabled and use `use cache`, upgrade today, because the high-severity issue can serve one tenant's cached content to another. If you self-host with `next start` behind a reverse proxy, two more of the seven are aimed at you. Below: what each advisory says, a five-minute audit, and the upgrade commands.",
+          },
+        ],
+      },
+      {
+        heading: "The seven advisories, grouped by what they touch",
+        blocks: [
+          {
+            type: "p",
+            text: "Grouped by subsystem so you can skip the ones that cannot reach you. Each GitHub advisory lives at `https://github.com/vercel/next.js/security/advisories/<id>`.",
+          },
+          {
+            type: "p",
+            text: "**Cache Components and `use cache` (three advisories plus the shell poisoning one)**",
+          },
+          {
+            type: "list",
+            items: [
+              "**Cross-tenant cache disclosure when combining `unstable_cache` and `use cache`** ([GHSA-mfr8-8qww-v76h](https://github.com/vercel/next.js/security/advisories/GHSA-mfr8-8qww-v76h), **high**). Apps with Cache Components enabled can disclose cached content across root-parameter values when the same public `use cache` function is called both directly and from inside `unstable_cache`, and that function reads a root parameter such as a tenant identifier. During a cold cache fill, a concurrent call through `unstable_cache` can receive another request's result without its root parameters being checked; the wrong result can then be stored and served to later callers with the same arguments until it is revalidated or evicted.",
+              "**Cross-root-parameter disclosure in nested `use cache` functions** ([GHSA-vc7v-qv4w-wrv8](https://github.com/vercel/next.js/security/advisories/GHSA-vc7v-qv4w-wrv8), medium). Nested public `use cache` functions can serve content generated for one root-parameter value to requests for another: an inner cached function reads a root parameter and returns an early value alongside a slower async value, the outer function finishes without waiting, and the outer entry is stored before the inner function's root-parameter dependencies are recorded. Tenant-, site- or locale-specific content can leak. The attacker does not inject content here; they read what another tenant generated.",
+              "**Cross-user cache disclosure and poisoning through binary `use cache` arguments** ([GHSA-rhh4-g77r-r9qj](https://github.com/vercel/next.js/security/advisories/GHSA-rhh4-g77r-r9qj), medium). Distinct binary arguments passed to a `use cache` function can produce the same cache identity. If the app uses those arguments to distinguish users, a caller can receive another user's cached result, or have their own served to someone else. It does not allow arbitrary access to unrelated cache entries.",
+              "**Shared shell cache poisoning in self-hosted applications** (medium, no GHSA id given in the release post). Self-hosted apps running `next start` with Cache Components enabled and Partial Prefetching disabled or unset can have a shared page shell poisoned by an unauthenticated crafted URL, giving incorrect server-rendered content or persistent 404s. The route shape is specific: a prerenderable dynamic parameter requested with a value not generated at build time, at least two deeper parameters never prerendered, a blocking fallback shell, and a layout reading the shallower deeper parameter inside a Suspense boundary. Build-generated values and Partial Prefetching enabled were not affected in the reported tests.",
+            ],
+          },
+          {
+            type: "p",
+            text: "**Self-hosting and reverse proxies**",
+          },
+          {
+            type: "list",
+            items: [
+              "**Cross-client response injection and disclosure through stale compressed response framing** ([GHSA-pc58-hwjq-p385](https://github.com/vercel/next.js/security/advisories/GHSA-pc58-hwjq-p385), medium). Self-hosted apps that return an attacker-controlled fetched `Response` unchanged can forward decompressed body bytes while keeping the original compressed response's framing headers. Behind an HTTP/1.1 reverse proxy that queues pipelined requests on a shared backend connection, responses can then be assigned to the wrong clients. It requires that proxy behaviour.",
+            ],
+          },
+          {
+            type: "p",
+            text: "**Edge runtime cookies**",
+          },
+          {
+            type: "list",
+            items: [
+              "**Exposure of cookie values through an internal response header in Edge routes** ([GHSA-f3mh-rxg3-f5g2](https://github.com/vercel/next.js/security/advisories/GHSA-f3mh-rxg3-f5g2), medium). App Router Edge Route Handlers and Pages Router Edge API routes that set cookies with `NextResponse.cookies.set()` can expose the serialised cookie in the internal `x-middleware-set-cookie` response header, which same-origin JavaScript can read, so values marked HttpOnly are exposed anyway. It needs attacker-controlled JavaScript on the same origin, so it is not an independent XSS; it makes an existing one worse. Node.js Route Handlers and routes using `cookies().set()` were not affected.",
+            ],
+          },
+          {
+            type: "p",
+            text: "**Image Optimization**",
+          },
+          {
+            type: "list",
+            items: [
+              "**SVG rejection bypass in Image Optimization** ([GHSA-7qx7-33qx-rqx2](https://github.com/vercel/next.js/security/advisories/GHSA-7qx7-33qx-rqx2), medium). An attacker-controlled image from a permitted source can be misclassified as AVIF and bypass `images.dangerouslyAllowSVG: false`, after which the optimisation backend can decode the bytes as SVG. The image-source allowlist still applies and a native image backend capable of decoding SVG is required. The release post describes the impact as increased exposure to SVG parser resource exhaustion or decoder bugs, not a demonstrated XSS or RCE.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Are you affected? A five-minute audit",
+        blocks: [
+          {
+            type: "p",
+            text: "Start with the version you actually run, not the one in `package.json`; monorepos routinely pin a second copy.",
+          },
+          {
+            type: "code",
+            language: "bash",
+            code: "npm ls next\n# or, for the version the running app resolves to\nnode -p \"require('next/package.json').version\"",
+          },
+          {
+            type: "p",
+            text: "Below 16.4.5 on the 16 line or 15.5.29 on the 15 line is unpatched. Then find out which advisories can reach you. Four greps cover the seven:",
+          },
+          {
+            type: "code",
+            language: "bash",
+            code: "# 1. Cache Components users: do you mix use cache and unstable_cache?\ngrep -rnE 'use cache|unstable_cache' app src lib 2>/dev/null\ngrep -rn 'cacheComponents' next.config.* 2>/dev/null\n\n# 2. Edge routes that set cookies via NextResponse\ngrep -rnE \"runtime *= *'edge'\" app pages src 2>/dev/null\ngrep -rn 'cookies.set' app pages src 2>/dev/null\n\n# 3. Image Optimization: is SVG explicitly off, and how wide is the allowlist?\ngrep -rnE 'dangerouslyAllowSVG|remotePatterns|domains' next.config.* 2>/dev/null\n\n# 4. Route handlers that return a fetched Response as-is\ngrep -rnE 'return (await )?fetch\\(' app pages src 2>/dev/null",
+          },
+          {
+            type: "list",
+            items: [
+              "Both `use cache` and `unstable_cache` in a Cache Components app, where the cached function reads a tenant, site or locale root parameter: the high-severity advisory applies. Nested `use cache` calls and binary cache arguments pull in the second and third.",
+              "Edge routes that call `NextResponse.cookies.set()`: the cookie header advisory applies. `cookies().set()` and Node.js routes do not.",
+              "A broad `remotePatterns` list: the SVG bypass is reachable from any allowed host an attacker can upload to.",
+              "A handler that does `return fetch(upstream)` with a user-influenced URL, deployed with `next start` behind an HTTP/1.1 proxy: the response framing advisory is yours.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "How to upgrade",
+        blocks: [
+          {
+            type: "p",
+            text: "The release post gives two commands, reproduced here exactly as published:",
+          },
+          {
+            type: "code",
+            language: "bash",
+            code: "npm install next@15.5.29  # for 15.5\nnpm install next@16.4.5   # for 16.5",
+          },
+          {
+            type: "p",
+            text: "The second comment says `16.5`; it refers to the 16.x line, where 16.4.5 is the current patched version. For other package managers:",
+          },
+          {
+            type: "code",
+            language: "bash",
+            code: "# Next.js 16 (Active LTS)\npnpm add next@16.4.5\nyarn add next@16.4.5\nbun add next@16.4.5\n\n# Next.js 15 (Maintenance LTS)\npnpm add next@15.5.29\nyarn add next@15.5.29\nbun add next@15.5.29",
+          },
+          {
+            type: "p",
+            text: "Both are patch releases, so no code changes are expected. After installing, run `npm ls next` again and check the lockfile diff moves exactly one `next` entry; if a second copy remains at an old version, something else (a UI kit, an auth adapter, a workspace package) is pinning it and needs its own bump. This patch does not change the React requirement, so a parallel [React 19.3](/blog/react-19-3-whats-new-viewtransition-fragment-refs-browser-trusted-types) upgrade can stay on its own branch.",
+          },
+          {
+            type: "p",
+            text: "Teams on 14.x or earlier are not on a supported line and did not get a patch; the practical path is to 15.5 first, then onwards. While you are reviewing runtimes anyway, the [Node.js 26 LTS post](/blog/nodejs-26-lts-october-2026-which-node-version-to-use-new-release-schedule) covers which Node version to deploy on this quarter.",
+          },
+        ],
+      },
+      {
+        heading: "If you cannot upgrade today",
+        blocks: [
+          {
+            type: "p",
+            text: "The release post lists no official workarounds, and nothing below is one. These are code and configuration choices that follow from the advisory descriptions and reduce exposure until the patch is deployed:",
+          },
+          {
+            type: "list",
+            items: [
+              "Stop calling the same public `use cache` function both directly and from inside `unstable_cache`. Pick one caching layer per function.",
+              "Do not key `use cache` functions on binary arguments to tell users apart; pass a string identifier.",
+              "Do not return a fetched `Response` unchanged from a route handler; read the body and build a fresh `Response` so the framing headers are yours.",
+              "Do not set session cookies from Edge routes via `NextResponse.cookies.set()`; move the route to Node.js or use `cookies().set()`.",
+              "Keep `images.dangerouslyAllowSVG` false and shrink `remotePatterns` to hosts whose uploads you control. The allowlist still applies where the SVG check is bypassed.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Vercel-hosted vs self-hosted",
+        blocks: [
+          {
+            type: "p",
+            text: "Two of the seven are explicitly scoped to self-hosted deployments: shell cache poisoning requires `next start`, and the response framing issue requires a specific HTTP/1.1 reverse proxy behaviour. The SVG bypass depends on which native image backend decodes the bytes. The three `use cache` advisories and the Edge cookie one depend on your code, not your host, so a Vercel deployment is affected if the pattern is present. The release post does not say any hosting provider is automatically protected; treat the upgrade as mandatory everywhere and use the hosting distinction only to order the rollout, self-hosters with Cache Components first.",
+          },
+        ],
+      },
+      {
+        heading: "Reporting, and the one-line summary",
+        blocks: [
+          {
+            type: "p",
+            text: "Vercel runs an Open Source Bug Bounty on HackerOne at [hackerone.com/vercel](https://hackerone.com/vercel) and takes questions about this release at security@vercel.com. The one-line summary: `npm install next@16.4.5` or `npm install next@15.5.29`, redeploy, then read the three `use cache` advisories if Cache Components is on. For those users the right day to do it is today.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
   ...mcpGuides,
 ];
