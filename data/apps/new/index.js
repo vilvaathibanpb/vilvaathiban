@@ -17,6 +17,7 @@ const ENTRIES = [
   require("./mancala-offline").default,
   require("./idle-blacksmith").default,
   require("./pack-it-perfect").default,
+  require("./duo-instant").default,
 ];
 
 export default Object.fromEntries(ENTRIES.map((e) => [e.slug, e]));

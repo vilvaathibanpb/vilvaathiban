@@ -72,6 +72,17 @@ export const APPS = [
     ios: ios("night-cam-stars-aurora", "6818341326"),
   },
   {
+    name: "Duo Instant",
+    slug: "duo-instant",
+    tagline: "An instant-film camera for iPhone: the print comes out and develops in about 40 seconds.",
+    summary:
+      "Built for iPhone Duo: shoot open, close the phone and the print develops on the outer screen. Color, B&W and Faded film, handwritten captions, a prints wall. No ads, no account.",
+    image: "/apps/duo-instant-logo.png",
+    badge: "iOS $4.99",
+    // TODO: not on the App Store yet; replace with ios: ios("duo-instant", "<APP_ID>") once the id is known.
+    iosSoon: true,
+  },
+  {
     name: "Good Behavior Police Call",
     slug: "police-call",
     tagline: "A friendly pretend call from Officer Pat or Officer Sam for bedtime, teeth and tidy-up.",
