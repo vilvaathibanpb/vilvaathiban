@@ -9428,6 +9428,212 @@ node --import=tsx your-file.ts`,
       },
     ],
   },
+  {
+    slug: "typescript-7-1-beta-whats-new-source-phase-imports-target-es2026-content-mappers-preview-api",
+    title: "TypeScript 7.1 Beta: What's New (Source Phase Imports, --target es2026, Content Mappers, the Preview API) and How to Try It",
+    description:
+      "TypeScript 7.1 beta: source phase imports, --target es2026, import attributes in ambient modules, content mappers and the preview API, plus how to install it.",
+    datePublished: "2026-11-06",
+    readingMinutes: 9,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "TypeScript 7.0, released in August 2026, was the first stable release built on the TypeScript 7 native compiler, the Go port many people first met as `tsgo` in the `@typescript/native-preview` package announced in March 2025, which passed 8.5 million weekly downloads before 7.0 shipped. Microsoft's own numbers for 7.0 were an 11.9× faster full build of VS Code (125.7 s down to 10.6 s), about 18% less memory, and typically 8× to 12× on full builds elsewhere. It also turned the 6.0 deprecations into hard errors and made `strict` and `esnext` the defaults.",
+          },
+          {
+            type: "p",
+            text: "What 7.0 did not ship was a stable programmatic API. That is why typescript-eslint, the Vue, Svelte, Astro, MDX and Angular tooling, and the webpack loaders were still waiting on the old compiler. The [TypeScript 7.1 beta](https://devblogs.microsoft.com/typescript/announcing-typescript-7-1-beta), announced by Daniel Rosenwasser on 20 October 2026, is the release that starts closing that gap, alongside a handful of language and lib additions. This is a practical walkthrough: install it, try each feature, and decide whether to adopt it now.",
+          },
+        ],
+      },
+      {
+        heading: "Install the beta next to your current TypeScript",
+        blocks: [
+          {
+            type: "p",
+            text: "The beta is published under the `beta` tag of the regular `typescript` package. Nightlies are back on that package too, under `next`.",
+          },
+          {
+            type: "code",
+            language: "bash",
+            code: "npm install -D typescript@beta\nnpx tsc -v",
+          },
+          {
+            type: "p",
+            text: "If a tool in your chain still needs the 6.0 API, keep `@typescript/typescript6` installed alongside. It provides a `tsc6` binary and the 6.0 API side by side with 7.x, so a project can type-check with the native compiler while a loader or lint rule keeps talking to the old one. The recommended migration path has not changed: adopt 6.0 first, fix its deprecation warnings, then move to 7.x.",
+          },
+        ],
+      },
+      {
+        heading: "Source phase imports",
+        blocks: [
+          {
+            type: "p",
+            text: "Source phase imports let you import a module's *source* rather than its evaluated namespace, with `import source mod from \"./x.wasm\"`. Only the default import form exists. The result is typed as `AbstractModuleSource`, a new global in `lib.esnext.d.ts`; for WebAssembly it is a `WebAssembly.Module` you can hand straight to `WebAssembly.instantiate`.",
+          },
+          {
+            type: "code",
+            language: "ts",
+            code: "import source mathModule from \"./math.wasm\";\n\nconst { instance } = await WebAssembly.instantiate(mathModule, {\n  env: { log: (n: number) => console.log(n) },\n});\n\nconst add = instance.exports.add as (a: number, b: number) => number;\nconsole.log(add(2, 3));\n\n// Dynamic form\nconst again = await import.source(\"./math.wasm\");",
+          },
+          {
+            type: "p",
+            text: "Requirements: `--module esnext`, `nodenext` or `preserve`, and `esnext` in `--lib` or as the `--target`. Identity is preserved, so importing the same source twice gives the same object. The work landed in PR #63915 by Oleksandr Tarasiuk. Wasm source imports already work in recent Node.js versions; JS source imports are typed but cannot do much yet, because the runtime side of that proposal is still catching up. If lazy loading rather than source access is what you want, [`import defer`](/blog/import-defer-lazy-module-evaluation) is the other new import form, and the two solve different problems.",
+          },
+        ],
+      },
+      {
+        heading: "--target es2026: what you can finally type without lib hacks",
+        blocks: [
+          {
+            type: "p",
+            text: "`--target es2026` and `--lib es2026` are stable in 7.1. The lib picks up `Math.sumPrecise`, `Iterator.concat`, `JSON.rawJSON`, `Error.isError`, `Array.fromAsync`, `Map` and `WeakMap` `getOrInsert` / `getOrInsertComputed`, and the `Uint8Array` base64 and hex methods. If you have been carrying a local `.d.ts` to declare any of these, delete it after upgrading.",
+          },
+          {
+            type: "code",
+            language: "ts",
+            code: "const counts = new Map<string, number>();\nfor (const word of [\"a\", \"b\", \"a\"]) {\n  counts.set(word, counts.getOrInsert(word, 0) + 1);\n}\n\nconst rows = await Array.fromAsync(readLinesAsync(\"data.txt\"));",
+          },
+          {
+            type: "p",
+            text: "The methods themselves are covered in the [Array.fromAsync guide](/blog/array-fromasync-complete-guide) and the [ES2026 Error.isError, Map.getOrInsert and Uint8Array base64 post](/blog/es2026-error-iserror-map-getorinsert-uint8array-base64). Beyond ES2026, `--lib esnext` adds types for proposals still in flight: `Promise.allKeyed`, `Promise.allSettledKeyed`, `Iterator.zip`, `Iterator.zipKeyed`, and `Iterator.prototype.chunks`, `.join` and `.includes`. The target only affects types and downlevelling; the runtime still has to support the method.",
+          },
+        ],
+      },
+      {
+        heading: "Import attributes in ambient module declarations",
+        blocks: [
+          {
+            type: "p",
+            text: "Wildcard ambient declarations can now carry an import attribute, so you can describe what `import sheet from \"./x.css\" with { type: \"css\" }` resolves to. The built-in libs do not ship these declarations; you write them yourself:",
+          },
+          {
+            type: "code",
+            language: "ts",
+            code: "declare module \"*.css\" with { type: \"css\" } {\n  const sheet: CSSStyleSheet;\n  export default sheet;\n}\n\ndeclare module \"*.txt\" with { type: \"text\" } {\n  const text: string;\n  export default text;\n}\n\ndeclare module \"*.bin\" with { type: \"bytes\" } {\n  const data: Uint8Array;\n  export default data;\n}",
+          },
+          {
+            type: "p",
+            text: "Importing one of those specifiers without the required attribute is now an error, which catches the case where a bundler would otherwise hand you a string when you expected a stylesheet. The attributes are not checked against anything on disk; they only select the declaration. This is PR #63931.",
+          },
+        ],
+      },
+      {
+        heading: "The preview API (typescript/sync)",
+        blocks: [
+          {
+            type: "p",
+            text: "The headline for tool authors. 7.1 adds preview entry points: `typescript/sync` (a synchronous client exposing options, the type checker and programs), `typescript/async`, `typescript/fs` (request-scoped full and layered filesystems), `typescript/ast` (node types, `SyntaxKind`, `ScriptTarget`), `typescript/ast/is` (type guards) and `typescript/ast/factory` (the `create*` and `update*` functions). A minimal check-and-emit looks like this:",
+          },
+          {
+            type: "code",
+            language: "ts",
+            code: "import { API } from \"typescript/sync\";\n\nusing api = new API();\nconst parsed = api.parseCommandLine([\"--strict\", \"src/index.ts\"]);\nusing program = api.createProgram(parsed);\n\nfor (const diagnostic of program.getSemanticDiagnostics()) {\n  console.log(diagnostic.messageText);\n}\n\nprogram.emit();\n// or: const output = program.emitToString();",
+          },
+          {
+            type: "p",
+            text: "The announcement's own example follows the same shape (`import { API } from \"typescript/sync\"`, `using api = new API()`, `api.parseCommandLine`, `api.createProgram`, then `program.emit()`), and it collects diagnostics from four program methods: `getGlobalDiagnostics()`, `getProgramDiagnostics()`, `getSyntacticDiagnostics()` and `getSemanticDiagnostics()`, formatted with `formatDiagnosticsWithColorAndContext`. The sketch above only reads the semantic ones; add the other three for a full `tsc`-style report. Both `API` and `Program` are `Disposable`, so `using` works, and `api.close()` / `program.dispose()` are the explicit forms. Incremental use goes through snapshots: `api.createSnapshot`, then `snapshot.update()` with `fileNotifications` and `ensurePrograms`. For in-memory testing there are `createFileSystem`, `createFileSystemWithLib`, `createFileSystemLayer` and `removedPaths`.",
+          },
+          {
+            type: "p",
+            text: "The honest caveats: it is a preview, it does not read `tsconfig.json` and has no `--project` equivalent yet, so you pass options and root files yourself, and there is no built-in watching. It is enough to prototype a lint rule or a loader against, not enough to replace the 6.0 API in production tooling this month.",
+          },
+        ],
+      },
+      {
+        heading: "Content mappers",
+        blocks: [
+          {
+            type: "p",
+            text: "Content mappers are how non-TS files (a `.vue` single-file component, an `.mdx` page, a CSS module) get type-checked by the native compiler without the compiler knowing each format. A mapper is an executable registered in `tsconfig.json` that turns a file's content into TypeScript the checker can read:",
+          },
+          {
+            type: "code",
+            language: "json",
+            code: "{\n  \"compilerOptions\": { \"strict\": true },\n  \"contentMappers\": [\n    {\n      \"package\": \"@vue/content-mapper\",\n      \"extensions\": [\".vue\"],\n      \"options\": { \"target\": 3.5 }\n    }\n  ]\n}",
+          },
+          {
+            type: "p",
+            text: "Mappers run for every matching file in the program. Because they are executables, the CLI requires an explicit `tsc --runExternalCode`, and VS Code requires workspace trust plus a per-mapper permission behind the `js/ts.contentMappers.enabled` setting. Prototypes exist for Astro, CSS Modules, Ember, MDX, Svelte and Vue, plus a sample HTML mapper. Note that `@vue/content-mapper` in the example above is the package name used in the announcement and is not on npm yet; check the current listing before copying it into a real config.",
+          },
+        ],
+      },
+      {
+        heading: "Performance: 7.0 vs 7.1 beta",
+        blocks: [
+          {
+            type: "p",
+            text: "The announcement's `--noEmit` numbers with 4 checker threads, 7.0 against the 7.1 beta:",
+          },
+          {
+            type: "list",
+            items: [
+              "**bluesky:** 4.48 s → 3.89 s (1.2×), memory −15.8%.",
+              "**mui-docs:** 22.2 s → 11.9 s (1.9×), memory −49.6%.",
+              "**sentry:** 19.6 s → 15.1 s (1.3×).",
+              "**t3code-server:** 26.5 s → 19.1 s (1.4×).",
+              "**vscode:** 21.6 s → 17.7 s (1.2×).",
+            ],
+          },
+          {
+            type: "p",
+            text: "The parallelism flags from 7.0 still apply: `--checkers` and `--builders` set the thread counts, and `--singleThreaded` turns it all off for debugging or constrained CI runners. If you are also moving to running TypeScript directly in Node, the [type-stripping guide](/blog/run-typescript-in-nodejs-natively-type-stripping-guide) covers where `tsc` still belongs in that setup.",
+          },
+        ],
+      },
+      {
+        heading: "Breaking change: distributive conditional types",
+        blocks: [
+          {
+            type: "p",
+            text: "One behaviour change can turn code that compiled on 7.0 into an error. Inside a distributed branch of a conditional type, the type parameter is now treated as a narrower, separate type (issue #63708, fixed in PR #64237). Recursive helpers written like this are the usual casualty:",
+          },
+          {
+            type: "code",
+            language: "ts",
+            code: "// May now error: inside the branch, A is a narrower type and the\n// A extends B constraint no longer holds the way it did before.\ntype Show<A extends B, B> = A extends B ? never : Show<A, B>;",
+          },
+          {
+            type: "p",
+            text: "The fixes the team suggests are to drop constraints that were not doing real work, or to add a conditional check inside the branch before recursing. Separately, changes to how the DOM lib is generated may shift some type checks (#63702). No deprecations or removals are listed for 7.1.",
+          },
+        ],
+      },
+      {
+        heading: "Should you upgrade now? (When not to)",
+        blocks: [
+          {
+            type: "p",
+            text: "Try it locally today; be careful about CI. Specific reasons to wait:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Your build depends on the compiler API.** webpack loaders, typescript-eslint type-aware rules and framework language tooling are still waiting on API stabilisation. The preview API exists for them to build against, not for you to assume they have.",
+              "**You pin versions in CI.** A beta moves; the RC and final may change behaviour again, and a lockfile pinned to a beta is a bug report waiting to happen.",
+              "**You hit the conditional-type change.** Type-level libraries with heavy distributive recursion should run the beta in a branch and read the errors before committing to it.",
+              "**You need the old API anyway.** Keep `@typescript/typescript6` installed for tooling that requires it; that is what it is for.",
+            ],
+          },
+          {
+            type: "p",
+            text: "If none of those apply, a straightforward app on 7.0 gains lib types, faster checks and the source phase syntax for very little risk.",
+          },
+        ],
+      },
+      {
+        heading: "What's next",
+        blocks: [
+          {
+            type: "p",
+            text: "The release candidate is expected about a month after the beta, with the final release shortly after. The API will stay preview-labelled until the team says otherwise, so treat `typescript/sync` and its siblings as something to prototype against and report issues on, and keep the 6.0 compatibility package around until your tooling says it no longer needs it.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
   ...mcpGuides,
 ];

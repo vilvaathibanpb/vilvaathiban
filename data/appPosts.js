@@ -10527,4 +10527,456 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "best-teleprompter-settings-for-different-lighting-conditions-daylight-window-ring-light-dark-room",
+    title: "The Best Teleprompter Settings for Different Lighting Conditions: Daylight Window, Overcast Afternoon, Ring Light, Dark Room",
+    description:
+      "Teleprompter settings for a bright window, overcast daylight, a ring light in a dim room and a dark room at night, and why noon settings fail after dark.",
+    datePublished: "2026-11-06",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "The settings that make a teleprompter easy to read at noon by a window make it a faint smear at ten at night under a single ring light. Room light changes how your eyes work, how the iPhone manages its screen, and how a floating script competes with the scene behind it. This is a walkthrough with a settings card for four situations, written around the free iPhone app [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay), where the script floats over the camera preview next to the front lens so you can read and keep eye contact.",
+          },
+          {
+            type: "p",
+            text: "The app's own readability control is the text size slider; everything else on these cards is an iPhone setting (brightness, auto-brightness, True Tone, Night Shift) or a choice about where the light and phone go. The lighting advice applies to any prompter.",
+          },
+        ],
+      },
+      {
+        heading: "Scenario 1: Bright daylight window",
+        blocks: [
+          {
+            type: "p",
+            text: "The problem is glare, not darkness. Daylight on the screen washes out the text, you squint, and if the sun is behind you it hits the front lens and fogs the frame. Fix the geometry first: face the window, phone between you and the glass. Side-on light leaves half your face dark.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Position:** face the window; the phone sits between you and the glass, never with the sun behind you on the lens.",
+              "**iPhone brightness:** Control Center slider to maximum. Turn auto-brightness off in Settings → Accessibility → Display & Text Size so it cannot drift mid-take.",
+              "**Night Shift / True Tone:** off; warm-shifted text on a cool daylight background loses contrast.",
+              "**Text size in the app:** up two or three notches. Bigger letters survive glare that erases thin strokes.",
+              "**Scrolling:** voice-driven. Glare makes you lose your place, and on-device speech recognition finds it again when you stumble.",
+              "**Takes:** short. A phone at full brightness in direct sun warms up quickly (see Scenario 4).",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Scenario 2: Overcast afternoon or indoor daylight",
+        blocks: [
+          {
+            type: "p",
+            text: "The easy case, and the one to calibrate everything else against: soft, even light on your face, no hard reflections, and a screen comfortably brighter than the room without being a lamp in your eyes.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Position:** window to the front or slightly to one side.",
+              "**iPhone brightness:** around two-thirds, auto-brightness off so a passing cloud does not move it.",
+              "**Night Shift / True Tone:** either is fine; leave whatever you normally use.",
+              "**Text size:** your normal setting. The [font size, contrast and readability](/blog/teleprompter-font-size-contrast-and-readability-settings) post covers how to find it.",
+              "**Scrolling:** voice-driven at your natural pace, or classic auto-scroll with the speed slider for a rehearsed read.",
+              "**Takes:** as long as you like.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Scenario 3: Ring light or single LED in a dim room",
+        blocks: [
+          {
+            type: "p",
+            text: "A dark room with one bright source. Two things go wrong: the ring reflects in glasses as a pair of white circles, and your pupils open for the dark room while a bright screen next to the lens tries to close them again. That fight is why reading tires you after ten minutes even though you can see every word.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Position:** light above the lens, not beside it, so your eyes read as looking at the camera. With glasses, raise the light and tilt it down to move the reflection out of the lens.",
+              "**iPhone brightness:** lower than you think, roughly half. The screen only needs to beat the dark background, not the ring.",
+              "**Night Shift / True Tone:** off, so the text's white matches your key light rather than drifting warm.",
+              "**Text size:** one notch larger than your daylight setting. Bright letters on a dark surround cause eye fatigue; bigger text takes less effort.",
+              "**Scrolling:** voice-driven; you will pause to blink and reset more often, and the script waits.",
+              "**Takes:** medium. A ring light a foot away warms the phone slowly.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Scenario 4: Dark room or night",
+        blocks: [
+          {
+            type: "p",
+            text: "The night problem is heat. Recording portrait 4K with the screen on and speech recognition running makes the phone work hard, and when an iPhone gets hot it lowers its own screen brightness to cool down. The overlay fades, and twenty minutes in you are reading a ghost. If you have asked why the teleprompter is not visible halfway through a take, that is usually why; the [not visible troubleshooting post](/blog/why-is-my-teleprompter-not-visible-iphone-overlay-display-problems-fixes) covers the other causes.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Position:** same as the ring light scenario; a single soft source above the lens.",
+              "**iPhone brightness:** around half, auto-brightness off. Pushing it to maximum to fight the dimming adds heat and brings it on sooner.",
+              "**Charging:** unplug while recording; charging adds heat.",
+              "**Text size:** one or two notches up, the same reasoning as Scenario 3.",
+              "**Scrolling:** voice-driven, so a cooling pause does not lose your place.",
+              "**Takes:** short and batched. Record in blocks, rest the phone for a few minutes between them, and use the takes library to keep the best of each block.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Why noon settings fail at night",
+        blocks: [
+          {
+            type: "p",
+            text: "Three things change after dark. Your pupils widen, so a screen level that felt comfortable at noon now feels harsh and tires your eyes. The screen's brightness relative to the scene flips: by a window the phone was the dimmer thing and needed every nit; at night it is the brightest object in the room. And auto-brightness, which held a sensible level in daylight, now hunts up and down whenever you move or the lamp flickers, so the overlay changes mid-sentence. The fix is the same on every card: auto-brightness off, set the level once for the room, and raise text size rather than brightness when the room is dark.",
+          },
+        ],
+      },
+      {
+        heading: "A 60-second test routine before each session",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Load the script, put the phone where it will record, read the first paragraph aloud and watch the scroll follow.",
+              "Look at the preview, not the text: is the light on your face even, and is anything bright behind you?",
+              "Nudge brightness up and down once and settle where white text is clearly brighter than the preview behind it without making you squint.",
+              "With glasses, check for reflections and move the light, not the phone.",
+              "Say a sentence, stop, skip a line, start again. If the script finds your place, voice-follow is set.",
+              "Note the brightness level and text size so the next session in that room starts from there.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "When not to rely on settings",
+        blocks: [
+          {
+            type: "p",
+            text: "If the problem is the light on your face rather than on the screen, no teleprompter setting will fix it. A face that is too dark, too bright or half in shadow is an exposure problem; move the light. The overlay never appears in the saved video, so changing it cannot change what the camera records. Colour is the same: a warm lamp on one side and a cool window on the other gives you one orange cheek and one blue one, and that is a white-balance fix or a decision to switch one source off, not a text setting. Get the light right with the [talking head setup guide](/blog/talking-head-video-setup-guide-iphone), then tune the prompter to it.",
+          },
+          {
+            type: "p",
+            text: "Everything here works offline with unlimited scripts and takes; the app is free with occasional ads, one small one-time purchase removes them, no subscription, no watermark, iOS-only. The [recording proper 4K on iPhone](/blog/recording-proper-4k-video-on-iphone-talking-head) post covers the capture settings that drive heat, which matters most in Scenario 4.",
+          },
+        ],
+      },
+      {
+        heading: "Next in the series",
+        blocks: [
+          {
+            type: "p",
+            text: "Light sorted, the next variable is sound, and not only for the viewer: voice-driven scrolling listens to you, so the microphone changes how the script moves. The next post covers which microphone works best with voice-follow scrolling, built-in mic, AirPods or a lav, and why a mic choice changes how the script scrolls.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "whatsapp-wrapped-year-in-review-for-one-chat-iphone-chat-export-studio-statistics-private",
+    title: "Make Your Own 'WhatsApp Wrapped': A Year-in-Review of One Chat on iPhone, With Statistics That Never Leave Your Phone",
+    description:
+      "A private WhatsApp Wrapped for one chat on iPhone: export it, read the statistics in Chat Export Studio: PDF, write your year-in-review lines. Nothing uploaded.",
+    datePublished: "2026-11-06",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Every December the year-in-review posts arrive: who sent the most messages, what time the group chat really comes alive, which emoji got used until it lost all meaning. Most 'WhatsApp Wrapped' guides get those numbers by uploading your exported chat to a website, which means a year of private conversation on someone else's server in exchange for a graphic. This is the version that does not do that.",
+          },
+          {
+            type: "p",
+            text: "[Chat Export Studio: PDF](/apps/chat-export-studio) is a $4.99 one-time iPhone app that opens the file WhatsApp's Export Chat produces and computes whatsapp statistics for that chat on the phone itself: totals, messages per person, busiest hour, top emoji. This post covers getting the numbers, what each one tells you, and six Wrapped-style lines you can write by hand from them. It is published in November on purpose: yours will be done before everyone else starts.",
+          },
+        ],
+      },
+      {
+        heading: "Why a private Wrapped instead of a whatsapp chat analyzer website",
+        blocks: [
+          {
+            type: "p",
+            text: "A WhatsApp export is the whole conversation in plain text: every message, every name, every timestamp. A web-based whatsapp chat analyzer needs that file uploaded, and once it has left your phone you are trusting a stranger's retention policy with your best friend's medical news. The numbers are fun; the raw material is not something to hand over for a bar chart.",
+          },
+          {
+            type: "p",
+            text: "Chat Export Studio parses the file and generates the PDF entirely on the device. It works in airplane mode, has no account and no analytics, and its App Store privacy label reads **Data Not Collected**.",
+          },
+        ],
+      },
+      {
+        heading: "Step by step: export the chat, open it, read the stats card",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Export the chat from WhatsApp.** Open the chat, tap the contact or group name at the top, choose **Export Chat**, then **Without Media**. WhatsApp produces a .txt file (sometimes inside a .zip) and shows the share sheet.",
+              "**Send it to the app.** In the share sheet pick **Copy to Chat Export**. The app reads both iPhone and Android export formats, in 12-hour or 24-hour time.",
+              "**Read the statistics.** They are computed the moment the file opens: total messages and words, messages per participant as counts and percentages, busiest hour of the day, date range, media count and most-used emoji. That card is your raw Wrapped.",
+              "**Keep the PDF if you like.** The same open produces a styled, paginated PDF, one bubble per message with sender, date and time. Not needed for a Wrapped, but a nice keepsake.",
+            ],
+          },
+          {
+            type: "p",
+            text: "To see the card before exporting anything real, open the built-in sample chat first.",
+          },
+        ],
+      },
+      {
+        heading: "The honest catch: the numbers cover the whole export, not just this year",
+        blocks: [
+          {
+            type: "p",
+            text: "Chat Export Studio has no date filter. Whatever range is in the file is the range the statistics cover, and on iPhone WhatsApp exports the full chat history. If the chat with your sister started in 2021, the card describes five years, not one. A true '2026 only' review is only exact when the chat itself began in 2026.",
+          },
+          {
+            type: "p",
+            text: "Two ways to handle that. The easy one: present the numbers as 'since the chat began', which is a better Wrapped line anyway; the date range on the card tells you how long that is. The fiddly one: open the exported .txt in a text editor before importing it. Every line starts with its date, so find the first line from January 2026, delete everything above it, save, and open the trimmed file in the app. It takes a few careful minutes on a long chat, and it still happens entirely on your own devices.",
+          },
+          {
+            type: "p",
+            text: "What the app does not offer: per-month breakdowns, charts, streaks or a 'most active day'. The card shows the figures listed above and nothing else.",
+          },
+        ],
+      },
+      {
+        heading: "What each number tells you",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Messages per participant, as counts and percentages.** Who carries the conversation, and by how much. In a couple's chat this settles 'who texts more' with data; in a group it names the engine and the lurkers.",
+              "**Busiest hour of the day.** The chat's prime time. A group that peaks at 23:00 is a different group from one that peaks on the 08:00 commute.",
+              "**Total words against total messages.** Divide one by the other for the average message length, and you can usually tell who sends essays and who sends one-liners.",
+              "**Most-used emoji.** The chat's mascot. Nobody chooses this consciously, which is why it is the most revealing number on the card.",
+              "**Media count.** Photos, videos, voice notes and stickers. A Without Media export marks them as 'N media files omitted' in the PDF, but they are still counted.",
+              "**Date range.** First and last message in the file: the 'since' in every line you write, and the number that keeps you honest.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Turning the stats into a Wrapped: six lines you can write by hand",
+        blocks: [
+          {
+            type: "p",
+            text: "The app gives you numbers, not graphics. A screenshot of a note shares just as well as a generated image. These are templates with placeholder figures; put your own in.",
+          },
+          {
+            type: "list",
+            items: [
+              "\"We have sent each other 14,203 messages since March 2024. Split: 52/48. Nobody is winning.\"",
+              "\"Our prime time is 10 p.m. The group chat is nocturnal and we have accepted it.\"",
+              "\"Total words: 91,000. That is a novel. A bad one, but a novel.\"",
+              "\"Most-used emoji: the crying-laughing one. Of course it is.\"",
+              "\"Media sent: 3,412. Mostly photos of the dog.\"",
+              "\"Messages per person: Priya 41%, Sam 33%, Jo 26%. Jo would like it noted that quality counts.\"",
+            ],
+          },
+          {
+            type: "p",
+            text: "For a friend group, run one export and let each member write their own line. For a couple, the percentages are the whole post. For a creator, the busiest-hour figure is the one worth a story.",
+          },
+        ],
+      },
+      {
+        heading: "Privacy: what leaves the phone (nothing)",
+        blocks: [
+          {
+            type: "p",
+            text: "Parsing, statistics and PDF are all generated locally, the app works with no connection at all, and there is no account. The App Store privacy label is Data Not Collected. The app never talks to WhatsApp; it only reads the file WhatsApp hands you. Once you have your numbers, delete the export and the PDF and nothing remains anywhere else.",
+          },
+        ],
+      },
+      {
+        heading: "When this is not the right tool",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**You want month-by-month charts.** The card is a summary, not a timeline. A graph of activity over the year has to be built elsewhere from the raw .txt.",
+              "**You want every chat at once.** The app works one export at a time, and WhatsApp exports one chat at a time.",
+              "**You care about what is in the photos.** A WhatsApp export without media does not include the media itself. Version 1.0 renders text only; rendering images from a With Media export is planned, not shipped.",
+              "**The group is enormous.** A years-old group with hundreds of members produces a very long export and PDF. The statistics still work, but give it a moment.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Quick FAQ",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Does it work with a chat exported from Android?** Yes. Both export formats are read, so a friend's export runs fine on your iPhone.",
+              "**What does it cost?** $4.99, one-time purchase, no subscription. Family Sharing is supported.",
+              "**Does it need internet?** No. It works in airplane mode, which is also the easiest way to prove to yourself that nothing is uploaded.",
+              "**Which iPhones?** iOS 15.1 or later, rated 4+, about 22.6 MB, in English plus 14 other languages. It is an iPhone app; there is a separate Android version, and the [Chat Export Studio page](/apps/chat-export-studio) covers both.",
+              "**Can I get a Wrapped for exactly 2026?** Only if the chat started in 2026 or you trim the .txt first. Otherwise write it as 'since the chat began' and let the date range do the talking.",
+            ],
+          },
+          {
+            type: "p",
+            text: DISCLAIMER,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "pack-it-perfect-for-kids-parents-guide-ads-premium-offline-android",
+    title: "Is Pack It Perfect Good for Kids? A Parent's Guide to the Packing Puzzle Game on Android: Ads, Premium, Offline Play and What It Teaches",
+    description:
+      "A parent's guide to Pack It Perfect on Android: the kind of puzzle it is, which ages suit it, how the optional ads and data-safety label work, and offline play.",
+    datePublished: "2026-11-06",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "A packing game for kids sounds niche, until you watch a six-year-old spend ten quiet minutes turning a teddy bear sideways to fit beside the sneakers. [Pack It Perfect: Packing Game](/apps/pack-it-perfect) is a free puzzle game on Android from the same developer as this site, so this is not a neutral review; it is the honest version of the questions parents ask before handing over a phone: who is it for, where are the ads, what does the data-safety label mean, and does it work on a plane?",
+          },
+          {
+            type: "p",
+            text: "The earlier Pack It Perfect tips post on this site covers how to beat every level with three stars. This one is for the grown-up holding the phone, in question-and-answer form.",
+          },
+        ],
+      },
+      {
+        heading: "What kind of game is it?",
+        blocks: [
+          {
+            type: "p",
+            text: "A spatial puzzle. Each level gives you a container, a suitcase, a moving box, a picnic basket or a car boot, and a pile of items: T-shirts, sneakers, books, a teddy bear, and in the moving chapter a dresser, a bed and a monitor. You drag an item over the grid, a landing preview shows where it will sit, a tap turns it 90 degrees, and anything that does not fit springs back. The level ends when every space is filled and the lid zips shut.",
+          },
+          {
+            type: "p",
+            text: "There are 60 levels in four story chapters of 15: Weekend Getaway (Mia's first trip to the sea), Moving Day (Leo and Sam's first flat), Picnic in the Park (Grandma's Sunday picnic) and Road Trip (the family's drive to the mountains). Baskets and car boots have blocked cells where a handle or a wheel well gets in the way. The sounds are the soft, ASMR kind (pops, felt thunks, a zip, a stamp) with gentle haptics. No timers, no lives, no account. Nothing in the game hurries a child.",
+          },
+        ],
+      },
+      {
+        heading: "What age is it good for?",
+        blocks: [
+          {
+            type: "p",
+            text: "The developer gives no age guidance beyond the store rating (USK: All ages in the German store view), so what follows is this post's opinion, not an official line. The game needs two skills: dragging an item to a spot and understanding that tapping turns it. There is no reading beyond the chapter titles, which a parent can read aloud. That suggests roughly early primary and up. The first suitcase levels have only two to seven items, so a child who can rotate a shape in their head gets going quickly; the Road Trip chapter, with nine to twelve items on grids up to 8 by 7, is where a ten-year-old and a parent are about equal.",
+          },
+          {
+            type: "p",
+            text: "A younger child can still play the early levels with a parent alongside, but they will lean on hints, and hints are where the ads live.",
+          },
+        ],
+      },
+      {
+        heading: "What does it teach?",
+        blocks: [
+          {
+            type: "p",
+            text: "Keep expectations modest: it is a game, not a curriculum. What it practises is rotation (the same shape looks different turned), planning (the big awkward item goes in first, the small ones fill the gaps) and a bit of patience, because the lid does not zip until everything fits. Whether any of that transfers beyond the screen is not something this post can claim.",
+          },
+        ],
+      },
+      {
+        heading: "Where are the ads, and what will my child see?",
+        blocks: [
+          {
+            type: "p",
+            text: "The Play listing says 'Contains ads' and 'In-app purchases'. How they work:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Stars and hints.** Each level is worth up to three stars: three for no hints, one lost per hint, one lost for a lot of extra shuffling, never fewer than one. You start with three free hints.",
+              "**After the free hints,** a further hint or a level skip costs a short optional ad, started by tapping. Skipped levels can be replayed later.",
+              "**Optional ads** is the listing's own wording, and the hint and skip ads are the ones the game describes; check the current listing for anything beyond that. What an ad shows is up to the ad network, not the game, which is the real reason to read the next section.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The data-safety section on the Play Store says the app may share Location, App activity and two other categories with third parties, may collect the same, that data is encrypted in transit, and that it cannot be deleted. That is the advertising SDK: a free ads-supported game carries an ad network, and the ad network collects what ad networks collect. Progress stays on the phone and there is no account, but 'no account' is not the same as 'no data'. The [privacy page](/apps/pack-it-perfect/privacy) spells it out.",
+          },
+        ],
+      },
+      {
+        heading: "Should I buy Premium for a child's device?",
+        blocks: [
+          {
+            type: "p",
+            text: "Probably, if the child likes it after the first chapter. Pack It Premium is a one-time purchase, priced in Google Play, with no subscription; it removes ads and gives unlimited hints. For a child's phone that answers both worries at once: no ad content you have not seen, and no 'watch this to get a hint' prompt between a struggling seven-year-old and the answer. If you would rather not pay, the free version is a fair game; the trade is a few optional ads around the hint button.",
+          },
+        ],
+      },
+      {
+        heading: "Does it work on a flight or in the car?",
+        blocks: [
+          {
+            type: "p",
+            text: "Yes. The whole game is on the phone; internet is used only for optional ads and Google Play purchases. Turn on airplane mode and the game runs the same, with one bonus: no connection means no ads at all, so a free copy in airplane mode is as quiet as Premium. Progress is saved on the phone, and with no timers nothing is lost by stopping mid-level when the food arrives.",
+          },
+        ],
+      },
+      {
+        heading: "Android setup tips before you hand it over",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Install it from the Play Store** ([Pack It Perfect: Packing Game](https://play.google.com/store/apps/details?id=com.vilva.packit), Android 7.0 or later).",
+              "**Purchase approvals.** If the device is managed with Family Link or a child profile, Google Play's purchase-approval settings apply to Premium like any other in-app purchase.",
+              "**Airplane mode** for trips, which also switches off ads.",
+              "**Digital Wellbeing** (or your phone maker's equivalent) for a per-app timer; the game has none of its own and will not nag anyone to come back.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Playing it together",
+        blocks: [
+          {
+            type: "p",
+            text: "The chapters are small stories, nicer when someone narrates them. One level per bedtime works well: 'Mia is going to the sea, what does she need?' Let the child decide where the camera goes, let them turn the dresser the wrong way and discover it does not fit, and leave the hints alone. A level ends on a satisfying zip, a better stopping point than most games offer.",
+          },
+        ],
+      },
+      {
+        heading: "When it is not a fit",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**A child who wants action.** No timers, no enemies, no score to chase. A kid who needs a countdown will be bored in two levels.",
+              "**A very young child who cannot rotate a shape yet.** The early levels are gentle, but without rotation the game stalls, and stalling means hints, and hints mean ads.",
+              "**You want zero ads and zero ad-network data on the device.** Buy Premium, play only in airplane mode, or do not install it. The free version is ads-supported and the data-safety label reflects that.",
+              "**You want hundreds of levels.** There are 60, and a keen player will finish them.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Quick FAQ",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Is Pack It Perfect free?** Yes, with optional ads and an optional one-time Premium purchase. No subscription.",
+              "**Does it need an account?** No. Progress stays on the phone.",
+              "**Does it work offline?** Yes, fully. Only ads and purchases need a connection, and offline play means no ads.",
+              "**Is there an iPhone version?** This post is about the Android release; check the [Pack It Perfect page](/apps/pack-it-perfect) for the current list.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Short version: a calm, offline, no-pressure puzzle for children who can drag and rotate shapes, with optional ads around the hint button and a one-time Premium that removes them. Read the data-safety label, decide on Premium, switch on airplane mode for the flight, and let them pack.",
+          },
+        ],
+      },
+    ],
+  },
 ];
