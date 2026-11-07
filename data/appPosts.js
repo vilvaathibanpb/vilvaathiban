@@ -10979,4 +10979,433 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "best-microphone-for-teleprompter-voice-follow-scrolling-iphone-built-in-vs-airpods-vs-lav",
+    title: "Which Microphone Works Best With Voice-Follow Teleprompter Scrolling on iPhone: Built-in Mic vs AirPods vs Lavalier",
+    description:
+      "Built-in iPhone mic, AirPods, wired or wireless lav: how each changes voice-follow teleprompter scrolling and the video's sound, plus a 60-second test.",
+    datePublished: "2026-11-07",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Most microphone advice for creators is about how the video sounds. With a voice-driven teleprompter there is a second listener: the speech recogniser that moves your script. In [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay), the free iPhone app this series is written around, on-device speech recognition matches your spoken words against the script and scrolls at your pace, so what the microphone feeds it decides whether the text glides or stutters. Yesterday's post on [teleprompter settings for different lighting](/blog/best-teleprompter-settings-for-different-lighting-conditions-daylight-window-ring-light-dark-room) ended by promising this one.",
+          },
+          {
+            type: "p",
+            text: "One thing this post does not claim: I am not going to describe the app's internal mic-selection logic, because I would be guessing. Everything below is about what you can verify yourself in a minute: how clean the audio reaching the phone is, and what that does to the recognition and the recorded track.",
+          },
+        ],
+      },
+      {
+        heading: "Why the mic changes how the script scrolls",
+        blocks: [
+          {
+            type: "p",
+            text: "Speech recognition is good at close, clean, consistent audio and gets steadily worse as the signal gets echoey, distant or uneven. A crisp, close voice is matched word by word; the same sentence bouncing off a tiled kitchen arrives smeared, and the recogniser either waits for a word it can trust or guesses. On a teleprompter that shows up as a scroll that lags a beat behind you, or jumps when a guess lands on a later line. The app re-finds your place if you stumble or jump back to the top, which covers the occasional miss, but a mic that loses every third word turns every sentence into a stumble.",
+          },
+          {
+            type: "p",
+            text: "The second effect is that mic placement changes the video's audio track in the same direction. Close and consistent sounds professional; distant and echoey sounds like a phone in a room. A mic choice that helps the scroll usually helps the final clip too. Where it becomes a trade-off is the Bluetooth and convenience column below.",
+          },
+        ],
+      },
+      {
+        heading: "Built-in mic vs AirPods vs wired lav vs wireless lav",
+        blocks: [
+          {
+            type: "p",
+            text: "Four options, judged on cost, convenience, what they do to recognition and how they sound in the saved video. General tendencies, not measurements; your room will move them.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Built-in iPhone mic.** Cost: nothing. Convenience: nothing to charge, pair or clip. Recognition: good at arm's length in a quiet room; drops off as you move back, and picks up room echo, the fridge and the street. Sounds: clean but roomy; obviously a phone in a bare room, fine in a soft furnished one.",
+              "**AirPods (or similar earbuds).** Cost: you probably own them. Convenience: high, and you can stand further from the phone. Recognition: the mic sits near your mouth, so the voice is close and consistent, which is what the recogniser wants. Sounds: Bluetooth audio used for video recording tends to be compressed and lower quality than a wired mic, so the track can sound thin, and the earbuds are visible on camera.",
+              "**Wired lavalier.** Cost: low to moderate, plus the right adapter for your iPhone's port. Convenience: a cable to hide, but no battery and no pairing. Recognition: close, constant level, the best case for voice-follow. Sounds: the classic clean talking-head track most tutorial videos use.",
+              "**Wireless lavalier.** Cost: the highest of the four. Convenience: free movement, but two batteries and a pairing step. Recognition: the same close, consistent voice as a wired lav. Sounds: as good as wired on a good system; the risks are dropouts and the receiver's connection.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Placement matters more than brand. A lav clipped 15 to 20 cm below the chin, pointing up, gives a consistent level whether you turn your head or lean in. Clip it on a collar edge and you get fabric rustle every time you move. Outdoors, a foam or furry windshield is not optional: wind on a bare lav sounds like a storm to a human and like silence with random words to a recogniser. Handling noise is the indoor equivalent; if you hold the phone, the built-in mic hears your fingers, so use a stand.",
+          },
+        ],
+      },
+      {
+        heading: "A 60-second test to pick a mic for your room",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Load a script you know, put the phone where it will record, and connect the mic you want to test.",
+              "Read the first paragraph at your normal speed, looking at the lens, and watch the scroll. Does it stay a line ahead, or trail you?",
+              "Say one sentence, stop for three seconds, then skip a line and carry on. The text should wait, then find your new place.",
+              "Record 15 seconds, play it back with earphones, and listen for echo, hiss, rustle and traffic. That track is what your viewers get.",
+              "Repeat with the next mic. Keep the one where both the scroll and the playback were calm. In a small, soft room that is often the built-in mic; in a bigger or harder room it is usually a lav.",
+              "Write the winner down for that room, next to the brightness and text size you noted in the lighting post.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "When the scroll lags or jumps: fixes before you buy anything",
+        blocks: [
+          {
+            type: "p",
+            text: "Most scrolling complaints are not the microphone. Try these first, in order:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Say the words as written.** Voice-follow matches your speech to the script; if you paraphrase, it has nothing to match. Edit the script to how you actually talk.",
+              "**Pause between sentences.** A short gap gives the recogniser a clean boundary and gives you a natural edit point.",
+              "**Get closer, or get the mic closer.** Halving the distance is the cheapest upgrade there is.",
+              "**Kill the background.** Fan, fridge, open window, music. A recogniser hears all of it.",
+              "**Check the language.** The app detects the script's language and listens in it; a stray paragraph in another language will confuse that.",
+              "**Switch to auto-scroll for the take.** One tap puts the script on a constant speed you set with the slider; tap to pause, drag to jump. Fix a bad line in the takes library later rather than fighting the scroll mid-sentence.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "When NOT to use voice-follow",
+        blocks: [
+          {
+            type: "p",
+            text: "Voice-driven scrolling is the right default for one person in a quiet room. It is the wrong tool in three situations, and the answer in each is auto-scroll with the speed slider, which the [voice-follow vs auto-scroll](/blog/voice-follow-vs-auto-scroll-teleprompter) post compares in detail.",
+          },
+          {
+            type: "list",
+            items: [
+              "**A noisy café or street.** Even a lav picks up the surroundings, and the recogniser has to separate you from the espresso machine. Auto-scroll does not listen, so it does not care.",
+              "**More than one speaker.** Two voices and one script means the recogniser can match the wrong person's words. Set a speed, rehearse once, and let it run.",
+              "**Scripts full of names, brand words or technical terms.** A product name the recogniser has never heard gets transcribed as something else, and your scroll waits for a word that never arrives. Spell those words phonetically in the script, or switch to auto-scroll for that section.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The rest of the kit does not change with the mic. The app records portrait 4K from the front or back camera while the script floats over the preview next to the lens, the script never appears in the saved video, and recognition is on-device: scripts and recordings never leave the phone, and it works in airplane mode. It is iOS-only, free with an occasional ad, and a small one-time purchase removes ads forever; no subscription, no watermark. For the camera and light side of the same setup, the [talking head video setup guide](/blog/talking-head-video-setup-guide-iphone) covers stands, distance and framing.",
+          },
+        ],
+      },
+      {
+        heading: "Next in the series",
+        blocks: [
+          {
+            type: "p",
+            text: "Everything so far assumes you are the one on camera. The next post flips it: how to use a teleprompter when you are NOT the one being filmed, for interviews and two-person videos.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "save-whatsapp-voice-notes-before-deleting-a-chat-iphone-archive-to-files-icloud-as-mp3-wav",
+    title: "Save WhatsApp Voice Notes Before You Delete a Chat (or Switch Phones): Archive Them to Files or iCloud Drive as MP3 or WAV on iPhone",
+    description:
+      "Delete a WhatsApp chat and its voice notes go with it. How to archive the ones worth keeping on iPhone: convert .opus to MP3 or WAV on the phone, name them, save to Files or iCloud Drive.",
+    datePublished: "2026-11-07",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Somewhere in your WhatsApp chats there is a voice note you would hate to lose: a grandparent singing, a friend's message from a hard week, a contractor's promise. Then you clear the chat, or a new phone's restore does not go to plan, and the recording is gone. This is a guide to taking those voice notes out of WhatsApp on an iPhone before that happens, in a format you can still open in ten years.",
+          },
+          {
+            type: "p",
+            text: "The method uses the free [Opus to MP3 Converter](/apps/voice-note-audio-converter) app (App Store subtitle: Voice Notes, OGG & M4A) to turn each .opus voice note into an MP3 or WAV on the phone itself. It is Only for iPhone; an Android version is linked from the same page.",
+          },
+        ],
+      },
+      {
+        heading: "Why voice notes disappear with the chat, and why .opus is awkward to keep",
+        blocks: [
+          {
+            type: "p",
+            text: "WhatsApp stores a voice note as part of the chat it arrived in. Delete or clear the chat, or let a disappearing-messages timer run, and the recording goes with the text. Photos and videos can save to your camera roll automatically; voice notes have no such option, so the only copy lives inside WhatsApp until you share it out. And when you do, you get a file named like `PTT-20260908-WA0012.opus`: the Files app treats it as a generic document, the Music app ignores it, most computers refuse it, and the name tells you the date and nothing else, not who sent it or what it is about. Converting to MP3 or WAV and renaming as you go fixes both problems at once.",
+          },
+        ],
+      },
+      {
+        heading: "Step by step: one voice note, from the chat to Files",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Open the chat and **long-press the voice message**.",
+              "Tap **Share** (on some versions: Forward, then the share icon).",
+              "In the share sheet, choose **Copy to Opus to MP3 Converter**. If the app is not listed, choose **Save to Files** and pick the file from inside the app instead.",
+              "Choose **MP3** or **WAV**, then tap **Convert**. A typical voice note takes a few seconds.",
+              "Tap **Share** next to the result and choose **Save to Files**. Pick the folder you want to keep it in, on iCloud Drive or On My iPhone.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Saving to Files is the step that makes the copy permanent; the app hands the result to the share sheet rather than keeping a library. The original voice note is left untouched.",
+          },
+        ],
+      },
+      {
+        heading: "Naming and folders: date plus sender, before you forget",
+        blocks: [
+          {
+            type: "p",
+            text: "Rename the moment you save, while you still remember who sent what. In Files, long-press the file, tap **Rename**, and use a pattern that sorts itself: date, then sender, then a word about the content, for example `2026-09-08 Grandma birthday song.mp3`. The date is already in the original name (`PTT-20260908` is 8 September 2026); you are only adding the two things WhatsApp does not write down.",
+          },
+          {
+            type: "p",
+            text: "One folder per person or chat is enough: `Voice notes/Mum`, `Voice notes/Builder`. For anything that might one day be evidence, keep the original .opus in the same folder: the MP3 is the copy you can open, the .opus is the copy that shows nothing was altered.",
+          },
+        ],
+      },
+      {
+        heading: "Archiving a whole chat's voice notes in one batch",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Open the chat, tap the contact or group name at the top, choose **Export Chat**, then **Attach Media**. WhatsApp builds a .zip; choose **Save to Files**.",
+              "In Files, tap the .zip to unpack it. The folder holds the chat text plus every voice note as a separate .opus file (and every photo and video, so give it a minute on a big chat).",
+              "Open the converter, tap **Pick voice notes or audio files**, go to that folder and **select every .opus file**. The picker shows all file types on purpose, because iOS has no built-in type for .opus.",
+              "Choose MP3 or WAV and tap **Convert**. Each result gets its own **Share** button; save each to your archive folder.",
+            ],
+          },
+          {
+            type: "p",
+            text: "There is no cap on the number of files or their length. For renaming, the exported chat text lists every message with sender and time, and each voice note appears in it by file name, so you can match a PTT file to a person without guessing.",
+          },
+        ],
+      },
+      {
+        heading: "MP3 or WAV for an archive?",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**MP3 (128 kbps)** is the right default for an archive you want to listen to. A voice note was recorded at a low bitrate, so 128 kbps keeps everything that was there, the file stays small, and it plays on every phone, computer and car.",
+              "**WAV (16-bit PCM)** is lossless: nothing is thrown away, which is what you want if the recording might be edited, transcribed or handed to someone official. The cost is size; a WAV is many times larger than the MP3 of the same clip.",
+            ],
+          },
+          {
+            type: "p",
+            text: "A reasonable rule: MP3 for the family archive, WAV plus the original .opus for anything legal or anything you plan to edit.",
+          },
+        ],
+      },
+      {
+        heading: "Where to keep them",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**iCloud Drive via Files.** The folder syncs to your other Apple devices, survives a phone change, and the files are ordinary MP3s you can open from a Mac. Any other provider installed in Files works the same way.",
+              "**Mail them to yourself, or AirDrop to a Mac.** Mail with a subject line that says who and when gives you a searchable, dated archive; AirDrop suits a one-off bulk move after a chat export, into a folder you already back up.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Privacy: the audio never leaves the phone",
+        blocks: [
+          {
+            type: "p",
+            text: "The recordings you are most likely to archive are the private ones, which is why an online converter is the wrong tool. Opus to MP3 Converter decodes and encodes on the device: no upload, no account, and it works in airplane mode, which is the easy way to prove it to yourself. The app is free with a small banner ad and a one-time Remove Ads purchase ($0.99); its App Store privacy label lists Location, Identifiers and Usage Data as linked to you, which comes from the ad banner, not from your audio. No watermarks, no limits.",
+          },
+        ],
+      },
+      {
+        heading: "When you do not need this",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**You are keeping the chat.** WhatsApp already stores the voice notes and plays them fine. Archive only what you would miss.",
+              "**You back up to iCloud and restore on the new iPhone.** A chat backup includes voice notes, and restoring brings them back. An archive is insurance for what a backup does not cover: a failed restore, a move away from iPhone, or a chat deleted before the backup ran.",
+              "**You want the words, not the sound.** For a message you only need to read or search, [Voice Note to Text](/apps/voice-note-to-text) is more useful than an MP3.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Short FAQ",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Does converting change the quality?** MP3 at 128 kbps is well above a voice note's bitrate, so nothing audible is lost. WAV loses nothing at all.",
+              "**Telegram or Signal voice messages?** Yes. The app accepts .opus, .ogg, .oga, .m4a, .aac, .mp3, .wav, .caf, .aiff, .flac, .amr and .3gp, so the same workflow applies.",
+              "**Which iPhones?** iOS 15.1 or later, about 37 MB, rated 4+, English plus 14 other languages. Only for iPhone; the Android version is linked from the [app page](/apps/voice-note-audio-converter). At a computer, the [browser converter](/tools/opus-to-mp3) does the same job, and the earlier guide to [converting a WhatsApp voice note to MP3 on iPhone](/blog/convert-whatsapp-voice-note-to-mp3-iphone) covers the share-sheet basics.",
+            ],
+          },
+          { type: "p", text: DISCLAIMER },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "whatsapp-ses-dosyasini-mp3-e-cevirme-android-sesli-mesaji-mp3-veya-wav-yapma",
+    title: "WhatsApp Ses Dosyasını MP3'e Çevirme (Android): Sesli Mesajı MP3 veya WAV Yapmanın Ücretsiz, Çevrimdışı Yolu",
+    description:
+      "WhatsApp sesli mesajları .opus dosyasıdır ve arabada, bilgisayarda ya da e-postada açılmaz. Android'de ses dosyasını internetsiz, hesapsız MP3 veya WAV'a çevirme adımları, toplu dönüştürme ve SSS.",
+    datePublished: "2026-11-07",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "WhatsApp'ta gelen bir sesli mesajı bilgisayara attınız, arabanın USB'sine kopyaladınız ya da e-postaya ekleyip gönderdiniz ve karşı taraf açamadı. Dosyanın adı `PTT-20261105-WA0003.opus` gibi bir şey, simgesi gri ve çift tıklayınca hiçbir şey olmuyor. Bu yazı, Android telefonda bu dosyayı internete yüklemeden, hesap açmadan ve ücret ödemeden MP3 ya da WAV'a çevirmenin adımlarını anlatıyor.",
+          },
+          {
+            type: "p",
+            text: "Kısa cevap: sesli mesaja uzun basın, **Paylaş** deyin, paylaşım menüsünden [Opus to MP3 Converter: Voice](/apps/voice-note-audio-converter) uygulamasını seçin, MP3'ü işaretleyin, **Dönüştür**'e basın ve çıkan dosyayı istediğiniz yere paylaşın. Dönüştürme telefonun içinde olur; ses dosyası telefondan çıkmaz. Gerisi ayrıntı.",
+          },
+        ],
+      },
+      {
+        heading: "WhatsApp ses dosyası neden açılmıyor?",
+        blocks: [
+          {
+            type: "p",
+            text: "WhatsApp sesli mesajları **Opus** adlı bir ses kodeğiyle kaydeder ve `.opus` uzantısıyla saklar. Opus, konuşmayı çok küçük boyutta ve net bir şekilde iletmek için tasarlanmıştır; bir sohbet uygulaması için ideal. Sorun, WhatsApp'ın dışında neredeyse hiçbir yerin bu formatı tanımaması:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Araba müzik sistemleri** USB bellekten genelde yalnızca MP3 ve WAV çalar; .opus dosyalarını ya hiç göstermez ya da atlar.",
+              "**Bilgisayarlar.** Eski Windows sürümleri ve Windows Media Player gibi klasik oynatıcılar Opus kodeğini içermez. VLC çalar, ama karşınızdaki kişi VLC kurmak istemeyebilir.",
+              "**E-posta ve ofis ortamı.** Dosyayı Gmail'e ekleyebilirsiniz, ancak alıcı iş bilgisayarında açamaz. Avukata, muhasebeciye, ev sahibine ya da kuruma giden bir ses kaydı için MP3 doğru formattır.",
+              "**Deşifre ve ses düzenleme araçları.** Pek çoğu MP3 ve WAV kabul eder, .opus dosyasını reddeder.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Dosya adındaki **PTT**, push-to-talk yani bas-konuş anlamına gelir; ardından gelen sayı kayıt tarihidir. Dosyanın uzantısını elle `.mp3` yapmak işe yaramaz: etiket değişir, içindeki ses değişmez. Gerçekten dönüştürmek gerekir.",
+          },
+        ],
+      },
+      {
+        heading: "Adım adım: WhatsApp sesli mesajını MP3'e çevirme",
+        blocks: [
+          {
+            type: "p",
+            text: "[Opus to MP3 Converter: Voice](/apps/voice-note-audio-converter), Google Play'de yayınlanan ücretsiz bir Android uygulaması. Opus kodeğini cihaz üzerinde çözer ve MP3 ya da WAV olarak yazar. Dosya aramanıza gerek yok; Android'in paylaşım menüsü işi halleder:",
+          },
+          {
+            type: "list",
+            items: [
+              "WhatsApp'ta sohbeti açın ve **sesli mesaja uzun basın**.",
+              "Üstteki **Paylaş** simgesine dokunun (bazı sürümlerde üç nokta menüsünün içindedir).",
+              "Paylaşım menüsünden **Opus to MP3 Converter**'ı seçin. Ses dosyası uygulamada dönüştürülmeye hazır olarak açılır. Dosyayı daha önce kaydettiyseniz, uygulamadaki dosya seçme düğmesiyle **dosya yöneticinizden** de seçebilirsiniz.",
+              "**MP3** ya da **WAV** seçin. Kararsızsanız MP3; hangi durumda WAV gerektiğini aşağıda anlattım.",
+              "**Dönüştür**'e basın. Sıradan bir sesli mesaj birkaç saniyede biter.",
+              "Sonucun yanındaki **Paylaş** düğmesiyle dosyayı Dosyalar uygulamasına, Gmail'e, Google Drive'a, Bluetooth'a ya da istediğiniz herhangi bir uygulamaya gönderin.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Orijinal sesli mesaja dokunulmaz; sohbette eskisi gibi çalmaya devam eder. Aynı dosyayı daha sonra diğer formata da çevirebilirsiniz.",
+          },
+        ],
+      },
+      {
+        heading: "Toplu dönüştürme: bir sohbetteki bütün sesli mesajlar",
+        blocks: [
+          {
+            type: "p",
+            text: "Tek tek paylaşmak birkaç mesaj için yeterli. Onlarca sesli mesajı aynı anda çevirmek için uygulamayı açın, dosya seçme düğmesine dokunun ve Android dosya seçicisinde WhatsApp'ın ses klasörüne gidin: **Dahili depolama → Android → media → com.whatsapp → WhatsApp → Media → WhatsApp Voice Notes**. İçeride yıl ve hafta numarasına göre adlandırılmış klasörler vardır. İstediğiniz PTT dosyalarının hepsini seçin; uygulama bunları arka arkaya dönüştürür ve her birine ayrı bir Paylaş düğmesi verir. Bir dosya da seçebilirsiniz, yüz dosya da; sayı ve süre sınırı yok.",
+          },
+          {
+            type: "p",
+            text: "Dosya yöneticiniz `Android/media` klasörünü göstermiyorsa gizli dosyaları göster seçeneğini açın. Henüz indirilmemiş bir sesli mesaj (sohbette hâlâ indirme oku görünen) bu klasörde olmaz; önce WhatsApp'ta indirin.",
+          },
+        ],
+      },
+      {
+        heading: "MP3 mi, WAV mı?",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**MP3 (128 kbps):** dinlemek, göndermek ve saklamak için. Sesli mesaj zaten düşük bit hızında kaydedildiği için 128 kbps hiçbir şey kaybettirmez; dosya küçük kalır ve her cihazda açılır. Araba, e-posta, yaşlı bir akrabanın tableti, WhatsApp dışındaki her yer için varsayılan seçim bu.",
+              "**WAV (16 bit, kayıpsız):** düzenlemek ve deşifre etmek için. Ses bir kurgu programına ya da konuşmayı yazıya döken bir araca gidecekse WAV seçin; ikinci bir sıkıştırma turu olmaz. Bedeli boyut: aynı kaydın WAV hali MP3'ünden kat kat büyüktür.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Kayıt resmi bir yere delil olarak gidecekse en sağlamı üçlü saklamak: orijinal .opus dosyası (değiştirilmediğini gösterir), WAV (herkesin açabildiği kayıpsız kopya) ve MP3 (e-postayla gönderilecek olan).",
+          },
+        ],
+      },
+      {
+        heading: "Dönüştürülen dosya nereye kaydedilir? Drive'a yedekleme",
+        blocks: [
+          {
+            type: "p",
+            text: "Uygulama sonucu doğrudan paylaşım menüsüne verir; kalıcı bir yere kaydetmek sizin seçiminiz. Telefonda saklamak için Paylaş'tan **Dosyalar** uygulamasını (ya da Files by Google, Samsung Dosyalarım) seçip **İndirilenler** gibi bir klasöre kaydedin. Yedek için **Google Drive**'ı seçin; dönüştürülen MP3 küçük olduğu için Drive alanınızı fark edilir ölçüde tüketmez ve telefon değiştirdiğinizde elinizde kalır.",
+          },
+          {
+            type: "p",
+            text: "Bir öneri: kaydederken dosyayı hemen yeniden adlandırın. `PTT-20261105-WA0003` yalnızca tarihi söyler, göndereni söylemez. `2026-11-05 Anne doğum günü.mp3` gibi tarih + gönderen + konu biçimi, bir yıl sonra klasörü açtığınızda size teşekkür ettirir. Arabaya atmak için bütün MP3'leri tek bir klasöre koyup USB belleğe kopyalayın; Bluetooth ile çalacaksanız dönüştürmeniz bile yeterli, telefondaki herhangi bir müzik uygulaması MP3'ü çalar.",
+          },
+        ],
+      },
+      {
+        heading: "Gizlilik: ses dosyası telefondan çıkmaz",
+        blocks: [
+          {
+            type: "p",
+            text: "İnternette \"opus to mp3\" diye aratınca düzinelerce site çıkar ve hepsi aynı şeyi yapar: kaydınızı kendi sunucusuna yükler. Bir doktorun, bir aile üyesinin ya da bir iş görüşmesinin sesli mesajı, tanımadığınız bir sitenin sunucusundan geçmemeli. Bu uygulamada dönüştürme tamamen cihaz üzerinde yapılır: yükleme yok, hesap yok, kayıt yok, analitik yok. **Uçak modunda** da çalışır; emin olmak isterseniz uçak modunu açıp deneyin.",
+          },
+          {
+            type: "p",
+            text: "Dürüst olmak gerekirse: uygulama reklam içerdiği için Google Play'deki veri güvenliği bölümünde \"Cihaz veya diğer kimlikler\" bilgisinin toplanabileceği ve üçüncü taraflarla paylaşılabileceği yazar; veriler aktarım sırasında şifrelenir. Bu, reklam SDK'sıyla ilgilidir, ses dosyalarınızla değil. Ses kayıtları hiçbir yere gönderilmez.",
+          },
+        ],
+      },
+      {
+        heading: "Ücretsiz, reklam içerir, filigran yok",
+        blocks: [
+          {
+            type: "p",
+            text: "Uygulama ücretsizdir ve küçük bir reklam alanı içerir. Dosya sayısı ya da süresi için sınır yok, filigran yok, kayıt ya da üyelik yok; Play listesinde uygulama içi satın alma da görünmüyor. Araçlar kategorisinde, USK: Tüm yaşlar derecesiyle yayınlanıyor. Yalnızca .opus değil; .ogg, .oga, .m4a, .aac, .mp3, .wav, .caf, .aiff, .flac, .amr ve .3gp dosyalarını da çevirir, yani Telegram ve iPhone kullanıcılarından gelen ses dosyaları da aynı yolla halledilir.",
+          },
+        ],
+      },
+      {
+        heading: "Ne zaman dönüştürmeye gerek yok?",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Başka bir WhatsApp kullanıcısına gönderecekseniz.** Yalnızca iletin; dönüştürmek hiçbir şey katmaz.",
+              "**Kendi telefonunuzda dinleyecekseniz.** Android, Opus'u yerel olarak destekler; güncel dosya yöneticileri ve müzik uygulamalarının çoğu .opus dosyasını doğrudan çalar. Önce açmayı deneyin.",
+              "**Hedef servis Opus kabul ediyorsa.** Bazı deşifre ve bulut araçları artık .opus alıyor. Orijinali deneyin, reddedilirse dönüştürün.",
+              "**Sesi değil, yazıyı istiyorsanız.** Mesajı okumak ya da aramak istiyorsanız MP3 işinize yaramaz; sesli mesajı yazıya dökmek daha kısa yoldur.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Sıkça sorulan sorular",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**WhatsApp sesli mesajı MP3'e çevrilince kalite düşer mi?** Konuşma kaydı için hayır. Sesli mesajın bit hızı zaten 128 kbps'nin çok altındadır; MP3 var olan her şeyi korur. Kayıpsız kopya istiyorsanız WAV seçin.",
+              "**İnternet gerekiyor mu?** Hayır. Dönüştürme cihaz üzerinde yapılır ve uçak modunda çalışır.",
+              "**Bilgisayarda yapabilir miyim?** Evet. Tarayıcıda çalışan [ücretsiz Opus to MP3 dönüştürücü](/tools/opus-to-mp3) dosyayı yüklemeden çevirir; VLC ve ffmpeg de ücretsiz seçeneklerdir.",
+              "**iPhone sürümü var mı?** Evet; App Store'daki sürüm ve iki sürümün bağlantıları [uygulama sayfasında](/apps/voice-note-audio-converter). Arabada ya da bilgisayarda çalmayan dosyalar için İngilizce yazdığımız [ayrıntılı rehber](/blog/whatsapp-voice-note-wont-play-car-pc-email-convert-opus-to-mp3-android) de aynı konuyu ele alıyor.",
+            ],
+          },
+          { type: "p", text: DISCLAIMER },
+        ],
+      },
+    ],
+  },
 ];

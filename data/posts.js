@@ -9634,6 +9634,165 @@ node --import=tsx your-file.ts`,
       },
     ],
   },
+  {
+    slug: "promise-try-is-not-a-function-fix",
+    title: "Promise.try is not a function: The Fix, a 4-Line Polyfill, and Which Node and Browser Versions Have It",
+    description:
+      "TypeError: Promise.try is not a function means the runtime predates ES2025. Exact Node, Chrome, Safari and Firefox versions, a 4-line polyfill, TS lib.",
+    datePublished: "2026-11-07",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "The one-line cause: `Promise.try` is an ES2025 addition that shipped in Chrome 128, Safari 18.2, Firefox 134 and Node.js 23. Any runtime older than that has no such method on the `Promise` constructor, so the call throws `TypeError: Promise.try is not a function`. Your code is fine; it is running somewhere it cannot run.",
+          },
+          {
+            type: "p",
+            text: "The usual way this surfaces is indirect. A dependency updates and starts using `Promise.try`, your CI image is still Node 22, or a tester's iPhone is on iOS 18.1, and the stack trace points into `node_modules`. This post gives you the environment table to work out which case you are in, the polyfill if you cannot upgrade, the TypeScript setting, and the honest answer to whether you should be using it at all. It follows the same pattern as the [Promise.withResolvers fix](/blog/promise-withresolvers-is-not-a-function-fix), and the two often fail together on the same old runtime.",
+          },
+        ],
+      },
+      {
+        heading: "What Promise.try does",
+        blocks: [
+          {
+            type: "p",
+            text: "`Promise.try(fn)` calls `fn` **synchronously** and wraps whatever happens in a promise. If `fn` returns a plain value, the returned promise is already fulfilled. If `fn` throws, the returned promise is already rejected. If `fn` returns a promise, the result adopts it. Extra arguments after the function are passed through, so `Promise.try(fn, a, b)` is `Promise.try(() => fn(a, b))` without the closure; that argument form came in with the standardised version and is not in Bluebird's old `Promise.try`, which calls the function with no arguments.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "function maybeAsync(x) {\n  if (x < 0) throw new RangeError('negative');\n  return x > 10 ? fetch('/api/' + x) : x * 2;\n}\n\nPromise.try(maybeAsync, 4).then(console.log);      // 8\nPromise.try(maybeAsync, -1).catch(console.error);  // RangeError, as a rejection\nPromise.try(maybeAsync, 42).then((r) => r.json()); // adopts the fetch promise",
+          },
+          {
+            type: "p",
+            text: "The point is uniform error handling for a function that may or may not be async: thrown errors and rejections both end up in the same `.catch`. The TC39 proposal (stage 4, spec drafted by Jordan Harband) defines it to match `new Promise((resolve) => resolve(fn()))`, which is the idiom people wrote by hand for a decade.",
+          },
+        ],
+      },
+      {
+        heading: "Decision table: which environments have it",
+        blocks: [
+          {
+            type: "p",
+            text: "First supporting versions, from the web-features explorer (which draws on the same browser-compat data as MDN) plus the Node.js release archive. The Node line is the one that catches most people.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Chrome and Edge 128** (August 2024) and later: yes. Chrome 128 is V8 12.8.",
+              "**Safari and iOS Safari 18.2** (December 2024) and later: yes. Safari 18.0 and 18.1 do not have it, so an iPhone that has not taken the 18.2 update throws.",
+              "**Firefox 134** (January 2025) and later: yes. Firefox was the last engine, which is why Baseline Newly available dates from 7 January 2025.",
+              "**Node.js 23** (V8 12.9, October 2024) and later: yes. **Node 24 LTS** ships V8 13.6, so every current LTS line has it.",
+              "**Node.js 22 LTS** (V8 12.4) and **Node 20** (V8 11.3): no. On Node 22.23.4, `typeof Promise.try` is `undefined`.",
+              "**Deno, Bun, Cloudflare Workers, React Native:** feature-test with the one-liner below rather than trusting a table; engine versions move independently of the brand name.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Two things follow from the table. If the failing environment is one you control (your own Node server, your own CI), the fix is to upgrade, and the [which Node version to use after Node 26](/blog/nodejs-26-lts-october-2026-which-node-version-to-use-new-release-schedule) post covers that choice. If it is one you do not control (visitors' browsers, a customer running your CLI on Node 22), you polyfill. Note also that Baseline *Newly* available is not Baseline *Widely* available; the web-features explorer projects the widely-available date as July 2027, so a public website should keep a polyfill until then.",
+          },
+        ],
+      },
+      {
+        heading: "The 4-line polyfill",
+        blocks: [
+          {
+            type: "code",
+            language: "js",
+            code: "if (typeof Promise.try !== 'function') {\n  Promise.try = function (fn, ...args) {\n    return new Promise((resolve) => resolve(fn.apply(undefined, args)));\n  };\n}",
+          },
+          {
+            type: "p",
+            text: "Why `new Promise((resolve) => resolve(fn()))` captures a synchronous throw: the `Promise` constructor runs the executor immediately, inside its own try/catch, and any exception thrown by the executor rejects the new promise. So `fn()` throwing never escapes as an exception; it becomes a rejection. And because `resolve` adopts thenables, `fn()` returning a promise makes the outer promise follow it. That is exactly the behaviour the proposal specifies, which is why the polyfill is this short. The one gap versus the real thing is subclass bookkeeping (`this` as a Promise subclass), which almost nobody needs.",
+          },
+          {
+            type: "p",
+            text: "Put it where it runs before anything that uses `Promise.try`: the first line of your entry file, a `--import` preload in Node, or a tiny script tag ahead of the bundle. If you would rather not maintain it, two verified packages do the same job:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// core-js (pattern: core-js(-pure)/es|stable|actual|full/promise/try)\nimport 'core-js/actual/promise/try';\n\n// es-shims package by the proposal author\nimport promiseTry from 'promise.try';\npromiseTry.shim(); // no-op if a compliant native Promise.try exists",
+          },
+          {
+            type: "p",
+            text: "If Babel already injects core-js for you with `useBuiltIns: 'usage'`, pin a recent minor (`corejs: '3.50'` is the style the core-js README recommends) and it will add this module on its own when it sees the call.",
+          },
+        ],
+      },
+      {
+        heading: "Detect it at runtime",
+        blocks: [
+          {
+            type: "p",
+            text: "For a quick check on a machine or in a browser console, and for a feature-test in code that wants to degrade rather than polyfill:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// shell\n// node -p \"typeof Promise.try\"\n\n// in code\nconst hasPromiseTry = typeof Promise.try === 'function';\n\nconst attempt = hasPromiseTry\n  ? (fn, ...args) => Promise.try(fn, ...args)\n  : (fn, ...args) => new Promise((resolve) => resolve(fn(...args)));",
+          },
+        ],
+      },
+      {
+        heading: "TypeScript: Property 'try' does not exist on type 'PromiseConstructor'",
+        blocks: [
+          {
+            type: "p",
+            text: "The compile-time twin of the runtime error. Which `lib` entry you need depends on the compiler version, and I checked both packages rather than guessing. TypeScript 5.9 declares `Promise.try` only in `lib.esnext.promise.d.ts`, so you need `esnext` in `lib`. TypeScript 6.0 moved it into a new `lib.es2025.promise.d.ts`, so `es2025` (or `target: \"es2025\"`) is enough from 6.0 on.",
+          },
+          {
+            type: "code",
+            language: "ts",
+            code: "// tsconfig.json\n{\n  \"compilerOptions\": {\n    // TypeScript 5.x:\n    \"lib\": [\"esnext\", \"dom\"],\n    // TypeScript 6.0 and later:\n    // \"lib\": [\"es2025\", \"dom\"],\n    \"target\": \"es2022\"\n  }\n}",
+          },
+          {
+            type: "p",
+            text: "The declaration is `try<T, U extends unknown[]>(callbackFn: (...args: U) => T | PromiseLike<T>, ...args: U): Promise<Awaited<T>>`, which is why the argument-passing form is fully typed. Changing `lib` only changes the types; it does not make an old runtime grow the method. If you ship to Node 22 you still need the polyfill from above.",
+          },
+        ],
+      },
+      {
+        heading: "Promise.try vs Promise.resolve().then(fn) vs an async IIFE",
+        blocks: [
+          {
+            type: "p",
+            text: "These three get suggested as equivalents and they are not. `Promise.resolve().then(fn)` also turns throws into rejections, but it runs `fn` on a later microtask, which the proposal README calls out as needlessly asynchronous. If `fn` takes a lock, starts a request, or logs, that now happens after the current synchronous code finishes. `(async () => fn())()` runs `fn` synchronously up to its first `await` and converts throws into rejections, so it is the closest pre-ES2025 equivalent and works on anything since ES2017, but it allocates a wrapper and does not pass arguments. Order of output:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "console.log('a');\nPromise.resolve().then(() => console.log('then'));\nPromise.try(() => console.log('try'));\n(async () => console.log('async'))();\nconsole.log('b');\n\n// a\n// try\n// async\n// b\n// then",
+          },
+          {
+            type: "p",
+            text: "So the swap-in replacement when you cannot use `Promise.try` is the async IIFE or the `new Promise` idiom, not `.then`. The [Promise.withResolvers practical guide](/blog/promise-withresolvers-practical-guide) walks through the other new promise helper that pairs well with this one.",
+          },
+        ],
+      },
+      {
+        heading: "Should you even use it? (When not to bother)",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**You control the runtime.** Upgrade. Node 24 LTS and every current browser have it; a polyfill for your own server is maintenance you do not need.",
+              "**You are inside an `async` function already.** Use `try/catch/finally`; the web.dev Baseline write-up says the same. `Promise.try` is for the boundary where you are handed a function you did not write.",
+              "**You publish a library.** Either write the `new Promise` idiom yourself or document the requirement; do not make every consumer install a polyfill for one call. That is the same courtesy argument as for `Object.groupBy` and `Array.prototype.toSorted`.",
+              "**You serve the public web.** Use it, but keep the polyfill until mid-2027 when it crosses into Baseline Widely available. Safari 18.0 and 18.1 are still out there.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Where it does earn its place: plugin systems, middleware chains, task queues, anywhere a caller-supplied function may be sync or async and you want one error path. The rest of the ES2025 and ES2026 promise and iterator additions, including `Array.fromAsync` and `RegExp.escape`, are in the [ES2026 Array.fromAsync, Promise.try and RegExp.escape post](/blog/es2026-array-fromasync-promise-try-regexp-escape).",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
   ...mcpGuides,
 ];
