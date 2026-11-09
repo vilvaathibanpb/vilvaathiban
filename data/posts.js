@@ -9793,6 +9793,185 @@ node --import=tsx your-file.ts`,
       },
     ],
   },
+  {
+    slug: "nodejs-november-2026-security-releases-november-11-what-we-know-26-24-22-how-to-prepare",
+    title: "Node.js November 2026 Security Releases Land Wednesday, November 11: What We Know About 26.x, 24.x and 22.x, and How to Prepare",
+    description:
+      "Node.js security releases for 26.x, 24.x and 22.x land on or after 11 November 2026, highest severity HIGH. What is known, what October fixed, how to prepare.",
+    datePublished: "2026-11-09",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "On 3 November the Node.js project published its pre-announcement for the [November 2026 security releases](https://nodejs.org/en/blog/vulnerability/november-2026-security-releases): new versions of the **26.x, 24.x and 22.x** release lines will ship on or shortly after **Wednesday, 11 November 2026**, and the highest severity issue fixed is rated **HIGH** in each of the three lines. No CVE identifiers, no time of day, no component names; that is all the page says, and that is normal.",
+          },
+          {
+            type: "p",
+            text: "If you run Node in production or CI, Monday and Tuesday are for getting ready, so that Wednesday is not spent finding out which Node version the Dockerfile actually pulls. Here is what is known, what October fixed, a preparation checklist with runnable snippets, and how to read the advisory when it lands.",
+          },
+        ],
+      },
+      {
+        heading: "What the pre-announcement does and does not tell you",
+        blocks: [
+          {
+            type: "p",
+            text: "Node.js security releases follow a fixed pattern. About a week ahead the project posts a pre-announcement naming the date, the lines that will receive a fix, and the highest severity per line; nothing else is disclosed until the binaries are out. On release day the same page is updated with the full list: each CVE, its severity, the affected lines, and any bundled dependency updates.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Known now:** the date (on or shortly after 11 November), the lines (26.x, 24.x, 22.x), and that each line gets at least one HIGH fix.",
+              "**Not known until release day:** how many CVEs, which subsystems (TLS, HTTP, zlib, DNS, the permission model), whether OpenSSL or undici is bumped, and the exact version numbers.",
+              "**Not promised:** a time of day; on or shortly after also means it can slip a day.",
+              "**Always true:** End-of-Life versions are always affected when a security release occurs.",
+            ],
+          },
+          {
+            type: "p",
+            text: "To have release-day details pushed to you, join the **nodejs-sec** Google Group: announcement-only, one message per pre-announcement and one per release.",
+          },
+        ],
+      },
+      {
+        heading: "Which release lines get a fix: 26.x, 24.x, 22.x. And what if you are on 20 or 18?",
+        blocks: [
+          {
+            type: "p",
+            text: "The three lines named are the three currently supported. nodejs.org lists **v26.13.0** as the latest LTS and v27.0.0-alpha as the latest alpha; 26 became LTS in October under the reworked schedule, which the [Node 26 LTS and which version to use](/blog/nodejs-26-lts-october-2026-which-node-version-to-use-new-release-schedule) post walks through. Node 20 (Iron) and Node 18 (Hydrogen) are both marked EOL on the [previous releases page](https://nodejs.org/en/about/previous-releases), so they receive no patch on Wednesday even though the bugs almost certainly exist in them too.",
+          },
+          {
+            type: "p",
+            text: "If you are still on 20 or 18, Wednesday is a hard deadline: pick a target using the LTS post above, run the test suite on it this week, and ship the upgrade alongside the patch.",
+          },
+        ],
+      },
+      {
+        heading: "What the October 21 release fixed: a preview of the kind of bugs to expect",
+        blocks: [
+          {
+            type: "p",
+            text: "The previous round, the [October 2026 security releases](https://nodejs.org/en/blog/vulnerability/october-2026-security-releases) of 21 October, produced v22.23.4, v24.22.1 and v26.12.1 and fixed ten CVEs: 4 High, 3 Medium, 3 Low. It also bundled updates for c-ares, the CA certificate store (after the eMudhra intermediate CA compromise), OpenSSL on 24.x and 22.x, SQLite on 22.x, and undici. The High items show what a HIGH rating means in Node:",
+          },
+          {
+            type: "list",
+            items: [
+              "**CVE-2026-111497:** the Brotli decoder in `node:zlib` could write past an internal buffer on malformed input, which the advisory says can lead to a crash, memory disclosure or remote code execution. Any service decompressing untrusted Brotli data was exposed.",
+              "**CVE-2026-105483** and **CVE-2026-106069:** two TLS certificate hostname bypasses, one when the IP is written in fullwidth digits (26.x and 24.x; a regression from the CVE-2026-48618 fix) and one when the host string loosely resolves to an IP, such as an IPv4 literal with leading zeros.",
+              "**CVE-2026-105482:** `dns.resolve` truncated names containing a NUL character, an incomplete fix of CVE-2026-48930.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Among the Medium items, `crypto.randomUUID()` and `randomInt()` entropy caches were frozen into startup snapshots and single-executable applications, so every process repeated the same values (CVE-2026-106074). If you hit `crypto.randomUUID is not a function` while auditing your `crypto` usage, that is an older, unrelated problem covered in the [randomUUID fix](/blog/crypto-randomuuid-is-not-a-function-fix). Two of the four High fixes were follow-ups to earlier fixes: patching once is not the same as being done.",
+          },
+        ],
+      },
+      {
+        heading: "How to prepare before Wednesday",
+        blocks: [
+          {
+            type: "p",
+            text: "The goal is that on release day the only decision left is whether to deploy, not where Node is installed. Work through these in order.",
+          },
+          {
+            type: "p",
+            text: "**1. Know exactly what you run, everywhere.** `node -v` on each server, in each container image, and on each CI runner. Version managers list what is installed:",
+          },
+          {
+            type: "code",
+            language: "sh",
+            code: "node -v\nnvm ls          # nvm\nfnm list        # fnm\nvolta list node # volta\n\n# inside a running container\ndocker exec my-api node -v",
+          },
+          {
+            type: "p",
+            text: "**2. Check what pins your version.** `engines` in `package.json`, `.nvmrc` and `.node-version` drift apart. A range like `>=22` in `engines` is fine; an exact `22.23.4` in `.nvmrc` keeps CI on the vulnerable build until someone edits it. Decide now who bumps them on Wednesday.",
+          },
+          {
+            type: "code",
+            language: "sh",
+            code: "node -p \"require('./package.json').engines\"\ncat .nvmrc .node-version 2>/dev/null",
+          },
+          {
+            type: "p",
+            text: "**3. Look at the Dockerfile base image.** `FROM node:26-alpine` is a floating tag: the next build that pulls fresh gets the patched image once Docker Hub publishes it. A digest pin such as `node:26-alpine@sha256:...` does not move until you update it. Either way, rebuild with `docker build --pull` so a cached base layer does not keep the old binary alive.",
+          },
+          {
+            type: "p",
+            text: "**4. Remember that `npm audit` does not cover the runtime.** It scans packages, not the Node binary or the OpenSSL inside it. The reliable check is comparing the running version with the latest release of its line, which this script does using the official release index:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// check-node.mjs: exit 1 if this process is behind the latest release of its major\nconst res = await fetch('https://nodejs.org/dist/index.json');\nconst releases = await res.json(); // newest first, one entry per release\n\nconst current = process.version;        // e.g. v26.12.1\nconst major = current.split('.')[0];    // e.g. v26\nconst latest = releases.find((r) => r.version.startsWith(major + '.'));\n\nif (!latest) {\n  console.log('No releases found for ' + major);\n  process.exit(2);\n}\nif (latest.version === current) {\n  console.log('Up to date: ' + current + (latest.lts ? ' (LTS ' + latest.lts + ')' : ''));\n} else {\n  console.log('Running ' + current + ', latest ' + major + ' is ' + latest.version + ' released ' + latest.date);\n  process.exit(1);\n}",
+          },
+          {
+            type: "p",
+            text: "Run it with `node check-node.mjs` (top-level `await` needs `.mjs` or `\"type\": \"module\"`). In a daily CI job, Wednesday's release will fail the job on its own.",
+          },
+          {
+            type: "p",
+            text: "**5. Test on every line you ship.** Run the suite on 22, 24 and 26 now, so a Wednesday failure is clearly the patch and not a version you never tried. In GitHub Actions that is a `matrix` with `node: [22, 24, 26]` for `actions/setup-node`; locally:",
+          },
+          {
+            type: "code",
+            language: "sh",
+            code: "for v in 22 24 26; do\n  nvm install \"$v\" >/dev/null && nvm use \"$v\" >/dev/null && npm test || exit 1\ndone",
+          },
+          {
+            type: "p",
+            text: "**6. Schedule it.** Book thirty minutes on Wednesday afternoon and Thursday morning for the bump. If your framework ships its own security releases, as Next.js did in its [November 2026 security release](/blog/nextjs-november-2026-security-release-cve-advisories-upgrade-16-4-5-15-5-29), check whether it also raises its minimum Node version.",
+          },
+        ],
+      },
+      {
+        heading: "On release day: how to read the advisory",
+        blocks: [
+          {
+            type: "p",
+            text: "The pre-announcement page is edited in place into the full advisory. Read it in this order:",
+          },
+          {
+            type: "list",
+            items: [
+              "**The version numbers.** One per line, like October's v22.23.4 / v24.22.1 / v26.12.1. Those are what `node -v` should print when you are done.",
+              "**The CVE table.** Scan for the modules your code touches: `tls`/`https` to arbitrary hosts, `http` servers, `zlib`, `dns`, `fs` under the permission model, `crypto`.",
+              "**Dependency updates.** OpenSSL, undici, c-ares, SQLite and the CA store are listed separately. An OpenSSL bump can matter even if no Node CVE touches your code.",
+              "**The affected-lines column.** A fix listed for 26.x only, like two of October's Low items, needs no action on a 22.x fleet.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Do you have to patch the same day?",
+        blocks: [
+          {
+            type: "p",
+            text: "Honestly, it depends on exposure. A HIGH in the Brotli decoder matters on the day for a public server that decompresses request bodies or fetches compressed responses from arbitrary origins; far less for a build tool that only inflates archives you produced. A TLS hostname bypass matters when your process opens TLS connections to hosts chosen by user input; a fixed set of internal services is lower risk. Permission-model fixes only matter if you run with `--permission`.",
+          },
+          {
+            type: "p",
+            text: "A reasonable default: internet-facing services within a day or two; internal services and CI within the week; laptops at the next `nvm install`. Write the rule down before Wednesday, while nobody is reading an advisory.",
+          },
+        ],
+      },
+      {
+        heading: "Short FAQ",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Will Node 20 get a fix?** No. Node 20 and 18 are End-of-Life, and the project states that EOL versions are always affected. Upgrade to 22, 24 or 26.",
+              "**Does `npm update` fix this?** No. The vulnerabilities are in the Node binary, not in packages. You need a new Node build from nodejs.org, your version manager, or a rebuilt base image.",
+              "**What time will it land?** The project does not say. Watch nodejs-sec or the advisory page from Wednesday morning US time, and allow for it slipping a day.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
   ...mcpGuides,
 ];

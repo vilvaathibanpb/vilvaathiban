@@ -11408,4 +11408,438 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "teleprompter-gratis-para-iphone-que-buscar-y-como-usar-teleprompter-camera-overlay",
+    title: "Teleprompter gratis para iPhone: qué buscar (7 criterios) y cómo empezar con Teleprompter: Camera Overlay en 5 minutos",
+    description:
+      "Qué buscar en un teleprompter gratis para iPhone: sin marca de agua, grabación en la app, voz o auto-scroll, sin conexión, español. Y cómo configurarlo en 5 minutos.",
+    datePublished: "2026-11-09",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Buscas un **teleprompter gratis para iPhone**, descargas tres apps y la historia se repite: una pide suscripción para grabar, otra estampa su logotipo en el vídeo y la tercera limita el número de guiones. Esta guía tiene dos partes: siete criterios para distinguir un teleprompter gratis de verdad de uno que solo lo es de nombre, y cómo configurar [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay/es), la app gratuita para iPhone en torno a la cual escribimos esta serie, en cinco minutos y en español.",
+          },
+          {
+            type: "p",
+            text: "Las entradas anteriores de la serie están en inglés; la de [qué buscar en una app de teleprompter gratis](/blog/what-to-look-for-in-a-free-teleprompter-app) es el punto de partida de esta, y la comparación entre [desplazamiento por voz y auto-scroll](/blog/voice-follow-vs-auto-scroll-teleprompter) amplía el criterio número tres.",
+          },
+        ],
+      },
+      {
+        heading: "Por qué la mayoría de los teleprompters gratis no lo son",
+        blocks: [
+          {
+            type: "p",
+            text: "En la categoría de apps de teleprompter se repiten tres patrones. No hablo de ninguna app en concreto, sino de lo que verás una y otra vez:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Gratis para leer, de pago para grabar.** El guion se desplaza gratis, pero al pulsar grabar aparece la pantalla de suscripción, y acabas usando la cámara nativa con el guion al lado.",
+              "**La marca de agua.** La grabación funciona, pero el vídeo sale con el logotipo de la app en una esquina hasta que pagas. Para Reels, Shorts o TikTok eso equivale a no poder usar el clip.",
+              "**Límites de guiones o de palabras.** Uno o dos guiones guardados, o un máximo de palabras por guion; un canal semanal lo alcanza el primer mes.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Los 7 criterios de un teleprompter gratis para iPhone",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**1. Sin marca de agua.** El vídeo que guardas tiene que ser tuyo, sin logotipos, en la versión gratuita. Compruébalo grabando diez segundos.",
+              "**2. Grabación dentro de la app.** Debe grabar mientras el guion se desplaza, con la cámara frontal o trasera, y guardar en Fotos a calidad completa. Si graba en 4K vertical, no tienes que elegir entre calidad y formato para redes.",
+              "**3. Desplazamiento por voz y automático.** El de voz escucha lo que dices y avanza a tu ritmo; el automático se mueve a una velocidad fija que ajustas con un control deslizante. Una buena app cambia de uno a otro con un toque.",
+              "**4. Funciona sin conexión.** Si el reconocimiento de voz se hace en el propio iPhone, la app funciona en modo avión y ni tu guion ni tu voz ni tu vídeo salen del teléfono.",
+              "**5. Español compatible.** El reconocimiento tiene que entender español, y lo ideal es que la app detecte el idioma del guion sola, sin menús.",
+              "**6. Tamaño de texto ajustable y modo espejo.** Texto grande para leer a un metro de distancia, y espejo para quien usa un soporte de teleprompter con cristal delante del objetivo.",
+              "**7. Guiones ilimitados y biblioteca de tomas.** Sin tope de guiones y con un lugar en la app donde revisar las tomas antes de publicar.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Teleprompter: Camera Overlay cumple los siete: sin marca de agua ni suscripción, vídeo vertical en 4K dentro de la app, voz o auto-scroll, 100 % sin conexión, detección automática del idioma del guion (admite todos los idiomas del reconocimiento de voz en el dispositivo de iOS, el español incluido), texto ajustable, modo espejo, guiones ilimitados y biblioteca de tomas. Es gratis con un anuncio ocasional; una pequeña compra única los elimina para siempre. Solo existe para iPhone.",
+          },
+        ],
+      },
+      {
+        heading: "Cómo configurar Teleprompter: Camera Overlay en 5 minutos",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Minuto 1: instala y escribe el guion.** Descarga la app desde el App Store (el enlace está en la [página de la app en español](/apps/teleprompter-camera-overlay/es)) y crea un guion nuevo. Escribe tal y como hablas, con frases cortas: el reconocimiento compara tus palabras con el texto.",
+              "**Minuto 2: coloca el teléfono.** En un soporte, a la altura de los ojos, a un brazo de distancia. El guion flota sobre la vista previa, junto al objetivo frontal: leer es mirar a la cámara.",
+              "**Minuto 3: ajusta el texto.** Sube el tamaño de letra hasta leer cómodo desde tu posición. Si usas un soporte con cristal, activa el modo espejo.",
+              "**Minuto 4: elige el modo.** Desplazamiento por voz para hablar solo en una habitación tranquila: la app detecta el idioma del guion y escucha en ese idioma. Auto-scroll si hay ruido o prefieres un ritmo constante: velocidad con el control deslizante, toca para pausar, arrastra para saltar.",
+              "**Minuto 5: graba una prueba.** Pulsa grabar, lee el primer párrafo y para. Revisa la toma en la biblioteca de tomas: el texto no aparece en el vídeo guardado. Si te convence, graba la toma buena y guárdala en Fotos a calidad completa o compártela directamente.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Desplazamiento por voz en español: consejos",
+        blocks: [
+          {
+            type: "p",
+            text: "El reconocimiento de voz de Apple en el dispositivo funciona bien en español, pero es un oyente literal. Estos hábitos marcan la diferencia:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Di las palabras tal y como están escritas.** Si improvisas otra frase, no hay nada con lo que comparar y el texto se queda quieto. Cambia el guion, no la forma de hablar.",
+              "**Habla claro y haz pausas entre frases.** No hace falta vocalizar como un locutor, sí evitar murmurar el final de las frases. Una pausa breve da al reconocimiento un límite limpio y a ti un punto de corte natural.",
+              "**Si te equivocas, sigue.** Repite la frase o vuelve al principio: la app vuelve a encontrar tu posición sola, sin tocar la pantalla.",
+              "**Cuidado con nombres propios y marcas.** Un nombre que el reconocimiento no conoce se transcribe como otra cosa y el texto espera una palabra que nunca llega. Escríbelo como suena o pasa a auto-scroll en ese párrafo.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Cuándo NO usar un teleprompter",
+        blocks: [
+          {
+            type: "p",
+            text: "Un teleprompter resuelve un problema concreto: decir un texto preparado mirando a la cámara. Fuera de ese caso puede empeorar el vídeo.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Conversaciones y reacciones improvisadas.** Si el valor del vídeo está en la espontaneidad, un guion te la quita. Apunta tres ideas y habla.",
+              "**Guiones largos sin ensayar.** Leer de un tirón diez minutos de texto que no has leído antes suena leído, con teleprompter o sin él. Ensaya una vez en voz alta y recorta.",
+              "**Entornos ruidosos o con varias voces.** El desplazamiento por voz escucha a todo el mundo. En una cafetería o con dos personas hablando, usa auto-scroll o prescinde del guion.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Errores comunes",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Texto demasiado pequeño.** Si entrecierras los ojos, se nota en cámara. Sube el tamaño antes que acercarte al teléfono.",
+              "**Sostener el teléfono con la mano.** Imagen inestable y ruido de manejo en el micrófono integrado. Un soporte barato lo arregla.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Preguntas frecuentes",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**¿Es realmente gratis?** Sí. Todas las funciones están incluidas: desplazamiento por voz, grabación en 4K, guiones ilimitados y biblioteca de tomas. De vez en cuando aparece un anuncio; una pequeña compra única los elimina para siempre. Sin suscripción y sin marca de agua.",
+              "**¿Sale el texto en el vídeo?** No. El guion es una superposición en tu pantalla; el vídeo guardado es un clip limpio, sin texto y sin marca de agua.",
+              "**¿Funciona en Android?** No. Por ahora es solo para iPhone. Puede que llegue una versión para Android más adelante, pero hoy no existe.",
+              "**¿Necesita internet?** No. El reconocimiento de voz se ejecuta en el iPhone con los frameworks de Apple, y guiones, voz y grabaciones no salen del dispositivo. Toda la app funciona en modo avión.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Siguiente entrada de la serie",
+        blocks: [
+          {
+            type: "p",
+            text: "Todo lo anterior da por hecho que eres tú quien sale en cámara. La próxima entrada le da la vuelta: cómo usar un teleprompter cuando NO eres tú quien sale en cámara, para entrevistas y vídeos a dos.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "whatsapp-sesli-mesaji-yaziya-cevirme-iphone-cevrimdisi-voice-note-to-text",
+    title: "WhatsApp Sesli Mesaj Yazıya Çevirme iPhone (Çevrimdışı): Adım Adım Rehber, WhatsApp'ın Kendi Özelliği ve Voice Note to Text",
+    description:
+      "iPhone'da WhatsApp sesli mesaj yazıya çevirme: önce WhatsApp'ın kendi özelliği, olmuyorsa sesli mesajı Voice Note to Text'e paylaşın. Çevrimdışı, hesapsız, adım adım.",
+    datePublished: "2026-11-09",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Toplantıdasınız, trendesiniz ya da kulaklığınız yanınızda değil ve WhatsApp'ta iki dakikalık bir sesli mesaj bekliyor. Dinlemek yerine okumak istiyorsunuz. Bu yazı, iPhone'da WhatsApp sesli mesajını yazıya çevirmenin iki yolunu adım adım anlatıyor: önce WhatsApp'ın kendi içindeki yazıya dökme özelliği, sonra o özellik telefonunuzda yoksa ya da \"yazıya dökme kullanılamıyor\" diyorsa her sesli mesajda çalışan ikinci yol.",
+          },
+          {
+            type: "p",
+            text: "İkinci yol için kullanılan uygulama [Voice Note to Text: Offline](/apps/voice-note-to-text). App Store listesinde \"Only for iPhone\" yazıyor; sesli mesajı uygulamanın içinde gelen bir konuşma modeliyle, internete hiçbir şey yüklemeden telefonun üzerinde metne çevirir. Aynı uygulamayı anlatan [İngilizce rehber](/blog/transcribe-whatsapp-voice-message-to-text-iphone) de var; bu yazı onun çevirisi değil, Türkçe konuşan iPhone kullanıcıları için baştan yazılmış bir rehber.",
+          },
+        ],
+      },
+      {
+        heading: "WhatsApp'ın kendi yazıya dökme özelliği ve sınırları",
+        blocks: [
+          {
+            type: "p",
+            text: "WhatsApp, bazı diller için cihaz üzerinde çalışan bir sesli mesaj yazıya dökme özelliği sunuyor. Telefonunuzda varsa en kısa yol bu: sohbette sesli mesaja basılı tutun ve açılan menüde yazıya dökme seçeneğini arayın; metin mesajın hemen altında açılır. Hangi dillerin ve bölgelerin desteklendiğini burada listelemiyorum, çünkü bu liste WhatsApp'a bağlı ve zaman içinde değişiyor; en doğrusu kendi telefonunuzda denemek. Üç durumda bu yol tıkanır:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Seçenek hiç görünmüyor.** Özellik telefonunuzda, iOS sürümünüzde ya da bölgenizde açılmamış olabilir.",
+              "**\"Yazıya dökme kullanılamıyor\" uyarısı.** Sesli mesajın dili desteklenmiyorsa ya da ses tanınamadıysa bu mesajı görürsünüz. Türkçe bir sesli mesajda bu uyarıyı alıyorsanız aşağıdaki yönteme geçin.",
+              "**Yalnızca sohbetin içinde çalışır.** Dosyalar'a kaydettiğiniz bir .opus, Sesli Notlar'daki bir .m4a ya da e-postayla gelen bir ses dosyası için WhatsApp'ın özelliği kullanılamaz.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Aşağıdaki yöntem bu üç durumun hepsinde çalışır, çünkü sese WhatsApp'ın dışında bakar.",
+          },
+        ],
+      },
+      {
+        heading: "Adım adım: sesli mesajı Voice Note to Text'e paylaşma",
+        blocks: [
+          {
+            type: "p",
+            text: "Uygulamayı App Store'dan indirdikten sonra kurulum adımı yok; hesap açılmaz, dil seçilmez. İlk üç yazıya dökme ücretsiz, böylece kendi sesli mesajlarınızla deneyebilirsiniz.",
+          },
+          {
+            type: "list",
+            items: [
+              "WhatsApp'ta sohbeti açın ve **sesli mesaja basılı tutun**.",
+              "Açılan menüden **Paylaş**'a dokunun (bazı sürümlerde önce İlet, sonra paylaşım simgesi).",
+              "iOS paylaşım menüsünde **\"Voice to Text'e Kopyala\"** seçeneğini seçin. Uygulama simgelerinin arasında görünmüyorsa sırayı sağa kaydırın ya da **Diğer** altında arayın.",
+              "Voice Note to Text açılır, dosyayı çözer ve yazıya dökmeye başlar. Dil otomatik algılanır; Türkçe için bir ayar yapmanız gerekmez. Bir dakikalık sesli mesaj yeni bir iPhone'da genellikle birkaç saniye sürer.",
+              "Metin, dosya adının altında belirir. Okuyun; kopyalama ve paylaşma adımları aşağıda.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Orijinal sesli mesaj WhatsApp'ta olduğu gibi kalır; uygulama dosyanın bir kopyasıyla çalışır ve sohbete dokunmaz.",
+          },
+        ],
+      },
+      {
+        heading: "Dosyalar'dan .opus veya .m4a dosyası açma",
+        blocks: [
+          {
+            type: "p",
+            text: "Sesli mesajı daha önce Dosyalar'a kaydettiyseniz, ya da elinizdeki ses WhatsApp'tan değil Sesli Notlar'dan, telesekreterden, Telegram'dan veya bir röportaj kaydından geliyorsa, paylaşım menüsüne gerek yok. Uygulamayı açın, **Sesli mesaj seç ve yazıya dök** düğmesine dokunun ve Dosyalar'da ses dosyasını bulun. .opus, .m4a, .mp3 ve .wav desteklenir; WhatsApp'ın .opus dosyalarını önce MP3'e çevirmeniz gerekmez, uygulama Opus'u doğrudan açar. Dosyanın adı `PTT-20261105-WA0003.opus` gibiyse bu bir WhatsApp sesli mesajıdır; ortadaki sayı kayıt tarihidir.",
+          },
+          {
+            type: "p",
+            text: "Bir sohbetin bütün sesli mesajlarını toplu olarak yazıya dökmek istiyorsanız, sohbeti **Medya Dahil** seçeneğiyle Dosyalar'a dışa aktarın; açılan klasörde her sesli mesaj ayrı bir .opus dosyası olarak durur ve aynı düğmeyle tek tek seçilir.",
+          },
+        ],
+      },
+      {
+        heading: "Metni kopyalama ve .txt olarak paylaşma",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Kopyala:** metni panoya alır. Notlar'a, Mail'e, bir WhatsApp yanıtına ya da bir çeviri uygulamasına yapıştırın. Uygulama çeviri yapmaz; Türkçe bir sesli mesaj Türkçe metin olarak çıkar. Yabancı dildeki bir mesajı çevirmek için metni Apple Çeviri'ye yapıştırmak yeterli.",
+              "**.txt Paylaş:** metni dosya olarak iOS paylaşım menüsüne verir. Dosyalar'a kaydedin, e-postaya ekleyin ya da AirDrop ile Mac'e gönderin. Bir sohbeti arşivliyorsanız dosyaya tarih ve gönderen adını verin; `PTT` adı yalnızca tarihi söyler, kimden geldiğini söylemez.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Uzun kayıtlar için de aynı iki düğme geçerli. Uzunluk sınırı yok; on dakikalık bir röportaj yalnızca orantılı olarak daha uzun sürer.",
+          },
+        ],
+      },
+      {
+        heading: "Gizlilik: ses telefondan çıkmaz",
+        blocks: [
+          {
+            type: "p",
+            text: "Sesli mesajlar çoğu zaman en özel mesajlardır: bir doktorun dönüşü, bir aile meselesi, bir iş görüşmesi. İnternette \"sesli mesaj yazıya çevirme\" diye arattığınızda çıkan sitelerin çoğu kaydı kendi sunucusuna yükler. Voice Note to Text bunu yapmaz: konuşma modeli uygulamanın içinde gelir, yazıya dökme iPhone'un üzerinde çalışır, hesap yok, yükleme yok, internet bağlantısı gerekmez. Emin olmak için uçak modunu açıp deneyin; aynı şekilde çalışır. App Store'daki Uygulama Gizliliği bölümünde geliştirici \"Data Not Collected\" (veri toplanmıyor) beyanında bulunmuş.",
+          },
+          {
+            type: "p",
+            text: "Cihaz üzerinde çalışmanın bedeli boyut: uygulama yaklaşık 96 MB. Modelin içinde gelmesi, ilk kullanımda indirme olmaması ve çevrimdışı çalışması bu yüzden.",
+          },
+        ],
+      },
+      {
+        heading: "Ücret: 3 ücretsiz yazıya dökme, sonra tek seferlik satın alma",
+        blocks: [
+          {
+            type: "p",
+            text: "İndirmek ücretsiz ve ilk 3 yazıya dökme hiçbir ödeme istemeden yapılır. Sonrasında tek bir uygulama içi satın alma sınırsız kullanımı açar. Abonelik yok, dakika kredisi yok, hesap yok. Güncel fiyat App Store sayfasında görünür. Uygulama Araçlar kategorisinde, 4+ yaş derecesiyle yayınlanıyor; iOS 15.1 veya üzeri gerektiriyor, arayüzü İngilizce dahil 15 dilde ve yazı yazıldığında sürüm 1.0.3 (13 Ekim) yayındaydı.",
+          },
+        ],
+      },
+      {
+        heading: "Ne zaman işe yaramaz? Dürüst sınırlar",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Çok gürültülü kayıt.** Trafikte, rüzgârda ya da kalabalık bir kafede çekilmiş sesli mesajda hatalar artar; bu her yazıya dökme aracı için geçerli.",
+              "**Birden çok konuşmacı.** Uygulama konuşmacıları ayırmaz ve adlandırmaz; üst üste konuşan iki kişi tek bir metin akışına dönüşür.",
+              "**Lehçe, argo ve özel isimler.** Yöresel ağız, hızlı argo, kişi ve marka adları yanlış yazılabilir. Önemli bir isim ya da rakam geçiyorsa sesli mesajı o noktada bir kez dinleyin.",
+              "**iOS 15.1 altı cihazlar.** Uygulama iOS 15.1 veya üzeri ister; daha eski bir iPhone'a kurulmaz.",
+              "**Android.** App Store listesi \"Only for iPhone\" diyor ve bu rehberdeki adımlar iPhone içindir; Android telefonda bu paylaşım menüsü ve bu düğmeler yok.",
+              "**Çeviri değil, yazıya dökme.** Metin konuşulan dilde çıkar; çeviri ayrı bir adımdır.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Sıkça sorulan sorular",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**WhatsApp sesli mesajını yazıya çevirmek için internet gerekir mi?** Hayır. Model uygulamanın içinde; uçak modunda da çalışır.",
+              "**Türkçe destekleniyor mu?** Evet. Uygulama yaklaşık 100 dili otomatik algılar; Türkçe sesli mesaj için dil seçmeniz gerekmez.",
+              "**Metin ne kadar doğru?** Net konuşmada hata azdır; gürültü, aksan ve üst üste konuşma doğruluğu düşürür. Metni resmi bir yere göndermeden önce bir kez okuyun.",
+              "**Telegram, Signal ya da Sesli Notlar kayıtları?** Evet; .opus, .m4a, .mp3 ve .wav dosyaları aynı şekilde açılır. Uygulama herhangi bir sohbet uygulamasının sesli mesajları, sesli notlar, telesekreter ve röportaj kayıtları için yapılmış.",
+              "**Yazıya çevirmek yerine MP3 yapmak istersem?** O başka bir iş: [Opus to MP3 Converter](/apps/voice-note-audio-converter) ses dosyasını dönüştürür, metin üretmez.",
+              "**App Store bağlantısı?** [Voice Note to Text: Offline](https://apps.apple.com/us/app/voice-note-to-text-offline/id6810376600). Ücretsiz indirme, uygulama içi satın alma, yalnızca iPhone.",
+            ],
+          },
+          { type: "p", text: DISCLAIMER },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "esportare-chat-whatsapp-in-pdf-android-guida-chat-export-studio",
+    title: "Esportare una Chat WhatsApp in PDF su Android: Guida Passo Passo con Chat Export Studio (Fumetti, Date, Statistiche, Tutto sul Telefono)",
+    description:
+      "Come esportare una chat WhatsApp in PDF su Android: Esporta chat senza media, apri il .txt o .zip in Chat Export Studio e ottieni un PDF impaginato con statistiche.",
+    datePublished: "2026-11-09",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Serve una copia leggibile di una conversazione WhatsApp: per l'ufficio del personale, per un'assicurazione, per il proprietario di casa, oppure perché state per cancellare la chat e volete tenerne una versione che si apra tra dieci anni. WhatsApp sa esportare la chat, ma il risultato è un .txt dentro uno .zip. Questa guida mostra, passo per passo, come esportare una chat WhatsApp in PDF su Android senza caricarla su nessun sito.",
+          },
+          {
+            type: "p",
+            text: "L'app usata è [Chat Export Studio: PDF](/apps/chat-export-studio), disponibile su Google Play. Legge il file esportato da WhatsApp e lo trasforma, sul telefono, in un PDF impaginato con un fumetto per ogni messaggio, più una pagina di statistiche. Esiste già una guida in inglese su [come salvare una chat WhatsApp in PDF su Android per HR, proprietario o assicurazione](/blog/save-whatsapp-chat-as-pdf-android-for-hr-landlord-insurer); questa è la guida in italiano, scritta da zero.",
+          },
+        ],
+      },
+      {
+        heading: "Perché il .txt esportato non basta",
+        blocks: [
+          {
+            type: "p",
+            text: "Il file prodotto da Esporta chat contiene tutto, ma nel formato più scomodo possibile: una riga per messaggio, con data, ora e mittente ripetuti ogni volta, senza distinzione visiva tra chi scrive e chi risponde. Stampato, le pagine si spezzano a metà frase; allegato a una email, spesso non viene nemmeno aperto. Un PDF con fumetti, colori per partecipante e date leggibili è quello che chiede chi vuole la conversazione come documento.",
+          },
+        ],
+      },
+      {
+        heading: "Passo 1: esportare la chat da WhatsApp su Android",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Aprite WhatsApp e la chat da esportare, individuale o di gruppo.",
+              "Toccate il menu **⋮** in alto a destra, poi **Altro** e quindi **Esporta chat**.",
+              "Alla domanda sui media scegliete **Senza media**. L'app rende il testo e segna i media come segnaposto, quindi includerli serve solo a gonfiare lo .zip.",
+              "Si apre il foglio di condivisione di Android. Se Chat Export Studio è già installato, sceglietelo direttamente; altrimenti salvate il file con **Files**, **Drive** o un'altra app di archiviazione e passate al punto 2.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Le voci di menu possono cambiare leggermente tra versioni di WhatsApp, ma l'opzione si chiama sempre Esporta chat e produce sempre un .txt, da solo o dentro uno .zip; entrambi vanno bene. Screenshot, testo copiato e PDF di altri strumenti non sono esportazioni e l'app non li apre.",
+          },
+        ],
+      },
+      {
+        heading: "Passo 2: aprire il file in Chat Export Studio",
+        blocks: [
+          {
+            type: "p",
+            text: "Avviate [Chat Export Studio](/apps/chat-export-studio), toccate il pulsante per aprire una chat esportata e nel selettore di file di Android scegliete il .txt o lo .zip salvato al punto 1. L'app riconosce da sola il formato: accetta esportazioni fatte da Android e da iPhone, con orari a 12 o a 24 ore. Se non avete ancora una chat da provare, c'è una **chat di esempio integrata**: usatela una volta per vedere il risultato prima di esportare una conversazione vera.",
+          },
+        ],
+      },
+      {
+        heading: "Passo 3: il PDF, pagina per pagina",
+        blocks: [
+          {
+            type: "p",
+            text: "Il PDF ricorda la conversazione come la vedete sullo schermo, non una tabella:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Un fumetto per messaggio**, con mittente, data e ora. Nelle chat a due i messaggi sono disposti a sinistra e a destra; nei gruppi ogni partecipante ha un colore, così si capisce al volo chi parla.",
+              "**Avvisi di sistema e media come etichette ordinate.** Avvisi di crittografia, ingressi e uscite dal gruppo e segnaposto dei media omessi compaiono come piccole pillole, non come righe di disturbo.",
+              "**Interruzioni di pagina pulite.** Le pagine si interrompono tra un messaggio e l'altro, mai a metà, quindi una chat lunga resta leggibile anche stampata.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Le statistiche",
+        blocks: [
+          {
+            type: "p",
+            text: "Appena il file è aperto, l'app calcola alcune cifre: totale di messaggi e parole, messaggi per partecipante come numero e percentuale, l'ora più attiva, il periodo coperto, il numero di media e le emoji più usate. Per un uso formale sono un riepilogo comodo; per un uso più leggero rispondono alla domanda che tutti si fanno prima o poi: chi scrive di più nel gruppo. Tutto è calcolato dal file esportato, sul telefono.",
+          },
+        ],
+      },
+      {
+        heading: "Salvare e condividere il PDF su Android",
+        blocks: [
+          {
+            type: "p",
+            text: "Quando il PDF è pronto, l'app lo passa al foglio di condivisione di Android. Da lì potete salvarlo con **Files** (o l'app file del vostro telefono), caricarlo su **Drive** o un altro cloud, allegarlo a una email o inviarlo via Bluetooth a un computer. Rinominate subito il file con il nome della chat e il periodo, per esempio `Condominio 2026-01 2026-10.pdf`, e conservate accanto al PDF anche lo .zip o il .txt originale: il PDF è la copia che tutti aprono, l'esportazione grezza è quella che mostra da dove viene.",
+          },
+        ],
+      },
+      {
+        heading: "Privacy: tutto resta sul telefono",
+        blocks: [
+          {
+            type: "p",
+            text: "Una chat è tra le cose più private che avete sul telefono, e molti siti \"WhatsApp in PDF\" chiedono proprio di caricarla sui loro server. Chat Export Studio lavora al 100% sul dispositivo: lettura del file e generazione del PDF avvengono sul telefono, senza account e senza analisi dell'utilizzo. Funziona in **modalità aereo**, che è anche il modo più semplice per verificarlo. Per completezza: la scheda sulla sicurezza dei dati di Google Play indica che l'app può raccogliere e condividere \"ID del dispositivo o altri ID\", con dati cifrati in transito; riguarda gli annunci presenti nell'app, non il contenuto delle chat.",
+          },
+        ],
+      },
+      {
+        heading: "Costi: acquisto una tantum, contiene annunci",
+        blocks: [
+          {
+            type: "p",
+            text: "Come riporta la scheda su Google Play, l'app **contiene annunci** ed è un **acquisto una tantum, senza abbonamento**. Il prezzo lo vedete nella scheda del negozio, perché può cambiare. L'app è nella categoria Strumenti, classificata USK: tutte le età, pubblicata da Vilva Athiban; alla data di questa guida la scheda segnala la prima versione Android, aggiornata il 24 settembre 2026, con la fascia di installazioni indicata come 10+.",
+          },
+        ],
+      },
+      {
+        heading: "Quando non serve, e i limiti onesti",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Vi servono le foto e i vocali.** Il PDF contiene il testo; i media compaiono come segnaposto. Se dovete consegnare anche le immagini, esportate una seconda volta con i media e conservate quello .zip accanto al PDF.",
+              "**Chat enormi.** Decine di migliaia di messaggi funzionano, ma la generazione richiede più tempo e il PDF diventa pesante da inviare via email. Valutate un periodo alla volta.",
+              "**Valore legale.** Il PDF riproduce l'esportazione ed è generato senza passaggi nel cloud, ma se un documento viene accettato dipende da chi lo richiede e dalle regole locali. Chiedete prima il formato voluto e conservate sempre l'originale.",
+              "**Provate prima il sample.** La chat di esempio mostra impaginazione e statistiche in un minuto, prima di esportare una conversazione che vi sta a cuore.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Domande frequenti",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Serve la connessione a internet?** No. L'elaborazione avviene sul dispositivo e l'app funziona in modalità aereo.",
+              "**Posso stampare il PDF?** Sì, da qualunque app che stampi PDF su Android o da un computer. Le interruzioni di pagina cadono tra i messaggi, quindi la stampa è leggibile; la guida in inglese su [come stampare una chat WhatsApp da Android](/blog/print-whatsapp-chat-android-export-to-paginated-pdf-with-dates) entra nel dettaglio.",
+              "**Dove trovo l'app?** Su [Google Play](https://play.google.com/store/apps/details?id=com.vilva.wachatexport). Non è un prodotto ufficiale di WhatsApp: legge i file di esportazione standard che l'app di chat produce.",
+            ],
+          },
+          { type: "p", text: DISCLAIMER },
+        ],
+      },
+    ],
+  },
 ];
