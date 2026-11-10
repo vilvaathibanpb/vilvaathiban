@@ -9972,6 +9972,196 @@ node --import=tsx your-file.ts`,
       },
     ],
   },
+  {
+    slug: "array-fromasync-is-not-a-function-fix",
+    title:
+      "Array.fromAsync is not a function: why it happens and how to fix it (Node, browsers, TypeScript)",
+    description:
+      "TypeError: Array.fromAsync is not a function means your runtime predates Array.fromAsync (Node 22, Chrome 121, Firefox 115, Safari 16.4). How to check, upgrade, polyfill with core-js or a 10-line fallback, and fix the TypeScript lib error.",
+    datePublished: "2026-11-10",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "You wrote `await Array.fromAsync(stream)`, it worked on your laptop, and then CI or a user's browser threw `TypeError: Array.fromAsync is not a function`. The cause is always the same: the JavaScript engine running your code is older than the feature. `Array.fromAsync` is a built-in, not syntax, so no bundler or transpiler setting will make it appear. You either run it on an engine that has it, or you add it yourself.",
+          },
+          {
+            type: "p",
+            text: "This post is the short, practical fix, in the same format as the [Promise.withResolvers](/blog/promise-withresolvers-is-not-a-function-fix) and [Object.groupBy](/blog/object-groupby-is-not-a-function-fix) fixes. For the method itself (edge cases, error handling, performance) see the [complete Array.fromAsync guide](/blog/array-fromasync-complete-guide).",
+          },
+        ],
+      },
+      {
+        heading: "What the error looks like",
+        blocks: [
+          {
+            type: "p",
+            text: "The same problem shows up under a few different names depending on where you hit it:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Node:** `TypeError: Array.fromAsync is not a function`, typically on Node 18 or Node 20. Both lines are End-of-Life now, but they are still common in Docker base images and old CI configs.",
+              "**Jest:** the same `TypeError`, with or without `jest-environment-jsdom`. Jest runs on whatever Node is installed on the machine, so a jsdom or Babel setup does not add the method; the Node version does. Check `node -v` on the runner, not just locally.",
+              "**Browsers:** `TypeError: Array.fromAsync is not a function` in the console on Safari before 16.4, Chrome and Edge before 121, Firefox before 115. On Safari the message may read `Array.fromAsync is not a function. (In 'Array.fromAsync(...)', 'Array.fromAsync' is undefined)`.",
+              "**TypeScript:** `error TS2339: Property 'fromAsync' does not exist on type 'ArrayConstructor'`. This is a compile-time version of the same issue: your `lib` setting does not include the declaration. It is fixed in `tsconfig.json`, not by upgrading Node.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Where Array.fromAsync is available",
+        blocks: [
+          {
+            type: "p",
+            text: "`Array.fromAsync` was a TC39 proposal for years before it reached Stage 4 at the May 2025 plenary; it is listed among the finished proposals for ECMAScript 2026. Engines shipped it earlier than the standard did. From MDN's compatibility data and caniuse:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Chrome 121** and **Edge 121** (January 2024), **Opera 107**, **Samsung Internet 25**.",
+              "**Firefox 115**.",
+              "**Safari 16.4** on macOS and iOS.",
+              "**Node.js 22.0.0** (April 2024, V8 12.4). The [Node 22 release announcement](https://nodejs.org/en/blog/announcements/v22-release-announce) lists it explicitly alongside Set methods and iterator helpers. Node 20 and 18 never got it.",
+              "**Deno 1.38** and **Bun 1.0**, according to MDN's browser-compat-data.",
+            ],
+          },
+          {
+            type: "p",
+            text: "So the rule of thumb: any runtime from 2024 onwards has it; anything older does not.",
+          },
+        ],
+      },
+      {
+        heading: "Step 1: confirm which runtime is throwing",
+        blocks: [
+          {
+            type: "p",
+            text: "Before changing anything, find out what is actually executing the code. In Node, print the version and V8 version; in any environment, feature-detect:",
+          },
+          {
+            type: "code",
+            language: "bash",
+            code: "node -v\n# v20.19.5  -> too old, no Array.fromAsync\n# v22.x / v24.x / v26.x -> has it\n\nnode -p \"process.versions.v8\"\nnode -p \"typeof Array.fromAsync\"\n# 'function' on 22+, 'undefined' on 20 and below",
+          },
+          {
+            type: "p",
+            text: "If `node -v` is fine locally but the error happens in CI or production, the mismatch is almost always a `.nvmrc`, an `engines` field, a `FROM node:20` line in a Dockerfile or a `setup-node` step pinned to an old major. Fix the pin, not the code.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 1: upgrade the runtime (preferred)",
+        blocks: [
+          {
+            type: "p",
+            text: "If you control the runtime, upgrade. As of November 2026 the supported Node lines are **22, 24 and 26**, all LTS; Node 26 entered LTS in October, as covered in [which Node version to use after Node 26 LTS](/blog/nodejs-26-lts-october-2026-which-node-version-to-use-new-release-schedule). Node 20 and 18 are End-of-Life and will not get security fixes, so moving off them solves more than this one error. Any of the three supported lines has `Array.fromAsync`.",
+          },
+          {
+            type: "p",
+            text: "In practice that is `nvm install 24 && nvm use 24` (or `fnm`/`volta`), updating `.nvmrc` to match, changing `FROM node:20-alpine` to `FROM node:24-alpine` in the Dockerfile, and setting `\"engines\": { \"node\": \">=22\" }` in `package.json` so the next person gets a warning instead of a mystery. For browsers you cannot upgrade for your users, so check your analytics. If Safari 15 or Chrome 120 still make up a share you care about, go to Fix 2.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 2: polyfill it",
+        blocks: [
+          {
+            type: "p",
+            text: "Two maintained options. **core-js** patches the global `Array` so existing code keeps calling `Array.fromAsync`; import the single module once at your entry point, before anything that uses it:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// entry.js: install the global, then use it anywhere\nimport 'core-js/actual/array/from-async';\n\nconst rows = await Array.fromAsync(asyncRows());",
+          },
+          {
+            type: "p",
+            text: "core-js also exposes it as `core-js/stable/array/from-async`, and `core-js-pure/actual/array/from-async` if you want a function import without touching globals. If you use `@babel/preset-env` with `useBuiltIns: 'usage'` and a `targets` list that includes old browsers, Babel injects this import for you; otherwise add it by hand.",
+          },
+          {
+            type: "p",
+            text: "The second option is the standalone **array-from-async** package on npm (BSD-3-Clause, maintained by the proposal's author and ljharb). It does not patch `Array`; it exports a function with the same `(items, mapFn, thisArg)` signature, so you call `fromAsync(...)` instead of `Array.fromAsync(...)`. That is the right choice for a library, where modifying globals is bad manners.",
+          },
+          {
+            type: "p",
+            text: "One thing that does not work: Babel's `preset-env` or TypeScript's `target` on their own. Those rewrite syntax (`async`/`await`, optional chaining, class fields). `Array.fromAsync` is a method on a global object; transpilers leave it alone and the error survives the build.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 3: a 10-line fallback with for await",
+        blocks: [
+          {
+            type: "p",
+            text: "If you would rather not add a dependency, the core behaviour is small. `for await` already handles both async iterables and sync iterables of promises, which covers almost every real call:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "async function arrayFromAsync(items, mapFn, thisArg) {\n  const out = [];\n  let i = 0;\n  for await (const item of items) {\n    out.push(mapFn ? await mapFn.call(thisArg, item, i) : item);\n    i++;\n  }\n  return out;\n}\n\nif (typeof Array.fromAsync !== 'function') {\n  Array.fromAsync = arrayFromAsync;\n}",
+          },
+          {
+            type: "p",
+            text: "This fallback skips the spec's array-like branch (objects with a `length` but no iterator), and it will not pass test262. For a stream, an async generator, or an array of promises it behaves the same as the real thing: values are awaited one at a time, in order. Use it on the old runtime only; the `typeof` guard means engines that have the native version keep it.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 4: the TypeScript error (TS2339)",
+        blocks: [
+          {
+            type: "p",
+            text: "`Property 'fromAsync' does not exist on type 'ArrayConstructor'` means the compiler's lib files do not declare the method. In TypeScript 7.0.2, the current release, `fromAsync` lives in `lib.esnext.array.d.ts`; there is no `es2026` lib yet (the numbered libs stop at `es2025`), so you need `esnext` or the specific `esnext.array` entry:",
+          },
+          {
+            type: "code",
+            language: "ts",
+            code: "// tsconfig.json\n{\n  \"compilerOptions\": {\n    \"target\": \"es2022\",\n    \"lib\": [\"es2025\", \"esnext.array\", \"dom\"]\n    // or simply: \"lib\": [\"esnext\", \"dom\"]\n  }\n}",
+          },
+          {
+            type: "p",
+            text: "Two reminders. Setting `lib` only teaches the type checker that the method exists; it does not make it exist at runtime, so pair it with one of the fixes above if you still target old engines. And the declaration is typed as `Promise<T[]>`, so if you forget `await` you get a promise, not an array, and the next line fails with something like `rows.map is not a function`.",
+          },
+        ],
+      },
+      {
+        heading: "A quick refresher: what Array.fromAsync does",
+        blocks: [
+          {
+            type: "p",
+            text: "`Array.fromAsync(items, mapFn?, thisArg?)` is the async twin of `Array.from`. It accepts an async iterable, a sync iterable, or an array-like, and returns a promise that resolves to an array. Values yielded by a sync iterable are awaited before being added; if you pass a `mapFn`, its return value is awaited too. The obvious use is draining an async source without writing the loop yourself:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// 1. async iterable -> array\nasync function* pages(url) {\n  let next = url;\n  while (next) {\n    const res = await fetch(next);\n    const body = await res.json();\n    yield body.items;\n    next = body.nextUrl;\n  }\n}\nconst allPages = await Array.fromAsync(pages('/api/users'));\n\n// 2. with a mapping function (its result is awaited)\nconst users = await Array.fromAsync(ids, async (id) => {\n  const res = await fetch('/api/users/' + id);\n  return res.json();\n});",
+          },
+          {
+            type: "p",
+            text: "The second example is where people get surprised. `Array.fromAsync` awaits each value **sequentially**: it does not request the next element until the current one has settled. `Promise.all(ids.map(fetchUser))` starts every request at once and waits for all of them. MDN's own timing demo shows the difference clearly (roughly 500 ms versus 100 ms for five 100 ms tasks). So reach for `Array.fromAsync` when you are consuming an async iterator, or when you deliberately want one-at-a-time ordering such as rate-limited calls; reach for `Promise.all` when you already have the inputs and want parallelism. Also note that with an async iterable that yields promises, the yielded promises are passed through as-is unless your `mapFn` awaits them.",
+          },
+        ],
+      },
+      {
+        heading: "Summary",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "`Array.fromAsync is not a function` means the engine is older than Chrome/Edge 121, Firefox 115, Safari 16.4 or Node 22.",
+              "Check with `node -v` and `typeof Array.fromAsync === 'function'`, and look for pins in `.nvmrc`, `engines`, Dockerfiles and CI.",
+              "Best fix: Node 22, 24 or 26, all LTS; 18 and 20 are End-of-Life.",
+              "Otherwise: `import 'core-js/actual/array/from-async'`, the `array-from-async` package, or the `for await` fallback above.",
+              "TypeScript TS2339: add `esnext` (or `esnext.array`) to `lib`. Transpiling the `target` does not help, because this is a built-in, not syntax.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
   ...mcpGuides,
 ];

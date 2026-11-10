@@ -11842,4 +11842,391 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "teleprompter-when-you-are-not-on-camera-interviews-two-person-videos-iphone",
+    title:
+      "How to Use a Teleprompter When You Are NOT the One on Camera: Interviews, Two-Person Videos and Reading Questions to a Guest (iPhone)",
+    description:
+      "Set up Teleprompter: Camera Overlay on iPhone as the interviewer or operator: your question list floats over the preview while the back camera records your guest, voice-follow scrolls as you ask, and the script never appears in the video. Four setups, step by step.",
+    datePublished: "2026-11-10",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Most teleprompter advice assumes you are the one talking to the lens. But a lot of iPhone video is the other way round: you hold the phone, someone else is in frame, and what you need to read is a list of questions or the cue for the next segment. A paper list means looking down and losing the shot. The same free app that puts a script over the selfie camera works just as well when the camera points away from you.",
+          },
+          {
+            type: "p",
+            text: "This post covers four setups with [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay), the free iOS teleprompter that floats your script over the live camera preview, records portrait 4K from the front or back camera, and keeps the text out of the saved video. The earlier post on [voice-follow versus auto-scroll](/blog/voice-follow-vs-auto-scroll-teleprompter) explains the two scrolling modes; here we only cover what changes when you are behind the phone.",
+          },
+        ],
+      },
+      {
+        heading: "Why the overlay works for the person behind the camera",
+        blocks: [
+          {
+            type: "p",
+            text: "Three things make this possible. The script is an overlay on your screen only, so your guest's video stays clean. Recording works with the back camera, so the phone faces the guest while the screen faces you. And voice-follow listens to the words you read with Apple's on-device speech recognition: when you stop reading, the script stops; when you pick it up again, it finds your place. So you ask a question, the script reaches the end of it, and it waits while your guest answers because you are no longer reading. Nothing is uploaded; it works in airplane mode.",
+          },
+        ],
+      },
+      {
+        heading: "Setup 1: the interview, you ask, they answer",
+        blocks: [
+          {
+            type: "p",
+            text: "A podcast-style chat, a customer story, a family history recording: the phone is in your hands or on a tripod, pointed at the guest.",
+          },
+          {
+            type: "list",
+            items: [
+              "**1. Write the questions as cues, not sentences.** Create a new script and type one line per question, a handful of words you glance at and then say in your own voice: `3. First week at the company?` rather than a full sentence read word for word. Number them so you can skip around without losing count.",
+              "**2. Leave a blank line between questions.** The gap marks the stop and shows where the next one starts when you look back after a long answer.",
+              "**3. Switch to the back camera** and frame the guest in portrait before you worry about the text.",
+              "**4. Turn the text size up.** At arm's length, or on a tripod a step away, the size you use for selfie recording is too small. Leave mirror mode off.",
+              "**5. Choose voice-follow.** Read each question aloud at your normal pace. The script scrolls as you speak and stops when you stop, so during the answer the text sits still. If you improvise a follow-up that is not in the script, the app waits; when you read the next line from the list, it re-finds your place.",
+              "**6. Tap record, then ask.** The take lands in the takes library and saves to Photos in full quality, with no questions in the recording.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Classic auto-scroll works too: it moves at a constant speed set with the slider; tap to pause while the guest answers, drag to jump to the next question.",
+          },
+        ],
+      },
+      {
+        heading: "Setup 2: two-person videos, one reads, one operates",
+        blocks: [
+          {
+            type: "p",
+            text: "Person A talks to the camera, person B holds the phone. The script belongs to the person in frame, so the phone is set up for them.",
+          },
+          {
+            type: "list",
+            items: [
+              "**1. Use the front camera.** The talent needs the text next to the lens for eye contact, so the screen faces them and the operator frames from behind the phone or from the side with a small tripod.",
+              "**2. Let the talent set text size and mode.** Voice-follow is listening to person A, so the operator stays quiet while the take runs.",
+              "**3. The operator starts and stops the take.**",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Setup 3: a scripted intro or outro while the guest waits",
+        blocks: [
+          {
+            type: "p",
+            text: "Interview videos often open with a written intro and close with a call to action, both spoken by the host. Put the intro at the top of the same script as your questions and the outro at the bottom; voice-follow carries you through the intro at full pace, stops when you hand over to the guest, and picks up the cues as you ask them. If you shoot the intro to camera separately, flip to the front camera for that clip; the takes library keeps every clip together.",
+          },
+        ],
+      },
+      {
+        heading: "Setup 4: the guest wants their own lines",
+        blocks: [
+          {
+            type: "p",
+            text: "Sometimes the person in frame needs the text: a colleague recording a testimonial, a founder reading a statement. Set the phone up for them as you would for yourself.",
+          },
+          {
+            type: "list",
+            items: [
+              "**1. Paste their lines into a new script.** Scripts are unlimited, so it can sit beside your question lists.",
+              "**2. Front camera, tripod, mirror mode off.** Mirror mode is for reflecting glass rigs; on a bare phone it makes the text unreadable.",
+              "**3. Bigger text than they think they need.** They are further from the phone than a selfie, and nervous readers lose their line.",
+              "**4. Voice-follow in their language.** The app auto-detects the script's language and listens in it, for every language your iPhone's on-device recognition supports, so a guest reading in German or Spanish needs no settings change.",
+              "**5. Have them read it through once before you tap record** so the scrolling is not a surprise.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Practical tips that make the difference",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Keep the phone at the guest's eye line.** A camera above or below their eyes looks like a security camera; fix the tripod height before you touch the app.",
+              "**Cues, numbers, gaps.** Short lines are picked up at a glance; numbers let you skip; blank lines mark the stops.",
+              "**Sound favours whoever is closer to the phone.** The built-in microphone is next to you, not the guest, so your questions will be loud and their answers quieter. The post on [the best microphone for teleprompter voice-follow](/blog/best-microphone-for-teleprompter-voice-follow-scrolling-iphone-built-in-vs-airpods-vs-lav) compares the built-in mic, AirPods and a lavalier; for interviews, a mic on the guest matters more than anything you do with the text.",
+              "**Say the cue as written.** Voice-follow matches your words against the script; if you reword a question so it no longer resembles the line, the app has nothing to match until you read a recognisable line again.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "When NOT to use a teleprompter as the interviewer",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Formal or sensitive interviews.** When the conversation depends on rapport, a host glancing at a screen between questions feels scripted. Memorise three questions and let the rest follow.",
+              "**When the guest finds the moving text distracting.** With the front camera facing them, some people cannot stop watching the words scroll. Use the back camera so they only see the lens, or go back to paper.",
+              "**Long multi-camera shoots.** The app records one phone's camera. With two angles and a separate audio recorder, the phone can still show your cues, but plan the rest of the kit separately.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "The short version",
+        blocks: [
+          {
+            type: "p",
+            text: "Back camera on the guest, cues as short numbered lines with gaps, text size up, mirror mode off, voice-follow on. Read the question, let the script stop while they talk, read the next one. The recording shows them and never shows your list. The app is free, offline, with no watermark and no subscription; a small one-time purchase removes the occasional ad. The same approach works for [online courses and tutorials](/blog/teleprompter-for-online-courses-and-tutorials) where a co-host or demo partner is in frame.",
+          },
+          {
+            type: "p",
+            text: "Next in this series: using a teleprompter for live Q&A sessions and AMAs, where the questions come from the audience and have to get into the script while you are still on air.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "how-to-make-a-warranty-claim-what-you-need-receipt-serial-number-iphone-warranty-tracker",
+    title: "How to Make a Warranty Claim on a Broken Gadget or Appliance: What You Need, the Steps, and How to Have the Receipt and Serial Number Ready on Your iPhone in 30 Seconds",
+    description:
+      "A practical checklist for claiming on a warranty: proof of purchase, serial number, purchase date and fault description, who to contact, what to do if they refuse, and how Warranty Tracker & Receipt Log ($0.99, iPhone) keeps it all one tap away.",
+    datePublished: "2026-11-10",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "The dishwasher stops draining. The headphones only play on one side. The laptop fan screams and the screen goes black. You are fairly sure it is still under warranty, and that is where most claims quietly die: not because the retailer says no, but because the receipt went out with the packaging and nobody wrote down the serial number. This is a step-by-step guide to making a warranty claim, with a checklist of what to have in hand first, and a short section on keeping it all on your iPhone. One honest note up front: a tracker app stores your evidence. It does not file the claim and cannot tell you whether a fault is covered.",
+          },
+        ],
+      },
+      {
+        heading: "The checklist: what a warranty claim usually needs",
+        blocks: [
+          {
+            type: "p",
+            text: "Gather these before you contact anyone; having them all in the first message saves a round of back-and-forth.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Proof of purchase.** The till receipt, invoice or order confirmation email. A card statement shows that you paid but not what you bought, so it is a fallback, not the main document.",
+              "**Purchase date.** Warranties are counted from a date, almost always the day you bought the item; this one number decides whether you are inside the window at all.",
+              "**Serial number and model number.** On a sticker on the back or underside, inside a battery cover, on the box, or in the device's own settings screen. Support staff ask for it before anything else.",
+              "**A clear description of the fault.** What happens, when it started, whether it is constant or intermittent, and what you already tried. A short video of the fault helps.",
+              "**Any extended warranty paperwork.** A store protection plan or manufacturer extension has its own reference number and contact route.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Step 1: Check the warranty is still running",
+        blocks: [
+          {
+            type: "p",
+            text: "Find the purchase date and add the warranty length printed on your paperwork or the manufacturer's page for that model. If you bought an extended warranty, it usually starts when the standard one ends, so add the two together to get the real expiry date. Past that date, a goodwill repair is still possible, but it is a request, not a claim.",
+          },
+        ],
+      },
+      {
+        heading: "Step 2: Read what is covered, and what is not",
+        blocks: [
+          {
+            type: "p",
+            text: "A warranty almost always covers manufacturing defects: parts that fail under normal use. It almost never covers accidental damage (drops, spills, a cracked screen), ordinary wear (worn batteries, scuffs, dull blades), or damage from misuse, unofficial repairs or the wrong power supply. Read the terms once with your specific fault in mind. If your case is on the wrong side of that line, a paid repair quote may be the faster path.",
+          },
+        ],
+      },
+      {
+        heading: "Step 3: Decide who to contact: the retailer or the manufacturer",
+        blocks: [
+          {
+            type: "p",
+            text: "Two separate things are often in play: the manufacturer's warranty on the product, and whatever rights you have against the shop that sold it. Consumer protection rules differ by country, and sometimes by region, so this guide cannot tell you which applies to you. In practice the retailer is often the quickest first contact for a recent purchase, while the manufacturer's support line is the route for a repair under its own warranty. If one points you to the other, ask them to say so in writing and keep that message.",
+          },
+        ],
+      },
+      {
+        heading: "Step 4: Make the claim and keep a written record",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Contact them in writing where you can. If you phone, note the date, the time, the person's name and any reference number.",
+              "Attach the receipt photo, state the purchase date and serial number, describe the fault in a few plain sentences, and ask what the next step is and how long it should take.",
+              "If you are asked to send the item in, back up your data, sign out of your accounts, remove any SIM or memory card, photograph it from all sides, and use a tracked service.",
+              "Keep the messages, reference numbers and dates in one place. A claim that drags on is much easier to chase when you can say exactly what was promised and when.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Step 5: If they refuse",
+        blocks: [
+          {
+            type: "p",
+            text: "Ask for the reason in writing; that is what you need to escalate. From there the options depend on where you live: a formal complaint to the company, a consumer protection body or ombudsman, a dispute through the card you paid with, or a small-claims route. Which of those exist and how they work varies by country, so look up the consumer rights body for your own country rather than relying on advice written for another one. Some credit cards also include extended warranty cover of their own; check your card's terms before assuming either way.",
+          },
+        ],
+      },
+      {
+        heading: "Having everything ready on your iPhone in 30 seconds",
+        blocks: [
+          {
+            type: "p",
+            text: "Everything in the checklist could have been captured the day you bought the product, which is what [Warranty Tracker & Receipt Log](/apps/warranty-tracker) is for. Adding a purchase takes about twenty seconds: name, store, price, purchase date, warranty length (6 months, 1, 2, 3 or 5 years, or any number you type) plus an extended warranty on top, and the app calculates the expiry date and a countdown. Photograph the receipt and the serial-number sticker, or pick them from your library; photos stay attached at full size. When something breaks, you open the item, show the receipt at the counter or attach the photo to an email, and copy the serial number into the support form with one tap.",
+          },
+          {
+            type: "p",
+            text: "Local notifications fire 90, 60, 30, 14, 7 or 1 day before a warranty ends, at the time of day you choose, so a fault in the last month of coverage gets claimed rather than discovered too late. The dashboard shows active, expiring soon and expired counts plus the total value still under warranty; you can filter by status, sort by expiry, and search by name, store or serial number. It works completely offline with no account, no cloud and no upload, and exports all items as CSV. It is a $0.99 one-time purchase (no subscription, no ads, no analytics), iPhone only, requires iOS 17 or later, 924.7 KB, in 19 languages, Family Sharing supported, with an App Store privacy label of \"Data Not Collected\". The [setup walkthrough](/blog/warranty-tracker-iphone-keep-receipts-get-reminded-before-expiry) covers adding your first items.",
+          },
+        ],
+      },
+      {
+        heading: "When a tracker won't help",
+        blocks: [
+          {
+            type: "p",
+            text: "The app only holds what you put in. If the item was bought before you started using it and the receipt is already gone, nothing on your phone can recreate proof of purchase; the retailer's order history or the confirmation email are your options. It does not know what your warranty covers: a fault from a drop is still a drop, however neatly the receipt is filed. It does not contact anyone, track a claim's progress or store your email thread with support. And because there is no cloud, the data lives on one iPhone: Family Sharing shares the purchase of the app, not the list of items, and there is no Android or Mac version. For a household inventory shared across devices, the CSV export into a spreadsheet is the practical route, as the [home inventory post](/blog/home-inventory-for-insurance-claims-iphone-warranty-tracker-receipts-serial-numbers-csv) describes.",
+          },
+          {
+            type: "p",
+            text: "Used for what it is, it removes the most common reason a valid claim fails: not being able to prove when and where you bought the thing. Photograph the receipt on the day, type the serial number once, and the claim itself is the only hard part left.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "transcribe-voice-memo-recorder-file-android-offline-voice-note-to-text",
+    title: "How to Transcribe a Voice Memo or Voice Recorder File on Android, Offline: Samsung Voice Recorder, Google Recorder, Voicemail and Interview Recordings to Text with Voice Note to Text",
+    description:
+      "Transcribe a voice memo on Android without uploading it: share the .m4a from Samsung Voice Recorder or any recorder app, or pick the file from Files, and read the text in Voice Note to Text: Offline. Works in airplane mode, around 100 languages.",
+    datePublished: "2026-11-10",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "You recorded a lecture, a meeting, a conversation with a landlord, or a two-minute note to yourself while driving, and now you need it as text. The recording sits in Samsung Voice Recorder or another recorder app as an audio file, and the usual advice for \"how to transcribe a voice memo\" on Android is to upload it to a website or pay a monthly plan. For a private recording that is a poor trade. This guide shows how to transcribe a voice memo on Android entirely on the phone, with no upload, using [Voice Note to Text: Offline](/apps/voice-note-to-text) from Google Play. The app is better known for WhatsApp voice notes (there is a separate [FAQ on reading WhatsApp voice notes as text on Android](/blog/read-whatsapp-voice-notes-as-text-android-offline-faq)); here the input is a file your own phone recorded.",
+          },
+        ],
+      },
+      {
+        heading: "The problem: a recorder app gives you audio, not text",
+        blocks: [
+          {
+            type: "p",
+            text: "Most Android recorder apps, including Samsung Voice Recorder and the built-in recorders on other brands, save recordings as audio files, typically .m4a. Voicemail saved from the phone app or forwarded by email usually arrives as .m4a, .mp3 or .wav. None come with a transcript. The exception is Google's Recorder app on Pixel phones, which has its own on-device transcription: if you own a Pixel and record with that app, you may not need a third app at all. Everyone else, and anyone with a file that did not come from Recorder, needs something that reads the file and produces text.",
+          },
+          {
+            type: "p",
+            text: "Voice Note to Text: Offline accepts any .opus, .m4a, .mp3 or .wav file, detects the language automatically from around 100 supported languages, and runs a speech-recognition model that ships inside the app. Nothing is uploaded, there is no account, and it works with no internet or in airplane mode. The Play listing says it contains ads, is a one-time purchase with no subscription, and was updated on 24 September 2026.",
+          },
+        ],
+      },
+      {
+        heading: "Method 1: Share from the recorder app",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Open your recorder app (Samsung Voice Recorder, the brand's own recorder, or any app that lists your recordings).",
+              "Long-press or open the recording and look for **Share**. In Samsung Voice Recorder it is in the ⋮ menu or the toolbar after you select a recording; other apps put it behind a share icon.",
+              "Android's share sheet opens. Pick **Voice Note to Text** from the list of apps.",
+              "Wait a few seconds while the app decodes the file and transcribes it on the phone. A longer recording takes proportionally longer.",
+              "Read the transcript, then tap **Copy** to paste it anywhere, or **Share** to send it as a .txt file.",
+            ],
+          },
+          {
+            type: "p",
+            text: "This is the same share sheet chat apps use to hand over a voice note. If your recorder app only offers to share a link or a cloud copy rather than the file itself, use Method 2.",
+          },
+        ],
+      },
+      {
+        heading: "Method 2: Pick the file from your file manager",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Open Voice Note to Text and use its option to pick a file. Android's file picker opens.",
+              "Browse to the folder your recorder saves into. On Samsung phones recordings are usually under **Recordings** or **Voice Recorder** in internal storage; on other phones look under **Recordings**, **Music** or **Sounds**. A voicemail you saved from the phone app or an email attachment is normally in **Download**.",
+              "Tap the .m4a, .mp3, .wav or .opus file. Transcription starts on the phone.",
+              "Copy or Share .txt as in Method 1.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Or go the other way: open the Files app, long-press the audio file, tap Share and choose Voice Note to Text.",
+          },
+        ],
+      },
+      {
+        heading: "Where to put the text afterwards",
+        blocks: [
+          {
+            type: "p",
+            text: "Tap **Copy** and paste into Google Keep for a quick note, into a Google Doc for a lecture or interview you will edit, or into Samsung Notes or whatever notes app you use. **Share as .txt** is better for longer recordings: send the file to Drive, to yourself by email, or into a Docs or Keep share target, and the text arrives as a document rather than a clipboard paste. Name it by date and subject, because `Voice 047` tells you nothing next month. Once it is text, the phone's own search finds it, which was the point.",
+          },
+        ],
+      },
+      {
+        heading: "Tips for long recordings: lectures, meetings, interviews",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Record closer to the speaker.** Distance and room echo hurt accuracy far more than length. A phone on the table in front of the person talking beats one in your pocket.",
+              "**A quiet room helps more than a better phone.** Air conditioning, traffic and a café behind the speaker all turn into wrong words.",
+              "**Split very long files.** A one-hour recording takes a while on a phone and is harder to proofread. Most recorder apps can trim; topic-sized chunks give smaller, labelled transcripts.",
+              "**Proofread names, numbers and technical terms.** These are what a speech model gets wrong most often. Play the recording at that spot once and fix the text.",
+              "**Keep the audio.** The transcript is the searchable copy; the recording is the evidence.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Privacy: the recording never leaves the phone",
+        blocks: [
+          {
+            type: "p",
+            text: "Interview recordings, voicemails and meeting audio are often the most sensitive files on a phone, which is why uploading them to a transcription website is uncomfortable. Voice Note to Text runs the model inside the app on your device: no upload, no account, no analytics. The easiest check is to switch on airplane mode and transcribe a file; it works the same. The app is independent and not affiliated with WhatsApp or Meta, nor with Samsung or Google; it simply reads the audio files those apps produce.",
+          },
+        ],
+      },
+      {
+        heading: "Honest limits",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Crosstalk and music.** Two people talking at once, or speech over background music, produces noticeably worse text, with every transcription tool.",
+              "**No speaker labels.** The transcript is plain text without speaker names. For an interview, add \"Q:\" and \"A:\" yourself while proofreading.",
+              "**Transcription, not translation.** The text comes out in the language that was spoken.",
+              "**Ads and a one-time purchase.** The Play listing says the app contains ads and offers a one-time purchase with no subscription; the price is on the store page. It is a young listing, at 100+ downloads when this was written.",
+              "**Pixel Recorder users.** If Google Recorder already transcribes your recordings on-device, use that; this app is for everyone else and for files Recorder did not make.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "FAQ",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**How do I transcribe a voice memo on Android without internet?** Share the file from your recorder app to Voice Note to Text, or pick it from Files inside the app. The model is inside the app, so it works in airplane mode.",
+              "**Which file types work?** .opus, .m4a, .mp3 and .wav. Samsung Voice Recorder and most other recorder apps save .m4a; voicemail is usually .m4a, .mp3 or .wav.",
+              "**Does it transcribe my language?** Around 100 languages are detected automatically; you do not pick one.",
+              "**Can I transcribe a voicemail?** Yes, once it is a file. Save it from your phone's voicemail screen if that option exists, or save the attachment from the voicemail email, then pick it from Download.",
+              "**Is there an iPhone version?** Yes; the [iPhone guide to transcribing voice memos, voicemail and interviews](/blog/transcribe-voice-memos-voicemail-interviews-iphone-offline) covers those steps. The Android app is on [Google Play](https://play.google.com/store/apps/details?id=com.vilva.wavoicetotext).",
+              "**What about WhatsApp voice notes that have no built-in transcript?** Same app, same steps; see [the fix for \"transcript not available for your language\" on Android](/blog/whatsapp-voice-transcript-not-available-for-your-language-android-fix).",
+            ],
+          },
+          { type: "p", text: DISCLAIMER },
+        ],
+      },
+    ],
+  },
 ];
