@@ -12229,4 +12229,452 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "teleprompter-for-recorded-q-and-a-and-ama-videos-answer-audience-questions-on-camera-iphone",
+    title:
+      "Teleprompter for Recorded Q&A and AMA Videos: How to Answer Audience Questions on Camera Without Sounding Scripted (iPhone)",
+    description:
+      "Record a Q&A or AMA video on iPhone: collect questions, script answers in three beats, read them to the lens with Teleprompter: Camera Overlay, cut into clips.",
+    datePublished: "2026-11-12",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "\"Answering your questions\" is one of the most reliable video formats there is: the audience wrote the brief. It is also the format where reading from a script is most obvious, because a Q&A is supposed to feel like a conversation. This post is a how-to for the **recorded** version: a Reel, Short, TikTok, YouTube community Q&A or LinkedIn video where you collect questions first, then answer them on camera in one sitting, using the free [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay) on iPhone. The app records video; it does not stream, so a genuine live AMA is a different animal, covered at the end. The [previous post](/blog/teleprompter-when-you-are-not-on-camera-interviews-two-person-videos-iphone) promised Q&A where the questions come from the audience; here they do, just a day or two earlier.",
+          },
+        ],
+      },
+      {
+        heading: "Step 1: collect the questions where your audience already talks",
+        blocks: [
+          {
+            type: "p",
+            text: "Three sources cover almost everyone:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Comments** on a recent post or video. Ask directly: \"What do you want to know about X? I'll answer the best ones on camera this week.\" Comments are public, so other people upvote the questions they share.",
+              "**Story question stickers** on Instagram or similar. Private, low effort for the asker, lots of short questions quickly. Screenshot the ones you like before the story expires.",
+              "**DMs and emails** you have already received. The question someone sent privately is usually the one ten others have but did not ask.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Paste every candidate into one note, verbatim, with the asker's first name or handle if you plan to credit them. Do not tidy the wording; the original phrasing is what makes the video sound like a real exchange.",
+          },
+        ],
+      },
+      {
+        heading: "Step 2: pick 5 to 8",
+        blocks: [
+          {
+            type: "p",
+            text: "Five to eight questions is enough for a satisfying long version and plenty of clips. Four tests: Was it asked more than once? Can you answer it in under 60 seconds? Does the answer show something you know rather than something you sell? Would the clip make sense to someone who did not ask it? Drop anything that needs a whiteboard or a lookup. Open with an easy, broad one, put the strongest answer in the middle, and let the last one tee up the next video. Merge near-duplicates and say so: \"A few of you asked this in different ways.\"",
+          },
+        ],
+      },
+      {
+        heading: "Step 3: script answers that still sound spontaneous",
+        blocks: [
+          {
+            type: "p",
+            text: "Script the structure, not the sentences. In the app, create one script for the whole session and write each question as its own heading line, **verbatim**, exactly as the person typed it. Then write the answer underneath in three beats:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Short answer.** One sentence. Yes, no, it depends on one thing.",
+              "**Why.** Two or three sentences of reasoning in the words you would use to a friend. Contractions, half-sentences, a \"honestly\" if that is how you talk.",
+              "**Example.** One concrete case, ideally your own. Examples are what people remember and what makes a clip shareable.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Leave a blank line after every example: that gap is where you pause, and where the next question begins when you glance back. If an answer runs past six lines, cut the why, not the example. The rules for [writing a script that does not sound written](/blog/write-a-script-that-doesnt-sound-written) apply doubly here, because the audience knows what a real answer sounds like: they asked the question.",
+          },
+        ],
+      },
+      {
+        heading: "Step 4: read the question on camera the way a host would",
+        blocks: [
+          {
+            type: "p",
+            text: "The script floats over the camera preview next to the front lens, so reading the question is looking at the viewer. Three habits make it natural:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Read the question aloud, verbatim, as a question.** Let your voice go up at the end. If you credit the asker, say the name first: \"Priya asks, how do you...\" Reading it word for word is what a TV host does with a viewer letter; it reads as faithful, not scripted.",
+              "**Pause for a beat before the short answer.** A half-second of thinking face separates a conversation from a recital. Voice-follow does not mind the silence; it waits.",
+              "**Give the short answer to the lens, not to the text.** You wrote one sentence so you could say it from memory. Then drop back to the script for the why.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Voice-follow: the script waits while you ad-lib",
+        blocks: [
+          {
+            type: "p",
+            text: "Q&A is the format where voice-driven scrolling earns its place. The app listens with Apple's on-device speech recognition and advances the script only as you say the words. So when the example reminds you of a second example and you go off on it for twenty seconds, the text stays at the line you left; when you read the next question, it finds your place again. Stumble or restart a sentence and it re-syncs rather than running away. Recognition runs on the phone, the language is detected automatically and nothing is uploaded, so a Q&A in German or Spanish needs no settings change.",
+          },
+          {
+            type: "p",
+            text: "Classic auto-scroll is the better choice when the answers are tightly written and you want a fixed tempo for a very short clip, or when the room is noisy enough that speech recognition struggles. Set the speed with the slider, tap to pause between questions, drag to jump if you skip one. In either mode, turn the text size up a notch; you will look away and back more often than in a monologue.",
+          },
+        ],
+      },
+      {
+        heading: "Step 5: batch-record the whole Q&A, then cut into clips",
+        blocks: [
+          {
+            type: "p",
+            text: "Record the whole session in one sitting, in portrait 4K, from the front camera. Two ways work. One long take with a clear pause between answers gives natural edit points and a consistent look. Or stop and restart between questions, which leaves one take per question in the takes library and makes the clip export almost mechanical. Either way the saved video has no script on it, so every take is a clean, post-ready clip.",
+          },
+          {
+            type: "p",
+            text: "The payoff is one shoot, many posts: the full Q&A for YouTube or LinkedIn, and each answer as a Reel, Short or TikTok captioned with the question. Because the question is read aloud at the top of each answer, every clip stands alone without an intro.",
+          },
+        ],
+      },
+      {
+        heading: "When NOT to script a Q&A",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**A genuine live AMA.** If the questions arrive while you are on air, there is nothing to script, and this app records rather than streams, so it cannot overlay text on an Instagram or TikTok live anyway. The [webinars and live streams post](/blog/teleprompter-for-webinars-and-live-streams) covers the realistic options: a second iPhone under the lens for the scripted open and close, and improvising the rest.",
+              "**Sensitive questions.** Health, money, a public mistake, someone's grief. A scripted answer to a painful question sounds evasive even when it is kind. Three words as a cue, then look at the lens and speak.",
+              "**When reading makes it sound like PR.** If the honest answer is \"we got that wrong\", the audience can hear a comms team in a tidy three-beat structure. For the one question that needs sincerity, take the scaffold down.",
+              "**When you know the answers cold.** If you could answer each at a dinner table without thinking, put only the verbatim questions in the app and use it as a question list.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "A sample 90-second, two-question script",
+        blocks: [
+          {
+            type: "p",
+            text: "Two questions, roughly 45 seconds each, as it would sit in the app: verbatim question lines, three-beat answers, a blank line after each:",
+          },
+          {
+            type: "code",
+            language: "text",
+            code: "Sam asks: \"Do I need a ring light to start?\"\n\nNo. A window is better than any light you can buy for under a hundred.\nRing lights put a doughnut in your eyes and flatten your face; daylight from the side gives you shape for free.\nMy first forty videos were shot facing the kitchen window at 9 a.m. The one I did with a ring light is the one I deleted.\n\n\nLena asks: \"How long should a how-to video be?\"\n\nAs long as the one thing you are teaching, and not a second longer.\nPeople leave when they get the answer, so a 40-second clip that answers one question beats a 6-minute one that answers four.\nI cut a 5-minute tripod video into three clips last month. The 38-second one about phone height outperformed the full version by a mile, because it answered the question in the title and stopped.",
+          },
+          {
+            type: "p",
+            text: "Read Sam's question to the lens, pause, say the first sentence from memory, then let the script carry you through the why and the example. The blank lines after \"deleted\" are the cue to stop, breathe and pick up Lena's question. Wander into a second window story and the script waits.",
+          },
+        ],
+      },
+      {
+        heading: "What the app does and does not do",
+        blocks: [
+          {
+            type: "p",
+            text: "Teleprompter: Camera Overlay is iOS-only and free: every feature works in the free version, with an occasional ad and a small one-time purchase to remove ads for good. No subscription, no watermark. Scripts are unlimited and sit beside the takes library; speech recognition and recording run 100% offline on the iPhone. It records portrait 4K with the script on the preview only, so nothing you read appears in the saved file. It does not stream, and it does not edit: cutting into clips happens in whatever editor you already use.",
+          },
+          {
+            type: "p",
+            text: "Next in this series: using a teleprompter for course-launch and announcement videos, the \"big news\" video where every word has been argued over and still has to sound like you.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "whatsapp-link-with-pre-filled-message-iphone-how-to-write-it-url-encode-it-and-turn-it-into-a-qr-code",
+    title:
+      "WhatsApp Link With a Pre-Filled Message on iPhone: How to Write It, URL-Encode It and Turn It Into a QR Code (8 Copy-Paste Templates)",
+    description:
+      "Create a WhatsApp link with a message on iPhone: the wa.me text parameter, URL encoding by hand vs in the app, 8 copy-paste templates, and the QR code.",
+    datePublished: "2026-11-12",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "A plain wa.me link opens a chat. A **WhatsApp link with a pre-filled message** opens the chat with the first message already typed, so the person only has to tap send. Instead of \"Hi\" and a pause, you get \"Hi, I saw your ad for the studio flat and would like to book a viewing\", and you know which ad they saw. This guide covers how the message part of the link works, how to URL-encode it by hand, why most people should not, eight ready-to-paste templates, and how to turn the finished link into a QR code on an iPhone.",
+          },
+          {
+            type: "p",
+            text: "The basics of the link itself (country code, no plus sign, no leading zero) are in the earlier [wa.me link generator guide](/blog/whatsapp-link-generator-qr-code-full-size-dp), and if a link you already have is misbehaving, the [wa.me format checked line by line](/blog/wa-me-link-not-working-wame-format-checked-line-by-line-iphone) post is the troubleshooting version. This one is about the message.",
+          },
+        ],
+      },
+      {
+        heading: "What the pre-filled text actually does",
+        blocks: [
+          {
+            type: "p",
+            text: "When someone taps a click-to-chat link, WhatsApp opens a conversation with the number in the link. If the link also carries a `text=` part, WhatsApp decodes it and places it in the message box of that conversation, unsent. Nothing goes out until the person taps send, and they can edit or delete the text first. Neither side needs the other saved as a contact. It works the same whether your number is a personal WhatsApp account or a WhatsApp Business one.",
+          },
+          {
+            type: "p",
+            text: "Two consequences follow. The message is a suggestion, not a form: people change it. And it is part of the link, so a different message means a different link, which is how you tell placements apart.",
+          },
+        ],
+      },
+      {
+        heading: "The wa.me text parameter and URL encoding by hand",
+        blocks: [
+          {
+            type: "p",
+            text: "The format is `https://wa.me/<number>?text=<message>`, and the catch is that a web address cannot contain spaces, line breaks or most punctuation as they are. Every such character has to be written as a percent sign followed by its code. Spaces become `%20`, a line break becomes `%0A`, an apostrophe `%27`, an ampersand `%26`, a question mark inside the message `%3F`. A short example, written out:",
+          },
+          {
+            type: "code",
+            language: "text",
+            code: "Message:  Hi, I'd like to book a table\n\nLink:     https://wa.me/14155550142?text=Hi%2C%20I%27d%20like%20to%20book%20a%20table",
+          },
+          {
+            type: "p",
+            text: "Doable for twelve plain English words. It falls apart with anything else. Emoji and accented letters are stored as several bytes each, so a single thumbs-up is `%F0%9F%91%8D` and a German u-umlaut is `%C3%BC`; typed by hand on a phone keyboard, these come out as question marks or stop the link dead at the first unencoded character. A message with an `&` in it that is not encoded loses everything after the `&`, because the browser reads it as the start of a new parameter. A real line break pasted into a bio ends the link right there.",
+          },
+          {
+            type: "p",
+            text: "This is the job [Chat Link & QR Code Maker](/apps/chat-link-qr-code-maker) exists for. You type the number and the message as normal text, with apostrophes, emoji, umlauts and line breaks, and the app builds the encoded link. **Copy link** puts it on the clipboard, **Open chat** hands it to WhatsApp so you can see the message sitting in the box before anyone else does, and **Save QR to Photos** makes the printable version covered further down. It is iPhone only, a $2.99 one-time purchase, runs offline, and uploads nothing: the number and the message are turned into a link on the phone.",
+          },
+        ],
+      },
+      {
+        heading: "Eight copy-paste templates by use case",
+        blocks: [
+          {
+            type: "p",
+            text: "Paste any of these into the message field as plain text; the app does the encoding. The blanks (___) are for the customer to fill in, and each template starts with the thing you most need to know.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Market stall, order enquiry:** Hi! I'm at your stall at the Saturday market. Do you have ___ in stock, and can I reserve one?",
+              "**Salon, appointment booking:** Hi, I'd like to book a ___ on ___ around ___. Is that slot free?",
+              "**Freelancer, quote request:** Hello, I'm looking for a quote for ___. Rough timeline: ___. Budget range: ___.",
+              "**\"I saw your ad\":** Hi, I saw your ad for ___ and I'm interested. Is it still available?",
+              "**Support request with order number:** Hi, I need help with order #___. The issue is: ___",
+              "**Event RSVP:** Hi! I'd like to RSVP for ___ on ___. Number of guests: ___",
+              "**Real-estate viewing:** Hello, I'd like to arrange a viewing of the property at ___. I'm available on ___.",
+              "**Restaurant table:** Hi! Table for ___ people on ___ at ___, please. Any allergies: ___",
+            ],
+          },
+          {
+            type: "p",
+            text: "Each one reads as something a customer would say, names the context (stall, ad, order number) so you know where the chat came from, and asks for exactly the details you would otherwise spend two messages extracting.",
+          },
+        ],
+      },
+      {
+        heading: "Tips that make the difference",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Keep it under about two lines.** A long pre-filled message gets deleted wholesale, and if the link later becomes a QR code, every extra character makes the code denser and harder to scan.",
+              "**Put the identifier first.** \"Hi, I'm at your stall\" or \"about order #\" at the start survives even if the customer trims the rest.",
+              "**Never pre-fill personal data.** No names, addresses or phone numbers in the link; the link is public and anyone who taps it sends whatever is in it.",
+              "**Test with Open chat.** Before the link goes in a bio or to a printer, open it once and check the message is complete and the chat has the right number at the top.",
+              "**One link per campaign.** Instagram bio, flyer, invoice footer: give each its own first line, and the inbox tells you where the enquiries come from without any tracking.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "From link to printable QR code",
+        blocks: [
+          {
+            type: "p",
+            text: "On a screen a tappable link wins. On anything printed, the same link needs to be a QR code, and the message travels inside it. Build the link with the message for that placement and tap **Save QR to Photos**: the code is saved as a full-resolution PNG with no watermark, which is what a printer needs. Keep the white margin, print black on white, and scan a test print with a second phone. The [menu and shop counter guide](/blog/whatsapp-qr-code-for-restaurant-menu-shop-counter-iphone) covers print sizes and placement; a shorter message keeps the code scannable at small sizes.",
+          },
+        ],
+      },
+      {
+        heading: "Where to paste it, and the trade-offs",
+        blocks: [
+          {
+            type: "p",
+            text: "The link goes anywhere a web address works: an Instagram or TikTok bio (\"Hi! Coming from Instagram, is ___ still available?\"), an email signature as a \"Chat on WhatsApp\" line, an invoice footer (\"Hi, I have a question about invoice ___\"), a Google Business Profile, a Facebook page or your own website, each with its own first line.",
+          },
+          {
+            type: "p",
+            text: "Three limits. The person tapping still needs WhatsApp; without it the link lands on a web page offering the app and the message never appears, so print a number or email next to it for audiences that are not on WhatsApp. A pre-filled message can feel like spam: \"I want to buy your premium package today\" in the customer's voice is transparently your words, and some people will delete it or close the chat, so keep it to what a customer would genuinely ask. And a link is fixed once published: change the message and you have a new link and, if printed, a new QR code.",
+          },
+        ],
+      },
+      {
+        heading: "FAQ",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Does the message send automatically?** No. It is placed in the message box and the person taps send, or edits it, or deletes it.",
+              "**Can I pre-fill a message to a WhatsApp Business number?** Yes. wa.me links work for any number registered on WhatsApp or WhatsApp Business, in international format.",
+              "**Can I use emoji in the message?** Yes, if the link is encoded properly, which the app does. By hand, emoji are the most common reason a link breaks.",
+              "**Is there an Android version?** Yes, on Google Play; the [app page](/apps/chat-link-qr-code-maker) links to both stores.",
+              "**Does the iOS app need internet or an account?** Neither. It works offline, has no account, and the App Store privacy label is \"Data Not Collected\". It requires iOS 15.1 or later.",
+            ],
+          },
+          { type: "p", text: DISCLAIMER },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "whatsapp-link-for-instagram-bio-and-tiktok-profile-android-make-a-wa-me-link-and-qr-code-that-opens-your-chat",
+    title:
+      "WhatsApp Link for Your Instagram Bio and TikTok Profile on Android: Make a wa.me Link (and QR Code) That Opens Your Chat",
+    description:
+      "Put a WhatsApp link in your Instagram bio, TikTok profile or email signature from Android: build the wa.me link, one per platform, add the QR code, keep your number private.",
+    datePublished: "2026-11-12",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "\"DM me for prices\" is the most common call to action on Instagram and TikTok, and it is a bad one. A direct message lands in a requests folder, gets buried under likes, and gives the person no idea what to write. A **WhatsApp link in your bio** does three things a DM cannot: it opens a chat on the app your customers already answer, it needs no contact saving on either side, and the pre-filled first line tells you which profile they came from. This is the Android guide for a creator, a shop, a salon or a freelancer: the link, where it goes on each platform, one link per source, the matching QR code for print, and the privacy question nobody asks until a stranger messages their personal number at midnight.",
+          },
+          { type: "p", text: DISCLAIMER },
+        ],
+      },
+      {
+        heading: "Why a wa.me link beats \"DM me\"",
+        blocks: [
+          {
+            type: "p",
+            text: "A click-to-chat link is `https://wa.me/<number>` with the number in international format and, optionally, `?text=` followed by a URL-encoded message. Tapping it on a phone with WhatsApp opens a chat with that number, with the message already typed and waiting for send. Nobody saves anybody, and the conversation lives in an app people check more reliably than a social inbox. The [Android post on messaging without saving a number](/blog/send-whatsapp-message-without-saving-number-android) explains the mechanics; here the point is the other direction, people reaching you.",
+          },
+          {
+            type: "p",
+            text: "The pre-filled message turns the link into a small analytics tool. A link whose message starts \"Hi! Coming from your Instagram\" and another that starts \"Hi! Saw you on TikTok\" land in the same inbox, but every chat tells you where it started. No tracking pixel, no link shortener, no third party.",
+          },
+        ],
+      },
+      {
+        heading: "Step by step on Android",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Install [Chat Link & QR Code Maker](/apps/chat-link-qr-code-maker) from the Play Store (free, with ads) and open it.",
+              "Type the number people should reach, with its country code and digits only: 919876543210 for an Indian number, 447700900123 for a UK one. The app strips a plus sign, spaces and the leading zero of the local part if you paste them in.",
+              "Type the pre-filled message as plain text, emoji included, for example **Hi! Coming from your Instagram, is ___ still available?** The app URL-encodes it; you never have to think about `%20`.",
+              "Generate the link. It appears with its QR code underneath. Copy the link.",
+              "Open the chat from the app once to check it lands on the right number with the message in the box. This is the test that catches a wrong digit.",
+              "Paste the link where it belongs on each platform (next section), then tap it from a second phone that has never messaged you.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Everything happens on the phone: the app works offline, needs no account and uploads nothing. The Play listing notes that it contains ads and was last updated on 24 September 2026.",
+          },
+        ],
+      },
+      {
+        heading: "Where the link goes on each platform",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Instagram bio.** Instagram lets you add links to your bio from the Edit profile screen; paste the wa.me link there with a label such as \"Chat on WhatsApp\". In Stories, the link sticker takes the same link, useful for a product drop where you want the enquiry to mention it.",
+              "**TikTok profile.** Where a website field is available for your account, paste the link there. Whether the link is clickable varies by account type and region, so check your own profile rather than assuming.",
+              "**Facebook page.** Pages have an action button and an About section with a website field; use whichever lets you paste a link. Facebook's own WhatsApp button, where offered, opens a plain chat without your per-placement message.",
+              "**YouTube \"about\" section.** Channels can list links; add the wa.me link with a message that says \"Hi! Coming from YouTube\".",
+              "**Linktree-style pages.** Add it as one of the buttons, replacing a bare phone number if there is one.",
+              "**Email signature.** A one-line \"Chat with me on WhatsApp\" link, with a neutral message like \"Hi, I'm following up on your email about ___\".",
+            ],
+          },
+          {
+            type: "p",
+            text: "Each is a paste into a field that accepts a web address. A wa.me link is an ordinary https link; no platform needs anything special to show it.",
+          },
+        ],
+      },
+      {
+        heading: "One link per platform, a different first line each",
+        blocks: [
+          {
+            type: "p",
+            text: "The number is the same in every link; only the message changes. Build them in one sitting and keep a note of which is which:",
+          },
+          {
+            type: "list",
+            items: [
+              "Instagram bio: **Hi! Coming from your Instagram. I'd like to ask about ___**",
+              "Instagram story sticker: **Hi! Saw the story about ___, is it still available?**",
+              "TikTok profile: **Hi! Found you on TikTok. Do you ship to ___?**",
+              "YouTube about: **Hi! Watched your video on ___ and I'd like to book ___**",
+              "Email signature: **Hi, this is about the email regarding ___**",
+            ],
+          },
+          {
+            type: "p",
+            text: "Keep each under about two lines, lead with the source word, and never put personal data in the message; the link is public and anyone who taps it sends whatever is inside. Some people will delete the text and write their own; the chat still opened.",
+          },
+        ],
+      },
+      {
+        heading: "The same campaign on paper: the QR code",
+        blocks: [
+          {
+            type: "p",
+            text: "A flyer, a sticker on packaging or a card at a stall needs the same link as a QR code, and the app makes it from the link you just built. Save the QR code to the gallery (a full-resolution PNG with no watermark) and share it from the Android share sheet to a print app, Google Drive or your designer. Give it a message of its own, **Hi! I scanned your flyer at ___**, so the printed campaign is distinguishable from the bio link too. Print sizes, margins and the second-phone test are in the [Android QR code generator guide](/blog/whatsapp-qr-code-generator-android-convert-link-to-qr-print-share).",
+          },
+        ],
+      },
+      {
+        heading: "Keep your personal number private",
+        blocks: [
+          {
+            type: "p",
+            text: "A wa.me link does not hide the number. Anyone who taps it opens a chat with that number and can see it. Put your personal number in a bio with ten thousand followers and your personal number is public. The fix is to give the link a number you are happy to receive strangers on:",
+          },
+          {
+            type: "list",
+            items: [
+              "**A WhatsApp Business number** on a second SIM or a dual-SIM phone, so the chat shows a business profile rather than your personal photo and you can mute it after hours.",
+              "**A separate cheap handset** for the business line, if your main phone is also your family phone.",
+              "**Business hours in the profile**, so a midnight enquiry does not feel like a failure to reply.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Trade-offs to know before you publish",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Bio links are limited.** Instagram allows a limited number of links in a bio, so the WhatsApp link competes with your shop and your newsletter. If the chat is where sales happen, give it the first slot.",
+              "**Leave-app warnings.** Some apps show an interstitial (\"you're leaving\" or \"open in WhatsApp?\") before handing off. That is normal, not a broken link; it costs one extra tap.",
+              "**Followers without WhatsApp get nothing.** The link lands on a web page offering the app. If much of your audience is not on WhatsApp, keep a DM or email option alongside.",
+              "**A published link is fixed.** Change the message and you have a new link to paste everywhere again.",
+              "**Free with ads.** The Android app shows ads and its Play Store data-safety section notes that device or other IDs may be collected for them; the link building itself runs offline on the phone.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "FAQ",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Can I put a WhatsApp link in my Instagram bio?** Yes. Build the wa.me link, copy it and paste it into the link field of Edit profile. Any https link works there.",
+              "**Do followers need my number saved?** No. Click-to-chat opens the conversation without a contact on either side.",
+              "**Does the link work for WhatsApp Business?** Yes, for any number registered on WhatsApp or WhatsApp Business, entered in international format.",
+              "**Does the Android app need internet?** No. The link and the QR code are generated on the phone and it works in airplane mode; only the ads need a connection.",
+              "**Is there an iPhone version?** Yes, as a one-time purchase on the App Store; the [app page](/apps/chat-link-qr-code-maker) links to both stores.",
+            ],
+          },
+          { type: "p", text: DISCLAIMER },
+        ],
+      },
+    ],
+  },
 ];

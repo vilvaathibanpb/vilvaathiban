@@ -10162,6 +10162,182 @@ node --import=tsx your-file.ts`,
       },
     ],
   },
+  {
+    slug: "nodejs-security-release-november-11-2026-is-out-26-13-1-24-22-3-22-23-5-sixteen-cves-what-to-upgrade",
+    title:
+      "Node.js November 11, 2026 Security Release Is Out: 26.13.1, 24.22.3 and 22.23.5 Fix 16 CVEs (7 High). What to Upgrade and Why",
+    description:
+      "Node.js 26.13.1, 24.22.3 and 22.23.5 are out, fixing 16 CVEs, 7 high (HTTP/2, HTTPS, TLS). Who is exposed, how to upgrade, what to do if you can't yet.",
+    datePublished: "2026-11-12",
+    readingMinutes: 8,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "The Node.js security release announced for November 11 has landed. [The earlier post](/blog/nodejs-november-2026-security-releases-november-11-what-we-know) covered what was known in advance; this one covers what actually shipped, which of the 16 CVEs matter for a typical server, and how to get patched before the weekend. Short version: if you run Node 26, 24 or 22, upgrade to **26.13.1**, **24.22.3** or **22.23.5**. If you run an `http2` server or an HTTPS server on any of those lines, do it today rather than next sprint.",
+          },
+        ],
+      },
+      {
+        heading: "What shipped on November 11, 2026",
+        blocks: [
+          {
+            type: "p",
+            text: "The Node.js project published [Wednesday, November 11, 2026 Security Releases](https://nodejs.org/en/blog/vulnerability/november-2026-security-releases) with updates for the three supported lines. The highest severity is **high** on every line, and as the announcement reminds, End-of-Life versions are always affected when a security release occurs: Node 20 and 18 have the same bugs with no fix coming.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Node.js 26.13.1**, the current LTS line ([release notes](https://nodejs.org/en/blog/release/v26.13.1)); 26.13.0 was the LTS release of October 28.",
+              "**Node.js 24.22.3**, also LTS ([release notes](https://nodejs.org/en/blog/release/v24.22.3)).",
+              "**Node.js 22.23.5**, the maintenance line ([release notes](https://nodejs.org/en/blog/release/v22.23.5)).",
+            ],
+          },
+          {
+            type: "p",
+            text: "Dependency bumps: **llhttp** on 22.x, 24.x and 26.x, **undici** on 24.x and 26.x, **sqlite** on 22.x and 24.x. Node 27 exists only as an alpha and is not part of this release. In total the three releases patch 16 CVEs: 7 high, 6 medium and 3 low.",
+          },
+        ],
+      },
+      {
+        heading: "The 7 high-severity CVEs in plain language",
+        blocks: [
+          {
+            type: "p",
+            text: "All seven high-severity issues sit in the HTTP/2, HTTPS and TLS server code, and most need nothing more than an unauthenticated client that can reach your port. Grouped by theme:",
+          },
+          {
+            type: "list",
+            items: [
+              "**HTTP/2 server crashes and memory leaks (CVE-2026-123863, CVE-2026-123865).** The first is a reachable assertion in HTTP/2 session teardown: any client can abort the server, over TLS or cleartext, if the handler responds before the request body has ended on an otherwise default `http2` server. A variant of CVE-2024-27983; affects 24.x and 26.x. The second: an HTTP/2 session never cleans up if a protocol error happens during shutdown, which the attacker can start remotely with GOAWAY(NO_ERROR), leaving memory and file descriptors permanently leaked and sockets stuck in CLOSE_WAIT. The incomplete-fix case of CVE-2026-48937; affects all three lines.",
+              "**HTTP/2 use-after-free on stream teardown (CVE-2026-123866, CVE-2026-123874).** If a stream is torn down while a write is still backpressured, for example after a peer RST_STREAM or a per-stream timeout, freed or unrelated heap memory can be written to the socket. On 26.x and 24.x this is remotely drivable once the window-size change from 26.9.0 and 24.22.0 is present. The second issue is the `respondWithFile()` version: a stream reset during a pending write lets an unauthenticated client corrupt server memory when files are served with `respondWithFile()` or `respondWithFD()`. Affects 24.x and 26.x.",
+              "**HTTPS re-entrancy memory disclosure (CVE-2026-123864).** A zero-length TLS write re-enters `llhttp_execute()` and the server copies its own heap into the request body. An unauthenticated client can read memory belonging to other connections, including TLS private keys and other users' requests. It requires a handler that calls `res.flushHeaders()` before the request body ends and later calls `res.end()` with a non-empty chunk. Cleartext `node:http` is not affected; HTTPS on 22.x, 24.x and 26.x is.",
+              "**TLS server crash via deferred handshake callbacks (CVE-2026-126051).** When a TLS server uses `SNICallback`, `OCSPRequest`, `newSession` or `resumeSession` hooks, or `server.addContext()`, a crafted client hello followed by FIN makes the process raise an uncaught exception instead of emitting `'error'`. Affects 24.x and 26.x.",
+              "**TLS 1.2 renegotiation client-certificate bypass (CVE-2026-123872).** A client can renegotiate and change the servername unilaterally, which bypasses per-hostname client-certificate policies. If you rely on different mTLS rules per hostname on one server, this is the one to read twice. Affects all three lines.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "The 6 medium-severity CVEs",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**CVE-2026-123828**: HTTP/2 heap-buffer-overflow in `session.altsvc()` when an attacker-controlled `:authority` with a long origin is passed in (one-byte overflow). 24.x, 26.x.",
+              "**CVE-2026-123867**: CA-only SNI contexts (`server.addContext(host, { ca })` with no server certificate in that context) fail open to the default CA, bypassing per-host mTLS authorization. All lines.",
+              "**CVE-2026-123868**: HTTP/2 inbound data queued on an undrained stream is charged to no session budget, so `maxSessionMemory` neither bounds it nor refuses new streams; roughly 10 wire bytes per one-byte data frame versus about 114 bytes retained. 24.x, 26.x.",
+              "**CVE-2026-123871**: proxy credentials disclosed in `ERR_PROXY_INVALID_CONFIG` error messages, four error paths missed by the CVE-2026-48615 fix. All lines.",
+              "**CVE-2026-123877**: certificate validation bypass in `https.Agent` via cross-policy TLS session reuse; a request that omits `ca` and one that passes `ca: []` share the same session-cache key, so a resumed TLS 1.3 session carries the broader authentication forward. All lines. Snippet below.",
+              "**CVE-2026-123875**: cancelling one `respondWithFile()` download crashes the server (NULL dereference in StreamPipe). All lines.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "The 3 low-severity CVEs",
+        blocks: [
+          {
+            type: "p",
+            text: "Two of the three are Permission Model issues, relevant only if you run with `--permission`: CVE-2026-123829 lets recursive `fs.watch` leak the names (not contents) of denied descendants on macOS and Windows when an exact read grant is in place, and CVE-2026-106071 is a wildcard over-grant where, for example, `--allow-fs-read=/etc/passwd.*` also allows reading `/etc/passwd` when the wildcard sits directly under the root of the permission tree. The third, CVE-2026-123862, is a zlib edge case: a pending `params()` plus `destroy()` throws an uncatchable `ERR_INTERNAL_ASSERTION`, but only if `deflate.params()` is called while streaming to a peer, which is uncommon. All three affect 22.x, 24.x and 26.x.",
+          },
+        ],
+      },
+      {
+        heading: "Who is actually exposed",
+        blocks: [
+          {
+            type: "p",
+            text: "The groups that should treat this as urgent rather than routine:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Anyone running a `node:http2` server** that is reachable from the internet. Seven of the sixteen CVEs are HTTP/2, and several need only a default server and an unauthenticated client.",
+              "**HTTPS servers using the `flushHeaders()` pattern**: send headers early, finish the body later. Server-sent events, long-polling and streaming responses often do exactly this, and the memory disclosure can expose private keys.",
+              "**TLS servers with SNI, OCSP or session hooks, or per-host mTLS** via `addContext()`. Multi-tenant gateways and anything that picks a certificate per hostname fall in here, both for the crash and for the two client-cert bypasses.",
+              "**`https.Agent` users mixing `ca` settings** on one Agent, for example a service that talks to an internal API with a private CA and to public APIs with the default store.",
+              "**`--permission` users**, for the two low-severity bypasses.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "How to upgrade",
+        blocks: [
+          {
+            type: "p",
+            text: "Pin to the exact patched version with whatever manages Node on your machines and in CI:",
+          },
+          {
+            type: "code",
+            language: "bash",
+            code: "# nvm\nnvm install 26.13.1 && nvm use 26.13.1\n\n# fnm\nfnm install 26.13.1 && fnm use 26.13.1\n\n# volta\nvolta install node@26.13.1\n\n# Dockerfile: pin the patch version, not the major\nFROM node:26.13.1-alpine\n\n# on 24.x or 22.x use 24.22.3 / 22.23.5 instead",
+          },
+          {
+            type: "p",
+            text: "Check that the Docker tag exists before pushing the change; official images follow the release. Then verify what is actually running, in every environment:",
+          },
+          {
+            type: "code",
+            language: "bash",
+            code: "node -v\n# v26.13.1, v24.22.3 or v22.23.5  -> patched\n# any other 26.x / 24.x / 22.x    -> upgrade\n# v20.x or v18.x                   -> End-of-Life, no fix is coming",
+          },
+          {
+            type: "p",
+            text: "Two things trip people up. `npm audit` only looks at `node_modules`; it knows nothing about the runtime, so a clean audit says nothing about these CVEs. And Node 20 and 18 are End-of-Life and get nothing from this release; if you are still on 20, the fix is a major upgrade, and the [Node 26 LTS post](/blog/nodejs-26-lts-october-2026-which-node-version-to-use-new-release-schedule) walks through which line to pick.",
+          },
+          {
+            type: "p",
+            text: "The `https.Agent` issue (CVE-2026-123877) is fixed by the upgrade, but the pattern behind it is worth recognising in your own code:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const https = require(\"https\");\nconst agent = new https.Agent({ keepAlive: true });\n\n// Request A: no ca option, default trust store\nhttps.get({ host: \"api.example.com\", agent }, onResponse);\n\n// Request B: ca: [] on the same Agent\nhttps.get({ host: \"api.example.com\", agent, ca: [] }, onResponse);\n\n// Before 26.13.1 / 24.22.3 / 22.23.5 both got the same\n// session-cache key, so a resumed TLS 1.3 session from A\n// could satisfy B. Safer on any version: one Agent per\n// CA policy, never mixed on a shared keep-alive Agent.",
+          },
+        ],
+      },
+      {
+        heading: "If you cannot upgrade today",
+        blocks: [
+          {
+            type: "p",
+            text: "None of the following replaces the patch, but each reduces the surface until you can ship it:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Put HTTP/2 behind a terminating proxy.** If nginx, Envoy, a cloud load balancer or similar speaks HTTP/2 to the client and HTTP/1.1 to Node, the HTTP/2 session code in Node is no longer reachable from outside.",
+              "**Terminate TLS outside Node** for the same reason: the HTTPS re-entrancy bug, the handshake-callback crash and the renegotiation bypass all live in Node's TLS and HTTPS layers.",
+              "**Prefer TLS 1.3 and avoid relying on TLS 1.2 renegotiation.** Node's `tls` options let you set a minimum protocol version; if your clients support it, requiring TLS 1.3 takes the renegotiation bypass off the table. Check your client population first.",
+              "**Watch for leaks.** Rising file-descriptor counts and sockets in CLOSE_WAIT on an HTTP/2 server are the symptom of CVE-2026-123865.",
+            ],
+          },
+          {
+            type: "p",
+            text: "While you are in the server code, check that outbound requests have timeouts too; see [AbortSignal.timeout and AbortSignal.any for request timeouts](/blog/abortsignal-timeout-any-request-timeouts).",
+          },
+        ],
+      },
+      {
+        heading: "FAQ",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Is Node 26 LTS?** Yes. Node 26 entered LTS in October 2026 and 26.13.1 is the November 11 security update. As of November 2026 the supported lines are 26 (LTS), 24 (LTS) and 22 (maintenance).",
+              "**Do I need to change any code?** No. All sixteen fixes are in the runtime. Upgrade, restart, check `node -v`.",
+              "**Did Node 27 get a release?** No. Node 27 exists only as an alpha and is not part of this security release.",
+              "**I am on Node 20. What now?** Node 20 is End-of-Life: affected, unpatched. Plan the jump to 22, 24 or 26; the Node 26 LTS post linked above compares them.",
+              "**Where is the authoritative list?** The [Node.js security releases announcement](https://nodejs.org/en/blog/vulnerability/november-2026-security-releases) and the [Node.js security policy](https://nodejs.org/en/security/).",
+            ],
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
   ...mcpGuides,
 ];
