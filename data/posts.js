@@ -10338,6 +10338,210 @@ node --import=tsx your-file.ts`,
       },
     ],
   },
+  {
+    slug: "temporal-is-not-defined-fix",
+    title:
+      "Temporal is not defined: why the Temporal API is missing in your browser or Node version and how to fix it (polyfill, feature detection, Node 26)",
+    description:
+      "Fix ReferenceError: Temporal is not defined. Temporal API browser support (Chrome 144+, Firefox 139+, Node 26, not stable Safari), polyfill, feature detection.",
+    datePublished: "2026-11-13",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "You call `Temporal.Now.plainDateISO()` and the console answers **ReferenceError: Temporal is not defined**. Or TypeScript stops you earlier with **Cannot find name 'Temporal'**. Both mean the runtime you are on, or the types you compile against, do not know the Temporal API. As of November 2026 that is an everyday situation: Temporal is on by default in current Chrome, Firefox and Node 26, and absent from every stable Safari and from the Node 24 and 22 lines. This is the fix-it post, in the same pattern as [structuredClone is not defined](/blog/structuredclone-is-not-defined-fix), [Object.groupBy is not a function](/blog/object-groupby-is-not-a-function-fix) and [Set.prototype.union is not a function](/blog/set-union-is-not-a-function-fix): where Temporal exists, where it does not, and four ways to make the error go away.",
+          },
+        ],
+      },
+      {
+        heading: "The error and where it appears",
+        blocks: [
+          {
+            type: "p",
+            text: "`Temporal` is meant to be a global, like `Date` or `Intl`. A runtime without it has no binding by that name, so the first property access throws a plain `ReferenceError`. You will meet it in four places:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Safari and iOS Safari**, including, in practice, every other browser on an iPhone, since they use the same WebKit engine. Most teams hit this one first, via a bug report.",
+              "**Older Chrome, Edge and Firefox**: anything before the versions listed below.",
+              "**Node 24 and Node 22**, which is where it bites in CI: code that runs on your laptop's Node 26 fails in a pipeline pinned to `node:22`.",
+              "**TypeScript**, as `Cannot find name 'Temporal'`. A declarations problem, not a runtime one: it can appear even when the runtime has Temporal (Fix 4).",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "What Temporal is, in two paragraphs",
+        blocks: [
+          {
+            type: "p",
+            text: "Temporal is the modern date-and-time API for JavaScript: immutable types such as `Temporal.PlainDate`, `Temporal.ZonedDateTime`, `Temporal.Duration` and `Temporal.Instant`, each modelling one thing properly instead of forcing everything through the single mutable `Date`. A calendar date without a time is a `PlainDate`; a wall-clock moment in a named time zone is a `ZonedDateTime`; a point on the global timeline is an `Instant`. Time zones and calendars are first-class.",
+          },
+          {
+            type: "p",
+            text: "The upshot is that the classic `Date` bugs (off-by-one days around DST, zero-based months, local-versus-UTC confusion) are hard to write with Temporal. The [practical guide to the Temporal API](/blog/javascript-temporal-api-practical-guide) covers the types and patterns; this post is only about getting it to exist.",
+          },
+        ],
+      },
+      {
+        heading: "Temporal API browser support: where it is available (November 2026)",
+        blocks: [
+          {
+            type: "p",
+            text: "From the [caniuse feature data for Temporal](https://caniuse.com/temporal) as read on 13 November 2026, full support without a flag is:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Chrome 144 and later**, through the current Chrome 160; **Chrome for Android 157** (current).",
+              "**Edge 144 and later** and **Opera 131 and later**.",
+              "**Firefox 139 and later.** caniuse notes it was in Nightly behind the `javascript.options.experimental.temporal` flag, enabled by default since 137.",
+              "**Node.js 26.** The [Node 26.0.0 release post](https://nodejs.org/en/blog/release/v26.0.0) states: \"The Temporal API is now enabled by default in Node.js 26.\" The same release moved V8 to 14.6 (part of Chromium 146). Node 26 has been LTS since October 2026.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Safari is the gap. caniuse lists only **Safari Technology Preview**; no stable Safari release supports Temporal, iOS Safari up to 27.2 is marked as no support, and so is Samsung Internet 31. That is why caniuse gives Temporal a Baseline status of \"limited\", and why the [MDN Temporal reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal) says: \"This feature is not Baseline because it does not work in some of the most widely-used browsers.\"",
+          },
+        ],
+      },
+      {
+        heading: "Where it is not: Node 24, Node 22, Safari, older browsers",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Node 24.22.3 and Node 22.23.5**, the other supported lines as of the [November 11 security release](/blog/nodejs-security-release-november-11-2026-is-out-26-13-1-24-22-3-22-23-5-sixteen-cves-what-to-upgrade). The Node 26 post says nothing about back-porting Temporal, so treat it as not available by default there. A `--harmony-temporal` V8 flag may exist on some builds; check `node --v8-options` on your own binary, and do not rely on a flag in production.",
+              "**Stable Safari on macOS and iOS**, and therefore every browser on an iPhone or iPad.",
+              "**Chrome before 144, Edge before 144, Opera before 131, Firefox before 139**, and WebViews that lag behind the system browser.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Not sure what a machine runs? This is the whole diagnosis:",
+          },
+          {
+            type: "code",
+            language: "bash",
+            code: "node -v\nnode -e \"console.log(typeof Temporal)\"\n# object    -> Temporal is available (Node 26)\n# undefined -> not available on this Node (24, 22 or older)",
+          },
+        ],
+      },
+      {
+        heading: "Fix 1: upgrade the runtime (Temporal in Node 26)",
+        blocks: [
+          {
+            type: "p",
+            text: "If the failing code runs on a server or in CI, the cleanest fix is Node 26, the current LTS line. Pin **26.13.1**, the November 11 security update; the [Node 26 LTS post](/blog/nodejs-26-lts-october-2026-which-node-version-to-use-new-release-schedule) covers what else changed and the new release schedule.",
+          },
+          {
+            type: "list",
+            items: [
+              "nvm: `nvm install 26.13.1 && nvm use 26.13.1`",
+              "fnm: `fnm install 26.13.1 && fnm use 26.13.1`",
+              "Docker: `FROM node:26.13.1-alpine`, pinning the patch version, and the matching `node-version` in CI and `engines.node` in `package.json` so a stray Node 22 runner fails loudly.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Then run the `typeof Temporal` check above. Upgrading Node does nothing for browser code; for that you need Fix 2 or Fix 3.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 2: a Temporal polyfill, loaded only when needed",
+        blocks: [
+          {
+            type: "p",
+            text: "Two polyfills are widely used: **@js-temporal/polyfill**, the proposal's reference implementation, and **temporal-polyfill** from the FullCalendar team. Both expose a `Temporal` object with the native API. Importing one everywhere works but ships it to Chrome and Firefox users who do not need it. Better: load it only when the global is missing:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// temporal-setup.js: run once, before any code that uses Temporal\nif (typeof Temporal === \"undefined\") {\n  const mod = await import(\"@js-temporal/polyfill\");\n  globalThis.Temporal = mod.Temporal;\n}\n\n// anywhere else, use the global exactly as in Node 26 or Chrome\nconst today = Temporal.Now.plainDateISO();",
+          },
+          {
+            type: "p",
+            text: "The `typeof` check is the safe test for a global that may not exist; `if (Temporal)` would itself throw. The dynamic `import()` lets bundlers put the polyfill in a chunk that Safari fetches and Chrome never does. Make sure this module runs before anything that touches `Temporal`. On Node 24 or 22 the same pattern is a reasonable stopgap.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 3: feature-detect and fall back to Date or Intl for the one thing you need",
+        blocks: [
+          {
+            type: "p",
+            text: "If all you wanted from Temporal was one calculation, a polyfill is a heavy answer. Detect the global and fall back to `Date` for that case. Counting whole days to a deadline is the typical example, and where `Date` gets DST wrong if you subtract local times, so the fallback compares UTC midnights:",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "function daysUntil(isoDate) {\n  if (typeof Temporal !== \"undefined\") {\n    const today = Temporal.Now.plainDateISO();\n    return today.until(Temporal.PlainDate.from(isoDate)).days;\n  }\n  // Fallback: compare UTC midnights so DST cannot shift the count\n  const [y, m, d] = isoDate.split(\"-\").map(Number);\n  const now = new Date();\n  const target = Date.UTC(y, m - 1, d);\n  const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());\n  return Math.round((target - today) / 86400000);\n}",
+          },
+          {
+            type: "p",
+            text: "For formatting, `Intl.DateTimeFormat` exists everywhere Temporal does not; what it cannot do is the arithmetic. Keep the fallback small and next to the Temporal branch, and delete it the day your support matrix allows.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 4: TypeScript says Cannot find name 'Temporal'",
+        blocks: [
+          {
+            type: "p",
+            text: "TypeScript ships Temporal types in its newest lib files; if your TypeScript version lacks them, or `lib` in `tsconfig.json` targets an older ES version, the global is simply not declared. In order of preference: upgrade TypeScript and check `lib`; install the polyfill package, whose `.d.ts` files declare the types; or add a small ambient declaration that puts those types on `globalThis`. Do not silence it with `// @ts-ignore`: the compiler is telling you what a Safari user will tell you later.",
+          },
+        ],
+      },
+      {
+        heading: "When NOT to adopt Temporal yet",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**A public web app with Safari or iPhone users**, which is most of them. Until stable Safari ships Temporal, every Apple visitor pays for the polyfill or gets the error. If dates are a small part of the app, `Date` plus `Intl` remains the pragmatic choice.",
+              "**Bundle-sensitive pages.** Temporal is a large API and a complete polyfill reflects that. We are deliberately not quoting a size; it depends on package, version and bundler, so measure your own build.",
+              "**Libraries.** Requiring a Temporal global pushes the polyfill decision onto every consumer. Accept Temporal objects as input, but do not call `Temporal.*` unconditionally.",
+              "**Servers pinned to Node 24 or 22** with the upgrade weeks away: waiting beats adding a dependency you will remove.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Quick decision table",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Node 26 server or CLI, no browser code** -> use Temporal natively; nothing to do.",
+              "**Node 24 or 22 server** -> upgrade to 26.13.1 (Fix 1); polyfill only as a stopgap (Fix 2).",
+              "**Internal web app, Chrome/Edge/Firefox only, versions enforced** -> native Temporal plus a `typeof` guard that logs.",
+              "**Public web app** -> conditional polyfill (Fix 2) if you use Temporal broadly; `Date`/`Intl` fallback (Fix 3) if you use it for one thing.",
+              "**TypeScript error only, runtime fine** -> Fix 4; leave the runtime alone.",
+              "**Unsure what is running** -> `typeof Temporal` in the console, on the server or in the browser.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "FAQ",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Is Temporal supported in Safari?** Not in any stable release as of the November 2026 caniuse data. Only Safari Technology Preview has it, and iOS Safari up to 27.2 is listed as unsupported. Plan for a polyfill or a fallback on Apple devices.",
+              "**Does Node 24 have Temporal?** Not by default. The Node 26.0.0 release post is the one that announces it; run `node -e \"console.log(typeof Temporal)\"` on your own binary to confirm. The supported lines as of November 2026 are 26.13.1 (LTS), 24.22.3 and 22.23.5.",
+              "**Which Temporal polyfill should I pick?** Either @js-temporal/polyfill (the reference polyfill) or temporal-polyfill; they expose the same API. Compare the built size in your own bundler rather than trusting numbers from any blog post.",
+              "**Is Temporal Baseline?** No. caniuse marks it \"limited\" and MDN says it is not Baseline because it does not work in some of the most widely-used browsers. That changes when stable Safari ships it.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
   ...mcpGuides,
 ];

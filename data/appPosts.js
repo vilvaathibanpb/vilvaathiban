@@ -12677,4 +12677,468 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "teleprompter-for-course-launch-and-announcement-videos-the-big-news-video-iphone",
+    title:
+      "Teleprompter for Course Launch and Announcement Videos: How to Script and Record the \"Big News\" Video on iPhone",
+    description:
+      "Script and record a course launch or announcement video on iPhone: 5-beat structure, a worked 75-second launch script, teaser and full cut from one script.",
+    datePublished: "2026-11-13",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "The announcement video is the one where every word has been argued over. A course launch, a new offer, a rebrand, a company announcement, \"I'm starting something new\": the news is fixed, the date is fixed, someone has signed off on a sentence, and it still has to sound like you talking. That is the job a teleprompter is for, and the video where reading shows. This is the scripting and recording guide for the **big news** video on iPhone with the free [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay): a five-beat structure, a worked launch script, a teaser and a full version from one script, and the cases where you should put the prompter away. It follows the [recorded Q&A post](/blog/teleprompter-for-recorded-q-and-a-and-ama-videos-answer-audience-questions-on-camera-iphone).",
+          },
+        ],
+      },
+      {
+        heading: "Why announcement videos fail",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**The news is buried.** Thirty seconds of \"so, a bit of backstory\" before the announcement. Viewers who came for the news leave before it arrives.",
+              "**Over-hype.** \"Game-changing\", \"I've never been more excited\", three superlatives a sentence. Hype is what people say when the news cannot carry itself.",
+              "**It reads like a press release.** Passive voice, \"we are pleased to announce\", features with no person in them. This is what happens when the written announcement is pasted straight into the prompter.",
+              "**No date, no ask.** The video ends on \"more soon\", so nobody does anything.",
+            ],
+          },
+          {
+            type: "p",
+            text: "A script fixes the first and fourth by design. The second and third are fixed by how you write it.",
+          },
+        ],
+      },
+      {
+        heading: "The 5-beat structure for a launch or announcement video",
+        blocks: [
+          {
+            type: "p",
+            text: "Write the script as five beats, in this order, each a short paragraph in the app with a blank line between them:",
+          },
+          {
+            type: "list",
+            items: [
+              "**1. The news, in the first sentence.** What it is and when. Not the backstory, not your feelings about it.",
+              "**2. Who it is for.** One sentence that lets the right people lean in and the wrong people leave.",
+              "**3. What changes for them.** Not a feature list: the before and after, in the viewer's day. Two sentences.",
+              "**4. One proof point or story.** Why you built it, what the beta group said, the moment you realised it was needed. One, not three. This beat is what makes it sound like a person.",
+              "**5. The one thing to do now, with a date.** Join the list, pre-order, reply, show up. One action, one date, where the link is.",
+            ],
+          },
+          {
+            type: "p",
+            text: "At a conversational 140 words a minute, that lands between 60 and 90 seconds, or 140 to 210 words. A 400-word draft is a webinar, not an announcement.",
+          },
+        ],
+      },
+      {
+        heading: "A worked 75-second launch script",
+        blocks: [
+          {
+            type: "p",
+            text: "A fictional example: a short course, Freelance Dashboard, that teaches freelancers to build their own client-tracking templates. Bracketed beat markers are not spoken.",
+          },
+          {
+            type: "code",
+            language: "text",
+            code: "[1 NEWS]\nFreelance Dashboard opens on Monday the 24th. It's the course I've been building all year, and it's finally ready.\n\n[2 WHO]\nIt's for freelancers who run their business out of a dozen notes, three spreadsheets and a chat thread with themselves.\n\n[3 WHAT CHANGES]\nIn six short lessons you build one set of templates: a client tracker, a project board and an invoice log that talk to each other. Nothing to subscribe to, nothing to migrate later. A system you own and can change when your work changes.\n\n[4 PROOF]\nI built the first version for myself after I double-booked two clients in the same week and forgot to invoice a third. The beta group's most common message was \"can I just have the whole thing?\" So here it is.\n\n[5 DO THIS, BY WHEN]\nEnrolment opens Monday the 24th and closes Friday the 28th. The link is in the caption. Put your name on the list today and the first lesson is in your inbox Monday morning.",
+          },
+          {
+            type: "p",
+            text: "About 160 words, a little over a minute spoken. Beat 4 is the only one with a story, and it is the one people will quote back to you.",
+          },
+        ],
+      },
+      {
+        heading: "How to make a scripted announcement feel spontaneous",
+        blocks: [
+          {
+            type: "p",
+            text: "The script floats over the camera preview next to the front lens, so reading already looks like eye contact. The rest is deciding where to leave the text:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Write the hook in your own words.** Say beat 1 out loud to a friend, then type what you actually said. The approved wording goes in beat 3, where precision matters; beat 1 is yours.",
+              "**Record beat 1 three times, back to back.** The first is stiff, the second right, the third loose. Keep all three in the takes library and choose in the edit.",
+              "**Let voice-follow wait while you ad-lib the story.** With voice-driven scrolling on, the app listens with the iPhone's on-device speech recognition and advances the script only as you say the words. Put a one-line cue for beat 4 in the script, look at the lens, tell the story from memory, and the text stays where you left it. Read the first words of beat 5 and it finds your place again; stumble on the date and it re-syncs rather than running ahead.",
+              "**Keep the fixed sentence fixed.** The signed-off line (a price, a date, a legal phrase) is read verbatim. Everything around it can be loose because that line is safe.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Classic auto-scroll with the speed slider is better only for one tight read with no ad-libbing, or a room too noisy for speech recognition.",
+          },
+        ],
+      },
+      {
+        heading: "One script, two videos: the teaser and the full version",
+        blocks: [
+          {
+            type: "p",
+            text: "Most launches want a teaser a few days before and the full announcement on the day. That is the same five beats cut two ways.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Teaser (15 to 20 seconds):** beats 1 and 5 only. \"Freelance Dashboard opens on Monday the 24th. Link in the caption, put your name down and the first lesson lands Monday morning.\" Save it as its own short script so the take starts at the top; scripts are unlimited.",
+              "**Full version (60 to 90 seconds):** all five beats, as above.",
+              "**Record both in the same sitting**, same light, framing and shirt, so the teaser looks like a clip from the announcement rather than a separate production.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Both are recorded in portrait 4K and the script never appears in the saved video, so each take is a clean file for a Reel, a Short or a launch page.",
+          },
+        ],
+      },
+      {
+        heading: "Caption and pinned comment from the same script",
+        blocks: [
+          {
+            type: "p",
+            text: "The script is already the caption. Beat 1 is its first line, beat 5 its last, with the link spelled out, since a spoken \"link in the caption\" has to point at something. Beat 2 becomes the pinned comment: \"This is for you if you run your business out of a dozen notes and three spreadsheets. Questions below.\" If a date changes between recording and posting, the caption is where you correct it, and say so.",
+          },
+        ],
+      },
+      {
+        heading: "When NOT to script the big news",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**When the news is sensitive.** Layoffs, a closure, a price increase that will hurt people, a public mistake. A smooth five-beat read sounds like a comms department even when sincere. Write three words on a card, look at the lens, and speak from notes.",
+              "**When you cannot say the date yet.** An announcement without a date reads as vapour. Wait until beat 5 is real.",
+              "**When it needs a conversation, not a broadcast.** A change that affects a small group should reach them directly before any video exists.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Checklist before you hit record",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "News and date in the first sentence; date confirmed by whoever owns it.",
+              "Beat 3 has the signed-off wording verbatim; everything else in your own words.",
+              "Beat 4 is a one-line cue, so you tell it rather than read it.",
+              "Teaser and full scripts saved separately, both under 210 words.",
+              "Voice-follow on, text size up, front lens next to the first line, room quiet.",
+              "Caption and pinned comment drafted from beats 1, 2 and 5.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "FAQ",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**How long should an announcement video be?** Sixty to ninety seconds for the full version, 15 to 20 for a teaser. Anything more belongs in a follow-up video or the landing page.",
+              "**Can I use the same video on every platform?** The recording is portrait 4K with no script on it, so yes for Reels, Shorts, TikTok and LinkedIn; only the caption changes, which is why deriving it from the script pays off.",
+              "**Does the app upload my script or recording?** No. Speech recognition runs on the phone with Apple's on-device frameworks, the language is detected automatically, and scripts, audio and video stay on the iPhone; it works offline. The [product demo post](/blog/teleprompter-for-product-demos-script-and-record-a-demo-video) and the [sales and outreach post](/blog/teleprompter-for-sales-and-outreach-videos) cover the same workflow for other video types.",
+              "**Can I go live with it?** No. Teleprompter: Camera Overlay records; it does not stream. Record the announcement, post it, and do any live Q&A afterwards without a prompter.",
+              "**What does it cost?** It is free on the App Store, iPhone-only, with an occasional ad; a small one-time purchase removes ads. No subscription, no watermark, unlimited scripts and a takes library in the free version.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Next in this series: how to script and record a \"what I learned this year\" retrospective video, where the temptation is to list everything and the craft is choosing three things.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "what-size-breaker-and-wire-for-a-load-watts-to-amps-125-percent-rule-next-standard-breaker-iphone-electrician-calculator",
+    title:
+      "What Size Breaker (and Wire) Do I Need for This Load? Watts to Amps, the 125 Percent Rule and the Next Standard Breaker on iPhone With Electrician Calculator Toolkit",
+    description:
+      "Watts to amps, the 125 percent rule for continuous loads, the next standard breaker and the minimum 75°C conductor: two worked examples and an offline iPhone breaker calculator.",
+    datePublished: "2026-11-13",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "\"What size breaker do I need?\" The nameplate says watts, the panel wants amps, and the code wants a margin for anything that runs for hours. This post walks the chain from watts to amps to design current to breaker to conductor, does the arithmetic for two loads, and shows how the Load & Breaker tool in [Electrician Calculator Toolkit](/apps/electrician-calculator) for iPhone runs the same chain on one screen while naming the table each step came from.",
+          },
+          {
+            type: "p",
+            text: "Two boundaries. The app calls itself a calculation aid, not a substitute for the code, engineering judgement or the authority having jurisdiction, and this post is not electrical advice. Every number marked as arithmetic was worked by hand from the generic formulas, not read off the app's screen.",
+          },
+        ],
+      },
+      {
+        heading: "Step 1: watts to amps (the load current)",
+        blocks: [
+          {
+            type: "p",
+            text: "For a **single-phase** load, **I = P ÷ V**: watts divided by volts gives amps, and if the load is not purely resistive you divide by the power factor too, so I = P ÷ (V × PF). For a **three-phase** load, **I = P ÷ (√3 × V × PF)**, where √3 is about 1.732 and V is the line-to-line voltage. A heater has PF = 1; a motor draws more current than its watts alone suggest.",
+          },
+          {
+            type: "p",
+            text: "The Load & Breaker tool asks for exactly these: watts, voltage, phase and power factor, and returns the load current.",
+          },
+        ],
+      },
+      {
+        heading: "Step 2: continuous or not, and the 125 percent rule",
+        blocks: [
+          {
+            type: "p",
+            text: "This is the step people skip. In general NEC practice a **continuous load** is one expected to run at its maximum current for three hours or more, and for such a load the overcurrent device and the conductors are sized at **125 percent of the load current**, because a breaker and a wire at full rating for hours run hotter than the tables assume. A load that cycles is sized at its load current.",
+          },
+          {
+            type: "p",
+            text: "The result is the **design current**: 1.25 × load current for a continuous load, otherwise the load current itself. In the app you mark the load continuous with a switch, and the app applies the 125 percent rule when you do, showing both currents on the same screen.",
+          },
+        ],
+      },
+      {
+        heading: "Step 3: the next standard breaker rating",
+        blocks: [
+          {
+            type: "p",
+            text: "Breakers are not made in every amperage. The code lists a set of standard ratings, and when your design current lands between two of them the general rule is the next standard rating at or above it, subject to the small-conductor limits on the smallest wire sizes. The app's Code Tables tool includes that list, and the Load & Breaker result shows the next standard rating above your design current and names the table it came from, so when an inspector asks, you point at the table rather than at an app.",
+          },
+        ],
+      },
+      {
+        heading: "Step 4: the minimum 75°C conductor, then Voltage Drop",
+        blocks: [
+          {
+            type: "p",
+            text: "The last line of the result is the minimum conductor at a 75°C termination rating, the common case for breaker and equipment terminals. Treat it as the floor: a hot attic, a crowded conduit or a 60°C termination all move the wire up, which is what the separate Wire Size tool is for; the [circuit sizing walkthrough](/blog/wire-size-voltage-drop-conduit-fill-iphone-electrician-calculator-walkthrough) covers derating.",
+          },
+          {
+            type: "p",
+            text: "Then, for anything beyond a short run, open Voltage Drop. Ampacity protects the wire; it says nothing about whether the equipment at the far end gets its volts. Enter the voltage, the actual load current (not the design current), material, size and one-way length, and the tool reports the drop in volts and percent and the smallest conductor under 3 percent. The breaker rarely changes here; the wire often does.",
+          },
+        ],
+      },
+      {
+        heading: "Worked example 1: a 1,500 W space heater on 120 V, continuous",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Load current: 1,500 ÷ 120 = **12.5 A** (arithmetic; PF = 1 for a resistive heater).",
+              "Design current, continuous: 1.25 × 12.5 = **15.6 A** (arithmetic, rounded).",
+              "Breaker: the arithmetic alone says 15.6 A is more than a 15 A breaker can be sized for; the next standard rating above it is what the app reads from its table, small-conductor limit applied.",
+              "Conductor: the app shows the minimum 75°C conductor for that rating; confirm it in Wire Size if the run is hot or shares a raceway.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Sized on the nameplate alone, 12.5 A looks comfortable on a 15 A circuit. Marked continuous, it is not, and the breaker and wire both come out a size larger. In the app that is one switch.",
+          },
+        ],
+      },
+      {
+        heading: "Worked example 2: a 10 kW three-phase load on 208 V at PF 0.8",
+        blocks: [
+          {
+            type: "p",
+            text: "Nameplate: 10,000 W input, 208 V three-phase, power factor 0.8, treated as continuous. A motor-style load for the arithmetic only; see the caveat below.",
+          },
+          {
+            type: "list",
+            items: [
+              "Denominator: 1.732 × 208 × 0.8 = **288.2** (arithmetic).",
+              "Load current: 10,000 ÷ 288.2 = **34.7 A** (arithmetic, rounded).",
+              "Design current, continuous: 1.25 × 34.7 = **43.4 A** (arithmetic, rounded).",
+              "Breaker and conductor: the app reads the next standard rating above 43.4 A and the minimum 75°C conductor from its tables; the lines above are the input, not the app's screen.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Notice what the power factor did: at PF 1 the load current would be 10,000 ÷ (1.732 × 208) = 27.8 A, so leaving PF at 1 for a 0.8 load under-sizes the circuit by a quarter. The caveat: a real motor is not sized by this general method. Motor loads, HVAC equipment and similar have their own code rules for conductors and overcurrent protection that take precedence; use the tool for a general load, and for a motor only as a sanity check.",
+          },
+        ],
+      },
+      {
+        heading: "When not to trust a calculator, including this one",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**The app's own disclaimer applies.** Reference values follow the 2023 NEC; it is a calculation aid, not a substitute for the code, engineering judgement or the authority having jurisdiction, and your jurisdiction may enforce an earlier edition.",
+              "**Feeders and services with demand factors** are a different calculation; Load & Breaker sizes a known load.",
+              "**Equipment instructions win.** A maximum overcurrent device or minimum circuit ampacity on the nameplate governs, whatever the arithmetic says.",
+              "**Garbage in.** A wrong voltage, a guessed power factor or an all-night load marked non-continuous gives a tidy, wrong answer. The app shows its working; it cannot check your inputs.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "The code table behind every result",
+        blocks: [
+          {
+            type: "p",
+            text: "Each result names the table or section it came from, and the Code Tables tool opens those references directly: ampacity tables for copper and aluminium, standard breaker ratings, derating factors, box fill volumes and US and IEC wire colours. For an apprentice that teaches where the numbers live; for an electrician it is the fastest answer to \"which table?\" with gloves on.",
+          },
+          {
+            type: "p",
+            text: "As of November 2026 the app is a $3.99 one-time purchase on the App Store, iPhone only, 2.3 MB, iOS 17 or later, with Family Sharing and 19 languages. It works with no signal because every table is inside the app; no account, no subscription, no ads, no analytics, and the privacy label reads Data Not Collected. Load & Breaker is one of eight tools; the [box fill worked example](/blog/box-fill-calculator-nec-314-16-worked-example-iphone-electrician-calculator) covers the check at the other end of the run.",
+          },
+        ],
+      },
+      {
+        heading: "FAQ",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**What is the 125 percent rule for continuous loads?** In general NEC practice a load that runs at its maximum for three hours or more is continuous, and the breaker and conductors are sized at 125 percent of its current. The app applies it when you mark the load continuous.",
+              "**Does the app pick the breaker for me?** It shows the next standard rating above your design current and names the table. Whether that is the right breaker still depends on equipment instructions, special-load rules and local code.",
+              "**Is there an Android version?** Not at the time of writing; the [app page](/apps/electrician-calculator) will link to Google Play if one ships.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "can-you-scan-expiry-dates-with-a-smartphone-what-a-barcode-tells-you-and-how-to-track-expiry-dates-android",
+    title:
+      "Can You Scan Expiry Dates With a Smartphone? What a Barcode Actually Tells You, Where Camera Date Reading Fails, and How to Track Expiry Dates on Android",
+    description:
+      "Can a phone scan the expiry date off a pack? Not from a retail barcode, which carries no date. What EAN/UPC codes hold, where OCR fails, and how a free Android expiry tracker works.",
+    datePublished: "2026-11-13",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Point your phone at a yoghurt, hear a beep, and the app knows it expires on Thursday. That is what most people picture when they search **can you scan expiry dates with a smartphone**, and what several app listings imply. The honest answer: not the way you imagine. The barcode on a retail pack does not contain the date, and reading the printed date with the camera is a different, far less reliable trick. This post explains what a barcode encodes, where camera date reading fails, and what a scan can usefully do instead, with the free [Expiry Date Tracker: Scanner](/apps/expiry-date-tracker) app for Android as the example.",
+          },
+        ],
+      },
+      {
+        heading: "What is actually inside a retail barcode",
+        blocks: [
+          {
+            type: "p",
+            text: "The striped code on a tin of beans or a box of paracetamol is an EAN-13 or UPC-A barcode. It encodes a single number, typically twelve or thirteen digits, that identifies the **product**, not the unit in your hand: broadly, a prefix for the company, an item reference the company chose, and a check digit that lets the scanner catch a misread. Every pack of that product, from any factory in any year, carries the same number.",
+          },
+          {
+            type: "p",
+            text: "The expiry date is added later, by a different machine, usually an inkjet or laser printer on the line. The barcode and the date never meet. The most a scanner can learn from an EAN or UPC is \"this is product 5012345678900\", and only then if it has a database mapping that number to a name.",
+          },
+        ],
+      },
+      {
+        heading: "The exception: logistics barcodes that can carry a date",
+        blocks: [
+          {
+            type: "p",
+            text: "Some barcodes do carry dates. In supply chains, longer codes such as GS1-128 and the 2D codes on cases and pallets can include structured fields, among them a batch number and an expiry date, so a warehouse can rotate stock automatically. Two caveats: these codes are mostly on outer cases rather than the item you take home, and even where a consumer pack carries one, most consumer apps read it as a product identifier without parsing the extra fields. Retail packaging may move towards richer 2D codes over time, but as of November 2026 a tin in your kitchen almost certainly carries a plain EAN or UPC.",
+          },
+        ],
+      },
+      {
+        heading: "What about reading the printed date with the camera?",
+        blocks: [
+          {
+            type: "p",
+            text: "The other approach is optical character recognition: the app photographs the printed date and tries to read the digits. On a crisp, flat, black-on-white label it can work. Expiry dates are rarely printed like that. OCR has to cope with:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Dot-matrix inkjet dates**, where each digit is a cloud of dots that smears on a wet carton.",
+              "**Curved surfaces**: cans, bottles and tubes bend the text away from the lens.",
+              "**Embossed or stamped dates** with no ink at all, readable only by their shadow.",
+              "**Ambiguous formats**: 03/11/2027 is 3 November in most of the world and 11 March in the United States; month-only dates need a rule about which day they mean; some packs print a production date beside the expiry date.",
+            ],
+          },
+          {
+            type: "p",
+            text: "An app that reads the date correctly nine times in ten has still mis-recorded one item in ten, and it is the mis-recorded chicken that makes you ill. Test any such app on your worst-printed label.",
+          },
+        ],
+      },
+      {
+        heading: "What Expiry Date Tracker actually does with a scan",
+        blocks: [
+          {
+            type: "p",
+            text: "Expiry Date Tracker: Scanner uses the barcode for the thing it is good for and leaves the date to you. Tap Scan barcode, point the camera at the pack, and the **product name fills itself in**: for a new barcode from the free Open Food Facts database (the barcode number is the only thing sent), for one you have scanned before from your own history on the phone. It reads EAN, UPC, Code 128, Code 39 and ITF-14 codes. No barcode, or no match? Type the name once.",
+          },
+          {
+            type: "p",
+            text: "Then you set the date **with one tap**. Instead of a calendar, the screen offers quick chips: one week, two weeks, one month, three months, six months and a year. Tap the closest one, or nudge it with the minus and plus buttons if the exact day matters. The app does not attempt to read the printed date, and its own FAQ says so.",
+          },
+        ],
+      },
+      {
+        heading: "Why that is faster than it sounds: a twelve-item shop",
+        blocks: [
+          {
+            type: "p",
+            text: "\"I have to enter the date myself\" sounds like a chore until you count the taps. Take a weekly shop of twelve dated items: milk, yoghurt, chicken, mince, salad, bread, ham, cheese, hummus, berries, a ready meal and juice. For each: scan, tap a chip, save. Three actions, thirty-six for the shop, no typing for any product the database or your history knows. Allow a generous ten seconds an item and that is two minutes; an assumption to make the point, not a measurement. A calendar picker scrolled to the right month twelve times is where most people give up around item six.",
+          },
+        ],
+      },
+      {
+        heading: "The reminder, which is the whole point",
+        blocks: [
+          {
+            type: "p",
+            text: "In Settings you choose how many days ahead you want warning and the hour the notification should arrive; the app nudges you before the date and again on the day. Reminders are scheduled on the phone itself, so they fire with no signal. Check once that notifications are allowed and, on Android 12 and later, Alarms and reminders too; the [setup walkthrough](/blog/expiry-date-tracker-android-setup-barcode-reminders) covers those screens. The list groups everything into **expired**, **expiring today**, **this week** and **later**, and a tap on the tick marks an item used and cancels its reminders.",
+          },
+          {
+            type: "p",
+            text: "Nothing in the app is food-specific. Medicine, cosmetics and sunscreen, documents, warranties and renewals: type a name, pick the date, tag the location (Fridge, Freezer, Pantry, Medicine or Other) and put a reference number in the note.",
+          },
+        ],
+      },
+      {
+        heading: "Privacy, price and the small print",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**No account, no cloud.** Items live in a database on your phone; no sign-up, no server, no sync, fully offline. The only optional network call is the barcode lookup, which sends the barcode number and nothing else.",
+              "**Free and unlimited.** No item cap. The free version shows one small banner ad; a single optional one-time purchase (listed at $1.99, shown in your local currency on Google Play) removes it. No subscription.",
+              "**The ad banner's SDK.** The Play data-safety panel lists data types such as location and app activity as potentially collected or shared. That reflects the SDK that shows the banner, not your list, which stays on the device.",
+              "**Fifteen languages**, Android 7.0 or later, no iPhone version at the time of writing.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "When not to bother, and what no app can promise",
+        blocks: [
+          {
+            type: "p",
+            text: "If what you want is fully automatic date capture, point, beep, done, no app on the market can be trusted blind, because the information is not in the barcode and camera reading is fallible. Always read the pack. For fewer than a handful of dated items, a calendar reminder is enough. If two people need one shared list on two phones, this app does not sync; the [buyer's guide to expiry tracker apps](/blog/expiry-date-tracker-app-what-to-look-for-free-expiry-date-check-app-android) covers that trade-off. For one phone and one kitchen: scan for the name, tap for the date, let the reminders do the remembering.",
+          },
+        ],
+      },
+      {
+        heading: "FAQ",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Can the app read the expiry date from the barcode?** No, and neither can any other app, for standard retail barcodes. An EAN or UPC identifies the product; the date is not in the code.",
+              "**Can a smartphone scan expiry dates at all?** It can scan the barcode to identify the product, and some apps try to read the printed date with the camera, which works on clean labels and fails on dot-matrix, curved or embossed dates. Expiry Date Tracker uses the scan for the name and a one-tap chip for the date.",
+              "**Does it need internet?** Only for the optional barcode lookup when a product is new to you. Adding items, the list and the reminders work offline.",
+              "**Does it work for products without a barcode?** Yes. Tap Add by hand, type the name, set the date.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];
