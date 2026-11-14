@@ -13141,4 +13141,445 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "app-zum-video-aufnehmen-und-text-ablesen-iphone-so-filmst-du-dich-und-liest-dein-skript-ohne-abzulesen",
+    title:
+      "App zum Video aufnehmen und Text ablesen (iPhone): so filmst du dich und liest dein Skript, ohne abzulesen",
+    description:
+      "App zum Video aufnehmen und Text ablesen: Das ist eine Teleprompter-App. Worauf es ankommt und wie Teleprompter: Camera Overlay das gratis auf dem iPhone löst.",
+    datePublished: "2026-11-14",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Du suchst eine **App, mit der du ein Video aufnehmen und gleichzeitig deinen Text lesen kannst**. Die kurze Antwort: So eine App heißt Teleprompter-App. Sie legt dein Skript über das Kamerabild, scrollt es mit, während du sprichst, und nimmt dabei auf. Der Text landet nicht im fertigen Video. Für das iPhone gibt es dafür [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay), kostenlos und ohne Wasserzeichen. Hier liest du, worauf es bei so einer App ankommt, warum Ablesen aus der Notizen-App immer wie Ablesen aussieht, und wie du in fünf Schritten dein erstes Video mit Skript aufnimmst.",
+          },
+        ],
+      },
+      {
+        heading: "Die kurze Antwort: Du brauchst eine Teleprompter-App, und zwar eine mit diesen vier Eigenschaften",
+        blocks: [
+          {
+            type: "p",
+            text: "Im App Store findest du viele Apps, die „Teleprompter“ heißen. Nicht alle lösen dein Problem. Diese vier Punkte entscheiden:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Text über dem Kamerabild, nicht daneben.** Das Skript muss direkt über der Kameravorschau liegen, nah an der Frontlinse. Nur dann schaust du beim Lesen in die Kamera.",
+              "**Scrollen per Stimme statt per Timer.** Ein fester Timer ist nach einer Minute entweder zu schnell oder zu langsam. Besser ist eine App, die zuhört und mit deinem Tempo mitläuft.",
+              "**Aufnahme in der App.** Die App muss selbst filmen, während der Text läuft. Sonst brauchst du ein zweites Gerät, und dein Blick wandert wieder.",
+              "**Kein Wasserzeichen, kein Abo.** Das Video gehört dir. Ein Logo in der Ecke macht den Clip für Reels, Shorts oder TikTok unbrauchbar.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Die englische [Checkliste für kostenlose Teleprompter-Apps](/blog/what-to-look-for-in-a-free-teleprompter-app) vertieft diese Punkte; die spanische Anleitung [Teleprompter gratis para iPhone](/blog/teleprompter-gratis-para-iphone-que-buscar-y-como-usar-teleprompter-camera-overlay) stellt dieselbe Frage für spanische Skripte.",
+          },
+        ],
+      },
+      {
+        heading: "Warum Ablesen aus Notizen oder vom zweiten Handy wie Ablesen aussieht",
+        blocks: [
+          {
+            type: "p",
+            text: "Der Klassiker: Du filmst mit der Kamera-App, daneben liegt ein zweites Handy oder ein Laptop mit dem Text. Beides scheitert an derselben Stelle: der Blicklinie. Deine Augen sind auf den Text gerichtet, die Linse sitzt woanders. Schon ein paar Zentimeter Abstand reichen, und jeder Zuschauer merkt, dass du nicht ihn ansiehst, sondern etwas neben ihm. Nicht bewusst, aber als Gefühl: „Der liest ab.“",
+          },
+          {
+            type: "p",
+            text: "Ein Teleprompter löst das, wie ihn Nachrichtensprecher nutzen: Der Text liegt dort, wo die Kamera ist. Auf dem iPhone heißt das, das Skript schwebt über der Live-Vorschau, direkt neben der Frontkamera. Lesen und in die Kamera schauen werden dieselbe Bewegung.",
+          },
+        ],
+      },
+      {
+        heading: "So geht es mit Teleprompter: Camera Overlay, Schritt für Schritt",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**1. Skript einfügen.** Erstelle ein neues Skript und füge deinen Text ein. Schreib so, wie du sprichst, in kurzen Sätzen. Skripte sind unbegrenzt.",
+              "**2. Textgröße einstellen.** Stell das iPhone auf Augenhöhe, eine Armlänge entfernt, am besten auf ein Stativ. Dann die Schrift so groß ziehen, dass du entspannt lesen kannst, ohne die Augen zusammenzukneifen.",
+              "**3. Sprachsteuerung an.** Die App hört über die Spracherkennung des iPhones zu, erkennt die Sprache deines Skripts automatisch und scrollt genau in deinem Tempo. Sprichst du schneller, läuft der Text schneller; machst du eine Pause, bleibt er stehen. Verhaspelst du dich und setzt neu an, findet sie deine Stelle wieder. Wenn du lieber ein konstantes Tempo willst oder es im Raum laut ist: ein Tipp, und der klassische Auto-Scroll mit Geschwindigkeitsregler übernimmt.",
+              "**4. Aufnahme.** Auf Aufnehmen tippen. Die Kamera filmt in 4K im Hochformat, während das Skript über der Vorschau läuft. Das Overlay ist nur auf deinem Bildschirm; im gespeicherten Video gibt es keinen Text.",
+              "**5. Takes-Bibliothek.** Jede Aufnahme landet in der Takes-Bibliothek in der App. Dort schaust du sie an, behältst den besten Take, speicherst ihn in voller Qualität in Fotos oder teilst ihn direkt in die Social-App deiner Wahl.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Nimm beim ersten Mal nur zehn Sekunden auf und schau den Clip an: Du siehst sofort, ob die Schrift groß genug war und ob dein Blick in der Kamera bleibt.",
+          },
+        ],
+      },
+      {
+        heading: "Tipps für deutsche Skripte",
+        blocks: [
+          {
+            type: "p",
+            text: "Die Spracherkennung läuft komplett auf dem Gerät, mit Apples eigener Technik, und Deutsch funktioniert wie jede andere Sprache, die dein iPhone offline erkennt. Du musst nichts umstellen: Die App erkennt die Sprache am Skript. Ein paar Gewohnheiten helfen ihr trotzdem:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Kurze Sätze.** Lange Schachtelsätze klingen gelesen und sind schwer zu treffen. Ein Gedanke pro Satz, ein Absatz pro Gedanke.",
+              "**Zahlen ausschreiben.** Die App vergleicht, was du sagst, mit dem, was im Text steht. „Dreihundert“ ausgeschrieben ist eindeutig; eine „300“ kann je nach Erkennung anders ankommen. Dasselbe gilt für Jahreszahlen und Preise.",
+              "**Anglizismen und Markennamen.** Ein englisches Wort mitten im deutschen Satz, ein Produktname, ein Fachbegriff: Die Erkennung schreibt ihn möglicherweise anders, als er im Skript steht, und wartet dann auf ein Wort, das nie kommt. Schreib ihn so, wie du ihn aussprichst, oder lass die Stelle im Auto-Scroll laufen.",
+              "**Sprich die Wörter, die dastehen.** Wenn du frei formulierst, hat die App nichts zum Vergleichen. Ändere lieber das Skript als deine Sprechweise.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Hochformat in 4K für Reels, Shorts und TikTok",
+        blocks: [
+          {
+            type: "p",
+            text: "Die App nimmt im Hochformat auf, mit Front- oder Rückkamera, in 4K. Das ist das Format, das Instagram Reels, YouTube Shorts und TikTok ohnehin wollen, und die Auflösung gibt dir Spielraum, später noch einen Ausschnitt zu wählen. Weil kein Text im Video ist, kannst du denselben Take für mehrere Plattformen verwenden.",
+          },
+        ],
+      },
+      {
+        heading: "Wann du keinen Teleprompter brauchst",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Spontane Vlogs.** Wenn der Reiz des Videos darin liegt, dass du gerade erlebst, was du erzählst, nimmt dir ein Skript genau das.",
+              "**Emotionale Themen.** Eine persönliche Geschichte, ein Dank, eine Entschuldigung: Hier darf man suchen und stocken. Ein glatt gelesener Text wirkt distanziert.",
+              "**Drei Stichpunkte reichen.** Wenn du dein Thema kennst und nur die Reihenfolge brauchst, schreib drei Stichpunkte auf und sprich frei. Ein Teleprompter ist für Texte, bei denen jeder Satz sitzen muss.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Ehrliche Grenzen",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Nur iOS.** Teleprompter: Camera Overlay gibt es ausschließlich für das iPhone. Eine Android-Version gibt es derzeit nicht.",
+              "**Gelegentlich Werbung.** Die App ist kostenlos, alle Funktionen sind frei. Dafür siehst du gelegentlich eine Anzeige. Ein kleiner Einmalkauf entfernt die Werbung dauerhaft, ohne Abo.",
+              "**Sie nimmt auf, sie streamt nicht.** Die App speichert Videos. Für einen Livestream brauchst du etwas anderes.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Alternativen ohne App",
+        blocks: [
+          {
+            type: "p",
+            text: "Es geht auch ohne, mit Abstrichen. Die Notizen-App neben der Kamera auf einem zweiten Gerät kostet dich die Blicklinie. Ein ausgedrucktes Blatt direkt hinter oder neben der Linse funktioniert für kurze Texte, scrollt aber nicht und ist bei Tageslicht schwer zu lesen. Ein selbstgebautes Rig mit Glasscheibe vor dem Objektiv kommt dem Profi-Teleprompter am nächsten, braucht aber spiegelverkehrten Text; genau dafür hat die App einen Spiegelmodus, und der Beitrag zu [Spiegelmodus und DIY-Teleprompter-Rigs](/blog/mirror-mode-and-diy-teleprompter-rigs) erklärt den Aufbau.",
+          },
+        ],
+      },
+      {
+        heading: "Checkliste vor der ersten Aufnahme",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Skript in kurzen Sätzen, Zahlen ausgeschrieben, Anglizismen so geschrieben, wie du sie sprichst.",
+              "iPhone auf Augenhöhe, Stativ oder stabile Ablage, Frontkamera.",
+              "Schrift so groß, dass du aus deiner Position entspannt liest.",
+              "Ruhiger Raum für die Sprachsteuerung, sonst Auto-Scroll.",
+              "Zehn Sekunden Probeaufnahme, in der Takes-Bibliothek prüfen, dann der echte Take.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Häufige Fragen",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Ist die App kostenlos?** Ja. Sprachsteuerung, 4K-Aufnahme, unbegrenzte Skripte und die Takes-Bibliothek sind in der Gratisversion enthalten. Du siehst gelegentlich Werbung; ein kleiner Einmalkauf entfernt sie. Kein Abo, kein Wasserzeichen.",
+              "**Funktioniert sie auf Deutsch?** Ja. Die App erkennt die Sprache deines Skripts automatisch und hört in dieser Sprache zu. Deutsch gehört dazu, wie jede Sprache, die die Spracherkennung deines iPhones auf dem Gerät unterstützt.",
+              "**Sieht man den Text im Video?** Nein. Das Skript ist nur auf deinem Bildschirm eingeblendet. Das gespeicherte Video ist ein sauberer Clip ohne Text.",
+              "**Geht das auch ohne Internet?** Ja. Spracherkennung, Aufnahme und Bibliothek laufen komplett auf dem iPhone, auch im Flugmodus. Skripte, Stimme und Videos werden nirgendwohin hochgeladen.",
+              "**Gibt es sie für Android?** Nein, derzeit nur für iOS.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Im nächsten Beitrag der Reihe geht es um ein konkretes Format, das zum Jahresende überall auftaucht: wie du ein Jahresrückblick-Video („Was ich dieses Jahr gelernt habe“) schreibst und mit dem Teleprompter aufnimmst.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "how-to-photograph-the-moon-with-an-iphone-why-it-comes-out-as-a-white-blob-and-how-the-moon-preset-fixes-it-night-cam",
+    title:
+      "How to Photograph the Moon With an iPhone: Why It Comes Out as a White Blob, and How the Moon Preset Fixes It",
+    description:
+      "Why iPhone moon photos come out as a white blob (auto exposure, wide lens, Night mode), how to expose for the moon instead, and how Night Cam's Moon preset does it.",
+    datePublished: "2026-11-14",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "You saw a huge orange moon over the rooftops, pointed your iPhone at it, and got a small white disc with no detail. It happens with every phone, and it is not a fault: the camera is doing what it was designed to do in a scene it was never designed for. This post explains why the moon comes out as a white blob, what a moon photo needs, and how the Moon preset in [Night Cam: Stars & Aurora](/apps/night-cam) (free to try, iPhone only, iOS 18 or later) handles it. The posts on [iPhone camera settings for the northern lights](/blog/iphone-camera-settings-northern-lights) and [fixing blurry, noisy aurora photos](/blog/northern-lights-photos-iphone-blurry-noisy-washed-out-fixes-night-cam) deal with too little light; the moon is the opposite problem.",
+          },
+        ],
+      },
+      {
+        heading: "Why the moon comes out as a white blob",
+        blocks: [
+          {
+            type: "p",
+            text: "The moon is a rock lit by direct sunlight: a daytime subject sitting in a sky that is almost black. A phone's automatic exposure looks at the whole frame, sees mostly darkness, and brightens the picture until the sky turns grey. The moon, already bright, is pushed far past white, and every crater is gone before the shutter closes.",
+          },
+          {
+            type: "p",
+            text: "Three things make it worse. The moon is small: on the 1x lens it covers a tiny patch of the sensor, so the meter barely notices it, and pinching to zoom only enlarges overexposed pixels. Night mode, which the Camera app switches on by itself in the dark, exists to brighten dark scenes, the one thing a moon photo does not need. And a long hand-held exposure blurs the disc into a halo.",
+          },
+        ],
+      },
+      {
+        heading: "The best iPhone camera settings for the moon, in principle",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Expose for the moon, not the sky.** You want the picture far darker than the camera wants it: a black sky and a grey disc with texture. In the Camera app that means dragging the exposure slider down a long way; in a dedicated app, a preset that meters the moon itself.",
+              "**Use the longest lens you have.** On iPhones with a dedicated telephoto lens, that lens puts far more pixels on the moon than the 1x camera. Digital zoom beyond it adds size, not detail.",
+              "**Hold still.** The exposure is short compared with a star photo, so a tripod is optional, but bracing the phone on a wall or railing sharpens the edge of the disc. Flash off.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "What Night Cam's Moon preset does",
+        blocks: [
+          {
+            type: "p",
+            text: "Night Cam is a night-sky camera with presets for the scenes the standard app gets wrong. The App Store listing describes the Moon preset in one line: \"exposed for moonlight on the telephoto lens, so you get craters instead of a white blob\". That is both fixes from the previous section: exposure set for a sunlit rock rather than the dark sky, and the telephoto lens so the moon fills more of the frame. Two general habits of the app help too: exposure is metered from your actual sky, so a lit terrace and a dark field both come out right, and every preset says how to hold the phone.",
+          },
+        ],
+      },
+      {
+        heading: "Step by step in the app",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Open Night Cam and check the Tonight screen.** Alongside the aurora chance and cloud cover for the next 12 hours, it shows the moon phase and brightness for where you are, and suggests the preset worth opening tonight.",
+              "**Pick Moon.** It uses the telephoto lens and sets the exposure for moonlight. Frame the moon; it does not need to be dead centre.",
+              "**Follow the holding advice on screen** (tripod, wall or hand-held), tap, and keep still. The app runs a 3-second countdown and a steadiness check before long shots; if they appear, hold still until the shot is done.",
+              "**Open Photos.** Pictures go straight to your Photos library and nowhere else. If the disc is still too bright, thin cloud or haze is probably scattering the moonlight.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Which moon phase shows the most detail",
+        blocks: [
+          {
+            type: "p",
+            text: "This surprises people: the full moon is the worst night for craters. Lit flat-on, the surface has no shadows and looks like a bright coin. Craters show best along the **terminator**, the line between the lit and dark halves, where the low sun throws long shadows off every rim, so a half or gibbous moon gives a strip of relief down the disc. General photography knowledge, not an app feature; the Tonight screen's phase reading tells you which night you have.",
+          },
+        ],
+      },
+      {
+        heading: "Moonrise, foreground and the City preset",
+        blocks: [
+          {
+            type: "p",
+            text: "A moon just above the horizon looks bigger and warmer than one overhead. The size is an illusion; the colour is real, because you are looking through far more atmosphere, which also blurs fine detail. Low moon for mood, high moon for craters.",
+          },
+          {
+            type: "p",
+            text: "The moon over a skyline is really two different photos. The **Moon** preset exposes for the moon and renders the city as dark shapes. The **City** preset, described in the listing as \"skyline and lights from the balcony or terrace\", exposes for the buildings, and the moon becomes a bright disc again. Decide which subject the picture is about and pick that preset.",
+          },
+        ],
+      },
+      {
+        heading: "Why you cannot get the moon and the stars in one shot",
+        blocks: [
+          {
+            type: "p",
+            text: "The brightness gap is too wide. An exposure that shows the moon's surface is a fraction of a second; one that shows stars is many seconds. Night Cam's **Stars** preset stacks 16 seconds of light into one frame, and any moon in it is a burned-out disc. Stars is for a dark, moonless sky; Moon is for the single bright object in it.",
+          },
+        ],
+      },
+      {
+        heading: "Free tier, price and privacy",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Your first 3 captures are free.** Then Night Cam Pro is $4.99 once, or a Night Pass is $0.99 for 48 hours and does not renew. No subscription; the forecast is always free.",
+              "**No account, no ads, no analytics, no tracking.** The App Store privacy label reads Data Not Collected; photos go only to your Photos library.",
+              "**1.8 MB, iOS 18.0 or later, English plus 13 other languages**, switchable from the flag at the top of the camera screen since version 1.0.1.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "When a phone will not do it",
+        blocks: [
+          {
+            type: "p",
+            text: "A phone telephoto will not match a telescope or a long zoom on a proper camera; expect visible craters and seas, not a poster. Phones without a dedicated telephoto lens have less to work with, because the digital crop that stands in for one is soft. A window adds reflections, and a moon behind cloud is a glow, not a disc, whatever you do. Wait for a gap, step outside, brace the phone.",
+          },
+        ],
+      },
+      {
+        heading: "FAQ",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Why is the moon white in my photos?** Automatic exposure brightens the dark sky and pushes the already bright moon past white. Expose for the moon instead, which is what the Moon preset does.",
+              "**Do I need a tripod?** Not strictly; the exposure is short. Bracing on a wall or railing helps, and the preset tells you how to hold the phone.",
+              "**Which iPhone works?** The listing says iPhone only, iOS 18.0 or later, and does not list models. The Moon preset uses the telephoto lens, so iPhones with a dedicated telephoto get the best result.",
+              "**Can I photograph a lunar eclipse?** An eclipsed moon is far darker than a normal full moon and needs a much longer exposure. Night Cam has no dedicated eclipse mode; expect to experiment.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "how-to-win-mancala-7-mid-game-and-endgame-tactics-captures-extra-turn-chains-and-starving-your-opponent-android",
+    title:
+      "How to Win Mancala: 7 Mid-Game and Endgame Tactics (Captures, Extra-Turn Chains, and Starving Your Opponent)",
+    description:
+      "Mancala strategy for players who know the rules but lose to the computer: seven Kalah tactics for the middle game and endgame, drilled in Mancala Offline on Android.",
+    datePublished: "2026-11-14",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "You know the rules, you take the free move at the start, and the Hard computer still beats you by ten stones and Master by twenty. In Kalah the opening is short and the middle game decides everything. Here are seven tactics for the middle and end of the game, and how to drill them in [Mancala Offline: Board Game](/apps/mancala-offline), a free Kalah game for Android that works offline. It follows the [rules and beginner strategies](/blog/how-to-play-mancala-kalah-rules-beginner-strategy-android-offline) and [best first move](/blog/best-first-move-in-mancala-kalah-opening-strategy-android) posts: six pits a side, four stones each, your store on your right, pits numbered **1 to 6 from your left** so pit 6 is next to your store. Sowing skips the opponent's store; your pit 1 faces their pit 6, your pit 2 their pit 5, and so on.",
+          },
+        ],
+      },
+      {
+        heading: "1. Count before you sow, and chain from the store outwards",
+        blocks: [
+          {
+            type: "p",
+            text: "A pit N places from your store with exactly N stones ends in the store and gives you another move: pit 6 needs 1, pit 5 needs 2, pit 4 needs 3. Find every pit that matches, then play them **nearest the store first**. With 1, 2 and 3 stones in pits 6, 5 and 4, play 6, then 5, then 4: three extra moves, three stones banked, your real move still to come. Play pit 4 first and pits 5 and 6 end up with 3 and 2, and the chain is gone.",
+          },
+        ],
+      },
+      {
+        heading: "2. Build captures: empty pit, loaded pit opposite, the stone to land there",
+        blocks: [
+          {
+            type: "p",
+            text: "A capture needs three things at once: an empty pit on your side, stones opposite it, and a pit of yours whose last stone drops into it. Beginners wait for all three; winners arrange them. Your pit 3 is empty and the opponent's pit opposite holds 7. Your pit 1 holds 2: one into pit 2, one into pit 3, and 8 stones go into your store. If pit 1 held 3, make a quiet move elsewhere and wait.",
+          },
+        ],
+      },
+      {
+        heading: "3. Read the same threats against you, then fill or empty",
+        blocks: [
+          {
+            type: "p",
+            text: "Tactic 2 in reverse, and Hard and Master see it instantly. Every turn, look for an empty pit on their side opposite one of your full pits, and a pit of theirs whose count matches the distance. Typical: your pit 5 holds 8, their pit opposite is empty, their pit next to your store holds one stone, and they take 9 next move. **Empty the target**: play pit 5; its 8 stones pass through pit 6, your store and all six of their pits, filling the hole on the way. Or **fill the hole** by sowing any pit that passes over it.",
+          },
+        ],
+      },
+      {
+        heading: "4. The hoard: let one far pit grow for a lap round the board",
+        blocks: [
+          {
+            type: "p",
+            text: "Pit 1 or 2 rarely reaches the store exactly, so it rarely gets played. Let it fill. With 13 stones it goes all the way round, one into every pit including your store and skipping theirs, and the last stone lands back in the pit it left, now empty: stones opposite means a capture. More than 13 drops a second stone into your store, and a hoard counts for you at the end (tactic 6). The risk: a big pit is a big target, so hoard only where the opponent cannot easily land a last stone opposite it.",
+          },
+        ],
+      },
+      {
+        heading: "5. Tempo: make the opponent feed you",
+        blocks: [
+          {
+            type: "p",
+            text: "In Kalah you must move if you can. When the opponent's side is nearly empty, every move from a pit near their store carries stones past your store onto your row, and they cannot refuse. Make small moves that keep stones on your side: one stone from pit 1 to pit 2, a single free move, nothing sown across. Each turn they feed you and you give nothing back; against Master this is often the only way back into a game.",
+          },
+        ],
+      },
+      {
+        heading: "6. The endgame sweep: count before you empty a side",
+        blocks: [
+          {
+            type: "p",
+            text: "The game ends the moment all six pits on either side are empty, and each player then sweeps any stones left on their own side into their own store. The late question is \"who holds more when the board stops?\" Your store 20, theirs 19, four stones in your pit 6 and nothing else on your side, five along theirs. Play pit 6 and the game ends: one stone into your store, three onto their side, and they sweep their five plus your three for 27 to 21. Before each endgame move, add up both sides as if the game ended now.",
+          },
+        ],
+      },
+      {
+        heading: "7. Behind, gamble; ahead, simplify",
+        blocks: [
+          {
+            type: "p",
+            text: "A capture that opens your own side to a counter-capture is a bad trade five stones up and the right trade five stones down. Behind, prefer captures and hoards even at some risk; a safe single stone will not close the gap. Ahead, prefer the free move, the fill-the-hole defence and moves that shorten the game.",
+          },
+        ],
+      },
+      {
+        heading: "How to practise each tactic in Mancala Offline",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Climb the levels.** Easy plays shallow and sometimes picks a random move; Medium looks three moves ahead, Hard six, Master up to nine. Tactics 1 to 3 beat Medium; Master is where 4 to 7 earn their keep.",
+              "**Daily Puzzle.** A new position each day: capture a set number of stones in one turn, or win from a position against the Hard computer. Tactics 2 and 6, isolated.",
+              "**Undo and Hint.** When a capture lands against you, undo and find the move a turn earlier that would have filled or emptied the pit. A hint highlights a strong move; guess yours first. Each costs a short optional ad, or is free with Mancala Pro.",
+              "**2 Players.** Pass and play on one phone with a friend who will try the tactic back at you.",
+              "**World Tour.** Twelve opponents from Cairo to New York, ending with a Grand Master, up to 3 stars each: win by 6 or more for 2 stars, by 12 or more for 3. Margins force tactics 4 and 5.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "The three mistakes that lose to Master",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Greedy captures** that take 4 stones and leave your 9-stone pit exposed.",
+              "**Ignoring the chain:** letting the computer line up 1, 2 and 3 stones next to its store for three free moves.",
+              "**Emptying your side too early**, then watching the sweep hand them the game.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Free, Pro, ads and offline",
+        blocks: [
+          {
+            type: "p",
+            text: "Mancala Offline is free with optional ads. Mancala Pro is a one-time purchase that removes the ads and makes hints and undos free; no subscription. No account, no sign-up, progress stays on the phone, and every mode works offline. The Play Store data-safety panel lists data types such as location and app activity, which reflects the ad SDK rather than your games. Android 7.0 or later.",
+          },
+          {
+            type: "p",
+            text: "One honest trade-off: the computer never gets tired or greedy, and a memorised opening buys two or three good moves before the position is new. Expect to keep losing to Master for a while; the losses just get narrower, and you can name the move that cost you.",
+          },
+        ],
+      },
+      {
+        heading: "FAQ",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Is there a guaranteed way to win Mancala?** No. Under standard Kalah rules, analysis shows the first player wins by 8 with perfect play, so going first is an edge, but nobody plays perfectly.",
+              "**How do I beat the Master level?** Every turn: free moves nearest the store first, check their capture threats, check yours, and in the endgame add up the sweep. Master wins by punishing oversights.",
+              "**What is the best capture?** The one that takes the most stones without leaving a bigger one open behind it.",
+              "**Does the app use the capture-into-empty-pit rule?** Yes. The listing says a last stone landing in an empty pit on your side captures the stones opposite; nothing is captured if the opposite pit is empty.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];

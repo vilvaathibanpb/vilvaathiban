@@ -10542,6 +10542,181 @@ node --import=tsx your-file.ts`,
       },
     ],
   },
+  {
+    slug: "how-to-add-an-mcp-server-to-claude-code-claude-mcp-add-mcp-json-scopes-http-stdio-troubleshooting",
+    title:
+      "How to add an MCP server to Claude Code: claude mcp add, .mcp.json, scopes, HTTP vs stdio, and the fixes when it doesn't connect",
+    description:
+      "Claude Code MCP server setup: claude mcp add for HTTP and stdio, local/project/user scopes, .mcp.json by hand, /mcp auth, and fixes when it will not connect.",
+    datePublished: "2026-11-14",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "You have found an MCP server you want Claude Code to use, and the instructions were written for another client, or stop at a URL. This is the user-side guide: `claude mcp add`, the three scopes, `.mcp.json` by hand, and what to check when `/mcp` shows a cross instead of a tick. Every command and flag comes from the official [Connect Claude Code to tools via MCP](https://code.claude.com/docs/en/mcp) page as read on 14 November 2026. To build a server rather than connect one, see the [TypeScript MCP server guide](/blog/building-mcps-typescript-mcp-server-guide).",
+          },
+        ],
+      },
+      {
+        heading: "What an MCP server gives Claude Code",
+        blocks: [
+          {
+            type: "p",
+            text: "Claude Code connects to external tools and data sources through the Model Context Protocol, an open standard for AI-tool integrations. A connected server gives Claude tools it can call directly, so instead of you pasting a ticket or a stack trace into the chat, Claude reads it from the system and acts on it. The docs' examples: implement the feature in a JIRA issue and open a PR on GitHub, check Sentry for a feature's usage, query a PostgreSQL database. A server can also act as a channel that pushes chat messages or webhook events into your session while you are away.",
+          },
+          {
+            type: "p",
+            text: "Under the hood a server answers JSON-RPC and advertises tools, resources and prompts; the [MCP architecture explainer](/blog/mcp-architecture-explained) covers that side. As a user you make three decisions: transport, scope and, for remote servers, authentication. The docs' rule for when to bother: connect a server when you find yourself copying data into chat from another tool.",
+          },
+        ],
+      },
+      {
+        heading: "HTTP, SSE or stdio: which transport to pick",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**HTTP** is the recommended transport for remote servers and, per the docs, the most widely supported for cloud services. It supports OAuth and the `--transport` flag.",
+              "**SSE** is deprecated. Add an SSE-only service with the same `--transport http` command: Claude Code tries HTTP first and switches to SSE when the server does not accept it (v2.1.265 or later). `--transport sse` forces it.",
+              "**stdio** runs the server as a local process started by a command such as `npx -y some-server`, for tools that need direct system access or custom scripts. Claude Code sets `CLAUDE_PROJECT_DIR` in the server's environment.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The choice is usually made for you: a URL means remote, so HTTP; a launch command (`npx`, `uvx`, a binary) means stdio.",
+          },
+        ],
+      },
+      {
+        heading: "claude mcp add: HTTP and stdio syntax",
+        blocks: [
+          {
+            type: "code",
+            language: "bash",
+            code: "# HTTP: basic syntax, the docs' Notion example, a Bearer token\nclaude mcp add --transport http <name> <url>\nclaude mcp add --transport http notion https://mcp.notion.com/mcp\nclaude mcp add --transport http secure-api https://api.example.com/mcp \\\n  --header \"Authorization: Bearer your-token\"",
+          },
+          {
+            type: "code",
+            language: "bash",
+            code: "# stdio: basic syntax, then the docs' Airtable example\nclaude mcp add [options] <name> -- <command> [args...]\nclaude mcp add --env AIRTABLE_API_KEY=YOUR_KEY --transport stdio airtable \\\n  -- npx -y airtable-mcp-server",
+          },
+          {
+            type: "p",
+            text: "Short forms: `-t`, `-H`, `-e`. For stdio the `--` matters: it separates Claude Code's options from the command that runs the server, so a server flag like `--port 8080` is not read as Claude Code's. If the server name comes directly after `--env`, the CLI reads it as another `KEY=value` pair and rejects it, so put `--transport stdio` between them. A successful add prints `Added ...`, meaning the configuration was written, not that it connects; credentials are not validated.",
+          },
+        ],
+      },
+      {
+        heading: "The three scopes: local, project, user",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**local** (default, `--scope local` or `-s local`): the current project only, private to you, stored in `~/.claude.json` under that project's path. For experiments and credentials you do not want in version control. Note that it lives in your home directory, not in `.claude/settings.local.json`.",
+              "**project**: shared with the team through `.mcp.json` at the project root, which you commit. `claude mcp add --transport http shared-server --scope project https://example.com/mcp` creates or updates the file.",
+              "**user**: all your projects, private to you, also in `~/.claude.json`. Add with `--scope user`.",
+            ],
+          },
+          {
+            type: "p",
+            text: "If one name exists in several places, Claude Code connects once, using the highest-precedence definition: local, then project, then user, then plugin servers, then claude.ai connectors. The whole entry wins; fields are not merged.",
+          },
+        ],
+      },
+      {
+        heading: "Writing .mcp.json by hand",
+        blocks: [
+          {
+            type: "p",
+            text: "The project-scope file is plain JSON under an `mcpServers` key. The docs' example, plus a stdio entry:",
+          },
+          {
+            type: "code",
+            language: "json",
+            code: "{\n  \"mcpServers\": {\n    \"shared-server\": {\n      \"type\": \"http\",\n      \"url\": \"https://example.com/mcp\"\n    },\n    \"example\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"@example/mcp-server\"]\n    }\n  }\n}",
+          },
+          {
+            type: "list",
+            items: [
+              "**A remote entry needs a `type`.** A `url` with no `type` is read as stdio and skipped, with the message `MCP server \"<name>\" has a \"url\" but no \"type\"; add \"type\": \"http\" (or \"sse\" / \"ws\") to this entry`. `streamable-http` is accepted as an alias for `http`.",
+              "**Environment variables expand** in `command`, `args`, `env`, `url` and `headers` as `${VAR}` or `${VAR:-default}`. The docs' example is a header of `Bearer ${API_KEY}`: the team shares the file, each machine supplies its key. An unset variable without a default still loads, with a warning. Claude Code's own credentials, such as `ANTHROPIC_API_KEY`, deliberately read as empty in a remote server's `url` and `headers`.",
+              "**Names** use letters, numbers, hyphens and underscores; `workspace`, `claude-in-chrome`, `computer-use`, `Claude Preview` and `Claude Browser` are reserved. A per-server `\"timeout\"` in milliseconds bounds each tool call.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Instructions written for Claude Desktop usually give an `mcpServers` block. The documented route is to pass the object inside `mcpServers`, not the wrapper, to `claude mcp add-json <name> '...'`, or to paste the entry into `.mcp.json` yourself.",
+          },
+        ],
+      },
+      {
+        heading: "claude mcp list, get, remove, and /mcp",
+        blocks: [
+          {
+            type: "code",
+            language: "bash",
+            code: "claude mcp list            # every server with a health status\nclaude mcp get notion      # one server's details, with an Issue: line\nclaude mcp remove notion   # add --scope <scope> if it exists in several\nclaude mcp login notion    # OAuth from the shell; --no-browser over SSH",
+          },
+          {
+            type: "p",
+            text: "`claude mcp list` prints `✔ Connected`, `! Needs authentication` or `✘ Failed to connect` with the HTTP status appended. Inside a session, `/mcp` shows the same servers with tool counts and a per-server menu: **Reconnect**, **Disable**, **Clear authentication**. It is also where OAuth 2.0 happens: run `/mcp`, pick the server, finish in the browser; if the redirect fails, paste the full callback URL into the prompt. Tokens are stored and refreshed automatically. Removing a remote server deletes its stored tokens without revoking them, so run `claude mcp logout <name>` first if you want that. For a one-off run that should see only specific servers, pass them with `--mcp-config` and add `--strict-mcp-config`, which skips the ones configured in places such as `.mcp.json`.",
+          },
+        ],
+      },
+      {
+        heading: "When it does not connect: common failures and fixes",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Not in the list at all.** Scope and directory: a local-scoped server is tied to the path you added it from, so run `claude mcp list` there.",
+              "**`⏸ Pending approval (run claude to approve)`.** A project `.mcp.json` server needs approval in an interactive session: run `claude` in the folder, accept the workspace trust dialog, approve it. `claude mcp reset-project-choices` clears earlier answers; a `disabledMcpjsonServers` entry in settings rejects the server everywhere.",
+              "**`✘ Failed to connect` with 401 or 403.** With a configured `Authorization` header, Claude Code reports a failure rather than offering OAuth: fix the token or remove the header. If the header uses a `${VAR}`, check it is not a name that reads as empty.",
+              "**`! Needs authentication`.** Sign in from `/mcp` or with `claude mcp login <name>`; a `claude -p` run has no `/mcp` panel.",
+              "**Environment variables.** `claude mcp list` warns about a missing variable and about hidden whitespace in `command`, `url`, `args`, `env` or `headers`, usually a token pasted with a trailing newline.",
+              "**Slow startup.** `MCP_TIMEOUT` sets the startup timeout in milliseconds, for example `MCP_TIMEOUT=10000 claude` for ten seconds. Tool calls are bounded by the per-server `timeout` or `MCP_TOOL_TIMEOUT`.",
+              "**Output cut off.** Claude Code warns at 10,000 tokens of tool output and limits it to 25,000 by default; `MAX_MCP_OUTPUT_TOKENS=50000` raises the limit.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Security, and what project scope shares",
+        blocks: [
+          {
+            type: "p",
+            text: "The docs open with a warning: verify you trust each server before connecting it, because servers that fetch external content can expose you to prompt injection. Project scope raises the stakes: whatever you commit in `.mcp.json` runs for every teammate who approves it, and `claude -p` runs load it without the approval prompt. Keep secrets out of the file with `${VAR}` references and keep experiments in local scope.",
+          },
+        ],
+      },
+      {
+        heading: "When NOT to add an MCP server",
+        blocks: [
+          {
+            type: "p",
+            text: "A server is not free: each one adds tools Claude has to know about, and the counts in `/mcp` show how many. If the job is a command-line tool Claude can already run through Bash, a server often adds a layer without adding ability. Add one when the data sits behind an API with no good CLI, when OAuth is the only sensible way in, or when you want events pushed into the session. Otherwise connect the one server you use daily and leave the rest in local scope until they earn a place.",
+          },
+        ],
+      },
+      {
+        heading: "FAQ",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Where is .mcp.json?** In the project root, holding project-scoped servers only. Local- and user-scoped servers live in `~/.claude.json` in your home directory.",
+              "**How do I add an MCP server for all projects?** User scope: `claude mcp add --transport http <name> --scope user <url>`. It stays private to you.",
+              "**Why does Claude Code not see my MCP server?** Wrong scope or directory, a project server still at Pending approval, a remote entry with a `url` but no `type`, or a failed connection; `claude mcp get <name>` shows the detail on its `Issue:` line.",
+              "**How do I remove one?** `claude mcp remove <name>`, with `--scope <scope>` if it exists in several. To pause instead, toggle it off in `/mcp`.",
+              "**Can I use the same servers as Claude Desktop?** Yes, same protocol. Pass the object inside the `mcpServers` block to `claude mcp add-json`, adding a `type` to any entry with a `url`.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
   ...mcpGuides,
 ];
