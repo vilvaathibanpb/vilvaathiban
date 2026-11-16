@@ -72,7 +72,7 @@ export const APPS = [
     ios: ios("night-cam-stars-aurora", "6818341326"),
   },
   {
-    name: "Duo Instant",
+    name: "Foldie",
     slug: "duo-instant",
     tagline: "An instant-film camera for iPhone: the print comes out and develops in about 40 seconds.",
     summary:

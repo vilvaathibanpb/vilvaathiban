@@ -1,4 +1,4 @@
-// Duo Instant (iOS, not on the App Store yet). English-only landing page.
+// Foldie (iOS, not on the App Store yet). English-only landing page.
 // No App Store id yet, so `iosPlanned` marks it as an iPhone app and the page
 // shows "Coming soon to the App Store" instead of a link that would 404.
 //
@@ -13,9 +13,9 @@ export const APP_STORE_URL = "https://apps.apple.com/app/duo-instant"; // TODO: 
 export default {
   slug: "duo-instant",
   iconBase: "duo-instant",
-  name: "Duo Instant",
+  name: "Foldie",
   alternateNames: [
-    "Duo Instant camera",
+    "Foldie camera",
     "instant film camera app",
     "instant camera app iphone",
     "instant print camera iphone",
@@ -35,18 +35,18 @@ export default {
   color: "#C2410C",
   category: "PhotographyApplication",
   head: {
-    title: "Instant Film Camera for iPhone and iPhone Duo — Duo Instant",
+    title: "Instant Film Camera for iPhone and iPhone Duo — Foldie",
     description:
       "An instant-film camera for iPhone. Take a shot and the print rolls out and develops over about 40 seconds. Built for iPhone Duo: close the phone and the print develops on the outer screen. $4.99 once, no ads, no account.",
     keywords:
       "instant camera app, instant film camera app, instant film iphone, instant print camera app, retro instant camera iphone, iphone duo camera app, iphone duo app, foldable iphone camera, instant photo frame app, film camera app no subscription",
-    ogTitle: "Shoot, close the phone, watch the print develop: Duo Instant",
+    ogTitle: "Shoot, close the phone, watch the print develop: Foldie",
     ogDescription:
       "An instant-film camera for iPhone, built for iPhone Duo. Prints develop over about 40 seconds; shake to speed them up. $4.99 once, no subscription.",
   },
   h1: "An instant-film camera for iPhone, built for iPhone Duo",
   answer:
-    "Duo Instant turns your iPhone into an instant-film camera. Take a shot and the print comes out and develops over about 40 seconds, like real instant film; shake the phone to develop it faster. On iPhone Duo, shoot with the phone open, then close it and the print rolls out on the outer screen and develops there. On any other iPhone, the print ejects by itself after the shot. Pick Color, B&W or Faded film, write a caption on the print, then save it to Photos or share it. $4.99 once: no subscription, no ads, no in-app purchases, no account.",
+    "Foldie turns your iPhone into an instant-film camera. Take a shot and the print comes out and develops over about 40 seconds, like real instant film; shake the phone to develop it faster. On iPhone Duo, shoot with the phone open, then close it and the print rolls out on the outer screen and develops there. On any other iPhone, the print ejects by itself after the shot. Pick Color, B&W or Faded film, write a caption on the print, then save it to Photos or share it. $4.99 once: no subscription, no ads, no in-app purchases, no account.",
   quickFacts: [
     ["Price", "$4.99 once. No subscription, no ads, no in-app purchases"],
     ["Film looks", "Color, B&W, Faded"],
@@ -56,7 +56,7 @@ export default {
   screenshotsTitle: "Screenshots",
   screenshots: [],
   howTo: {
-    title: "How to take an instant photo with Duo Instant",
+    title: "How to take an instant photo with Foldie",
     intro: "Point, shoot and wait for the print. On iPhone Duo, closing the phone is part of the fun.",
     steps: [
       { name: "Pick a film", text: "Choose Color, B&W or Faded, and turn the flash on if it is dark." },
@@ -79,10 +79,10 @@ export default {
   intents: [
     {
       h: "Is there an instant camera app for iPhone without a subscription?",
-      p: "Duo Instant costs $4.99 once. There is no subscription, no ads, no in-app purchases and no account. Film packs are a mechanic of the camera, not something you buy: reloading is free.",
+      p: "Foldie costs $4.99 once. There is no subscription, no ads, no in-app purchases and no account. Film packs are a mechanic of the camera, not something you buy: reloading is free.",
     },
     {
-      h: "What does Duo Instant do on iPhone Duo?",
+      h: "What does Foldie do on iPhone Duo?",
       p: "Take a shot with the phone open, then close it: the print rolls out on the outer screen and develops there. As you unfold the phone, the camera pops up out of the fold with a warm light leak and the viewfinder opens with the hinge. Half-folded on a table, the camera stands on the top half and prints onto the bottom half.",
     },
     {
@@ -95,9 +95,9 @@ export default {
     },
   ],
   compare: {
-    title: "Duo Instant vs a real instant camera and filter apps",
+    title: "Foldie vs a real instant camera and filter apps",
     intro: "A real instant camera gives you a physical print but costs money per shot. Filter apps add a frame, but the photo appears at once.",
-    columns: ["", "Duo Instant", "Instant film camera", "Filter apps"],
+    columns: ["", "Foldie", "Instant film camera", "Filter apps"],
     rows: [
       ["Print develops over time", "✓ About 40 seconds", "✓", "✗"],
       ["Cost per shot", "None", "Film for every shot", "None"],
@@ -108,7 +108,7 @@ export default {
   },
   faqs: [
     {
-      q: "How much does Duo Instant cost?",
+      q: "How much does Foldie cost?",
       a: "$4.99, once. There is no subscription, no ads and no in-app purchases. Film packs hold 10 shots and reloading is free.",
     },
     {
@@ -133,7 +133,7 @@ export default {
     },
     {
       q: "Is there an Android version?",
-      a: "No. Duo Instant is iPhone-only.",
+      a: "No. Foldie is iPhone-only.",
     },
   ],
   guides: [],
@@ -143,5 +143,5 @@ export default {
     { name: "Good Behavior Police Call", href: "/apps/police-call", blurb: "A friendly pretend call from Officer Pat or Officer Sam for bedtime, teeth and tidy-up. Free on iPhone." },
   ],
   disclaimer:
-    "Duo Instant makes digital prints on your iPhone; it does not print on paper. It is not affiliated with any instant film or camera maker. iPhone is a trademark of Apple Inc.",
+    "Foldie makes digital prints on your iPhone; it does not print on paper. It is not affiliated with any instant film or camera maker. iPhone and iPhone Duo are trademarks of Apple Inc. Foldie is not affiliated with Apple.",
 };

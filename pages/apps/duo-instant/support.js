@@ -16,7 +16,7 @@ const TROUBLESHOOTING = [
   },
   {
     q: "Do I need an iPhone Duo?",
-    a: "No. Duo Instant works on any iPhone with iOS 17 or later; there, the print ejects by itself after the shot. The fold features need iPhone Duo with iOS 27.1: close the phone after a shot and the print rolls out on the outer screen, unfold it and the camera pops up out of the fold, or stand it half-folded on a table to shoot from the top half and print onto the bottom half.",
+    a: "No. Foldie works on any iPhone with iOS 17 or later; there, the print ejects by itself after the shot. The fold features need iPhone Duo with iOS 27.1: close the phone after a shot and the print rolls out on the outer screen, unfold it and the camera pops up out of the fold, or stand it half-folded on a table to shoot from the top half and print onto the bottom half.",
   },
   {
     q: "The film pack is empty. Do I have to buy more?",
@@ -36,7 +36,7 @@ const TROUBLESHOOTING = [
   },
   {
     q: "The camera shows nothing. What now?",
-    a: "Camera access is probably off. Open Settings > Privacy & Security > Camera and turn on Duo Instant, then reopen the app.",
+    a: "Camera access is probably off. Open Settings > Privacy & Security > Camera and turn on Foldie, then reopen the app.",
   },
   {
     q: "I deleted the app. Can I get my prints back?",
@@ -47,16 +47,16 @@ const TROUBLESHOOTING = [
 const SupportPage = () => (
   <Container>
     <Head>
-      <title>Support — Duo Instant</title>
+      <title>Support — Foldie</title>
       <meta
         name="description"
-        content="Help for Duo Instant: developing prints, iPhone Duo features, film packs, saving and sharing prints, silent shooting and contact."
+        content="Help for Foldie: developing prints, iPhone Duo features, film packs, saving and sharing prints, silent shooting and contact."
       />
       <link rel="canonical" href={URL} />
     </Head>
     <Header />
     <Wrap>
-      <Eyebrow>Duo Instant</Eyebrow>
+      <Eyebrow>Foldie</Eyebrow>
       <Title>Support</Title>
       <Lead>
         Common questions first. If none of it helps, email{" "}
@@ -71,7 +71,7 @@ const SupportPage = () => (
           and take the shot. On iPhone Duo, close the phone and the print rolls out on the outer screen; on other
           iPhones it ejects by itself. The print develops over about 40 seconds, and shaking the phone speeds it
           up. Write a caption on it, then save the framed print to Photos, share it or delete it. Your prints are
-          pinned to the prints wall. Duo Instant is a one-time $4.99 purchase with no subscription, no ads, no
+          pinned to the prints wall. Foldie is a one-time $4.99 purchase with no subscription, no ads, no
           in-app purchases and no account, and it works in 20 languages.
         </p>
       </Section>

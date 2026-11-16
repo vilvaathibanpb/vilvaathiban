@@ -11,10 +11,10 @@ const URL = "https://www.vilvaathiban.com/apps/duo-instant/privacy";
 const PrivacyPage = () => (
   <Container>
     <Head>
-      <title>Privacy Policy — Duo Instant</title>
+      <title>Privacy Policy — Foldie</title>
       <meta
         name="description"
-        content="Privacy policy for Duo Instant on iPhone. No data collected: no servers, no network requests, no analytics, no ads and no tracking. Photos and prints stay on your device."
+        content="Privacy policy for Foldie on iPhone. No data collected: no servers, no network requests, no analytics, no ads and no tracking. Photos and prints stay on your device."
       />
       <link rel="canonical" href={URL} />
       <meta name="robots" content="noindex, follow" />
@@ -22,14 +22,14 @@ const PrivacyPage = () => (
     <Header />
     <Wrap>
       <Eyebrow>
-        <Link href="/apps/duo-instant/support">Duo Instant</Link>
+        <Link href="/apps/duo-instant/support">Foldie</Link>
       </Eyebrow>
       <Title>Privacy Policy</Title>
       <Lead>Last updated: November 5, 2026</Lead>
 
       <Section>
         <p>
-          This Privacy Policy describes how the iOS application <b>Duo Instant</b> (&quot;the App&quot;), developed
+          This Privacy Policy describes how the iOS application <b>Foldie</b> (&quot;the App&quot;), developed
           by Vilva Athiban P B (&quot;we&quot;, &quot;us&quot;), handles your information. The short version:{" "}
           <b>we do not collect any data.</b> The App has no servers and makes no network requests at all. There is
           no account, no analytics, no crash reporting, no ads, no tracking and no third-party SDKs.
