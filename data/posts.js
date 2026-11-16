@@ -10717,6 +10717,180 @@ node --import=tsx your-file.ts`,
       },
     ],
   },
+  {
+    slug: "iterator-map-is-not-a-function-fix",
+    title:
+      "TypeError: .map is not a function on an iterator (map.keys().map, values().map, entries().filter): why it happens and the fix",
+    description:
+      "map.keys().map is not a function means the runtime has no iterator helpers. Spread first, use Node 22+ or Baseline 2025 browsers, or polyfill with core-js.",
+    datePublished: "2026-11-16",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "The one-line cause: `map.keys()`, `map.values()`, `map.entries()`, `set.values()` and every generator call return an **iterator**, not an array. An iterator only has `.map`, `.filter`, `.take` and the rest where the runtime ships the ES2025 iterator helpers. On a runtime without them, `map.keys().map(fn)` throws `TypeError: map.keys(...).map is not a function`. Your code is valid; it is running somewhere that predates it.",
+          },
+          {
+            type: "p",
+            text: "This is a fix post in the same series as the [Promise.try fix](/blog/promise-try-is-not-a-function-fix) and the [toSorted fix](/blog/tosorted-is-not-a-function-fix): the exact messages, the `Object.entries` confusion, three fixes, a feature test, the TypeScript setting, and when not to switch at all. The helpers themselves are covered in the [iterator helpers guide](/blog/javascript-iterator-helpers), and this post does not repeat it.",
+          },
+        ],
+      },
+      {
+        heading: "The exact error messages",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "`TypeError: map.keys(...).map is not a function`: a helper called straight on what `Map.prototype.keys()` returned. The same shape appears for `.values(...)` and `.entries(...)` on a Map or a Set.",
+              "`TypeError: iterator.map is not a function` or `TypeError: it.filter is not a function`: the same thing on a variable that holds an iterator, most often a generator object or the result of `array.values()`.",
+              "`TypeError: xs.values(...).take is not a function`: `take`, `drop`, `flatMap`, `toArray`, `reduce`, `forEach`, `some`, `every` and `find` fail identically on the same runtime. `map` is simply the one people hit first.",
+            ],
+          },
+          {
+            type: "p",
+            text: "V8 puts the receiver expression in the message, so the text tells you what you called the method on. If it ends in `.keys()`, `.values()` or `.entries()` on a Map or Set, or is a generator call, you are in this post. If it ends in `Object.entries(...)`, you are not, and the next section explains why.",
+          },
+        ],
+      },
+      {
+        heading: "The main confusion: Object.entries returns an array, Map.prototype.entries returns an iterator",
+        blocks: [
+          {
+            type: "p",
+            text: "Two methods share a name and return different kinds of thing. `Object.entries(obj)` returns a plain **array** of `[key, value]` pairs, so `.map`, `.filter` and `.find` on it have always worked. `Map.prototype.entries()` returns an **iterator**: a single-use object that hands out pairs one at a time through `next()`. Same for `Map.prototype.keys()`, `Map.prototype.values()`, `Set.prototype.values()`, `Array.prototype.values()` and generator objects.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const obj = { a: 1, b: 2 };\nObject.entries(obj).map(([k, v]) => k + v); // works everywhere: it is an Array\n\nconst m = new Map([['a', 1], ['b', 2]]);\nm.entries().map(([k, v]) => k + v);         // needs iterator helpers\n\nArray.isArray(Object.entries(obj)); // true\nArray.isArray(m.entries());         // false",
+          },
+          {
+            type: "p",
+            text: "So a `.filter is not a function` after `Object.entries(...)` is **not** this error. That array has had `.filter` since ES5; if it fails there, something else is going on, such as a shadowed `Object` or a variable overwritten along the way. The confusion runs the other way too: `Map.groupBy` returns a Map, so grouping with it and then calling `.entries().map(...)` lands you here. The [Object.groupBy and Map.groupBy guide](/blog/javascript-object-groupby-map-groupby-guide) has the shape of each result.",
+          },
+        ],
+      },
+      {
+        heading: "Why [...map.keys()].map() always worked and map.keys().map() did not",
+        blocks: [
+          {
+            type: "p",
+            text: "Spread and `Array.from` drain the iterator into a new array, and arrays have had `.map` for as long as most of us have written JavaScript. `map.keys().map(fn)` asks the iterator object itself for a `map` method. Until ES2025, the shared prototype that every built-in iterator inherits from had nothing useful on it, so the lookup found `undefined` and the call threw. Iterator helpers added `map`, `filter`, `take`, `drop`, `flatMap`, `reduce`, `toArray`, `forEach`, `some`, `every` and `find` to `Iterator.prototype`, and every built-in iterator picked them up at once. The error is not about Map; it is about the age of the engine.",
+          },
+        ],
+      },
+      {
+        heading: "Runtime support: Baseline 2025 in browsers, Node.js 22 and later",
+        blocks: [
+          {
+            type: "p",
+            text: "MDN's page for [Iterator.prototype.map()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator/map) marks it \"Baseline 2025 — since March 2025, this feature works across the latest devices and browser versions\", which means the latest versions of Chrome, Edge, Firefox and Safari all have it. Older devices and browsers may not, and a public website still sees those.",
+          },
+          {
+            type: "p",
+            text: "On the server, iterator helpers arrived in Node.js 22 (V8 12.4); on Node 20 and earlier you get this error. That is the case that catches most people: the code works on a laptop, then fails in a CI image, a serverless runtime or a Docker base still on 20. Check the machine that threw with `node -e \"console.log(typeof Iterator.prototype.map)\"`: `function` means the helpers are there and the problem is elsewhere; `undefined` or a `ReferenceError` for `Iterator` means an old engine. The [which Node version to use](/blog/nodejs-26-lts-october-2026-which-node-version-to-use-new-release-schedule) post covers the upgrade choice.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// shell\n// node -e \"console.log(typeof Iterator.prototype.map)\"\n\n// in code: feature-detect before relying on the helpers\nconst hasIteratorHelpers =\n  typeof Iterator !== 'undefined' &&\n  typeof Iterator.prototype.map === 'function';",
+          },
+        ],
+      },
+      {
+        heading: "Fix 1: spread or Array.from first (works everywhere)",
+        blocks: [
+          {
+            type: "code",
+            language: "js",
+            code: "// before: throws on Node 20 and in older browsers\nconst upper = users.keys().map((k) => k.toUpperCase());\n\n// after: an Array, so .map has always existed\nconst upper = [...users.keys()].map((k) => k.toUpperCase());\n\n// same thing in one pass: Array.from maps while it copies\nconst upper = Array.from(users.keys(), (k) => k.toUpperCase());",
+          },
+          {
+            type: "p",
+            text: "This is the fix to ship today if you do not control the runtime. The cost is one intermediate array, which for a Map of a few thousand entries is not something you will measure. `Array.from` with a mapping function avoids even the second pass.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 2: use the helpers where the runtime has them",
+        blocks: [
+          {
+            type: "p",
+            text: "If the failing environment is yours, move it to Node.js 22 or later, or target Baseline 2025 browsers, and keep the chain. It is lazy: nothing runs until something consumes it, so end with `.toArray()` when you need an array, or with `reduce`, `find`, `some`, `every` or `forEach` when you do not. Where the code might still meet an old engine, add the feature test above and fall back to spread.",
+          },
+        ],
+      },
+      {
+        heading: "Fix 3: polyfill",
+        blocks: [
+          {
+            type: "p",
+            text: "core-js provides a polyfill for the whole helper set, and MDN's page also points at the es-shims version. The polyfill installs the methods on `Iterator.prototype`, so built-in iterators and generators pick them up just as they do natively. Load it once, before any module that uses the methods: the first line of the entry file, or a preload.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "// core-js: the whole Iterator namespace (map, filter, take, toArray, Iterator.from, ...)\nimport 'core-js/actual/iterator';",
+          },
+        ],
+      },
+      {
+        heading: "TypeScript: Property 'map' does not exist on the iterator type",
+        blocks: [
+          {
+            type: "p",
+            text: "The compile-time twin of the runtime error. In recent TypeScript versions, the lib for iterator helpers is `esnext.iterator`; include it in `lib` if the methods are missing from the types. A broad `esnext` entry pulls it in as well. As always, changing `lib` changes only the types; an old Node still needs Fix 1 or Fix 3.",
+          },
+          {
+            type: "code",
+            language: "ts",
+            code: "// tsconfig.json\n{\n  \"compilerOptions\": {\n    \"lib\": [\"es2022\", \"dom\", \"esnext.iterator\"]\n  }\n}",
+          },
+        ],
+      },
+      {
+        heading: "Generators and custom iterators: who gets the helpers",
+        blocks: [
+          {
+            type: "p",
+            text: "Any object that inherits from `Iterator.prototype` has the helpers: Map, Set and array iterators, string iterators, and every generator object. Two things do not. A hand-rolled `{ next() {} }` object satisfies the iterator protocol but inherits from `Object.prototype`; MDN calls it an iterator but not a *proper* one, and it has no `.map`. And something merely *iterable* (an array, a `NodeList`) is not an iterator at all and has no helpers until you ask for its iterator with `.values()`. `Iterator.from()` covers both: it wraps an iterator or an iterable and returns an object with the full helper set.",
+          },
+          {
+            type: "code",
+            language: "js",
+            code: "const handRolled = {\n  i: 0,\n  next() {\n    return { value: this.i++, done: this.i > 3 };\n  },\n};\n\n// handRolled.map(...)  -> TypeError: not inherited from Iterator.prototype\nIterator.from(handRolled).map((n) => n * 10).toArray(); // [0, 10, 20]\n\n// a generator needs no wrapping\nfunction* count() { yield 1; yield 2; yield 3; }\ncount().filter((n) => n % 2).toArray(); // [1, 3]",
+          },
+        ],
+      },
+      {
+        heading: "When NOT to switch to iterator helpers",
+        blocks: [
+          {
+            type: "p",
+            text: "If you need an array at the end anyway (to sort it, index into it, render a list, serialise it) then spread first and use array methods. A lazy chain that ends in `.toArray()` allocates the same final array with more moving parts, and it is single-use. The helpers earn their place when the input is large or expensive to produce, when `take` can stop a sequence early, or when the result never needs to exist as an array: a `reduce` over a Map's values, a `find` over a generator. One lazy-specific trap: a `.map` callback with side effects runs nothing until something consumes the chain.",
+          },
+        ],
+      },
+      {
+        heading: "FAQ",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Why does `Object.entries(obj).map` work but `map.entries().map` not?** `Object.entries` returns an array, which has always had `.map`. `Map.prototype.entries()` returns an iterator, which only has `.map` on a runtime with ES2025 iterator helpers.",
+              "**Which Node version has iterator helpers?** Node.js 22 (V8 12.4) and later. Node 20 and earlier throw this error. Confirm on the machine with `node -e \"console.log(typeof Iterator.prototype.map)\"`.",
+              "**Is `Iterator.prototype.map` the same as `Array.prototype.map`?** No. The array version is eager: it walks the whole input and returns a new array. The iterator version is lazy: it returns another iterator and transforms one element each time something asks for the next value, and the result can be consumed only once.",
+              "**How do I polyfill it?** `import 'core-js/actual/iterator'` before anything that uses the helpers. If you would rather not add a polyfill, spread into an array and use array methods.",
+              "**Does `Iterator.from` help?** It helps when the object is a hand-rolled iterator or a plain iterable: `Iterator.from(thing)` returns a proper iterator with the helpers. It does not help on an engine without iterator helpers, because `Iterator.from` is part of the same feature and will be missing too.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
   ...mcpGuides,
 ];

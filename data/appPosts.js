@@ -13582,4 +13582,439 @@ export const appPosts = [
       },
     ],
   },
+  {
+    slug: "how-to-script-and-record-a-what-i-learned-this-year-retrospective-video-teleprompter-iphone",
+    title:
+      "How to Script and Record a \"What I Learned This Year\" Retrospective Video (iPhone Teleprompter Workflow)",
+    description:
+      "Script and record a what-I-learned-this-year video on iPhone: three formats, a fill-in 3-lessons script skeleton with word counts, and a teleprompter workflow.",
+    datePublished: "2026-11-16",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Every year between mid-November and early January the feeds fill with the same video: a person, a list, and the line \"here is what I learned this year\". It is also easy to script badly: a highlight reel in disguise, or adjectives with no stories under them. This is the **year-in-review** entry in the series that began with the [course launch video](/blog/teleprompter-for-course-launch-and-announcement-videos-the-big-news-video-iphone): three formats, a fill-in script skeleton with word counts, how to keep it honest, and how to record it on iPhone with the free [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay). The app records video; it does not stream.",
+          },
+        ],
+      },
+      {
+        heading: "Why the year-in-review video works, and when to post it",
+        blocks: [
+          {
+            type: "p",
+            text: "It combines two things audiences reliably stop for: a list, which sets an expectation the viewer can hold (\"three lessons, I can watch three\"), and honesty, because a retrospective is the one format where admitting a mistake raises your standing. And it is seasonal: from mid-November to the first days of January people are in a reflective mood and the feeds are full of recaps. Post earlier than feels natural; by mid-January the window is closing.",
+          },
+        ],
+      },
+      {
+        heading: "The three formats",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**The 3-lessons talking head.** You, the camera, three lessons, one story each. Simplest to make and travels best to Shorts, because each lesson is its own clip. This post builds this one.",
+              "**12 months in 12 shots, with voiceover.** One clip or photo per month, a sentence of narration over each. Visually rich, but an editing project: the script is the voiceover, read into the app and laid over the montage.",
+              "**The letter to January me.** Second person, addressed to who you were in January: \"You are about to spend three months on the wrong project.\" Memorable, and the hardest to keep from tipping into performance. Best when the year had one clear turning point.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "The fill-in script skeleton (3-lessons version)",
+        blocks: [
+          {
+            type: "p",
+            text: "Paste this into a new script in the app and replace the brackets. The word counts are targets; the point of counting is that the lessons get the words and the hook does not. Bracketed section names are not spoken.",
+          },
+          {
+            type: "code",
+            language: "text",
+            code: "[HOOK, up to 20 words]\nThis year I [the one-line summary: got X wrong / finally did Y]. Three things I learned.\n\n[CONTEXT, about 40 words]\nIn January I was [situation]. The plan was [plan]. What actually happened was [one sentence].\n\n[LESSON 1, 60 to 80 words]\nLesson one: [the lesson, as a plain sentence].\n[The story: one specific moment, with a month, a place or a number in it.]\n[What I would tell someone in the same spot.]\n\n[LESSON 2, 60 to 80 words]\nLesson two: [lesson].\n[Story.]\n[Takeaway.]\n\n[LESSON 3, 60 to 80 words]\nLesson three: [lesson].\n[Story.]\n[Takeaway.]\n\n[WHAT I AM CHANGING, about 40 words]\nSo next year, [one concrete change, with a date or a frequency]. Not [the vague version].\n\n[CLOSE, up to 20 words]\nWhat did this year teach you? Tell me in the comments. [Next video tease, optional.]",
+          },
+          {
+            type: "p",
+            text: "Filled in, that is roughly 350 words, which at a natural speaking pace lands at about two to two and a half minutes. For a single 60-second cut, the [ideal script length for a 60-second video](/blog/ideal-script-length-for-a-60-second-video) post has the arithmetic; the short answer is one lesson, not three. If a lesson block runs over 80 words, cut the takeaway, never the story.",
+          },
+        ],
+      },
+      {
+        heading: "How to make it honest rather than a humble-brag",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Name one failure per lesson.** Not \"I learned to delegate\" but \"I learned to delegate after I missed a deadline in March doing a job I had already hired someone for.\" A lesson with no cost attached reads as a boast.",
+              "**Specifics over adjectives.** \"Incredible\", \"huge\", \"so grateful\" carry no information. A month, a number, a sentence someone said to you do.",
+              "**One story per lesson.** The second story dilutes the first, and the third is where the bragging creeps in.",
+              "**Say what you are changing, with a date.** \"I'm going to be more intentional\" is not a change. \"Fridays are meeting-free from the first week of January\" is.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Recording it in Teleprompter: Camera Overlay",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Paste the finished script**, with a blank line between sections. Scripts are unlimited, so keep the blank skeleton as a second script for next year.",
+              "**Set the text size** until you can read comfortably from arm's length. The script floats over the camera preview next to the front lens, so reading looks like eye contact.",
+              "**Turn voice-driven scrolling on.** The app listens with Apple's on-device speech recognition and advances the text only as you say the words; it detects the script's language automatically and finds your place again if you stumble. Nothing is uploaded.",
+              "**Choose: one take per section, or one straight take.** Per-section takes give clean edit points at each blank line; a straight take sounds more natural and needs fewer attempts than you expect, because the prompter is doing the remembering. Either way, record the hook twice.",
+              "**Compare in the takes library.** Every recording stays in the app, so pick section by section in the edit. The script never appears in the saved video.",
+              "**Portrait 4K.** The app records portrait video in 4K, the frame Reels, Shorts and TikTok want.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Classic auto-scroll with the speed slider is better only for a fixed tempo with no ad-libbing, or a room too noisy for speech recognition.",
+          },
+        ],
+      },
+      {
+        heading: "Delivery: pause after each lesson",
+        blocks: [
+          {
+            type: "p",
+            text: "What separates a retrospective from a recital is silence. After each takeaway line, stop for a full second and look at the lens before you read \"Lesson two\". With voice-follow on, the text waits for you; it only scrolls when you speak, so the pause costs nothing. Tell the story part from memory if you can: put its first five words in the script as a cue, look up, tell it, then read the takeaway line to bring the prompter back in step.",
+          },
+        ],
+      },
+      {
+        heading: "B-roll and photos over the lessons",
+        blocks: [
+          {
+            type: "p",
+            text: "In the edit, each story line is where a picture goes: a screenshot from that month, a photo of the place, a clip from the project. Three to five seconds, then back to your face for the takeaway. Keep the hook and the close on camera with nothing over them. If you have nothing for a lesson, do not pad it with stock footage.",
+          },
+        ],
+      },
+      {
+        heading: "Repurposing: three lessons, three Shorts",
+        blocks: [
+          {
+            type: "p",
+            text: "The lesson-story-takeaway shape is also the shape of a 30-to-45-second vertical clip. Post the full video once, then one lesson per week through December as its own Short or Reel, each with a fresh hook line recorded in the same session (\"The most expensive lesson I learned this year\"). The [repurposing one script across platforms](/blog/repurposing-one-script-across-platforms-reels-shorts-tiktok-linkedin-teleprompter) post has the per-platform cuts.",
+          },
+        ],
+      },
+      {
+        heading: "When NOT to script it",
+        blocks: [
+          {
+            type: "p",
+            text: "If the year was genuinely hard, a word-for-word script can come out flat, because the words were written at a distance from the feeling. Put only bullet points in the app, one per lesson, and speak freely from them. It is also fine to skip the format: a retrospective is not owed to anyone. If the recording itself is the hard part, read [overcoming camera anxiety](/blog/overcoming-camera-anxiety-recording-yourself-on-iphone) first.",
+          },
+        ],
+      },
+      {
+        heading: "Checklist",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Three lessons, each with one specific story and one named cost or failure.",
+              "Hook under 20 words; lesson blocks 60 to 80 words; roughly 350 words in all.",
+              "A concrete change for next year with a date or a frequency in it.",
+              "Script in the app, text size up, voice-driven scrolling on, hook recorded twice.",
+              "Full video first, then one lesson per week as a Short with a fresh hook.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "FAQ",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**How long should a what-I-learned-this-year video be?** With three lessons, roughly 350 words and about two to two and a half minutes. For a 60-second version, one lesson with its story.",
+              "**Can I use a teleprompter and still look natural?** Yes. The script sits over the camera preview beside the front lens, voice-driven scrolling waits while you pause, and the text never shows in the saved video.",
+              "**Does the app record in landscape?** It records portrait video in 4K, which suits Reels, Shorts and TikTok. For a landscape upload, place the portrait clip in a wider frame in the edit.",
+              "**Is Teleprompter: Camera Overlay free?** Yes, with an occasional ad; a small one-time purchase removes the ads. No subscription, no watermark, unlimited scripts and takes, everything offline on the iPhone. iOS-only.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Next in the series: how to record a New Year goals video you will actually want to re-watch in December.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "toddler-wont-get-dressed-in-the-morning-calmer-leaving-the-house-routine-getting-dressed-and-buckling-up-calls-pretend-police-call-iphone",
+    title:
+      "Toddler Won't Get Dressed in the Morning (and Fights the Car Seat): A Calmer Leaving-the-House Routine, With the Getting Dressed and Buckling Up Calls",
+    description:
+      "A six-step morning routine for a toddler who won't get dressed or refuses the car seat, with the Getting dressed and Buckling up calls in Good Behavior Police Call.",
+    datePublished: "2026-11-16",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "It is 7:52, you need to leave at 8:00, and your toddler is wearing one sock and has announced that trousers are \"too scratchy\". Ten minutes later the next battle starts in the driveway: a back arched against the car-seat straps. If your toddler won't get dressed in the morning, more volume is not the answer. This post is a calmer leaving-the-house routine in six steps, plus where two calls in [Good Behavior Police Call](/apps/police-call), a free iPhone app, can take some of the weight: **Getting dressed** and **Buckling up in the car**.",
+          },
+          {
+            type: "p",
+            text: "We have covered [whether a pretend police call is a good idea at all](/blog/is-a-pretend-police-call-bad-for-kids-fear-vs-encouragement-good-behavior-police-call) and the Screens off call for [ending screen time without a meltdown](/blog/turning-off-screens-without-a-meltdown-toddler-screen-time-transitions-pretend-police-call-iphone). This one is only about the morning.",
+          },
+        ],
+      },
+      {
+        heading: "Why the morning routine is a toddler's hardest transition",
+        blocks: [
+          {
+            type: "p",
+            text: "Bedtime has a soft deadline; mornings have a hard one, and only one person in the house can feel it. A two- or three-year-old has no working concept of \"late\": nursery starts when they get there. So the adult carries all the time pressure and the child carries none. Add that getting dressed interrupts something interesting, and that the car seat asks a child who has just won their freedom to be strapped down again, and the two worst moments of the day land back to back.",
+          },
+        ],
+      },
+      {
+        heading: "What usually goes wrong",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Five reminders, each louder.** \"Trousers, please\" becomes \"TROUSERS\", and the child learns the first four do not count.",
+              "**Dressing a child who is still playing.** A top pulled over a head that is looking at a toy is a wrestle; the child feels interrupted, not helped.",
+              "**The car-seat arch.** The child goes rigid, you push harder, and the straps become the enemy. Most car-seat fights are about the end of freedom, not the seat.",
+              "**Ending on a scold.** Tomorrow inherits the mood.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "A calmer routine for getting a toddler out the door, in six steps",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**1. Clothes chosen the night before, as a two-option choice.** Lay out two outfits and ask \"the red one or the stripy one?\" The decision happens while nobody is in a hurry.",
+              "**2. A visual order.** Socks, trousers, top, shoes, always in that order; four pictures on a card by the wardrobe help. A child who can predict the end cooperates more.",
+              "**3. A timer the child can see.** A sand timer on the floor. \"We get dressed before the sand runs out\" makes the deadline visible instead of something only you can feel.",
+              "**4. One job at a time.** Ask for the socks, wait for the socks, praise the socks. Then the trousers. A toddler can hold one instruction, not a list.",
+              "**5. The \"race the officer\" moment.** On the mornings that look difficult, the Getting dressed call (next section) turns step 4 into a request from someone new, and finishing before the officer checks back becomes a game.",
+              "**6. Praise in the car, not the hallway.** Once the straps click, say what went right. The last thing before the drive is what the child remembers about mornings.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Where the Getting dressed and Buckling up calls fit",
+        blocks: [
+          {
+            type: "p",
+            text: "Good Behavior Police Call has 13 calls, and two were written for this half hour. Choose an officer, **Officer Pat** (bright and warm) or **Officer Sam** (calm and steady), pick the **Getting dressed** call, and choose a video call or a voice call. Then decide when it rings: now, or in 10 seconds, 30 seconds or a minute. Pick the delay, so you can put the phone in your child's hands before it rings; the screen waits on a pretend lock screen until then.",
+          },
+          {
+            type: "p",
+            text: "Your child answers, and the officer from the Good Behavior Patrol talks with real pauses for answers, asks for one small thing (this morning, getting dressed) and promises to check in afterwards. Then you get the last word: \"the officer will be so pleased you got your shoes on.\" That promise to check in is the engine of the morning.",
+          },
+          {
+            type: "p",
+            text: "In the driveway, the **Buckling up in the car** call does the same for the straps. A voice call is the practical choice, so eyes stay on the seat rather than a screen. Later, close the loop with a praise call: **Super helper** or **Great day** ring with good news, so the officer is someone your child is glad to hear from, not only someone who asks things of them.",
+          },
+          {
+            type: "p",
+            text: "Three notes. Read the whole script on screen before your child hears it. If the call is declined, the officer can try once more; leave it there after that. To leave the call screen, press and hold the clock; a tap does nothing.",
+          },
+        ],
+      },
+      {
+        heading: "The honest limits",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**It is a novelty, so ration it.** A call every morning becomes background noise within a fortnight. Two or three mornings a week keeps it working.",
+              "**Never as a threat.** The app's own stance is \"not a scary cop\": no threats, no sirens, no talk of trouble. Do not undo that with \"the officer will be cross.\"",
+              "**Not for a child already frightened of police.** If uniforms worry your child, this is the wrong tool, however gentle the script.",
+              "**It will not fix a tired or hungry child.** Feed them, or move bedtime.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "The facts, exactly",
+        blocks: [
+          {
+            type: "p",
+            text: "The download is free, and **Bedtime** and **Great day** are free forever. The free version shows a small ad on the menu screens, never during a call. One purchase unlocks every call, including Getting dressed and Buckling up in the car, removes the ads and includes any new calls added later; no subscription, no trial to cancel. Every call is fully voiced in nine languages: English, Spanish, French, German, Italian, Portuguese, Hindi, Japanese and Chinese.",
+          },
+          {
+            type: "p",
+            text: "It works offline, needs no account, and never places a real phone call. The optional self-view on video calls is shown live and never recorded or saved. It needs iOS 15.1 or later, is rated 4+, and is only for iPhone. Officer Pat and Officer Sam are made-up characters, not connected to any police force.",
+          },
+        ],
+      },
+      {
+        heading: "A three-morning plan to try it",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Morning 1: no call.** Run steps 1 to 4 and 6. Notice where it breaks down: dressing or driveway.",
+              "**Morning 2: the Getting dressed call.** Read the script the night before. Set the ring for 30 seconds, hand over the phone at the sock stage, praise in the car.",
+              "**Morning 3: the Buckling up call, then praise.** Voice call as you reach the car. That evening, ring Super helper so the day ends with good news. Then put the app away for a couple of days.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "FAQ",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Does the app call the real police?** No. It shows a pretend incoming call inside the app. No number is dialed and the app cannot contact anyone.",
+              "**Is it free?** The download is free, Bedtime and Great day are free forever, and a small ad appears on the menu screens only. One one-time purchase unlocks the rest and removes the ads; no subscription.",
+              "**Which call is for the car seat?** Buckling up in the car, one of the 13 calls, unlocked by the one-time purchase.",
+              "**Will it scare my child?** It is written not to: gentle officers, no sirens or threats, and you read every word before you ring. If your child is already wary of police, skip it.",
+              "**What if my child declines the call?** The officer can try once more. If it is declined again, let it go; tomorrow is another morning.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "idle-blacksmith-free-vs-royal-charter-what-the-one-time-purchase-changes-and-who-should-not-buy-it-android",
+    title:
+      "Idle Blacksmith Free vs Royal Charter: What the One-Time Purchase Changes, What It Doesn't, and Who Should Not Buy It",
+    description:
+      "Idle Blacksmith free vs Royal Charter on Android: no ads, permanent x2 income, 8-hour offline earnings, what the purchase leaves alone, and who should stay free.",
+    datePublished: "2026-11-16",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Every idle game has a button that asks for money, and the honest question is not \"is it worth it?\" but \"is it worth it for the way I play?\". In [Idle Blacksmith: Forge Tycoon](/apps/idle-blacksmith) on Android that button is the **Royal Charter**, a single one-time purchase. This post lays out what the free game includes, what the Charter changes according to the game's own listing, what it leaves alone, and who should keep their money. If you want the mechanics, the [beginner's guide](/blog/idle-blacksmith-forge-tycoon-beginner-guide-when-to-pass-the-forge-android) explains every upgrade and the [five-minute daily routine](/blog/idle-blacksmith-five-minute-daily-routine-chests-royal-commission-boosts-offline-cap-android) covers what to do each session; neither is repeated here.",
+          },
+        ],
+      },
+      {
+        heading: "What the free game includes (everything)",
+        blocks: [
+          {
+            type: "p",
+            text: "There is no content behind the Charter. The free game has all 40 weapons across 8 materials, from Copper to Starmetal, all 8 apprentices, every workshop upgrade (Hammer Weight, Bellows, Merchant Guild, Quench Barrel and Fame), Pass the Forge with Legacy Embers, the free Forge Chest every few hours, the Royal Commission ×2 boost, and offline earnings of up to 2 hours while the app is closed. It plays entirely offline with no account. On Google Play the game is listed as free, Contains ads, In-app purchases, Rated for 3+, in the Simulation category, updated 2 October 2026, with 100+ downloads at the time of writing.",
+          },
+        ],
+      },
+      {
+        heading: "Where the ads appear in the free version",
+        blocks: [
+          {
+            type: "p",
+            text: "The listing describes the ads as optional, and the app page spells out what that means: rewarded videos you choose to start, to double the Welcome back gold, to start a Royal Commission boost, or to open the Forge Chest a second time. There are no banner ads. The one ad you do not choose is a full-screen one that may appear after you Pass the Forge, at most once every 10 minutes and not in your first sessions. If you never tap a reward button, you will see very few ads, which matters for the decision below.",
+          },
+        ],
+      },
+      {
+        heading: "What the Royal Charter changes",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**No ads.** The rewarded videos go away and so does the post-Pass full-screen ad.",
+              "**Permanent ×2 income.** A flat doubling that applies from purchase onwards.",
+              "**Boosts and chests without ads.** The Royal Commission boost starts, and the Forge Chest reopens, with a tap instead of a video.",
+              "**Offline earnings from 2 hours to 8.** The cap on the Welcome back payout quadruples. This is the line that matters most.",
+              "**One-time, no subscription.** The price is set in Google Play and may vary by country, so check it in the game.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "What it does not change",
+        blocks: [
+          {
+            type: "p",
+            text: "No exclusive weapons or materials, no ninth apprentice, no extra upgrades. The Legacy Embers arithmetic is the same: 10 Embers at 1 billion gold, more for bigger runs, each worth +5% income, on both versions. It does not add strike power or Masterwork chance to a single tap; those still come from the Hammer Weight and Quench Barrel upgrades. And it does not make the game competitive: no leaderboard or competitive mode is listed, so there is nothing to \"win\" by paying. It is a convenience and a multiplier, not a different game.",
+          },
+        ],
+      },
+      {
+        heading: "Who benefits most",
+        blocks: [
+          {
+            type: "p",
+            text: "Two kinds of player. The first plays in two sessions a day, morning and evening, and sleeps about 8 hours. For them the 2-hour cap bites on every gap: a night's sleep pays the same as a two-hour nap, and the 8-hour cap turns the night into the best-paying part of the day. The second kind simply dislikes ads and would rather pay once than tap through a video to double a chest. If you are both, the decision is easy.",
+          },
+        ],
+      },
+      {
+        heading: "Who should not buy it",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Someone who checks in every hour or two anyway.** The 2-hour cap rarely binds for you; you would be paying mostly for the ×2.",
+              "**Someone who will stop after the first Pass the Forge.** Reaching 1 billion gold and resetting once is a natural end point, and a permanent purchase for a week's play is poor value, however cheap.",
+              "**Anyone buying it to \"win\".** It is a cosy idle game; nothing in the listing suggests a competitive mode, so there is no one to beat.",
+              "**Anyone expecting new content.** There is none.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "How to test before buying",
+        blocks: [
+          {
+            type: "p",
+            text: "Play through your first Pass the Forge on the free version. It needs a run that has earned 1 billion gold, long enough to learn how you actually play. Meanwhile, keep a tally of the Welcome back sheet: how often was the payout obviously capped at 2 hours? If the answer is \"every morning and every working day\", the Charter's 8-hour cap is built for you. If the answer is \"almost never\", stay free. How often you reached for the doubling ad is a second, smaller signal.",
+          },
+        ],
+      },
+      {
+        heading: "A worked example, in words",
+        blocks: [
+          {
+            type: "p",
+            text: "Run the overnight gap on the stated rules. A free player sleeps 8 hours and collects 2 hours of income, the cap. A Charter player collects 8 hours, and that income is doubled by the permanent ×2, so roughly 16 hours' worth at the free rate. That makes the Charter overnight haul roughly eight times the free one: 8 hours × 2 versus 2 hours × 1. If the free player watches the doubling ad, it is roughly four times. For a two-hour gap, the only difference is the ×2. This is arithmetic from the listed rules, not a measurement.",
+          },
+        ],
+      },
+      {
+        heading: "The Android details",
+        blocks: [
+          {
+            type: "p",
+            text: "The Charter is bought through Google Play, so the purchase sheet and the price are Google's. A one-time Play Store purchase is normally tied to your Google account and can normally be restored on a new phone signed in to the same account; that is standard Play behaviour, not a promise by the game. Progress is a separate matter: the listing says progress stays on your phone, and the app page says there is no account, so moving to a new phone does not carry your forge across unless the game offers a backup. Plan on the Charter following you and your Embers not. The Play Store data-safety panel lists Location, App activity and two other categories, which the app page attributes to the ads SDK. Android 7.0 or later.",
+          },
+        ],
+      },
+      {
+        heading: "The trade-off",
+        blocks: [
+          {
+            type: "p",
+            text: "Paying once removes a small, optional annoyance and makes a long absence pay four times as long. It does not change what you can build or unlock. The honest summary: if your day has one or two long gaps, the 8-hour cap is the feature and the Charter is sensibly priced for it; if your phone is in your hand every couple of hours, the free game with a few rewarded videos gives you nearly the same forge. Decide after the first Pass, not before.",
+          },
+        ],
+      },
+      {
+        heading: "FAQ",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Is Idle Blacksmith free?** Yes. Free to play with optional ads; the Royal Charter is a one-time purchase with no subscription.",
+              "**What does the Royal Charter do?** Removes ads, gives a permanent ×2 income, lets you start boosts and reopen chests without ads, and raises offline earnings from 2 hours to 8.",
+              "**Does the Charter unlock weapons or apprentices?** No. All 40 weapons, 8 materials and 8 apprentices are in the free game.",
+              "**How much is it?** The price is set in Google Play and varies by country; the game's purchase sheet shows it.",
+              "**Will I keep the Charter on a new phone?** Normally yes, through the same Google account, as with any Play Store purchase. Your progress, which the listing says stays on your phone, is not.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];
