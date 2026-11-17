@@ -14017,4 +14017,435 @@ export const appPosts = [
       },
     ],
   },
+
+  {
+    slug: "how-to-record-a-new-year-goals-video-you-will-want-to-rewatch-in-december-script-template-teleprompter-iphone",
+    title:
+      "How to Record a New Year Goals Video You Will Actually Want to Re-Watch in December (Script Template + Teleprompter Workflow on iPhone)",
+    description:
+      "Record a New Year goals video on iPhone worth re-watching in December: a fill-in script template with a how-I'll-know line per goal, plus a teleprompter workflow.",
+    datePublished: "2026-11-17",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Most New Year goals videos are made for an audience and forgotten by February. This one is different: you are making it for one viewer, the version of you who presses play next December. That changes everything about the script. It has to be specific enough that December-you can mark each goal done or not done, and honest enough that you will not cringe. This is the follow-up to the [what-I-learned-this-year retrospective video](/blog/how-to-script-and-record-a-what-i-learned-this-year-retrospective-video-teleprompter-iphone): a fill-in script template, tips on specificity, a step-by-step recording workflow with the free [Teleprompter: Camera Overlay](/apps/teleprompter-camera-overlay) on iPhone, and the case for not scripting it at all.",
+          },
+        ],
+      },
+      {
+        heading: "Why a video, and why it has to be re-watchable",
+        blocks: [
+          {
+            type: "p",
+            text: "A written list of goals is easy to skim and easy to quietly edit. A video is neither. Your face, your tone and the exact words you chose are frozen on the date you recorded them, and in December that record is more useful than any note, because it shows not just what you wanted but how sure you sounded. The catch is that a vague video is unbearable to re-watch. \"I want to be healthier\" tells December-you nothing to check. \"I want to run the 10 km in under an hour by the end of June\" does. So the whole script is built around one question: how will I know?",
+          },
+        ],
+      },
+      {
+        heading: "Step 1: Pick three goals, not ten",
+        blocks: [
+          {
+            type: "p",
+            text: "Three is the number that survives a year. More than that and the video turns into a wish list, and December-you will skip through it. Choose one goal from each of three areas you care about (work, health, a relationship, a craft, money, whatever yours are) and leave the rest for next year's video. If you cannot decide, ask which three you would be embarrassed to have ignored. Those are the ones.",
+          },
+        ],
+      },
+      {
+        heading: "Step 2: The fill-in script template",
+        blocks: [
+          {
+            type: "p",
+            text: "Paste this into a new script in the app and replace the brackets. The bracketed section names are not spoken. The \"how I'll know\" line under each goal is the part that makes the video worth re-watching; do not skip it.",
+          },
+          {
+            type: "code",
+            language: "text",
+            code: "[WHERE I AM NOW, about 50 words]\nIt is [date]. Right now I am [situation in one plain sentence: job, place, the thing that is on my mind].\nThe thing I am most proud of from this year is [one specific thing].\nThe thing I am most tired of is [one specific thing].\n\n[GOAL 1, about 50 words]\nFirst goal: [the goal, as a plain sentence with a number or a date in it].\nWhy it matters: [one sentence, honest].\nHow I'll know: [the test December-me can apply: a number, a finished thing, a yes-or-no question].\n\n[GOAL 2, about 50 words]\nSecond goal: [goal].\nWhy it matters: [one sentence].\nHow I'll know: [the test].\n\n[GOAL 3, about 50 words]\nThird goal: [goal].\nWhy it matters: [one sentence].\nHow I'll know: [the test].\n\n[ONE THING I AM LETTING GO OF, about 30 words]\nThis year I am letting go of [a habit, a project, an expectation, a grudge].\nNot because [the excuse], but because [the real reason].\n\n[MESSAGE TO DECEMBER ME, about 40 words]\nDecember me: if you did all three, [what you want to say to yourself].\nIf you did none of them, [what you want to say to yourself; be kind, be specific].\nEither way, [the one thing you want December-you to remember about today].",
+          },
+          {
+            type: "p",
+            text: "Filled in, that runs to roughly 270 words and a little under two minutes at a natural pace. That is the right length for something you will watch once a year. If you also want a 60-second cut to post, the [ideal script length for a 60-second video](/blog/ideal-script-length-for-a-60-second-video) post has the arithmetic; the short version is one goal and the letting-go line, nothing else.",
+          },
+        ],
+      },
+      {
+        heading: "Step 3: Make every goal checkable",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Put a number or a date in the goal itself.** \"Write more\" becomes \"publish twelve posts, one a month\". \"Save money\" becomes \"have three months of expenses saved by September\".",
+              "**Make the \"how I'll know\" line a test, not a feeling.** December-you should be able to answer it with yes, no, or a number. \"I'll feel more confident\" fails the test. \"I'll have given a talk to a room of strangers\" passes it.",
+              "**Say why in one honest sentence.** The why is what December-you will hold onto if the number was missed. \"Because my dad never got to\" will still land in twelve months; \"because it's good for me\" will not.",
+              "**Name the thing you are letting go of precisely.** Not \"negativity\", but \"checking the analytics before breakfast\". Letting go of a specific habit is a goal in disguise, and often the one that gets kept.",
+              "**Keep the message to December-me short and two-sided.** Write a line for the version of you who did it and a line for the version who did not. You do not know which one will be watching.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Step 4: Record it in Teleprompter: Camera Overlay",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Paste the finished script**, with a blank line between sections. Scripts are unlimited, so keep the blank template as a second script; you will want it again next year.",
+              "**Set the text size** so you can read comfortably at arm's length. The script floats over the camera preview next to the front lens, which is what keeps it looking like eye contact rather than reading.",
+              "**Turn on voice-driven scrolling.** The app follows your pace using Apple's on-device speech recognition: speak slowly, pause, go back, and the text waits or finds your place again. It detects the script's language automatically and supports every language iOS on-device recognition does. Nothing is uploaded; the app works entirely offline.",
+              "**Pause after each \"how I'll know\" line.** Look at the lens for a second before moving on. With voice-follow on, the text does not scroll until you speak, so the silence costs nothing and December-you will notice it.",
+              "**Record the message to December-me twice.** Once reading, once from memory with only the first few words as a cue. Pick the one that sounds like you.",
+              "**Compare in the takes library.** Every recording stays in the app, so choose section by section. The script never appears in the saved video, and it records portrait 4K.",
+            ],
+          },
+          {
+            type: "p",
+            text: "If the room is noisy, or you simply prefer a fixed tempo, switch to classic auto-scroll and set the speed slider; the text size control works the same in both modes. Mirror mode is only for a teleprompter rig, which you do not need for this.",
+          },
+        ],
+      },
+      {
+        heading: "Step 5: Make sure December-you can find it",
+        blocks: [
+          {
+            type: "p",
+            text: "This is the step everyone skips. Save the final take to Photos and put it in an album with the year on it, then set a calendar reminder for a date in December with a line like \"watch the goals video before writing the next one\". The point of the whole exercise is the moment of comparison, and that moment only happens if the video and the reminder both exist. If you want a second copy, the takes library keeps the recordings inside the app as well.",
+          },
+        ],
+      },
+      {
+        heading: "When NOT to script it",
+        blocks: [
+          {
+            type: "p",
+            text: "If reading goals off a prompter will feel performative to you, or if the goals are personal enough that a polished delivery would feel false in December, do not script it word for word. Put only bullet points into the app, one per goal with its \"how I'll know\" test, and talk freely from them. A slightly rambling recording that sounds like you beats a tidy one that sounds like a presenter. It is also fine to record this one with the back camera pointed at a notebook while you talk, or to skip the video entirely and record audio. The template is a scaffold, not a rule, and the only person judging the result is you, in December.",
+          },
+        ],
+      },
+      {
+        heading: "Checklist",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Three goals, each with a number or a date and a \"how I'll know\" test December-you can answer.",
+              "One specific thing you are letting go of, with the real reason.",
+              "A two-sided message to December-me, under 40 words.",
+              "Script in the app, text size up, voice-driven scrolling on, a pause after every test line.",
+              "Final take saved to Photos in a dated album, plus a December calendar reminder to watch it.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "FAQ",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**How long should a New Year goals video be?** With three goals, about 270 words and a little under two minutes. It is for re-watching, not for the feed, so do not pad it.",
+              "**Should I post it or keep it private?** Your call. The template works either way, but the message to December-me is usually better when nobody else is going to see it. Post a 60-second cut with one goal if you want the accountability.",
+              "**Can I read from a script and still look natural?** Yes. The script sits over the camera preview beside the front lens, voice-driven scrolling waits while you pause, and the text never shows in the saved video.",
+              "**Is Teleprompter: Camera Overlay free?** Yes, with an occasional ad; a small one-time purchase removes the ads. No subscription, no watermark, unlimited scripts and takes, everything offline on the iPhone. iOS-only.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Next in the series: how to turn one recorded video into a month of short clips without re-recording.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "whatsapp-exporter-une-discussion-whatsapp-en-pdf-sur-iphone-guide-chat-export-studio",
+    title: "Exporter une discussion WhatsApp en PDF sur iPhone : le guide complet (sans upload, hors ligne) avec Chat Export Studio",
+    description:
+      "Exporter une discussion WhatsApp en PDF sur iPhone : export sans médias, ouverture du .txt ou .zip dans Chat Export Studio, PDF paginé 100 % hors ligne.",
+    datePublished: "2026-11-17",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Vous avez besoin d'une copie lisible d'une discussion WhatsApp : pour les ressources humaines, pour un assureur, pour un propriétaire, pour un conseiller, ou simplement parce que vous allez supprimer la conversation et que vous voulez en garder une version qui s'ouvrira encore dans dix ans. WhatsApp sait exporter une discussion, mais le résultat est un fichier .txt, parfois dans un .zip : une ligne par message, sans mise en page. Ce guide explique, étape par étape, comment exporter une discussion WhatsApp en PDF sur iPhone sans envoyer le fichier sur aucun site.",
+          },
+          {
+            type: "p",
+            text: "L'application utilisée est [Chat Export Studio: PDF](/apps/chat-export-studio), un utilitaire pour iPhone uniquement, vendu 4,99 $ en achat unique sur l'App Store. Elle lit le fichier exporté par WhatsApp et le transforme, sur le téléphone, en un PDF paginé avec une bulle par message, plus une page de statistiques. Le site propose déjà un guide en anglais pour [exporter une discussion WhatsApp en PDF sur iPhone](/blog/export-whatsapp-chat-to-pdf-iphone) ; celui-ci est le guide en français, écrit de zéro.",
+          },
+        ],
+      },
+      {
+        heading: "Étape 1 : exporter la discussion depuis WhatsApp sur iPhone",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Ouvrez WhatsApp et la discussion à exporter, individuelle ou de groupe.",
+              "Touchez le **nom du contact ou du groupe** en haut de l'écran pour ouvrir les informations de la discussion.",
+              "Faites défiler et touchez **Exporter la discussion** (Export Chat en anglais).",
+              "À la question sur les médias, choisissez **Sans médias** (Without Media). L'application affiche les photos, vidéos et messages vocaux sous forme de repères, donc les inclure ne sert qu'à alourdir le .zip.",
+              "iOS ouvre la feuille de partage. Si Chat Export Studio est déjà installée, choisissez **Copy to Chat Export** (iOS peut afficher l'intitulé traduit « Copier vers Chat Export ») et le fichier s'ouvre immédiatement dans l'application. Sinon, enregistrez-le avec **Enregistrer dans Fichiers** et passez à l'étape 2.",
+            ],
+          },
+          {
+            type: "p",
+            text: "L'intitulé exact des menus peut varier légèrement selon la version de WhatsApp, mais la fonction produit toujours un .txt, seul ou dans un .zip ; les deux sont acceptés, en 12 h comme en 24 h. Les captures d'écran et le texte copié-collé ne sont pas des exports et l'application ne les ouvre pas.",
+          },
+        ],
+      },
+      {
+        heading: "Étape 2 : ouvrir le fichier dans Chat Export Studio",
+        blocks: [
+          {
+            type: "p",
+            text: "Si vous avez enregistré le fichier dans Fichiers, lancez [Chat Export Studio](/apps/chat-export-studio), touchez le bouton d'ouverture d'une discussion exportée et sélectionnez le .txt ou le .zip. L'application reconnaît le format toute seule, y compris un export réalisé depuis un téléphone Android par un ami. Si vous n'avez encore aucune discussion à tester, une **discussion d'exemple intégrée** permet de voir le résultat en une minute avant d'exporter une vraie conversation.",
+          },
+        ],
+      },
+      {
+        heading: "Étape 3 : ce que contient le PDF",
+        blocks: [
+          {
+            type: "p",
+            text: "Le PDF ressemble à la conversation telle que vous la voyez à l'écran, pas à un tableau :",
+          },
+          {
+            type: "list",
+            items: [
+              "**Une bulle par message**, avec l'expéditeur, la date et l'heure. Dans une discussion à deux, les messages sont disposés à gauche et à droite ; dans un groupe, chaque participant a sa couleur, pour voir d'un coup d'œil qui parle.",
+              "**Notifications système et médias sous forme de pastilles.** Les avis de chiffrement, les arrivées et départs du groupe et les repères des médias omis apparaissent comme de petites étiquettes discrètes, pas comme des lignes parasites.",
+              "**Des sauts de page propres.** Les pages se coupent entre deux messages, jamais au milieu d'un message, donc une longue discussion reste lisible même imprimée.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Étape 4 : les statistiques",
+        blocks: [
+          {
+            type: "p",
+            text: "Dès que le fichier est ouvert, l'application calcule quelques chiffres : le nombre total de messages et de mots, les messages par participant en nombre et en pourcentage, l'heure la plus active, la période couverte, le nombre de médias et l'emoji le plus utilisé. Pour un usage formel, c'est un résumé pratique à joindre au PDF ; pour un usage plus léger, cela répond à la question que tout le monde finit par se poser : qui parle le plus dans le groupe. Tout est calculé à partir du fichier exporté, sur le téléphone.",
+          },
+        ],
+      },
+      {
+        heading: "Étape 5 : enregistrer et partager le PDF",
+        blocks: [
+          {
+            type: "p",
+            text: "Une fois le PDF prêt, l'application le transmet à la feuille de partage d'iOS : enregistrement dans **Fichiers** ou iCloud Drive, AirDrop vers un Mac, pièce jointe d'un e-mail ou impression. Renommez le fichier avec le nom de la discussion et la période couverte, et conservez le .zip ou le .txt d'origine à côté : le PDF est la copie que tout le monde ouvre, l'export brut est celui qui montre d'où elle vient.",
+          },
+        ],
+      },
+      {
+        heading: "Confidentialité : traitement 100 % local",
+        blocks: [
+          {
+            type: "p",
+            text: "Une discussion WhatsApp est l'une des choses les plus privées de votre téléphone, et beaucoup de sites « WhatsApp en PDF » demandent précisément de la téléverser sur leurs serveurs. Chat Export Studio fait l'inverse : lecture du fichier, génération du PDF et statistiques se font sur l'iPhone, sans compte, sans envoi et sans outil d'analyse d'audience. L'application fonctionne en **mode avion**, le moyen le plus simple de le vérifier soi-même, et l'étiquette de confidentialité de l'App Store indique **Données non collectées**. Elle ne communique jamais avec WhatsApp : elle lit uniquement le fichier que WhatsApp vous remet.",
+          },
+        ],
+      },
+      {
+        heading: "Prix et compatibilité : iPhone uniquement",
+        blocks: [
+          {
+            type: "p",
+            text: "Chat Export Studio: PDF est en vente sur l'[App Store](https://apps.apple.com/us/app/chat-export-studio-pdf/id6810375389) pour 4,99 $ (achat unique), sans abonnement ; le prix affiché dans l'App Store français peut différer. La fiche indique « Only for iPhone » : il n'y a pas de version iPad ni Mac, et la version Android est une application distincte. L'application demande iOS 15.1 ou une version ultérieure, pèse environ 22,6 Mo, est classée 4+ dans la catégorie Utilitaires, prend en charge le partage familial, et est disponible en anglais et 14 autres langues. À la date de ce guide, la fiche affiche la version 1.0.1.",
+          },
+        ],
+      },
+      {
+        heading: "Les limites honnêtes",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Export sans médias = repères.** Le PDF contient le texte ; les photos, vidéos et messages vocaux apparaissent comme des pastilles « média omis ». Si vous devez remettre aussi les images, exportez une seconde fois avec les médias et conservez ce .zip à côté du PDF.",
+              "**Les très longues discussions prennent du temps.** Des dizaines de milliers de messages fonctionnent, mais la génération est plus longue et le PDF devient lourd à envoyer par e-mail. Laissez l'application travailler et, si besoin, exportez une période à la fois.",
+              "**WhatsApp peut limiter la taille de l'export.** C'est WhatsApp qui produit le fichier, et sur une conversation très ancienne il peut ne pas tout inclure. Vérifiez la période couverte sur la page de statistiques avant de considérer la copie comme complète.",
+              "**Valeur juridique.** Le PDF reproduit l'export et est généré sans passage par le cloud, mais l'acceptation d'un document dépend de qui le demande et des règles locales. Demandez d'abord le format souhaité et gardez toujours l'original.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Questions fréquentes",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Faut-il une connexion internet ?** Non. Le traitement se fait sur l'appareil et l'application fonctionne en mode avion.",
+              "**Est-ce que ça marche avec un export venant d'Android ?** Oui. Les deux formats d'export sont lus, en 12 h comme en 24 h, donc le fichier envoyé par un ami sous Android s'ouvre sur votre iPhone.",
+              "**Peut-on imprimer le PDF ?** Oui, depuis l'iPhone avec AirPrint ou depuis un ordinateur. Les sauts de page tombent entre les messages, donc l'impression reste lisible.",
+              "**Est-ce que ça fonctionne sur iPad ou sur Mac ?** La fiche App Store indique « Only for iPhone » ; ce guide concerne l'iPhone uniquement. Pour Android, voyez la page [Chat Export Studio](/apps/chat-export-studio), qui présente les deux versions.",
+              "**Combien ça coûte ?** 4,99 $ (achat unique), pas d'abonnement, partage familial pris en charge. Le prix exact s'affiche dans votre App Store. Ce n'est pas un produit officiel de WhatsApp : l'application lit les fichiers d'export standard que WhatsApp produit.",
+            ],
+          },
+          { type: "p", text: DISCLAIMER },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "pack-it-perfect-chapter-guide-mias-trip-to-the-sea-first-flat-sunday-picnic-family-road-trip-what-changes-per-container-android",
+    title: "Pack It Perfect Chapter Guide: Mia's Trip to the Sea, the First Flat, the Sunday Picnic and the Family Road Trip, and How Each Container Changes What You Pack (Android)",
+    description:
+      "A cozy packing game walkthrough by chapter: how the suitcase, moving box, picnic basket and car boot in Pack It Perfect each change your strategy on Android.",
+    datePublished: "2026-11-17",
+    readingMinutes: 6,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "Most cozy packing game walkthroughs are a list of level solutions, which is the one thing a packing puzzle does not need: the fun is finding the fit yourself. This guide to [Pack It Perfect: Packing Game](/apps/pack-it-perfect) on Android walks through the four story chapters instead, Mia's first trip to the sea, Leo and Sam's first flat, Grandma's Sunday picnic and the family road trip, and explains what each chapter's container does to the way you should think.",
+          },
+          {
+            type: "p",
+            text: "Two earlier posts cover the rest: a [parent's guide](/blog/pack-it-perfect-for-kids-parents-guide-ads-premium-offline-android) to ads, Premium and offline play, and a [tips post on earning three stars](/blog/pack-it-perfect-packing-puzzle-tips-how-to-solve-every-level-three-stars-android). Nothing below is level data; it is approach advice drawn from how each container is shaped.",
+          },
+        ],
+      },
+      {
+        heading: "What stays the same in every chapter",
+        blocks: [
+          {
+            type: "p",
+            text: "The Play listing describes 60 handcrafted-feeling levels across 4 story chapters, four kinds of container (suitcases, moving boxes, picnic baskets and car boots, each with its own puzzle shape) and everyday items: T-shirts, sneakers, books, cameras, teddy bears and more. The rules never change: drag an item in, tap to turn it, fill every space, and the lid zips shut with a click. Every level is built so the items fill the container exactly, so the question is never whether it fits but where and which way round. Also constant: up to three stars per level, a perfect score for solving without hints, hints and skips when stuck, sticker-style art, soft ASMR sounds with gentle haptics, no account, no timers, and fully offline play.",
+          },
+        ],
+      },
+      {
+        heading: "Before you start: a cosy Android session",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Install from the Play Store.** [Pack It Perfect: Packing Game](https://play.google.com/store/apps/details?id=com.vilva.packit) is free, listed under Puzzle, rated USK: All ages, last updated October 2, 2026 at the time of writing; the listing notes it contains ads and offers in-app purchases.",
+              "**Turn on Do Not Disturb.** No timers means a notification cannot cost you anything, but it breaks the mood. Android's Do Not Disturb in Quick Settings keeps the session quiet; airplane mode does the same and also means no ads load.",
+              "**Mind the back gesture.** On gesture-navigation phones, a drag that starts right at the screen edge can be read as the back gesture. Pick items up from the middle of the tray, not the edge.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Chapter 1, Weekend Getaway: Mia's first trip to the sea (suitcases)",
+        blocks: [
+          {
+            type: "p",
+            text: "The container is a suitcase: a plain rectangle, naturally read as two halves either side of the hinge. Every edge is straight and every corner is a right angle, which makes it the gentlest shape in the game, and the strategy follows from it:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Think in halves.** Mentally split the case down the middle and try to make each half a tidy block. If one half closes cleanly, the other becomes a smaller puzzle with fewer options.",
+              "**Long items along the long edge.** The longest item in the tray usually belongs against one of the long sides, which keeps the middle open for squares and small pieces.",
+              "**Learn rotation here.** This chapter exists to teach you that a tap turns an item. If something refuses to fit anywhere, turn it before doubting the level.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The sea trip is also the chapter to play without hints at all; save the free ones for the later containers.",
+          },
+        ],
+      },
+      {
+        heading: "Chapter 2, Moving Day: Leo and Sam's first flat (moving boxes)",
+        blocks: [
+          {
+            type: "p",
+            text: "A moving box is deep. The sense of the chapter is packing a box you will have to carry, and the natural approach is the one you would use with a real one:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Heavy and bulky first, at the bottom.** Treat the big furniture-sized items as the foundation: commit them to the walls and corners before you touch anything small.",
+              "**Stack by weight, in your head.** Once the big pieces are placed, what remains tends to be a few straight channels. Line the medium items along them, then let the small ones fill what is left.",
+              "**Read the leftover shape.** After each placement, look at the empty region. If it has split into two pockets, check whether your remaining items can fill both; if not, pull the last piece out rather than pushing on.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Chapter 3, Picnic in the Park: Grandma's Sunday picnic (picnic baskets)",
+        blocks: [
+          {
+            type: "p",
+            text: "The picnic basket is the first container that is not a clean rectangle. Baskets have blocked cells to pack around, the handle being the obvious one, so the grid is an odd shape with pockets rather than one open area. The approach changes with it:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Treat the blocked cells as walls.** Pack the pockets beside the handle first, with items whose width matches, and the rest of the basket becomes a smaller, more regular puzzle.",
+              "**Small items go in the gaps.** Keep the single-cell and thin pieces in the tray until the awkward slots exist, then drop them in.",
+              "**Count the pockets before you place anything.** If the basket splits into regions, add up the cells in each and match them against the items; it saves a lot of dragging.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Chapter 4, Road Trip: the family's drive to the mountains (car boots)",
+        blocks: [
+          {
+            type: "p",
+            text: "The car boot is the widest container and the busiest: the most items, and wheel wells that break the space into pockets. It combines the lessons of the three previous chapters in one grid:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Map the pockets first.** The wheel wells divide the boot into regions. Before dragging anything, note how many cells each region has and which items could fill a narrow channel.",
+              "**Awkward shapes to the walls, as in the moving box.** Long and L-shaped items have few legal positions in a boot; commit them before the easy squares.",
+              "**Thin items last.** A one-cell-wide channel beside a wheel well needs a one-cell-wide item, and there are only a few of those. Reserve them.",
+              "**Reset rather than reshuffle.** With many items, dragging everything around costs more moves than starting fresh with the plan you now have. Reset is often the cheaper route to three stars.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "When you are stuck",
+        blocks: [
+          {
+            type: "p",
+            text: "Three things are always available, and none of them is cheating:",
+          },
+          {
+            type: "list",
+            items: [
+              "**A hint.** It places one item in its correct spot, and the item it chooses tells you which part of your layout was wrong, so you can usually finish from there. It costs a star on that level, which can be replayed for the full three.",
+              "**Skip.** Any level can be skipped and replayed later, so a hard basket never locks you out of the road trip.",
+              "**Come back later.** Progress stays on the phone, with no timer and no streak to lose. Fresh eyes solve more packing puzzles than any method.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Hints beyond the free ones come with an optional ad or with Pack It Premium, a one-time purchase that removes ads and makes hints unlimited, with no subscription. In airplane mode there are no ads at all.",
+          },
+        ],
+      },
+      {
+        heading: "Who this is not for",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Anyone who wants level-by-level solutions.** Deliberately none here. For a specific level, a hint inside the game shows one item without spoiling the rest.",
+              "**Players who want hundreds of levels or a daily mode.** There are 60 levels in 4 chapters; a keen player finishes them.",
+              "**People who need a timer to feel engaged.** No clock, no lives, no score chase. If pressure is the fun, this is the wrong game.",
+              "**Anyone who wants zero ads without paying.** The free version is ads-supported around hints and skips; Premium or airplane mode are the ways around that. There is no account and progress stays on the phone; the [privacy page](/apps/pack-it-perfect/privacy) explains what the ad network sees.",
+            ],
+          },
+          {
+            type: "p",
+            text: "Short version: suitcase, think in halves; moving box, heavy first and read the gaps; basket, pockets before pieces; car boot, map the wheel wells and keep the thin items for last. Carry those habits from Mia's suitcase to the family car and every chapter is a quiet half hour rather than a shuffle.",
+          },
+        ],
+      },
+    ],
+  },
 ];

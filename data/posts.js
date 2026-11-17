@@ -10891,6 +10891,157 @@ node --import=tsx your-file.ts`,
       },
     ],
   },
+
+  {
+    slug: "nodejs-27-alpha-is-out-27-0-0-alpha-0-1-1-whats-in-it-how-to-try-it-and-why-you-should-stay-on-node-26-lts",
+    title:
+      "Node.js 27 Alpha Is Out: What 27.0.0-alpha.0.1.1 Contains, How to Try It, and Why You Should Stay on Node 26 LTS",
+    description:
+      "Node.js 27 alpha builds 27.0.0-alpha.0.1.0 and alpha.0.1.1 are out: what changed, how to install one for testing, CI setup, and why Node 26 LTS stays the one to run.",
+    datePublished: "2026-11-17",
+    readingMinutes: 7,
+    content: [
+      {
+        blocks: [
+          {
+            type: "p",
+            text: "When we wrote about [Node.js 26 becoming LTS and the new yearly release schedule](/blog/nodejs-26-lts-october-2026-which-node-version-to-use-new-release-schedule) in October, the line for Node 27 read \"not released yet\". That has changed. The nodejs.org previous-releases page now lists **v27** with status **Alpha**, first released 29 October 2026 and last updated 16 November 2026, and two alpha builds have shipped with release notes: **27.0.0-alpha.0.1.0** on 12 November and **27.0.0-alpha.0.1.1** on 16 November, both prepared by Antoine du Hamel. The site labels 27 \"Latest Alpha\" next to v26.13.1 as \"Latest LTS\". This post covers what is in the two builds, what the alpha phase is for, how to install one for testing, what to do in CI, and why the answer to \"which Node should I run\" is still 26.",
+          },
+        ],
+      },
+      {
+        heading: "What shipped in 27.0.0-alpha.0.1.0 (12 November 2026)",
+        blocks: [
+          {
+            type: "p",
+            text: "The first alpha with public release notes lists around 194 commits. The notable changes are all marked SEMVER-MINOR; none of them is SEMVER-MAJOR, which is worth noticing: the alpha phase exists so that breaking changes can land early, but the first build is mostly additive.",
+          },
+          {
+            type: "list",
+            items: [
+              "**child_process:** add **subprocess.timedOut** (#66639). A child process that was killed because its **timeout** option expired can now say so, instead of leaving you to infer it from the exit signal.",
+              "**crypto:** make X.509 inspection guards explicit (#67245), and add X.509 generation with CSR support (#67245). This covers generating certificates and certificate signing requests from Node itself rather than shelling out to an external tool.",
+              "**dns:** coalesce identical concurrent **lookup()** requests (#62599). Several simultaneous lookups for the same name now share one resolution.",
+              "**http:** batch body spans per parser execute (#67187), an internal change to how request bodies are handed from the parser to JavaScript.",
+              "**sea:** generate a compile cache for the VFS modules (#66768), for single-executable applications.",
+              "**worker:** preload streams into the startup snapshot (#66311), a change on the worker startup path.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "What changed in 27.0.0-alpha.0.1.1 (16 November 2026)",
+        blocks: [
+          {
+            type: "p",
+            text: "Four days later the second alpha followed. Its single notable change is **tools: notarize bin/node in the darwin tarballs** (#67143), which means the macOS tarball binaries are notarized, so Gatekeeper should stop complaining when you run one unpacked from a download rather than installed from the pkg. The rest of the build is housekeeping: **build: enable PIE on Linux** (#67386), a dependency bump to **nghttp3 1.19.0**, several V8 backports, documentation fixes (sqlite number and BigInt binding, X509Certificate invalid validity times, package exports fallback arrays, the value of **this** in TLS callbacks) and test deflakes.",
+          },
+          {
+            type: "p",
+            text: "Note the version string: 27.0.0-alpha.0.1.0 became 27.0.0-alpha.0.1.1. The alpha suffix increments per alpha build; the project has not documented what each digit of the suffix stands for, so do not read a scheme into it. Treat the whole string as the tag you pass to your installer.",
+          },
+        ],
+      },
+      {
+        heading: "What \"alpha\" means now that Node has one release a year",
+        blocks: [
+          {
+            type: "p",
+            text: "The October post explained the annual schedule in full, so here is only the sentence that matters, in the project's own words from the releases page: \"Starting with Node.js 27, the release cycle will be annual and every major version will move to LTS status after its six-month Current phase (and six additional months of Alpha phase).\" In other words, the alpha replaces the odd-numbered release that used to serve as a testing ground. It is signed and tagged like any other build, but it is a prerelease: semver-major changes may land in it at any point until 27.0.0 ships as Current.",
+          },
+          {
+            type: "p",
+            text: "The same page spells out the consequence: \"Production applications should only use Active LTS or Maintenance LTS releases.\" The alpha is neither. It is for library maintainers, framework authors, people who run CITGM-style suites against the ecosystem, and anyone who wants to know before April whether their code survives the next major.",
+          },
+        ],
+      },
+      {
+        heading: "How to install the alpha for testing",
+        blocks: [
+          {
+            type: "p",
+            text: "The builds are published under **https://nodejs.org/dist/v27.0.0-alpha.0.1.1/** and the API docs at **https://nodejs.org/docs/v27.0.0-alpha.0.1.1/api/**. At the time of writing the directory holds Windows x64 and ARM64 installers (msi), a macOS pkg and a darwin-arm64 tarball (the macOS Intel build is marked \"coming soon\"), Linux tarballs for x64, arm64, ppc64le and s390x, an AIX build and the source archive.",
+          },
+          {
+            type: "p",
+            text: "The least surprising route is the tarball: download the one for your platform, unpack it somewhere outside your PATH, and call its **bin/node** directly or put it first in PATH in one shell. That way nothing on the machine changes for other projects. Version managers can be quicker if they resolve prerelease tags:",
+          },
+          {
+            type: "code",
+            language: "bash",
+            code: "# Works if your version manager resolves prerelease tags;\n# if it does not, fall back to the tarball above.\nnvm install 27.0.0-alpha.0.1.1\nfnm install 27.0.0-alpha.0.1.1\n\n# Verify what you are running before you test anything\nnode --version\n# v27.0.0-alpha.0.1.1",
+          },
+          {
+            type: "p",
+            text: "Whichever way you install it, keep it out of your default shell. A stray **nvm alias default** pointing at an alpha is how a prerelease ends up in a deploy.",
+          },
+        ],
+      },
+      {
+        heading: "A first look at subprocess.timedOut",
+        blocks: [
+          {
+            type: "p",
+            text: "Of the notable changes, the one most people will touch is the child_process addition. Until now, when you passed **timeout** to a spawn call and the limit hit, you had to deduce the cause from the kill signal. The alpha adds a **timedOut** flag. The snippet below is illustrative and based on the alpha release notes; check the alpha docs for the exact shape before relying on it, because prerelease APIs can still change.",
+          },
+          {
+            type: "code",
+            language: "javascript",
+            code: "// Illustrative; from the 27.0.0-alpha release notes. Verify against the alpha docs.\nconst { spawnSync } = require('node:child_process');\n\nconst result = spawnSync(process.execPath, ['-e', 'setTimeout(() => {}, 10000)'], {\n  timeout: 1000,\n});\n\nif (result.timedOut) {\n  console.log('child was killed because the 1 s timeout expired');\n} else {\n  console.log('child exited with status', result.status);\n}",
+          },
+        ],
+      },
+      {
+        heading: "What to do in CI: an allowed-to-fail row",
+        blocks: [
+          {
+            type: "p",
+            text: "If you maintain a library, the useful thing to do this week is to add the alpha to your test matrix in a way that cannot block a release. In GitHub Actions that is a separate job with **continue-on-error** set, or a matrix entry you exclude from required checks. The example below keeps 24 and 26 as the gating jobs and runs 27 as a signal only. Whether **actions/setup-node** resolves the prerelease tag is something to check on your runner; if it does not, replace the setup step with a step that downloads and unpacks the tarball.",
+          },
+          {
+            type: "code",
+            language: "yaml",
+            code: "jobs:\n  test:\n    runs-on: ubuntu-latest\n    strategy:\n      fail-fast: false\n      matrix:\n        node: [24, 26]\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n        with:\n          node-version: 26\n      - run: npm ci\n      - run: npm test\n\n  test-node-27-alpha:\n    runs-on: ubuntu-latest\n    continue-on-error: true\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n        with:\n          node-version: 27.0.0-alpha.0.1.1\n      - run: npm ci\n      - run: npm test",
+          },
+          {
+            type: "p",
+            text: "Pin the exact alpha tag rather than \"27\", so a new alpha build does not silently change what the job tests. Bump it by hand when a new build appears and the previous one was green. A red alpha job is information, not an emergency: file an issue upstream if the breakage is in Node, or fix your code if the breakage is yours.",
+          },
+        ],
+      },
+      {
+        heading: "Why you should stay on Node 26 LTS",
+        blocks: [
+          {
+            type: "p",
+            text: "Node 26 (codename Lithium) is the Active LTS line: first released 5 May 2026, last updated 10 November 2026, and the version the ecosystem's CI matrices target first. It is where security fixes land first for production users: the 11 November security releases shipped as 26.13.1, 24.22.3 and 22.23.5, covered in [our post on that release](/blog/nodejs-security-release-november-11-2026-is-out-26-13-1-24-22-3-22-23-5-sixteen-cves-what-to-upgrade). An alpha build gets no such promise; it gets whatever the next alpha build contains.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Production services:** Node 26 LTS. Node 24 (Krypton) and Node 22 (Jod) are still LTS lines and still receive fixes, but 26 has the longest runway.",
+              "**Anything on Node 25:** that line reached end of life on 31 March 2026. Move to 26.",
+              "**Library and framework maintainers:** 26 for releases, 27 alpha in an allowed-to-fail CI job.",
+              "**Curious developers:** try the alpha in a tarball or a throwaway container, never as your default.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The reason is not that the alpha is unstable in any dramatic way; both builds so far are small and mostly additive. The reason is the contract. An LTS line gets critical bugs fixed for a total of 30 months. An alpha gets replaced. Running it in production means signing up to re-test on every build between now and April.",
+          },
+        ],
+      },
+      {
+        heading: "What to watch next",
+        blocks: [
+          {
+            type: "p",
+            text: "Two things will tell you how the alpha phase is going. First, the SEMVER-MAJOR column in future alpha release notes: so far it is empty, and the point of the alpha is to fill it early rather than in April. Second, the macOS Intel build, which is still \"coming soon\" in the 27.0.0-alpha.0.1.1 directory; once it appears the platform set is complete. We will update this series when the next alpha lands with a breaking change worth planning around. Until then: Node 26 to run, Node 27 alpha to test, nothing else to do.",
+          },
+        ],
+      },
+    ],
+  },
   ...appPosts,
   ...mcpGuides,
 ];
